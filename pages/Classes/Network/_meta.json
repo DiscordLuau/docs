@@ -1,0 +1,10 @@
+{
+  "DiscordGateway": "DiscordGateway",
+  "DiscordShard": "DiscordShard",
+  "DiscordUDP": "DiscordUDP",
+  "DiscordVoiceConnection": "DiscordVoiceConnection",
+  "DiscordWebsocket": "DiscordWebsocket",
+  "HTTPRatelimit": "HTTPRatelimit",
+  "HTTPScheduler": "HTTPScheduler",
+  "WebsocketBuffer": "WebsocketBuffer"
+}

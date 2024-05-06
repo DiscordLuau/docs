@@ -1,8 +1,14 @@
 {
   "ApplicationCommand": "ApplicationCommand",
   "ApplicationCommandOptions": "ApplicationCommandOptions",
+  "DiscordActivity": "DiscordActivity",
   "DiscordClient": "DiscordClient",
+  "DiscordEmbed": "DiscordEmbed",
   "DiscordIntents": "DiscordIntents",
+  "DiscordInteraction": "DiscordInteraction",
   "DiscordLuau": "DiscordLuau",
+  "DiscordModal": "DiscordModal",
+  "DiscordPermissions": "DiscordPermissions",
+  "DiscordPresence": "DiscordPresence",
   "DiscordSettings": "DiscordSettings"
 }

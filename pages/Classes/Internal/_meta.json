@@ -4,21 +4,11 @@
   "DiscordCache": "DiscordCache",
   "DiscordChannel": "DiscordChannel",
   "DiscordEmoji": "DiscordEmoji",
-  "DiscordGateway": "DiscordGateway",
   "DiscordGuild": "DiscordGuild",
   "DiscordGuildRole": "DiscordGuildRole",
   "DiscordInvite": "DiscordInvite",
   "DiscordMessage": "DiscordMessage",
-  "DiscordShard": "DiscordShard",
   "DiscordTextChannel": "DiscordTextChannel",
-  "DiscordUDP": "DiscordUDP",
   "DiscordUser": "DiscordUser",
-  "DiscordVoiceChannel": "DiscordVoiceChannel",
-  "DiscordVoiceConnection": "DiscordVoiceConnection",
-  "DiscordWebsocket": "DiscordWebsocket",
-  "EventIn": "EventIn",
-  "EventOut": "EventOut",
-  "HTTPRatelimit": "HTTPRatelimit",
-  "HTTPScheduler": "HTTPScheduler",
-  "WebsocketBuffer": "WebsocketBuffer"
+  "DiscordVoiceChannel": "DiscordVoiceChannel"
 }
