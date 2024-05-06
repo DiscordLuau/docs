@@ -1,0 +1,24 @@
+# Ping-Pong Discord Bot
+
+```lua
+local DiscordLuau = require("Submodules/DiscordLuau")
+
+local DiscordSettings = DiscordLuau.DiscordSettings.new("MTIzNTY5MjA4Mjg4MjkzNjg3Mg.------.-------------------------------------")
+local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+DiscordClient:on("Message", function(message: DiscordLuau.DiscordMessage)
+	print(`DiscordUser '{message.author.username}' has said; {message.content}`)
+
+	if message.content == "!ping" then
+		message:replyAsync({
+			content = "Pong!"
+		})
+	end
+end)
+
+DiscordClient:on("Ready", function()
+	print(`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉`)
+end)
+
+DiscordClient:connectAsync()
+```
