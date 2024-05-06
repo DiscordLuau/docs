@@ -4,6 +4,14 @@ local net = require("@lune/net")
 
 local Generator = {}
 
+function Generator.removeLegacyFiles()
+	if fs.isDir("pages/Classes") then
+		fs.removeDir("pages/Classes/")
+	end
+
+	fs.writeDir("pages/Classes")
+end
+
 function Generator.writeClassName(className: string)
 	local classPath = string.split(className, ".")
 	local fullPath = "pages/Classes/"

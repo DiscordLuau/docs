@@ -2,6 +2,8 @@ local Moonwave = require("Moonwave")
 local Generator = require("Generator")
 local Markdown = require("Markdown")
 
+Generator.removeLegacyFiles()
+
 local packageCommentJson = Moonwave.extractCommentsIntoJson()
 
 for _, classDocumentation in packageCommentJson do
