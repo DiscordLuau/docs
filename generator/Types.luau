@@ -18,7 +18,6 @@ function Types.parseLuauType(luaType: string)
 		local path = string.split(string.sub(luaType, 2), "/")
 		local fileName = path[1]
 
-		print(`[{fileName}](/Classes/{table.concat(path, "/")})`)
 		return `[{fileName}](/Classes/{table.concat(path, "/")})`
 	end
 

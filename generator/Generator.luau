@@ -13,15 +13,12 @@ function Generator.writeClassName(className: string)
 
 	for index, path in classPath do
 		if not fs.isDir(fullPath .. path) then
-			print(`Created directory: '{fullPath .. path}'`)
-
 			fs.writeDir(fullPath .. path)
 		end
 
 		fullPath ..= `{path}/`
 	end
 
-	print(fullPath .. `{netSafeFileName}.mdx`, ``)
 	fs.writeFile(fullPath .. `{netSafeFileName}.mdx`, ``)
 
 	if fs.isFile(fullPath .. "_meta.json") then
