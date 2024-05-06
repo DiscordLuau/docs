@@ -1,0 +1,8 @@
+{
+  "ApplicationCommand": "ApplicationCommand",
+  "ApplicationCommandOptions": "ApplicationCommandOptions",
+  "DiscordClient": "DiscordClient",
+  "DiscordIntents": "DiscordIntents",
+  "DiscordLuau": "DiscordLuau",
+  "DiscordSettings": "DiscordSettings"
+}
