@@ -1,0 +1,33 @@
+name: Build Documentation
+
+on:
+  repository_dispatch:
+    types: [update-documentation]
+
+permissions:
+  contents: write
+
+jobs:
+  update-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Aftman
+        uses: ok-nick/setup-aftman@v0.4.2
+
+      - name: Git Submodule Update
+        run: git submodule update --init --remote --recursive --force
+
+      - name: Lune build website
+        run: |
+          lune run generator
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'Git bot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add .
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -m "Auto-update documentation '${{ github.event.client_payload.sha }}'" && git push || echo "No changes to commit"
