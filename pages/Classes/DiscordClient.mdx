@@ -1,0 +1,105 @@
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- NEXTRA COMPONENTS IMPORT ----- )
+
+import { Callout } from 'nextra/components'
+
+[//]: # (----- DOCUMENT HEADER ----- )
+
+# DiscordClient
+
+The base class that implements the various properties, methods and events that developers can use to interact with the Discord API.
+
+```lua
+	local DiscordLuau = require("../Submodules/DiscordLuau")
+
+	local DiscordSettings = DiscordLuau.DiscordSettings.new("BOT TOKEN")
+	local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+	...
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### discordUser
+
+> DiscordClient.discordUser :: DiscordUser
+
+					
+### discordApplication
+
+> DiscordClient.discordApplication :: DiscordApplication
+
+					
+### discordGateway
+
+> DiscordClient.discordGateway :: DiscordGateway
+
+	
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### connectAsync
+
+> DiscordClient:connectAsync() ->  Future 
+
+Connect the current DiscordClient to the Discord API
+
+```lua
+	local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+	DiscordClient:connectAsync():after(function()
+		print("Connected to the Discord API!")
+	end)
+```
+### fetchGuildAsync
+
+> DiscordClient:fetchGuildAsync() ->  Future 
+
+
+### fetchChannelAsync
+
+> DiscordClient:fetchChannelAsync() ->  Future 
+
+
+### updatePresenceAsync
+
+> DiscordClient:updatePresenceAsync() ->  Future 
+
+
+### on
+
+> DiscordClient:on() ->  Connection 
+
+
+### setVerbose
+
+> DiscordClient:setVerbose() -> [nil](https://www.lua.org/pil/2.1.html)
+
+
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordClient.new() ->  DiscordClient 
+
+Constructor function for the Discord Client, this is where you'll be able to instantiate a Discord Client object.
+
+```lua
+	local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+	DiscordClient:connectAsync():after(function()
+		print("Connected to the Discord API!")
+	end)
+```
+
