@@ -38,7 +38,7 @@ function Moonwave.extractCommentsIntoJson(): moonwaveDataExportArray
 		"discord-luau/Package",
 	})
 
-	if not moonwaveExtractResult then
+	if not moonwaveExtractResult.ok then
 		error(moonwaveExtractResult.stderr)
 	else
 		local moonwaveData = serde.decode("json", moonwaveExtractResult.stdout)
