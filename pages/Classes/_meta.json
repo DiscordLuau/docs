@@ -5,7 +5,6 @@
   "DiscordClient": "DiscordClient",
   "DiscordEmbed": "DiscordEmbed",
   "DiscordIntents": "DiscordIntents",
-  "DiscordInteraction": "DiscordInteraction",
   "DiscordLuau": "DiscordLuau",
   "DiscordModal": "DiscordModal",
   "DiscordPermissions": "DiscordPermissions",

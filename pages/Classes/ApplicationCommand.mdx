@@ -20,6 +20,9 @@ import { Callout } from 'nextra/components'
 ### Type
 
 > ApplicationCommand.Type :: \{ ... }
+### Context
+
+> ApplicationCommand.Context :: \{ ... }
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -88,9 +91,9 @@ import { Callout } from 'nextra/components'
 ```lua
 
 ```
-### setAutocompleteEnabled
+### addOption
 
-> ApplicationCommand:setAutocompleteEnabled( `enabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  ApplicationCommand 
+> ApplicationCommand:addOption( `commandObject` [ApplicationCommandOption](/Classes/ApplicationCommandOption) ) ->  ApplicationCommand 
 
 (yet-to-do!)
 
@@ -100,6 +103,15 @@ import { Callout } from 'nextra/components'
 ### addOption
 
 > ApplicationCommand:addOption( `commandObject` [ApplicationCommandOption](/Classes/ApplicationCommandOption) ) ->  ApplicationCommand 
+
+(yet-to-do!)
+
+```lua
+
+```
+### addContext
+
+> ApplicationCommand:addContext( `commandObject` [ApplicationCommandOption](/Classes/ApplicationCommandOption) ) ->  ApplicationCommand 
 
 (yet-to-do!)
 

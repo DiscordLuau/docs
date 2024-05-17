@@ -1,14 +1,16 @@
 {
-  "Cache": "Cache",
   "DiscordApplication": "DiscordApplication",
   "DiscordCache": "DiscordCache",
   "DiscordChannel": "DiscordChannel",
   "DiscordEmoji": "DiscordEmoji",
   "DiscordGuild": "DiscordGuild",
+  "DiscordGuildMember": "DiscordGuildMember",
   "DiscordGuildRole": "DiscordGuildRole",
+  "DiscordInteraction": "DiscordInteraction",
   "DiscordInvite": "DiscordInvite",
   "DiscordMessage": "DiscordMessage",
   "DiscordTextChannel": "DiscordTextChannel",
   "DiscordUser": "DiscordUser",
-  "DiscordVoiceChannel": "DiscordVoiceChannel"
+  "DiscordVoiceChannel": "DiscordVoiceChannel",
+  "EndpointCache": "EndpointCache"
 }

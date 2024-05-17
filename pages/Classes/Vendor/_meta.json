@@ -1,6 +1,5 @@
 {
   "Console": "Console",
   "Future": "Future",
-  "Signal": "Signal",
-  "State": "State"
+  "Signal": "Signal"
 }
