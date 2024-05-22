@@ -1,5 +1,4 @@
 local fs = require("@lune/fs")
-local serde = require("@lune/serde")
 local net = require("@lune/net")
 
 local Generator = {}
