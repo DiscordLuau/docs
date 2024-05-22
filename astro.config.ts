@@ -6,25 +6,28 @@ import deno from "@deno/astro-adapter";
 export default defineConfig({
   output: "server",
   adapter: deno(),
-  integrations: [
-    starlight({
-      title: "DiscordLuau Docs",
-      social: {
-        github: "https://github.com/DiscordLuau/discord-luau",
-      },
-      sidebar: [
-        {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", link: "/guides/example/" },
-          ],
-        },
-        {
-          label: "Classes",
-          autogenerate: { directory: "classes" },
-        },
-      ],
-    }),
-  ],
+  integrations: [starlight({
+    title: "DiscordLuau Docs",
+    social: {
+      github: "https://github.com/DiscordLuau/discord-luau"
+    },
+    sidebar: [{
+      label: "Guides",
+      items: [
+      // Each item here is one entry in the navigation menu.
+      {
+        label: "Example Guide",
+        link: "/guides/example/"
+      }]
+    }, {
+      label: "Classes",
+      autogenerate: {
+        directory: "classes"
+      }
+    }],
+    customCss: ['./src/styles/landing.css', './src/styles/starlight.css'],
+    components: {
+      Hero: "./src/components/Hero.astro"
+    }
+  })]
 });
