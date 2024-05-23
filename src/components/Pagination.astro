@@ -4,6 +4,7 @@ import Default from "@astrojs/starlight/components/Pagination.astro";
 import ContributorAvatars from "./ContributorAvatars.astro";
 
 const file = Astro.props.entry.id;
+const excludes = ["404.astro", "index.mdx"]
 ---
 
 <div>
@@ -15,13 +16,15 @@ const file = Astro.props.entry.id;
     }
 
     {
-        file !== "index.mdx" && (
+        !excludes.includes(file) && (
+            (
             <>
                 <div class="contributors">
                     <ContributorAvatars repo="DiscordLuau/docs" file={file} />
                 </div>
                 <br />
             </>
+            )
         )
     }
 
