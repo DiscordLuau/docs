@@ -14,3 +14,5 @@ for _, classDocumentation in packageCommentJson do
 
 	Generator.writeClassContent(documentPath, documentContent)
 end
+
+return {}
