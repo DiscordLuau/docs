@@ -1,0 +1,38 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Pagination.astro";
+import ContributorAvatars from "./ContributorAvatars.astro";
+
+const file = Astro.props.entry.id;
+---
+
+<div>
+    {
+        /*
+    Render our custom component and tell it the repo and file to use.
+    Astro.props.entry.id here is the name of the file inside src/content/docs.
+  */
+    }
+
+    {
+        file !== "index.mdx" && (
+            <>
+                <div class="contributors">
+                    <ContributorAvatars repo="DiscordLuau/docs" file={file} />
+                </div>
+                <br />
+            </>
+        )
+    }
+
+    <Default {...Astro.props}><slot /></Default>
+</div>
+
+<style>
+    .contributors {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        align-items: end;
+    }
+</style>

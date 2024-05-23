@@ -27,7 +27,8 @@ export default defineConfig({
     }],
     customCss: ['./src/styles/landing.css', './src/styles/starlight.css'],
     components: {
-      Hero: "./src/components/Hero.astro"
+      Hero: "./src/components/Hero.astro",
+      Pagination: './src/components/Pagination.astro',
     }
   })]
 });
