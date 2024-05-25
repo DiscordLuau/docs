@@ -1,0 +1,112 @@
+---
+import type { Props as AstroProps } from "@astrojs/starlight/props";
+
+type LuaType =
+    | "nil"
+    | ("boolean" | "bool")
+    | "number"
+    | "string"
+    | "table"
+    | ("tuple" | "...")
+    | ("userdata" | "proxy");
+
+type LuaParam = {
+    name: string;
+    type: LuaType | string;
+};
+
+type Props = AstroProps & {
+    method: string;
+    takesSelf: boolean;
+    className: string;
+    args: LuaParam[];
+};
+
+const { method, className, args, takesSelf } = Astro.props;
+---
+
+<!-- <div class="declaration"> --><!-- <code class="declaration"
+    >{
+        (
+            <code class="declaration class">
+                {className}:{<code class="declaration method">{method}</code>}
+            </code>
+        )
+    }({args.length !== 0 && <br />}{
+        args.map(({ name, type }, count) => {
+            return (
+                <>
+                    {/* <br /> */}
+                    <code class="declaration arg">
+                        {name}:
+                        {
+                            <code class="declaration type">
+                                {type}
+                                {(count !== args.length - 1 && ",") || ""}
+                                {<br />}
+                            </code>
+                        }
+                    </code>
+                    {/* <br /> */}
+                </>
+            );
+        })
+    })</code
+> -->
+<div class="declaration">
+    <span class="declaration class">{className}</span>
+    <span class="declaration">{takesSelf && ":" || "."}</span>
+    <span class="declaration method">{method}</span>
+    <span class="declaration">(</span>
+    <div class="declaration">
+        {
+            args.map(({ name, type }, count) => {
+                return (
+                    <>
+                        <br />
+                        <span class="declaration arg">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
+                        </span>
+                        <span class="declaration type">{type}</span>
+                        <span>
+                            {(count !== args.length - 1 && ",") || <br />}
+                        </span>
+                    </>
+                );
+            })
+        }
+    </div>
+    <span class="declaration">)</span>
+</div>
+
+<!-- </div> -->
+
+<style>
+    span.declaration {
+        font-size: 19px;
+        font-family: monospace;
+    }
+
+    div.declaration {
+        font-size: 0;
+        /* background-color: #23262f; */
+        border-radius: 2%;
+        padding: 1%;
+    }
+
+    .method {
+        color: #b0d86f;
+    }
+
+    .class {
+        color: #ffcb8b;
+    }
+
+    .arg {
+        color: #7bdbca;
+    }
+
+    .type {
+        color: #82aadd;
+    }
+</style>
