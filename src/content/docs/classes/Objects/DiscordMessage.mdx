@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordMessage.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordMessage represents a message in a Discord channel, providing methods to reply, delete, pin, unpin, edit, and manage reactions.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -21,58 +28,47 @@ The DiscordMessage instance has no set properties!
 
 ### replyAsync
 
-> DiscordMessage:replyAsync( `messageBuilder` MessageBuilder ) ->  Future<unknown> 
-
+> <LuaDeclaration name="replyAsync" className="DiscordMessage" isMethod args={[ { name: "messageBuilder", type: "DiscordMessageBuilder" } ]}/>
 Replies to the message asynchronously.
 ### deleteAsync
 
-> DiscordMessage:deleteAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordMessage" isMethod args={[  ]}/>
 Deletes the message asynchronously.
 ### pinAsync
 
-> DiscordMessage:pinAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="pinAsync" className="DiscordMessage" isMethod args={[  ]}/>
 Pins the message asynchronously.
 ### unpinAsync
 
-> DiscordMessage:unpinAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="unpinAsync" className="DiscordMessage" isMethod args={[  ]}/>
 Unpins the message asynchronously.
 ### editAsync
 
-> DiscordMessage:editAsync( `messageBuilder` MessageBuilder ) ->  Future<unknown> 
-
+> <LuaDeclaration name="editAsync" className="DiscordMessage" isMethod args={[ { name: "messageBuilder", type: "DiscordMessageBuilder" } ]}/>
 Edits the message asynchronously.
 ### addReactionAsync
 
-> DiscordMessage:addReactionAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
-
+> <LuaDeclaration name="addReactionAsync" className="DiscordMessage" isMethod args={[ { name: "reaction", type: "string" } ]}/>
 Adds a reaction to the message asynchronously.
 ### removeReactionAsync
 
-> DiscordMessage:removeReactionAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
-
+> <LuaDeclaration name="removeReactionAsync" className="DiscordMessage" isMethod args={[ { name: "reaction", type: "string" } ]}/>
 Removes a reaction from the message asynchronously.
 ### removeUserReactionAsync
 
-> DiscordMessage:removeUserReactionAsync( `userId` [string](https://www.lua.org/pil/2.4.html), `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
-
+> <LuaDeclaration name="removeUserReactionAsync" className="DiscordMessage" isMethod args={[ { name: "userId", type: "string" }, { name: "reaction", type: "string" } ]}/>
 Removes a reaction from a specific user on the message asynchronously.
 ### getReactionsAsync
 
-> DiscordMessage:getReactionsAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
-
+> <LuaDeclaration name="getReactionsAsync" className="DiscordMessage" isMethod args={[ { name: "reaction", type: "string" } ]}/>
 Gets the reactions on the message asynchronously.
 ### removeAllReactionsAsync
 
-> DiscordMessage:removeAllReactionsAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="removeAllReactionsAsync" className="DiscordMessage" isMethod args={[  ]}/>
 Removes all reactions from the message asynchronously.
 ### removeAllReactionsForEmojiAsync
 
-> DiscordMessage:removeAllReactionsForEmojiAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
-
+> <LuaDeclaration name="removeAllReactionsForEmojiAsync" className="DiscordMessage" isMethod args={[ { name: "reaction", type: "string" } ]}/>
 Removes all reactions for a specific emoji from the message asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordShard.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordShard is an internal class responsible for managing the connection and communication with a specific shard of the Discord WebSocket. This class handles events, errors, and operations specific to a shard.
 
 :::caution
@@ -25,53 +32,43 @@ The DiscordShard instance has no set properties!
 
 ### observeWebsocketErrors
 
-> DiscordShard:observeWebsocketErrors() -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="observeWebsocketErrors" className="DiscordShard" isMethod args={[  ]}/>
 Observes and handles WebSocket errors.
 ### observeWebsocketEvents
 
-> DiscordShard:observeWebsocketEvents() -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="observeWebsocketEvents" className="DiscordShard" isMethod args={[  ]}/>
 Observes and handles WebSocket events.
 ### observeWebsocketOperations
 
-> DiscordShard:observeWebsocketOperations() -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="observeWebsocketOperations" className="DiscordShard" isMethod args={[  ]}/>
 Observes and handles WebSocket operations.
 ### initiateWebsocket
 
-> DiscordShard:initiateWebsocket() -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="initiateWebsocket" className="DiscordShard" isMethod args={[  ]}/>
 Initiates the WebSocket connection.
 ### heartbeatAsync
 
-> DiscordShard:heartbeatAsync( `ignoreHeartbeatAck` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
-
+> <LuaDeclaration name="heartbeatAsync" className="DiscordShard" isMethod args={[ { name: "ignoreHeartbeatAck", type: "boolean?" } ]}/>
 Sends a heartbeat to the Discord WebSocket.
 ### heartbeatIn
 
-> DiscordShard:heartbeatIn( `milliseconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="heartbeatIn" className="DiscordShard" isMethod args={[ { name: "milliseconds", type: "number" } ]}/>
 Schedules the next heartbeat.
 ### identifyAsync
 
-> DiscordShard:identifyAsync() ->  Future 
-
+> <LuaDeclaration name="identifyAsync" className="DiscordShard" isMethod args={[  ]}/>
 Identifies the Discord client with the Discord WebSocket.
 ### connectAsync
 
-> DiscordShard:connectAsync( `websocketUrl` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="connectAsync" className="DiscordShard" isMethod args={[ { name: "websocketUrl", type: "string" } ]}/>
 Connects the DiscordShard to the Discord WebSocket.
 ### resumeAsync
 
-> DiscordShard:resumeAsync() ->  Future 
-
+> <LuaDeclaration name="resumeAsync" className="DiscordShard" isMethod args={[  ]}/>
 Resumes a previous session with the Discord WebSocket.
 ### reconnectAsync
 
-> DiscordShard:reconnectAsync() ->  Future 
-
+> <LuaDeclaration name="reconnectAsync" className="DiscordShard" isMethod args={[  ]}/>
 Attempts to reconnect the DiscordShard to the Discord WebSocket.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordAutomoderationRule.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordAutomoderationRule` class provides methods to interact with Discord auto-moderation rules, including modifying and deleting rules.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -80,13 +87,11 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 
 ### modifyAsync
 
-> DiscordAutomoderationRule:modifyAsync( `moderationRoleBuilder` DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule. ) ->  Future<CommandResponse> 
-
+> <LuaDeclaration name="modifyAsync" className="DiscordAutomoderationRule" isMethod args={[ { name: "moderationRoleBuilder", type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule." } ]}/>
 Modifies an existing auto-moderation rule.
 ### deleteAsync
 
-> DiscordAutomoderationRule:deleteAsync() ->  Future<CommandResponse> 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordAutomoderationRule" isMethod args={[  ]}/>
 Deletes an existing auto-moderation rule.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

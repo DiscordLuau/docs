@@ -1,0 +1,132 @@
+---
+title: DiscordAutomoderationRuleBuilder
+description: DiscordLuau docs for DiscordAutomoderationRuleBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordAutomoderationRuleBuilder is used to construct an auto-moderation rule for a Discord guild, including trigger types, actions, and exempt roles or channels.
+
+Usage:
+```lua
+local rule = DiscordAutomoderationRuleBuilder.new()
+	:setName("No Profanity")
+	:setEventType(DiscordAutomoderationRuleBuilder.EventType.MessageSend)
+	:setTriggerType(DiscordAutomoderationRuleBuilder.TriggerType.Keyword)
+	:setTriggerMetadata({ keywordFilter = {"badword1", "badword2"} })
+	:addAction(DiscordAutomoderationRuleBuilder.ActionType.BlockMessage, { customMessage = "Profanity is not allowed!" })
+	:setEnabled(true)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### EventType
+
+ ```lua
+ DiscordAutomoderationRuleBuilder.EventType :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of event types.
+
+- MessageSend: 1
+### TriggerType
+
+ ```lua
+ DiscordAutomoderationRuleBuilder.TriggerType :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of trigger types.
+
+- Keyword: 1
+- Spam: 3
+- KeywordPreset: 4
+- MentionSpam: 5
+### KeywordPresets
+
+ ```lua
+ DiscordAutomoderationRuleBuilder.KeywordPresets :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of keyword presets.
+
+- Profanity: 1
+- SexualContent: 2
+- Slurs: 3
+### ActionType
+
+ ```lua
+ DiscordAutomoderationRuleBuilder.ActionType :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of action types.
+
+- BlockMessage: 1
+- SendAlertMessage: 2
+- Timeout: 3
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setName
+
+> <LuaDeclaration name="setName" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "name", type: "string" } ]}/>
+Sets the name of the rule.
+### setEventType
+
+> <LuaDeclaration name="setEventType" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "eventType", type: "number" } ]}/>
+Sets the event type for the rule.
+### setTriggerType
+
+> <LuaDeclaration name="setTriggerType" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "triggerType", type: "number" } ]}/>
+Sets the trigger type for the rule.
+### setTriggerMetadata
+
+> <LuaDeclaration name="setTriggerMetadata" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "triggerMetadata", type: "table" } ]}/>
+Sets the trigger metadata for the rule.
+### addAction
+
+> <LuaDeclaration name="addAction" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "actionType", type: "number" }, { name: "actionMetadata", type: "table" } ]}/>
+Adds an action to the rule.
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "enabled", type: "boolean" } ]}/>
+Sets whether the rule is enabled.
+### addExemptRole
+
+> <LuaDeclaration name="addExemptRole" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "roleId", type: "string" } ]}/>
+Adds an exempt role to the rule.
+### addExemptChannel
+
+> <LuaDeclaration name="addExemptChannel" className="DiscordAutomoderationRuleBuilder" isMethod args={[ { name: "channelId", type: "string" } ]}/>
+Adds an exempt channel to the rule.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordAutomoderationRuleBuilder" isMethod args={[  ]}/>
+Converts the rule to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordAutomoderationRuleBuilder.new() ->  DiscordAutomoderationRuleBuilder 
+
+Creates a new instance of DiscordAutomoderationRuleBuilder.
+

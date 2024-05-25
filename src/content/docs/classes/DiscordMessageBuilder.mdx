@@ -1,0 +1,81 @@
+---
+title: DiscordMessageBuilder
+description: DiscordLuau docs for DiscordMessageBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordMessageBuilder is used to construct a message that can be sent to a Discord channel, including content, embeds, components, and stickers.
+
+Usage:
+```lua
+local message = DiscordMessageBuilder.new()
+	:setContent("Hello, world!")
+	:addEmbed(DiscordEmbedBuilder.new():setTitle("Embed Title"))
+	:addComponent(ButtonBuilder.new("button_id"))
+	:addStickerId("sticker_id")
+	:setTTSEnabled(true)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The DiscordMessageBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setContent
+
+> <LuaDeclaration name="setContent" className="DiscordMessageBuilder" isMethod args={[ { name: "content", type: "string" } ]}/>
+Sets the content of the message.
+### setNonce
+
+> <LuaDeclaration name="setNonce" className="DiscordMessageBuilder" isMethod args={[ { name: "nonce", type: "string" } ]}/>
+Sets the nonce of the message.
+### setTTSEnabled
+
+> <LuaDeclaration name="setTTSEnabled" className="DiscordMessageBuilder" isMethod args={[ { name: "ttsEnabled", type: "boolean" } ]}/>
+Sets whether text-to-speech (TTS) is enabled for the message.
+### addEmbed
+
+> <LuaDeclaration name="addEmbed" className="DiscordMessageBuilder" isMethod args={[ { name: "embedBuilder", type: "DiscordEmbedBuilder" } ]}/>
+Adds an embed to the message.
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="DiscordMessageBuilder" isMethod args={[ { name: "discordComponent", type: "DiscordComponentTypes.DiscordComponent" } ]}/>
+Adds a component to the message.
+### addStickerId
+
+> <LuaDeclaration name="addStickerId" className="DiscordMessageBuilder" isMethod args={[ { name: "stickerId", type: "string" } ]}/>
+Adds a sticker ID to the message.
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="DiscordMessageBuilder" isMethod args={[ { name: "flags", type: "number" } ]}/>
+Sets the flags for the message.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordMessageBuilder" isMethod args={[  ]}/>
+Converts the message to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordMessageBuilder.new() ->  DiscordMessageBuilder 
+
+Creates a new instance of DiscordMessageBuilder.
+

@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordUDP.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordUDP is an internal class responsible for managing UDP communication with the Discord API. This class handles sending and receiving UDP packets.
 
 :::caution
@@ -25,18 +32,15 @@ The DiscordUDP instance has no set properties!
 
 ### sendAsync
 
-> DiscordUDP:sendAsync( `dataPacket` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="sendAsync" className="DiscordUDP" isMethod args={[ { name: "dataPacket", type: "string" } ]}/>
 Sends a UDP packet asynchronously.
 ### connectAsync
 
-> DiscordUDP:connectAsync( `discordUdp` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="connectAsync" className="DiscordUDP" isMethod args={[ { name: "discordUdp", type: "string" } ]}/>
 Connects to a UDP socket asynchronously.
 ### disconnectAsync
 
-> DiscordUDP:disconnectAsync( `closingCode` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="disconnectAsync" className="DiscordUDP" isMethod args={[ { name: "closingCode", type: "string" } ]}/>
 Disconnects from the UDP socket asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

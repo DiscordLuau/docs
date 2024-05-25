@@ -27,6 +27,24 @@ local function separator()
 	return `---\n`
 end
 
+local function import(component)
+	return `import {component} from '$/components/{component}.astro';\n`
+end
+
+local function color(r, g, b, source)
+	return `<StyleComponent style="color: rgb({r}, {g}, {b})" content="{source}"/>`
+end
+
+local function declaration(functionName, className, isMethod, parameters)
+	local argumentComponents = {}
+
+	for index, paramObject in parameters do
+		table.insert(argumentComponents, `\{ name: "{paramObject.name}", type: "{paramObject.lua_type}" }`)
+	end
+
+	return `> <LuaDeclaration name="{functionName}" className="{className}" isMethod args=\{[ {table.concat(argumentComponents, ", ")} ]}/>`
+end
+
 local function frontmatter(source: {
 	name: string,
 	description: string,
@@ -90,6 +108,19 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	markdownFile ..= newline()
 
+	markdownFile ..= comment(`----- DOCUMENT IMPORTS ----- `)
+
+	markdownFile ..= newline()
+
+	markdownFile ..= import("LuaDeclaration")
+	markdownFile ..= import("StyleComponent")
+
+	markdownFile ..= newline()
+
+	markdownFile ..= comment(`----- DOCUMENT DESCRIPTION ----- `)
+
+	markdownFile ..= newline()
+
 	markdownFile ..= input(classDescription)
 
 	markdownFile ..= newline()
@@ -127,9 +158,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	if #classMethods > 0 then
 		for _, method in classMethods do
 			markdownFile ..= h3(method.name)
-			markdownFile ..= input(
-				` \`\`\`lua\n > {className}:{method.name}({getReadableParamList(method)}) -> {getReadableReturnsList(method)}\n\`\`\`\n`
-			)
+			markdownFile ..= declaration(method.name, className, true, method.params)
 
 			if method.desc then
 				markdownFile ..= newline()

@@ -1,0 +1,146 @@
+---
+title: ApplicationCommandOptionBuilder
+description: DiscordLuau docs for ApplicationCommandOptionBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+ApplicationCommandOptionBuilder is used to construct options for a Discord application command, including type, name, description, and choices.
+
+Usage:
+```lua
+local option = ApplicationCommandOptionBuilder.new()
+	:setType(ApplicationCommandOptionBuilder.Type.String)
+	:setName("example_option")
+	:setDescription("This is an example option.")
+	:setRequired(true)
+	:addChoice("Choice 1", "value1")
+	:addChoice("Choice 2", "value2")
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+ ```lua
+ ApplicationCommandOptionBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of option types.
+
+- SubCommand: 1
+- SubCommandGroup: 2
+- String: 3
+- Integer: 4
+- Boolean: 5
+- User: 6
+- Channel: 7
+- Role: 8
+- Mentionable: 9
+- Number: 10
+- Attachment: 11
+### ChannelType
+
+ ```lua
+ ApplicationCommandOptionBuilder.ChannelType :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of channel types.
+
+- GuildText: 0
+- DirectMessage: 1
+- GuildVoice: 2
+- GroupDirectMessage: 3
+- GuildCategory: 4
+- GuildAnnouncement: 5
+- AnnouncementThread: 10
+- PublicThread: 11
+- PrivateThread: 12
+- GuildStageVoice: 13
+- GuildDirectory: 14
+- GuildForum: 15
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "optionType", type: "number" } ]}/>
+Sets the type of the option.
+### setName
+
+> <LuaDeclaration name="setName" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "optionName", type: "string" } ]}/>
+Sets the name of the option.
+### setLocalization
+
+> <LuaDeclaration name="setLocalization" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "localizationCode", type: "string" } ]}/>
+Sets the localization code for the option.
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "optionDescription", type: "string" } ]}/>
+Sets the description of the option.
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "isRequired", type: "boolean" } ]}/>
+Sets whether the option is required.
+### setChannelTypes
+
+> <LuaDeclaration name="setChannelTypes" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "channelTypes", type: "..." } ]}/>
+Sets the channel types for the option.
+### setMinValue
+
+> <LuaDeclaration name="setMinValue" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "minValue", type: "number" } ]}/>
+Sets the minimum value for the option.
+### setMaxValue
+
+> <LuaDeclaration name="setMaxValue" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "maxValue", type: "number" } ]}/>
+Sets the maximum value for the option.
+### setMinLength
+
+> <LuaDeclaration name="setMinLength" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "minLength", type: "number" } ]}/>
+Sets the minimum length for the option.
+### setMaxLength
+
+> <LuaDeclaration name="setMaxLength" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "maxLength", type: "number" } ]}/>
+Sets the maximum length for the option.
+### setAutocompleteEnabled
+
+> <LuaDeclaration name="setAutocompleteEnabled" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "autocomplete", type: "boolean" } ]}/>
+Sets whether autocomplete is enabled for the option.
+### addOption
+
+> <LuaDeclaration name="addOption" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "commandOption", type: "ApplicationCommandOptionBuilder" } ]}/>
+Adds a sub-option to the option.
+### addChoice
+
+> <LuaDeclaration name="addChoice" className="ApplicationCommandOptionBuilder" isMethod args={[ { name: "choiceName", type: "string" }, { name: "choiceValue", type: "any" } ]}/>
+Adds a choice to the option.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="ApplicationCommandOptionBuilder" isMethod args={[  ]}/>
+Converts the option to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> ApplicationCommandOptionBuilder.new() ->  ApplicationCommandOptionBuilder 
+
+Creates a new instance of ApplicationCommandOptionBuilder.
+

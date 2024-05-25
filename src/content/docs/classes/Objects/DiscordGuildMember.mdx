@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordGuildMember.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordGuildMember` class represents a member of a Discord guild (server) and provides methods to interact with and manage the guild member.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -19,7 +26,7 @@ The `DiscordGuildMember` class represents a member of a Discord guild (server) a
  DiscordGuildMember.type :: [string](https://www.lua.org/pil/2.4.html)
 ```
 
-
+---
 The type of the DiscordGuildMember. Default is "DiscordGuildMember".
 
 [//]: # (----- DOCUMENT METHODS ----- )
@@ -28,63 +35,51 @@ The type of the DiscordGuildMember. Default is "DiscordGuildMember".
 
 ### kickAsync
 
-> DiscordGuildMember:kickAsync( `deleteMessagesSeconds` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
-
+> <LuaDeclaration name="kickAsync" className="DiscordGuildMember" isMethod args={[ { name: "deleteMessagesSeconds", type: "number?" } ]}/>
 Kicks the guild member asynchronously.
 ### banAsync
 
-> DiscordGuildMember:banAsync() ->  Future 
-
+> <LuaDeclaration name="banAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Bans the guild member asynchronously.
 ### unbanAsync
 
-> DiscordGuildMember:unbanAsync() ->  Future 
-
+> <LuaDeclaration name="unbanAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Unbans the guild member asynchronously.
 ### addRoleAsync
 
-> DiscordGuildMember:addRoleAsync( `roleId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="addRoleAsync" className="DiscordGuildMember" isMethod args={[ { name: "roleId", type: "string" } ]}/>
 Adds a role to the guild member asynchronously.
 ### removeRoleAsync
 
-> DiscordGuildMember:removeRoleAsync( `roleId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="removeRoleAsync" className="DiscordGuildMember" isMethod args={[ { name: "roleId", type: "string" } ]}/>
 Removes a role from the guild member asynchronously.
 ### timeoutAsync
 
-> DiscordGuildMember:timeoutAsync( `seconds` [number](https://www.lua.org/pil/2.3.html) ) ->  Future 
-
+> <LuaDeclaration name="timeoutAsync" className="DiscordGuildMember" isMethod args={[ { name: "seconds", type: "number" } ]}/>
 Times out the guild member asynchronously.
 ### muteAsync
 
-> DiscordGuildMember:muteAsync() ->  Future 
-
+> <LuaDeclaration name="muteAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Mutes the guild member asynchronously.
 ### unmuteAsync
 
-> DiscordGuildMember:unmuteAsync() ->  Future 
-
+> <LuaDeclaration name="unmuteAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Unmutes the guild member asynchronously.
 ### deafenAsync
 
-> DiscordGuildMember:deafenAsync() ->  Future 
-
+> <LuaDeclaration name="deafenAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Deafens the guild member asynchronously.
 ### undeafenAsync
 
-> DiscordGuildMember:undeafenAsync() ->  Future 
-
+> <LuaDeclaration name="undeafenAsync" className="DiscordGuildMember" isMethod args={[  ]}/>
 Undeafens the guild member asynchronously.
 ### setNicknameAsync
 
-> DiscordGuildMember:setNicknameAsync( `nickname` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="setNicknameAsync" className="DiscordGuildMember" isMethod args={[ { name: "nickname", type: "string" } ]}/>
 Sets the nickname of the guild member asynchronously.
 ### modifyAsync
 
-> DiscordGuildMember:modifyAsync( `modificationsTable` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="modifyAsync" className="DiscordGuildMember" isMethod args={[ { name: "modificationsTable", type: "table" } ]}/>
 Modifies the guild member asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

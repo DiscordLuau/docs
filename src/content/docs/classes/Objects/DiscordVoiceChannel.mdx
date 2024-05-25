@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordVoiceChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordVoiceChannel represents a voice channel in a Discord server, providing methods to connect, disconnect, and modify the channel.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -21,18 +28,15 @@ The DiscordVoiceChannel instance has no set properties!
 
 ### connectAsync
 
-> DiscordVoiceChannel:connectAsync() ->  Future<boolean> 
-
+> <LuaDeclaration name="connectAsync" className="DiscordVoiceChannel" isMethod args={[  ]}/>
 Connects to the voice channel asynchronously.
 ### disconnectAsync
 
-> DiscordVoiceChannel:disconnectAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="disconnectAsync" className="DiscordVoiceChannel" isMethod args={[  ]}/>
 Disconnects from the voice channel asynchronously.
 ### modifyAsync
 
-> DiscordVoiceChannel:modifyAsync( `channelSchema` DiscordVoiceChannelSchema ) ->  Future<unknown> 
-
+> <LuaDeclaration name="modifyAsync" className="DiscordVoiceChannel" isMethod args={[ { name: "channelSchema", type: "DiscordVoiceChannelSchema" } ]}/>
 Modifies the voice channel settings asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

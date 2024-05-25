@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordInvite.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordInvite represents an invite link to a Discord server, providing methods to delete the invite.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -21,8 +28,7 @@ The DiscordInvite instance has no set properties!
 
 ### deleteAsync
 
-> DiscordInvite:deleteAsync() ->  Future<unknown> 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordInvite" isMethod args={[  ]}/>
 Deletes the invite asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

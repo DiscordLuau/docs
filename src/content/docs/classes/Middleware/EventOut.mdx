@@ -7,6 +7,13 @@ description: DiscordLuau docs for EventOut.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `EventOut` class processes outgoing events. Currently, it acts as a placeholder for any future processing that may be required for outgoing JSON data.
 
 :::caution
@@ -25,13 +32,11 @@ The EventOut instance has no set properties!
 
 ### processJSON
 
-> EventOut:processJSON( `self` EventOut, `data` any ) ->  any 
-
+> <LuaDeclaration name="processJSON" className="EventOut" isMethod args={[ { name: "self", type: "EventOut" }, { name: "data", type: "any" } ]}/>
 Processes outgoing JSON data. Currently, this method returns the data unchanged.
 ### new
 
-> EventOut:new() ->  EventOut 
-
+> <LuaDeclaration name="new" className="EventOut" isMethod args={[  ]}/>
 Creates a new instance of `EventOut`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

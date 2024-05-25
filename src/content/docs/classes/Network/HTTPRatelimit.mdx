@@ -7,6 +7,13 @@ description: DiscordLuau docs for HTTPRatelimit.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `HTTPRatelimit` class manages the rate limiting for HTTP requests. It tracks the remaining requests that can be made and handles the reset of these limits after a specified duration.
 
 :::caution
@@ -25,28 +32,23 @@ The HTTPRatelimit instance has no set properties!
 
 ### setRemaining
 
-> HTTPRatelimit:setRemaining( `self` HTTPRatelimit, `remaining` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="setRemaining" className="HTTPRatelimit" isMethod args={[ { name: "self", type: "HTTPRatelimit" }, { name: "remaining", type: "number" } ]}/>
 Sets the remaining number of requests that can be made.
 ### resetAfter
 
-> HTTPRatelimit:resetAfter( `self` HTTPRatelimit, `seconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="resetAfter" className="HTTPRatelimit" isMethod args={[ { name: "self", type: "HTTPRatelimit" }, { name: "seconds", type: "number" } ]}/>
 Resets the remaining requests after a specified number of seconds.
 ### setLimit
 
-> HTTPRatelimit:setLimit( `self` HTTPRatelimit, `limit` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="setLimit" className="HTTPRatelimit" isMethod args={[ { name: "self", type: "HTTPRatelimit" }, { name: "limit", type: "number" } ]}/>
 Sets the maximum number of requests that can be made.
 ### isConsumed
 
-> HTTPRatelimit:isConsumed( `self` HTTPRatelimit ) ->  [boolean](https://www.lua.org/pil/2.2.html) 
-
+> <LuaDeclaration name="isConsumed" className="HTTPRatelimit" isMethod args={[ { name: "self", type: "HTTPRatelimit" } ]}/>
 Checks if the rate limit has been consumed.
 ### new
 
-> HTTPRatelimit:new( `remaining` [number?](https://www.lua.org/pil/2.3.html), `limit` [number?](https://www.lua.org/pil/2.3.html) ) ->  HTTPRatelimit 
-
+> <LuaDeclaration name="new" className="HTTPRatelimit" isMethod args={[ { name: "remaining", type: "number?" }, { name: "limit", type: "number?" } ]}/>
 Creates a new instance of `HTTPRatelimit`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

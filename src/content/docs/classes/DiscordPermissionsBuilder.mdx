@@ -1,19 +1,26 @@
 ---
-title: PermissionsBuilder
-description: DiscordLuau docs for PermissionsBuilder.
+title: DiscordPermissionsBuilder
+description: DiscordLuau docs for DiscordPermissionsBuilder.
 ---
 [//]: # (This file was automatically compiled through the Generator luau code under this repository)
 [//]: # (if you want to edit the documentation of discord-luau, please write changes)
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-PermissionsBuilder is used to construct and manage permissions for a Discord bot.
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordPermissionsBuilder is used to construct and manage permissions for a Discord bot.
 
 Usage:
 ```lua
-local permissions = PermissionsBuilder.new()
-	:addPermission(PermissionsBuilder.Permissions.Administrator)
-	:addPermission(PermissionsBuilder.Permissions.ManageChannels)
+local permissions = DiscordPermissionsBuilder.new()
+	:addPermission(DiscordPermissionsBuilder.Permissions.Administrator)
+	:addPermission(DiscordPermissionsBuilder.Permissions.ManageChannels)
 
 print(permissions:getValue())
 ```
@@ -25,10 +32,10 @@ print(permissions:getValue())
 ### Permissions
 
  ```lua
- PermissionsBuilder.Permissions :: [table](https://www.lua.org/pil/2.5.html)
+ DiscordPermissionsBuilder.Permissions :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of permissions.
 
 - CreateInstantInvite: 0
@@ -83,23 +90,19 @@ An enumeration of permissions.
 
 ### addPermission
 
-> PermissionsBuilder:addPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="addPermission" className="DiscordPermissionsBuilder" isMethod args={[ { name: "permission", type: "number" } ]}/>
 Adds a permission to the builder.
 ### deletePermission
 
-> PermissionsBuilder:deletePermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="deletePermission" className="DiscordPermissionsBuilder" isMethod args={[ { name: "permission", type: "number" } ]}/>
 Removes a permission from the builder.
 ### hasPermission
 
-> PermissionsBuilder:hasPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  [boolean](https://www.lua.org/pil/2.2.html) 
-
+> <LuaDeclaration name="hasPermission" className="DiscordPermissionsBuilder" isMethod args={[ { name: "permission", type: "number" } ]}/>
 Checks if a permission is in the builder.
 ### getValue
 
-> PermissionsBuilder:getValue() ->  [string](https://www.lua.org/pil/2.4.html) 
-
+> <LuaDeclaration name="getValue" className="DiscordPermissionsBuilder" isMethod args={[  ]}/>
 Gets the bitfield value of the permissions.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -108,22 +111,22 @@ Gets the bitfield value of the permissions.
 
 ### new
 
-> PermissionsBuilder.new() ->  Builders.PermissionsBuilder 
+> DiscordPermissionsBuilder.new() ->  DiscordPermissionsBuilder 
 
-Creates a new instance of PermissionsBuilder.
+Creates a new instance of DiscordPermissionsBuilder.
 ### none
 
-> PermissionsBuilder.none() ->  Builders.PermissionsBuilder 
+> DiscordPermissionsBuilder.none() ->  DiscordPermissionsBuilder 
 
-Creates a new instance of PermissionsBuilder with no permissions.
+Creates a new instance of DiscordPermissionsBuilder with no permissions.
 ### all
 
-> PermissionsBuilder.all() ->  Builders.PermissionsBuilder 
+> DiscordPermissionsBuilder.all() ->  DiscordPermissionsBuilder 
 
-Creates a new instance of PermissionsBuilder with all permissions.
+Creates a new instance of DiscordPermissionsBuilder with all permissions.
 ### from
 
-> PermissionsBuilder.from( `bitfield` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.PermissionsBuilder 
+> DiscordPermissionsBuilder.from( `bitfield` [string](https://www.lua.org/pil/2.4.html) ) ->  DiscordPermissionsBuilder 
 
-Creates a new instance of PermissionsBuilder from a bitfield.
+Creates a new instance of DiscordPermissionsBuilder from a bitfield.
 

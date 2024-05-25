@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordVoiceConnection.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordVoiceConnection` class handles the voice connection functionalities for Discord-Luau. This class is responsible for managing the lifecycle of a voice connection, handling websocket operations, and ensuring proper communication with Discord's voice servers.
 
 :::caution
@@ -25,48 +32,43 @@ The DiscordVoiceConnection instance has no set properties!
 
 ### observeWebsocketErrors
 
-> DiscordVoiceConnection:observeWebsocketErrors( `self` DiscordVoiceConnection ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="observeWebsocketErrors" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
 Observes and handles errors from the voice websocket.
 ### observeWebsocketOperations
 
-> DiscordVoiceConnection:observeWebsocketOperations( `self` DiscordVoiceConnection ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="observeWebsocketOperations" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
 Observes and handles operations received from the voice websocket.
 ### heartbeatAsync
 
-> DiscordVoiceConnection:heartbeatAsync( `self` DiscordVoiceConnection, `ignoreHeartbeatAck` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
-
+> <LuaDeclaration name="heartbeatAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "ignoreHeartbeatAck", type: "boolean?" } ]}/>
 Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgements.
 ### heartbeatIn
 
-> DiscordVoiceConnection:heartbeatIn( `self` DiscordVoiceConnection, `milliseconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="heartbeatIn" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "milliseconds", type: "number" } ]}/>
 Schedules the next heartbeat to be sent after a specified interval.
+### identifyAsync
+
+> <LuaDeclaration name="identifyAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
+Sends an identify operation to the voice websocket.
 ### connectAsync
 
-> DiscordVoiceConnection:connectAsync( `self` DiscordVoiceConnection, `guildId` [string](https://www.lua.org/pil/2.4.html), `channelId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="connectAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]}/>
 Connects to a voice channel asynchronously.
 ### resumeAsync
 
-> DiscordVoiceConnection:resumeAsync( `self` DiscordVoiceConnection ) ->  Future 
-
+> <LuaDeclaration name="resumeAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
 Resumes a voice connection asynchronously.
 ### reconnectAsync
 
-> DiscordVoiceConnection:reconnectAsync( `self` DiscordVoiceConnection ) ->  Future 
-
+> <LuaDeclaration name="reconnectAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
 Reconnects to the voice websocket asynchronously.
 ### disconnectAsync
 
-> DiscordVoiceConnection:disconnectAsync( `self` DiscordVoiceConnection ) ->  Future 
-
+> <LuaDeclaration name="disconnectAsync" className="DiscordVoiceConnection" isMethod args={[ { name: "self", type: "DiscordVoiceConnection" } ]}/>
 Disconnects from the voice websocket asynchronously.
 ### new
 
-> DiscordVoiceConnection:new( `discordClient` any, `id` [string](https://www.lua.org/pil/2.4.html) ) ->  DiscordVoiceConnection 
-
+> <LuaDeclaration name="new" className="DiscordVoiceConnection" isMethod args={[ { name: "discordClient", type: "any" }, { name: "id", type: "string" } ]}/>
 Creates a new instance of `DiscordVoiceConnection`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

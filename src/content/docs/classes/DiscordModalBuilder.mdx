@@ -1,0 +1,58 @@
+---
+title: DiscordModalBuilder
+description: DiscordLuau docs for DiscordModalBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordModalBuilder is used to construct a modal dialog for a Discord interaction, including title and components.
+
+Usage:
+```lua
+local modal = DiscordModalBuilder.new("modal_id")
+	:setTitle("Example Modal")
+	:addComponent(ButtonBuilder.new("button_id"))
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The DiscordModalBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="DiscordModalBuilder" isMethod args={[ { name: "title", type: "string" } ]}/>
+Sets the title of the modal.
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="DiscordModalBuilder" isMethod args={[ { name: "componentObject", type: "ComponentTypes.DiscordComponent" } ]}/>
+Adds a component to the modal. The modal can contain up to five components.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordModalBuilder" isMethod args={[  ]}/>
+Converts the modal to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordModalBuilder.new( `modalId` [string](https://www.lua.org/pil/2.4.html) ) ->  DiscordModalBuilder 
+
+Creates a new instance of DiscordModalBuilder.
+

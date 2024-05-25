@@ -1,0 +1,76 @@
+---
+title: DiscordActivityBuilder
+description: DiscordLuau docs for DiscordActivityBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordActivityBuilder is used to construct an activity object for a Discord bot, including name, type, and streaming URL.
+
+Usage:
+```lua
+local activity = DiscordActivityBuilder.new()
+	:setActivityName("Playing a game")
+	:setActivityType(DiscordActivityBuilder.Type.Game)
+	:setStreamingURL("https://twitch.tv/example")
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+ ```lua
+ DiscordActivityBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of activity types.
+
+- Game: 0
+- Streaming: 1
+- Listening: 2
+- Watching: 3
+- Competing: 5
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setActivityName
+
+> <LuaDeclaration name="setActivityName" className="DiscordActivityBuilder" isMethod args={[ { name: "activityName", type: "string" } ]}/>
+Sets the name of the activity.
+### setActivityType
+
+> <LuaDeclaration name="setActivityType" className="DiscordActivityBuilder" isMethod args={[ { name: "activityType", type: "number" } ]}/>
+Sets the type of the activity.
+### setStreamingURL
+
+> <LuaDeclaration name="setStreamingURL" className="DiscordActivityBuilder" isMethod args={[ { name: "streamURL", type: "string" } ]}/>
+Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordActivityBuilder" isMethod args={[  ]}/>
+Converts the activity to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordActivityBuilder.new() ->  DiscordActivityBuilder 
+
+Creates a new instance of DiscordActivityBuilder.
+

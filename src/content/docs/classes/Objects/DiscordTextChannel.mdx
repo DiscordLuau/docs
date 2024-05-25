@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordTextChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordTextChannel represents a text channel in a Discord server, providing methods to modify the channel and interact with pinned messages.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -21,13 +28,11 @@ The DiscordTextChannel instance has no set properties!
 
 ### modifyAsync
 
-> DiscordTextChannel:modifyAsync( `channelSchema` DiscordTextChannelSchema ) ->  Future<unknown> 
-
+> <LuaDeclaration name="modifyAsync" className="DiscordTextChannel" isMethod args={[ { name: "channelSchema", type: "DiscordTextChannelSchema" } ]}/>
 Modifies the text channel settings asynchronously.
 ### getPinnedMessagesAsync
 
-> DiscordTextChannel:getPinnedMessagesAsync() ->  Future<\{[number]: DiscordMessage}> 
-
+> <LuaDeclaration name="getPinnedMessagesAsync" className="DiscordTextChannel" isMethod args={[  ]}/>
 Retrieves the pinned messages in the text channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

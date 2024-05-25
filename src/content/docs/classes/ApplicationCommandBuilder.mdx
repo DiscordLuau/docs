@@ -1,0 +1,118 @@
+---
+title: ApplicationCommandBuilder
+description: DiscordLuau docs for ApplicationCommandBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+ApplicationCommandBuilder is used to construct a command for a Discord application, including type, name, description, and options.
+
+Usage:
+```lua
+local command = ApplicationCommandBuilder.new()
+	:setType(ApplicationCommandBuilder.Type.ChatInput)
+	:setName("example_command")
+	:setDescription("This is an example command.")
+	:setNSFW(false)
+	:setDMPermission(true)
+	:setDefaultPermissionEnabled(true)
+	:addOption(ApplicationCommandOptionBuilder.new():setType(ApplicationCommandOptionBuilder.Type.String):setName("option1"):setDescription("An option"))
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+ ```lua
+ ApplicationCommandBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of command types.
+
+- ChatInput: 1
+- UserInput: 2
+- MessageInput: 3
+### Context
+
+ ```lua
+ ApplicationCommandBuilder.Context :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of command contexts.
+
+- Guild: 0
+- BotDM: 1
+- PrivateChannel: 2
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="ApplicationCommandBuilder" isMethod args={[ { name: "commandType", type: "number" } ]}/>
+Sets the type of the command.
+### setLocalization
+
+> <LuaDeclaration name="setLocalization" className="ApplicationCommandBuilder" isMethod args={[ { name: "localizationCode", type: "string" } ]}/>
+Sets the localization code for the command.
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="ApplicationCommandBuilder" isMethod args={[ { name: "description", type: "string" } ]}/>
+Sets the description of the command.
+### setName
+
+> <LuaDeclaration name="setName" className="ApplicationCommandBuilder" isMethod args={[ { name: "name", type: "string" } ]}/>
+Sets the name of the command.
+### setNSFW
+
+> <LuaDeclaration name="setNSFW" className="ApplicationCommandBuilder" isMethod args={[ { name: "isNSFW", type: "boolean" } ]}/>
+Sets whether the command is NSFW.
+### setDMPermission
+
+> <LuaDeclaration name="setDMPermission" className="ApplicationCommandBuilder" isMethod args={[ { name: "canDM", type: "boolean" } ]}/>
+Sets whether the command can be used in DMs.
+### setGuildPermissions
+
+> <LuaDeclaration name="setGuildPermissions" className="ApplicationCommandBuilder" isMethod args={[ { name: "permissionObject", type: "DiscordPermissionsBuilder" } ]}/>
+Sets the required permissions for the command in a guild.
+### addOption
+
+> <LuaDeclaration name="addOption" className="ApplicationCommandBuilder" isMethod args={[ { name: "commandObject", type: "ApplicationCommandOptionBuilder" } ]}/>
+Adds an option to the command.
+### setDefaultPermissionEnabled
+
+> <LuaDeclaration name="setDefaultPermissionEnabled" className="ApplicationCommandBuilder" isMethod args={[ { name: "enabled", type: "boolean" } ]}/>
+Sets whether the command has default permission enabled.
+### addContext
+
+> <LuaDeclaration name="addContext" className="ApplicationCommandBuilder" isMethod args={[ { name: "context", type: "number" } ]}/>
+Adds a context to the command.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="ApplicationCommandBuilder" isMethod args={[  ]}/>
+Converts the command to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> ApplicationCommandBuilder.new() ->  ApplicationCommandBuilder 
+
+Creates a new instance of ApplicationCommandBuilder.
+

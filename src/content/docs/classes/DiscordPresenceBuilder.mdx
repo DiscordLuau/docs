@@ -1,0 +1,81 @@
+---
+title: DiscordPresenceBuilder
+description: DiscordLuau docs for DiscordPresenceBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordPresenceBuilder is used to construct a presence object for a Discord bot, including activities, status, and AFK state.
+
+Usage:
+```lua
+local presence = DiscordPresenceBuilder.new()
+	:addActivity(DiscordActivityBuilder.new():setName("Playing a game"))
+	:setStatus(DiscordPresenceBuilder.Status.Online)
+	:setAfk(false)
+	:setSince(os.time())
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Status
+
+ ```lua
+ DiscordPresenceBuilder.Status :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of presence statuses.
+
+- Online: "online"
+- DoNotDisturb: "dnd"
+- Idle: "idle"
+- Invisible: "invisible"
+- Offline: "offline"
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### addActivity
+
+> <LuaDeclaration name="addActivity" className="DiscordPresenceBuilder" isMethod args={[ { name: "activity", type: "DiscordActivityBuilder" } ]}/>
+Adds an activity to the presence.
+### setStatus
+
+> <LuaDeclaration name="setStatus" className="DiscordPresenceBuilder" isMethod args={[ { name: "status", type: "string" } ]}/>
+Sets the status of the presence.
+### setAfk
+
+> <LuaDeclaration name="setAfk" className="DiscordPresenceBuilder" isMethod args={[ { name: "isAfk", type: "boolean" } ]}/>
+Sets whether the presence is AFK.
+### setSince
+
+> <LuaDeclaration name="setSince" className="DiscordPresenceBuilder" isMethod args={[ { name: "delta", type: "number" } ]}/>
+Sets the time since the presence was last updated.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordPresenceBuilder" isMethod args={[  ]}/>
+Converts the presence to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordPresenceBuilder.new() ->  DiscordPresenceBuilder 
+
+Creates a new instance of DiscordPresenceBuilder.
+

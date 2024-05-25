@@ -1,0 +1,118 @@
+---
+title: DiscordEmbedBuilder
+description: DiscordLuau docs for DiscordEmbedBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordEmbedBuilder is used to construct an embed object for a Discord message.
+
+Usage:
+```lua
+local embed = DiscordEmbedBuilder.new()
+	:setTitle("Embed Title")
+	:setDescription("This is an embed description.")
+	:setColor(0x00FF00)
+	:addField({name = "Field 1", value = "Value 1", inline = true})
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+ ```lua
+ DiscordEmbedBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+---
+An enumeration of embed types.
+
+- Rich: "rich"
+- Image: "image"
+- Video: "video"
+- Gif: "gifv"
+- Article: "article"
+- Link: "link"
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="DiscordEmbedBuilder" isMethod args={[ { name: "title", type: "string" } ]}/>
+Sets the title of the embed.
+### setType
+
+> <LuaDeclaration name="setType" className="DiscordEmbedBuilder" isMethod args={[ { name: "type", type: "string" } ]}/>
+Sets the type of the embed.
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="DiscordEmbedBuilder" isMethod args={[ { name: "description", type: "string" } ]}/>
+Sets the description of the embed.
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="DiscordEmbedBuilder" isMethod args={[ { name: "url", type: "string" } ]}/>
+Sets the URL of the embed.
+### setTimestamp
+
+> <LuaDeclaration name="setTimestamp" className="DiscordEmbedBuilder" isMethod args={[ { name: "epoch", type: "number" } ]}/>
+Sets the timestamp of the embed.
+### setColor
+
+> <LuaDeclaration name="setColor" className="DiscordEmbedBuilder" isMethod args={[ { name: "colorHex", type: "number" } ]}/>
+Sets the color of the embed.
+### setFooter
+
+> <LuaDeclaration name="setFooter" className="DiscordEmbedBuilder" isMethod args={[ { name: "footerSettings", type: "{ text: string, icon: string }" } ]}/>
+Sets the footer of the embed.
+### setImage
+
+> <LuaDeclaration name="setImage" className="DiscordEmbedBuilder" isMethod args={[ { name: "imageSettings", type: "{ imageUrl: string, height: number, width: number }" } ]}/>
+Sets the image of the embed.
+### setThumbnail
+
+> <LuaDeclaration name="setThumbnail" className="DiscordEmbedBuilder" isMethod args={[ { name: "thumbnailSettings", type: "{ thumbnailUrl: string, height: number, width: number }" } ]}/>
+Sets the thumbnail of the embed.
+### setVideo
+
+> <LuaDeclaration name="setVideo" className="DiscordEmbedBuilder" isMethod args={[ { name: "videoSettings", type: "{ videoUrl: string, height: number, width: number }" } ]}/>
+Sets the video of the embed.
+### setProvider
+
+> <LuaDeclaration name="setProvider" className="DiscordEmbedBuilder" isMethod args={[ { name: "providerSettings", type: "{ name: string, url: string }" } ]}/>
+Sets the provider of the embed.
+### setAuthor
+
+> <LuaDeclaration name="setAuthor" className="DiscordEmbedBuilder" isMethod args={[ { name: "authorSettings", type: "{ name: string, url: string, iconUrl: string }" } ]}/>
+Sets the author of the embed.
+### addField
+
+> <LuaDeclaration name="addField" className="DiscordEmbedBuilder" isMethod args={[ { name: "fieldSettings", type: "{ name: string, value: string, inline: boolean? }" } ]}/>
+Adds a field to the embed.
+### toJSONObject
+
+> <LuaDeclaration name="toJSONObject" className="DiscordEmbedBuilder" isMethod args={[  ]}/>
+Converts the embed to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordEmbedBuilder.new() ->  DiscordEmbedBuilder 
+
+Creates a new instance of DiscordEmbedBuilder.
+

@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordGateway.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 DiscordGateway is an internal class responsible for managing communication with the Discord API. This class handles rate limiting, scheduling HTTP requests, and processing events.
 
 :::caution
@@ -25,58 +32,47 @@ The DiscordGateway instance has no set properties!
 
 ### parseErrors
 
-> DiscordGateway:parseErrors( `errorTable` [table](https://www.lua.org/pil/2.5.html), `source` [string?](https://www.lua.org/pil/2.4.html), `depth` [number?](https://www.lua.org/pil/2.3.html) ) ->  [string](https://www.lua.org/pil/2.4.html) 
-
+> <LuaDeclaration name="parseErrors" className="DiscordGateway" isMethod args={[ { name: "errorTable", type: "table" }, { name: "source", type: "string?" }, { name: "depth", type: "number?" } ]}/>
 Parses error messages from the Discord API response.
 ### parseDiscordAPIErrors
 
-> DiscordGateway:parseDiscordAPIErrors( `api` [string](https://www.lua.org/pil/2.4.html), `networkResponse` Net.FetchResponse ) ->  [string](https://www.lua.org/pil/2.4.html) 
-
+> <LuaDeclaration name="parseDiscordAPIErrors" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "networkResponse", type: "Net.FetchResponse" } ]}/>
 Parses errors from a Discord API response.
 ### requestAsync
 
-> DiscordGateway:requestAsync( `api` [string](https://www.lua.org/pil/2.4.html), `method` [string](https://www.lua.org/pil/2.4.html), `data` [table?](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="requestAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "method", type: "string" }, { name: "data", type: "table?" } ]}/>
 Sends an asynchronous request to the Discord API.
 ### getAsync
 
-> DiscordGateway:getAsync( `api` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="getAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" } ]}/>
 Sends an asynchronous GET request to the Discord API.
 ### postAsync
 
-> DiscordGateway:postAsync( `api` [string](https://www.lua.org/pil/2.4.html), `data` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="postAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "data", type: "table" } ]}/>
 Sends an asynchronous POST request to the Discord API.
 ### putAsync
 
-> DiscordGateway:putAsync( `api` [string](https://www.lua.org/pil/2.4.html), `data` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="putAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "data", type: "table" } ]}/>
 Sends an asynchronous PUT request to the Discord API.
 ### deleteAsync
 
-> DiscordGateway:deleteAsync( `api` [string](https://www.lua.org/pil/2.4.html), `data` [table?](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "data", type: "table?" } ]}/>
 Sends an asynchronous DELETE request to the Discord API.
 ### patchAsync
 
-> DiscordGateway:patchAsync( `api` [string](https://www.lua.org/pil/2.4.html), `data` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="patchAsync" className="DiscordGateway" isMethod args={[ { name: "api", type: "string" }, { name: "data", type: "table" } ]}/>
 Sends an asynchronous PATCH request to the Discord API.
 ### setEndpointCache
 
-> DiscordGateway:setEndpointCache( `endpoint` [string](https://www.lua.org/pil/2.4.html), `cache` [table](https://www.lua.org/pil/2.5.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="setEndpointCache" className="DiscordGateway" isMethod args={[ { name: "endpoint", type: "string" }, { name: "cache", type: "table" } ]}/>
 Sets the cache for a specific API endpoint.
 ### getEndpointCache
 
-> DiscordGateway:getEndpointCache( `endpoint` [string](https://www.lua.org/pil/2.4.html) ) ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="getEndpointCache" className="DiscordGateway" isMethod args={[ { name: "endpoint", type: "string" } ]}/>
 Gets the cache for a specific API endpoint.
 ### getApiVersion
 
-> DiscordGateway:getApiVersion() ->  [number](https://www.lua.org/pil/2.3.html) 
-
+> <LuaDeclaration name="getApiVersion" className="DiscordGateway" isMethod args={[  ]}/>
 Gets the current Discord API version.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

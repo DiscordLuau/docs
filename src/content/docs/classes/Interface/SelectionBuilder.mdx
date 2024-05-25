@@ -7,6 +7,13 @@ description: DiscordLuau docs for SelectionBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 SelectionBuilder is used to construct a selection (dropdown) component for a Discord message.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -19,7 +26,7 @@ SelectionBuilder is used to construct a selection (dropdown) component for a Dis
  SelectionBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of selection types.
 
 - TextSelection: 3
@@ -33,7 +40,7 @@ An enumeration of selection types.
  SelectionBuilder.ChannelType :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of channel types.
 
 - GuildText: 0
@@ -55,48 +62,39 @@ An enumeration of channel types.
 
 ### setType
 
-> SelectionBuilder:setType( `selectionType` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setType" className="SelectionBuilder" isMethod args={[ { name: "selectionType", type: "number" } ]}/>
 Sets the type of the selection.
 ### setChannelTypes
 
-> SelectionBuilder:setChannelTypes( `...` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setChannelTypes" className="SelectionBuilder" isMethod args={[ { name: "...", type: "number" } ]}/>
 Sets the channel types for the selection.
 ### setPlaceholder
 
-> SelectionBuilder:setPlaceholder( `placeholderText` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setPlaceholder" className="SelectionBuilder" isMethod args={[ { name: "placeholderText", type: "string" } ]}/>
 Sets the placeholder text for the selection.
 ### setDisabled
 
-> SelectionBuilder:setDisabled( `isDisabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setDisabled" className="SelectionBuilder" isMethod args={[ { name: "isDisabled", type: "boolean" } ]}/>
 Sets whether the selection is disabled.
 ### setMinValues
 
-> SelectionBuilder:setMinValues( `minValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setMinValues" className="SelectionBuilder" isMethod args={[ { name: "minValue", type: "number" } ]}/>
 Sets the minimum number of values that must be selected.
 ### setMaxValues
 
-> SelectionBuilder:setMaxValues( `maxValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="setMaxValues" className="SelectionBuilder" isMethod args={[ { name: "maxValue", type: "number" } ]}/>
 Sets the maximum number of values that can be selected.
 ### addChoice
 
-> SelectionBuilder:addChoice( `choiceName` [string](https://www.lua.org/pil/2.4.html), `choiceValue` [string](https://www.lua.org/pil/2.4.html), `choiceDescription` [string](https://www.lua.org/pil/2.4.html), `isDefault` [boolean](https://www.lua.org/pil/2.2.html), `emojiId` [string?](https://www.lua.org/pil/2.4.html), `emojiName` [string?](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="addChoice" className="SelectionBuilder" isMethod args={[ { name: "choiceName", type: "string" }, { name: "choiceValue", type: "string" }, { name: "choiceDescription", type: "string" }, { name: "isDefault", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]}/>
 Adds a choice to the selection.
 ### destroyChoice
 
-> SelectionBuilder:destroyChoice( `choiceName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
-
+> <LuaDeclaration name="destroyChoice" className="SelectionBuilder" isMethod args={[ { name: "choiceName", type: "string" } ]}/>
 Removes a choice from the selection.
 ### toJSONObject
 
-> SelectionBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="SelectionBuilder" isMethod args={[  ]}/>
 Converts the selection to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -105,7 +103,7 @@ Converts the selection to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> SelectionBuilder.new( `selectionId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
+> SelectionBuilder.new( `selectionId` [string](https://www.lua.org/pil/2.4.html) ) ->  SelectionBuilder 
 
 Creates a new instance of SelectionBuilder.
 

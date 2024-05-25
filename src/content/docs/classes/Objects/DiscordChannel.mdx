@@ -7,6 +7,13 @@ description: DiscordLuau docs for DiscordChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordChannel` class represents a generic Discord channel and provides various methods to interact with and manage the channel.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -19,7 +26,7 @@ The `DiscordChannel` class represents a generic Discord channel and provides var
  DiscordChannel.type :: [string](https://www.lua.org/pil/2.4.html)
 ```
 
-
+---
 The type of the Discord channel. Default is "DiscordChannel".
 
 [//]: # (----- DOCUMENT METHODS ----- )
@@ -28,48 +35,39 @@ The type of the Discord channel. Default is "DiscordChannel".
 
 ### triggerTypingIndicator
 
-> DiscordChannel:triggerTypingIndicator() ->  Future 
-
+> <LuaDeclaration name="triggerTypingIndicator" className="DiscordChannel" isMethod args={[  ]}/>
 Triggers the typing indicator in the channel.
 ### deleteAsync
 
-> DiscordChannel:deleteAsync() ->  Future 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordChannel" isMethod args={[  ]}/>
 Deletes the channel asynchronously.
 ### getMessagesAsync
 
-> DiscordChannel:getMessagesAsync( `limit` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
-
+> <LuaDeclaration name="getMessagesAsync" className="DiscordChannel" isMethod args={[ { name: "limit", type: "number?" } ]}/>
 Gets messages from the channel asynchronously.
 ### getMessageAsync
 
-> DiscordChannel:getMessageAsync( `messageId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="getMessageAsync" className="DiscordChannel" isMethod args={[ { name: "messageId", type: "string" } ]}/>
 Gets a specific message from the channel asynchronously.
 ### bulkDeleteMessagesAsync
 
-> DiscordChannel:bulkDeleteMessagesAsync( `messageIds` [\{string}](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="DiscordChannel" isMethod args={[ { name: "messageIds", type: "{string}" } ]}/>
 Deletes multiple messages from the channel asynchronously.
 ### sendMessageAsync
 
-> DiscordChannel:sendMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
-
+> <LuaDeclaration name="sendMessageAsync" className="DiscordChannel" isMethod args={[ { name: "messageBuilder", type: "DiscordMessageBuilder" } ]}/>
 Sends a message to the channel asynchronously.
 ### getInvitesAsync
 
-> DiscordChannel:getInvitesAsync() ->  Future 
-
+> <LuaDeclaration name="getInvitesAsync" className="DiscordChannel" isMethod args={[  ]}/>
 Gets the invites for the channel asynchronously.
 ### createInviteAsync
 
-> DiscordChannel:createInviteAsync( `maxAge` [number?](https://www.lua.org/pil/2.3.html), `maxUses` [number?](https://www.lua.org/pil/2.3.html), `temporary` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
-
+> <LuaDeclaration name="createInviteAsync" className="DiscordChannel" isMethod args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]}/>
 Creates an invite for the channel asynchronously.
 ### setPositionAsync
 
-> DiscordChannel:setPositionAsync( `position` [number](https://www.lua.org/pil/2.3.html), `parentId` [string?](https://www.lua.org/pil/2.4.html), `syncPermissions` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
-
+> <LuaDeclaration name="setPositionAsync" className="DiscordChannel" isMethod args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]}/>
 Sets the position of the channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

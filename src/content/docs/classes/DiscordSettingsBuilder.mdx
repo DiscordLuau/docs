@@ -1,0 +1,58 @@
+---
+title: DiscordSettingsBuilder
+description: DiscordLuau docs for DiscordSettingsBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+A simple class to retain some generic data before a Discord Client can be started, for instance:
+
+- The Discord bot token/authentication
+- The Discord bot intents
+
+Usage:
+```lua
+local DiscordLuau = require("../Submodules/DiscordLuau")
+
+local DiscordIntentsBuilder = DiscordLuau.DiscordIntentsBuilder.fromAll()
+local DiscordSettingsBuilder = DiscordLuau.DiscordSettingsBuilder.new("BOT TOKEN", DiscordIntentsBuilder)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The DiscordSettingsBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setDiscordToken
+
+> <LuaDeclaration name="setDiscordToken" className="DiscordSettingsBuilder" isMethod args={[ { name: "discordToken", type: "string" } ]}/>
+Sets the Discord bot token.
+### setIntents
+
+> <LuaDeclaration name="setIntents" className="DiscordSettingsBuilder" isMethod args={[ { name: "discordIntents", type: "DiscordIntentsBuilder" } ]}/>
+Sets the Discord bot intents.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordSettingsBuilder.new( `discordToken` [string](https://www.lua.org/pil/2.4.html), `discordIntents` DiscordIntentsBuilder? ) ->  DiscordSettingsBuilder 
+
+Constructs a new instance of DiscordSettingsBuilder.
+

@@ -7,6 +7,13 @@ description: DiscordLuau docs for WebsocketBuffer.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import StyleComponent from '$/components/StyleComponent.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `WebsocketBuffer` class manages a buffer for websocket data, allowing for data to be added incrementally and flushed when needed.
 
 :::caution
@@ -25,18 +32,15 @@ The WebsocketBuffer instance has no set properties!
 
 ### flush
 
-> WebsocketBuffer:flush( `self` WebsocketBuffer ) ->  [string](https://www.lua.org/pil/2.4.html) 
-
+> <LuaDeclaration name="flush" className="WebsocketBuffer" isMethod args={[ { name: "self", type: "WebsocketBuffer" } ]}/>
 Flushes the buffer, returning all accumulated data and resetting the buffer.
 ### add
 
-> WebsocketBuffer:add( `self` WebsocketBuffer, `data` [string](https://www.lua.org/pil/2.4.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="add" className="WebsocketBuffer" isMethod args={[ { name: "self", type: "WebsocketBuffer" }, { name: "data", type: "string" } ]}/>
 Adds data to the buffer.
 ### new
 
-> WebsocketBuffer:new() ->  WebsocketBuffer 
-
+> <LuaDeclaration name="new" className="WebsocketBuffer" isMethod args={[  ]}/>
 Creates a new instance of `WebsocketBuffer`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
