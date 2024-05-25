@@ -1,5 +1,5 @@
-local Moonwave = require("Moonwave")
-local Types = require("Types")
+local Moonwave = require("moonwave")
+local Types = require("types")
 
 local Markdown = {}
 
@@ -9,10 +9,6 @@ end
 
 local function newline()
 	return `\n`
-end
-
-local function h1(source)
-	return `# {source}\n\n`
 end
 
 local function h2(source)
@@ -25,6 +21,10 @@ end
 
 local function input(source)
 	return `{source}\n`
+end
+
+local function separator()
+	return `---\n`
 end
 
 local function frontmatter(source: {
@@ -108,7 +108,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			)
 
 			if property.desc ~= "" then
-				markdownFile ..= newline()
+				markdownFile ..= separator()
 				markdownFile ..= input(property.desc)
 			end
 		end
@@ -128,7 +128,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 		for _, method in classMethods do
 			markdownFile ..= h3(method.name)
 			markdownFile ..= input(
-				`> {className}:{method.name}({getReadableParamList(method)}) -> {getReadableReturnsList(method)}`
+				` \`\`\`lua\n > {className}:{method.name}({getReadableParamList(method)}) -> {getReadableReturnsList(method)}\n\`\`\`\n`
 			)
 
 			if method.desc then
