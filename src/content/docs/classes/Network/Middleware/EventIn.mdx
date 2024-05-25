@@ -1,0 +1,47 @@
+---
+title: EventIn
+description: DiscordLuau docs for EventIn.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+The `EventIn` class processes incoming events, converting JSON keys to camelCase format for consistency within the application.
+
+:::caution
+This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to handle incoming events.
+:::
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The EventIn instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### toCamelCase
+
+> EventIn:toCamelCase( `self` EventIn, `json` [table](https://www.lua.org/pil/2.5.html) ) ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts JSON keys from snake_case to camelCase.
+### processJSON
+
+> EventIn:processJSON( `self` EventIn, `data` any ) ->  any 
+
+Processes incoming JSON data, converting keys to camelCase if the data is a table.
+### new
+
+> EventIn:new() ->  EventIn 
+
+Creates a new instance of `EventIn`.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The EventIn instance has no set functions!
+

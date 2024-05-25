@@ -7,13 +7,20 @@ description: DiscordLuau docs for DiscordEmoji.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordEmoji` class represents a Discord emoji and provides a structure for emoji data.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordEmoji instance has no set properties!
+### type
+
+ ```lua
+ DiscordEmoji.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the DiscordEmoji. Default is "DiscordEmoji".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -25,5 +32,9 @@ The DiscordEmoji instance has no set methods!
 
 ## Functions
 
-The DiscordEmoji instance has no set functions!
+### new
+
+> DiscordEmoji.new( `discordClient` any, `emojiData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordEmoji 
+
+Creates a new DiscordEmoji instance.
 

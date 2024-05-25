@@ -7,7 +7,7 @@ description: DiscordLuau docs for DiscordTextChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+DiscordTextChannel represents a text channel in a Discord server, providing methods to modify the channel and interact with pinned messages.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,11 +19,24 @@ The DiscordTextChannel instance has no set properties!
 
 ## Methods
 
-The DiscordTextChannel instance has no set methods!
+### modifyAsync
+
+> DiscordTextChannel:modifyAsync( `channelSchema` DiscordTextChannelSchema ) ->  Future<unknown> 
+
+Modifies the text channel settings asynchronously.
+### getPinnedMessagesAsync
+
+> DiscordTextChannel:getPinnedMessagesAsync() ->  Future<\{[number]: DiscordMessage}> 
+
+Retrieves the pinned messages in the text channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordTextChannel instance has no set functions!
+### new
+
+> DiscordTextChannel.new( `discordClient` any, `channelData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordTextChannel 
+
+Creates a new instance of DiscordTextChannel.
 

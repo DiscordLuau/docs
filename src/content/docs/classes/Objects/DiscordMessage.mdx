@@ -7,7 +7,7 @@ description: DiscordLuau docs for DiscordMessage.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+DiscordMessage represents a message in a Discord channel, providing methods to reply, delete, pin, unpin, edit, and manage reactions.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,11 +19,69 @@ The DiscordMessage instance has no set properties!
 
 ## Methods
 
-The DiscordMessage instance has no set methods!
+### replyAsync
+
+> DiscordMessage:replyAsync( `messageBuilder` MessageBuilder ) ->  Future<unknown> 
+
+Replies to the message asynchronously.
+### deleteAsync
+
+> DiscordMessage:deleteAsync() ->  Future<unknown> 
+
+Deletes the message asynchronously.
+### pinAsync
+
+> DiscordMessage:pinAsync() ->  Future<unknown> 
+
+Pins the message asynchronously.
+### unpinAsync
+
+> DiscordMessage:unpinAsync() ->  Future<unknown> 
+
+Unpins the message asynchronously.
+### editAsync
+
+> DiscordMessage:editAsync( `messageBuilder` MessageBuilder ) ->  Future<unknown> 
+
+Edits the message asynchronously.
+### addReactionAsync
+
+> DiscordMessage:addReactionAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Adds a reaction to the message asynchronously.
+### removeReactionAsync
+
+> DiscordMessage:removeReactionAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Removes a reaction from the message asynchronously.
+### removeUserReactionAsync
+
+> DiscordMessage:removeUserReactionAsync( `userId` [string](https://www.lua.org/pil/2.4.html), `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Removes a reaction from a specific user on the message asynchronously.
+### getReactionsAsync
+
+> DiscordMessage:getReactionsAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Gets the reactions on the message asynchronously.
+### removeAllReactionsAsync
+
+> DiscordMessage:removeAllReactionsAsync() ->  Future<unknown> 
+
+Removes all reactions from the message asynchronously.
+### removeAllReactionsForEmojiAsync
+
+> DiscordMessage:removeAllReactionsForEmojiAsync( `reaction` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Removes all reactions for a specific emoji from the message asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordMessage instance has no set functions!
+### new
+
+> DiscordMessage.new( `discordClient` any, `messageData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordMessage 
+
+Creates a new instance of DiscordMessage.
 

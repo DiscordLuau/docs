@@ -7,23 +7,62 @@ description: DiscordLuau docs for DiscordApplication.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordApplication` class provides methods to interact with Discord application commands such as creating, deleting, editing, fetching, and setting global application commands.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordApplication instance has no set properties!
+### id
+
+ ```lua
+ DiscordApplication.id :: string The unique identifier of the Discord application.
+```
+
+### flags
+
+ ```lua
+ DiscordApplication.flags :: number The flags associated with the Discord application.
+```
+
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordApplication instance has no set methods!
+### createSlashCommandAsync
+
+> DiscordApplication:createSlashCommandAsync( `command` CommandBuilder.CommandBuilder The command to create. ) ->  Future<CommandResponse> 
+
+Creates a new slash command for the Discord application.
+### deleteSlashCommandAsync
+
+> DiscordApplication:deleteSlashCommandAsync( `commandId` string The ID of the command to delete. ) ->  Future<CommandResponse> 
+
+Deletes an existing slash command from the Discord application.
+### editSlashCommandAsync
+
+> DiscordApplication:editSlashCommandAsync( `commandId` string The ID of the command to edit., `command` CommandBuilder.CommandBuilder The updated command data. ) ->  Future<CommandResponse> 
+
+Edits an existing slash command for the Discord application.
+### fetchSlashCommandsAsync
+
+> DiscordApplication:fetchSlashCommandsAsync() ->  Future<\{ApplicationCommand}> 
+
+Fetches all existing slash commands for the Discord application.
+### setSlashCommandsAsync
+
+> DiscordApplication:setSlashCommandsAsync( `commands` \{CommandBuilder.CommandBuilder} The list of commands to set. ) ->  Future<nil> 
+
+Sets the slash commands for the Discord application, updating existing ones and creating or deleting as necessary.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordApplication instance has no set functions!
+### new
+
+> DiscordApplication.new( `discordClient` any The Discord client instance., `applicationData` \{id: string, flags: number} The application data. ) ->  DiscordApplication 
+
+Creates a new instance of the DiscordApplication.
 

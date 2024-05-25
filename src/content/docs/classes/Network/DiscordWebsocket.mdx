@@ -7,7 +7,11 @@ description: DiscordLuau docs for DiscordWebsocket.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordWebsocket` class manages the websocket connection to Discord. It handles sending and receiving messages, managing the connection state, and processing incoming and outgoing events.
+
+:::caution
+This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to interact with the Discord websocket.
+:::
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,7 +23,26 @@ The DiscordWebsocket instance has no set properties!
 
 ## Methods
 
-The DiscordWebsocket instance has no set methods!
+### sendAsync
+
+> DiscordWebsocket:sendAsync( `self` DiscordWebsocket, `dataPacket` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
+
+Sends a data packet asynchronously through the websocket.
+### connectAsync
+
+> DiscordWebsocket:connectAsync( `self` DiscordWebsocket, `websocketUrl` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Connects to a websocket URL asynchronously.
+### disconnectAsync
+
+> DiscordWebsocket:disconnectAsync( `self` DiscordWebsocket, `closingCode` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Disconnects from the websocket asynchronously.
+### new
+
+> DiscordWebsocket:new() ->  DiscordWebsocket 
+
+Creates a new instance of `DiscordWebsocket`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

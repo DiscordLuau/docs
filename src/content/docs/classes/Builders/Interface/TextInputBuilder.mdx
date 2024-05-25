@@ -1,0 +1,82 @@
+---
+title: TextInputBuilder
+description: DiscordLuau docs for TextInputBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+TextInputBuilder is used to construct a text input component for a Discord message.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Style
+
+ ```lua
+ TextInputBuilder.Style :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of text input styles.
+
+- Short: 1
+- Paragraph: 2
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setStyle
+
+> TextInputBuilder:setStyle( `inputStyle` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the style of the text input.
+### setLabel
+
+> TextInputBuilder:setLabel( `label` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the label of the text input.
+### setMinLength
+
+> TextInputBuilder:setMinLength( `length` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the minimum length of the text input.
+### setMaxLength
+
+> TextInputBuilder:setMaxLength( `length` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the maximum length of the text input.
+### setRequired
+
+> TextInputBuilder:setRequired( `isRequired` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets whether the text input is required.
+### setDefaultValue
+
+> TextInputBuilder:setDefaultValue( `value` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the default value of the text input.
+### setPlaceholder
+
+> TextInputBuilder:setPlaceholder( `value` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Sets the placeholder value of the text input.
+### toJSONObject
+
+> TextInputBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts the text input to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> TextInputBuilder.new( `textInputId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.TextInputBuilder 
+
+Creates a new instance of TextInputBuilder.
+

@@ -7,23 +7,78 @@ description: DiscordLuau docs for DiscordChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordChannel` class represents a generic Discord channel and provides various methods to interact with and manage the channel.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordChannel instance has no set properties!
+### type
+
+ ```lua
+ DiscordChannel.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the Discord channel. Default is "DiscordChannel".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordChannel instance has no set methods!
+### triggerTypingIndicator
+
+> DiscordChannel:triggerTypingIndicator() ->  Future 
+
+Triggers the typing indicator in the channel.
+### deleteAsync
+
+> DiscordChannel:deleteAsync() ->  Future 
+
+Deletes the channel asynchronously.
+### getMessagesAsync
+
+> DiscordChannel:getMessagesAsync( `limit` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
+
+Gets messages from the channel asynchronously.
+### getMessageAsync
+
+> DiscordChannel:getMessageAsync( `messageId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Gets a specific message from the channel asynchronously.
+### bulkDeleteMessagesAsync
+
+> DiscordChannel:bulkDeleteMessagesAsync( `messageIds` [\{string}](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Deletes multiple messages from the channel asynchronously.
+### sendMessageAsync
+
+> DiscordChannel:sendMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
+
+Sends a message to the channel asynchronously.
+### getInvitesAsync
+
+> DiscordChannel:getInvitesAsync() ->  Future 
+
+Gets the invites for the channel asynchronously.
+### createInviteAsync
+
+> DiscordChannel:createInviteAsync( `maxAge` [number?](https://www.lua.org/pil/2.3.html), `maxUses` [number?](https://www.lua.org/pil/2.3.html), `temporary` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
+
+Creates an invite for the channel asynchronously.
+### setPositionAsync
+
+> DiscordChannel:setPositionAsync( `position` [number](https://www.lua.org/pil/2.3.html), `parentId` [string?](https://www.lua.org/pil/2.4.html), `syncPermissions` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
+
+Sets the position of the channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordChannel instance has no set functions!
+### new
+
+> DiscordChannel.new( `discordClient` any, `rawChannelData` any ) ->  DiscordChannel 
+
+Creates a new DiscordChannel instance.
 

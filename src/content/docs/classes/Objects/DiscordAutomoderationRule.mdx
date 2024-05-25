@@ -1,0 +1,101 @@
+---
+title: DiscordAutomoderationRule
+description: DiscordLuau docs for DiscordAutomoderationRule.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+The `DiscordAutomoderationRule` class provides methods to interact with Discord auto-moderation rules, including modifying and deleting rules.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### id
+
+ ```lua
+ DiscordAutomoderationRule.id :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+### guildId
+
+ ```lua
+ DiscordAutomoderationRule.guildId :: sring
+```
+
+### name
+
+ ```lua
+ DiscordAutomoderationRule.name :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+### eventType
+
+ ```lua
+ DiscordAutomoderationRule.eventType :: [number](https://www.lua.org/pil/2.3.html)
+```
+
+### triggerType
+
+ ```lua
+ DiscordAutomoderationRule.triggerType :: [number](https://www.lua.org/pil/2.3.html)
+```
+
+### enabled
+
+ ```lua
+ DiscordAutomoderationRule.enabled :: [boolean](https://www.lua.org/pil/2.2.html)
+```
+
+### exemptRoles
+
+ ```lua
+ DiscordAutomoderationRule.exemptRoles :: [{ string }](https://www.lua.org/pil/2.4.html)
+```
+
+### exemptChannels
+
+ ```lua
+ DiscordAutomoderationRule.exemptChannels :: [{ string }](https://www.lua.org/pil/2.4.html)
+```
+
+### triggerMetadata
+
+ ```lua
+ DiscordAutomoderationRule.triggerMetadata :: TriggerMetadata
+```
+
+### actions
+
+ ```lua
+ DiscordAutomoderationRule.actions :: Actions
+```
+
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### modifyAsync
+
+> DiscordAutomoderationRule:modifyAsync( `moderationRoleBuilder` DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule. ) ->  Future<CommandResponse> 
+
+Modifies an existing auto-moderation rule.
+### deleteAsync
+
+> DiscordAutomoderationRule:deleteAsync() ->  Future<CommandResponse> 
+
+Deletes an existing auto-moderation rule.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordAutomoderationRule.new( `discordClient` any The Discord client instance., `automoderationData` table The data for the auto-moderation rule. ) ->  DiscordAutomoderationRule 
+
+Creates a new instance of the DiscordAutomoderationRule.
+

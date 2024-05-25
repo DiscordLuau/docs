@@ -7,7 +7,11 @@ description: DiscordLuau docs for HTTPScheduler.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `HTTPScheduler` class manages the scheduling of HTTP tasks. It allows for the addition, removal, and execution of tasks at a specified frequency.
+
+:::caution
+This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to manage HTTP scheduling.
+:::
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,7 +23,51 @@ The HTTPScheduler instance has no set properties!
 
 ## Methods
 
-The HTTPScheduler instance has no set methods!
+### spawnWorker
+
+> HTTPScheduler:spawnWorker( `self` HTTPScheduler ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Spawns a new worker task that cycles through scheduled tasks at the specified frequency.
+### stopWorker
+
+> HTTPScheduler:stopWorker( `self` HTTPScheduler ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Stops and removes a worker task.
+### setFrequency
+
+> HTTPScheduler:setFrequency( `self` HTTPScheduler, `frequency` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Sets the frequency at which tasks are cycled.
+### cycle
+
+> HTTPScheduler:cycle( `self` HTTPScheduler ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Processes the next task in the stack.
+### isActive
+
+> HTTPScheduler:isActive( `self` HTTPScheduler ) ->  [boolean](https://www.lua.org/pil/2.2.html) 
+
+Checks if there are any tasks currently being processed.
+### setLimit
+
+> HTTPScheduler:setLimit( `self` HTTPScheduler, `limit` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Sets the limit for the number of tasks that can be scheduled.
+### removeTask
+
+> HTTPScheduler:removeTask( `self` HTTPScheduler, `object` function ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Removes a task from the scheduler.
+### addTask
+
+> HTTPScheduler:addTask( `self` HTTPScheduler, `object` function ) ->  any 
+
+Adds a task to the scheduler.
+### new
+
+> HTTPScheduler:new( `threadCount` [number?](https://www.lua.org/pil/2.3.html) ) ->  HTTPScheduler 
+
+Creates a new instance of `HTTPScheduler`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

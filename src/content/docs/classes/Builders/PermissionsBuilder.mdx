@@ -1,0 +1,129 @@
+---
+title: PermissionsBuilder
+description: DiscordLuau docs for PermissionsBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+PermissionsBuilder is used to construct and manage permissions for a Discord bot.
+
+Usage:
+```lua
+local permissions = PermissionsBuilder.new()
+	:addPermission(PermissionsBuilder.Permissions.Administrator)
+	:addPermission(PermissionsBuilder.Permissions.ManageChannels)
+
+print(permissions:getValue())
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Permissions
+
+ ```lua
+ PermissionsBuilder.Permissions :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of permissions.
+
+- CreateInstantInvite: 0
+- KickMembers: 1
+- BanMembers: 2
+- Administrator: 3
+- ManageChannels: 4
+- ManageGuild: 5
+- AddReactions: 6
+- ViewAuditLog: 7
+- PrioritySpeaker: 8
+- Stream: 9
+- ViewChannel: 10
+- SendMessages: 11
+- SendTTSMessages: 12
+- ManageMessages: 13
+- EmbedLinks: 14
+- AttachFiles: 15
+- ReadMessageHistory: 16
+- MentionEveryone: 17
+- UseExternalEmojis: 18
+- ViewGuildInsights: 19
+- Connect: 20
+- Speak: 21
+- MuteMembers: 22
+- DeafenMembers: 23
+- MoveMembers: 24
+- UseVAD: 25
+- ChangeNickname: 26
+- ChangeNicknames: 27
+- ManageRoles: 28
+- ManageWebhooks: 29
+- ManageGuildExpressions: 30
+- UseApplicationCommands: 31
+- RequestToSpeak: 32
+- ManageEvents: 33
+- ManageThreads: 34
+- CreatePublicThreads: 35
+- CreatePrivateThreads: 36
+- UseExternalStickers: 37
+- SendMessagesInThreads: 38
+- UseEmbeddedActivities: 39
+- ModerateMembers: 40
+- ViewCreatorMonetizationAnalytics: 41
+- UseSoundboard: 42
+- UseExternalSounds: 45
+- SendVoiceMessages: 46
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### addPermission
+
+> PermissionsBuilder:addPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
+
+Adds a permission to the builder.
+### deletePermission
+
+> PermissionsBuilder:deletePermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
+
+Removes a permission from the builder.
+### hasPermission
+
+> PermissionsBuilder:hasPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  [boolean](https://www.lua.org/pil/2.2.html) 
+
+Checks if a permission is in the builder.
+### getValue
+
+> PermissionsBuilder:getValue() ->  [string](https://www.lua.org/pil/2.4.html) 
+
+Gets the bitfield value of the permissions.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> PermissionsBuilder.new() ->  Builders.PermissionsBuilder 
+
+Creates a new instance of PermissionsBuilder.
+### none
+
+> PermissionsBuilder.none() ->  Builders.PermissionsBuilder 
+
+Creates a new instance of PermissionsBuilder with no permissions.
+### all
+
+> PermissionsBuilder.all() ->  Builders.PermissionsBuilder 
+
+Creates a new instance of PermissionsBuilder with all permissions.
+### from
+
+> PermissionsBuilder.from( `bitfield` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.PermissionsBuilder 
+
+Creates a new instance of PermissionsBuilder from a bitfield.
+

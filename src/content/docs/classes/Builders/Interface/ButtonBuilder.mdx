@@ -1,0 +1,75 @@
+---
+title: ButtonBuilder
+description: DiscordLuau docs for ButtonBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+ButtonBuilder is used to construct a button component for a Discord message.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Style
+
+ ```lua
+ ButtonBuilder.Style :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of button styles.
+
+- Blurple: 1
+- Grey: 2
+- Green: 3
+- Red: 4
+- Link: 5
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setStyle
+
+> ButtonBuilder:setStyle( `buttonStyle` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Sets the style of the button.
+### setLabel
+
+> ButtonBuilder:setLabel( `buttonLabel` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Sets the label of the button.
+### setEmoji
+
+> ButtonBuilder:setEmoji( `emojiId` [string](https://www.lua.org/pil/2.4.html), `emojiName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Sets the emoji for the button.
+### setLinkUrl
+
+> ButtonBuilder:setLinkUrl( `url` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Sets the URL for the button. This should only be used if the button style is set to `Link`.
+### setDisabled
+
+> ButtonBuilder:setDisabled( `isDisabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Sets whether the button is disabled.
+### toJSONObject
+
+> ButtonBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts the button to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> ButtonBuilder.new( `buttonId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
+
+Creates a new instance of ButtonBuilder.
+

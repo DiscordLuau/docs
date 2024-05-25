@@ -1,0 +1,82 @@
+---
+title: MessageBuilder
+description: DiscordLuau docs for MessageBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+MessageBuilder is used to construct a message that can be sent to a Discord channel, including content, embeds, components, and stickers.
+
+Usage:
+```lua
+local message = MessageBuilder.new()
+	:setContent("Hello, world!")
+	:addEmbed(EmbedBuilder.new():setTitle("Embed Title"))
+	:addComponent(ButtonBuilder.new("button_id"))
+	:addStickerId("sticker_id")
+	:setTTSEnabled(true)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The MessageBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setContent
+
+> MessageBuilder:setContent( `content` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
+
+Sets the content of the message.
+### setNonce
+
+> MessageBuilder:setNonce( `nonce` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
+
+Sets the nonce of the message.
+### setTTSEnabled
+
+> MessageBuilder:setTTSEnabled( `ttsEnabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.MessageBuilder 
+
+Sets whether text-to-speech (TTS) is enabled for the message.
+### addEmbed
+
+> MessageBuilder:addEmbed( `embedBuilder` EmbedBuilder ) ->  Builders.MessageBuilder 
+
+Adds an embed to the message.
+### addComponent
+
+> MessageBuilder:addComponent( `discordComponent` InterfaceBuilder ) ->  Builders.MessageBuilder 
+
+Adds a component to the message.
+### addStickerId
+
+> MessageBuilder:addStickerId( `stickerId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
+
+Adds a sticker ID to the message.
+### setFlags
+
+> MessageBuilder:setFlags( `flags` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.MessageBuilder 
+
+Sets the flags for the message.
+### toJSONObject
+
+> MessageBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts the message to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> MessageBuilder.new() ->  Builders.MessageBuilder 
+
+Creates a new instance of MessageBuilder.
+
