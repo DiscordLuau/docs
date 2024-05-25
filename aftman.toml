@@ -4,4 +4,4 @@
 # To add a new tool, add an entry to this table.
 [tools]
 lune = "lune-org/lune@0.8.4"
-# rojo = "rojo-rbx/rojo@6.2.0"
+moonwave = "evaera/moonwave@1.1.2"

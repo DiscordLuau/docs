@@ -32,7 +32,7 @@ function Moonwave.getFunctionsOfFunctionType(inputArray: { any }, functionType: 
 end
 
 function Moonwave.extractCommentsIntoJson(): moonwaveDataExportArray
-	local moonwaveExtractResult = process.spawn("binaries/moonwave-extractor", {
+	local moonwaveExtractResult = process.spawn("moonwave", {
 		"extract",
 		"-b",
 		"discord-luau/Package",
