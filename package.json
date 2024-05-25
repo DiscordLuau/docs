@@ -4,11 +4,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "postinstall": "deno install -Arf jsr:@deno/deployctl",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "./lunew generateReference && astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "deployctl deploy --entrypoint dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
