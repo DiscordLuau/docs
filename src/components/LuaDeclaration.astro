@@ -16,47 +16,19 @@ type LuaParam = {
 };
 
 type Props = AstroProps & {
-    method: string;
-    takesSelf: boolean;
+    name: string;
+    isMethod: boolean;
     className: string;
     args: LuaParam[];
 };
 
-const { method, className, args, takesSelf } = Astro.props;
+const { name, className, args, isMethod } = Astro.props;
 ---
 
-<!-- <div class="declaration"> --><!-- <code class="declaration"
-    >{
-        (
-            <code class="declaration class">
-                {className}:{<code class="declaration method">{method}</code>}
-            </code>
-        )
-    }({args.length !== 0 && <br />}{
-        args.map(({ name, type }, count) => {
-            return (
-                <>
-                    {/* <br /> */}
-                    <code class="declaration arg">
-                        {name}:
-                        {
-                            <code class="declaration type">
-                                {type}
-                                {(count !== args.length - 1 && ",") || ""}
-                                {<br />}
-                            </code>
-                        }
-                    </code>
-                    {/* <br /> */}
-                </>
-            );
-        })
-    })</code
-> -->
 <div class="declaration">
     <span class="declaration class">{className}</span>
-    <span class="declaration">{takesSelf && ":" || "."}</span>
-    <span class="declaration method">{method}</span>
+    <span class="declaration">{isMethod && ":" || "."}</span>
+    <span class="declaration method">{name}</span>
     <span class="declaration">(</span>
     <div class="declaration">
         {
