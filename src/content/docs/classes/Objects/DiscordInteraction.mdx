@@ -7,23 +7,53 @@ description: DiscordLuau docs for DiscordInteraction.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordInteraction` class represents an interaction with the Discord API, such as a message interaction, a command, or a modal submission.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordInteraction instance has no set properties!
+### type
+
+ ```lua
+ DiscordInteraction.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the DiscordInteraction. Default is "DiscordInteraction".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordInteraction instance has no set methods!
+### editMessageAsync
+
+> DiscordInteraction:editMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
+
+Edits the original interaction response message asynchronously.
+### sendModalAsync
+
+> DiscordInteraction:sendModalAsync( `modalObject` ModalBuilder ) ->  Future 
+
+Sends a modal in response to the interaction asynchronously.
+### sendMessageAsync
+
+> DiscordInteraction:sendMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
+
+Sends a message in response to the interaction asynchronously.
+### deferAsync
+
+> DiscordInteraction:deferAsync() ->  Future 
+
+Defers the interaction response asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordInteraction instance has no set functions!
+### new
+
+> DiscordInteraction.new( `discordClient` any, `jsonData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordInteraction 
+
+Creates a new DiscordInteraction instance.
 

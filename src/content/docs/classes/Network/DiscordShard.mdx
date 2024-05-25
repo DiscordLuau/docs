@@ -7,7 +7,11 @@ description: DiscordLuau docs for DiscordShard.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+DiscordShard is an internal class responsible for managing the connection and communication with a specific shard of the Discord WebSocket. This class handles events, errors, and operations specific to a shard.
+
+:::caution
+This class is internal and should not be used directly by developers.
+:::
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,11 +23,64 @@ The DiscordShard instance has no set properties!
 
 ## Methods
 
-The DiscordShard instance has no set methods!
+### observeWebsocketErrors
+
+> DiscordShard:observeWebsocketErrors() -> [nil](https://www.lua.org/pil/2.1.html)
+
+Observes and handles WebSocket errors.
+### observeWebsocketEvents
+
+> DiscordShard:observeWebsocketEvents() -> [nil](https://www.lua.org/pil/2.1.html)
+
+Observes and handles WebSocket events.
+### observeWebsocketOperations
+
+> DiscordShard:observeWebsocketOperations() -> [nil](https://www.lua.org/pil/2.1.html)
+
+Observes and handles WebSocket operations.
+### initiateWebsocket
+
+> DiscordShard:initiateWebsocket() -> [nil](https://www.lua.org/pil/2.1.html)
+
+Initiates the WebSocket connection.
+### heartbeatAsync
+
+> DiscordShard:heartbeatAsync( `ignoreHeartbeatAck` [boolean?](https://www.lua.org/pil/2.2.html) ) ->  Future 
+
+Sends a heartbeat to the Discord WebSocket.
+### heartbeatIn
+
+> DiscordShard:heartbeatIn( `milliseconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Schedules the next heartbeat.
+### identifyAsync
+
+> DiscordShard:identifyAsync() ->  Future 
+
+Identifies the Discord client with the Discord WebSocket.
+### connectAsync
+
+> DiscordShard:connectAsync( `websocketUrl` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Connects the DiscordShard to the Discord WebSocket.
+### resumeAsync
+
+> DiscordShard:resumeAsync() ->  Future 
+
+Resumes a previous session with the Discord WebSocket.
+### reconnectAsync
+
+> DiscordShard:reconnectAsync() ->  Future 
+
+Attempts to reconnect the DiscordShard to the Discord WebSocket.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordShard instance has no set functions!
+### new
+
+> DiscordShard.new( `discordClient` any, `shardId` [number](https://www.lua.org/pil/2.3.html) ) ->  DiscordShard 
+
+Creates a new instance of DiscordShard.
 

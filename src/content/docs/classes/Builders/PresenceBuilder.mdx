@@ -1,0 +1,79 @@
+---
+title: PresenceBuilder
+description: DiscordLuau docs for PresenceBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+PresenceBuilder is used to construct a presence object for a Discord bot, including activities, status, and AFK state.
+
+Usage:
+```lua
+local presence = PresenceBuilder.new()
+	:addActivity(ActivityBuilder.new():setName("Playing a game"))
+	:setStatus(PresenceBuilder.Status.Online)
+	:setAfk(false)
+	:setSince(os.time())
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Status
+
+ ```lua
+ PresenceBuilder.Status :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of presence statuses.
+
+- Online: "online"
+- DoNotDisturb: "dnd"
+- Idle: "idle"
+- Invisible: "invisible"
+- Offline: "offline"
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### addActivity
+
+> PresenceBuilder:addActivity( `activity` ActivityBuilder ) ->  Builders.PresenceBuilder 
+
+Adds an activity to the presence.
+### setStatus
+
+> PresenceBuilder:setStatus( `status` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.PresenceBuilder 
+
+Sets the status of the presence.
+### setAfk
+
+> PresenceBuilder:setAfk( `isAfk` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.PresenceBuilder 
+
+Sets whether the presence is AFK.
+### setSince
+
+> PresenceBuilder:setSince( `delta` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PresenceBuilder 
+
+Sets the time since the presence was last updated.
+### toJSONObject
+
+> PresenceBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts the presence to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> PresenceBuilder.new() ->  Builders.PresenceBuilder 
+
+Creates a new instance of PresenceBuilder.
+

@@ -7,7 +7,7 @@ description: DiscordLuau docs for EndpointCache.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+EndpointCache is a caching mechanism designed to store data temporarily with an expiration time.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,11 +19,29 @@ The EndpointCache instance has no set properties!
 
 ## Methods
 
-The EndpointCache instance has no set methods!
+### setExpiry
+
+> EndpointCache:setExpiry( `seconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Sets the expiry time for the cache.
+### set
+
+> EndpointCache:set( `value` any ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Sets the value in the cache and starts the expiry timer.
+### get
+
+> EndpointCache:get() ->  any 
+
+Gets the current value from the cache.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The EndpointCache instance has no set functions!
+### new
+
+> EndpointCache.new( `expiryTime` [number?](https://www.lua.org/pil/2.3.html) ) ->  EndpointCache 
+
+Creates a new instance of EndpointCache.
 

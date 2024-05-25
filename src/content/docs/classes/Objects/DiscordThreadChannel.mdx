@@ -1,0 +1,67 @@
+---
+title: DiscordThreadChannel
+description: DiscordLuau docs for DiscordThreadChannel.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+DiscordThreadChannel represents a thread channel in a Discord server, providing methods to modify the channel and interact with pinned messages.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The DiscordThreadChannel instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### joinThreadAsync
+
+> DiscordThreadChannel:joinThreadAsync() ->  Future<unknown> 
+
+Joins the current discord bot into the thread
+### addMemberToThreadAsync
+
+> DiscordThreadChannel:addMemberToThreadAsync( `userId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Adds the passed member to the thread channel
+### leaveThreadAsync
+
+> DiscordThreadChannel:leaveThreadAsync() ->  Future<unknown> 
+
+Leaves the thread channel if the discord bot is in the channel.
+### removeMemberFromThreadAsync
+
+> DiscordThreadChannel:removeMemberFromThreadAsync( `userId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<unknown> 
+
+Removes the passed user id from the current thread channel
+### removeMemberFromThreadAsync
+
+> DiscordThreadChannel:removeMemberFromThreadAsync( `userId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future<\{ DiscordGuildMember }> 
+
+Returns a list of members that are active in the current thread channel
+### modifyAsync
+
+> DiscordThreadChannel:modifyAsync( `channelSchema` DiscordTextChannelSchema ) ->  Future<unknown> 
+
+Modifies the thread channel settings asynchronously.
+### getPinnedMessagesAsync
+
+> DiscordThreadChannel:getPinnedMessagesAsync() ->  Future<\{[number]: DiscordMessage}> 
+
+Retrieves the pinned messages in the thread channel asynchronously.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> DiscordThreadChannel.new( `discordClient` any, `channelData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordThreadChannel 
+
+Creates a new instance of DiscordThreadChannel.
+

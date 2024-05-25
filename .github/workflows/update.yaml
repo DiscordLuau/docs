@@ -1,0 +1,36 @@
+name: Update Reference Documentation
+
+on:
+  repository_dispatch:
+    types: [update-ref]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ref:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Install tooling
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          cache: true
+
+      - name: Update discord-luau source
+        run: git submodule update --remote --recursive
+
+      - name: Update ref files
+        run: |
+          ./lunew generateReference
+
+      - name: Commit & push
+        run: |
+          git add -A
+          git commit -m "docs: update refs for https://github.com/DiscordLuau/discord-luau/commit/${{ github.event.client_payload.sha }}" && \
+            git push || echo "warn: no changes to commit"

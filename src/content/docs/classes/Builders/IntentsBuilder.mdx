@@ -1,0 +1,51 @@
+---
+title: IntentsBuilder
+description: DiscordLuau docs for IntentsBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+IntentsBuilder is used to construct intents for a Discord bot, specifying which events the bot will receive.
+
+Usage:
+```lua
+local DiscordLuau = require("../Submodules/DiscordLuau")
+
+local IntentsBuilder = DiscordLuau.IntentsBuilder.fromAll()
+local DiscordSettings = DiscordLuau.DiscordSettings.new("BOT TOKEN", IntentsBuilder)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The IntentsBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+The IntentsBuilder instance has no set methods!
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> IntentsBuilder.new( `intentList` [\{ string }](https://www.lua.org/pil/2.4.html) ) ->  Builders.IntentsBuilder 
+
+Creates a new instance of IntentsBuilder with the specified intents.
+### fromDefault
+
+> IntentsBuilder.fromDefault() ->  Builders.IntentsBuilder 
+
+Creates a new instance of IntentsBuilder with the default intents.
+### fromAll
+
+> IntentsBuilder.fromAll() ->  Builders.IntentsBuilder 
+
+Creates a new instance of IntentsBuilder with all available intents.
+

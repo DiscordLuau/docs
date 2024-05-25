@@ -1,0 +1,111 @@
+---
+title: SelectionBuilder
+description: DiscordLuau docs for SelectionBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+SelectionBuilder is used to construct a selection (dropdown) component for a Discord message.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+ ```lua
+ SelectionBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of selection types.
+
+- TextSelection: 3
+- UserSelection: 5
+- RoleSelection: 6
+- MentionableSelection: 7
+- ChannelSelection: 8
+### ChannelType
+
+ ```lua
+ SelectionBuilder.ChannelType :: [table](https://www.lua.org/pil/2.5.html)
+```
+
+
+An enumeration of channel types.
+
+- GuildText: 0
+- DirectMessage: 1
+- GuildVoice: 2
+- GroupDirectMessage: 3
+- GuildCategory: 4
+- GuildAnnouncement: 5
+- AnnouncementThread: 10
+- PublicThread: 11
+- PrivateThread: 12
+- GuildStageVoice: 13
+- GuildDirectory: 14
+- GuildForum: 15
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> SelectionBuilder:setType( `selectionType` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets the type of the selection.
+### setChannelTypes
+
+> SelectionBuilder:setChannelTypes( `...` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets the channel types for the selection.
+### setPlaceholder
+
+> SelectionBuilder:setPlaceholder( `placeholderText` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets the placeholder text for the selection.
+### setDisabled
+
+> SelectionBuilder:setDisabled( `isDisabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets whether the selection is disabled.
+### setMinValues
+
+> SelectionBuilder:setMinValues( `minValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets the minimum number of values that must be selected.
+### setMaxValues
+
+> SelectionBuilder:setMaxValues( `maxValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Sets the maximum number of values that can be selected.
+### addChoice
+
+> SelectionBuilder:addChoice( `choiceName` [string](https://www.lua.org/pil/2.4.html), `choiceValue` [string](https://www.lua.org/pil/2.4.html), `choiceDescription` [string](https://www.lua.org/pil/2.4.html), `isDefault` [boolean](https://www.lua.org/pil/2.2.html), `emojiId` [string?](https://www.lua.org/pil/2.4.html), `emojiName` [string?](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Adds a choice to the selection.
+### destroyChoice
+
+> SelectionBuilder:destroyChoice( `choiceName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Removes a choice from the selection.
+### toJSONObject
+
+> SelectionBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
+
+Converts the selection to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> SelectionBuilder.new( `selectionId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.SelectionBuilder 
+
+Creates a new instance of SelectionBuilder.
+

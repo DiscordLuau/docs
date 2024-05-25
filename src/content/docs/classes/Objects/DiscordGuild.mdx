@@ -7,23 +7,113 @@ description: DiscordLuau docs for DiscordGuild.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordGuild` class represents a Discord guild (server) and provides methods to interact with and manage the guild.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordGuild instance has no set properties!
+### type
+
+ ```lua
+ DiscordGuild.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the DiscordGuild. Default is "DiscordGuild".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordGuild instance has no set methods!
+### createSlashCommandAsync
+
+> DiscordGuild:createSlashCommandAsync( `command` CommandBuilder ) ->  Future 
+
+Creates a new slash command in the guild asynchronously.
+### deleteSlashCommandAsync
+
+> DiscordGuild:deleteSlashCommandAsync( `commandId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Deletes a slash command in the guild asynchronously.
+### editSlashCommandAsync
+
+> DiscordGuild:editSlashCommandAsync( `commandId` [string](https://www.lua.org/pil/2.4.html), `command` CommandBuilder ) ->  Future 
+
+Edits a slash command in the guild asynchronously.
+### fetchSlashCommandsAsync
+
+> DiscordGuild:fetchSlashCommandsAsync() ->  Future 
+
+Fetches all slash commands in the guild asynchronously.
+### fetchGuildChannels
+
+> DiscordGuild:fetchGuildChannels() ->  Future 
+
+Fetches all channels in the guild asynchronously.
+### setSlashCommandsAsync
+
+> DiscordGuild:setSlashCommandsAsync( `commands` \{CommandBuilder} ) ->  Future 
+
+Sets multiple slash commands in the guild asynchronously.
+### getGuildAuditLogs
+
+> DiscordGuild:getGuildAuditLogs() ->  Future 
+
+Gets the audit logs of the guild asynchronously.
+### modifyAsync
+
+> DiscordGuild:modifyAsync( `guildSchema` DiscordGuildSchema ) ->  Future 
+
+Modifies the guild settings asynchronously.
+### deleteAsync
+
+> DiscordGuild:deleteAsync() ->  Future 
+
+Deletes the guild asynchronously.
+### getChannelsAsync
+
+> DiscordGuild:getChannelsAsync() ->  Future 
+
+Gets all channels in the guild asynchronously.
+### getMemberAsync
+
+> DiscordGuild:getMemberAsync( `userId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Gets a specific member of the guild asynchronously.
+### fetchGuildMembersAsync
+
+> DiscordGuild:fetchGuildMembersAsync( `limit` [number](https://www.lua.org/pil/2.3.html), `lastUserId` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
+
+Fetches members of the guild asynchronously.
+### searchGuildMembersAsync
+
+> DiscordGuild:searchGuildMembersAsync( `query` [string](https://www.lua.org/pil/2.4.html), `limit` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
+
+Searches for members in the guild asynchronously.
+### listAutomoderationRulesAsync
+
+> DiscordGuild:listAutomoderationRulesAsync() ->  Future 
+
+Lists all automoderation rules in the guild asynchronously.
+### getAutomoderationRuleAsync
+
+> DiscordGuild:getAutomoderationRuleAsync( `ruleId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Gets a specific automoderation rule in the guild asynchronously.
+### createAutomoderationRuleAsync
+
+> DiscordGuild:createAutomoderationRuleAsync( `getAutomoderationRuleBuilder` AutomoderationRuleBuilder ) ->  Future 
+
+Creates an automoderation rule in the guild asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordGuild instance has no set functions!
+### new
+
+> DiscordGuild.new( `discordClient` any, `guildData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordGuild 
+
+Creates a new DiscordGuild instance.
 

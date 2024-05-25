@@ -7,7 +7,7 @@ description: DiscordLuau docs for DiscordVoiceChannel.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+DiscordVoiceChannel represents a voice channel in a Discord server, providing methods to connect, disconnect, and modify the channel.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,11 +19,29 @@ The DiscordVoiceChannel instance has no set properties!
 
 ## Methods
 
-The DiscordVoiceChannel instance has no set methods!
+### connectAsync
+
+> DiscordVoiceChannel:connectAsync() ->  Future<boolean> 
+
+Connects to the voice channel asynchronously.
+### disconnectAsync
+
+> DiscordVoiceChannel:disconnectAsync() ->  Future<unknown> 
+
+Disconnects from the voice channel asynchronously.
+### modifyAsync
+
+> DiscordVoiceChannel:modifyAsync( `channelSchema` DiscordVoiceChannelSchema ) ->  Future<unknown> 
+
+Modifies the voice channel settings asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordVoiceChannel instance has no set functions!
+### new
+
+> DiscordVoiceChannel.new( `discordClient` any, `channelData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordVoiceChannel 
+
+Creates a new instance of DiscordVoiceChannel.
 

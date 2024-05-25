@@ -7,23 +7,93 @@ description: DiscordLuau docs for DiscordGuildMember.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordGuildMember` class represents a member of a Discord guild (server) and provides methods to interact with and manage the guild member.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordGuildMember instance has no set properties!
+### type
+
+ ```lua
+ DiscordGuildMember.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the DiscordGuildMember. Default is "DiscordGuildMember".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordGuildMember instance has no set methods!
+### kickAsync
+
+> DiscordGuildMember:kickAsync( `deleteMessagesSeconds` [number?](https://www.lua.org/pil/2.3.html) ) ->  Future 
+
+Kicks the guild member asynchronously.
+### banAsync
+
+> DiscordGuildMember:banAsync() ->  Future 
+
+Bans the guild member asynchronously.
+### unbanAsync
+
+> DiscordGuildMember:unbanAsync() ->  Future 
+
+Unbans the guild member asynchronously.
+### addRoleAsync
+
+> DiscordGuildMember:addRoleAsync( `roleId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Adds a role to the guild member asynchronously.
+### removeRoleAsync
+
+> DiscordGuildMember:removeRoleAsync( `roleId` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Removes a role from the guild member asynchronously.
+### timeoutAsync
+
+> DiscordGuildMember:timeoutAsync( `seconds` [number](https://www.lua.org/pil/2.3.html) ) ->  Future 
+
+Times out the guild member asynchronously.
+### muteAsync
+
+> DiscordGuildMember:muteAsync() ->  Future 
+
+Mutes the guild member asynchronously.
+### unmuteAsync
+
+> DiscordGuildMember:unmuteAsync() ->  Future 
+
+Unmutes the guild member asynchronously.
+### deafenAsync
+
+> DiscordGuildMember:deafenAsync() ->  Future 
+
+Deafens the guild member asynchronously.
+### undeafenAsync
+
+> DiscordGuildMember:undeafenAsync() ->  Future 
+
+Undeafens the guild member asynchronously.
+### setNicknameAsync
+
+> DiscordGuildMember:setNicknameAsync( `nickname` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
+
+Sets the nickname of the guild member asynchronously.
+### modifyAsync
+
+> DiscordGuildMember:modifyAsync( `modificationsTable` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
+
+Modifies the guild member asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordGuildMember instance has no set functions!
+### new
+
+> DiscordGuildMember.new( `discordClient` any, `userId` [string](https://www.lua.org/pil/2.4.html), `guildId` [string](https://www.lua.org/pil/2.4.html), `memberData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordGuildMember 
+
+Creates a new DiscordGuildMember instance.
 

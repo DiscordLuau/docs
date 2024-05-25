@@ -7,23 +7,48 @@ description: DiscordLuau docs for DiscordCache.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `DiscordCache` class provides a caching mechanism for storing and retrieving data associated with Discord objects.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordCache instance has no set properties!
+### type
+
+ ```lua
+ DiscordCache.type :: [string](https://www.lua.org/pil/2.4.html)
+```
+
+
+The type of the DiscordCache. Default is "DiscordCache".
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordCache instance has no set methods!
+### setData
+
+> DiscordCache:setData( `cacheType` [string](https://www.lua.org/pil/2.4.html), `uuid` [string](https://www.lua.org/pil/2.4.html), `data` any ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Sets data in the cache.
+### getData
+
+> DiscordCache:getData( `cacheType` [string](https://www.lua.org/pil/2.4.html), `uuid` [string](https://www.lua.org/pil/2.4.html) ) ->  any 
+
+Gets data from the cache.
+### getDataOr
+
+> DiscordCache:getDataOr( `cacheType` [string](https://www.lua.org/pil/2.4.html), `uuid` [string](https://www.lua.org/pil/2.4.html), `callback` function ) ->  any 
+
+Gets data from the cache, or calls a callback to generate and cache the data if not found.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordCache instance has no set functions!
+### new
+
+> DiscordCache.new() ->  DiscordCache 
+
+Creates a new DiscordCache instance.
 

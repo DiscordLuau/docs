@@ -7,7 +7,11 @@ description: DiscordLuau docs for WebsocketBuffer.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
-(sorry I will add docs for this lol, just haven't got around to it yet!)
+The `WebsocketBuffer` class manages a buffer for websocket data, allowing for data to be added incrementally and flushed when needed.
+
+:::caution
+This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to manage websocket buffering.
+:::
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
@@ -19,7 +23,21 @@ The WebsocketBuffer instance has no set properties!
 
 ## Methods
 
-The WebsocketBuffer instance has no set methods!
+### flush
+
+> WebsocketBuffer:flush( `self` WebsocketBuffer ) ->  [string](https://www.lua.org/pil/2.4.html) 
+
+Flushes the buffer, returning all accumulated data and resetting the buffer.
+### add
+
+> WebsocketBuffer:add( `self` WebsocketBuffer, `data` [string](https://www.lua.org/pil/2.4.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
+
+Adds data to the buffer.
+### new
+
+> WebsocketBuffer:new() ->  WebsocketBuffer 
+
+Creates a new instance of `WebsocketBuffer`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
