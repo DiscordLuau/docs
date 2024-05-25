@@ -2,7 +2,7 @@ name: Build Documentation
 
 on:
   repository_dispatch:
-    types: [update-documentation]
+    types: [update-ref]
 
 permissions:
   contents: write
