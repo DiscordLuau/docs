@@ -3,6 +3,7 @@ name: Update Reference Documentation
 on:
   repository_dispatch:
     types: [update-ref]
+  workflow_dispatch:
 
 permissions:
   contents: write
