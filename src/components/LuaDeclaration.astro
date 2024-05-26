@@ -28,7 +28,7 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                 const defaultedType = typeOrDefault(type);
                 const typeUrl = getTypeDocs(defaultedType);
                 
-                let unionTypes: [] | null = [];
+                let unionTypes: any[] | null = [];
                 if (type.includes("|")) {
                     const unionMembers = defaultedType.split("|");
                     unionTypes = unionMembers.map((unionType: string, count: number) => {
