@@ -61,9 +61,9 @@ Sets whether the presence is AFK.
 
 > <LuaDeclaration name="setSince" className="PresenceBuilder" args={[ { name: "delta", type: "number" } ]} returnType="Builders.PresenceBuilder" isMethod />
 Sets the time since the presence was last updated.
-### toJSONObject
+### toPayloadObject
 
-> <LuaDeclaration name="toJSONObject" className="PresenceBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="toPayloadObject" className="PresenceBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the presence to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

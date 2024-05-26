@@ -103,9 +103,9 @@ Adds an exempt role to the rule.
 
 > <LuaDeclaration name="addExemptChannel" className="AutomoderationRuleBuilder" args={[ { name: "channelId", type: "string" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
 Adds an exempt channel to the rule.
-### toJSONObject
+### toPayloadObject
 
-> <LuaDeclaration name="toJSONObject" className="AutomoderationRuleBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="toPayloadObject" className="AutomoderationRuleBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the rule to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

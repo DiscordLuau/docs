@@ -123,9 +123,9 @@ Adds a sub-option to the option.
 
 > <LuaDeclaration name="addChoice" className="CommandOptionBuilder" args={[ { name: "choiceName", type: "string" }, { name: "choiceValue", type: "any" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Adds a choice to the option.
-### toJSONObject
+### toPayloadObject
 
-> <LuaDeclaration name="toJSONObject" className="CommandOptionBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="toPayloadObject" className="CommandOptionBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the option to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

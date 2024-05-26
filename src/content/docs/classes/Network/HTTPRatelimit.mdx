@@ -46,14 +46,13 @@ Sets the maximum number of requests that can be made.
 
 > <LuaDeclaration name="isConsumed" className="HTTPRatelimit" args={[ { name: "self", type: "HTTPRatelimit" } ]} returnType="boolean" isMethod />
 Checks if the rate limit has been consumed.
-### new
-
-> <LuaDeclaration name="new" className="HTTPRatelimit" args={[ { name: "remaining", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="HTTPRatelimit" isMethod />
-Creates a new instance of `HTTPRatelimit`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The HTTPRatelimit instance has no set functions!
+### new
+
+> <LuaDeclaration name="new" className="HTTPRatelimit" args={[ { name: "remaining", type: "number?" }, { name: "limit", type: "number?" } ]} />
+Creates a new instance of `HTTPRatelimit`.
 

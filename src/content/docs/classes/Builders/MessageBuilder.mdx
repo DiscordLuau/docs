@@ -64,9 +64,21 @@ Adds a sticker ID to the message.
 
 > <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets the flags for the message.
-### toJSONObject
+### setFlags
 
-> <LuaDeclaration name="toJSONObject" className="MessageBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "fileContent", type: "string" }, { name: "fileName", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Sets the flags for the message.
+### toJsonObject
+
+> <LuaDeclaration name="toJsonObject" className="MessageBuilder" args={[  ]} returnType="table" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+### toFormdataObject
+
+> <LuaDeclaration name="toFormdataObject" className="MessageBuilder" args={[  ]} returnType="string" isMethod />
+Converts the message to a Formdata object that can be sent to the Discord API.
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="MessageBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the message to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

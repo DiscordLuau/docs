@@ -41,9 +41,9 @@ Sets the title of the modal.
 
 > <LuaDeclaration name="addComponent" className="ModalBuilder" args={[ { name: "componentObject", type: "DiscordComponentTypes.DiscordComponent" } ]} returnType="Builders.ModalBuilder" isMethod />
 Adds a component to the modal. The modal can contain up to five components.
-### toJSONObject
+### toPayloadObject
 
-> <LuaDeclaration name="toJSONObject" className="ModalBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="toPayloadObject" className="ModalBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the modal to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

@@ -56,9 +56,9 @@ Sets the type of the activity.
 
 > <LuaDeclaration name="setStreamingURL" className="ActivityBuilder" args={[ { name: "streamURL", type: "string" } ]} returnType="Builders.ActivityBuilder" isMethod />
 Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
-### toJSONObject
+### toPayloadObject
 
-> <LuaDeclaration name="toJSONObject" className="ActivityBuilder" args={[  ]} returnType="table" isMethod />
+> <LuaDeclaration name="toPayloadObject" className="ActivityBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
 Converts the activity to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
