@@ -7,6 +7,12 @@ description: DiscordLuau docs for MessageBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 MessageBuilder is used to construct a message that can be sent to a Discord channel, including content, embeds, components, and stickers.
 
 Usage:
@@ -31,43 +37,35 @@ The MessageBuilder instance has no set properties!
 
 ### setContent
 
-> MessageBuilder:setContent( `content` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="setContent" className="MessageBuilder" args={[ { name: "content", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets the content of the message.
 ### setNonce
 
-> MessageBuilder:setNonce( `nonce` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="setNonce" className="MessageBuilder" args={[ { name: "nonce", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets the nonce of the message.
 ### setTTSEnabled
 
-> MessageBuilder:setTTSEnabled( `ttsEnabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="setTTSEnabled" className="MessageBuilder" args={[ { name: "ttsEnabled", type: "boolean" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets whether text-to-speech (TTS) is enabled for the message.
 ### addEmbed
 
-> MessageBuilder:addEmbed( `embedBuilder` EmbedBuilder ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="addEmbed" className="MessageBuilder" args={[ { name: "embedBuilder", type: "EmbedBuilder" } ]} returnType="Builders.MessageBuilder" isMethod />
 Adds an embed to the message.
 ### addComponent
 
-> MessageBuilder:addComponent( `discordComponent` InterfaceBuilder ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="addComponent" className="MessageBuilder" args={[ { name: "discordComponent", type: "InterfaceBuilder" } ]} returnType="Builders.MessageBuilder" isMethod />
 Adds a component to the message.
 ### addStickerId
 
-> MessageBuilder:addStickerId( `stickerId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="addStickerId" className="MessageBuilder" args={[ { name: "stickerId", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
 Adds a sticker ID to the message.
 ### setFlags
 
-> MessageBuilder:setFlags( `flags` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets the flags for the message.
 ### toJSONObject
 
-> MessageBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="MessageBuilder" args={[  ]} returnType="table" isMethod />
 Converts the message to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -76,7 +74,6 @@ Converts the message to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> MessageBuilder.new() ->  Builders.MessageBuilder 
-
+> <LuaDeclaration name="new" className="MessageBuilder" args={[  ]} />
 Creates a new instance of MessageBuilder.
 

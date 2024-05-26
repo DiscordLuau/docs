@@ -7,6 +7,12 @@ description: DiscordLuau docs for EventIn.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `EventIn` class processes incoming events, converting JSON keys to camelCase format for consistency within the application.
 
 :::caution
@@ -25,18 +31,15 @@ The EventIn instance has no set properties!
 
 ### toCamelCase
 
-> EventIn:toCamelCase( `self` EventIn, `json` [table](https://www.lua.org/pil/2.5.html) ) ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toCamelCase" className="EventIn" args={[ { name: "self", type: "EventIn" }, { name: "json", type: "table" } ]} returnType="table" isMethod />
 Converts JSON keys from snake_case to camelCase.
 ### processJSON
 
-> EventIn:processJSON( `self` EventIn, `data` any ) ->  any 
-
+> <LuaDeclaration name="processJSON" className="EventIn" args={[ { name: "self", type: "EventIn" }, { name: "data", type: "any" } ]} returnType="any" isMethod />
 Processes incoming JSON data, converting keys to camelCase if the data is a table.
 ### new
 
-> EventIn:new() ->  EventIn 
-
+> <LuaDeclaration name="new" className="EventIn" args={[  ]} returnType="EventIn" isMethod />
 Creates a new instance of `EventIn`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

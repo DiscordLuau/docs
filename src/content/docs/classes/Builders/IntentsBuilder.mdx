@@ -7,6 +7,12 @@ description: DiscordLuau docs for IntentsBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 IntentsBuilder is used to construct intents for a Discord bot, specifying which events the bot will receive.
 
 Usage:
@@ -35,17 +41,14 @@ The IntentsBuilder instance has no set methods!
 
 ### new
 
-> IntentsBuilder.new( `intentList` [\{ string }](https://www.lua.org/pil/2.4.html) ) ->  Builders.IntentsBuilder 
-
+> <LuaDeclaration name="new" className="IntentsBuilder" args={[ { name: "intentList", type: "{ string }" } ]} />
 Creates a new instance of IntentsBuilder with the specified intents.
 ### fromDefault
 
-> IntentsBuilder.fromDefault() ->  Builders.IntentsBuilder 
-
+> <LuaDeclaration name="fromDefault" className="IntentsBuilder" args={[  ]} />
 Creates a new instance of IntentsBuilder with the default intents.
 ### fromAll
 
-> IntentsBuilder.fromAll() ->  Builders.IntentsBuilder 
-
+> <LuaDeclaration name="fromAll" className="IntentsBuilder" args={[  ]} />
 Creates a new instance of IntentsBuilder with all available intents.
 

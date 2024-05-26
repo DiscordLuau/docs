@@ -7,6 +7,12 @@ description: DiscordLuau docs for EmbedBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 EmbedBuilder is used to construct an embed object for a Discord message.
 
 Usage:
@@ -28,7 +34,7 @@ local embed = EmbedBuilder.new()
  EmbedBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of embed types.
 
 - Rich: "rich"
@@ -44,73 +50,59 @@ An enumeration of embed types.
 
 ### setTitle
 
-> EmbedBuilder:setTitle( `title` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setTitle" className="EmbedBuilder" args={[ { name: "title", type: "string" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the title of the embed.
 ### setType
 
-> EmbedBuilder:setType( `type` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setType" className="EmbedBuilder" args={[ { name: "type", type: "string" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the type of the embed.
 ### setDescription
 
-> EmbedBuilder:setDescription( `description` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setDescription" className="EmbedBuilder" args={[ { name: "description", type: "string" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the description of the embed.
 ### setUrl
 
-> EmbedBuilder:setUrl( `url` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setUrl" className="EmbedBuilder" args={[ { name: "url", type: "string" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the URL of the embed.
 ### setTimestamp
 
-> EmbedBuilder:setTimestamp( `epoch` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setTimestamp" className="EmbedBuilder" args={[ { name: "epoch", type: "number" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the timestamp of the embed.
 ### setColor
 
-> EmbedBuilder:setColor( `colorHex` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setColor" className="EmbedBuilder" args={[ { name: "colorHex", type: "number" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the color of the embed.
 ### setFooter
 
-> EmbedBuilder:setFooter( `footerSettings` \{ text: string, icon: string } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setFooter" className="EmbedBuilder" args={[ { name: "footerSettings", type: "{ text: string, icon: string }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the footer of the embed.
 ### setImage
 
-> EmbedBuilder:setImage( `imageSettings` \{ imageUrl: string, height: number, width: number } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setImage" className="EmbedBuilder" args={[ { name: "imageSettings", type: "{ imageUrl: string, height: number, width: number }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the image of the embed.
 ### setThumbnail
 
-> EmbedBuilder:setThumbnail( `thumbnailSettings` \{ thumbnailUrl: string, height: number, width: number } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setThumbnail" className="EmbedBuilder" args={[ { name: "thumbnailSettings", type: "{ thumbnailUrl: string, height: number, width: number }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the thumbnail of the embed.
 ### setVideo
 
-> EmbedBuilder:setVideo( `videoSettings` \{ videoUrl: string, height: number, width: number } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setVideo" className="EmbedBuilder" args={[ { name: "videoSettings", type: "{ videoUrl: string, height: number, width: number }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the video of the embed.
 ### setProvider
 
-> EmbedBuilder:setProvider( `providerSettings` \{ name: string, url: string } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setProvider" className="EmbedBuilder" args={[ { name: "providerSettings", type: "{ name: string, url: string }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the provider of the embed.
 ### setAuthor
 
-> EmbedBuilder:setAuthor( `authorSettings` \{ name: string, url: string, iconUrl: string } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="setAuthor" className="EmbedBuilder" args={[ { name: "authorSettings", type: "{ name: string, url: string, iconUrl: string }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Sets the author of the embed.
 ### addField
 
-> EmbedBuilder:addField( `fieldSettings` \{ name: string, value: string, inline: boolean? } ) ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="addField" className="EmbedBuilder" args={[ { name: "fieldSettings", type: "{ name: string, value: string, inline: boolean? }" } ]} returnType="Builders.EmbedBuilder" isMethod />
 Adds a field to the embed.
 ### toJSONObject
 
-> EmbedBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="EmbedBuilder" args={[  ]} returnType="table" isMethod />
 Converts the embed to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -119,7 +111,6 @@ Converts the embed to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> EmbedBuilder.new() ->  Builders.EmbedBuilder 
-
+> <LuaDeclaration name="new" className="EmbedBuilder" args={[  ]} />
 Creates a new instance of EmbedBuilder.
 

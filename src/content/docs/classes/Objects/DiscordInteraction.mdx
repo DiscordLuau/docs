@@ -7,6 +7,12 @@ description: DiscordLuau docs for DiscordInteraction.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordInteraction` class represents an interaction with the Discord API, such as a message interaction, a command, or a modal submission.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -19,7 +25,7 @@ The `DiscordInteraction` class represents an interaction with the Discord API, s
  DiscordInteraction.type :: [string](https://www.lua.org/pil/2.4.html)
 ```
 
-
+---
 The type of the DiscordInteraction. Default is "DiscordInteraction".
 
 [//]: # (----- DOCUMENT METHODS ----- )
@@ -28,23 +34,19 @@ The type of the DiscordInteraction. Default is "DiscordInteraction".
 
 ### editMessageAsync
 
-> DiscordInteraction:editMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
-
+> <LuaDeclaration name="editMessageAsync" className="DiscordInteraction" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
 Edits the original interaction response message asynchronously.
 ### sendModalAsync
 
-> DiscordInteraction:sendModalAsync( `modalObject` ModalBuilder ) ->  Future 
-
+> <LuaDeclaration name="sendModalAsync" className="DiscordInteraction" args={[ { name: "modalObject", type: "ModalBuilder" } ]} returnType="Future" isMethod />
 Sends a modal in response to the interaction asynchronously.
 ### sendMessageAsync
 
-> DiscordInteraction:sendMessageAsync( `messageBuilder` MessageBuilder ) ->  Future 
-
+> <LuaDeclaration name="sendMessageAsync" className="DiscordInteraction" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
 Sends a message in response to the interaction asynchronously.
 ### deferAsync
 
-> DiscordInteraction:deferAsync() ->  Future 
-
+> <LuaDeclaration name="deferAsync" className="DiscordInteraction" args={[  ]} returnType="Future" isMethod />
 Defers the interaction response asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -53,7 +55,6 @@ Defers the interaction response asynchronously.
 
 ### new
 
-> DiscordInteraction.new( `discordClient` any, `jsonData` [table](https://www.lua.org/pil/2.5.html) ) ->  DiscordInteraction 
-
+> <LuaDeclaration name="new" className="DiscordInteraction" args={[ { name: "discordClient", type: "any" }, { name: "jsonData", type: "table" } ]} />
 Creates a new DiscordInteraction instance.
 

@@ -7,6 +7,12 @@ description: DiscordLuau docs for CommandOptionBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 CommandOptionBuilder is used to construct options for a Discord application command, including type, name, description, and choices.
 
 Usage:
@@ -30,7 +36,7 @@ local option = CommandOptionBuilder.new()
  CommandOptionBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of option types.
 
 - SubCommand: 1
@@ -50,7 +56,7 @@ An enumeration of option types.
  CommandOptionBuilder.ChannelType :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of channel types.
 
 - GuildText: 0
@@ -72,73 +78,59 @@ An enumeration of channel types.
 
 ### setType
 
-> CommandOptionBuilder:setType( `optionType` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setType" className="CommandOptionBuilder" args={[ { name: "optionType", type: "number" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the type of the option.
 ### setName
 
-> CommandOptionBuilder:setName( `optionName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setName" className="CommandOptionBuilder" args={[ { name: "optionName", type: "string" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the name of the option.
 ### setLocalization
 
-> CommandOptionBuilder:setLocalization( `localizationCode` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setLocalization" className="CommandOptionBuilder" args={[ { name: "localizationCode", type: "string" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the localization code for the option.
 ### setDescription
 
-> CommandOptionBuilder:setDescription( `optionDescription` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setDescription" className="CommandOptionBuilder" args={[ { name: "optionDescription", type: "string" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the description of the option.
 ### setRequired
 
-> CommandOptionBuilder:setRequired( `isRequired` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setRequired" className="CommandOptionBuilder" args={[ { name: "isRequired", type: "boolean" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets whether the option is required.
 ### setChannelTypes
 
-> CommandOptionBuilder:setChannelTypes( `channelTypes` ... ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setChannelTypes" className="CommandOptionBuilder" args={[ { name: "channelTypes", type: "..." } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the channel types for the option.
 ### setMinValue
 
-> CommandOptionBuilder:setMinValue( `minValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setMinValue" className="CommandOptionBuilder" args={[ { name: "minValue", type: "number" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the minimum value for the option.
 ### setMaxValue
 
-> CommandOptionBuilder:setMaxValue( `maxValue` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setMaxValue" className="CommandOptionBuilder" args={[ { name: "maxValue", type: "number" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the maximum value for the option.
 ### setMinLength
 
-> CommandOptionBuilder:setMinLength( `minLength` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setMinLength" className="CommandOptionBuilder" args={[ { name: "minLength", type: "number" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the minimum length for the option.
 ### setMaxLength
 
-> CommandOptionBuilder:setMaxLength( `maxLength` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setMaxLength" className="CommandOptionBuilder" args={[ { name: "maxLength", type: "number" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets the maximum length for the option.
 ### setAutocompleteEnabled
 
-> CommandOptionBuilder:setAutocompleteEnabled( `autocomplete` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="setAutocompleteEnabled" className="CommandOptionBuilder" args={[ { name: "autocomplete", type: "boolean" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Sets whether autocomplete is enabled for the option.
 ### addOption
 
-> CommandOptionBuilder:addOption( `commandOption` CommandOptionBuilder ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="addOption" className="CommandOptionBuilder" args={[ { name: "commandOption", type: "CommandOptionBuilder" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Adds a sub-option to the option.
 ### addChoice
 
-> CommandOptionBuilder:addChoice( `choiceName` [string](https://www.lua.org/pil/2.4.html), `choiceValue` any ) ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="addChoice" className="CommandOptionBuilder" args={[ { name: "choiceName", type: "string" }, { name: "choiceValue", type: "any" } ]} returnType="Builders.CommandOptionBuilder" isMethod />
 Adds a choice to the option.
 ### toJSONObject
 
-> CommandOptionBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="CommandOptionBuilder" args={[  ]} returnType="table" isMethod />
 Converts the option to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -147,7 +139,6 @@ Converts the option to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> CommandOptionBuilder.new() ->  Builders.CommandOptionBuilder 
-
+> <LuaDeclaration name="new" className="CommandOptionBuilder" args={[  ]} />
 Creates a new instance of CommandOptionBuilder.
 

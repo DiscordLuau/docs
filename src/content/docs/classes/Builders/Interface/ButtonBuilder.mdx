@@ -7,6 +7,12 @@ description: DiscordLuau docs for ButtonBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 ButtonBuilder is used to construct a button component for a Discord message.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -19,7 +25,7 @@ ButtonBuilder is used to construct a button component for a Discord message.
  ButtonBuilder.Style :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of button styles.
 
 - Blurple: 1
@@ -34,33 +40,27 @@ An enumeration of button styles.
 
 ### setStyle
 
-> ButtonBuilder:setStyle( `buttonStyle` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="setStyle" className="ButtonBuilder" args={[ { name: "buttonStyle", type: "number" } ]} returnType="Builders.Interface.ButtonBuilder" isMethod />
 Sets the style of the button.
 ### setLabel
 
-> ButtonBuilder:setLabel( `buttonLabel` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="setLabel" className="ButtonBuilder" args={[ { name: "buttonLabel", type: "string" } ]} returnType="Builders.Interface.ButtonBuilder" isMethod />
 Sets the label of the button.
 ### setEmoji
 
-> ButtonBuilder:setEmoji( `emojiId` [string](https://www.lua.org/pil/2.4.html), `emojiName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="setEmoji" className="ButtonBuilder" args={[ { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" } ]} returnType="Builders.Interface.ButtonBuilder" isMethod />
 Sets the emoji for the button.
 ### setLinkUrl
 
-> ButtonBuilder:setLinkUrl( `url` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="setLinkUrl" className="ButtonBuilder" args={[ { name: "url", type: "string" } ]} returnType="Builders.Interface.ButtonBuilder" isMethod />
 Sets the URL for the button. This should only be used if the button style is set to `Link`.
 ### setDisabled
 
-> ButtonBuilder:setDisabled( `isDisabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="setDisabled" className="ButtonBuilder" args={[ { name: "isDisabled", type: "boolean" } ]} returnType="Builders.Interface.ButtonBuilder" isMethod />
 Sets whether the button is disabled.
 ### toJSONObject
 
-> ButtonBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="ButtonBuilder" args={[  ]} returnType="table" isMethod />
 Converts the button to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -69,7 +69,6 @@ Converts the button to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> ButtonBuilder.new( `buttonId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.Interface.ButtonBuilder 
-
+> <LuaDeclaration name="new" className="ButtonBuilder" args={[ { name: "buttonId", type: "string" } ]} />
 Creates a new instance of ButtonBuilder.
 

@@ -7,6 +7,12 @@ description: DiscordLuau docs for ModalBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 ModalBuilder is used to construct a modal dialog for a Discord interaction, including title and components.
 
 Usage:
@@ -28,18 +34,15 @@ The ModalBuilder instance has no set properties!
 
 ### setTitle
 
-> ModalBuilder:setTitle( `title` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.ModalBuilder 
-
+> <LuaDeclaration name="setTitle" className="ModalBuilder" args={[ { name: "title", type: "string" } ]} returnType="Builders.ModalBuilder" isMethod />
 Sets the title of the modal.
 ### addComponent
 
-> ModalBuilder:addComponent( `componentObject` DiscordComponentTypes.DiscordComponent ) ->  Builders.ModalBuilder 
-
+> <LuaDeclaration name="addComponent" className="ModalBuilder" args={[ { name: "componentObject", type: "DiscordComponentTypes.DiscordComponent" } ]} returnType="Builders.ModalBuilder" isMethod />
 Adds a component to the modal. The modal can contain up to five components.
 ### toJSONObject
 
-> ModalBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="ModalBuilder" args={[  ]} returnType="table" isMethod />
 Converts the modal to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -48,7 +51,6 @@ Converts the modal to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> ModalBuilder.new( `modalId` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.ModalBuilder 
-
+> <LuaDeclaration name="new" className="ModalBuilder" args={[ { name: "modalId", type: "string" } ]} />
 Creates a new instance of ModalBuilder.
 

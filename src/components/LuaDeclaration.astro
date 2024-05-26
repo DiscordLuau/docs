@@ -20,14 +20,54 @@ type Props = AstroProps & {
     isMethod: boolean;
     className: string;
     args: LuaParam[];
+    returnType?: LuaType | string;
 };
 
-const { name, className, args, isMethod } = Astro.props;
+const luaTypeDocs: Record<LuaType, string> = {
+    nil: "2.1",
+    boolean: "2.2",
+    bool: "2.2",
+    number: "2.3",
+    string: "2.4",
+    table: "2.5",
+    tuple: "5.1",
+    "...": "5.1",
+    userdata: "28.1",
+    proxy: "28.1",
+};
+const getLuaDocs = (luaType: LuaType) => {
+    const luaDocsBaseUrl = new URL("https://www.lua.org/pil");
+    luaDocsBaseUrl.pathname += "/" + luaTypeDocs[luaType] + ".html";
+
+    return luaDocsBaseUrl.toString();
+};
+
+const getCustomTypeDocs = (type: string) => {
+    if (type == "()" || type == "any") {
+        return null;
+    }
+
+    const path =
+        "/classes/" +
+        type
+            .split(".")
+            .map((component) => component.toLocaleLowerCase())
+            .join("/");
+
+    return path;
+};
+
+const { name, className, args, returnType, isMethod } = Astro.props;
+const returnTypeOrDefault = returnType ? returnType : "()";
+const returnTypeUrl =
+    returnTypeOrDefault in luaTypeDocs
+        ? getLuaDocs(returnTypeOrDefault as LuaType)
+        : getCustomTypeDocs(returnTypeOrDefault);
 ---
 
 <div class="declaration">
     <span class="declaration class">{className}</span>
-    <span class="declaration">{isMethod && ":" || "."}</span>
+    <span class="declaration">{(isMethod && ":") || "."}</span>
     <span class="declaration method">{name}</span>
     <span class="declaration">(</span>
     <div class="declaration">
@@ -40,7 +80,7 @@ const { name, className, args, isMethod } = Astro.props;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
                         </span>
                         <span class="declaration type">{type}</span>
-                        <span>
+                        <span class="declaration">
                             {(count !== args.length - 1 && ",") || <br />}
                         </span>
                     </>
@@ -49,9 +89,13 @@ const { name, className, args, isMethod } = Astro.props;
         }
     </div>
     <span class="declaration">)</span>
+    <span class="declaration type"
+        >&nbsp;{"-> "}{
+            (returnTypeUrl && <a href={returnTypeUrl}>{returnTypeOrDefault}</a>) ||
+                returnTypeOrDefault
+        }</span
+    >
 </div>
-
-<!-- </div> -->
 
 <style>
     span.declaration {

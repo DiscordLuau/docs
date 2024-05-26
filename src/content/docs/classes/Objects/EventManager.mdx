@@ -7,6 +7,12 @@ description: DiscordLuau docs for EventManager.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 EventManager is responsible for handling Discord events and emitting signals 
 for various Discord activities such as message events, channel events, user updates, 
 guild events, and interactions.
@@ -29,7 +35,6 @@ The EventManager instance has no set methods!
 
 ### new
 
-> EventManager.new( `discordClient` any ) ->  EventManager 
-
+> <LuaDeclaration name="new" className="EventManager" args={[ { name: "discordClient", type: "any" } ]} />
 Creates a new instance of EventManager and connects it to the provided Discord client.
 

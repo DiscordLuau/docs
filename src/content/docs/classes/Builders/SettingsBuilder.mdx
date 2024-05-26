@@ -7,6 +7,12 @@ description: DiscordLuau docs for SettingsBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 A simple class to retain some generic data before a Discord Client can be started, for instance:
 
 - The Discord bot token/authentication
@@ -32,13 +38,11 @@ The SettingsBuilder instance has no set properties!
 
 ### setDiscordToken
 
-> SettingsBuilder:setDiscordToken( `discordToken` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.SettingsBuilder 
-
+> <LuaDeclaration name="setDiscordToken" className="SettingsBuilder" args={[ { name: "discordToken", type: "string" } ]} returnType="Builders.SettingsBuilder" isMethod />
 Sets the Discord bot token.
 ### setIntents
 
-> SettingsBuilder:setIntents( `discordIntents` IntentsBuilder ) ->  Builders.SettingsBuilder 
-
+> <LuaDeclaration name="setIntents" className="SettingsBuilder" args={[ { name: "discordIntents", type: "IntentsBuilder" } ]} returnType="Builders.SettingsBuilder" isMethod />
 Sets the Discord bot intents.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -47,7 +51,6 @@ Sets the Discord bot intents.
 
 ### new
 
-> SettingsBuilder.new( `discordToken` [string](https://www.lua.org/pil/2.4.html), `discordIntents` IntentsBuilder? ) ->  Builders.SettingsBuilder 
-
+> <LuaDeclaration name="new" className="SettingsBuilder" args={[ { name: "discordToken", type: "string" }, { name: "discordIntents", type: "IntentsBuilder?" } ]} />
 Constructs a new instance of SettingsBuilder.
 

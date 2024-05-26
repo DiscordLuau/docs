@@ -7,6 +7,12 @@ description: DiscordLuau docs for PermissionsBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 PermissionsBuilder is used to construct and manage permissions for a Discord bot.
 
 Usage:
@@ -28,7 +34,7 @@ print(permissions:getValue())
  PermissionsBuilder.Permissions :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of permissions.
 
 - CreateInstantInvite: 0
@@ -83,23 +89,19 @@ An enumeration of permissions.
 
 ### addPermission
 
-> PermissionsBuilder:addPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="addPermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="Builders.PermissionsBuilder" isMethod />
 Adds a permission to the builder.
 ### deletePermission
 
-> PermissionsBuilder:deletePermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="deletePermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="Builders.PermissionsBuilder" isMethod />
 Removes a permission from the builder.
 ### hasPermission
 
-> PermissionsBuilder:hasPermission( `permission` [number](https://www.lua.org/pil/2.3.html) ) ->  [boolean](https://www.lua.org/pil/2.2.html) 
-
+> <LuaDeclaration name="hasPermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="boolean" isMethod />
 Checks if a permission is in the builder.
 ### getValue
 
-> PermissionsBuilder:getValue() ->  [string](https://www.lua.org/pil/2.4.html) 
-
+> <LuaDeclaration name="getValue" className="PermissionsBuilder" args={[  ]} returnType="string" isMethod />
 Gets the bitfield value of the permissions.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -108,22 +110,18 @@ Gets the bitfield value of the permissions.
 
 ### new
 
-> PermissionsBuilder.new() ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="new" className="PermissionsBuilder" args={[  ]} />
 Creates a new instance of PermissionsBuilder.
 ### none
 
-> PermissionsBuilder.none() ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="none" className="PermissionsBuilder" args={[  ]} />
 Creates a new instance of PermissionsBuilder with no permissions.
 ### all
 
-> PermissionsBuilder.all() ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="all" className="PermissionsBuilder" args={[  ]} />
 Creates a new instance of PermissionsBuilder with all permissions.
 ### from
 
-> PermissionsBuilder.from( `bitfield` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.PermissionsBuilder 
-
+> <LuaDeclaration name="from" className="PermissionsBuilder" args={[ { name: "bitfield", type: "string" } ]} />
 Creates a new instance of PermissionsBuilder from a bitfield.
 

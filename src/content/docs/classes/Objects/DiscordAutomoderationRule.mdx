@@ -7,6 +7,12 @@ description: DiscordLuau docs for DiscordAutomoderationRule.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordAutomoderationRule` class provides methods to interact with Discord auto-moderation rules, including modifying and deleting rules.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -80,13 +86,11 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 
 ### modifyAsync
 
-> DiscordAutomoderationRule:modifyAsync( `moderationRoleBuilder` DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule. ) ->  Future<CommandResponse> 
-
+> <LuaDeclaration name="modifyAsync" className="DiscordAutomoderationRule" args={[ { name: "moderationRoleBuilder", type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule." } ]} returnType="Future<CommandResponse>" isMethod />
 Modifies an existing auto-moderation rule.
 ### deleteAsync
 
-> DiscordAutomoderationRule:deleteAsync() ->  Future<CommandResponse> 
-
+> <LuaDeclaration name="deleteAsync" className="DiscordAutomoderationRule" args={[  ]} returnType="Future<CommandResponse>" isMethod />
 Deletes an existing auto-moderation rule.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -95,7 +99,6 @@ Deletes an existing auto-moderation rule.
 
 ### new
 
-> DiscordAutomoderationRule.new( `discordClient` any The Discord client instance., `automoderationData` table The data for the auto-moderation rule. ) ->  DiscordAutomoderationRule 
-
+> <LuaDeclaration name="new" className="DiscordAutomoderationRule" args={[ { name: "discordClient", type: "any The Discord client instance." }, { name: "automoderationData", type: "table The data for the auto-moderation rule." } ]} />
 Creates a new instance of the DiscordAutomoderationRule.
 

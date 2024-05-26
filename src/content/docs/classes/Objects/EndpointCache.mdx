@@ -7,6 +7,12 @@ description: DiscordLuau docs for EndpointCache.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 EndpointCache is a caching mechanism designed to store data temporarily with an expiration time.
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
@@ -21,18 +27,15 @@ The EndpointCache instance has no set properties!
 
 ### setExpiry
 
-> EndpointCache:setExpiry( `seconds` [number](https://www.lua.org/pil/2.3.html) ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="setExpiry" className="EndpointCache" args={[ { name: "seconds", type: "number" } ]} isMethod />
 Sets the expiry time for the cache.
 ### set
 
-> EndpointCache:set( `value` any ) -> [nil](https://www.lua.org/pil/2.1.html)
-
+> <LuaDeclaration name="set" className="EndpointCache" args={[ { name: "value", type: "any" } ]} isMethod />
 Sets the value in the cache and starts the expiry timer.
 ### get
 
-> EndpointCache:get() ->  any 
-
+> <LuaDeclaration name="get" className="EndpointCache" args={[  ]} returnType="any" isMethod />
 Gets the current value from the cache.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -41,7 +44,6 @@ Gets the current value from the cache.
 
 ### new
 
-> EndpointCache.new( `expiryTime` [number?](https://www.lua.org/pil/2.3.html) ) ->  EndpointCache 
-
+> <LuaDeclaration name="new" className="EndpointCache" args={[ { name: "expiryTime", type: "number?" } ]} />
 Creates a new instance of EndpointCache.
 

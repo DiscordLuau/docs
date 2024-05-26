@@ -7,6 +7,12 @@ description: DiscordLuau docs for CommandBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 CommandBuilder is used to construct a command for a Discord application, including type, name, description, and options.
 
 Usage:
@@ -31,7 +37,7 @@ local command = CommandBuilder.new()
  CommandBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of command types.
 
 - ChatInput: 1
@@ -43,7 +49,7 @@ An enumeration of command types.
  CommandBuilder.Context :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of command contexts.
 
 - Guild: 0
@@ -56,58 +62,47 @@ An enumeration of command contexts.
 
 ### setType
 
-> CommandBuilder:setType( `commandType` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setType" className="CommandBuilder" args={[ { name: "commandType", type: "number" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets the type of the command.
 ### setLocalization
 
-> CommandBuilder:setLocalization( `localizationCode` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setLocalization" className="CommandBuilder" args={[ { name: "localizationCode", type: "string" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets the localization code for the command.
 ### setDescription
 
-> CommandBuilder:setDescription( `description` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setDescription" className="CommandBuilder" args={[ { name: "description", type: "string" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets the description of the command.
 ### setName
 
-> CommandBuilder:setName( `name` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setName" className="CommandBuilder" args={[ { name: "name", type: "string" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets the name of the command.
 ### setNSFW
 
-> CommandBuilder:setNSFW( `isNSFW` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setNSFW" className="CommandBuilder" args={[ { name: "isNSFW", type: "boolean" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets whether the command is NSFW.
 ### setDMPermission
 
-> CommandBuilder:setDMPermission( `canDM` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setDMPermission" className="CommandBuilder" args={[ { name: "canDM", type: "boolean" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets whether the command can be used in DMs.
 ### setGuildPermissions
 
-> CommandBuilder:setGuildPermissions( `permissionObject` PermissionsBuilder ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setGuildPermissions" className="CommandBuilder" args={[ { name: "permissionObject", type: "PermissionsBuilder" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets the required permissions for the command in a guild.
 ### addOption
 
-> CommandBuilder:addOption( `commandObject` CommandOptionBuilder ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="addOption" className="CommandBuilder" args={[ { name: "commandObject", type: "CommandOptionBuilder" } ]} returnType="Builders.CommandBuilder" isMethod />
 Adds an option to the command.
 ### setDefaultPermissionEnabled
 
-> CommandBuilder:setDefaultPermissionEnabled( `enabled` [boolean](https://www.lua.org/pil/2.2.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="setDefaultPermissionEnabled" className="CommandBuilder" args={[ { name: "enabled", type: "boolean" } ]} returnType="Builders.CommandBuilder" isMethod />
 Sets whether the command has default permission enabled.
 ### addContext
 
-> CommandBuilder:addContext( `context` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="addContext" className="CommandBuilder" args={[ { name: "context", type: "number" } ]} returnType="Builders.CommandBuilder" isMethod />
 Adds a context to the command.
 ### toJSONObject
 
-> CommandBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="CommandBuilder" args={[  ]} returnType="table" isMethod />
 Converts the command to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -116,7 +111,6 @@ Converts the command to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> CommandBuilder.new() ->  Builders.CommandBuilder 
-
+> <LuaDeclaration name="new" className="CommandBuilder" args={[  ]} />
 Creates a new instance of CommandBuilder.
 

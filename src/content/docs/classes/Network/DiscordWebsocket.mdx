@@ -7,6 +7,12 @@ description: DiscordLuau docs for DiscordWebsocket.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 The `DiscordWebsocket` class manages the websocket connection to Discord. It handles sending and receiving messages, managing the connection state, and processing incoming and outgoing events.
 
 :::caution
@@ -25,23 +31,19 @@ The DiscordWebsocket instance has no set properties!
 
 ### sendAsync
 
-> DiscordWebsocket:sendAsync( `self` DiscordWebsocket, `dataPacket` [table](https://www.lua.org/pil/2.5.html) ) ->  Future 
-
+> <LuaDeclaration name="sendAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "dataPacket", type: "table" } ]} returnType="Future" isMethod />
 Sends a data packet asynchronously through the websocket.
 ### connectAsync
 
-> DiscordWebsocket:connectAsync( `self` DiscordWebsocket, `websocketUrl` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="connectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "websocketUrl", type: "string" } ]} returnType="Future" isMethod />
 Connects to a websocket URL asynchronously.
 ### disconnectAsync
 
-> DiscordWebsocket:disconnectAsync( `self` DiscordWebsocket, `closingCode` [string](https://www.lua.org/pil/2.4.html) ) ->  Future 
-
+> <LuaDeclaration name="disconnectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "closingCode", type: "string" } ]} returnType="Future" isMethod />
 Disconnects from the websocket asynchronously.
 ### new
 
-> DiscordWebsocket:new() ->  DiscordWebsocket 
-
+> <LuaDeclaration name="new" className="DiscordWebsocket" args={[  ]} returnType="DiscordWebsocket" isMethod />
 Creates a new instance of `DiscordWebsocket`.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

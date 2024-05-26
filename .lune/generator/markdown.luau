@@ -27,6 +27,30 @@ local function separator()
 	return `---\n`
 end
 
+local function import(component)
+	return `import {component} from '$/components/{component}.astro';\n`
+end
+
+local function declaration(functionName, className, isMethod, parameters, returnType: string?)
+	local argumentComponents = {}
+
+	for index, paramObject in parameters do
+		table.insert(argumentComponents, `\{ name: "{paramObject.name}", type: "{paramObject.lua_type}" }`)
+	end
+
+	local formattedProps = `name="{functionName}" className="{className}" args=\{[ {table.concat(argumentComponents, ", ")} ]}`
+	
+	if returnType then
+		formattedProps ..= ` returnType="{returnType}"`
+	end
+
+	if isMethod then 
+		formattedProps ..= " isMethod"
+	end
+
+	return `> <LuaDeclaration {formattedProps} />`
+end
+
 local function frontmatter(source: {
 	name: string,
 	description: string,
@@ -90,6 +114,18 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	markdownFile ..= newline()
 
+	markdownFile ..= comment(`----- DOCUMENT IMPORTS ----- `)
+
+	markdownFile ..= newline()
+
+	markdownFile ..= import("LuaDeclaration")
+
+	markdownFile ..= newline()
+
+	markdownFile ..= comment(`----- DOCUMENT DESCRIPTION ----- `)
+
+	markdownFile ..= newline()
+
 	markdownFile ..= input(classDescription)
 
 	markdownFile ..= newline()
@@ -127,9 +163,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	if #classMethods > 0 then
 		for _, method in classMethods do
 			markdownFile ..= h3(method.name)
-			markdownFile ..= input(
-				` \`\`\`lua\n > {className}:{method.name}({getReadableParamList(method)}) -> {getReadableReturnsList(method)}\n\`\`\`\n`
-			)
+			markdownFile ..= declaration(method.name, className, true, method.params, (method.returns[1] or {lua_type = nil}).lua_type)
 
 			if method.desc then
 				markdownFile ..= newline()
@@ -151,9 +185,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	if #classFunctions > 0 then
 		for _, func in classFunctions do
 			markdownFile ..= h3(func.name)
-			markdownFile ..= input(
-				`> {className}.{func.name}({getReadableParamList(func)}) -> {getReadableReturnsList(func)}`
-			)
+			markdownFile ..= declaration(func.name, className, false, func.params)		
 
 			if func.desc then
 				markdownFile ..= newline()

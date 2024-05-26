@@ -7,6 +7,12 @@ description: DiscordLuau docs for ActivityBuilder.
 [//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
 [//]: # (them into markdown files that Nextra can interpret!)
 
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
 ActivityBuilder is used to construct an activity object for a Discord bot, including name, type, and streaming URL.
 
 Usage:
@@ -27,7 +33,7 @@ local activity = ActivityBuilder.new()
  ActivityBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
 ```
 
-
+---
 An enumeration of activity types.
 
 - Game: 0
@@ -42,23 +48,19 @@ An enumeration of activity types.
 
 ### setActivityName
 
-> ActivityBuilder:setActivityName( `activityName` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.ActivityBuilder 
-
+> <LuaDeclaration name="setActivityName" className="ActivityBuilder" args={[ { name: "activityName", type: "string" } ]} returnType="Builders.ActivityBuilder" isMethod />
 Sets the name of the activity.
 ### setActivityType
 
-> ActivityBuilder:setActivityType( `activityType` [number](https://www.lua.org/pil/2.3.html) ) ->  Builders.ActivityBuilder 
-
+> <LuaDeclaration name="setActivityType" className="ActivityBuilder" args={[ { name: "activityType", type: "number" } ]} returnType="Builders.ActivityBuilder" isMethod />
 Sets the type of the activity.
 ### setStreamingURL
 
-> ActivityBuilder:setStreamingURL( `streamURL` [string](https://www.lua.org/pil/2.4.html) ) ->  Builders.ActivityBuilder 
-
+> <LuaDeclaration name="setStreamingURL" className="ActivityBuilder" args={[ { name: "streamURL", type: "string" } ]} returnType="Builders.ActivityBuilder" isMethod />
 Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
 ### toJSONObject
 
-> ActivityBuilder:toJSONObject() ->  [table](https://www.lua.org/pil/2.5.html) 
-
+> <LuaDeclaration name="toJSONObject" className="ActivityBuilder" args={[  ]} returnType="table" isMethod />
 Converts the activity to a JSON object that can be sent to the Discord API.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
@@ -67,7 +69,6 @@ Converts the activity to a JSON object that can be sent to the Discord API.
 
 ### new
 
-> ActivityBuilder.new() ->  Builders.ActivityBuilder 
-
+> <LuaDeclaration name="new" className="ActivityBuilder" args={[  ]} />
 Creates a new instance of ActivityBuilder.
 
