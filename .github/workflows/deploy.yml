@@ -45,8 +45,4 @@ jobs:
         run: "pnpm astro:build"
 
       - name: Upload to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: "discord-luau-docs"
-          entrypoint: "server/entry.mjs"
-          root: "dist"
+        run: "pnpm run deploy"
