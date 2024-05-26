@@ -27,6 +27,27 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
             args.map(({ name, type }) => {
                 const defaultedType = typeOrDefault(type);
                 const typeUrl = getTypeDocs(defaultedType);
+                
+                let unionTypes: [] | null = [];
+                if (type.includes("|")) {
+                    const unionMembers = defaultedType.split("|");
+                    unionTypes = unionMembers.map((unionType: string, count: number) => {
+                        unionType = unionType.trim();
+                        const unionTypeUrl = getTypeDocs(unionType)
+
+                        return (
+                            <>
+                                <LuaTypeComponent url={unionTypeUrl} type={unionType} />
+                                {count !== unionMembers.length - 1 && (
+                                    <br/>
+                                    <span>{"\u00A0".repeat(22)}|</span>
+                                ) || ""}
+                            </>
+                        )
+                    })
+                } else {
+                    unionTypes = null
+                }
 
                 return (
                     <>
@@ -35,7 +56,7 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
                         </span>
                         <span class="declaration type">
-                            <LuaTypeComponent url={typeUrl} type={defaultedType} />
+                            {unionTypes && unionTypes || (<LuaTypeComponent url={typeUrl} type={defaultedType} />)}
                         </span>
                         <span class="declaration" />
                     </>
