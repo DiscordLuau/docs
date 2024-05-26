@@ -36,3 +36,10 @@ jobs:
           git add -A
           git commit -m "docs: update refs for https://github.com/DiscordLuau/discord-luau/commit/${{ github.event.client_payload.sha }}" && \
             git push || echo "warn: no changes to commit"
+
+      - name: Deploy dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          repository: DiscordLuau/docs
+          event-type: deploy
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
