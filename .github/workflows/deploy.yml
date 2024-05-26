@@ -40,7 +40,7 @@ jobs:
         run: "pnpm install"
 
       - name: Build step
-        run: "pnpm run build"
+        run: "pnpm astro:build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1

@@ -8,7 +8,8 @@
     "postinstall": "deno install -Arf jsr:@deno/deployctl",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "./lunew generateReference && astro check && astro build",
+    "astro:build": "astro check && astro build",
+    "build": "./lunew generateReference && pnpm astro:build",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "deployctl deploy --entrypoint dist/server/entry.mjs"
