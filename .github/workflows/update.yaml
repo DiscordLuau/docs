@@ -31,7 +31,8 @@ jobs:
 
       - name: Commit & push
         run: |
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "docs: update refs for https://github.com/DiscordLuau/discord-luau/commit/${{ github.event.client_payload.sha }}" && \
             git push || echo "warn: no changes to commit"
