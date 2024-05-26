@@ -10,6 +10,7 @@ description: DiscordLuau docs for AutomoderationRuleBuilder.
 [//]: # (----- DOCUMENT IMPORTS ----- )
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
 [//]: # (----- DOCUMENT DESCRIPTION ----- )
 
@@ -32,20 +33,14 @@ local rule = AutomoderationRuleBuilder.new()
 
 ### EventType
 
- ```lua
- AutomoderationRuleBuilder.EventType :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="AutomoderationRuleBuilder.EventType" type="table" />
 ---
 An enumeration of event types.
 
 - MessageSend: 1
 ### TriggerType
 
- ```lua
- AutomoderationRuleBuilder.TriggerType :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="AutomoderationRuleBuilder.TriggerType" type="table" />
 ---
 An enumeration of trigger types.
 
@@ -55,10 +50,7 @@ An enumeration of trigger types.
 - MentionSpam: 5
 ### KeywordPresets
 
- ```lua
- AutomoderationRuleBuilder.KeywordPresets :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="AutomoderationRuleBuilder.KeywordPresets" type="table" />
 ---
 An enumeration of keyword presets.
 
@@ -67,10 +59,7 @@ An enumeration of keyword presets.
 - Slurs: 3
 ### ActionType
 
- ```lua
- AutomoderationRuleBuilder.ActionType :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="AutomoderationRuleBuilder.ActionType" type="table" />
 ---
 An enumeration of action types.
 

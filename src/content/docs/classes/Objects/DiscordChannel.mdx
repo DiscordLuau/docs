@@ -10,6 +10,7 @@ description: DiscordLuau docs for DiscordChannel.
 [//]: # (----- DOCUMENT IMPORTS ----- )
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
 [//]: # (----- DOCUMENT DESCRIPTION ----- )
 
@@ -21,10 +22,7 @@ The `DiscordChannel` class represents a generic Discord channel and provides var
 
 ### type
 
- ```lua
- DiscordChannel.type :: [string](https://www.lua.org/pil/2.4.html)
-```
-
+<LuaProperty name="DiscordChannel.type" type="string" />
 ---
 The type of the Discord channel. Default is "DiscordChannel".
 

@@ -10,6 +10,7 @@ description: DiscordLuau docs for CommandBuilder.
 [//]: # (----- DOCUMENT IMPORTS ----- )
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
 [//]: # (----- DOCUMENT DESCRIPTION ----- )
 
@@ -33,10 +34,7 @@ local command = CommandBuilder.new()
 
 ### Type
 
- ```lua
- CommandBuilder.Type :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="CommandBuilder.Type" type="table" />
 ---
 An enumeration of command types.
 
@@ -45,10 +43,7 @@ An enumeration of command types.
 - MessageInput: 3
 ### Context
 
- ```lua
- CommandBuilder.Context :: [table](https://www.lua.org/pil/2.5.html)
-```
-
+<LuaProperty name="CommandBuilder.Context" type="table" />
 ---
 An enumeration of command contexts.
 
