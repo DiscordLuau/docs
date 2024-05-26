@@ -1,5 +1,6 @@
 ---
 import type { Props as AstroProps } from "@astrojs/starlight/props";
+import LuaType from "./LuaType.astro";
 
 type LuaType =
     | "nil"
@@ -57,12 +58,19 @@ const getCustomTypeDocs = (type: string) => {
     return path;
 };
 
+const getTypeDocs = (type: string) => {
+    return type in luaTypeDocs
+        ? getLuaDocs(type as LuaType)
+        : getCustomTypeDocs(type);
+};
+
+const typeOrDefault = (type?: string) => {
+    return type ?? "()";
+};
+
 const { name, className, args, returnType, isMethod } = Astro.props;
-const returnTypeOrDefault = returnType ? returnType : "()";
-const returnTypeUrl =
-    returnTypeOrDefault in luaTypeDocs
-        ? getLuaDocs(returnTypeOrDefault as LuaType)
-        : getCustomTypeDocs(returnTypeOrDefault);
+const returnTypeOrDefault = typeOrDefault(returnType);
+const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
 ---
 
 <div class="declaration">
@@ -72,17 +80,20 @@ const returnTypeUrl =
     <span class="declaration">(</span>
     <div class="declaration">
         {
-            args.map(({ name, type }, count) => {
+            args.map(({ name, type }) => {
+                const defaultedType = typeOrDefault(type);
+                const typeUrl = getTypeDocs(defaultedType);
+
                 return (
                     <>
                         <br />
                         <span class="declaration arg">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
                         </span>
-                        <span class="declaration type">{type}</span>
-                        <span class="declaration">
-                            {(count !== args.length - 1 && ",") || <br />}
+                        <span class="declaration type">
+                            <LuaType url={typeUrl} type={defaultedType} />
                         </span>
+                        <span class="declaration" />
                     </>
                 );
             })
@@ -90,11 +101,9 @@ const returnTypeUrl =
     </div>
     <span class="declaration">)</span>
     <span class="declaration type"
-        >&nbsp;{"-> "}{
-            (returnTypeUrl && <a href={returnTypeUrl}>{returnTypeOrDefault}</a>) ||
-                returnTypeOrDefault
-        }</span
-    >
+        >&nbsp;{"-> "}
+        <LuaType url={returnTypeUrl} type={returnTypeOrDefault} />
+    </span>
 </div>
 
 <style>
