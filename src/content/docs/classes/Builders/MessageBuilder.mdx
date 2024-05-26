@@ -64,10 +64,10 @@ Adds a sticker ID to the message.
 
 > <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Builders.MessageBuilder" isMethod />
 Sets the flags for the message.
-### setFlags
+### addFile
 
-> <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "fileContent", type: "string" }, { name: "fileName", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
-Sets the flags for the message.
+> <LuaDeclaration name="addFile" className="MessageBuilder" args={[ { name: "fileContent", type: "string" }, { name: "fileName", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Add a file to the Message object
 ### toJsonObject
 
 > <LuaDeclaration name="toJsonObject" className="MessageBuilder" args={[  ]} returnType="table" isMethod />
