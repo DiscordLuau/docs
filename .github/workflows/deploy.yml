@@ -45,4 +45,4 @@ jobs:
         run: "pnpm astro:build"
 
       - name: Upload to Deno Deploy
-        run: "pnpm run deploy"
+        run: "DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} pnpm run deploy"
