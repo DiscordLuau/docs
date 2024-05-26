@@ -1,10 +1,18 @@
 ---
+import { getTypeDocs } from './utils/lua';
+
 type Props = {
     url: string | null;
     type: string;
 };
 
-const { url, type } = Astro.props;
+let { url, type } = Astro.props;
+
+// Array shorthand notation
+const arrayType = type.match(/\{(.*?)\}/);
+if (arrayType) {
+    url = getTypeDocs(arrayType[1].trim());
+}
 ---
 
 <>

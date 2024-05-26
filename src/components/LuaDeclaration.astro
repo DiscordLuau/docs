@@ -1,20 +1,8 @@
 ---
 import type { Props as AstroProps } from "@astrojs/starlight/props";
-import LuaType from "./LuaType.astro";
-
-type LuaType =
-    | "nil"
-    | ("boolean" | "bool")
-    | "number"
-    | "string"
-    | "table"
-    | ("tuple" | "...")
-    | ("userdata" | "proxy");
-
-type LuaParam = {
-    name: string;
-    type: LuaType | string;
-};
+import LuaTypeComponent from "./LuaType.astro";
+import type { LuaType, LuaParam } from "./utils/lua";
+import { typeOrDefault, getTypeDocs } from "./utils/lua";
 
 type Props = AstroProps & {
     name: string;
@@ -22,50 +10,6 @@ type Props = AstroProps & {
     className: string;
     args: LuaParam[];
     returnType?: LuaType | string;
-};
-
-const luaTypeDocs: Record<LuaType, string> = {
-    nil: "2.1",
-    boolean: "2.2",
-    bool: "2.2",
-    number: "2.3",
-    string: "2.4",
-    table: "2.5",
-    tuple: "5.1",
-    "...": "5.1",
-    userdata: "28.1",
-    proxy: "28.1",
-};
-const getLuaDocs = (luaType: LuaType) => {
-    const luaDocsBaseUrl = new URL("https://www.lua.org/pil");
-    luaDocsBaseUrl.pathname += "/" + luaTypeDocs[luaType] + ".html";
-
-    return luaDocsBaseUrl.toString();
-};
-
-const getCustomTypeDocs = (type: string) => {
-    if (type == "()" || type == "any") {
-        return null;
-    }
-
-    const path =
-        "/classes/" +
-        type
-            .split(".")
-            .map((component) => component.toLocaleLowerCase())
-            .join("/");
-
-    return path;
-};
-
-const getTypeDocs = (type: string) => {
-    return type in luaTypeDocs
-        ? getLuaDocs(type as LuaType)
-        : getCustomTypeDocs(type);
-};
-
-const typeOrDefault = (type?: string) => {
-    return type ?? "()";
 };
 
 const { name, className, args, returnType, isMethod } = Astro.props;
@@ -91,7 +35,7 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
                         </span>
                         <span class="declaration type">
-                            <LuaType url={typeUrl} type={defaultedType} />
+                            <LuaTypeComponent url={typeUrl} type={defaultedType} />
                         </span>
                         <span class="declaration" />
                     </>
@@ -102,36 +46,6 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
     <span class="declaration">)</span>
     <span class="declaration type"
         >&nbsp;{"-> "}
-        <LuaType url={returnTypeUrl} type={returnTypeOrDefault} />
+        <LuaTypeComponent url={returnTypeUrl} type={returnTypeOrDefault} />
     </span>
 </div>
-
-<style>
-    span.declaration {
-        font-size: 19px;
-        font-family: monospace;
-    }
-
-    div.declaration {
-        font-size: 0;
-        /* background-color: #23262f; */
-        border-radius: 2%;
-        padding: 1%;
-    }
-
-    .method {
-        color: #b0d86f;
-    }
-
-    .class {
-        color: #ffcb8b;
-    }
-
-    .arg {
-        color: #7bdbca;
-    }
-
-    .type {
-        color: #82aadd;
-    }
-</style>

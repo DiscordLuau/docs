@@ -28,7 +28,7 @@ export default defineConfig({
         directory: "classes"
       }
     }],
-    customCss: ['./src/styles/landing.css', './src/styles/starlight.css'],
+    customCss: ['./src/styles/landing.css', './src/styles/starlight.css', './src/styles/lua.css'],
     components: {
       Hero: "./src/components/Hero.astro",
       Pagination: './src/components/Pagination.astro',

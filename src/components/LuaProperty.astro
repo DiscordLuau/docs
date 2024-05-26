@@ -1,0 +1,17 @@
+---
+import LuaType from './LuaType.astro';
+import { getTypeDocs } from './utils/lua';
+
+type Props = {
+    name: string,
+    type: string;
+};
+
+const { name, type } = Astro.props;
+---
+
+<div class="declaration">
+    <span class="declaration arg">{name}</span>
+    <span class="declaration">&nbsp;:: </span>
+    <span class="declaration type"><LuaType type={type} url={getTypeDocs(type)} /></span>
+</div>

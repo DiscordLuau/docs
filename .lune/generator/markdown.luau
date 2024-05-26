@@ -51,39 +51,15 @@ local function declaration(functionName, className, isMethod, parameters, return
 	return `> <LuaDeclaration {formattedProps} />`
 end
 
+local function property(name: string, type: string)
+	return `<LuaProperty name="{name}" type="{type}" />`
+end
+
 local function frontmatter(source: {
 	name: string,
 	description: string,
 })
 	return `---\ntitle: {source.name}\ndescription: {source.description}\n---`
-end
-
-local function getReadableParamList(proto: Moonwave.moonwaveFunctionData)
-	local readableList = " "
-
-	if #proto.params == 0 then
-		return ""
-	end
-
-	for index, paramObject in proto.params do
-		readableList ..= `\`{paramObject.name}\` {Types.parseLuauType(paramObject.lua_type, true)}` .. (index == #proto.params and ` ` or `, `)
-	end
-
-	return readableList
-end
-
-local function getReadableReturnsList(proto: Moonwave.moonwaveFunctionData)
-	local readableList = " "
-
-	if #proto.returns == 0 then
-		return Types.parseLuauType("nil")
-	end
-
-	for index, returnObject in proto.returns do
-		readableList ..= `{Types.parseLuauType(returnObject.lua_type, true)}` .. (index == #proto.returns and ` ` or `, `)
-	end
-
-	return readableList
 end
 
 function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonwaveDataExportObject)
@@ -119,6 +95,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	markdownFile ..= newline()
 
 	markdownFile ..= import("LuaDeclaration")
+	markdownFile ..= import("LuaProperty")
 
 	markdownFile ..= newline()
 
@@ -137,15 +114,14 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	markdownFile ..= h2(`Properties`)
 
 	if #classProperties > 0 then
-		for _, property in classProperties do
-			markdownFile ..= h3(property.name)
-			markdownFile ..= input(
-				` \`\`\`lua\n {className}.{property.name} :: {Types.parseLuauType(property.lua_type)}\n\`\`\`\n`
-			)
+		for _, prop in classProperties do
+			markdownFile ..= h3(prop.name)
+			markdownFile ..= property(`{className}.{prop.name}`, prop.lua_type)
+			markdownFile ..= newline()
 
-			if property.desc ~= "" then
+			if prop.desc ~= "" then
 				markdownFile ..= separator()
-				markdownFile ..= input(property.desc)
+				markdownFile ..= input(prop.desc)
 			end
 		end
 	else

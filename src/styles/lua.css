@@ -1,0 +1,27 @@
+span.declaration {
+    font-size: 19px;
+    font-family: monospace;
+}
+
+div.declaration {
+    font-size: 0;
+    /* background-color: #23262f; */
+    border-radius: 2%;
+    padding: 1%;
+}
+
+.method {
+    color: #b0d86f;
+}
+
+.class {
+    color: #ffcb8b;
+}
+
+.arg {
+    color: #7bdbca;
+}
+
+.type {
+    color: #82aadd;
+}
