@@ -42,6 +42,10 @@ Sends a modal in response to the interaction asynchronously.
 
 > <LuaDeclaration name="sendMessageAsync" className="DiscordInteraction" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
 Sends a message in response to the interaction asynchronously.
+
+:::caution
+MessageBuilder cannot support Attachments UNLESS deffered, so if you're wanting to send attachments, please call `deferAsync` first!
+:::
 ### deferAsync
 
 > <LuaDeclaration name="deferAsync" className="DiscordInteraction" args={[  ]} returnType="Future" isMethod />
