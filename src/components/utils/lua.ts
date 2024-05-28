@@ -56,3 +56,14 @@ export const getTypeDocs = (type: string) => {
 export const typeOrDefault = (type?: string) => {
     return type ?? "()";
 };
+
+export const getKvPairs = (tblInner: string) => {
+    tblInner = tblInner.trim()
+    const pairs = tblInner.split(",").map(pair => pair.split(":").map(elem => elem.trim()))
+
+    return pairs
+}
+
+export const isObject = (tblInner: string) => {
+    return tblInner.match(/(.*):(.*)/) !== null;
+}

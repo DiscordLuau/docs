@@ -28,6 +28,7 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                 const defaultedType = typeOrDefault(type);
                 const typeUrl = getTypeDocs(defaultedType);
                 
+                // FIXME: What would be the type of a collection of JSX elements?
                 let unionTypes: any[] | null = [];
                 if (type.includes("|")) {
                     const unionMembers = defaultedType.split("|");

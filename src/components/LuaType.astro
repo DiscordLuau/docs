@@ -1,20 +1,34 @@
 ---
-import { getTypeDocs } from './utils/lua';
+import LuaTable from "./LuaTable.astro";
+import { getKvPairs, getTypeDocs, isObject } from "./utils/lua";
 
 type Props = {
-    url: string | null;
-    type: string;
+  url: string | null;
+  type: string;
 };
 
 let { url, type } = Astro.props;
+let pairs: string[][] = [];
 
-// Array shorthand notation
-const arrayType = type.match(/\{(.*?)\}/);
-if (arrayType) {
-    url = getTypeDocs(arrayType[1].trim());
+const tableType = type.match(/\{(.*?)\}/);
+if (tableType) {
+  if (isObject(tableType[1])) {
+    // KV table
+    pairs = getKvPairs(tableType[1]);
+    url = null;
+  } else {
+    // Array shorthand notation
+    url = getTypeDocs(tableType[1].trim());
+  }
 }
 ---
 
 <>
-    {(url && <a href={url}>{type}</a>) || type}
+  {
+    (url && <a href={url}>{type}</a>) ||
+      (pairs.length !== 0 && (
+        <LuaTable pairs={pairs} tableInner={tableType![1]} />
+      )) ||
+      type
+  }
 </>

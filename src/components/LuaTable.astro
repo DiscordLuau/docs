@@ -1,0 +1,34 @@
+---
+import { getTypeDocs, isObject } from "./utils/lua";
+
+type Props = {
+  pairs: string[][];
+  tableInner: string;
+};
+
+const { pairs, tableInner } = Astro.props;
+---
+
+<>
+  {"{"}
+  {(<br />)}
+  {"\u00A0".repeat(6)}
+  {
+    (pairs.length == 1 && "{\u0085" + tableInner + "\u0085}") ||
+      pairs.map(([k, v], count) => {
+        const padding = "\u00A0".repeat(count == 0 ? 1 : 7);
+
+        return (
+          <>
+            <span>
+              {`${padding}${k}: `}
+              {(isObject(v) && "{...}") || <a href={getTypeDocs(v)}>{v}</a>}
+              {","}
+            </span>
+            <br />
+          </>
+        );
+      })
+  }
+  {"\u00A0".repeat(4) + "}"}
+</>
