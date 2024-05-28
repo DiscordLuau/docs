@@ -33,43 +33,43 @@ The type of the DiscordCache. Default is "DiscordCache".
 ### setData
 
 > <LuaDeclaration
->   name="setData"
->   className="DiscordCache"
->   args={[
->     { name: "cacheType", type: "string" },
->     { name: "uuid", type: "string" },
->     { name: "data", type: "any" },
->   ]}
->   isMethod
+> 	name="setData"
+> 	className="DiscordCache"
+> 	args={[
+> 		{ name: "cacheType", type: "string" },
+> 		{ name: "uuid", type: "string" },
+> 		{ name: "data", type: "any" },
+> 	]}
+> 	isMethod
 > />
 > Sets data in the cache.
 
 ### getData
 
 > <LuaDeclaration
->   name="getData"
->   className="DiscordCache"
->   args={[
->     { name: "cacheType", type: "string" },
->     { name: "uuid", type: "string" },
->   ]}
->   returnType="any"
->   isMethod
+> 	name="getData"
+> 	className="DiscordCache"
+> 	args={[
+> 		{ name: "cacheType", type: "string" },
+> 		{ name: "uuid", type: "string" },
+> 	]}
+> 	returnType="any"
+> 	isMethod
 > />
 > Gets data from the cache.
 
 ### getDataOr
 
 > <LuaDeclaration
->   name="getDataOr"
->   className="DiscordCache"
->   args={[
->     { name: "cacheType", type: "string" },
->     { name: "uuid", type: "string" },
->     { name: "callback", type: "function" },
->   ]}
->   returnType="any"
->   isMethod
+> 	name="getDataOr"
+> 	className="DiscordCache"
+> 	args={[
+> 		{ name: "cacheType", type: "string" },
+> 		{ name: "uuid", type: "string" },
+> 		{ name: "callback", type: "function" },
+> 	]}
+> 	returnType="any"
+> 	isMethod
 > />
 > Gets data from the cache, or calls a callback to generate and cache the data if
 > not found.

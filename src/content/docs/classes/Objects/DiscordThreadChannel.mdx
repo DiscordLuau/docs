@@ -29,77 +29,77 @@ The DiscordThreadChannel instance has no set properties!
 ### joinThreadAsync
 
 > <LuaDeclaration
->   name="joinThreadAsync"
->   className="DiscordThreadChannel"
->   args={[]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="joinThreadAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Joins the current discord bot into the thread
 
 ### addMemberToThreadAsync
 
 > <LuaDeclaration
->   name="addMemberToThreadAsync"
->   className="DiscordThreadChannel"
->   args={[{ name: "userId", type: "string" }]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="addMemberToThreadAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[{ name: "userId", type: "string" }]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Adds the passed member to the thread channel
 
 ### leaveThreadAsync
 
 > <LuaDeclaration
->   name="leaveThreadAsync"
->   className="DiscordThreadChannel"
->   args={[]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="leaveThreadAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Leaves the thread channel if the discord bot is in the channel.
 
 ### removeMemberFromThreadAsync
 
 > <LuaDeclaration
->   name="removeMemberFromThreadAsync"
->   className="DiscordThreadChannel"
->   args={[{ name: "userId", type: "string" }]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="removeMemberFromThreadAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[{ name: "userId", type: "string" }]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Removes the passed user id from the current thread channel
 
 ### removeMemberFromThreadAsync
 
 > <LuaDeclaration
->   name="removeMemberFromThreadAsync"
->   className="DiscordThreadChannel"
->   args={[{ name: "userId", type: "string" }]}
->   returnType="Future<{ DiscordGuildMember }>"
->   isMethod
+> 	name="removeMemberFromThreadAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[{ name: "userId", type: "string" }]}
+> 	returnType="Future<{ DiscordGuildMember }>"
+> 	isMethod
 > />
 > Returns a list of members that are active in the current thread channel
 
 ### modifyAsync
 
 > <LuaDeclaration
->   name="modifyAsync"
->   className="DiscordThreadChannel"
->   args={[{ name: "channelSchema", type: "DiscordTextChannelSchema" }]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="modifyAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[{ name: "channelSchema", type: "DiscordTextChannelSchema" }]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Modifies the thread channel settings asynchronously.
 
 ### getPinnedMessagesAsync
 
 > <LuaDeclaration
->   name="getPinnedMessagesAsync"
->   className="DiscordThreadChannel"
->   args={[]}
->   returnType="Future<{[number]: DiscordMessage}>"
->   isMethod
+> 	name="getPinnedMessagesAsync"
+> 	className="DiscordThreadChannel"
+> 	args={[]}
+> 	returnType="Future<{[number]: DiscordMessage}>"
+> 	isMethod
 > />
 > Retrieves the pinned messages in the thread channel asynchronously.
 
@@ -110,11 +110,11 @@ The DiscordThreadChannel instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordThreadChannel"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "channelData", type: "table" },
->   ]}
+> 	name="new"
+> 	className="DiscordThreadChannel"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "channelData", type: "table" },
+> 	]}
 > />
 > Creates a new instance of DiscordThreadChannel.

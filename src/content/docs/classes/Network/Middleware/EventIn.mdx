@@ -33,28 +33,28 @@ The EventIn instance has no set properties!
 ### toCamelCase
 
 > <LuaDeclaration
->   name="toCamelCase"
->   className="EventIn"
->   args={[
->     { name: "self", type: "EventIn" },
->     { name: "json", type: "table" },
->   ]}
->   returnType="table"
->   isMethod
+> 	name="toCamelCase"
+> 	className="EventIn"
+> 	args={[
+> 		{ name: "self", type: "EventIn" },
+> 		{ name: "json", type: "table" },
+> 	]}
+> 	returnType="table"
+> 	isMethod
 > />
 > Converts JSON keys from snake_case to camelCase.
 
 ### processJSON
 
 > <LuaDeclaration
->   name="processJSON"
->   className="EventIn"
->   args={[
->     { name: "self", type: "EventIn" },
->     { name: "data", type: "any" },
->   ]}
->   returnType="any"
->   isMethod
+> 	name="processJSON"
+> 	className="EventIn"
+> 	args={[
+> 		{ name: "self", type: "EventIn" },
+> 		{ name: "data", type: "any" },
+> 	]}
+> 	returnType="any"
+> 	isMethod
 > />
 > Processes incoming JSON data, converting keys to camelCase if the data is a table.
 

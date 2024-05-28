@@ -44,14 +44,14 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 ### exemptChannels
 
 <LuaProperty
-  name="DiscordAutomoderationRule.exemptChannels"
-  type="{ string }"
+	name="DiscordAutomoderationRule.exemptChannels"
+	type="{ string }"
 />
 ### triggerMetadata
 
 <LuaProperty
-  name="DiscordAutomoderationRule.triggerMetadata"
-  type="TriggerMetadata"
+	name="DiscordAutomoderationRule.triggerMetadata"
+	type="TriggerMetadata"
 />
 ### actions
 
@@ -64,27 +64,27 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 ### modifyAsync
 
 > <LuaDeclaration
->   name="modifyAsync"
->   className="DiscordAutomoderationRule"
->   args={[
->     {
->       name: "moderationRoleBuilder",
->       type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule.",
->     },
->   ]}
->   returnType="Future<CommandResponse>"
->   isMethod
+> 	name="modifyAsync"
+> 	className="DiscordAutomoderationRule"
+> 	args={[
+> 		{
+> 			name: "moderationRoleBuilder",
+> 			type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule.",
+> 		},
+> 	]}
+> 	returnType="Future<CommandResponse>"
+> 	isMethod
 > />
 > Modifies an existing auto-moderation rule.
 
 ### deleteAsync
 
 > <LuaDeclaration
->   name="deleteAsync"
->   className="DiscordAutomoderationRule"
->   args={[]}
->   returnType="Future<CommandResponse>"
->   isMethod
+> 	name="deleteAsync"
+> 	className="DiscordAutomoderationRule"
+> 	args={[]}
+> 	returnType="Future<CommandResponse>"
+> 	isMethod
 > />
 > Deletes an existing auto-moderation rule.
 
@@ -95,14 +95,14 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordAutomoderationRule"
->   args={[
->     { name: "discordClient", type: "any The Discord client instance." },
->     {
->       name: "automoderationData",
->       type: "table The data for the auto-moderation rule.",
->     },
->   ]}
+> 	name="new"
+> 	className="DiscordAutomoderationRule"
+> 	args={[
+> 		{ name: "discordClient", type: "any The Discord client instance." },
+> 		{
+> 			name: "automoderationData",
+> 			type: "table The data for the auto-moderation rule.",
+> 		},
+> 	]}
 > />
 > Creates a new instance of the DiscordAutomoderationRule.

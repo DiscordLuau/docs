@@ -33,94 +33,94 @@ The HTTPScheduler instance has no set properties!
 ### spawnWorker
 
 > <LuaDeclaration
->   name="spawnWorker"
->   className="HTTPScheduler"
->   args={[{ name: "self", type: "HTTPScheduler" }]}
->   isMethod
+> 	name="spawnWorker"
+> 	className="HTTPScheduler"
+> 	args={[{ name: "self", type: "HTTPScheduler" }]}
+> 	isMethod
 > />
 > Spawns a new worker task that cycles through scheduled tasks at the specified frequency.
 
 ### stopWorker
 
 > <LuaDeclaration
->   name="stopWorker"
->   className="HTTPScheduler"
->   args={[{ name: "self", type: "HTTPScheduler" }]}
->   isMethod
+> 	name="stopWorker"
+> 	className="HTTPScheduler"
+> 	args={[{ name: "self", type: "HTTPScheduler" }]}
+> 	isMethod
 > />
 > Stops and removes a worker task.
 
 ### setFrequency
 
 > <LuaDeclaration
->   name="setFrequency"
->   className="HTTPScheduler"
->   args={[
->     { name: "self", type: "HTTPScheduler" },
->     { name: "frequency", type: "number" },
->   ]}
->   isMethod
+> 	name="setFrequency"
+> 	className="HTTPScheduler"
+> 	args={[
+> 		{ name: "self", type: "HTTPScheduler" },
+> 		{ name: "frequency", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Sets the frequency at which tasks are cycled.
 
 ### cycle
 
 > <LuaDeclaration
->   name="cycle"
->   className="HTTPScheduler"
->   args={[{ name: "self", type: "HTTPScheduler" }]}
->   isMethod
+> 	name="cycle"
+> 	className="HTTPScheduler"
+> 	args={[{ name: "self", type: "HTTPScheduler" }]}
+> 	isMethod
 > />
 > Processes the next task in the stack.
 
 ### isActive
 
 > <LuaDeclaration
->   name="isActive"
->   className="HTTPScheduler"
->   args={[{ name: "self", type: "HTTPScheduler" }]}
->   returnType="boolean"
->   isMethod
+> 	name="isActive"
+> 	className="HTTPScheduler"
+> 	args={[{ name: "self", type: "HTTPScheduler" }]}
+> 	returnType="boolean"
+> 	isMethod
 > />
 > Checks if there are any tasks currently being processed.
 
 ### setLimit
 
 > <LuaDeclaration
->   name="setLimit"
->   className="HTTPScheduler"
->   args={[
->     { name: "self", type: "HTTPScheduler" },
->     { name: "limit", type: "number" },
->   ]}
->   isMethod
+> 	name="setLimit"
+> 	className="HTTPScheduler"
+> 	args={[
+> 		{ name: "self", type: "HTTPScheduler" },
+> 		{ name: "limit", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Sets the limit for the number of tasks that can be scheduled.
 
 ### removeTask
 
 > <LuaDeclaration
->   name="removeTask"
->   className="HTTPScheduler"
->   args={[
->     { name: "self", type: "HTTPScheduler" },
->     { name: "object", type: "function" },
->   ]}
->   isMethod
+> 	name="removeTask"
+> 	className="HTTPScheduler"
+> 	args={[
+> 		{ name: "self", type: "HTTPScheduler" },
+> 		{ name: "object", type: "function" },
+> 	]}
+> 	isMethod
 > />
 > Removes a task from the scheduler.
 
 ### addTask
 
 > <LuaDeclaration
->   name="addTask"
->   className="HTTPScheduler"
->   args={[
->     { name: "self", type: "HTTPScheduler" },
->     { name: "object", type: "function" },
->   ]}
->   returnType="any"
->   isMethod
+> 	name="addTask"
+> 	className="HTTPScheduler"
+> 	args={[
+> 		{ name: "self", type: "HTTPScheduler" },
+> 		{ name: "object", type: "function" },
+> 	]}
+> 	returnType="any"
+> 	isMethod
 > />
 > Adds a task to the scheduler.
 
@@ -131,8 +131,8 @@ The HTTPScheduler instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="HTTPScheduler"
->   args={[{ name: "threadCount", type: "number?" }]}
+> 	name="new"
+> 	className="HTTPScheduler"
+> 	args={[{ name: "threadCount", type: "number?" }]}
 > />
 > Creates a new instance of `HTTPScheduler`.

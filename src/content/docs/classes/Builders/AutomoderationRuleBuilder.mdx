@@ -78,102 +78,102 @@ An enumeration of action types.
 ### setName
 
 > <LuaDeclaration
->   name="setName"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "name", type: "string" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="setName"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "name", type: "string" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Sets the name of the rule.
 
 ### setEventType
 
 > <LuaDeclaration
->   name="setEventType"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "eventType", type: "number" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="setEventType"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "eventType", type: "number" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Sets the event type for the rule.
 
 ### setTriggerType
 
 > <LuaDeclaration
->   name="setTriggerType"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "triggerType", type: "number" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="setTriggerType"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "triggerType", type: "number" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Sets the trigger type for the rule.
 
 ### setTriggerMetadata
 
 > <LuaDeclaration
->   name="setTriggerMetadata"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "triggerMetadata", type: "table" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="setTriggerMetadata"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "triggerMetadata", type: "table" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Sets the trigger metadata for the rule.
 
 ### addAction
 
 > <LuaDeclaration
->   name="addAction"
->   className="AutomoderationRuleBuilder"
->   args={[
->     { name: "actionType", type: "number" },
->     { name: "actionMetadata", type: "table" },
->   ]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="addAction"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[
+> 		{ name: "actionType", type: "number" },
+> 		{ name: "actionMetadata", type: "table" },
+> 	]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Adds an action to the rule.
 
 ### setEnabled
 
 > <LuaDeclaration
->   name="setEnabled"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "enabled", type: "boolean" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="setEnabled"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "enabled", type: "boolean" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Sets whether the rule is enabled.
 
 ### addExemptRole
 
 > <LuaDeclaration
->   name="addExemptRole"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "roleId", type: "string" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="addExemptRole"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "roleId", type: "string" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Adds an exempt role to the rule.
 
 ### addExemptChannel
 
 > <LuaDeclaration
->   name="addExemptChannel"
->   className="AutomoderationRuleBuilder"
->   args={[{ name: "channelId", type: "string" }]}
->   returnType="Builders.AutomoderationRuleBuilder"
->   isMethod
+> 	name="addExemptChannel"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[{ name: "channelId", type: "string" }]}
+> 	returnType="Builders.AutomoderationRuleBuilder"
+> 	isMethod
 > />
 > Adds an exempt channel to the rule.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="AutomoderationRuleBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="AutomoderationRuleBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the rule to a JSON object that can be sent to the Discord API.
 

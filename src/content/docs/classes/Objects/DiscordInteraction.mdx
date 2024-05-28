@@ -33,33 +33,33 @@ The type of the DiscordInteraction. Default is "DiscordInteraction".
 ### editMessageAsync
 
 > <LuaDeclaration
->   name="editMessageAsync"
->   className="DiscordInteraction"
->   args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
->   returnType="Future"
->   isMethod
+> 	name="editMessageAsync"
+> 	className="DiscordInteraction"
+> 	args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Edits the original interaction response message asynchronously.
 
 ### sendModalAsync
 
 > <LuaDeclaration
->   name="sendModalAsync"
->   className="DiscordInteraction"
->   args={[{ name: "modalObject", type: "ModalBuilder" }]}
->   returnType="Future"
->   isMethod
+> 	name="sendModalAsync"
+> 	className="DiscordInteraction"
+> 	args={[{ name: "modalObject", type: "ModalBuilder" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends a modal in response to the interaction asynchronously.
 
 ### sendMessageAsync
 
 > <LuaDeclaration
->   name="sendMessageAsync"
->   className="DiscordInteraction"
->   args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
->   returnType="Future"
->   isMethod
+> 	name="sendMessageAsync"
+> 	className="DiscordInteraction"
+> 	args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends a message in response to the interaction asynchronously.
 
@@ -70,11 +70,11 @@ MessageBuilder cannot support Attachments UNLESS deffered, so if you're wanting 
 ### deferAsync
 
 > <LuaDeclaration
->   name="deferAsync"
->   className="DiscordInteraction"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="deferAsync"
+> 	className="DiscordInteraction"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Defers the interaction response asynchronously.
 
@@ -85,11 +85,11 @@ MessageBuilder cannot support Attachments UNLESS deffered, so if you're wanting 
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordInteraction"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "jsonData", type: "table" },
->   ]}
+> 	name="new"
+> 	className="DiscordInteraction"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "jsonData", type: "table" },
+> 	]}
 > />
 > Creates a new DiscordInteraction instance.

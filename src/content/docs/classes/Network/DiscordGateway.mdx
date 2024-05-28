@@ -33,153 +33,153 @@ The DiscordGateway instance has no set properties!
 ### parseErrors
 
 > <LuaDeclaration
->   name="parseErrors"
->   className="DiscordGateway"
->   args={[
->     { name: "errorTable", type: "table" },
->     { name: "source", type: "string?" },
->     { name: "depth", type: "number?" },
->   ]}
->   returnType="string"
->   isMethod
+> 	name="parseErrors"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "errorTable", type: "table" },
+> 		{ name: "source", type: "string?" },
+> 		{ name: "depth", type: "number?" },
+> 	]}
+> 	returnType="string"
+> 	isMethod
 > />
 > Parses error messages from the Discord API response.
 
 ### parseDiscordAPIErrors
 
 > <LuaDeclaration
->   name="parseDiscordAPIErrors"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "networkResponse", type: "Net.FetchResponse" },
->   ]}
->   returnType="string"
->   isMethod
+> 	name="parseDiscordAPIErrors"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "networkResponse", type: "Net.FetchResponse" },
+> 	]}
+> 	returnType="string"
+> 	isMethod
 > />
 > Parses errors from a Discord API response.
 
 ### requestAsync
 
 > <LuaDeclaration
->   name="requestAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "method", type: "string" },
->     { name: "data", type: "table?" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="requestAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "method", type: "string" },
+> 		{ name: "data", type: "table?" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous request to the Discord API.
 
 ### getAsync
 
 > <LuaDeclaration
->   name="getAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "headers", type: "{ [string]: string }" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="getAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "headers", type: "{ [string]: string }" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous GET request to the Discord API.
 
 ### postAsync
 
 > <LuaDeclaration
->   name="postAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "data", type: "table" },
->     { name: "headers", type: "{ [string]: string }" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="postAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "data", type: "table" },
+> 		{ name: "headers", type: "{ [string]: string }" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous POST request to the Discord API.
 
 ### putAsync
 
 > <LuaDeclaration
->   name="putAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "data", type: "table" },
->     { name: "headers", type: "{ [string]: string }" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="putAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "data", type: "table" },
+> 		{ name: "headers", type: "{ [string]: string }" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous PUT request to the Discord API.
 
 ### deleteAsync
 
 > <LuaDeclaration
->   name="deleteAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "data", type: "table?" },
->     { name: "headers", type: "{ [string]: string }" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="deleteAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "data", type: "table?" },
+> 		{ name: "headers", type: "{ [string]: string }" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous DELETE request to the Discord API.
 
 ### patchAsync
 
 > <LuaDeclaration
->   name="patchAsync"
->   className="DiscordGateway"
->   args={[
->     { name: "api", type: "string" },
->     { name: "data", type: "table" },
->     { name: "headers", type: "{ [string]: string }" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="patchAsync"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "api", type: "string" },
+> 		{ name: "data", type: "table" },
+> 		{ name: "headers", type: "{ [string]: string }" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends an asynchronous PATCH request to the Discord API.
 
 ### setEndpointCache
 
 > <LuaDeclaration
->   name="setEndpointCache"
->   className="DiscordGateway"
->   args={[
->     { name: "endpoint", type: "string" },
->     { name: "cache", type: "table" },
->   ]}
->   isMethod
+> 	name="setEndpointCache"
+> 	className="DiscordGateway"
+> 	args={[
+> 		{ name: "endpoint", type: "string" },
+> 		{ name: "cache", type: "table" },
+> 	]}
+> 	isMethod
 > />
 > Sets the cache for a specific API endpoint.
 
 ### getEndpointCache
 
 > <LuaDeclaration
->   name="getEndpointCache"
->   className="DiscordGateway"
->   args={[{ name: "endpoint", type: "string" }]}
->   returnType="table"
->   isMethod
+> 	name="getEndpointCache"
+> 	className="DiscordGateway"
+> 	args={[{ name: "endpoint", type: "string" }]}
+> 	returnType="table"
+> 	isMethod
 > />
 > Gets the cache for a specific API endpoint.
 
 ### getApiVersion
 
 > <LuaDeclaration
->   name="getApiVersion"
->   className="DiscordGateway"
->   args={[]}
->   returnType="number"
->   isMethod
+> 	name="getApiVersion"
+> 	className="DiscordGateway"
+> 	args={[]}
+> 	returnType="number"
+> 	isMethod
 > />
 > Gets the current Discord API version.
 
@@ -190,8 +190,8 @@ The DiscordGateway instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordGateway"
->   args={[{ name: "discordClient", type: "any" }]}
+> 	name="new"
+> 	className="DiscordGateway"
+> 	args={[{ name: "discordClient", type: "any" }]}
 > />
 > Creates a new instance of DiscordGateway.

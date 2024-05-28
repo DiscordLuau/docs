@@ -33,50 +33,50 @@ The HTTPRatelimit instance has no set properties!
 ### setRemaining
 
 > <LuaDeclaration
->   name="setRemaining"
->   className="HTTPRatelimit"
->   args={[
->     { name: "self", type: "HTTPRatelimit" },
->     { name: "remaining", type: "number" },
->   ]}
->   isMethod
+> 	name="setRemaining"
+> 	className="HTTPRatelimit"
+> 	args={[
+> 		{ name: "self", type: "HTTPRatelimit" },
+> 		{ name: "remaining", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Sets the remaining number of requests that can be made.
 
 ### resetAfter
 
 > <LuaDeclaration
->   name="resetAfter"
->   className="HTTPRatelimit"
->   args={[
->     { name: "self", type: "HTTPRatelimit" },
->     { name: "seconds", type: "number" },
->   ]}
->   isMethod
+> 	name="resetAfter"
+> 	className="HTTPRatelimit"
+> 	args={[
+> 		{ name: "self", type: "HTTPRatelimit" },
+> 		{ name: "seconds", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Resets the remaining requests after a specified number of seconds.
 
 ### setLimit
 
 > <LuaDeclaration
->   name="setLimit"
->   className="HTTPRatelimit"
->   args={[
->     { name: "self", type: "HTTPRatelimit" },
->     { name: "limit", type: "number" },
->   ]}
->   isMethod
+> 	name="setLimit"
+> 	className="HTTPRatelimit"
+> 	args={[
+> 		{ name: "self", type: "HTTPRatelimit" },
+> 		{ name: "limit", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Sets the maximum number of requests that can be made.
 
 ### isConsumed
 
 > <LuaDeclaration
->   name="isConsumed"
->   className="HTTPRatelimit"
->   args={[{ name: "self", type: "HTTPRatelimit" }]}
->   returnType="boolean"
->   isMethod
+> 	name="isConsumed"
+> 	className="HTTPRatelimit"
+> 	args={[{ name: "self", type: "HTTPRatelimit" }]}
+> 	returnType="boolean"
+> 	isMethod
 > />
 > Checks if the rate limit has been consumed.
 
@@ -87,11 +87,11 @@ The HTTPRatelimit instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="HTTPRatelimit"
->   args={[
->     { name: "remaining", type: "number?" },
->     { name: "limit", type: "number?" },
->   ]}
+> 	name="new"
+> 	className="HTTPRatelimit"
+> 	args={[
+> 		{ name: "remaining", type: "number?" },
+> 		{ name: "limit", type: "number?" },
+> 	]}
 > />
 > Creates a new instance of `HTTPRatelimit`.

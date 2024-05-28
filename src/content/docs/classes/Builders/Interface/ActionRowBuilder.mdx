@@ -29,27 +29,27 @@ The ActionRowBuilder instance has no set properties!
 ### addComponent
 
 > <LuaDeclaration
->   name="addComponent"
->   className="ActionRowBuilder"
->   args={[
->     {
->       name: "componentObject",
->       type: "ActionRowBuilder | ButtonBuilder | SelectionBuilder | TextInputBuilder",
->     },
->   ]}
->   returnType="Builders.Interface.ActionRowBuilder"
->   isMethod
+> 	name="addComponent"
+> 	className="ActionRowBuilder"
+> 	args={[
+> 		{
+> 			name: "componentObject",
+> 			type: "ActionRowBuilder | ButtonBuilder | SelectionBuilder | TextInputBuilder",
+> 		},
+> 	]}
+> 	returnType="Builders.Interface.ActionRowBuilder"
+> 	isMethod
 > />
 > Adds a component to the action row. The action row can contain up to five components.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="ActionRowBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="ActionRowBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the action row to a JSON object that can be sent to the Discord API.
 

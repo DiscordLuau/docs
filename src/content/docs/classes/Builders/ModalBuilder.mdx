@@ -37,38 +37,38 @@ The ModalBuilder instance has no set properties!
 ### setTitle
 
 > <LuaDeclaration
->   name="setTitle"
->   className="ModalBuilder"
->   args={[{ name: "title", type: "string" }]}
->   returnType="Builders.ModalBuilder"
->   isMethod
+> 	name="setTitle"
+> 	className="ModalBuilder"
+> 	args={[{ name: "title", type: "string" }]}
+> 	returnType="Builders.ModalBuilder"
+> 	isMethod
 > />
 > Sets the title of the modal.
 
 ### addComponent
 
 > <LuaDeclaration
->   name="addComponent"
->   className="ModalBuilder"
->   args={[
->     {
->       name: "componentObject",
->       type: "DiscordComponentTypes.DiscordComponent",
->     },
->   ]}
->   returnType="Builders.ModalBuilder"
->   isMethod
+> 	name="addComponent"
+> 	className="ModalBuilder"
+> 	args={[
+> 		{
+> 			name: "componentObject",
+> 			type: "DiscordComponentTypes.DiscordComponent",
+> 		},
+> 	]}
+> 	returnType="Builders.ModalBuilder"
+> 	isMethod
 > />
 > Adds a component to the modal. The modal can contain up to five components.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="ModalBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="ModalBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the modal to a JSON object that can be sent to the Discord API.
 
@@ -79,8 +79,8 @@ The ModalBuilder instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="ModalBuilder"
->   args={[{ name: "modalId", type: "string" }]}
+> 	name="new"
+> 	className="ModalBuilder"
+> 	args={[{ name: "modalId", type: "string" }]}
 > />
 > Creates a new instance of ModalBuilder.

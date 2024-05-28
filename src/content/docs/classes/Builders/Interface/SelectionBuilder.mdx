@@ -58,106 +58,106 @@ An enumeration of channel types.
 ### setType
 
 > <LuaDeclaration
->   name="setType"
->   className="SelectionBuilder"
->   args={[{ name: "selectionType", type: "number" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setType"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "selectionType", type: "number" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets the type of the selection.
 
 ### setChannelTypes
 
 > <LuaDeclaration
->   name="setChannelTypes"
->   className="SelectionBuilder"
->   args={[{ name: "...", type: "number" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setChannelTypes"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "...", type: "number" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets the channel types for the selection.
 
 ### setPlaceholder
 
 > <LuaDeclaration
->   name="setPlaceholder"
->   className="SelectionBuilder"
->   args={[{ name: "placeholderText", type: "string" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setPlaceholder"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "placeholderText", type: "string" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets the placeholder text for the selection.
 
 ### setDisabled
 
 > <LuaDeclaration
->   name="setDisabled"
->   className="SelectionBuilder"
->   args={[{ name: "isDisabled", type: "boolean" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setDisabled"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "isDisabled", type: "boolean" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets whether the selection is disabled.
 
 ### setMinValues
 
 > <LuaDeclaration
->   name="setMinValues"
->   className="SelectionBuilder"
->   args={[{ name: "minValue", type: "number" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setMinValues"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "minValue", type: "number" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets the minimum number of values that must be selected.
 
 ### setMaxValues
 
 > <LuaDeclaration
->   name="setMaxValues"
->   className="SelectionBuilder"
->   args={[{ name: "maxValue", type: "number" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="setMaxValues"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "maxValue", type: "number" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Sets the maximum number of values that can be selected.
 
 ### addChoice
 
 > <LuaDeclaration
->   name="addChoice"
->   className="SelectionBuilder"
->   args={[
->     { name: "choiceName", type: "string" },
->     { name: "choiceValue", type: "string" },
->     { name: "choiceDescription", type: "string" },
->     { name: "isDefault", type: "boolean" },
->     { name: "emojiId", type: "string?" },
->     { name: "emojiName", type: "string?" },
->   ]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="addChoice"
+> 	className="SelectionBuilder"
+> 	args={[
+> 		{ name: "choiceName", type: "string" },
+> 		{ name: "choiceValue", type: "string" },
+> 		{ name: "choiceDescription", type: "string" },
+> 		{ name: "isDefault", type: "boolean" },
+> 		{ name: "emojiId", type: "string?" },
+> 		{ name: "emojiName", type: "string?" },
+> 	]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Adds a choice to the selection.
 
 ### destroyChoice
 
 > <LuaDeclaration
->   name="destroyChoice"
->   className="SelectionBuilder"
->   args={[{ name: "choiceName", type: "string" }]}
->   returnType="Builders.Interface.SelectionBuilder"
->   isMethod
+> 	name="destroyChoice"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "choiceName", type: "string" }]}
+> 	returnType="Builders.Interface.SelectionBuilder"
+> 	isMethod
 > />
 > Removes a choice from the selection.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="SelectionBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="SelectionBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the selection to a JSON object that can be sent to the Discord API.
 
@@ -168,8 +168,8 @@ An enumeration of channel types.
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="SelectionBuilder"
->   args={[{ name: "selectionId", type: "string" }]}
+> 	name="new"
+> 	className="SelectionBuilder"
+> 	args={[{ name: "selectionId", type: "string" }]}
 > />
 > Creates a new instance of SelectionBuilder.

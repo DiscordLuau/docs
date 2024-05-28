@@ -33,42 +33,42 @@ The DiscordWebsocket instance has no set properties!
 ### sendAsync
 
 > <LuaDeclaration
->   name="sendAsync"
->   className="DiscordWebsocket"
->   args={[
->     { name: "self", type: "DiscordWebsocket" },
->     { name: "dataPacket", type: "table" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="sendAsync"
+> 	className="DiscordWebsocket"
+> 	args={[
+> 		{ name: "self", type: "DiscordWebsocket" },
+> 		{ name: "dataPacket", type: "table" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends a data packet asynchronously through the websocket.
 
 ### connectAsync
 
 > <LuaDeclaration
->   name="connectAsync"
->   className="DiscordWebsocket"
->   args={[
->     { name: "self", type: "DiscordWebsocket" },
->     { name: "websocketUrl", type: "string" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="connectAsync"
+> 	className="DiscordWebsocket"
+> 	args={[
+> 		{ name: "self", type: "DiscordWebsocket" },
+> 		{ name: "websocketUrl", type: "string" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Connects to a websocket URL asynchronously.
 
 ### disconnectAsync
 
 > <LuaDeclaration
->   name="disconnectAsync"
->   className="DiscordWebsocket"
->   args={[
->     { name: "self", type: "DiscordWebsocket" },
->     { name: "closingCode", type: "string" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="disconnectAsync"
+> 	className="DiscordWebsocket"
+> 	args={[
+> 		{ name: "self", type: "DiscordWebsocket" },
+> 		{ name: "closingCode", type: "string" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Disconnects from the websocket asynchronously.
 

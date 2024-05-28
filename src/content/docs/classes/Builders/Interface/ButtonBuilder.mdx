@@ -39,47 +39,47 @@ An enumeration of button styles.
 ### setStyle
 
 > <LuaDeclaration
->   name="setStyle"
->   className="ButtonBuilder"
->   args={[{ name: "buttonStyle", type: "number" }]}
->   returnType="Builders.Interface.ButtonBuilder"
->   isMethod
+> 	name="setStyle"
+> 	className="ButtonBuilder"
+> 	args={[{ name: "buttonStyle", type: "number" }]}
+> 	returnType="Builders.Interface.ButtonBuilder"
+> 	isMethod
 > />
 > Sets the style of the button.
 
 ### setLabel
 
 > <LuaDeclaration
->   name="setLabel"
->   className="ButtonBuilder"
->   args={[{ name: "buttonLabel", type: "string" }]}
->   returnType="Builders.Interface.ButtonBuilder"
->   isMethod
+> 	name="setLabel"
+> 	className="ButtonBuilder"
+> 	args={[{ name: "buttonLabel", type: "string" }]}
+> 	returnType="Builders.Interface.ButtonBuilder"
+> 	isMethod
 > />
 > Sets the label of the button.
 
 ### setEmoji
 
 > <LuaDeclaration
->   name="setEmoji"
->   className="ButtonBuilder"
->   args={[
->     { name: "emojiId", type: "string" },
->     { name: "emojiName", type: "string" },
->   ]}
->   returnType="Builders.Interface.ButtonBuilder"
->   isMethod
+> 	name="setEmoji"
+> 	className="ButtonBuilder"
+> 	args={[
+> 		{ name: "emojiId", type: "string" },
+> 		{ name: "emojiName", type: "string" },
+> 	]}
+> 	returnType="Builders.Interface.ButtonBuilder"
+> 	isMethod
 > />
 > Sets the emoji for the button.
 
 ### setLinkUrl
 
 > <LuaDeclaration
->   name="setLinkUrl"
->   className="ButtonBuilder"
->   args={[{ name: "url", type: "string" }]}
->   returnType="Builders.Interface.ButtonBuilder"
->   isMethod
+> 	name="setLinkUrl"
+> 	className="ButtonBuilder"
+> 	args={[{ name: "url", type: "string" }]}
+> 	returnType="Builders.Interface.ButtonBuilder"
+> 	isMethod
 > />
 > Sets the URL for the button. This should only be used if the button style is set
 > to `Link`.
@@ -87,22 +87,22 @@ An enumeration of button styles.
 ### setDisabled
 
 > <LuaDeclaration
->   name="setDisabled"
->   className="ButtonBuilder"
->   args={[{ name: "isDisabled", type: "boolean" }]}
->   returnType="Builders.Interface.ButtonBuilder"
->   isMethod
+> 	name="setDisabled"
+> 	className="ButtonBuilder"
+> 	args={[{ name: "isDisabled", type: "boolean" }]}
+> 	returnType="Builders.Interface.ButtonBuilder"
+> 	isMethod
 > />
 > Sets whether the button is disabled.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="ButtonBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="ButtonBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the button to a JSON object that can be sent to the Discord API.
 
@@ -113,8 +113,8 @@ An enumeration of button styles.
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="ButtonBuilder"
->   args={[{ name: "buttonId", type: "string" }]}
+> 	name="new"
+> 	className="ButtonBuilder"
+> 	args={[{ name: "buttonId", type: "string" }]}
 > />
 > Creates a new instance of ButtonBuilder.

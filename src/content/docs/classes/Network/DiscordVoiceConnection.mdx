@@ -33,95 +33,95 @@ The DiscordVoiceConnection instance has no set properties!
 ### observeWebsocketErrors
 
 > <LuaDeclaration
->   name="observeWebsocketErrors"
->   className="DiscordVoiceConnection"
->   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
->   isMethod
+> 	name="observeWebsocketErrors"
+> 	className="DiscordVoiceConnection"
+> 	args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+> 	isMethod
 > />
 > Observes and handles errors from the voice websocket.
 
 ### observeWebsocketOperations
 
 > <LuaDeclaration
->   name="observeWebsocketOperations"
->   className="DiscordVoiceConnection"
->   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
->   isMethod
+> 	name="observeWebsocketOperations"
+> 	className="DiscordVoiceConnection"
+> 	args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+> 	isMethod
 > />
 > Observes and handles operations received from the voice websocket.
 
 ### heartbeatAsync
 
 > <LuaDeclaration
->   name="heartbeatAsync"
->   className="DiscordVoiceConnection"
->   args={[
->     { name: "self", type: "DiscordVoiceConnection" },
->     { name: "ignoreHeartbeatAck", type: "boolean?" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="heartbeatAsync"
+> 	className="DiscordVoiceConnection"
+> 	args={[
+> 		{ name: "self", type: "DiscordVoiceConnection" },
+> 		{ name: "ignoreHeartbeatAck", type: "boolean?" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgements.
 
 ### heartbeatIn
 
 > <LuaDeclaration
->   name="heartbeatIn"
->   className="DiscordVoiceConnection"
->   args={[
->     { name: "self", type: "DiscordVoiceConnection" },
->     { name: "milliseconds", type: "number" },
->   ]}
->   isMethod
+> 	name="heartbeatIn"
+> 	className="DiscordVoiceConnection"
+> 	args={[
+> 		{ name: "self", type: "DiscordVoiceConnection" },
+> 		{ name: "milliseconds", type: "number" },
+> 	]}
+> 	isMethod
 > />
 > Schedules the next heartbeat to be sent after a specified interval.
 
 ### connectAsync
 
 > <LuaDeclaration
->   name="connectAsync"
->   className="DiscordVoiceConnection"
->   args={[
->     { name: "self", type: "DiscordVoiceConnection" },
->     { name: "guildId", type: "string" },
->     { name: "channelId", type: "string" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="connectAsync"
+> 	className="DiscordVoiceConnection"
+> 	args={[
+> 		{ name: "self", type: "DiscordVoiceConnection" },
+> 		{ name: "guildId", type: "string" },
+> 		{ name: "channelId", type: "string" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Connects to a voice channel asynchronously.
 
 ### resumeAsync
 
 > <LuaDeclaration
->   name="resumeAsync"
->   className="DiscordVoiceConnection"
->   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
->   returnType="Future"
->   isMethod
+> 	name="resumeAsync"
+> 	className="DiscordVoiceConnection"
+> 	args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Resumes a voice connection asynchronously.
 
 ### reconnectAsync
 
 > <LuaDeclaration
->   name="reconnectAsync"
->   className="DiscordVoiceConnection"
->   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
->   returnType="Future"
->   isMethod
+> 	name="reconnectAsync"
+> 	className="DiscordVoiceConnection"
+> 	args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Reconnects to the voice websocket asynchronously.
 
 ### disconnectAsync
 
 > <LuaDeclaration
->   name="disconnectAsync"
->   className="DiscordVoiceConnection"
->   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
->   returnType="Future"
->   isMethod
+> 	name="disconnectAsync"
+> 	className="DiscordVoiceConnection"
+> 	args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Disconnects from the voice websocket asynchronously.
 
@@ -132,11 +132,11 @@ The DiscordVoiceConnection instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordVoiceConnection"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "id", type: "string" },
->   ]}
+> 	name="new"
+> 	className="DiscordVoiceConnection"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "id", type: "string" },
+> 	]}
 > />
 > Creates a new instance of `DiscordVoiceConnection`.

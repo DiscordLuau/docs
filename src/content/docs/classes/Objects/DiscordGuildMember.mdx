@@ -33,132 +33,132 @@ The type of the DiscordGuildMember. Default is "DiscordGuildMember".
 ### kickAsync
 
 > <LuaDeclaration
->   name="kickAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "deleteMessagesSeconds", type: "number?" }]}
->   returnType="Future"
->   isMethod
+> 	name="kickAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "deleteMessagesSeconds", type: "number?" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Kicks the guild member asynchronously.
 
 ### banAsync
 
 > <LuaDeclaration
->   name="banAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="banAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Bans the guild member asynchronously.
 
 ### unbanAsync
 
 > <LuaDeclaration
->   name="unbanAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="unbanAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Unbans the guild member asynchronously.
 
 ### addRoleAsync
 
 > <LuaDeclaration
->   name="addRoleAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "roleId", type: "string" }]}
->   returnType="Future"
->   isMethod
+> 	name="addRoleAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "roleId", type: "string" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Adds a role to the guild member asynchronously.
 
 ### removeRoleAsync
 
 > <LuaDeclaration
->   name="removeRoleAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "roleId", type: "string" }]}
->   returnType="Future"
->   isMethod
+> 	name="removeRoleAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "roleId", type: "string" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Removes a role from the guild member asynchronously.
 
 ### timeoutAsync
 
 > <LuaDeclaration
->   name="timeoutAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "seconds", type: "number" }]}
->   returnType="Future"
->   isMethod
+> 	name="timeoutAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "seconds", type: "number" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Times out the guild member asynchronously.
 
 ### muteAsync
 
 > <LuaDeclaration
->   name="muteAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="muteAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Mutes the guild member asynchronously.
 
 ### unmuteAsync
 
 > <LuaDeclaration
->   name="unmuteAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="unmuteAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Unmutes the guild member asynchronously.
 
 ### deafenAsync
 
 > <LuaDeclaration
->   name="deafenAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="deafenAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Deafens the guild member asynchronously.
 
 ### undeafenAsync
 
 > <LuaDeclaration
->   name="undeafenAsync"
->   className="DiscordGuildMember"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="undeafenAsync"
+> 	className="DiscordGuildMember"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Undeafens the guild member asynchronously.
 
 ### setNicknameAsync
 
 > <LuaDeclaration
->   name="setNicknameAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "nickname", type: "string" }]}
->   returnType="Future"
->   isMethod
+> 	name="setNicknameAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "nickname", type: "string" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sets the nickname of the guild member asynchronously.
 
 ### modifyAsync
 
 > <LuaDeclaration
->   name="modifyAsync"
->   className="DiscordGuildMember"
->   args={[{ name: "modificationsTable", type: "table" }]}
->   returnType="Future"
->   isMethod
+> 	name="modifyAsync"
+> 	className="DiscordGuildMember"
+> 	args={[{ name: "modificationsTable", type: "table" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Modifies the guild member asynchronously.
 
@@ -169,13 +169,13 @@ The type of the DiscordGuildMember. Default is "DiscordGuildMember".
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordGuildMember"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "userId", type: "string" },
->     { name: "guildId", type: "string" },
->     { name: "memberData", type: "table" },
->   ]}
+> 	name="new"
+> 	className="DiscordGuildMember"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "userId", type: "string" },
+> 		{ name: "guildId", type: "string" },
+> 		{ name: "memberData", type: "table" },
+> 	]}
 > />
 > Creates a new DiscordGuildMember instance.

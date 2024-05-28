@@ -29,22 +29,22 @@ The DiscordTextChannel instance has no set properties!
 ### modifyAsync
 
 > <LuaDeclaration
->   name="modifyAsync"
->   className="DiscordTextChannel"
->   args={[{ name: "channelSchema", type: "DiscordTextChannelSchema" }]}
->   returnType="Future<unknown>"
->   isMethod
+> 	name="modifyAsync"
+> 	className="DiscordTextChannel"
+> 	args={[{ name: "channelSchema", type: "DiscordTextChannelSchema" }]}
+> 	returnType="Future<unknown>"
+> 	isMethod
 > />
 > Modifies the text channel settings asynchronously.
 
 ### getPinnedMessagesAsync
 
 > <LuaDeclaration
->   name="getPinnedMessagesAsync"
->   className="DiscordTextChannel"
->   args={[]}
->   returnType="Future<{[number]: DiscordMessage}>"
->   isMethod
+> 	name="getPinnedMessagesAsync"
+> 	className="DiscordTextChannel"
+> 	args={[]}
+> 	returnType="Future<{[number]: DiscordMessage}>"
+> 	isMethod
 > />
 > Retrieves the pinned messages in the text channel asynchronously.
 
@@ -55,11 +55,11 @@ The DiscordTextChannel instance has no set properties!
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordTextChannel"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "channelData", type: "table" },
->   ]}
+> 	name="new"
+> 	className="DiscordTextChannel"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "channelData", type: "table" },
+> 	]}
 > />
 > Creates a new instance of DiscordTextChannel.

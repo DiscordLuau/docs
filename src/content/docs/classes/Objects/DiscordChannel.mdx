@@ -33,107 +33,107 @@ The type of the Discord channel. Default is "DiscordChannel".
 ### triggerTypingIndicator
 
 > <LuaDeclaration
->   name="triggerTypingIndicator"
->   className="DiscordChannel"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="triggerTypingIndicator"
+> 	className="DiscordChannel"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Triggers the typing indicator in the channel.
 
 ### deleteAsync
 
 > <LuaDeclaration
->   name="deleteAsync"
->   className="DiscordChannel"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="deleteAsync"
+> 	className="DiscordChannel"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Deletes the channel asynchronously.
 
 ### getMessagesAsync
 
 > <LuaDeclaration
->   name="getMessagesAsync"
->   className="DiscordChannel"
->   args={[{ name: "limit", type: "number?" }]}
->   returnType="Future"
->   isMethod
+> 	name="getMessagesAsync"
+> 	className="DiscordChannel"
+> 	args={[{ name: "limit", type: "number?" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Gets messages from the channel asynchronously.
 
 ### getMessageAsync
 
 > <LuaDeclaration
->   name="getMessageAsync"
->   className="DiscordChannel"
->   args={[{ name: "messageId", type: "string" }]}
->   returnType="Future"
->   isMethod
+> 	name="getMessageAsync"
+> 	className="DiscordChannel"
+> 	args={[{ name: "messageId", type: "string" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Gets a specific message from the channel asynchronously.
 
 ### bulkDeleteMessagesAsync
 
 > <LuaDeclaration
->   name="bulkDeleteMessagesAsync"
->   className="DiscordChannel"
->   args={[{ name: "messageIds", type: "{string}" }]}
->   returnType="Future"
->   isMethod
+> 	name="bulkDeleteMessagesAsync"
+> 	className="DiscordChannel"
+> 	args={[{ name: "messageIds", type: "{string}" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Deletes multiple messages from the channel asynchronously.
 
 ### sendMessageAsync
 
 > <LuaDeclaration
->   name="sendMessageAsync"
->   className="DiscordChannel"
->   args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
->   returnType="Future"
->   isMethod
+> 	name="sendMessageAsync"
+> 	className="DiscordChannel"
+> 	args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sends a message to the channel asynchronously.
 
 ### getInvitesAsync
 
 > <LuaDeclaration
->   name="getInvitesAsync"
->   className="DiscordChannel"
->   args={[]}
->   returnType="Future"
->   isMethod
+> 	name="getInvitesAsync"
+> 	className="DiscordChannel"
+> 	args={[]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Gets the invites for the channel asynchronously.
 
 ### createInviteAsync
 
 > <LuaDeclaration
->   name="createInviteAsync"
->   className="DiscordChannel"
->   args={[
->     { name: "maxAge", type: "number?" },
->     { name: "maxUses", type: "number?" },
->     { name: "temporary", type: "boolean?" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="createInviteAsync"
+> 	className="DiscordChannel"
+> 	args={[
+> 		{ name: "maxAge", type: "number?" },
+> 		{ name: "maxUses", type: "number?" },
+> 		{ name: "temporary", type: "boolean?" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Creates an invite for the channel asynchronously.
 
 ### setPositionAsync
 
 > <LuaDeclaration
->   name="setPositionAsync"
->   className="DiscordChannel"
->   args={[
->     { name: "position", type: "number" },
->     { name: "parentId", type: "string?" },
->     { name: "syncPermissions", type: "boolean?" },
->   ]}
->   returnType="Future"
->   isMethod
+> 	name="setPositionAsync"
+> 	className="DiscordChannel"
+> 	args={[
+> 		{ name: "position", type: "number" },
+> 		{ name: "parentId", type: "string?" },
+> 		{ name: "syncPermissions", type: "boolean?" },
+> 	]}
+> 	returnType="Future"
+> 	isMethod
 > />
 > Sets the position of the channel asynchronously.
 
@@ -144,11 +144,11 @@ The type of the Discord channel. Default is "DiscordChannel".
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordChannel"
->   args={[
->     { name: "discordClient", type: "any" },
->     { name: "rawChannelData", type: "any" },
->   ]}
+> 	name="new"
+> 	className="DiscordChannel"
+> 	args={[
+> 		{ name: "discordClient", type: "any" },
+> 		{ name: "rawChannelData", type: "any" },
+> 	]}
 > />
 > Creates a new DiscordChannel instance.

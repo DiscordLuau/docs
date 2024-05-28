@@ -23,14 +23,14 @@ The `DiscordApplication` class provides methods to interact with Discord applica
 ### id
 
 <LuaProperty
-  name="DiscordApplication.id"
-  type="string The unique identifier of the Discord application."
+	name="DiscordApplication.id"
+	type="string The unique identifier of the Discord application."
 />
 ### flags
 
 <LuaProperty
-  name="DiscordApplication.flags"
-  type="number The flags associated with the Discord application."
+	name="DiscordApplication.flags"
+	type="number The flags associated with the Discord application."
 />
 
 [//]: # "----- DOCUMENT METHODS ----- "
@@ -40,73 +40,73 @@ The `DiscordApplication` class provides methods to interact with Discord applica
 ### createSlashCommandAsync
 
 > <LuaDeclaration
->   name="createSlashCommandAsync"
->   className="DiscordApplication"
->   args={[
->     {
->       name: "command",
->       type: "CommandBuilder.CommandBuilder The command to create.",
->     },
->   ]}
->   returnType="Future<CommandResponse>"
->   isMethod
+> 	name="createSlashCommandAsync"
+> 	className="DiscordApplication"
+> 	args={[
+> 		{
+> 			name: "command",
+> 			type: "CommandBuilder.CommandBuilder The command to create.",
+> 		},
+> 	]}
+> 	returnType="Future<CommandResponse>"
+> 	isMethod
 > />
 > Creates a new slash command for the Discord application.
 
 ### deleteSlashCommandAsync
 
 > <LuaDeclaration
->   name="deleteSlashCommandAsync"
->   className="DiscordApplication"
->   args={[
->     { name: "commandId", type: "string The ID of the command to delete." },
->   ]}
->   returnType="Future<CommandResponse>"
->   isMethod
+> 	name="deleteSlashCommandAsync"
+> 	className="DiscordApplication"
+> 	args={[
+> 		{ name: "commandId", type: "string The ID of the command to delete." },
+> 	]}
+> 	returnType="Future<CommandResponse>"
+> 	isMethod
 > />
 > Deletes an existing slash command from the Discord application.
 
 ### editSlashCommandAsync
 
 > <LuaDeclaration
->   name="editSlashCommandAsync"
->   className="DiscordApplication"
->   args={[
->     { name: "commandId", type: "string The ID of the command to edit." },
->     {
->       name: "command",
->       type: "CommandBuilder.CommandBuilder The updated command data.",
->     },
->   ]}
->   returnType="Future<CommandResponse>"
->   isMethod
+> 	name="editSlashCommandAsync"
+> 	className="DiscordApplication"
+> 	args={[
+> 		{ name: "commandId", type: "string The ID of the command to edit." },
+> 		{
+> 			name: "command",
+> 			type: "CommandBuilder.CommandBuilder The updated command data.",
+> 		},
+> 	]}
+> 	returnType="Future<CommandResponse>"
+> 	isMethod
 > />
 > Edits an existing slash command for the Discord application.
 
 ### fetchSlashCommandsAsync
 
 > <LuaDeclaration
->   name="fetchSlashCommandsAsync"
->   className="DiscordApplication"
->   args={[]}
->   returnType="Future<{ApplicationCommand}>"
->   isMethod
+> 	name="fetchSlashCommandsAsync"
+> 	className="DiscordApplication"
+> 	args={[]}
+> 	returnType="Future<{ApplicationCommand}>"
+> 	isMethod
 > />
 > Fetches all existing slash commands for the Discord application.
 
 ### setSlashCommandsAsync
 
 > <LuaDeclaration
->   name="setSlashCommandsAsync"
->   className="DiscordApplication"
->   args={[
->     {
->       name: "commands",
->       type: "{CommandBuilder.CommandBuilder} The list of commands to set.",
->     },
->   ]}
->   returnType="Future<nil>"
->   isMethod
+> 	name="setSlashCommandsAsync"
+> 	className="DiscordApplication"
+> 	args={[
+> 		{
+> 			name: "commands",
+> 			type: "{CommandBuilder.CommandBuilder} The list of commands to set.",
+> 		},
+> 	]}
+> 	returnType="Future<nil>"
+> 	isMethod
 > />
 > Sets the slash commands for the Discord application, updating existing ones and
 > creating or deleting as necessary.
@@ -118,14 +118,14 @@ The `DiscordApplication` class provides methods to interact with Discord applica
 ### new
 
 > <LuaDeclaration
->   name="new"
->   className="DiscordApplication"
->   args={[
->     { name: "discordClient", type: "any The Discord client instance." },
->     {
->       name: "applicationData",
->       type: "{id: string, flags: number} The application data.",
->     },
->   ]}
+> 	name="new"
+> 	className="DiscordApplication"
+> 	args={[
+> 		{ name: "discordClient", type: "any The Discord client instance." },
+> 		{
+> 			name: "applicationData",
+> 			type: "{id: string, flags: number} The application data.",
+> 		},
+> 	]}
 > />
 > Creates a new instance of the DiscordApplication.

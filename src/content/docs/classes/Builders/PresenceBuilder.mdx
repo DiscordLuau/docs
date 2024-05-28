@@ -49,55 +49,55 @@ An enumeration of presence statuses.
 ### addActivity
 
 > <LuaDeclaration
->   name="addActivity"
->   className="PresenceBuilder"
->   args={[{ name: "activity", type: "ActivityBuilder" }]}
->   returnType="Builders.PresenceBuilder"
->   isMethod
+> 	name="addActivity"
+> 	className="PresenceBuilder"
+> 	args={[{ name: "activity", type: "ActivityBuilder" }]}
+> 	returnType="Builders.PresenceBuilder"
+> 	isMethod
 > />
 > Adds an activity to the presence.
 
 ### setStatus
 
 > <LuaDeclaration
->   name="setStatus"
->   className="PresenceBuilder"
->   args={[{ name: "status", type: "string" }]}
->   returnType="Builders.PresenceBuilder"
->   isMethod
+> 	name="setStatus"
+> 	className="PresenceBuilder"
+> 	args={[{ name: "status", type: "string" }]}
+> 	returnType="Builders.PresenceBuilder"
+> 	isMethod
 > />
 > Sets the status of the presence.
 
 ### setAfk
 
 > <LuaDeclaration
->   name="setAfk"
->   className="PresenceBuilder"
->   args={[{ name: "isAfk", type: "boolean" }]}
->   returnType="Builders.PresenceBuilder"
->   isMethod
+> 	name="setAfk"
+> 	className="PresenceBuilder"
+> 	args={[{ name: "isAfk", type: "boolean" }]}
+> 	returnType="Builders.PresenceBuilder"
+> 	isMethod
 > />
 > Sets whether the presence is AFK.
 
 ### setSince
 
 > <LuaDeclaration
->   name="setSince"
->   className="PresenceBuilder"
->   args={[{ name: "delta", type: "number" }]}
->   returnType="Builders.PresenceBuilder"
->   isMethod
+> 	name="setSince"
+> 	className="PresenceBuilder"
+> 	args={[{ name: "delta", type: "number" }]}
+> 	returnType="Builders.PresenceBuilder"
+> 	isMethod
 > />
 > Sets the time since the presence was last updated.
 
 ### toPayloadObject
 
 > <LuaDeclaration
->   name="toPayloadObject"
->   className="PresenceBuilder"
->   args={[]}
->   returnType="Network.Resolvable"
->   isMethod
+> 	name="toPayloadObject"
+> 	className="PresenceBuilder"
+> 	args={[]}
+> 	returnType="Network.Resolvable"
+> 	isMethod
 > />
 > Converts the presence to a JSON object that can be sent to the Discord API.
 
