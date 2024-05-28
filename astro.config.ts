@@ -12,6 +12,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "DiscordLuau Docs",
+			favicon: "public/favicon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
 			},
