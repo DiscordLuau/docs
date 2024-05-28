@@ -1,0 +1,78 @@
+---
+title: Slash Commands
+description: Registering and handling slash commands in DiscordLuau.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+[Slash commands](https://discord.com/developers/docs/interactions/application-commands) are Discord's officially supported 
+method of creating commands. They make interacting with your bot easier for users. Slash commands also allow for validation 
+of argument types, ephemeral responses, and so much more.
+
+<Steps>
+
+1. Import the library and initialize the required modules:
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   -- Optionally enable verbose logging, to make it easier to debug
+   DiscordClient:setVerbose(true)
+   ```
+
+   <Aside type="caution" title="Watch out!">
+      If you plan on publishing your code, do not include your bot's token, as it can
+      give a hacker full access to your bot. Always make sure to add relevant files to
+      the `.gitignore`.
+   </Aside>
+
+2. Register a handler for the `onReady` signal:
+
+   ```lua
+   DiscordClient.eventManager.onReady:connect(function()
+      print(`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉`)
+   end)
+   ```
+
+3. Within the handler, we can now register our slash commands.
+
+4. First, we request Discord for access to slash commands.
+
+   ```lua
+   local permissions = DiscordLuau.PermissionsBuilder.new()
+   permissions:addPermission(
+      DiscordLuau.PermissionsBuilder.Permissions.UseApplicationCommands
+   )
+   ```
+
+5. We can now register slash commands to our heart's content!
+
+   ```lua
+   -- Create a slash command using `CommandBuilder`
+   local pingCommand = DiscordLuau.CommandBuilder
+         .new()
+         :setName("ping")
+         :setDescription("Pong?")
+         :setGuildPermissions(permissions)
+         :addContext(DiscordLuau.CommandBuilder.Context.Guild)
+         :setType(DiscordLuau.CommandBuilder.Type.ChatInput)
+
+   -- Register our slash commands
+   DiscordClient.discordApplication
+		:setSlashCommandsAsync({ pingCommand })
+		:after(function(data)
+			print("Registering slash commands...")
+			DiscordClient.discordApplication:fetchSlashCommandsAsync():after(function(...)
+            -- Optionally log information about our slash command
+				print(...)
+			end)
+		end)
+   ```
+</Steps>
+
+That's all! For more details, refer to the relevant docs for [`DiscordApplication`](/classes/objects/discordapplication/) and
+[`CommandBuilder`](/classes/builders/commandbuilder/).
