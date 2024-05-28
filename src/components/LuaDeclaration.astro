@@ -32,6 +32,7 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                 let unionTypes: any[] | null = [];
                 if (type.includes("|")) {
                     const unionMembers = defaultedType.split("|");
+
                     unionTypes = unionMembers.map((unionType: string, count: number) => {
                         unionType = unionType.trim();
                         const unionTypeUrl = getTypeDocs(unionType)
@@ -40,8 +41,8 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
                             <>
                                 <LuaTypeComponent url={unionTypeUrl} type={unionType} />
                                 {count !== unionMembers.length - 1 && (
-                                    <br/>
-                                    <span>{"\u00A0".repeat(22)}|</span>
+                                    <>{unionMembers.length > 2 && <br />}</>
+                                    <span>{unionMembers.length > 2 && "\u00A0".repeat(22)}|</span>
                                 ) || ""}
                             </>
                         )
