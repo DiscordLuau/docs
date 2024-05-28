@@ -2,21 +2,22 @@
 title: PresenceBuilder
 description: DiscordLuau docs for PresenceBuilder.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 PresenceBuilder is used to construct a presence object for a Discord bot, including activities, status, and AFK state.
 
 Usage:
+
 ```lua
 local presence = PresenceBuilder.new()
 	:addActivity(ActivityBuilder.new():setName("Playing a game"))
@@ -25,14 +26,14 @@ local presence = PresenceBuilder.new()
 	:setSince(os.time())
 ```
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### Status
 
-<LuaProperty name="PresenceBuilder.Status" type="table" />
----
+## <LuaProperty name="PresenceBuilder.Status" type="table" />
+
 An enumeration of presence statuses.
 
 - Online: "online"
@@ -41,37 +42,70 @@ An enumeration of presence statuses.
 - Invisible: "invisible"
 - Offline: "offline"
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### addActivity
 
-> <LuaDeclaration name="addActivity" className="PresenceBuilder" args={[ { name: "activity", type: "ActivityBuilder" } ]} returnType="Builders.PresenceBuilder" isMethod />
-Adds an activity to the presence.
+> <LuaDeclaration
+>   name="addActivity"
+>   className="PresenceBuilder"
+>   args={[{ name: "activity", type: "ActivityBuilder" }]}
+>   returnType="Builders.PresenceBuilder"
+>   isMethod
+> />
+> Adds an activity to the presence.
+
 ### setStatus
 
-> <LuaDeclaration name="setStatus" className="PresenceBuilder" args={[ { name: "status", type: "string" } ]} returnType="Builders.PresenceBuilder" isMethod />
-Sets the status of the presence.
+> <LuaDeclaration
+>   name="setStatus"
+>   className="PresenceBuilder"
+>   args={[{ name: "status", type: "string" }]}
+>   returnType="Builders.PresenceBuilder"
+>   isMethod
+> />
+> Sets the status of the presence.
+
 ### setAfk
 
-> <LuaDeclaration name="setAfk" className="PresenceBuilder" args={[ { name: "isAfk", type: "boolean" } ]} returnType="Builders.PresenceBuilder" isMethod />
-Sets whether the presence is AFK.
+> <LuaDeclaration
+>   name="setAfk"
+>   className="PresenceBuilder"
+>   args={[{ name: "isAfk", type: "boolean" }]}
+>   returnType="Builders.PresenceBuilder"
+>   isMethod
+> />
+> Sets whether the presence is AFK.
+
 ### setSince
 
-> <LuaDeclaration name="setSince" className="PresenceBuilder" args={[ { name: "delta", type: "number" } ]} returnType="Builders.PresenceBuilder" isMethod />
-Sets the time since the presence was last updated.
+> <LuaDeclaration
+>   name="setSince"
+>   className="PresenceBuilder"
+>   args={[{ name: "delta", type: "number" }]}
+>   returnType="Builders.PresenceBuilder"
+>   isMethod
+> />
+> Sets the time since the presence was last updated.
+
 ### toPayloadObject
 
-> <LuaDeclaration name="toPayloadObject" className="PresenceBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
-Converts the presence to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration
+>   name="toPayloadObject"
+>   className="PresenceBuilder"
+>   args={[]}
+>   returnType="Network.Resolvable"
+>   isMethod
+> />
+> Converts the presence to a JSON object that can be sent to the Discord API.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="PresenceBuilder" args={[  ]} />
-Creates a new instance of PresenceBuilder.
-
+> <LuaDeclaration name="new" className="PresenceBuilder" args={[]} />
+> Creates a new instance of PresenceBuilder.

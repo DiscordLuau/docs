@@ -2,53 +2,83 @@
 title: DiscordCache
 description: DiscordLuau docs for DiscordCache.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordCache` class provides a caching mechanism for storing and retrieving data associated with Discord objects.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### type
 
-<LuaProperty name="DiscordCache.type" type="string" />
----
+## <LuaProperty name="DiscordCache.type" type="string" />
+
 The type of the DiscordCache. Default is "DiscordCache".
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### setData
 
-> <LuaDeclaration name="setData" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" }, { name: "data", type: "any" } ]} isMethod />
-Sets data in the cache.
+> <LuaDeclaration
+>   name="setData"
+>   className="DiscordCache"
+>   args={[
+>     { name: "cacheType", type: "string" },
+>     { name: "uuid", type: "string" },
+>     { name: "data", type: "any" },
+>   ]}
+>   isMethod
+> />
+> Sets data in the cache.
+
 ### getData
 
-> <LuaDeclaration name="getData" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" } ]} returnType="any" isMethod />
-Gets data from the cache.
+> <LuaDeclaration
+>   name="getData"
+>   className="DiscordCache"
+>   args={[
+>     { name: "cacheType", type: "string" },
+>     { name: "uuid", type: "string" },
+>   ]}
+>   returnType="any"
+>   isMethod
+> />
+> Gets data from the cache.
+
 ### getDataOr
 
-> <LuaDeclaration name="getDataOr" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" }, { name: "callback", type: "function" } ]} returnType="any" isMethod />
-Gets data from the cache, or calls a callback to generate and cache the data if not found.
+> <LuaDeclaration
+>   name="getDataOr"
+>   className="DiscordCache"
+>   args={[
+>     { name: "cacheType", type: "string" },
+>     { name: "uuid", type: "string" },
+>     { name: "callback", type: "function" },
+>   ]}
+>   returnType="any"
+>   isMethod
+> />
+> Gets data from the cache, or calls a callback to generate and cache the data if
+> not found.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordCache" args={[  ]} />
-Creates a new DiscordCache instance.
-
+> <LuaDeclaration name="new" className="DiscordCache" args={[]} />
+> Creates a new DiscordCache instance.

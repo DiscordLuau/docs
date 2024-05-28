@@ -2,61 +2,94 @@
 title: DiscordInteraction
 description: DiscordLuau docs for DiscordInteraction.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordInteraction` class represents an interaction with the Discord API, such as a message interaction, a command, or a modal submission.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### type
 
-<LuaProperty name="DiscordInteraction.type" type="string" />
----
+## <LuaProperty name="DiscordInteraction.type" type="string" />
+
 The type of the DiscordInteraction. Default is "DiscordInteraction".
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### editMessageAsync
 
-> <LuaDeclaration name="editMessageAsync" className="DiscordInteraction" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
-Edits the original interaction response message asynchronously.
+> <LuaDeclaration
+>   name="editMessageAsync"
+>   className="DiscordInteraction"
+>   args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Edits the original interaction response message asynchronously.
+
 ### sendModalAsync
 
-> <LuaDeclaration name="sendModalAsync" className="DiscordInteraction" args={[ { name: "modalObject", type: "ModalBuilder" } ]} returnType="Future" isMethod />
-Sends a modal in response to the interaction asynchronously.
+> <LuaDeclaration
+>   name="sendModalAsync"
+>   className="DiscordInteraction"
+>   args={[{ name: "modalObject", type: "ModalBuilder" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Sends a modal in response to the interaction asynchronously.
+
 ### sendMessageAsync
 
-> <LuaDeclaration name="sendMessageAsync" className="DiscordInteraction" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
-Sends a message in response to the interaction asynchronously.
+> <LuaDeclaration
+>   name="sendMessageAsync"
+>   className="DiscordInteraction"
+>   args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Sends a message in response to the interaction asynchronously.
 
 :::caution
 MessageBuilder cannot support Attachments UNLESS deffered, so if you're wanting to send attachments, please call `deferAsync` first!
 :::
+
 ### deferAsync
 
-> <LuaDeclaration name="deferAsync" className="DiscordInteraction" args={[  ]} returnType="Future" isMethod />
-Defers the interaction response asynchronously.
+> <LuaDeclaration
+>   name="deferAsync"
+>   className="DiscordInteraction"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Defers the interaction response asynchronously.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordInteraction" args={[ { name: "discordClient", type: "any" }, { name: "jsonData", type: "table" } ]} />
-Creates a new DiscordInteraction instance.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordInteraction"
+>   args={[
+>     { name: "discordClient", type: "any" },
+>     { name: "jsonData", type: "table" },
+>   ]}
+> />
+> Creates a new DiscordInteraction instance.

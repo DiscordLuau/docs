@@ -2,17 +2,17 @@
 title: DiscordVoiceConnection
 description: DiscordLuau docs for DiscordVoiceConnection.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordVoiceConnection` class handles the voice connection functionalities for Discord-Luau. This class is responsible for managing the lifecycle of a voice connection, handling websocket operations, and ensuring proper communication with Discord's voice servers.
 
@@ -20,55 +20,123 @@ The `DiscordVoiceConnection` class handles the voice connection functionalities 
 This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to interact with voice connections.
 :::
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 The DiscordVoiceConnection instance has no set properties!
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### observeWebsocketErrors
 
-> <LuaDeclaration name="observeWebsocketErrors" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} isMethod />
-Observes and handles errors from the voice websocket.
+> <LuaDeclaration
+>   name="observeWebsocketErrors"
+>   className="DiscordVoiceConnection"
+>   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+>   isMethod
+> />
+> Observes and handles errors from the voice websocket.
+
 ### observeWebsocketOperations
 
-> <LuaDeclaration name="observeWebsocketOperations" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} isMethod />
-Observes and handles operations received from the voice websocket.
+> <LuaDeclaration
+>   name="observeWebsocketOperations"
+>   className="DiscordVoiceConnection"
+>   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+>   isMethod
+> />
+> Observes and handles operations received from the voice websocket.
+
 ### heartbeatAsync
 
-> <LuaDeclaration name="heartbeatAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "ignoreHeartbeatAck", type: "boolean?" } ]} returnType="Future" isMethod />
-Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgements.
+> <LuaDeclaration
+>   name="heartbeatAsync"
+>   className="DiscordVoiceConnection"
+>   args={[
+>     { name: "self", type: "DiscordVoiceConnection" },
+>     { name: "ignoreHeartbeatAck", type: "boolean?" },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgements.
+
 ### heartbeatIn
 
-> <LuaDeclaration name="heartbeatIn" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "milliseconds", type: "number" } ]} isMethod />
-Schedules the next heartbeat to be sent after a specified interval.
+> <LuaDeclaration
+>   name="heartbeatIn"
+>   className="DiscordVoiceConnection"
+>   args={[
+>     { name: "self", type: "DiscordVoiceConnection" },
+>     { name: "milliseconds", type: "number" },
+>   ]}
+>   isMethod
+> />
+> Schedules the next heartbeat to be sent after a specified interval.
+
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]} returnType="Future" isMethod />
-Connects to a voice channel asynchronously.
+> <LuaDeclaration
+>   name="connectAsync"
+>   className="DiscordVoiceConnection"
+>   args={[
+>     { name: "self", type: "DiscordVoiceConnection" },
+>     { name: "guildId", type: "string" },
+>     { name: "channelId", type: "string" },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Connects to a voice channel asynchronously.
+
 ### resumeAsync
 
-> <LuaDeclaration name="resumeAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
-Resumes a voice connection asynchronously.
+> <LuaDeclaration
+>   name="resumeAsync"
+>   className="DiscordVoiceConnection"
+>   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Resumes a voice connection asynchronously.
+
 ### reconnectAsync
 
-> <LuaDeclaration name="reconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
-Reconnects to the voice websocket asynchronously.
+> <LuaDeclaration
+>   name="reconnectAsync"
+>   className="DiscordVoiceConnection"
+>   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Reconnects to the voice websocket asynchronously.
+
 ### disconnectAsync
 
-> <LuaDeclaration name="disconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
-Disconnects from the voice websocket asynchronously.
+> <LuaDeclaration
+>   name="disconnectAsync"
+>   className="DiscordVoiceConnection"
+>   args={[{ name: "self", type: "DiscordVoiceConnection" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Disconnects from the voice websocket asynchronously.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordVoiceConnection" args={[ { name: "discordClient", type: "any" }, { name: "id", type: "string" } ]} />
-Creates a new instance of `DiscordVoiceConnection`.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordVoiceConnection"
+>   args={[
+>     { name: "discordClient", type: "any" },
+>     { name: "id", type: "string" },
+>   ]}
+> />
+> Creates a new instance of `DiscordVoiceConnection`.

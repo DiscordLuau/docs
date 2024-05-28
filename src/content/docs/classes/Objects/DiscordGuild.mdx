@@ -2,105 +2,236 @@
 title: DiscordGuild
 description: DiscordLuau docs for DiscordGuild.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordGuild` class represents a Discord guild (server) and provides methods to interact with and manage the guild.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### type
 
-<LuaProperty name="DiscordGuild.type" type="string" />
----
+## <LuaProperty name="DiscordGuild.type" type="string" />
+
 The type of the DiscordGuild. Default is "DiscordGuild".
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### createSlashCommandAsync
 
-> <LuaDeclaration name="createSlashCommandAsync" className="DiscordGuild" args={[ { name: "command", type: "CommandBuilder" } ]} returnType="Future" isMethod />
-Creates a new slash command in the guild asynchronously.
+> <LuaDeclaration
+>   name="createSlashCommandAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "command", type: "CommandBuilder" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Creates a new slash command in the guild asynchronously.
+
 ### deleteSlashCommandAsync
 
-> <LuaDeclaration name="deleteSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" } ]} returnType="Future" isMethod />
-Deletes a slash command in the guild asynchronously.
+> <LuaDeclaration
+>   name="deleteSlashCommandAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "commandId", type: "string" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Deletes a slash command in the guild asynchronously.
+
 ### editSlashCommandAsync
 
-> <LuaDeclaration name="editSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" }, { name: "command", type: "CommandBuilder" } ]} returnType="Future" isMethod />
-Edits a slash command in the guild asynchronously.
+> <LuaDeclaration
+>   name="editSlashCommandAsync"
+>   className="DiscordGuild"
+>   args={[
+>     { name: "commandId", type: "string" },
+>     { name: "command", type: "CommandBuilder" },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Edits a slash command in the guild asynchronously.
+
 ### fetchSlashCommandsAsync
 
-> <LuaDeclaration name="fetchSlashCommandsAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Fetches all slash commands in the guild asynchronously.
+> <LuaDeclaration
+>   name="fetchSlashCommandsAsync"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Fetches all slash commands in the guild asynchronously.
+
 ### fetchGuildChannels
 
-> <LuaDeclaration name="fetchGuildChannels" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Fetches all channels in the guild asynchronously.
+> <LuaDeclaration
+>   name="fetchGuildChannels"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Fetches all channels in the guild asynchronously.
+
 ### setSlashCommandsAsync
 
-> <LuaDeclaration name="setSlashCommandsAsync" className="DiscordGuild" args={[ { name: "commands", type: "{CommandBuilder}" } ]} returnType="Future" isMethod />
-Sets multiple slash commands in the guild asynchronously.
+> <LuaDeclaration
+>   name="setSlashCommandsAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "commands", type: "{CommandBuilder}" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Sets multiple slash commands in the guild asynchronously.
+
 ### getGuildAuditLogs
 
-> <LuaDeclaration name="getGuildAuditLogs" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Gets the audit logs of the guild asynchronously.
+> <LuaDeclaration
+>   name="getGuildAuditLogs"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Gets the audit logs of the guild asynchronously.
+
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="DiscordGuild" args={[ { name: "guildSchema", type: "DiscordGuildSchema" } ]} returnType="Future" isMethod />
-Modifies the guild settings asynchronously.
+> <LuaDeclaration
+>   name="modifyAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "guildSchema", type: "DiscordGuildSchema" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Modifies the guild settings asynchronously.
+
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Deletes the guild asynchronously.
+> <LuaDeclaration
+>   name="deleteAsync"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Deletes the guild asynchronously.
+
 ### getChannelsAsync
 
-> <LuaDeclaration name="getChannelsAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Gets all channels in the guild asynchronously.
+> <LuaDeclaration
+>   name="getChannelsAsync"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Gets all channels in the guild asynchronously.
+
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" } ]} returnType="Future" isMethod />
-Gets a specific member of the guild asynchronously.
+> <LuaDeclaration
+>   name="getMemberAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "userId", type: "string" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Gets a specific member of the guild asynchronously.
+
 ### fetchGuildMembersAsync
 
-> <LuaDeclaration name="fetchGuildMembersAsync" className="DiscordGuild" args={[ { name: "limit", type: "number" }, { name: "lastUserId", type: "number?" } ]} returnType="Future" isMethod />
-Fetches members of the guild asynchronously.
+> <LuaDeclaration
+>   name="fetchGuildMembersAsync"
+>   className="DiscordGuild"
+>   args={[
+>     { name: "limit", type: "number" },
+>     { name: "lastUserId", type: "number?" },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Fetches members of the guild asynchronously.
+
 ### searchGuildMembersAsync
 
-> <LuaDeclaration name="searchGuildMembersAsync" className="DiscordGuild" args={[ { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} returnType="Future" isMethod />
-Searches for members in the guild asynchronously.
+> <LuaDeclaration
+>   name="searchGuildMembersAsync"
+>   className="DiscordGuild"
+>   args={[
+>     { name: "query", type: "string" },
+>     { name: "limit", type: "number?" },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Searches for members in the guild asynchronously.
+
 ### listAutomoderationRulesAsync
 
-> <LuaDeclaration name="listAutomoderationRulesAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
-Lists all automoderation rules in the guild asynchronously.
+> <LuaDeclaration
+>   name="listAutomoderationRulesAsync"
+>   className="DiscordGuild"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Lists all automoderation rules in the guild asynchronously.
+
 ### getAutomoderationRuleAsync
 
-> <LuaDeclaration name="getAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "ruleId", type: "string" } ]} returnType="Future" isMethod />
-Gets a specific automoderation rule in the guild asynchronously.
+> <LuaDeclaration
+>   name="getAutomoderationRuleAsync"
+>   className="DiscordGuild"
+>   args={[{ name: "ruleId", type: "string" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Gets a specific automoderation rule in the guild asynchronously.
+
 ### createAutomoderationRuleAsync
 
-> <LuaDeclaration name="createAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "getAutomoderationRuleBuilder", type: "AutomoderationRuleBuilder" } ]} returnType="Future" isMethod />
-Creates an automoderation rule in the guild asynchronously.
+> <LuaDeclaration
+>   name="createAutomoderationRuleAsync"
+>   className="DiscordGuild"
+>   args={[
+>     {
+>       name: "getAutomoderationRuleBuilder",
+>       type: "AutomoderationRuleBuilder",
+>     },
+>   ]}
+>   returnType="Future"
+>   isMethod
+> />
+> Creates an automoderation rule in the guild asynchronously.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordGuild" args={[ { name: "discordClient", type: "any" }, { name: "guildData", type: "table" } ]} />
-Creates a new DiscordGuild instance.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordGuild"
+>   args={[
+>     { name: "discordClient", type: "any" },
+>     { name: "guildData", type: "table" },
+>   ]}
+> />
+> Creates a new DiscordGuild instance.

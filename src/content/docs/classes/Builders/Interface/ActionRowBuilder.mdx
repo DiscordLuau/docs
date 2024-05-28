@@ -2,45 +2,62 @@
 title: ActionRowBuilder
 description: DiscordLuau docs for ActionRowBuilder.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 ActionRowBuilder is used to construct an action row, which can contain up to five components like buttons, selections, or text inputs.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 The ActionRowBuilder instance has no set properties!
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### addComponent
 
-> <LuaDeclaration name="addComponent" className="ActionRowBuilder" args={[ { name: "componentObject", type: "ActionRowBuilder | ButtonBuilder | SelectionBuilder | TextInputBuilder" } ]} returnType="Builders.Interface.ActionRowBuilder" isMethod />
-Adds a component to the action row. The action row can contain up to five components.
+> <LuaDeclaration
+>   name="addComponent"
+>   className="ActionRowBuilder"
+>   args={[
+>     {
+>       name: "componentObject",
+>       type: "ActionRowBuilder | ButtonBuilder | SelectionBuilder | TextInputBuilder",
+>     },
+>   ]}
+>   returnType="Builders.Interface.ActionRowBuilder"
+>   isMethod
+> />
+> Adds a component to the action row. The action row can contain up to five components.
+
 ### toPayloadObject
 
-> <LuaDeclaration name="toPayloadObject" className="ActionRowBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
-Converts the action row to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration
+>   name="toPayloadObject"
+>   className="ActionRowBuilder"
+>   args={[]}
+>   returnType="Network.Resolvable"
+>   isMethod
+> />
+> Converts the action row to a JSON object that can be sent to the Discord API.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="ActionRowBuilder" args={[  ]} />
-Creates a new instance of ActionRowBuilder.
-
+> <LuaDeclaration name="new" className="ActionRowBuilder" args={[]} />
+> Creates a new instance of ActionRowBuilder.

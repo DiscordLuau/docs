@@ -2,17 +2,17 @@
 title: HTTPScheduler
 description: DiscordLuau docs for HTTPScheduler.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `HTTPScheduler` class manages the scheduling of HTTP tasks. It allows for the addition, removal, and execution of tasks at a specified frequency.
 
@@ -20,55 +20,119 @@ The `HTTPScheduler` class manages the scheduling of HTTP tasks. It allows for th
 This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to manage HTTP scheduling.
 :::
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 The HTTPScheduler instance has no set properties!
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### spawnWorker
 
-> <LuaDeclaration name="spawnWorker" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" } ]} isMethod />
-Spawns a new worker task that cycles through scheduled tasks at the specified frequency.
+> <LuaDeclaration
+>   name="spawnWorker"
+>   className="HTTPScheduler"
+>   args={[{ name: "self", type: "HTTPScheduler" }]}
+>   isMethod
+> />
+> Spawns a new worker task that cycles through scheduled tasks at the specified frequency.
+
 ### stopWorker
 
-> <LuaDeclaration name="stopWorker" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" } ]} isMethod />
-Stops and removes a worker task.
+> <LuaDeclaration
+>   name="stopWorker"
+>   className="HTTPScheduler"
+>   args={[{ name: "self", type: "HTTPScheduler" }]}
+>   isMethod
+> />
+> Stops and removes a worker task.
+
 ### setFrequency
 
-> <LuaDeclaration name="setFrequency" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" }, { name: "frequency", type: "number" } ]} isMethod />
-Sets the frequency at which tasks are cycled.
+> <LuaDeclaration
+>   name="setFrequency"
+>   className="HTTPScheduler"
+>   args={[
+>     { name: "self", type: "HTTPScheduler" },
+>     { name: "frequency", type: "number" },
+>   ]}
+>   isMethod
+> />
+> Sets the frequency at which tasks are cycled.
+
 ### cycle
 
-> <LuaDeclaration name="cycle" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" } ]} isMethod />
-Processes the next task in the stack.
+> <LuaDeclaration
+>   name="cycle"
+>   className="HTTPScheduler"
+>   args={[{ name: "self", type: "HTTPScheduler" }]}
+>   isMethod
+> />
+> Processes the next task in the stack.
+
 ### isActive
 
-> <LuaDeclaration name="isActive" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" } ]} returnType="boolean" isMethod />
-Checks if there are any tasks currently being processed.
+> <LuaDeclaration
+>   name="isActive"
+>   className="HTTPScheduler"
+>   args={[{ name: "self", type: "HTTPScheduler" }]}
+>   returnType="boolean"
+>   isMethod
+> />
+> Checks if there are any tasks currently being processed.
+
 ### setLimit
 
-> <LuaDeclaration name="setLimit" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" }, { name: "limit", type: "number" } ]} isMethod />
-Sets the limit for the number of tasks that can be scheduled.
+> <LuaDeclaration
+>   name="setLimit"
+>   className="HTTPScheduler"
+>   args={[
+>     { name: "self", type: "HTTPScheduler" },
+>     { name: "limit", type: "number" },
+>   ]}
+>   isMethod
+> />
+> Sets the limit for the number of tasks that can be scheduled.
+
 ### removeTask
 
-> <LuaDeclaration name="removeTask" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" }, { name: "object", type: "function" } ]} isMethod />
-Removes a task from the scheduler.
+> <LuaDeclaration
+>   name="removeTask"
+>   className="HTTPScheduler"
+>   args={[
+>     { name: "self", type: "HTTPScheduler" },
+>     { name: "object", type: "function" },
+>   ]}
+>   isMethod
+> />
+> Removes a task from the scheduler.
+
 ### addTask
 
-> <LuaDeclaration name="addTask" className="HTTPScheduler" args={[ { name: "self", type: "HTTPScheduler" }, { name: "object", type: "function" } ]} returnType="any" isMethod />
-Adds a task to the scheduler.
+> <LuaDeclaration
+>   name="addTask"
+>   className="HTTPScheduler"
+>   args={[
+>     { name: "self", type: "HTTPScheduler" },
+>     { name: "object", type: "function" },
+>   ]}
+>   returnType="any"
+>   isMethod
+> />
+> Adds a task to the scheduler.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="HTTPScheduler" args={[ { name: "threadCount", type: "number?" } ]} />
-Creates a new instance of `HTTPScheduler`.
-
+> <LuaDeclaration
+>   name="new"
+>   className="HTTPScheduler"
+>   args={[{ name: "threadCount", type: "number?" }]}
+> />
+> Creates a new instance of `HTTPScheduler`.

@@ -2,62 +2,130 @@
 title: DiscordApplication
 description: DiscordLuau docs for DiscordApplication.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordApplication` class provides methods to interact with Discord application commands such as creating, deleting, editing, fetching, and setting global application commands.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### id
 
-<LuaProperty name="DiscordApplication.id" type="string The unique identifier of the Discord application." />
+<LuaProperty
+  name="DiscordApplication.id"
+  type="string The unique identifier of the Discord application."
+/>
 ### flags
 
-<LuaProperty name="DiscordApplication.flags" type="number The flags associated with the Discord application." />
+<LuaProperty
+  name="DiscordApplication.flags"
+  type="number The flags associated with the Discord application."
+/>
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### createSlashCommandAsync
 
-> <LuaDeclaration name="createSlashCommandAsync" className="DiscordApplication" args={[ { name: "command", type: "CommandBuilder.CommandBuilder The command to create." } ]} returnType="Future<CommandResponse>" isMethod />
-Creates a new slash command for the Discord application.
+> <LuaDeclaration
+>   name="createSlashCommandAsync"
+>   className="DiscordApplication"
+>   args={[
+>     {
+>       name: "command",
+>       type: "CommandBuilder.CommandBuilder The command to create.",
+>     },
+>   ]}
+>   returnType="Future<CommandResponse>"
+>   isMethod
+> />
+> Creates a new slash command for the Discord application.
+
 ### deleteSlashCommandAsync
 
-> <LuaDeclaration name="deleteSlashCommandAsync" className="DiscordApplication" args={[ { name: "commandId", type: "string The ID of the command to delete." } ]} returnType="Future<CommandResponse>" isMethod />
-Deletes an existing slash command from the Discord application.
+> <LuaDeclaration
+>   name="deleteSlashCommandAsync"
+>   className="DiscordApplication"
+>   args={[
+>     { name: "commandId", type: "string The ID of the command to delete." },
+>   ]}
+>   returnType="Future<CommandResponse>"
+>   isMethod
+> />
+> Deletes an existing slash command from the Discord application.
+
 ### editSlashCommandAsync
 
-> <LuaDeclaration name="editSlashCommandAsync" className="DiscordApplication" args={[ { name: "commandId", type: "string The ID of the command to edit." }, { name: "command", type: "CommandBuilder.CommandBuilder The updated command data." } ]} returnType="Future<CommandResponse>" isMethod />
-Edits an existing slash command for the Discord application.
+> <LuaDeclaration
+>   name="editSlashCommandAsync"
+>   className="DiscordApplication"
+>   args={[
+>     { name: "commandId", type: "string The ID of the command to edit." },
+>     {
+>       name: "command",
+>       type: "CommandBuilder.CommandBuilder The updated command data.",
+>     },
+>   ]}
+>   returnType="Future<CommandResponse>"
+>   isMethod
+> />
+> Edits an existing slash command for the Discord application.
+
 ### fetchSlashCommandsAsync
 
-> <LuaDeclaration name="fetchSlashCommandsAsync" className="DiscordApplication" args={[  ]} returnType="Future<{ApplicationCommand}>" isMethod />
-Fetches all existing slash commands for the Discord application.
+> <LuaDeclaration
+>   name="fetchSlashCommandsAsync"
+>   className="DiscordApplication"
+>   args={[]}
+>   returnType="Future<{ApplicationCommand}>"
+>   isMethod
+> />
+> Fetches all existing slash commands for the Discord application.
+
 ### setSlashCommandsAsync
 
-> <LuaDeclaration name="setSlashCommandsAsync" className="DiscordApplication" args={[ { name: "commands", type: "{CommandBuilder.CommandBuilder} The list of commands to set." } ]} returnType="Future<nil>" isMethod />
-Sets the slash commands for the Discord application, updating existing ones and creating or deleting as necessary.
+> <LuaDeclaration
+>   name="setSlashCommandsAsync"
+>   className="DiscordApplication"
+>   args={[
+>     {
+>       name: "commands",
+>       type: "{CommandBuilder.CommandBuilder} The list of commands to set.",
+>     },
+>   ]}
+>   returnType="Future<nil>"
+>   isMethod
+> />
+> Sets the slash commands for the Discord application, updating existing ones and
+> creating or deleting as necessary.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordApplication" args={[ { name: "discordClient", type: "any The Discord client instance." }, { name: "applicationData", type: "{id: string, flags: number} The application data." } ]} />
-Creates a new instance of the DiscordApplication.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordApplication"
+>   args={[
+>     { name: "discordClient", type: "any The Discord client instance." },
+>     {
+>       name: "applicationData",
+>       type: "{id: string, flags: number} The application data.",
+>     },
+>   ]}
+> />
+> Creates a new instance of the DiscordApplication.

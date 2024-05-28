@@ -2,17 +2,17 @@
 title: DiscordShard
 description: DiscordLuau docs for DiscordShard.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 DiscordShard is an internal class responsible for managing the connection and communication with a specific shard of the Discord WebSocket. This class handles events, errors, and operations specific to a shard.
 
@@ -20,63 +20,133 @@ DiscordShard is an internal class responsible for managing the connection and co
 This class is internal and should not be used directly by developers.
 :::
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 The DiscordShard instance has no set properties!
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### observeWebsocketErrors
 
-> <LuaDeclaration name="observeWebsocketErrors" className="DiscordShard" args={[  ]} isMethod />
-Observes and handles WebSocket errors.
+> <LuaDeclaration
+>   name="observeWebsocketErrors"
+>   className="DiscordShard"
+>   args={[]}
+>   isMethod
+> />
+> Observes and handles WebSocket errors.
+
 ### observeWebsocketEvents
 
-> <LuaDeclaration name="observeWebsocketEvents" className="DiscordShard" args={[  ]} isMethod />
-Observes and handles WebSocket events.
+> <LuaDeclaration
+>   name="observeWebsocketEvents"
+>   className="DiscordShard"
+>   args={[]}
+>   isMethod
+> />
+> Observes and handles WebSocket events.
+
 ### observeWebsocketOperations
 
-> <LuaDeclaration name="observeWebsocketOperations" className="DiscordShard" args={[  ]} isMethod />
-Observes and handles WebSocket operations.
+> <LuaDeclaration
+>   name="observeWebsocketOperations"
+>   className="DiscordShard"
+>   args={[]}
+>   isMethod
+> />
+> Observes and handles WebSocket operations.
+
 ### initiateWebsocket
 
-> <LuaDeclaration name="initiateWebsocket" className="DiscordShard" args={[  ]} isMethod />
-Initiates the WebSocket connection.
+> <LuaDeclaration
+>   name="initiateWebsocket"
+>   className="DiscordShard"
+>   args={[]}
+>   isMethod
+> />
+> Initiates the WebSocket connection.
+
 ### heartbeatAsync
 
-> <LuaDeclaration name="heartbeatAsync" className="DiscordShard" args={[ { name: "ignoreHeartbeatAck", type: "boolean?" } ]} returnType="Future" isMethod />
-Sends a heartbeat to the Discord WebSocket.
+> <LuaDeclaration
+>   name="heartbeatAsync"
+>   className="DiscordShard"
+>   args={[{ name: "ignoreHeartbeatAck", type: "boolean?" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Sends a heartbeat to the Discord WebSocket.
+
 ### heartbeatIn
 
-> <LuaDeclaration name="heartbeatIn" className="DiscordShard" args={[ { name: "milliseconds", type: "number" } ]} isMethod />
-Schedules the next heartbeat.
+> <LuaDeclaration
+>   name="heartbeatIn"
+>   className="DiscordShard"
+>   args={[{ name: "milliseconds", type: "number" }]}
+>   isMethod
+> />
+> Schedules the next heartbeat.
+
 ### identifyAsync
 
-> <LuaDeclaration name="identifyAsync" className="DiscordShard" args={[  ]} returnType="Future" isMethod />
-Identifies the Discord client with the Discord WebSocket.
+> <LuaDeclaration
+>   name="identifyAsync"
+>   className="DiscordShard"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Identifies the Discord client with the Discord WebSocket.
+
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordShard" args={[ { name: "websocketUrl", type: "string" } ]} returnType="Future" isMethod />
-Connects the DiscordShard to the Discord WebSocket.
+> <LuaDeclaration
+>   name="connectAsync"
+>   className="DiscordShard"
+>   args={[{ name: "websocketUrl", type: "string" }]}
+>   returnType="Future"
+>   isMethod
+> />
+> Connects the DiscordShard to the Discord WebSocket.
+
 ### resumeAsync
 
-> <LuaDeclaration name="resumeAsync" className="DiscordShard" args={[  ]} returnType="Future" isMethod />
-Resumes a previous session with the Discord WebSocket.
+> <LuaDeclaration
+>   name="resumeAsync"
+>   className="DiscordShard"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Resumes a previous session with the Discord WebSocket.
+
 ### reconnectAsync
 
-> <LuaDeclaration name="reconnectAsync" className="DiscordShard" args={[  ]} returnType="Future" isMethod />
-Attempts to reconnect the DiscordShard to the Discord WebSocket.
+> <LuaDeclaration
+>   name="reconnectAsync"
+>   className="DiscordShard"
+>   args={[]}
+>   returnType="Future"
+>   isMethod
+> />
+> Attempts to reconnect the DiscordShard to the Discord WebSocket.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordShard" args={[ { name: "discordClient", type: "any" }, { name: "shardId", type: "number" } ]} />
-Creates a new instance of DiscordShard.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordShard"
+>   args={[
+>     { name: "discordClient", type: "any" },
+>     { name: "shardId", type: "number" },
+>   ]}
+> />
+> Creates a new instance of DiscordShard.

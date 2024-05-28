@@ -2,21 +2,21 @@
 title: DiscordAutomoderationRule
 description: DiscordLuau docs for DiscordAutomoderationRule.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 The `DiscordAutomoderationRule` class provides methods to interact with Discord auto-moderation rules, including modifying and deleting rules.
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
@@ -43,33 +43,66 @@ The `DiscordAutomoderationRule` class provides methods to interact with Discord 
 <LuaProperty name="DiscordAutomoderationRule.exemptRoles" type="{ string }" />
 ### exemptChannels
 
-<LuaProperty name="DiscordAutomoderationRule.exemptChannels" type="{ string }" />
+<LuaProperty
+  name="DiscordAutomoderationRule.exemptChannels"
+  type="{ string }"
+/>
 ### triggerMetadata
 
-<LuaProperty name="DiscordAutomoderationRule.triggerMetadata" type="TriggerMetadata" />
+<LuaProperty
+  name="DiscordAutomoderationRule.triggerMetadata"
+  type="TriggerMetadata"
+/>
 ### actions
 
 <LuaProperty name="DiscordAutomoderationRule.actions" type="Actions" />
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="DiscordAutomoderationRule" args={[ { name: "moderationRoleBuilder", type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule." } ]} returnType="Future<CommandResponse>" isMethod />
-Modifies an existing auto-moderation rule.
+> <LuaDeclaration
+>   name="modifyAsync"
+>   className="DiscordAutomoderationRule"
+>   args={[
+>     {
+>       name: "moderationRoleBuilder",
+>       type: "DiscordAutomoderationRule.DiscordAutomoderationRule The builder for the modified rule.",
+>     },
+>   ]}
+>   returnType="Future<CommandResponse>"
+>   isMethod
+> />
+> Modifies an existing auto-moderation rule.
+
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="DiscordAutomoderationRule" args={[  ]} returnType="Future<CommandResponse>" isMethod />
-Deletes an existing auto-moderation rule.
+> <LuaDeclaration
+>   name="deleteAsync"
+>   className="DiscordAutomoderationRule"
+>   args={[]}
+>   returnType="Future<CommandResponse>"
+>   isMethod
+> />
+> Deletes an existing auto-moderation rule.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordAutomoderationRule" args={[ { name: "discordClient", type: "any The Discord client instance." }, { name: "automoderationData", type: "table The data for the auto-moderation rule." } ]} />
-Creates a new instance of the DiscordAutomoderationRule.
-
+> <LuaDeclaration
+>   name="new"
+>   className="DiscordAutomoderationRule"
+>   args={[
+>     { name: "discordClient", type: "any The Discord client instance." },
+>     {
+>       name: "automoderationData",
+>       type: "table The data for the auto-moderation rule.",
+>     },
+>   ]}
+> />
+> Creates a new instance of the DiscordAutomoderationRule.

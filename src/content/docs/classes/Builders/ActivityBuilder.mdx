@@ -2,21 +2,22 @@
 title: ActivityBuilder
 description: DiscordLuau docs for ActivityBuilder.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 ActivityBuilder is used to construct an activity object for a Discord bot - including name, type, and streaming URL.
 
 Usage:
+
 ```lua
 local activity = ActivityBuilder.new()
 	:setActivityName("Playing a game")
@@ -24,14 +25,14 @@ local activity = ActivityBuilder.new()
 	:setStreamingURL("https://twitch.tv/example")
 ```
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 ### Type
 
-<LuaProperty name="ActivityBuilder.Type" type="table" />
----
+## <LuaProperty name="ActivityBuilder.Type" type="table" />
+
 An enumeration of activity types.
 
 - Game: 0
@@ -40,33 +41,59 @@ An enumeration of activity types.
 - Watching: 3
 - Competing: 5
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 ### setActivityName
 
-> <LuaDeclaration name="setActivityName" className="ActivityBuilder" args={[ { name: "activityName", type: "string" } ]} returnType="Builders.ActivityBuilder" isMethod />
-Sets the name of the activity.
+> <LuaDeclaration
+>   name="setActivityName"
+>   className="ActivityBuilder"
+>   args={[{ name: "activityName", type: "string" }]}
+>   returnType="Builders.ActivityBuilder"
+>   isMethod
+> />
+> Sets the name of the activity.
+
 ### setActivityType
 
-> <LuaDeclaration name="setActivityType" className="ActivityBuilder" args={[ { name: "activityType", type: "number" } ]} returnType="Builders.ActivityBuilder" isMethod />
-Sets the type of the activity.
+> <LuaDeclaration
+>   name="setActivityType"
+>   className="ActivityBuilder"
+>   args={[{ name: "activityType", type: "number" }]}
+>   returnType="Builders.ActivityBuilder"
+>   isMethod
+> />
+> Sets the type of the activity.
+
 ### setStreamingURL
 
-> <LuaDeclaration name="setStreamingURL" className="ActivityBuilder" args={[ { name: "streamURL", type: "string" } ]} returnType="Builders.ActivityBuilder" isMethod />
-Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
+> <LuaDeclaration
+>   name="setStreamingURL"
+>   className="ActivityBuilder"
+>   args={[{ name: "streamURL", type: "string" }]}
+>   returnType="Builders.ActivityBuilder"
+>   isMethod
+> />
+> Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
+
 ### toPayloadObject
 
-> <LuaDeclaration name="toPayloadObject" className="ActivityBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
-Converts the activity to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration
+>   name="toPayloadObject"
+>   className="ActivityBuilder"
+>   args={[]}
+>   returnType="Network.Resolvable"
+>   isMethod
+> />
+> Converts the activity to a JSON object that can be sent to the Discord API.
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="ActivityBuilder" args={[  ]} />
-Creates a new instance of ActivityBuilder.
-
+> <LuaDeclaration name="new" className="ActivityBuilder" args={[]} />
+> Creates a new instance of ActivityBuilder.

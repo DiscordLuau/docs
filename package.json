@@ -12,7 +12,8 @@
     "build": "./lunew generateReference && pnpm astro:build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "deployctl deploy --prod --entrypoint dist/server/entry.mjs"
+    "deploy": "deployctl deploy --prod --entrypoint dist/server/entry.mjs",
+    "fmt": "prettier -w ."
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
@@ -20,5 +21,8 @@
     "@deno/astro-adapter": "^0.1.2",
     "astro": "^4.8.6",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }

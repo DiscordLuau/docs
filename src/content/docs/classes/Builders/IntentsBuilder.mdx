@@ -2,21 +2,22 @@
 title: IntentsBuilder
 description: DiscordLuau docs for IntentsBuilder.
 ---
-[//]: # (This file was automatically compiled through the Generator luau code under this repository)
-[//]: # (if you want to edit the documentation of discord-luau, please write changes)
-[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
-[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # (----- DOCUMENT IMPORTS ----- )
+[//]: # "This file was automatically compiled through the Generator luau code under this repository"
+[//]: # "if you want to edit the documentation of discord-luau, please write changes"
+[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
+[//]: # "them into markdown files that Nextra can interpret!"
+[//]: # "----- DOCUMENT IMPORTS ----- "
 
-import LuaDeclaration from '$/components/LuaDeclaration.astro';
-import LuaProperty from '$/components/LuaProperty.astro';
+import LuaDeclaration from "$/components/LuaDeclaration.astro";
+import LuaProperty from "$/components/LuaProperty.astro";
 
-[//]: # (----- DOCUMENT DESCRIPTION ----- )
+[//]: # "----- DOCUMENT DESCRIPTION ----- "
 
 IntentsBuilder is used to construct intents for a Discord bot, specifying which events the bot will receive.
 
 Usage:
+
 ```lua
 local DiscordLuau = require("../Submodules/DiscordLuau")
 
@@ -24,32 +25,37 @@ local IntentsBuilder = DiscordLuau.IntentsBuilder.fromAll()
 local DiscordSettings = DiscordLuau.DiscordSettings.new("BOT TOKEN", IntentsBuilder)
 ```
 
-[//]: # (----- DOCUMENT PROPERTIES ----- )
+[//]: # "----- DOCUMENT PROPERTIES ----- "
 
 ## Properties
 
 The IntentsBuilder instance has no set properties!
 
-[//]: # (----- DOCUMENT METHODS ----- )
+[//]: # "----- DOCUMENT METHODS ----- "
 
 ## Methods
 
 The IntentsBuilder instance has no set methods!
 
-[//]: # (----- DOCUMENT FUNCTIONS ----- )
+[//]: # "----- DOCUMENT FUNCTIONS ----- "
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="IntentsBuilder" args={[ { name: "intentList", type: "{ string }" } ]} />
-Creates a new instance of IntentsBuilder with the specified intents.
+> <LuaDeclaration
+>   name="new"
+>   className="IntentsBuilder"
+>   args={[{ name: "intentList", type: "{ string }" }]}
+> />
+> Creates a new instance of IntentsBuilder with the specified intents.
+
 ### fromDefault
 
-> <LuaDeclaration name="fromDefault" className="IntentsBuilder" args={[  ]} />
-Creates a new instance of IntentsBuilder with the default intents.
+> <LuaDeclaration name="fromDefault" className="IntentsBuilder" args={[]} />
+> Creates a new instance of IntentsBuilder with the default intents.
+
 ### fromAll
 
-> <LuaDeclaration name="fromAll" className="IntentsBuilder" args={[  ]} />
-Creates a new instance of IntentsBuilder with all available intents.
-
+> <LuaDeclaration name="fromAll" className="IntentsBuilder" args={[]} />
+> Creates a new instance of IntentsBuilder with all available intents.
