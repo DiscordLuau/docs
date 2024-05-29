@@ -1,3 +1,15 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.luau linguist-language=Lua
+
+# Allow mark down files to be detected
+*.md linguist-detectable
+
+# Image types
+*.png binary
+*.svg text
+
+# Ignore git specific files
+.gitattributes export-ignore
+.gitignore export-ignore
+.gitkeep export-ignore
