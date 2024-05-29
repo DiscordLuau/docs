@@ -44,9 +44,9 @@ of argument types, ephemeral responses, and so much more.
 
    ```lua
    local permissions = DiscordLuau.PermissionsBuilder.new()
-   permissions:addPermission(
-      DiscordLuau.PermissionsBuilder.Permissions.UseApplicationCommands
-   )
+      :addPermission(
+         DiscordLuau.PermissionsBuilder.Permissions.UseApplicationCommands
+      )
    ```
 
 5. We can now register slash commands to our heart's content!
@@ -73,6 +73,49 @@ of argument types, ephemeral responses, and so much more.
 		end)
    ```
 </Steps>
+
+<details>
+   <summary>See The Entire Code</summary>
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   -- Optionally enable verbose logging, to make it easier to debug
+   DiscordClient:setVerbose(true)
+
+   DiscordClient.eventManager.onReady:connect(function()
+      print(`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉`)
+
+      local permissions = DiscordLuau.PermissionsBuilder.new()
+         :addPermission(
+            DiscordLuau.PermissionsBuilder.Permissions.UseApplicationCommands
+         )
+
+      -- Create a slash command using `CommandBuilder`
+      local pingCommand = DiscordLuau.CommandBuilder
+            .new()
+            :setName("ping")
+            :setDescription("Pong?")
+            :setGuildPermissions(permissions)
+            :addContext(DiscordLuau.CommandBuilder.Context.Guild)
+            :setType(DiscordLuau.CommandBuilder.Type.ChatInput)
+
+      -- Register our slash commands
+      DiscordClient.discordApplication
+         :setSlashCommandsAsync({ pingCommand })
+         :after(function(data)
+            print("Registering slash commands...")
+            DiscordClient.discordApplication:fetchSlashCommandsAsync():after(function(...)
+               -- Optionally log information about our slash command
+               print(...)
+            end)
+         end)
+   end)   
+   ```
+</details>
 
 That's all! For more details, refer to the relevant docs for [`DiscordApplication`](/classes/objects/discordapplication/) and
 [`CommandBuilder`](/classes/builders/commandbuilder/).
