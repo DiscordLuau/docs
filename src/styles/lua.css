@@ -1,27 +1,27 @@
 span.declaration {
 	font-size: 19px;
 	font-family: monospace;
+	/* color: var(--astro-code-token-punctuation) */
 }
 
 div.declaration {
 	font-size: 0;
-	/* background-color: #23262f; */
 	border-radius: 2%;
 	padding: 1%;
 }
 
 .method {
-	color: #b0d86f;
+	color: var(--astro-code-token-function);
 }
 
 .class {
-	color: #ffcb8b;
+	color: var(--astro-code-token-constant);
 }
 
 .arg {
-	color: #7bdbca;
+	color: var(--astro-code-token-parameter);
 }
 
 .type {
-	color: #82aadd;
+	color: var(--astro-code-token-keyword);
 }
