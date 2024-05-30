@@ -2,22 +2,21 @@
 title: MessageBuilder
 description: DiscordLuau docs for MessageBuilder.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 MessageBuilder is used to construct a message that can be sent to a Discord channel, including content, embeds, components, and stickers.
 
 Usage:
-
 ```lua
 local message = MessageBuilder.new()
 	:setContent("Hello, world!")
@@ -27,145 +26,67 @@ local message = MessageBuilder.new()
 	:setTTSEnabled(true)
 ```
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The MessageBuilder instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### setContent
 
-> <LuaDeclaration
-> 	name="setContent"
-> 	className="MessageBuilder"
-> 	args={[{ name: "content", type: "string" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Sets the content of the message.
-
+> <LuaDeclaration name="setContent" className="MessageBuilder" args={[ { name: "content", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Sets the content of the message.
 ### setNonce
 
-> <LuaDeclaration
-> 	name="setNonce"
-> 	className="MessageBuilder"
-> 	args={[{ name: "nonce", type: "string" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Sets the nonce of the message.
-
+> <LuaDeclaration name="setNonce" className="MessageBuilder" args={[ { name: "nonce", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Sets the nonce of the message.
 ### setTTSEnabled
 
-> <LuaDeclaration
-> 	name="setTTSEnabled"
-> 	className="MessageBuilder"
-> 	args={[{ name: "ttsEnabled", type: "boolean" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Sets whether text-to-speech (TTS) is enabled for the message.
-
+> <LuaDeclaration name="setTTSEnabled" className="MessageBuilder" args={[ { name: "ttsEnabled", type: "boolean" } ]} returnType="Builders.MessageBuilder" isMethod />
+Sets whether text-to-speech (TTS) is enabled for the message.
 ### addEmbed
 
-> <LuaDeclaration
-> 	name="addEmbed"
-> 	className="MessageBuilder"
-> 	args={[{ name: "embedBuilder", type: "EmbedBuilder" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Adds an embed to the message.
-
+> <LuaDeclaration name="addEmbed" className="MessageBuilder" args={[ { name: "embedBuilder", type: "EmbedBuilder" } ]} returnType="Builders.MessageBuilder" isMethod />
+Adds an embed to the message.
 ### addComponent
 
-> <LuaDeclaration
-> 	name="addComponent"
-> 	className="MessageBuilder"
-> 	args={[{ name: "discordComponent", type: "InterfaceBuilder" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Adds a component to the message.
-
+> <LuaDeclaration name="addComponent" className="MessageBuilder" args={[ { name: "discordComponent", type: "InterfaceBuilder" } ]} returnType="Builders.MessageBuilder" isMethod />
+Adds a component to the message.
 ### addStickerId
 
-> <LuaDeclaration
-> 	name="addStickerId"
-> 	className="MessageBuilder"
-> 	args={[{ name: "stickerId", type: "string" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Adds a sticker ID to the message.
-
+> <LuaDeclaration name="addStickerId" className="MessageBuilder" args={[ { name: "stickerId", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Adds a sticker ID to the message.
 ### setFlags
 
-> <LuaDeclaration
-> 	name="setFlags"
-> 	className="MessageBuilder"
-> 	args={[{ name: "flags", type: "number" }]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Sets the flags for the message.
-
+> <LuaDeclaration name="setFlags" className="MessageBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Builders.MessageBuilder" isMethod />
+Sets the flags for the message.
 ### addFile
 
-> <LuaDeclaration
-> 	name="addFile"
-> 	className="MessageBuilder"
-> 	args={[
-> 		{ name: "fileContent", type: "string" },
-> 		{ name: "fileName", type: "string" },
-> 	]}
-> 	returnType="Builders.MessageBuilder"
-> 	isMethod
-> />
-> Add a file to the Message object
-
+> <LuaDeclaration name="addFile" className="MessageBuilder" args={[ { name: "fileContent", type: "string" }, { name: "fileName", type: "string" } ]} returnType="Builders.MessageBuilder" isMethod />
+Add a file to the Message object
 ### toJsonObject
 
-> <LuaDeclaration
-> 	name="toJsonObject"
-> 	className="MessageBuilder"
-> 	args={[]}
-> 	returnType="table"
-> 	isMethod
-> />
-> Converts the message to a JSON object that can be sent to the Discord API.
-
-### toFormdataObject
-
-> <LuaDeclaration
-> 	name="toFormdataObject"
-> 	className="MessageBuilder"
-> 	args={[]}
-> 	returnType="string"
-> 	isMethod
-> />
-> Converts the message to a Formdata object that can be sent to the Discord API.
-
+> <LuaDeclaration name="toJsonObject" className="MessageBuilder" args={[  ]} returnType="table" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
 ### toPayloadObject
 
-> <LuaDeclaration
-> 	name="toPayloadObject"
-> 	className="MessageBuilder"
-> 	args={[]}
-> 	returnType="Network.Resolvable"
-> 	isMethod
-> />
-> Converts the message to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration name="toPayloadObject" className="MessageBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+### toPayloadObject
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+> <LuaDeclaration name="toPayloadObject" className="MessageBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="MessageBuilder" args={[]} />
-> Creates a new instance of MessageBuilder.
+> <LuaDeclaration name="new" className="MessageBuilder" args={[  ]} />
+Creates a new instance of MessageBuilder.
+

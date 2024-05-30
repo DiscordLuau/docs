@@ -2,22 +2,21 @@
 title: PermissionsBuilder
 description: DiscordLuau docs for PermissionsBuilder.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 PermissionsBuilder is used to construct and manage permissions for a Discord bot.
 
 Usage:
-
 ```lua
 local permissions = PermissionsBuilder.new()
 	:addPermission(PermissionsBuilder.Permissions.Administrator)
@@ -26,14 +25,14 @@ local permissions = PermissionsBuilder.new()
 print(permissions:getValue())
 ```
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 ### Permissions
 
-## <LuaProperty name="PermissionsBuilder.Permissions" type="table" />
-
+<LuaProperty name="PermissionsBuilder.Permissions" type="table" />
+---
 An enumeration of permissions.
 
 - CreateInstantInvite: 0
@@ -82,78 +81,45 @@ An enumeration of permissions.
 - UseExternalSounds: 45
 - SendVoiceMessages: 46
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### addPermission
 
-> <LuaDeclaration
-> 	name="addPermission"
-> 	className="PermissionsBuilder"
-> 	args={[{ name: "permission", type: "number" }]}
-> 	returnType="Builders.PermissionsBuilder"
-> 	isMethod
-> />
-> Adds a permission to the builder.
-
+> <LuaDeclaration name="addPermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="Builders.PermissionsBuilder" isMethod />
+Adds a permission to the builder.
 ### deletePermission
 
-> <LuaDeclaration
-> 	name="deletePermission"
-> 	className="PermissionsBuilder"
-> 	args={[{ name: "permission", type: "number" }]}
-> 	returnType="Builders.PermissionsBuilder"
-> 	isMethod
-> />
-> Removes a permission from the builder.
-
+> <LuaDeclaration name="deletePermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="Builders.PermissionsBuilder" isMethod />
+Removes a permission from the builder.
 ### hasPermission
 
-> <LuaDeclaration
-> 	name="hasPermission"
-> 	className="PermissionsBuilder"
-> 	args={[{ name: "permission", type: "number" }]}
-> 	returnType="boolean"
-> 	isMethod
-> />
-> Checks if a permission is in the builder.
-
+> <LuaDeclaration name="hasPermission" className="PermissionsBuilder" args={[ { name: "permission", type: "number" } ]} returnType="boolean" isMethod />
+Checks if a permission is in the builder.
 ### getValue
 
-> <LuaDeclaration
-> 	name="getValue"
-> 	className="PermissionsBuilder"
-> 	args={[]}
-> 	returnType="string"
-> 	isMethod
-> />
-> Gets the bitfield value of the permissions.
+> <LuaDeclaration name="getValue" className="PermissionsBuilder" args={[  ]} returnType="string" isMethod />
+Gets the bitfield value of the permissions.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="PermissionsBuilder" args={[]} />
-> Creates a new instance of PermissionsBuilder.
-
+> <LuaDeclaration name="new" className="PermissionsBuilder" args={[  ]} />
+Creates a new instance of PermissionsBuilder.
 ### none
 
-> <LuaDeclaration name="none" className="PermissionsBuilder" args={[]} />
-> Creates a new instance of PermissionsBuilder with no permissions.
-
+> <LuaDeclaration name="none" className="PermissionsBuilder" args={[  ]} />
+Creates a new instance of PermissionsBuilder with no permissions.
 ### all
 
-> <LuaDeclaration name="all" className="PermissionsBuilder" args={[]} />
-> Creates a new instance of PermissionsBuilder with all permissions.
-
+> <LuaDeclaration name="all" className="PermissionsBuilder" args={[  ]} />
+Creates a new instance of PermissionsBuilder with all permissions.
 ### from
 
-> <LuaDeclaration
-> 	name="from"
-> 	className="PermissionsBuilder"
-> 	args={[{ name: "bitfield", type: "string" }]}
-> />
-> Creates a new instance of PermissionsBuilder from a bitfield.
+> <LuaDeclaration name="from" className="PermissionsBuilder" args={[ { name: "bitfield", type: "string" } ]} />
+Creates a new instance of PermissionsBuilder from a bitfield.
+

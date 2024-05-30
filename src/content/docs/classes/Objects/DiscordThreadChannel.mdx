@@ -2,119 +2,65 @@
 title: DiscordThreadChannel
 description: DiscordLuau docs for DiscordThreadChannel.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 DiscordThreadChannel represents a thread channel in a Discord server, providing methods to modify the channel and interact with pinned messages.
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The DiscordThreadChannel instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### joinThreadAsync
 
-> <LuaDeclaration
-> 	name="joinThreadAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[]}
-> 	returnType="Future<unknown>"
-> 	isMethod
-> />
-> Joins the current discord bot into the thread
-
+> <LuaDeclaration name="joinThreadAsync" className="DiscordThreadChannel" args={[  ]} returnType="Future<unknown>" isMethod />
+Joins the current discord bot into the thread
 ### addMemberToThreadAsync
 
-> <LuaDeclaration
-> 	name="addMemberToThreadAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[{ name: "userId", type: "string" }]}
-> 	returnType="Future<unknown>"
-> 	isMethod
-> />
-> Adds the passed member to the thread channel
-
+> <LuaDeclaration name="addMemberToThreadAsync" className="DiscordThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+Adds the passed member to the thread channel
 ### leaveThreadAsync
 
-> <LuaDeclaration
-> 	name="leaveThreadAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[]}
-> 	returnType="Future<unknown>"
-> 	isMethod
-> />
-> Leaves the thread channel if the discord bot is in the channel.
-
+> <LuaDeclaration name="leaveThreadAsync" className="DiscordThreadChannel" args={[  ]} returnType="Future<unknown>" isMethod />
+Leaves the thread channel if the discord bot is in the channel.
 ### removeMemberFromThreadAsync
 
-> <LuaDeclaration
-> 	name="removeMemberFromThreadAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[{ name: "userId", type: "string" }]}
-> 	returnType="Future<unknown>"
-> 	isMethod
-> />
-> Removes the passed user id from the current thread channel
-
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="DiscordThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+Removes the passed user id from the current thread channel
 ### removeMemberFromThreadAsync
 
-> <LuaDeclaration
-> 	name="removeMemberFromThreadAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[{ name: "userId", type: "string" }]}
-> 	returnType="Future<{ DiscordGuildMember }>"
-> 	isMethod
-> />
-> Returns a list of members that are active in the current thread channel
-
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="DiscordThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
 ### modifyAsync
 
-> <LuaDeclaration
-> 	name="modifyAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[{ name: "channelSchema", type: "DiscordTextChannelSchema" }]}
-> 	returnType="Future<unknown>"
-> 	isMethod
-> />
-> Modifies the thread channel settings asynchronously.
-
+> <LuaDeclaration name="modifyAsync" className="DiscordThreadChannel" args={[ { name: "channelSchema", type: "DiscordTextChannelSchema" } ]} returnType="Future<unknown>" isMethod />
+Modifies the thread channel settings asynchronously.
 ### getPinnedMessagesAsync
 
-> <LuaDeclaration
-> 	name="getPinnedMessagesAsync"
-> 	className="DiscordThreadChannel"
-> 	args={[]}
-> 	returnType="Future<{[number]: DiscordMessage}>"
-> 	isMethod
-> />
-> Retrieves the pinned messages in the thread channel asynchronously.
+> <LuaDeclaration name="getPinnedMessagesAsync" className="DiscordThreadChannel" args={[  ]} returnType="Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the thread channel asynchronously.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration
-> 	name="new"
-> 	className="DiscordThreadChannel"
-> 	args={[
-> 		{ name: "discordClient", type: "any" },
-> 		{ name: "channelData", type: "table" },
-> 	]}
-> />
-> Creates a new instance of DiscordThreadChannel.
+> <LuaDeclaration name="new" className="DiscordThreadChannel" args={[ { name: "discordClient", type: "any" }, { name: "channelData", type: "table" } ]} />
+Creates a new instance of DiscordThreadChannel.
+
