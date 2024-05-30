@@ -1,0 +1,71 @@
+---
+title: Basic Application
+description: A basic application that demo's getting started with Discord Luau
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+This guide details the steps taken to create your first discord application!
+
+<Steps>
+
+1. Create a new `Application.luau` file
+
+2. Using the DiscordLuau submodule, require the submodule and set up a basic client object
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   DiscordClient:connectAsync():after(function()
+      print("We've connected to the Discord Websocket! 🚀")
+   end)
+   ```
+
+3. Connect to the 'Ready' discord event:
+
+   ```lua
+   DiscordClient.eventManager.onReady:connect(function()
+      print(`{DiscordClient.discordUser.username} is online! 🎉`)
+   end)
+   ```
+
+4. Run the Application
+
+   ```bash
+   lune run application.luau
+   ```
+
+5. if all goes well, your application should connect to the Discord API and print the above messages!
+</Steps>
+
+:::caution
+In the case the bot fails to connect, please check that you've toggled your applications intents correctly!
+
+If you need to modify the intents of the Bot from Luau, you can do so with:
+```lua
+local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>", DiscordLuau.IntentsBuilder.fromDefault())
+```
+:::
+
+<details>
+   <summary>Complete Code</summary>
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   DiscordClient.eventManager.onReady:connect(function()
+      print("We've connected to the Discord Websocket! 🚀")
+   end)
+
+   DiscordClient:connectAsync():after(function()
+      print("We've connected to the Discord Websocket! 🚀")
+   end)
+   ```
+</details>

@@ -11,12 +11,18 @@ export default defineConfig({
 	},
 	integrations: [
 		starlight({
-			title: "DiscordLuau Docs",
+			title: "Discord-Luau",
 			favicon: "public/favicon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
 			},
 			sidebar: [
+				{
+					label: "Getting Started",
+					autogenerate: {
+						directory: "getting-started",
+					},
+				},
 				{
 					label: "Guides",
 					autogenerate: {

@@ -1,0 +1,93 @@
+---
+title: Installation
+description: Instructions on how to install and set up the Discord-Luau package.
+---
+
+This guide will walk you though installing the Discord-Luau package into an IDE of your choice, enabling you
+to start creating Discord Applications!
+
+:::tip
+This guide assumes the following;
+
+- You've set up your environment, if you've not already done this, please take a look at [this guide](/getting-started/environment/)
+:::
+
+### Context
+
+The Luau language is yet to find it's true package manager, which makes installing Discord-Luau a little bit more complicated
+than other languages..
+
+and in order to keep to some sort of standard for installing this as a package, we've gone for the *dreaded*
+[Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) approach.
+
+:::note
+If you're aware of a Package Manager that Luau packages can take advantage of, please reach out to us through GitHub issues!
+
+We would LOVE to collaborate and get DiscordLuau onto a Luau package manager.
+:::
+
+### Git Submodules
+
+This section will assume you know nothing about Git submodules, *and if so.. oh god forgive me for stress i'm about to cause you.. sorry!*
+
+Jokes aside, Git Submodules are actually a really useful resource for linking git repositories into one another, by doing this, we
+allow your code *(which should be a git repository)* to import discord luau *(a git reposoitory)*, and then use this as a package in your
+project.
+
+#### Setting up a git repository
+
+Assuming you just have a folder at the moment, and you're in that folder, within your IDE *(I'll be using VSCode as reference)* what
+you have is not yet a git repository.
+
+To create a git repository, you'll need to execute the following command in a command line, inside of your project folder:
+```bash
+git init
+```
+
+This should set up a git repository inside of that folder *(if you don't see any new files, or changes, don't worry! Git did create a
+`.git` folder, it's normally just hidden by your OS!)*
+
+#### Adding Discord-Luau to your workspace
+
+Assuming you've set up a git repository, add Discord-Luau to your workspace by executing the following in a command line:
+
+```bash
+git submodule add https://github.com/DiscordLuau/discord-luau.git DiscordLuau
+```
+
+#### Updating Discord-Luau
+
+Assuming you've set up a git repository, and added Discord-Luau as a submodule, you can update Discord-Luau through the following commands
+
+```bash
+cd DiscordLuau
+git checkout master
+git pull
+cd ..
+```
+
+if we break this down a bit, in our terminal, we're entering the DiscordLuau folder *(which is the git repository for DiscordLuau!)*
+then switching from HEAD *(the version you had installed locally)* to `master`, which is the latest version of DiscordLuau that is most updated
+and then pulling any changes we don't have, from github, into our repository.
+
+#### I've made changes to Discord-Luau
+
+If you've made changes to Discord-Luau, and you're unable to checkout a different branch, or pull from the remote, i'd suggest
+creating a fork of discord-luau, and maintaing that fork.
+
+I will not be going into details on how you'd do that.. one because I suck at git, and two because generally we're going to be going
+into more advanced topics that you should learn indepdantly from discord-luau.
+
+---
+
+*Don't make changes to discord-luau, unless you're comfortable with Git!*
+
+#### Removing Discord-Luau
+
+Yeah.. maybe it's time we switch to a package manager, or maybe you just can't update and you'd rather just re-install discord-luau..
+
+well, you can remove the submodule through the following commands:
+
+```bash
+git rm DiscordLuau
+```
