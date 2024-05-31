@@ -2,153 +2,89 @@
 title: DiscordChannel
 description: DiscordLuau docs for DiscordChannel.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 The `DiscordChannel` class represents a generic Discord channel and provides various methods to interact with and manage the channel.
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 ### type
 
-## <LuaProperty name="DiscordChannel.type" type="string" />
-
+<LuaProperty name="DiscordChannel.type" type="string" />
+---
 The type of the Discord channel. Default is "DiscordChannel".
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### triggerTypingIndicator
 
-> <LuaDeclaration
-> 	name="triggerTypingIndicator"
-> 	className="DiscordChannel"
-> 	args={[]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Triggers the typing indicator in the channel.
+> <LuaDeclaration name="triggerTypingIndicator" className="DiscordChannel" args={[  ]} returnType="Future" isMethod />
+Triggers the typing indicator in the channel.
+### overwriteRolePermissionsAsync
 
+> <LuaDeclaration name="overwriteRolePermissionsAsync" className="DiscordChannel" args={[ { name: "roleId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+set overwrites for a specific role permissions for this channel in a discord guild.
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="DiscordChannel" args={[ { name: "memberId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+set overwrites for a specific members permissions for this channel in a discord guild.
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="DiscordChannel" args={[ { name: "roleIdOrUserId", type: "string" } ]} returnType="Future" isMethod />
+deletes overwritten permissions for the given id, the given id must be either a role id or a user id
 ### deleteAsync
 
-> <LuaDeclaration
-> 	name="deleteAsync"
-> 	className="DiscordChannel"
-> 	args={[]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Deletes the channel asynchronously.
-
+> <LuaDeclaration name="deleteAsync" className="DiscordChannel" args={[  ]} returnType="Future" isMethod />
+Deletes the channel asynchronously.
 ### getMessagesAsync
 
-> <LuaDeclaration
-> 	name="getMessagesAsync"
-> 	className="DiscordChannel"
-> 	args={[{ name: "limit", type: "number?" }]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Gets messages from the channel asynchronously.
-
+> <LuaDeclaration name="getMessagesAsync" className="DiscordChannel" args={[ { name: "limit", type: "number?" } ]} returnType="Future" isMethod />
+Gets messages from the channel asynchronously.
 ### getMessageAsync
 
-> <LuaDeclaration
-> 	name="getMessageAsync"
-> 	className="DiscordChannel"
-> 	args={[{ name: "messageId", type: "string" }]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Gets a specific message from the channel asynchronously.
-
+> <LuaDeclaration name="getMessageAsync" className="DiscordChannel" args={[ { name: "messageId", type: "string" } ]} returnType="Future" isMethod />
+Gets a specific message from the channel asynchronously.
 ### bulkDeleteMessagesAsync
 
-> <LuaDeclaration
-> 	name="bulkDeleteMessagesAsync"
-> 	className="DiscordChannel"
-> 	args={[{ name: "messageIds", type: "{string}" }]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Deletes multiple messages from the channel asynchronously.
-
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="DiscordChannel" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
 ### sendMessageAsync
 
-> <LuaDeclaration
-> 	name="sendMessageAsync"
-> 	className="DiscordChannel"
-> 	args={[{ name: "messageBuilder", type: "MessageBuilder" }]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Sends a message to the channel asynchronously.
-
+> <LuaDeclaration name="sendMessageAsync" className="DiscordChannel" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
+Sends a message to the channel asynchronously.
 ### getInvitesAsync
 
-> <LuaDeclaration
-> 	name="getInvitesAsync"
-> 	className="DiscordChannel"
-> 	args={[]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Gets the invites for the channel asynchronously.
-
+> <LuaDeclaration name="getInvitesAsync" className="DiscordChannel" args={[  ]} returnType="Future" isMethod />
+Gets the invites for the channel asynchronously.
 ### createInviteAsync
 
-> <LuaDeclaration
-> 	name="createInviteAsync"
-> 	className="DiscordChannel"
-> 	args={[
-> 		{ name: "maxAge", type: "number?" },
-> 		{ name: "maxUses", type: "number?" },
-> 		{ name: "temporary", type: "boolean?" },
-> 	]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Creates an invite for the channel asynchronously.
-
+> <LuaDeclaration name="createInviteAsync" className="DiscordChannel" args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]} returnType="Future" isMethod />
+Creates an invite for the channel asynchronously.
 ### setPositionAsync
 
-> <LuaDeclaration
-> 	name="setPositionAsync"
-> 	className="DiscordChannel"
-> 	args={[
-> 		{ name: "position", type: "number" },
-> 		{ name: "parentId", type: "string?" },
-> 		{ name: "syncPermissions", type: "boolean?" },
-> 	]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Sets the position of the channel asynchronously.
+> <LuaDeclaration name="setPositionAsync" className="DiscordChannel" args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="Future" isMethod />
+Sets the position of the channel asynchronously.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration
-> 	name="new"
-> 	className="DiscordChannel"
-> 	args={[
-> 		{ name: "discordClient", type: "any" },
-> 		{ name: "rawChannelData", type: "any" },
-> 	]}
-> />
-> Creates a new DiscordChannel instance.
+> <LuaDeclaration name="new" className="DiscordChannel" args={[ { name: "discordClient", type: "any" }, { name: "rawChannelData", type: "any" } ]} />
+Creates a new DiscordChannel instance.
+

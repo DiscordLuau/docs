@@ -2,134 +2,76 @@
 title: TextInputBuilder
 description: DiscordLuau docs for TextInputBuilder.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 TextInputBuilder is used to construct a text input component for a Discord message.
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 ### Style
 
-## <LuaProperty name="TextInputBuilder.Style" type="table" />
-
+<LuaProperty name="TextInputBuilder.Style" type="table" />
+---
 An enumeration of text input styles.
 
 - Short: 1
 - Paragraph: 2
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### setStyle
 
-> <LuaDeclaration
-> 	name="setStyle"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "inputStyle", type: "number" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the style of the text input.
-
+> <LuaDeclaration name="setStyle" className="TextInputBuilder" args={[ { name: "inputStyle", type: "number" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the style of the text input.
 ### setLabel
 
-> <LuaDeclaration
-> 	name="setLabel"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "label", type: "string" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the label of the text input.
-
+> <LuaDeclaration name="setLabel" className="TextInputBuilder" args={[ { name: "label", type: "string" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the label of the text input.
 ### setMinLength
 
-> <LuaDeclaration
-> 	name="setMinLength"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "length", type: "number" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the minimum length of the text input.
-
+> <LuaDeclaration name="setMinLength" className="TextInputBuilder" args={[ { name: "length", type: "number" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the minimum length of the text input.
 ### setMaxLength
 
-> <LuaDeclaration
-> 	name="setMaxLength"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "length", type: "number" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the maximum length of the text input.
-
+> <LuaDeclaration name="setMaxLength" className="TextInputBuilder" args={[ { name: "length", type: "number" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the maximum length of the text input.
 ### setRequired
 
-> <LuaDeclaration
-> 	name="setRequired"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "isRequired", type: "boolean" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets whether the text input is required.
-
+> <LuaDeclaration name="setRequired" className="TextInputBuilder" args={[ { name: "isRequired", type: "boolean" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets whether the text input is required.
 ### setDefaultValue
 
-> <LuaDeclaration
-> 	name="setDefaultValue"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "value", type: "string" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the default value of the text input.
-
+> <LuaDeclaration name="setDefaultValue" className="TextInputBuilder" args={[ { name: "value", type: "string" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the default value of the text input.
 ### setPlaceholder
 
-> <LuaDeclaration
-> 	name="setPlaceholder"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "value", type: "string" }]}
-> 	returnType="Builders.Interface.TextInputBuilder"
-> 	isMethod
-> />
-> Sets the placeholder value of the text input.
-
+> <LuaDeclaration name="setPlaceholder" className="TextInputBuilder" args={[ { name: "value", type: "string" } ]} returnType="Builders.Interface.TextInputBuilder" isMethod />
+Sets the placeholder value of the text input.
 ### toPayloadObject
 
-> <LuaDeclaration
-> 	name="toPayloadObject"
-> 	className="TextInputBuilder"
-> 	args={[]}
-> 	returnType="Network.Resolvable"
-> 	isMethod
-> />
-> Converts the text input to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration name="toPayloadObject" className="TextInputBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the text input to a JSON object that can be sent to the Discord API.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration
-> 	name="new"
-> 	className="TextInputBuilder"
-> 	args={[{ name: "textInputId", type: "string" }]}
-> />
-> Creates a new instance of TextInputBuilder.
+> <LuaDeclaration name="new" className="TextInputBuilder" args={[ { name: "textInputId", type: "string" } ]} />
+Creates a new instance of TextInputBuilder.
+

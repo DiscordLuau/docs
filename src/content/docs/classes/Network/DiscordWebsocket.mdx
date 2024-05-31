@@ -2,17 +2,17 @@
 title: DiscordWebsocket
 description: DiscordLuau docs for DiscordWebsocket.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 The `DiscordWebsocket` class manages the websocket connection to Discord. It handles sending and receiving messages, managing the connection state, and processing incoming and outgoing events.
 
@@ -20,63 +20,35 @@ The `DiscordWebsocket` class manages the websocket connection to Discord. It han
 This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to interact with the Discord websocket.
 :::
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The DiscordWebsocket instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### sendAsync
 
-> <LuaDeclaration
-> 	name="sendAsync"
-> 	className="DiscordWebsocket"
-> 	args={[
-> 		{ name: "self", type: "DiscordWebsocket" },
-> 		{ name: "dataPacket", type: "table" },
-> 	]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Sends a data packet asynchronously through the websocket.
-
+> <LuaDeclaration name="sendAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "dataPacket", type: "table" } ]} returnType="Future" isMethod />
+Sends a data packet asynchronously through the websocket.
 ### connectAsync
 
-> <LuaDeclaration
-> 	name="connectAsync"
-> 	className="DiscordWebsocket"
-> 	args={[
-> 		{ name: "self", type: "DiscordWebsocket" },
-> 		{ name: "websocketUrl", type: "string" },
-> 	]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Connects to a websocket URL asynchronously.
-
+> <LuaDeclaration name="connectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "websocketUrl", type: "string" } ]} returnType="Future" isMethod />
+Connects to a websocket URL asynchronously.
 ### disconnectAsync
 
-> <LuaDeclaration
-> 	name="disconnectAsync"
-> 	className="DiscordWebsocket"
-> 	args={[
-> 		{ name: "self", type: "DiscordWebsocket" },
-> 		{ name: "closingCode", type: "string" },
-> 	]}
-> 	returnType="Future"
-> 	isMethod
-> />
-> Disconnects from the websocket asynchronously.
+> <LuaDeclaration name="disconnectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "closingCode", type: "string" } ]} returnType="Future" isMethod />
+Disconnects from the websocket asynchronously.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordWebsocket" args={[]} />
-> Creates a new instance of `DiscordWebsocket`.
+> <LuaDeclaration name="new" className="DiscordWebsocket" args={[  ]} />
+Creates a new instance of `DiscordWebsocket`.
+

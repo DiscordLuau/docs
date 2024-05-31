@@ -2,17 +2,17 @@
 title: WebsocketBuffer
 description: DiscordLuau docs for WebsocketBuffer.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 The `WebsocketBuffer` class manages a buffer for websocket data, allowing for data to be added incrementally and flushed when needed.
 
@@ -20,45 +20,31 @@ The `WebsocketBuffer` class manages a buffer for websocket data, allowing for da
 This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to manage websocket buffering.
 :::
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The WebsocketBuffer instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### flush
 
-> <LuaDeclaration
-> 	name="flush"
-> 	className="WebsocketBuffer"
-> 	args={[{ name: "self", type: "WebsocketBuffer" }]}
-> 	returnType="string"
-> 	isMethod
-> />
-> Flushes the buffer, returning all accumulated data and resetting the buffer.
-
+> <LuaDeclaration name="flush" className="WebsocketBuffer" args={[ { name: "self", type: "WebsocketBuffer" } ]} returnType="string" isMethod />
+Flushes the buffer, returning all accumulated data and resetting the buffer.
 ### add
 
-> <LuaDeclaration
-> 	name="add"
-> 	className="WebsocketBuffer"
-> 	args={[
-> 		{ name: "self", type: "WebsocketBuffer" },
-> 		{ name: "data", type: "string" },
-> 	]}
-> 	isMethod
-> />
-> Adds data to the buffer.
+> <LuaDeclaration name="add" className="WebsocketBuffer" args={[ { name: "self", type: "WebsocketBuffer" }, { name: "data", type: "string" } ]} isMethod />
+Adds data to the buffer.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="WebsocketBuffer" args={[]} />
-> Creates a new instance of `WebsocketBuffer`.
+> <LuaDeclaration name="new" className="WebsocketBuffer" args={[  ]} />
+Creates a new instance of `WebsocketBuffer`.
+

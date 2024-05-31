@@ -2,17 +2,17 @@
 title: Resolvable
 description: DiscordLuau docs for Resolvable.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 The `Resolvable` class manages the scheduling of HTTP tasks. It allows for the addition, removal, and execution of tasks at a specified frequency.
 
@@ -20,49 +20,35 @@ The `Resolvable` class manages the scheduling of HTTP tasks. It allows for the a
 This class is internal and should not be used directly by developers. Instead, use the provided public interfaces and methods to manage HTTP scheduling.
 :::
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The Resolvable instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### headers
 
-> <LuaDeclaration
-> 	name="headers"
-> 	className="Resolvable"
-> 	args={[]}
-> 	returnType="{ [string]: string }"
-> 	isMethod
-> />
-> Returns a dictionary of headers this resolvable requires in order to successfuly
-> be processed by the Discord API
-
+> <LuaDeclaration name="headers" className="Resolvable" args={[  ]} returnType="{ [string]: string }" isMethod />
+Returns a dictionary of headers this resolvable requires in order to successfuly be processed by the Discord API
 ### resolve
 
-> <LuaDeclaration
-> 	name="resolve"
-> 	className="Resolvable"
-> 	args={[]}
-> 	returnType="any"
-> 	isMethod
-> />
-> Resolves the data that this Resolvable has, for instance - if this data is JSON,
-> it will be thrown through the EventIn pre-processor.
+> <LuaDeclaration name="resolve" className="Resolvable" args={[  ]} returnType="any" isMethod />
+Resolves the data that this Resolvable has, for instance - if this data is JSON, it will be thrown through the EventIn pre-processor.
+### update
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+> <LuaDeclaration name="update" className="Resolvable" args={[  ]} returnType="any" isMethod />
+Allows mutation of the data held in the resolvable
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration
-> 	name="new"
-> 	className="Resolvable"
-> 	args={[{ name: "threadCount", type: "number?" }]}
-> />
-> Creates a new instance of `Resolvable`.
+> <LuaDeclaration name="new" className="Resolvable" args={[ { name: "threadCount", type: "number?" } ]} />
+Creates a new instance of `Resolvable`.
+

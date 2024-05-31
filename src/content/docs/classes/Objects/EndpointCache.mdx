@@ -2,70 +2,49 @@
 title: EndpointCache
 description: DiscordLuau docs for EndpointCache.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 EndpointCache is a caching mechanism designed to store data temporarily with an expiration time.
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 The EndpointCache instance has no set properties!
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### setExpiry
 
-> <LuaDeclaration
-> 	name="setExpiry"
-> 	className="EndpointCache"
-> 	args={[{ name: "seconds", type: "number" }]}
-> 	isMethod
-> />
-> Sets the expiry time for the cache.
-
+> <LuaDeclaration name="setExpiry" className="EndpointCache" args={[ { name: "seconds", type: "number" } ]} isMethod />
+Sets the expiry time for the cache.
 ### set
 
-> <LuaDeclaration
-> 	name="set"
-> 	className="EndpointCache"
-> 	args={[{ name: "value", type: "any" }]}
-> 	isMethod
-> />
-> Sets the value in the cache and starts the expiry timer.
-
+> <LuaDeclaration name="set" className="EndpointCache" args={[ { name: "value", type: "any" } ]} isMethod />
+Sets the value in the cache and starts the expiry timer.
 ### get
 
-> <LuaDeclaration
-> 	name="get"
-> 	className="EndpointCache"
-> 	args={[]}
-> 	returnType="any"
-> 	isMethod
-> />
-> Gets the current value from the cache.
+> <LuaDeclaration name="get" className="EndpointCache" args={[  ]} returnType="any" isMethod />
+Gets the current value from the cache.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration
-> 	name="new"
-> 	className="EndpointCache"
-> 	args={[{ name: "expiryTime", type: "number?" }]}
-> />
-> Creates a new instance of EndpointCache.
+> <LuaDeclaration name="new" className="EndpointCache" args={[ { name: "expiryTime", type: "number?" } ]} />
+Creates a new instance of EndpointCache.
+

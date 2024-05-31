@@ -2,22 +2,21 @@
 title: AutomoderationRuleBuilder
 description: DiscordLuau docs for AutomoderationRuleBuilder.
 ---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
 
-[//]: # "This file was automatically compiled through the Generator luau code under this repository"
-[//]: # "if you want to edit the documentation of discord-luau, please write changes"
-[//]: # "to the discord-luau repository itself, we extract the comments from discord-luau and translate"
-[//]: # "them into markdown files that Nextra can interpret!"
-[//]: # "----- DOCUMENT IMPORTS ----- "
+[//]: # (----- DOCUMENT IMPORTS ----- )
 
-import LuaDeclaration from "$/components/LuaDeclaration.astro";
-import LuaProperty from "$/components/LuaProperty.astro";
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
 
-[//]: # "----- DOCUMENT DESCRIPTION ----- "
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
 
 AutomoderationRuleBuilder is used to construct an auto-moderation rule for a Discord guild, including trigger types, actions, and exempt roles or channels.
 
 Usage:
-
 ```lua
 local rule = AutomoderationRuleBuilder.new()
 	:setName("No Profanity")
@@ -28,160 +27,93 @@ local rule = AutomoderationRuleBuilder.new()
 	:setEnabled(true)
 ```
 
-[//]: # "----- DOCUMENT PROPERTIES ----- "
+[//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
 ### EventType
 
-## <LuaProperty name="AutomoderationRuleBuilder.EventType" type="table" />
-
+<LuaProperty name="AutomoderationRuleBuilder.EventType" type="table" />
+---
 An enumeration of event types.
 
 - MessageSend: 1
-
 ### TriggerType
 
-## <LuaProperty name="AutomoderationRuleBuilder.TriggerType" type="table" />
-
+<LuaProperty name="AutomoderationRuleBuilder.TriggerType" type="table" />
+---
 An enumeration of trigger types.
 
 - Keyword: 1
 - Spam: 3
 - KeywordPreset: 4
 - MentionSpam: 5
-
 ### KeywordPresets
 
-## <LuaProperty name="AutomoderationRuleBuilder.KeywordPresets" type="table" />
-
+<LuaProperty name="AutomoderationRuleBuilder.KeywordPresets" type="table" />
+---
 An enumeration of keyword presets.
 
 - Profanity: 1
 - SexualContent: 2
 - Slurs: 3
-
 ### ActionType
 
-## <LuaProperty name="AutomoderationRuleBuilder.ActionType" type="table" />
-
+<LuaProperty name="AutomoderationRuleBuilder.ActionType" type="table" />
+---
 An enumeration of action types.
 
 - BlockMessage: 1
 - SendAlertMessage: 2
 - Timeout: 3
 
-[//]: # "----- DOCUMENT METHODS ----- "
+[//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
 ### setName
 
-> <LuaDeclaration
-> 	name="setName"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "name", type: "string" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Sets the name of the rule.
-
+> <LuaDeclaration name="setName" className="AutomoderationRuleBuilder" args={[ { name: "name", type: "string" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Sets the name of the rule.
 ### setEventType
 
-> <LuaDeclaration
-> 	name="setEventType"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "eventType", type: "number" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Sets the event type for the rule.
-
+> <LuaDeclaration name="setEventType" className="AutomoderationRuleBuilder" args={[ { name: "eventType", type: "number" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Sets the event type for the rule.
 ### setTriggerType
 
-> <LuaDeclaration
-> 	name="setTriggerType"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "triggerType", type: "number" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Sets the trigger type for the rule.
-
+> <LuaDeclaration name="setTriggerType" className="AutomoderationRuleBuilder" args={[ { name: "triggerType", type: "number" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Sets the trigger type for the rule.
 ### setTriggerMetadata
 
-> <LuaDeclaration
-> 	name="setTriggerMetadata"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "triggerMetadata", type: "table" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Sets the trigger metadata for the rule.
-
+> <LuaDeclaration name="setTriggerMetadata" className="AutomoderationRuleBuilder" args={[ { name: "triggerMetadata", type: "table" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Sets the trigger metadata for the rule.
 ### addAction
 
-> <LuaDeclaration
-> 	name="addAction"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[
-> 		{ name: "actionType", type: "number" },
-> 		{ name: "actionMetadata", type: "table" },
-> 	]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Adds an action to the rule.
-
+> <LuaDeclaration name="addAction" className="AutomoderationRuleBuilder" args={[ { name: "actionType", type: "number" }, { name: "actionMetadata", type: "table" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Adds an action to the rule.
 ### setEnabled
 
-> <LuaDeclaration
-> 	name="setEnabled"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "enabled", type: "boolean" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Sets whether the rule is enabled.
-
+> <LuaDeclaration name="setEnabled" className="AutomoderationRuleBuilder" args={[ { name: "enabled", type: "boolean" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Sets whether the rule is enabled.
 ### addExemptRole
 
-> <LuaDeclaration
-> 	name="addExemptRole"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "roleId", type: "string" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Adds an exempt role to the rule.
-
+> <LuaDeclaration name="addExemptRole" className="AutomoderationRuleBuilder" args={[ { name: "roleId", type: "string" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Adds an exempt role to the rule.
 ### addExemptChannel
 
-> <LuaDeclaration
-> 	name="addExemptChannel"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[{ name: "channelId", type: "string" }]}
-> 	returnType="Builders.AutomoderationRuleBuilder"
-> 	isMethod
-> />
-> Adds an exempt channel to the rule.
-
+> <LuaDeclaration name="addExemptChannel" className="AutomoderationRuleBuilder" args={[ { name: "channelId", type: "string" } ]} returnType="Builders.AutomoderationRuleBuilder" isMethod />
+Adds an exempt channel to the rule.
 ### toPayloadObject
 
-> <LuaDeclaration
-> 	name="toPayloadObject"
-> 	className="AutomoderationRuleBuilder"
-> 	args={[]}
-> 	returnType="Network.Resolvable"
-> 	isMethod
-> />
-> Converts the rule to a JSON object that can be sent to the Discord API.
+> <LuaDeclaration name="toPayloadObject" className="AutomoderationRuleBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the rule to a JSON object that can be sent to the Discord API.
 
-[//]: # "----- DOCUMENT FUNCTIONS ----- "
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="AutomoderationRuleBuilder" args={[]} />
-> Creates a new instance of AutomoderationRuleBuilder.
+> <LuaDeclaration name="new" className="AutomoderationRuleBuilder" args={[  ]} />
+Creates a new instance of AutomoderationRuleBuilder.
+

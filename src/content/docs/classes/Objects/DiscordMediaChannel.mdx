@@ -1,0 +1,50 @@
+---
+title: DiscordMediaChannel
+description: DiscordLuau docs for DiscordMediaChannel.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordMediaChannel represents a thread channel in a Discord server, providing methods to modify the channel and interact with pinned messages.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The DiscordMediaChannel instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### createThreadAsync
+
+> <LuaDeclaration name="createThreadAsync" className="DiscordMediaChannel" args={[ { name: "name", type: "string" }, { name: "message", type: "MessageBuilder" }, { name: "appliedTags", type: "{ string }?" }, { name: "autoArchiveDuration", type: "number?" }, { name: "rateLimitPerUser", type: "number?" } ]} returnType="Future<unknown>" isMethod />
+Create a new thread inside of a Media channel.
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="DiscordMediaChannel" args={[ { name: "channelSchema", type: "DiscordTextChannelSchema" } ]} returnType="Future<unknown>" isMethod />
+Modifies the thread channel settings asynchronously.
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="DiscordMediaChannel" args={[  ]} returnType="Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the thread channel asynchronously.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DiscordMediaChannel" args={[ { name: "discordClient", type: "any" }, { name: "channelData", type: "table" } ]} />
+Creates a new instance of DiscordMediaChannel.
+
