@@ -1,6 +1,6 @@
 ---
-title: DiscordChannel
-description: DiscordLuau docs for DiscordChannel.
+title: BaseGuildVoiceChannel
+description: DiscordLuau docs for BaseGuildVoiceChannel.
 ---
 [//]: # (This file was automatically compiled through the Generator luau code under this repository)
 [//]: # (if you want to edit the documentation of discord-luau, please write changes)
@@ -14,23 +14,32 @@ import LuaProperty from '$/components/LuaProperty.astro';
 
 [//]: # (----- DOCUMENT DESCRIPTION ----- )
 
-The `DiscordChannel` class represents a generic Discord channel and provides various methods to interact with and manage the channel.
+A base discord voice channel, every Guild Voice channel extends from.
+
+=@inherit Objects.BaseDiscordGuildChannel
 
 [//]: # (----- DOCUMENT PROPERTIES ----- )
 
 ## Properties
 
-The DiscordChannel instance has no set properties!
+The BaseGuildVoiceChannel instance has no set properties!
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The DiscordChannel instance has no set methods!
+### connectAsync
+
+> <LuaDeclaration name="connectAsync" className="BaseGuildVoiceChannel" args={[  ]} returnType="Future<boolean>" isMethod />
+Connects to the voice channel asynchronously.
+### disconnectAsync
+
+> <LuaDeclaration name="disconnectAsync" className="BaseGuildVoiceChannel" args={[  ]} returnType="Future<unknown>" isMethod />
+Disconnects from the voice channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
 ## Functions
 
-The DiscordChannel instance has no set functions!
+The BaseGuildVoiceChannel instance has no set functions!
 

@@ -1,0 +1,77 @@
+---
+title: BaseDiscordGuildChannel
+description: DiscordLuau docs for BaseDiscordGuildChannel.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+Represents a base object for any/all guild channels.
+
+=@inherit Objects.BaseDiscordChannel
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The BaseDiscordGuildChannel instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### overwriteRolePermissionsAsync
+
+> <LuaDeclaration name="overwriteRolePermissionsAsync" className="BaseDiscordGuildChannel" args={[ { name: "roleId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+set overwrites for a specific role permissions for this channel in a discord guild.
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "memberId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+set overwrites for a specific members permissions for this channel in a discord guild.
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "roleIdOrUserId", type: "string" } ]} returnType="Future" isMethod />
+deletes overwritten permissions for the given id, the given id must be either a role id or a user id
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="BaseDiscordGuildChannel" args={[  ]} returnType="Future" isMethod />
+Gets the invites for the channel asynchronously.
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="BaseDiscordGuildChannel" args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]} returnType="Future" isMethod />
+Creates an invite for the channel asynchronously.
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="BaseDiscordGuildChannel" args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="Future" isMethod />
+Sets the position of the channel asynchronously.
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="BaseDiscordGuildChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Future<unknown>" isMethod />
+Modifies the thread channel settings asynchronously.
+### getPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="getPublicArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+Gets all archived public threads in the guild channel asynchronously.
+### getPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="getPrivateArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+Gets all archived private threads in the guild channel asynchronously.
+### getJoinedPrivateArchivedThreads
+
+> <LuaDeclaration name="getJoinedPrivateArchivedThreads" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+Gets all archived private threads that the bot is a member of, in the guild channel asynchronously.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The BaseDiscordGuildChannel instance has no set functions!
+

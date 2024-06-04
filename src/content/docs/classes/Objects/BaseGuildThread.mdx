@@ -1,0 +1,61 @@
+---
+title: BaseGuildThread
+description: DiscordLuau docs for BaseGuildThread.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+A base discord Thread channel, all discord threads extend from.
+
+=@inherit Objects.BaseGuildTextChannel
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The BaseGuildThread instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### joinThreadAsync
+
+> <LuaDeclaration name="joinThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Future<unknown>" isMethod />
+Joins the current discord bot into the thread
+### addMemberToThreadAsync
+
+> <LuaDeclaration name="addMemberToThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+Adds the passed member to the thread channel
+### leaveThreadAsync
+
+> <LuaDeclaration name="leaveThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Future<unknown>" isMethod />
+Leaves the thread channel if the discord bot is in the channel.
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+Removes the passed user id from the current thread channel
+### getThreadMemberAsync
+
+> <LuaDeclaration name="getThreadMemberAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The BaseGuildThread instance has no set functions!
+

@@ -1,0 +1,61 @@
+---
+title: BaseGuildTextChannel
+description: DiscordLuau docs for BaseGuildTextChannel.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+A base guild text channel, where any/all text channels extend from.
+
+=@inherit Objects.BaseDiscordGuildChannel
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The BaseGuildTextChannel instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="BaseGuildTextChannel" args={[  ]} returnType="Future" isMethod />
+Triggers the typing indicator in the channel.
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="BaseGuildTextChannel" args={[ { name: "limit", type: "number?" } ]} returnType="Future" isMethod />
+Gets messages from the channel asynchronously.
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="BaseGuildTextChannel" args={[ { name: "messageId", type: "string" } ]} returnType="Future" isMethod />
+Gets a specific message from the channel asynchronously.
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="BaseGuildTextChannel" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="BaseGuildTextChannel" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Future" isMethod />
+Sends a message to the channel asynchronously.
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="BaseGuildTextChannel" args={[  ]} returnType="Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The BaseGuildTextChannel instance has no set functions!
+
