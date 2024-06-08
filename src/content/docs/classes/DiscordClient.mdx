@@ -70,12 +70,16 @@ end)
 Fetches a guild by its ID.
 ### fetchChannelAsync
 
-> <LuaDeclaration name="fetchChannelAsync" className="DiscordClient" args={[ { name: "channelId", type: "string" } ]} returnType="Future<DiscordChannel>" isMethod />
+> <LuaDeclaration name="fetchChannelAsync" className="DiscordClient" args={[ { name: "channelId", type: "string" } ]} returnType="Future<Objects.DiscordChannel>" isMethod />
 Fetches a channel by its ID.
 ### updatePresenceAsync
 
 > <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "table" } ]} returnType="Future<boolean>" isMethod />
 Updates the client's presence.
+### createGuildAsync
+
+> <LuaDeclaration name="createGuildAsync" className="DiscordClient" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Future<DiscordGuild>" isMethod />
+Creates a Guild, owned by the application.
 ### setVerbose
 
 > <LuaDeclaration name="setVerbose" className="DiscordClient" args={[ { name: "verbose", type: "boolean" } ]} isMethod />

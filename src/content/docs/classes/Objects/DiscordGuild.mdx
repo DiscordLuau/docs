@@ -60,8 +60,12 @@ Sets multiple slash commands in the guild asynchronously.
 Gets the audit logs of the guild asynchronously.
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="DiscordGuild" args={[ { name: "guildSchema", type: "DiscordGuildSchema" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="modifyAsync" className="DiscordGuild" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Future" isMethod />
 Modifies the guild settings asynchronously.
+### modifyCurrentMemberAsync
+
+> <LuaDeclaration name="modifyCurrentMemberAsync" className="DiscordGuild" args={[ { name: "memberBuilder", type: "Builders.MemberBuilder" } ]} returnType="Future" isMethod />
+Modifies the current member of the discord guild
 ### deleteAsync
 
 > <LuaDeclaration name="deleteAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
@@ -94,6 +98,22 @@ Gets a specific automoderation rule in the guild asynchronously.
 
 > <LuaDeclaration name="createAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "getAutomoderationRuleBuilder", type: "AutomoderationRuleBuilder" } ]} returnType="Future" isMethod />
 Creates an automoderation rule in the guild asynchronously.
+### getPreviewAsync
+
+> <LuaDeclaration name="getPreviewAsync" className="DiscordGuild" args={[  ]} returnType="Future<Objects.GuildPreview>" isMethod />
+Get the preview of the current Guild
+### createChannelAsync
+
+> <LuaDeclaration name="createChannelAsync" className="DiscordGuild" args={[ { name: "channelBuilder", type: "Builders.ChannelBuilder" } ]} returnType="Future<Objects.DiscordChannel>" isMethod />
+Creates a Guild Channel under a Guild.
+### getActiveGuildThreads
+
+> <LuaDeclaration name="getActiveGuildThreads" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordChannel }>" isMethod />
+Fetches all active guild threads.
+### addMemberAsync
+
+> <LuaDeclaration name="addMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" }, { name: "accessToken", type: "string" } ]} returnType="Future<{ Objects.DiscordChannel }>" isMethod />
+Adds a discordian to a guild.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
