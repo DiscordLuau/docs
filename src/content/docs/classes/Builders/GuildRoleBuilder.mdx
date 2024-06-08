@@ -1,0 +1,82 @@
+---
+title: GuildRoleBuilder
+description: DiscordLuau docs for GuildRoleBuilder.
+---
+[//]: # (This file was automatically compiled through the Generator luau code under this repository)
+[//]: # (if you want to edit the documentation of discord-luau, please write changes)
+[//]: # (to the discord-luau repository itself, we extract the comments from discord-luau and translate)
+[//]: # (them into markdown files that Nextra can interpret!)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+Allows a developer to build a Guild Role
+
+```lua
+local DiscordGuild = GuildRoleBuilder.new()
+	:setName("my-discord-role")
+	:setColor(0xFF0000)
+	:setHoisted(true)
+	:setMentionable(false)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The GuildRoleBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setName
+
+> <LuaDeclaration name="setName" className="GuildRoleBuilder" args={[ { name: "name", type: "string" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Sets the name of the Role
+### setColor
+
+> <LuaDeclaration name="setColor" className="GuildRoleBuilder" args={[ { name: "color", type: "number" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Sets the color of the Role.
+### setHoisted
+
+> <LuaDeclaration name="setHoisted" className="GuildRoleBuilder" args={[ { name: "hoisted", type: "boolean" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Sets weather this role will split users in the roles hierarchy in the guild.
+### setIcon
+
+> <LuaDeclaration name="setIcon" className="GuildRoleBuilder" args={[ { name: "imageData", type: "string" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Sets the Icon for this role, the imageData should be a base64 encoded, 128x128 jpg file.
+### setUnicodeEmoji
+
+> <LuaDeclaration name="setUnicodeEmoji" className="GuildRoleBuilder" args={[ { name: "unicodeEmoji", type: "string" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Sets the Emoji for this Role
+### setPosition
+
+> <LuaDeclaration name="setPosition" className="GuildRoleBuilder" args={[ { name: "position", type: "number" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Set the position of this Role, this will update the roles hierarchy in the guild.
+### setMentionable
+
+> <LuaDeclaration name="setMentionable" className="GuildRoleBuilder" args={[ { name: "mentionable", type: "boolean" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Set if discord members can mention this Role.
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="GuildRoleBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Objects.GuildRoleBuilder" isMethod />
+Set the flags for the Guild
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="GuildRoleBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the role to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="GuildRoleBuilder" args={[  ]} />
+Creates a new instance of GuildRoleBuilder.
+
