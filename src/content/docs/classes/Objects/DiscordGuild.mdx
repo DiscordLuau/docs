@@ -32,167 +32,167 @@ The type of the DiscordGuild. Default is "DiscordGuild".
 
 ### createSlashCommandAsync
 
-> <LuaDeclaration name="createSlashCommandAsync" className="DiscordGuild" args={[ { name: "command", type: "CommandBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="createSlashCommandAsync" className="DiscordGuild" args={[ { name: "command", type: "CommandBuilder" } ]} returnType="Vendor.Future" isMethod />
 Creates a new slash command in the guild asynchronously.
 ### deleteSlashCommandAsync
 
-> <LuaDeclaration name="deleteSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="deleteSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Deletes a slash command in the guild asynchronously.
 ### editSlashCommandAsync
 
-> <LuaDeclaration name="editSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" }, { name: "command", type: "CommandBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="editSlashCommandAsync" className="DiscordGuild" args={[ { name: "commandId", type: "string" }, { name: "command", type: "CommandBuilder" } ]} returnType="Vendor.Future" isMethod />
 Edits a slash command in the guild asynchronously.
 ### fetchSlashCommandsAsync
 
-> <LuaDeclaration name="fetchSlashCommandsAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="fetchSlashCommandsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Fetches all slash commands in the guild asynchronously.
 ### fetchGuildChannels
 
-> <LuaDeclaration name="fetchGuildChannels" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="fetchGuildChannels" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Fetches all channels in the guild asynchronously.
 ### setSlashCommandsAsync
 
-> <LuaDeclaration name="setSlashCommandsAsync" className="DiscordGuild" args={[ { name: "commands", type: "{CommandBuilder}" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="setSlashCommandsAsync" className="DiscordGuild" args={[ { name: "commands", type: "{CommandBuilder}" } ]} returnType="Vendor.Future" isMethod />
 Sets multiple slash commands in the guild asynchronously.
 ### getGuildAuditLogs
 
-> <LuaDeclaration name="getGuildAuditLogs" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="getGuildAuditLogs" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Gets the audit logs of the guild asynchronously.
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="DiscordGuild" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="modifyAsync" className="DiscordGuild" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Vendor.Future" isMethod />
 Modifies the guild settings asynchronously.
 ### modifyCurrentMemberAsync
 
-> <LuaDeclaration name="modifyCurrentMemberAsync" className="DiscordGuild" args={[ { name: "memberBuilder", type: "Builders.MemberBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="modifyCurrentMemberAsync" className="DiscordGuild" args={[ { name: "memberBuilder", type: "Builders.MemberBuilder" } ]} returnType="Vendor.Future" isMethod />
 Modifies the current member of the discord guild
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="deleteAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Deletes the guild asynchronously.
 ### getChannelsAsync
 
-> <LuaDeclaration name="getChannelsAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="getChannelsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Gets all channels in the guild asynchronously.
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="getMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Gets a specific member of the guild asynchronously.
 ### fetchGuildMembersAsync
 
-> <LuaDeclaration name="fetchGuildMembersAsync" className="DiscordGuild" args={[ { name: "limit", type: "number" }, { name: "lastUserId", type: "number?" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="fetchGuildMembersAsync" className="DiscordGuild" args={[ { name: "limit", type: "number" }, { name: "lastUserId", type: "number?" } ]} returnType="Vendor.Future" isMethod />
 Fetches members of the guild asynchronously.
 ### searchGuildMembersAsync
 
-> <LuaDeclaration name="searchGuildMembersAsync" className="DiscordGuild" args={[ { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="searchGuildMembersAsync" className="DiscordGuild" args={[ { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
 Searches for members in the guild asynchronously.
 ### listAutomoderationRulesAsync
 
-> <LuaDeclaration name="listAutomoderationRulesAsync" className="DiscordGuild" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="listAutomoderationRulesAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future" isMethod />
 Lists all automoderation rules in the guild asynchronously.
 ### getAutomoderationRuleAsync
 
-> <LuaDeclaration name="getAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "ruleId", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="getAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "ruleId", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Gets a specific automoderation rule in the guild asynchronously.
 ### createAutomoderationRuleAsync
 
-> <LuaDeclaration name="createAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "getAutomoderationRuleBuilder", type: "AutomoderationRuleBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="createAutomoderationRuleAsync" className="DiscordGuild" args={[ { name: "getAutomoderationRuleBuilder", type: "AutomoderationRuleBuilder" } ]} returnType="Vendor.Future" isMethod />
 Creates an automoderation rule in the guild asynchronously.
 ### getPreviewAsync
 
-> <LuaDeclaration name="getPreviewAsync" className="DiscordGuild" args={[  ]} returnType="Future<Objects.GuildPreview>" isMethod />
+> <LuaDeclaration name="getPreviewAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<Objects.GuildPreview>" isMethod />
 Get the preview of the current Guild
 ### createChannelAsync
 
-> <LuaDeclaration name="createChannelAsync" className="DiscordGuild" args={[ { name: "channelBuilder", type: "Builders.ChannelBuilder" } ]} returnType="Future<Objects.DiscordChannel>" isMethod />
+> <LuaDeclaration name="createChannelAsync" className="DiscordGuild" args={[ { name: "channelBuilder", type: "Builders.ChannelBuilder" } ]} returnType="Vendor.Future<Objects.DiscordChannel>" isMethod />
 Creates a Guild Channel under a Guild.
 ### getActiveGuildThreads
 
-> <LuaDeclaration name="getActiveGuildThreads" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordChannel }>" isMethod />
+> <LuaDeclaration name="getActiveGuildThreads" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordChannel }>" isMethod />
 Fetches all active guild threads.
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" }, { name: "accessToken", type: "string" } ]} returnType="Future<{ Objects.DiscordChannel }>" isMethod />
+> <LuaDeclaration name="addMemberAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" }, { name: "accessToken", type: "string" } ]} returnType="Vendor.Future<{ Objects.DiscordChannel }>" isMethod />
 Adds a discordian to a guild.
 ### getGuildBansAsync
 
-> <LuaDeclaration name="getGuildBansAsync" className="DiscordGuild" args={[ { name: "limit", type: "number?" }, { name: "before", type: "string?" }, { name: "after", type: "string?" } ]} returnType="Future<{ Objects.DiscordGuildBan }>" isMethod />
+> <LuaDeclaration name="getGuildBansAsync" className="DiscordGuild" args={[ { name: "limit", type: "number?" }, { name: "before", type: "string?" }, { name: "after", type: "string?" } ]} returnType="Vendor.Future<{ Objects.DiscordGuildBan }>" isMethod />
 Fetches an array of Guild Bans
 ### getGuildBanAsync
 
-> <LuaDeclaration name="getGuildBanAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" } ]} returnType="Future<Objects.DiscordGuildBan?>" isMethod />
+> <LuaDeclaration name="getGuildBanAsync" className="DiscordGuild" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<Objects.DiscordGuildBan?>" isMethod />
 Fetches the ban object for a specific user id
 ### bulkGuildBanAsync
 
-> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[ { name: "userIds", type: "{ string }" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[ { name: "userIds", type: "{ string }" } ]} returnType="Vendor.Future" isMethod />
 Bans up to 200 members asynchronously
 ### bulkGuildBanAsync
 
-> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordGuildRole }>" isMethod />
+> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordGuildRole }>" isMethod />
 Allows you to get all roles within a guild.
 ### bulkGuildBanAsync
 
-> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordGuildRole }>" isMethod />
+> <LuaDeclaration name="bulkGuildBanAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordGuildRole }>" isMethod />
 Allows you to get all roles within a guild.
 ### setMFALevelAsync
 
-> <LuaDeclaration name="setMFALevelAsync" className="DiscordGuild" args={[ { name: "mfaLevel", type: "number" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="setMFALevelAsync" className="DiscordGuild" args={[ { name: "mfaLevel", type: "number" } ]} returnType="Vendor.Future" isMethod />
 Setst he guilds MFA level.
 ### getPruneCountAsync
 
-> <LuaDeclaration name="getPruneCountAsync" className="DiscordGuild" args={[ { name: "days", type: "number?" }, { name: "includedRoles", type: "{ string }?" } ]} returnType="Future<{ pruned: number }>" isMethod />
+> <LuaDeclaration name="getPruneCountAsync" className="DiscordGuild" args={[ { name: "days", type: "number?" }, { name: "includedRoles", type: "{ string }?" } ]} returnType="Vendor.Future<{ pruned: number }>" isMethod />
 Fetches the prune count.
 ### getPruneCountAsync
 
-> <LuaDeclaration name="getPruneCountAsync" className="DiscordGuild" args={[ { name: "days", type: "number?" }, { name: "computePruneCount", type: "boolean?" }, { name: "includeRoles", type: "{ string }?" } ]} returnType="Future<{ pruned: number }>" isMethod />
+> <LuaDeclaration name="getPruneCountAsync" className="DiscordGuild" args={[ { name: "days", type: "number?" }, { name: "computePruneCount", type: "boolean?" }, { name: "includeRoles", type: "{ string }?" } ]} returnType="Vendor.Future<{ pruned: number }>" isMethod />
 Requests discord to prune the Discord guild.
 ### getGuildVoiceRegionsAsync
 
-> <LuaDeclaration name="getGuildVoiceRegionsAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ { id: string, name: string, optimal: boolean, deprecated: boolean, custom: boolean } }>" isMethod />
+> <LuaDeclaration name="getGuildVoiceRegionsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ { id: string, name: string, optimal: boolean, deprecated: boolean, custom: boolean } }>" isMethod />
 Fetches the avaliable voice regions for the guild.
 ### getGuildInvitesAsync
 
-> <LuaDeclaration name="getGuildInvitesAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordInvite }>" isMethod />
+> <LuaDeclaration name="getGuildInvitesAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordInvite }>" isMethod />
 Fetches all guild invite objects.
 ### getGuildIntegrationsAsync
 
-> <LuaDeclaration name="getGuildIntegrationsAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ Objects.DiscordIntegration }>" isMethod />
+> <LuaDeclaration name="getGuildIntegrationsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordIntegration }>" isMethod />
 Fetches all guild integrations
 ### getGuildWidgetSettingsAsync
 
-> <LuaDeclaration name="getGuildWidgetSettingsAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ enabled: boolean, cannelId: string }>" isMethod />
+> <LuaDeclaration name="getGuildWidgetSettingsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ enabled: boolean, cannelId: string }>" isMethod />
 Fetches the widget settings for the current guild.
 ### updateGuildWidgetSettingsAsync
 
-> <LuaDeclaration name="updateGuildWidgetSettingsAsync" className="DiscordGuild" args={[ { name: "widgetEnabled", type: "boolean" }, { name: "channelId", type: "string" } ]} returnType="Future<{ enabled: boolean, cannelId: string }>" isMethod />
+> <LuaDeclaration name="updateGuildWidgetSettingsAsync" className="DiscordGuild" args={[ { name: "widgetEnabled", type: "boolean" }, { name: "channelId", type: "string" } ]} returnType="Vendor.Future<{ enabled: boolean, cannelId: string }>" isMethod />
 Updates the widget settings for the current guild
 ### getGuldWidgetAsync
 
-> <LuaDeclaration name="getGuldWidgetAsync" className="DiscordGuild" args={[  ]} returnType="Future<Objects.GuildWidget>" isMethod />
+> <LuaDeclaration name="getGuldWidgetAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<Objects.GuildWidget>" isMethod />
 Gets the guild widget for this guild.
 ### getGuildVanityUrlAsync
 
-> <LuaDeclaration name="getGuildVanityUrlAsync" className="DiscordGuild" args={[  ]} returnType="Future<{ code: string, uses: number }>" isMethod />
+> <LuaDeclaration name="getGuildVanityUrlAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ code: string, uses: number }>" isMethod />
 Gets the vanity url for this guild.
 ### getGuildWelcomeScreenAsync
 
-> <LuaDeclaration name="getGuildWelcomeScreenAsync" className="DiscordGuild" args={[  ]} returnType="Future<Objects.GuildWelcomeScreen>" isMethod />
+> <LuaDeclaration name="getGuildWelcomeScreenAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<Objects.GuildWelcomeScreen>" isMethod />
 Gets the guild welcome screen for this guild.
 ### getGuildWidgetImageAsync
 
-> <LuaDeclaration name="getGuildWidgetImageAsync" className="DiscordGuild" args={[ { name: "style", type: ""shield" | "banner1" | "banner2" | "banner3" | "banner4"" } ]} returnType="Future<string>" isMethod />
+> <LuaDeclaration name="getGuildWidgetImageAsync" className="DiscordGuild" args={[ { name: "style", type: ""shield" | "banner1" | "banner2" | "banner3" | "banner4"" } ]} returnType="Vendor.Future<string>" isMethod />
 Gets the binary PNG image for a server widget
 ### modifyGuildWelcomeScreenAsync
 
-> <LuaDeclaration name="modifyGuildWelcomeScreenAsync" className="DiscordGuild" args={[ { name: "welcomeScreenBuilder", type: "Builders.WelcomeScreenBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="modifyGuildWelcomeScreenAsync" className="DiscordGuild" args={[ { name: "welcomeScreenBuilder", type: "Builders.WelcomeScreenBuilder" } ]} returnType="Vendor.Future" isMethod />
 Updates the guild welcome screen for this guild.
 ### getGuldOnboardingAsync
 
-> <LuaDeclaration name="getGuldOnboardingAsync" className="DiscordGuild" args={[  ]} returnType="Future<Objects.GuildOnboarding>" isMethod />
+> <LuaDeclaration name="getGuldOnboardingAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<Objects.GuildOnboarding>" isMethod />
 Gets the onboarding for this guild
 ### getGuldOnboardingAsync
 
-> <LuaDeclaration name="getGuldOnboardingAsync" className="DiscordGuild" args={[ { name: "guildOnboardingBuilder", type: "Builders.OnboardingBuilder" } ]} returnType="Future<Objects.GuildOnboarding>" isMethod />
+> <LuaDeclaration name="getGuldOnboardingAsync" className="DiscordGuild" args={[ { name: "guildOnboardingBuilder", type: "Builders.OnboardingBuilder" } ]} returnType="Vendor.Future<Objects.GuildOnboarding>" isMethod />
 Updates the onboarding for this guild
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

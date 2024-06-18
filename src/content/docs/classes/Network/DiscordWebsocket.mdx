@@ -24,7 +24,71 @@ This class is internal and should not be used directly by developers. Instead, u
 
 ## Properties
 
-The DiscordWebsocket instance has no set properties!
+### websocketWebsocketBuffer
+
+<LuaProperty name="DiscordWebsocket.websocketWebsocketBuffer" type="Network.WebsocketBuffer" />
+---
+	
+### socketActiveChanged
+
+<LuaProperty name="DiscordWebsocket.socketActiveChanged" type="Vendor.Signal<boolean>" />
+---
+	
+### socketActive
+
+<LuaProperty name="DiscordWebsocket.socketActive" type="boolean" />
+---
+	
+### gatewayEventIn
+
+<LuaProperty name="DiscordWebsocket.gatewayEventIn" type="Network.EventIn" />
+---
+	
+### gatewayEventOut
+
+<LuaProperty name="DiscordWebsocket.gatewayEventOut" type="Network.EventOut" />
+---
+	
+### onMessageRecv
+
+<LuaProperty name="DiscordWebsocket.onMessageRecv" type="Vendor.Signal<string>" />
+---
+	
+### onSocketDead
+
+<LuaProperty name="DiscordWebsocket.onSocketDead" type="Vendor.Signal<number?>" />
+---
+	
+### onOperationRecv
+
+<LuaProperty name="DiscordWebsocket.onOperationRecv" type="Vendor.Signal<number, any, string?, number?>" />
+---
+	
+### reporter
+
+<LuaProperty name="DiscordWebsocket.reporter" type="Vendor.Console" />
+---
+	
+### socketUrl
+
+<LuaProperty name="DiscordWebsocket.socketUrl" type="STRING?" />
+---
+	
+### socketInstance
+
+<LuaProperty name="DiscordWebsocket.socketInstance" type="WebSocket" />
+---
+	
+### socketRequestSuccess
+
+<LuaProperty name="DiscordWebsocket.socketRequestSuccess" type="boolean?" />
+---
+	
+### socketThread
+
+<LuaProperty name="DiscordWebsocket.socketThread" type="thread?" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -32,15 +96,15 @@ The DiscordWebsocket instance has no set properties!
 
 ### sendAsync
 
-> <LuaDeclaration name="sendAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "dataPacket", type: "table" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="sendAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "dataPacket", type: "table" } ]} returnType="Vendor.Future" isMethod />
 Sends a data packet asynchronously through the websocket.
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "websocketUrl", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="connectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "websocketUrl", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Connects to a websocket URL asynchronously.
 ### disconnectAsync
 
-> <LuaDeclaration name="disconnectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "closingCode", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="disconnectAsync" className="DiscordWebsocket" args={[ { name: "self", type: "DiscordWebsocket" }, { name: "closingCode", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Disconnects from the websocket asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

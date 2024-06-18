@@ -39,12 +39,12 @@ local DiscordClient = DiscordLuau.DiscordClient.new(SettingsBuilder)
 					
 ### discordGateway
 
-<LuaProperty name="DiscordClient.discordGateway" type="DiscordGateway" />
+<LuaProperty name="DiscordClient.discordGateway" type="Objects.DiscordGateway" />
 ---
 	
 ### eventManager
 
-<LuaProperty name="DiscordClient.eventManager" type="EventManager" />
+<LuaProperty name="DiscordClient.eventManager" type="Objects.EventManager" />
 ---
 	
 
@@ -54,7 +54,7 @@ local DiscordClient = DiscordLuau.DiscordClient.new(SettingsBuilder)
 
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordClient" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="connectAsync" className="DiscordClient" args={[  ]} returnType="Vendor.Future" isMethod />
 Connects the current DiscordClient to the Discord API.
 
 ```lua
@@ -66,19 +66,19 @@ end)
 ```
 ### fetchGuildAsync
 
-> <LuaDeclaration name="fetchGuildAsync" className="DiscordClient" args={[ { name: "guildId", type: "string" } ]} returnType="Future<DiscordGuild>" isMethod />
+> <LuaDeclaration name="fetchGuildAsync" className="DiscordClient" args={[ { name: "guildId", type: "string" } ]} returnType="Vendor.Future<DiscordGuild>" isMethod />
 Fetches a guild by its ID.
 ### fetchChannelAsync
 
-> <LuaDeclaration name="fetchChannelAsync" className="DiscordClient" args={[ { name: "channelId", type: "string" } ]} returnType="Future<Objects.DiscordChannel>" isMethod />
+> <LuaDeclaration name="fetchChannelAsync" className="DiscordClient" args={[ { name: "channelId", type: "string" } ]} returnType="Vendor.Future<Objects.DiscordChannel>" isMethod />
 Fetches a channel by its ID.
 ### updatePresenceAsync
 
-> <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "table" } ]} returnType="Future<boolean>" isMethod />
+> <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "table" } ]} returnType="Vendor.Future<boolean>" isMethod />
 Updates the client's presence.
 ### createGuildAsync
 
-> <LuaDeclaration name="createGuildAsync" className="DiscordClient" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Future<DiscordGuild>" isMethod />
+> <LuaDeclaration name="createGuildAsync" className="DiscordClient" args={[ { name: "guildBuilder", type: "Builders.GuildBuilder" } ]} returnType="Vendor.Future<DiscordGuild>" isMethod />
 Creates a Guild, owned by the application.
 ### setVerbose
 

@@ -24,7 +24,136 @@ This class is internal and should not be used directly by developers.
 
 ## Properties
 
-The DiscordUDP instance has no set properties!
+### discordWebsocket
+
+<LuaProperty name="DiscordUDP.discordWebsocket" type="Network.DiscordWebsocket" />
+---
+	
+### websocketUrl
+
+<LuaProperty name="DiscordUDP.websocketUrl" type="string" />
+---
+	
+### reporter
+
+<LuaProperty name="DiscordUDP.reporter" type="Vendor.Console" />
+---
+	
+### heartbeatTask
+
+<LuaProperty name="DiscordUDP.heartbeatTask" type="thread?" />
+---
+	
+### resumeSessionId
+
+<LuaProperty name="DiscordUDP.resumeSessionId" type="string" />
+---
+	
+### dispatchSequence
+
+<LuaProperty name="DiscordUDP.dispatchSequence" type="number" />
+---
+	
+### heartbeatInterval
+
+<LuaProperty name="DiscordUDP.heartbeatInterval" type="number" />
+---
+	
+### heartbeatClockTime
+
+<LuaProperty name="DiscordUDP.heartbeatClockTime" type="number" />
+---
+	
+### heartbeatPing
+
+<LuaProperty name="DiscordUDP.heartbeatPing" type="number" />
+---
+	
+### identified
+
+<LuaProperty name="DiscordUDP.identified" type="boolean?" />
+---
+	
+### resumeGatewayUrl
+
+<LuaProperty name="DiscordUDP.resumeGatewayUrl" type="string" />
+---
+	
+### heartbeatAck
+
+<LuaProperty name="DiscordUDP.heartbeatAck" type="boolean?" />
+---
+	
+### activeConnections
+
+<LuaProperty name="DiscordUDP.activeConnections" type="{ unknown }" />
+---
+	
+### onEvent
+
+<LuaProperty name="DiscordUDP.onEvent" type="Vendor.Signal<string, { [any]: any }>" />
+---
+	
+### onIdentified
+
+<LuaProperty name="DiscordUDP.onIdentified" type="Vendor.Signal" />
+---
+	
+### shardId
+
+<LuaProperty name="DiscordUDP.shardId" type="number" />
+---
+	
+### udpActive
+
+<LuaProperty name="DiscordUDP.udpActive" type="boolean" />
+---
+	
+### publicUdp
+
+<LuaProperty name="DiscordUDP.publicUdp" type="Nstring" />
+---
+	
+### onMessageRecv
+
+<LuaProperty name="DiscordUDP.onMessageRecv" type="Vendor.Signal<string>" />
+---
+	
+### onSocketDead
+
+<LuaProperty name="DiscordUDP.onSocketDead" type="Vendor.Signal<number>" />
+---
+	
+### socketInstance
+
+<LuaProperty name="DiscordUDP.socketInstance" type="WebSocket" />
+---
+	
+### reporter
+
+<LuaProperty name="DiscordUDP.reporter" type="Vendor.Console" />
+---
+	
+### socketUrl
+
+<LuaProperty name="DiscordUDP.socketUrl" type="string" />
+---
+	
+### socketActive
+
+<LuaProperty name="DiscordUDP.socketActive" type="string" />
+---
+	
+### socketActiveChanged
+
+<LuaProperty name="DiscordUDP.socketActiveChanged" type="Vendor.Signal<boolean>" />
+---
+	
+### socketThread
+
+<LuaProperty name="DiscordUDP.socketThread" type="thread?" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -32,15 +161,15 @@ The DiscordUDP instance has no set properties!
 
 ### sendAsync
 
-> <LuaDeclaration name="sendAsync" className="DiscordUDP" args={[ { name: "dataPacket", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="sendAsync" className="DiscordUDP" args={[ { name: "dataPacket", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Sends a UDP packet asynchronously.
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordUDP" args={[ { name: "discordUdp", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="connectAsync" className="DiscordUDP" args={[ { name: "discordUdp", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Connects to a UDP socket asynchronously.
 ### disconnectAsync
 
-> <LuaDeclaration name="disconnectAsync" className="DiscordUDP" args={[ { name: "closingCode", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="disconnectAsync" className="DiscordUDP" args={[ { name: "closingCode", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Disconnects from the UDP socket asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

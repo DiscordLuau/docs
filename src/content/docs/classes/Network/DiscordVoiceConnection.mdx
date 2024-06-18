@@ -24,7 +24,91 @@ This class is internal and should not be used directly by developers. Instead, u
 
 ## Properties
 
-The DiscordVoiceConnection instance has no set properties!
+### voiceWebsocket
+
+<LuaProperty name="DiscordVoiceConnection.voiceWebsocket" type="Network.DiscordWebsocket" />
+---
+	
+### voiceUDP
+
+<LuaProperty name="DiscordVoiceConnection.voiceUDP" type="Network.VoiceUDP" />
+---
+	
+### reporter
+
+<LuaProperty name="DiscordVoiceConnection.reporter" type="Vendor.Console" />
+---
+	
+### heartbeatTask
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatTask" type="thread?" />
+---
+	
+### resumeSessionId
+
+<LuaProperty name="DiscordVoiceConnection.resumeSessionId" type="string" />
+---
+	
+### heartbeatInterval
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatInterval" type="number" />
+---
+	
+### heartbeatAck
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatAck" type="boolean?" />
+---
+	
+### heartbeatPing
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatPing" type="number?" />
+---
+	
+### heartbeatNonce
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatNonce" type="number?" />
+---
+	
+### heartbeatClockTime
+
+<LuaProperty name="DiscordVoiceConnection.heartbeatClockTime" type="number?" />
+---
+	
+### encryptionKey
+
+<LuaProperty name="DiscordVoiceConnection.encryptionKey" type="buffer" />
+---
+	
+### mediaSessionId
+
+<LuaProperty name="DiscordVoiceConnection.mediaSessionId" type="string" />
+---
+	
+### channelId
+
+<LuaProperty name="DiscordVoiceConnection.channelId" type="string" />
+---
+	
+### guildId
+
+<LuaProperty name="DiscordVoiceConnection.guildId" type="string" />
+---
+	
+### voiceServerUpdate
+
+<LuaProperty name="DiscordVoiceConnection.voiceServerUpdate" type="{ endpoint: string, token: string, guildId: string, }" />
+---
+	
+### voiceStateUpdate
+
+<LuaProperty name="DiscordVoiceConnection.voiceStateUpdate" type="{ sessionId: string, }" />
+---
+	
+### onEvent
+
+<LuaProperty name="DiscordVoiceConnection.onEvent" type="Vendor.Signal" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -40,7 +124,7 @@ Observes and handles errors from the voice websocket.
 Observes and handles operations received from the voice websocket.
 ### heartbeatAsync
 
-> <LuaDeclaration name="heartbeatAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "ignoreHeartbeatAck", type: "boolean?" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="heartbeatAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "ignoreHeartbeatAck", type: "boolean?" } ]} returnType="Vendor.Future" isMethod />
 Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgements.
 ### heartbeatIn
 
@@ -48,19 +132,19 @@ Sends a heartbeat to the voice websocket and manages the heartbeat acknowledgeme
 Schedules the next heartbeat to be sent after a specified interval.
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="connectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]} returnType="Vendor.Future" isMethod />
 Connects to a voice channel asynchronously.
 ### resumeAsync
 
-> <LuaDeclaration name="resumeAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="resumeAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Vendor.Future" isMethod />
 Resumes a voice connection asynchronously.
 ### reconnectAsync
 
-> <LuaDeclaration name="reconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="reconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Vendor.Future" isMethod />
 Reconnects to the voice websocket asynchronously.
 ### disconnectAsync
 
-> <LuaDeclaration name="disconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="disconnectAsync" className="DiscordVoiceConnection" args={[ { name: "self", type: "DiscordVoiceConnection" } ]} returnType="Vendor.Future" isMethod />
 Disconnects from the voice websocket asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

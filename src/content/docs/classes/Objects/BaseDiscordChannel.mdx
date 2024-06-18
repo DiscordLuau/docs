@@ -20,7 +20,16 @@ Represents a base discord channel, every discord channel object will extend from
 
 ## Properties
 
-The BaseDiscordChannel instance has no set properties!
+### id
+
+<LuaProperty name="BaseDiscordChannel.id" type="string" />
+---
+	
+### type
+
+<LuaProperty name="BaseDiscordChannel.type" type="number" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -28,7 +37,7 @@ The BaseDiscordChannel instance has no set properties!
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="BaseDiscordChannel" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="deleteAsync" className="BaseDiscordChannel" args={[  ]} returnType="Vendor.Future" isMethod />
 Deletes the channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

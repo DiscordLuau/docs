@@ -20,7 +20,41 @@ DiscordInvite represents an invite link to a Discord server, providing methods t
 
 ## Properties
 
-The DiscordInvite instance has no set properties!
+### code
+
+<LuaProperty name="DiscordInvite.code" type="string" />
+---
+	
+### type
+
+<LuaProperty name="DiscordInvite.type" type="number" />
+---
+	
+### guild
+
+<LuaProperty name="DiscordInvite.guild" type="{ id: string, name: string, }?" />
+---
+	
+### inviter
+
+<LuaProperty name="DiscordInvite.inviter" type="Objects.DiscordUser?" />
+---
+	
+### targetType
+
+<LuaProperty name="DiscordInvite.targetType" type="number" />
+---
+	
+### targetUser
+
+<LuaProperty name="DiscordInvite.targetUser" type="Objects.DiscordUser?" />
+---
+	
+### targetApplication
+
+<LuaProperty name="DiscordInvite.targetApplication" type="{ id: string, }?" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -28,7 +62,7 @@ The DiscordInvite instance has no set properties!
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="DiscordInvite" args={[  ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="deleteAsync" className="DiscordInvite" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
 Deletes the invite asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

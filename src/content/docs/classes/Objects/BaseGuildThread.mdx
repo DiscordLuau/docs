@@ -20,7 +20,46 @@ A base discord Thread channel, all discord threads extend from.
 
 ## Properties
 
-The BaseGuildThread instance has no set properties!
+### ownerId
+
+<LuaProperty name="BaseGuildThread.ownerId" type="string" />
+---
+	
+### messageCount
+
+<LuaProperty name="BaseGuildThread.messageCount" type="number" />
+---
+	
+### memberCount
+
+<LuaProperty name="BaseGuildThread.memberCount" type="number" />
+---
+	
+### totalMessageSent
+
+<LuaProperty name="BaseGuildThread.totalMessageSent" type="number" />
+---
+	
+### threadMetadata
+
+<LuaProperty name="BaseGuildThread.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string?, }," />
+---
+	
+### availableTags
+
+<LuaProperty name="BaseGuildThread.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string?, }, }," />
+---
+	
+### appliedTags
+
+<LuaProperty name="BaseGuildThread.appliedTags" type="{ string }" />
+---
+	
+### defaultReactionEmoji
+
+<LuaProperty name="BaseGuildThread.defaultReactionEmoji" type="Objects.DiscordEmoji" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -28,27 +67,27 @@ The BaseGuildThread instance has no set properties!
 
 ### joinThreadAsync
 
-> <LuaDeclaration name="joinThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="joinThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
 Joins the current discord bot into the thread
 ### addMemberToThreadAsync
 
-> <LuaDeclaration name="addMemberToThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="addMemberToThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
 Adds the passed member to the thread channel
 ### leaveThreadAsync
 
-> <LuaDeclaration name="leaveThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="leaveThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
 Leaves the thread channel if the discord bot is in the channel.
 ### removeMemberFromThreadAsync
 
-> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
 Removes the passed user id from the current thread channel
 ### getThreadMemberAsync
 
-> <LuaDeclaration name="getThreadMemberAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<{ DiscordGuildMember }>" isMethod />
+> <LuaDeclaration name="getThreadMemberAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
 Returns a list of members that are active in the current thread channel
 ### removeMemberFromThreadAsync
 
-> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Future<{ DiscordGuildMember }>" isMethod />
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
 Returns a list of members that are active in the current thread channel
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

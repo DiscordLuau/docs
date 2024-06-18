@@ -28,43 +28,43 @@ The BaseDiscordGuildChannel instance has no set properties!
 
 ### overwriteRolePermissionsAsync
 
-> <LuaDeclaration name="overwriteRolePermissionsAsync" className="BaseDiscordGuildChannel" args={[ { name: "roleId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="overwriteRolePermissionsAsync" className="BaseDiscordGuildChannel" args={[ { name: "roleId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Vendor.Future" isMethod />
 set overwrites for a specific role permissions for this channel in a discord guild.
 ### overwriteMemberPermissionssync
 
-> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "memberId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "memberId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Vendor.Future" isMethod />
 set overwrites for a specific members permissions for this channel in a discord guild.
 ### overwriteMemberPermissionssync
 
-> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "roleIdOrUserId", type: "string" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseDiscordGuildChannel" args={[ { name: "roleIdOrUserId", type: "string" } ]} returnType="Vendor.Future" isMethod />
 deletes overwritten permissions for the given id, the given id must be either a role id or a user id
 ### getInvitesAsync
 
-> <LuaDeclaration name="getInvitesAsync" className="BaseDiscordGuildChannel" args={[  ]} returnType="Future" isMethod />
+> <LuaDeclaration name="getInvitesAsync" className="BaseDiscordGuildChannel" args={[  ]} returnType="Vendor.Future" isMethod />
 Gets the invites for the channel asynchronously.
 ### createInviteAsync
 
-> <LuaDeclaration name="createInviteAsync" className="BaseDiscordGuildChannel" args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="createInviteAsync" className="BaseDiscordGuildChannel" args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]} returnType="Vendor.Future" isMethod />
 Creates an invite for the channel asynchronously.
 ### setPositionAsync
 
-> <LuaDeclaration name="setPositionAsync" className="BaseDiscordGuildChannel" args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="Future" isMethod />
+> <LuaDeclaration name="setPositionAsync" className="BaseDiscordGuildChannel" args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="Vendor.Future" isMethod />
 Sets the position of the channel asynchronously.
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="BaseDiscordGuildChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="modifyAsync" className="BaseDiscordGuildChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Vendor.Future<unknown>" isMethod />
 Modifies the thread channel settings asynchronously.
 ### getPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="getPublicArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+> <LuaDeclaration name="getPublicArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
 Gets all archived public threads in the guild channel asynchronously.
 ### getPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="getPrivateArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+> <LuaDeclaration name="getPrivateArchivedThreadsAsync" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
 Gets all archived private threads in the guild channel asynchronously.
 ### getJoinedPrivateArchivedThreads
 
-> <LuaDeclaration name="getJoinedPrivateArchivedThreads" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Future<{ number }>" isMethod />
+> <LuaDeclaration name="getJoinedPrivateArchivedThreads" className="BaseDiscordGuildChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
 Gets all archived private threads that the bot is a member of, in the guild channel asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )

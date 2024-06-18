@@ -20,7 +20,26 @@ Represents the implementation of a Discord Group Channel
 
 ## Properties
 
-The UserGroupChannel instance has no set properties!
+### icon
+
+<LuaProperty name="UserGroupChannel.icon" type="string" />
+---
+	
+### ownerId
+
+<LuaProperty name="UserGroupChannel.ownerId" type="string" />
+---
+	
+### applicationId
+
+<LuaProperty name="UserGroupChannel.applicationId" type="string" />
+---
+	
+### managed
+
+<LuaProperty name="UserGroupChannel.managed" type="boolean" />
+---
+	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -28,7 +47,7 @@ The UserGroupChannel instance has no set properties!
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="UserGroupChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Future<unknown>" isMethod />
+> <LuaDeclaration name="modifyAsync" className="UserGroupChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Vendor.Future<unknown>" isMethod />
 Modifies the thread channel settings asynchronously.
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
