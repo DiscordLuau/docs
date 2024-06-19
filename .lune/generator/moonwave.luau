@@ -87,13 +87,12 @@ export type moonwaveFunctionData = {
 export type moonwaveDataExportObject = {
 	name: string,
 	functions: { moonwaveFunctionData? },
-	source: {
-		path: string,
-		line: number,
-	},
+	source: { path: string, line: number },
 	properties: { moonwavePropertyData? },
+	inherited: { [string]: { functions: { moonwaveFunctionData? }, properties: { moonwavePropertyData? } } }?,
 	desc: string,
 	types: unknown,
+	tags: { string }?
 }
 
 export type moonwaveDataExportArray = {

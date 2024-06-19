@@ -20,13 +20,103 @@ Represents the implementation of a Discord Public Thread channel.
 
 ## Properties
 
-The GuildPublicThreadChannel instance has no set properties!
+### ownerId
+
+<LuaProperty name="GuildPublicThreadChannel.ownerId" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### messageCount
+
+<LuaProperty name="GuildPublicThreadChannel.messageCount" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### memberCount
+
+<LuaProperty name="GuildPublicThreadChannel.memberCount" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### totalMessageSent
+
+<LuaProperty name="GuildPublicThreadChannel.totalMessageSent" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### threadMetadata
+
+<LuaProperty name="GuildPublicThreadChannel.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string?, }," />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### availableTags
+
+<LuaProperty name="GuildPublicThreadChannel.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string?, }, }," />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### appliedTags
+
+<LuaProperty name="GuildPublicThreadChannel.appliedTags" type="{ string }" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### defaultReactionEmoji
+
+<LuaProperty name="GuildPublicThreadChannel.defaultReactionEmoji" type="Objects.DiscordEmoji" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The GuildPublicThreadChannel instance has no set methods!
+### joinThreadAsync
+
+> <LuaDeclaration name="joinThreadAsync" className="GuildPublicThreadChannel" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Joins the current discord bot into the thread
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### addMemberToThreadAsync
+
+> <LuaDeclaration name="addMemberToThreadAsync" className="GuildPublicThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Adds the passed member to the thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### leaveThreadAsync
+
+> <LuaDeclaration name="leaveThreadAsync" className="GuildPublicThreadChannel" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Leaves the thread channel if the discord bot is in the channel.
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="GuildPublicThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Removes the passed user id from the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### getThreadMemberAsync
+
+> <LuaDeclaration name="getThreadMemberAsync" className="GuildPublicThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="GuildPublicThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

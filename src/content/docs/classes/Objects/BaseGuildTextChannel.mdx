@@ -89,6 +89,66 @@ Sends a message to the channel asynchronously.
 
 > <LuaDeclaration name="getPinnedMessagesAsync" className="BaseGuildTextChannel" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
 Retrieves the pinned messages in the text channel asynchronously.
+### overwriteRolePermissionsAsync
+
+> <LuaDeclaration name="overwriteRolePermissionsAsync" className="BaseGuildTextChannel" args={[ { name: "roleId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Vendor.Future" isMethod />
+set overwrites for a specific role permissions for this channel in a discord guild.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseGuildTextChannel" args={[ { name: "memberId", type: "string" }, { name: "allowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" }, { name: "disallowedPermissions", type: "PermissionsBuilder.PermissionsBuilder" } ]} returnType="Vendor.Future" isMethod />
+set overwrites for a specific members permissions for this channel in a discord guild.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### overwriteMemberPermissionssync
+
+> <LuaDeclaration name="overwriteMemberPermissionssync" className="BaseGuildTextChannel" args={[ { name: "roleIdOrUserId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+deletes overwritten permissions for the given id, the given id must be either a role id or a user id
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="BaseGuildTextChannel" args={[  ]} returnType="Vendor.Future" isMethod />
+Gets the invites for the channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="BaseGuildTextChannel" args={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" } ]} returnType="Vendor.Future" isMethod />
+Creates an invite for the channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="BaseGuildTextChannel" args={[ { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="Vendor.Future" isMethod />
+Sets the position of the channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="BaseGuildTextChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Modifies the thread channel settings asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### getPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="getPublicArchivedThreadsAsync" className="BaseGuildTextChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
+Gets all archived public threads in the guild channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### getPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="getPrivateArchivedThreadsAsync" className="BaseGuildTextChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
+Gets all archived private threads in the guild channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
+### getJoinedPrivateArchivedThreads
+
+> <LuaDeclaration name="getJoinedPrivateArchivedThreads" className="BaseGuildTextChannel" args={[ { name: "epoch", type: "number?" }, { name: "limit", type: "number?" } ]} returnType="Vendor.Future<{ number }>" isMethod />
+Gets all archived private threads that the bot is a member of, in the guild channel asynchronously.
+
+> This function was inherited from [Objects.BaseDiscordGuildChannel](Objects.BaseDiscordGuildChannel)
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

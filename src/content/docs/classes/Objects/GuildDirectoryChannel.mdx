@@ -20,13 +20,103 @@ Represents the implementation of a Discord Directory channel.
 
 ## Properties
 
-The GuildDirectoryChannel instance has no set properties!
+### lastPinTimestamp
+
+<LuaProperty name="GuildDirectoryChannel.lastPinTimestamp" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### lastMessageId
+
+<LuaProperty name="GuildDirectoryChannel.lastMessageId" type="string?" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### guildId
+
+<LuaProperty name="GuildDirectoryChannel.guildId" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### topic
+
+<LuaProperty name="GuildDirectoryChannel.topic" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### nsfw
+
+<LuaProperty name="GuildDirectoryChannel.nsfw" type="boolean" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### rateLimitPerUser
+
+<LuaProperty name="GuildDirectoryChannel.rateLimitPerUser" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### parentId
+
+<LuaProperty name="GuildDirectoryChannel.parentId" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### flags
+
+<LuaProperty name="GuildDirectoryChannel.flags" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
 ## Methods
 
-The GuildDirectoryChannel instance has no set methods!
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="GuildDirectoryChannel" args={[  ]} returnType="Vendor.Future" isMethod />
+Triggers the typing indicator in the channel.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="GuildDirectoryChannel" args={[ { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
+Gets messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="GuildDirectoryChannel" args={[ { name: "messageId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+Gets a specific message from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="GuildDirectoryChannel" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Vendor.Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="GuildDirectoryChannel" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Vendor.Future" isMethod />
+Sends a message to the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="GuildDirectoryChannel" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

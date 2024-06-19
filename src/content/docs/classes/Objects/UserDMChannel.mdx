@@ -26,7 +26,42 @@ The UserDMChannel instance has no set properties!
 
 ## Methods
 
-The UserDMChannel instance has no set methods!
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="UserDMChannel" args={[  ]} returnType="Vendor.Future" isMethod />
+Triggers the typing indicator in the channel.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="UserDMChannel" args={[ { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
+Gets messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="UserDMChannel" args={[ { name: "messageId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+Gets a specific message from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="UserDMChannel" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Vendor.Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="UserDMChannel" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Vendor.Future" isMethod />
+Sends a message to the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="UserDMChannel" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 

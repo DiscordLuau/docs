@@ -1,5 +1,4 @@
 local Moonwave = require("moonwave")
-local Types = require("types")
 
 local Markdown = {}
 
@@ -72,6 +71,25 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	local classMethods = Moonwave.getFunctionsOfFunctionType(classDocumentation.functions, "method")
 	local classFunctions = Moonwave.getFunctionsOfFunctionType(classDocumentation.functions, "static")
 
+	local sizeOfClassProperties = #classProperties
+
+	local sizeOfClassMethods = #classMethods
+	local sizeOfClassFunctions = #classFunctions
+
+	local inheritedClasses = classDocumentation.inherited ~= nil and classDocumentation.inherited or { }
+
+	for _, classObject in inheritedClasses do
+		sizeOfClassProperties += #classObject.properties
+
+		for _, functionObject in classObject.functions do
+			if functionObject.function_type == "method" then
+				sizeOfClassMethods += 1
+			else
+				sizeOfClassFunctions += 1
+			end
+		end
+	end
+
 	markdownFile ..= frontmatter({
 		name = className,
 		description = `DiscordLuau docs for {className}.`,
@@ -113,7 +131,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	markdownFile ..= h2(`Properties`)
 
-	if #classProperties > 0 then
+	if sizeOfClassProperties > 0 then
 		for _, prop in classProperties do
 			markdownFile ..= h3(prop.name)
 			markdownFile ..= property(`{className}.{prop.name}`, prop.lua_type)
@@ -122,6 +140,22 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			if prop.desc ~= "" then
 				markdownFile ..= separator()
 				markdownFile ..= input(prop.desc)
+			end
+		end
+
+		for inheritedClassName, classInheritedData in inheritedClasses do
+			for _, inheritedProperty in classInheritedData.properties do
+				markdownFile ..= h3(inheritedProperty.name)
+				markdownFile ..= property(`{className}.{inheritedProperty.name}`, inheritedProperty.lua_type)
+				markdownFile ..= newline()
+
+				if inheritedProperty.desc ~= "" then
+					markdownFile ..= separator()
+					markdownFile ..= input(inheritedProperty.desc)
+				end
+
+				markdownFile ..= newline()
+				markdownFile ..= input(`> This property was inherited from [{inheritedClassName}]({inheritedClassName})`)
 			end
 		end
 	else
@@ -136,7 +170,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	markdownFile ..= h2(`Methods`)
 
-	if #classMethods > 0 then
+	if sizeOfClassMethods > 0 then
 		for _, method in classMethods do
 			markdownFile ..= h3(method.name)
 			markdownFile ..= declaration(method.name, className, true, method.params, (method.returns[1] or {lua_type = nil}).lua_type)
@@ -144,6 +178,25 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			if method.desc then
 				markdownFile ..= newline()
 				markdownFile ..= input(method.desc)
+			end
+		end
+
+		for inheritedClassName, classInheritedData in inheritedClasses do
+			for _, inheritedFunction in classInheritedData.functions do
+				if inheritedFunction.function_type ~= "method" then
+					continue
+				end
+
+				markdownFile ..= h3(inheritedFunction.name)
+				markdownFile ..= declaration(inheritedFunction.name, className, true, inheritedFunction.params, (inheritedFunction.returns[1] or {lua_type = nil}).lua_type)
+
+				if inheritedFunction.desc then
+					markdownFile ..= newline()
+					markdownFile ..= input(inheritedFunction.desc)
+				end
+
+				markdownFile ..= newline()
+				markdownFile ..= input(`> This function was inherited from [{inheritedClassName}]({inheritedClassName})`)
 			end
 		end
 	else
@@ -158,7 +211,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	markdownFile ..= h2(`Functions`)
 
-	if #classFunctions > 0 then
+	if sizeOfClassFunctions > 0 then
 		for _, func in classFunctions do
 			markdownFile ..= h3(func.name)
 			markdownFile ..= declaration(func.name, className, false, func.params)		
@@ -166,6 +219,25 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			if func.desc then
 				markdownFile ..= newline()
 				markdownFile ..= input(func.desc)
+			end
+		end
+
+		for inheritedClassName, classInheritedData in inheritedClasses do
+			for _, inheritedFunction in classInheritedData.functions do
+				if inheritedFunction.function_type ~= "static" then
+					continue
+				end
+
+				markdownFile ..= h3(inheritedFunction.name)
+				markdownFile ..= declaration(inheritedFunction.name, className, false, inheritedFunction.params)		
+	
+				if inheritedFunction.desc then
+					markdownFile ..= newline()
+					markdownFile ..= input(inheritedFunction.desc)
+				end
+
+				markdownFile ..= newline()
+				markdownFile ..= input(`> This function was inherited from [{inheritedClassName}]({inheritedClassName})`)
 			end
 		end
 	else

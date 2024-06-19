@@ -60,6 +60,62 @@ A base discord Thread channel, all discord threads extend from.
 <LuaProperty name="BaseGuildThread.defaultReactionEmoji" type="Objects.DiscordEmoji" />
 ---
 	
+### lastPinTimestamp
+
+<LuaProperty name="BaseGuildThread.lastPinTimestamp" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### lastMessageId
+
+<LuaProperty name="BaseGuildThread.lastMessageId" type="string?" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### guildId
+
+<LuaProperty name="BaseGuildThread.guildId" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### topic
+
+<LuaProperty name="BaseGuildThread.topic" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### nsfw
+
+<LuaProperty name="BaseGuildThread.nsfw" type="boolean" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### rateLimitPerUser
+
+<LuaProperty name="BaseGuildThread.rateLimitPerUser" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### parentId
+
+<LuaProperty name="BaseGuildThread.parentId" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### flags
+
+<LuaProperty name="BaseGuildThread.flags" type="number" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -89,6 +145,42 @@ Returns a list of members that are active in the current thread channel
 
 > <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
 Returns a list of members that are active in the current thread channel
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future" isMethod />
+Triggers the typing indicator in the channel.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="BaseGuildThread" args={[ { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
+Gets messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="BaseGuildThread" args={[ { name: "messageId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+Gets a specific message from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="BaseGuildThread" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Vendor.Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="BaseGuildThread" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Vendor.Future" isMethod />
+Sends a message to the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
 
 [//]: # (----- DOCUMENT FUNCTIONS ----- )
 
