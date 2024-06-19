@@ -24,6 +24,56 @@ This class is internal and should not be used directly by developers.
 
 ## Properties
 
+### udpActive
+
+<LuaProperty name="DiscordUDP.udpActive" type="boolean" />
+---
+	
+### publicUdp
+
+<LuaProperty name="DiscordUDP.publicUdp" type="Nstring" />
+---
+	
+### onMessageRecv
+
+<LuaProperty name="DiscordUDP.onMessageRecv" type="Vendor.Signal<string>" />
+---
+	
+### onSocketDead
+
+<LuaProperty name="DiscordUDP.onSocketDead" type="Vendor.Signal<number>" />
+---
+	
+### socketInstance
+
+<LuaProperty name="DiscordUDP.socketInstance" type="WebSocket" />
+---
+	
+### reporter
+
+<LuaProperty name="DiscordUDP.reporter" type="Vendor.Console" />
+---
+	
+### socketUrl
+
+<LuaProperty name="DiscordUDP.socketUrl" type="string" />
+---
+	
+### socketActive
+
+<LuaProperty name="DiscordUDP.socketActive" type="string" />
+---
+	
+### socketActiveChanged
+
+<LuaProperty name="DiscordUDP.socketActiveChanged" type="Vendor.Signal<boolean>" />
+---
+	
+### socketThread
+
+<LuaProperty name="DiscordUDP.socketThread" type="thread?" />
+---
+	
 ### discordWebsocket
 
 <LuaProperty name="DiscordUDP.discordWebsocket" type="Network.DiscordWebsocket" />
@@ -102,56 +152,6 @@ This class is internal and should not be used directly by developers.
 ### shardId
 
 <LuaProperty name="DiscordUDP.shardId" type="number" />
----
-	
-### udpActive
-
-<LuaProperty name="DiscordUDP.udpActive" type="boolean" />
----
-	
-### publicUdp
-
-<LuaProperty name="DiscordUDP.publicUdp" type="Nstring" />
----
-	
-### onMessageRecv
-
-<LuaProperty name="DiscordUDP.onMessageRecv" type="Vendor.Signal<string>" />
----
-	
-### onSocketDead
-
-<LuaProperty name="DiscordUDP.onSocketDead" type="Vendor.Signal<number>" />
----
-	
-### socketInstance
-
-<LuaProperty name="DiscordUDP.socketInstance" type="WebSocket" />
----
-	
-### reporter
-
-<LuaProperty name="DiscordUDP.reporter" type="Vendor.Console" />
----
-	
-### socketUrl
-
-<LuaProperty name="DiscordUDP.socketUrl" type="string" />
----
-	
-### socketActive
-
-<LuaProperty name="DiscordUDP.socketActive" type="string" />
----
-	
-### socketActiveChanged
-
-<LuaProperty name="DiscordUDP.socketActiveChanged" type="Vendor.Signal<boolean>" />
----
-	
-### socketThread
-
-<LuaProperty name="DiscordUDP.socketThread" type="thread?" />
 ---
 	
 
