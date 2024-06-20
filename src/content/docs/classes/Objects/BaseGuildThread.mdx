@@ -1,6 +1,9 @@
 ---
 title: BaseGuildThread
 description: DiscordLuau docs for BaseGuildThread.
+sidebar:
+ order: 2
+ collapsed: true
 ---
 [//]: # (This file was automatically compiled through the Generator luau code under this repository)
 [//]: # (if you want to edit the documentation of discord-luau, please write changes)
@@ -42,12 +45,12 @@ A base discord Thread channel, all discord threads extend from.
 	
 ### threadMetadata
 
-<LuaProperty name="BaseGuildThread.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string? }," />
+<LuaProperty name="BaseGuildThread.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string?, }," />
 ---
 	
 ### availableTags
 
-<LuaProperty name="BaseGuildThread.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string? } }," />
+<LuaProperty name="BaseGuildThread.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string?, }, }," />
 ---
 	
 ### appliedTags
@@ -60,6 +63,20 @@ A base discord Thread channel, all discord threads extend from.
 <LuaProperty name="BaseGuildThread.defaultReactionEmoji" type="Objects.DiscordEmoji" />
 ---
 	
+### lastPinTimestamp
+
+<LuaProperty name="BaseGuildThread.lastPinTimestamp" type="string" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### lastMessageId
+
+<LuaProperty name="BaseGuildThread.lastMessageId" type="string?" />
+---
+	
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
 ### guildId
 
 <LuaProperty name="BaseGuildThread.guildId" type="string" />
@@ -98,20 +115,6 @@ A base discord Thread channel, all discord threads extend from.
 ### flags
 
 <LuaProperty name="BaseGuildThread.flags" type="number" />
----
-	
-
-> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
-### lastPinTimestamp
-
-<LuaProperty name="BaseGuildThread.lastPinTimestamp" type="string" />
----
-	
-
-> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
-### lastMessageId
-
-<LuaProperty name="BaseGuildThread.lastMessageId" type="string?" />
 ---
 	
 

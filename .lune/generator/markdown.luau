@@ -57,8 +57,9 @@ end
 local function frontmatter(source: {
 	name: string,
 	description: string,
+	order: number,
 })
-	return `---\ntitle: {source.name}\ndescription: {source.description}\n---`
+	return `---\ntitle: {source.name}\ndescription: {source.description}\nsidebar:\n order: {source.order}\n collapsed: true\n---`
 end
 
 function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonwaveDataExportObject)
@@ -78,6 +79,8 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 
 	local inheritedClasses = classDocumentation.inherited ~= nil and classDocumentation.inherited or { }
 
+	local order = #string.split(classDocumentation.name, ".")
+
 	for _, classObject in inheritedClasses do
 		sizeOfClassProperties += #classObject.properties
 
@@ -93,6 +96,7 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	markdownFile ..= frontmatter({
 		name = className,
 		description = `DiscordLuau docs for {className}.`,
+		order = order,
 	})
 
 	markdownFile ..= newline()
