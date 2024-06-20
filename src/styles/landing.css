@@ -1,6 +1,7 @@
 :root {
 	--purple-hsl: 223, 100%, 85%;
 	--accent-hsl: hsl(224, 100%, 85%);
+	--sl-color-text-accent: hsl(224, 100%, 85%);
 	--overlay-blurple: hsla(var(--purple-hsl), 0.2);
 }
 
@@ -45,4 +46,11 @@
 	padding-right: 2.7%;
 
 	border-radius: 15px;
+}
+
+[data-has-hero] .center {
+	object-fit: contain;
+	width: 60%;
+	height: auto;
+	margin-inline: auto;
 }

@@ -3,35 +3,11 @@
 import { Image } from "astro:assets";
 import type { Props } from "@astrojs/starlight/props";
 import CallToAction from "@astrojs/starlight/components/CallToAction.astro";
-import { Code } from "@astrojs/starlight/components";
 
 const PAGE_TITLE_ID = "_top";
 
 const { data } = Astro.props.entry;
 const { title = data.title, tagline, image, actions = [] } = data.hero || {};
-
-const exampleCode = `
-local DiscordLuau = require("Submodules/DiscordLuau")
-
-local DiscordSettings = DiscordLuau.DiscordSettings.new("BOT TOKEN")
-local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
-
-DiscordClient:on("Message", function(message: DiscordLuau.DiscordMessage)
-	print(\`DiscordUser \'{message.author.username}' has said; {message.content}\`)
-
-	if message.content == "!ping" then
-		message:replyAsync({
-			content = "Pong!"
-		})
-	end
-end)
-
-DiscordClient:on("Ready", function()
-	print(\`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉\`)
-end)
-
-DiscordClient:connectAsync()
-`;
 
 const imageAttrs = {
 	loading: "eager" as const,
@@ -74,7 +50,6 @@ if (image) {
 	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
 
 
-	<Code class="sl-flex stack" lang="lua" code={exampleCode} />
 	<div class="sl-flex stack">
 		<div class="sl-flex copy">
 			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
@@ -99,19 +74,16 @@ if (image) {
 
 <style>
 	.hero {
-		display: grid;
+		/* display: grid; */
 		align-items: center;
 		column-gap: 1rem;
+		width: 75%;
 		padding-bottom: 1rem;
-	}
-
-	.hero > img,
-	.hero > .hero-html {
-		object-fit: contain;
-		width: min(70%, 20rem);
 		height: auto;
 		margin-inline: auto;
 	}
+
+	.hero > img,
 
 	.stack {
 		flex-direction: column;
@@ -164,21 +136,17 @@ if (image) {
 		}
 
 		.hero > img,
-		.hero > .hero-html {
-			order: 2;
-			width: min(100%, 25rem);
-		}
 
 		.stack {
-			text-align: start;
+			text-align: center;
 		}
 
 		.copy {
-			align-items: flex-start;
+			align-items: flex-center;
 		}
 
 		.actions {
-			justify-content: flex-start;
+			justify-content: flex-center;
 		}
 	}
 </style>
