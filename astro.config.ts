@@ -12,7 +12,12 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Discord Luau",
-			favicon: "public/favicon.png",
+			logo: {
+				light: '/src/assets/banner-light.png',
+				dark: '/src/assets/banner-dark.png',
+				replacesTitle: true,
+			},
+			favicon: "src/assets/favicon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
 			},
