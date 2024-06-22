@@ -59,7 +59,7 @@ of argument types, ephemeral responses, and so much more.
          :setDescription("Pong?")
          :setGuildPermissions(permissions)
          :addContext(DiscordLuau.CommandBuilder.Context.Guild)
-         :setType(DiscordLuau.CommandBuilder.Type.ChatInput)
+		   :addIntegration(DiscordLuau.CommandBuilder.IntegrationType.GuildCommand)
 
    -- Register our slash commands
    DiscordClient.discordApplication
@@ -117,5 +117,7 @@ of argument types, ephemeral responses, and so much more.
    ```
 </details>
 
-That's all! For more details, refer to the relevant docs for [`DiscordApplication`](/classes/objects/discordapplication/) and
-[`CommandBuilder`](/classes/builders/commandbuilder/).
+That's all! For more details, refer to the relevant docs;
+
+- [CommandBuilder](/classes/builders/commandbuilder/)
+- [DiscordApplication](/classes/objects/discordapplication/)

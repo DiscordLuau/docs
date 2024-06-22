@@ -1,0 +1,101 @@
+---
+title: Responding with Embeds
+description: Responding to discord commands/messages with Embeds.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+[Embeds](https://discord.com/developers/docs/resources/channel#embed-object) are a way to display rich content in Discord messages.
+They allow you to include images, formatted text, fields, and other interactive elements 
+within a message.
+
+<Steps>
+
+1. Create a listener that will respond to a message:
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   DiscordClient.eventManager.onMessage:connect(function(message)
+      if message.Content == "!embed" then
+         ...
+      end
+   end)
+
+   DiscordClient.eventManager.onReady:connect(function()
+      print(`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉`)
+   end)
+
+   DiscordClient:connectAsync()
+   ```
+
+2. Create a Discord embed that we can respond with:
+
+   ```lua
+      local responseEmbed = DiscordLuau.EmbedBuilder.new()
+         :setTitle("Example Embed")
+         :setDescription("This is an example of an embed created using DiscordLuau!")
+         :setColor(0xFF0000)
+         :addField("Field 1", "Value 1", true)
+         :addField("Field 2", "Value 2", true)
+         :setFooter("This is a footer")
+   ```
+
+3. Reply to the message with the newly created embed:
+
+   ```lua
+      local responseMessage = DiscordLuau.MessageBuilder.new()
+      local responseEmbed = DiscordLuau.EmbedBuilder.new()
+         :setTitle("Example Embed")
+         :setDescription("This is an example of an embed created using DiscordLuau!")
+         :setColor(0xFF0000)
+         :addField("Field 1", "Value 1", true)
+         :addField("Field 2", "Value 2", true)
+         :setFooter("This is a footer")
+
+      message:replyAsync(responseMessage:setEmbed(responseEmbed))
+   ```
+</Steps>
+
+<details>
+   <summary>See The Entire Code</summary>
+
+   ```lua
+   local DiscordLuau = require("DiscordLuau")
+
+   local DiscordSettings = DiscordLuau.SettingsBuilder.new("<DISCORD_TOKEN>")
+   local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
+
+   DiscordClient.eventManager.onMessage:connect(function(message)
+      if message.Content == "!embed" then
+         local responseMessage = DiscordLuau.MessageBuilder.new()
+         local responseEmbed = DiscordLuau.EmbedBuilder.new()
+            :setTitle("Example Embed")
+            :setDescription("This is an example of an embed created using DiscordLuau!")
+            :setColor(0xFF0000)
+            :addField("Field 1", "Value 1", true)
+            :addField("Field 2", "Value 2", true)
+            :setFooter("This is a footer")
+
+         message:replyAsync(responseMessage:setEmbed(responseEmbed))
+      end
+   end)
+
+   DiscordClient.eventManager.onReady:connect(function()
+      print(`🎉🎉 {DiscordClient.discordUser.username} is online! 🎉🎉`)
+   end)
+
+   DiscordClient:connectAsync()
+   ```
+</details>
+
+That's all! For more details, refer to the relevant docs;
+
+- [DiscordEmbed](/classes/objects/discordembed/)
+- [EventManager](/classes/objects/eventmanager/)
+- [DiscordMessage](/classes/objects/discordmessage/)
+- [MessageBuilder](/classes/builders/messagebuilder/)

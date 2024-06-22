@@ -1,0 +1,72 @@
+---
+title: Type Support
+description: Instructions on how to install and set up the Discord-Luau package.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+This guide will walk you though setting up working LSP type support for the Discord-Luau package.
+
+:::tip
+This guide assumes the following;
+
+- You've set up your environment, if you've not already done this, please take a look at [this guide](/getting-started/environment/)
+- You've already installed the Discord-Luau package, if you haven't already done this, please take a look at [this guide](/getting-started/installation/)
+:::
+
+### Context
+
+The Luau language has support for Alias declarations, however, Luau-LSP requires you to do some additional setup to enable these alias declarations
+to function.
+
+Since the Discord-Luau package uses Luau language aliases, you'll need to set up some additional configuration to get functional type support.
+
+### Git Submodules
+
+<Steps>
+
+1. Create a `.vscode/settings.json` file in your project root, IF there's not one already available.
+    Lune should of already created this file as we need to do some [additional setup for the Lune runtime anyway](/getting-started/environment/#lune)
+
+2. If not already preasent, please add the following to the `.vscode/settings.json` file;
+    ```json
+        "luau-lsp.require.directoryAliases": {
+
+        }
+    ```
+3. Add the following to the `luau-lsp.require.directoryAliases` object;
+    ```json
+        "@Builders": "DiscordLuau/Package/Classes/Builders",
+        "@Network": "DiscordLuau/Package/Classes/Network",
+        "@Objects": "DiscordLuau/Package/Classes/Objects",
+        "@Data": "DiscordLuau/Package/Data",
+        "@Enums": "DiscordLuau/Package/Enums",
+        "@Std": "DiscordLuau/Package/Std",
+        "@Utils": "DiscordLuau/Package/Utils",
+        "@Vendor": "DiscordLuau/Package/Vendor",
+    ```
+4. Restart Luau-LSP, check to see if the library can now resolve the require aliases.
+
+</Steps>
+
+<details>
+   <summary>Example `.vscode/settings.json` file</summary>
+
+   ```json
+   {
+        "luau-lsp.require.mode": "relativeToFile",
+        "luau-lsp.require.directoryAliases": {
+            "@lune/": "~/.lune/.typedefs/0.8.2/",
+
+            "@Builders": "DiscordLuau/Package/Classes/Builders",
+            "@Network": "DiscordLuau/Package/Classes/Network",
+            "@Objects": "DiscordLuau/Package/Classes/Objects",
+            "@Data": "DiscordLuau/Package/Data",
+            "@Enums": "DiscordLuau/Package/Enums",
+            "@Std": "DiscordLuau/Package/Std",
+            "@Utils": "DiscordLuau/Package/Utils",
+            "@Vendor": "DiscordLuau/Package/Vendor",
+        }
+    }
+   ```
+</details>
