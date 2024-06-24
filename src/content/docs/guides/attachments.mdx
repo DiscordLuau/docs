@@ -1,16 +1,15 @@
 ---
-title: Responding with Embeds
-description: Responding to discord commands/messages with Embeds.
+title: Message Attachments
+description: Responding to discord commands/messages with Attachments
 sidebar:
- order: 3
+ order: 4
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 import { Aside } from '@astrojs/starlight/components';
 
-[Embeds](https://discord.com/developers/docs/resources/channel#embed-object) are a way to display rich content in Discord messages.
-They allow you to include images, formatted text, fields, and other interactive elements 
-within a message.
+[Attachments](https://discord.com/developers/docs/resources/channel#attachment-object) are a way to upload files to the Discord CDN, discord
+luau supports sending these attachments through the `AttachmentBuilder` object.
 
 <Steps>
 
@@ -35,31 +34,26 @@ within a message.
    DiscordClient:connectAsync()
    ```
 
-2. Create a Discord embed that we can respond with:
+2. Create a Discord attachment that we can respond with:
 
    ```lua
-      local responseEmbed = DiscordLuau.EmbedBuilder.new()
-         :setTitle("Example Embed")
-         :setDescription("This is an example of an embed created using DiscordLuau!")
-         :setColor(0xFF0000)
-         :addField("Field 1", "Value 1", true)
-         :addField("Field 2", "Value 2", true)
-         :setFooter("This is a footer")
+      local responseAttachment = DiscordLuau.AttachmentBuilder.new()
+         :setName("example.txt")
+         :setDescription("Example Text Document")
+         :setData("Hello, World - 'Tis be the data of this example document!")
+         
    ```
 
 3. Reply to the message with the newly created embed:
 
    ```lua
       local responseMessage = DiscordLuau.MessageBuilder.new()
-      local responseEmbed = DiscordLuau.EmbedBuilder.new()
-         :setTitle("Example Embed")
-         :setDescription("This is an example of an embed created using DiscordLuau!")
-         :setColor(0xFF0000)
-         :addField("Field 1", "Value 1", true)
-         :addField("Field 2", "Value 2", true)
-         :setFooter("This is a footer")
+      local responseAttachment = DiscordLuau.AttachmentBuilder.new()
+         :setName("example.txt")
+         :setDescription("Example Text Document")
+         :setData("Hello, World - 'Tis be the data of this example document!")
 
-      message:replyAsync(responseMessage:setEmbed(responseEmbed))
+      message:replyAsync(responseMessage:addFile(responseAttachment))
    ```
 </Steps>
 
@@ -75,15 +69,12 @@ within a message.
    DiscordClient.eventManager.onMessage:connect(function(message)
       if message.Content == "!embed" then
          local responseMessage = DiscordLuau.MessageBuilder.new()
-         local responseEmbed = DiscordLuau.EmbedBuilder.new()
-            :setTitle("Example Embed")
-            :setDescription("This is an example of an embed created using DiscordLuau!")
-            :setColor(0xFF0000)
-            :addField("Field 1", "Value 1", true)
-            :addField("Field 2", "Value 2", true)
-            :setFooter("This is a footer")
+         local responseAttachment = DiscordLuau.AttachmentBuilder.new()
+            :setName("example.txt")
+            :setDescription("Example Text Document")
+            :setData("Hello, World - 'Tis be the data of this example document!")
 
-         message:replyAsync(responseMessage:setEmbed(responseEmbed))
+         message:replyAsync(responseMessage:addFile(responseAttachment))
       end
    end)
 
@@ -97,7 +88,7 @@ within a message.
 
 That's all! For more details, refer to the relevant docs;
 
-- [DiscordEmbed](/classes/objects/discordembed/)
+- [DiscordAttachment](/classes/objects/discordattachment/)
 - [EventManager](/classes/objects/eventmanager/)
 - [DiscordMessage](/classes/objects/discordmessage/)
 - [MessageBuilder](/classes/builders/messagebuilder/)
