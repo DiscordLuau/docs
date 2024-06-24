@@ -30,6 +30,42 @@ local DiscordClient = DiscordLuau.DiscordClient.new(SettingsBuilder)
 
 ## Properties
 
+### eventManager
+
+<LuaProperty name="DiscordClient.eventManager" type="Objects.EventManager" />
+### discordGateway
+
+<LuaProperty name="DiscordClient.discordGateway" type="Objects.DiscordGateway" />
+### onEvent
+
+<LuaProperty name="DiscordClient.onEvent" type="Vendor.Signal<string, { [any]: any }?>" />
+### discordSettings
+
+<LuaProperty name="DiscordClient.discordSettings" type="SettingsBuilder" />
+### discordCache
+
+<LuaProperty name="DiscordClient.discordCache" type="DiscordCache" />
+### reporter
+
+<LuaProperty name="DiscordClient.reporter" type="Vendor.Reporter" />
+### websocketUrl
+
+<LuaProperty name="DiscordClient.websocketUrl" type="string" />
+### shardCount
+
+<LuaProperty name="DiscordClient.shardCount" type="number" />
+### maxConcurrency
+
+<LuaProperty name="DiscordClient.maxConcurrency" type="number" />
+### discordShards
+
+<LuaProperty name="DiscordClient.discordShards" type="{ Network.DiscordShard }" />
+### discordUser
+
+<LuaProperty name="DiscordClient.discordUser" type="Objects.DiscordUser?" />
+### discordApplication
+
+<LuaProperty name="DiscordClient.discordApplication" type="Objects.discordApplication" />
 ### discordUser
 
 <LuaProperty name="DiscordClient.discordUser" type="DiscordUser" />
@@ -40,16 +76,6 @@ local DiscordClient = DiscordLuau.DiscordClient.new(SettingsBuilder)
 <LuaProperty name="DiscordClient.discordApplication" type="DiscordApplication" />
 ---
 					
-### discordGateway
-
-<LuaProperty name="DiscordClient.discordGateway" type="Objects.DiscordGateway" />
----
-	
-### eventManager
-
-<LuaProperty name="DiscordClient.eventManager" type="Objects.EventManager" />
----
-	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -69,7 +95,7 @@ end)
 ```
 ### fetchGuildAsync
 
-> <LuaDeclaration name="fetchGuildAsync" className="DiscordClient" args={[ { name: "guildId", type: "string" } ]} returnType="Vendor.Future<DiscordGuild>" isMethod />
+> <LuaDeclaration name="fetchGuildAsync" className="DiscordClient" args={[ { name: "guildId", type: "string" } ]} returnType="Vendor.Future<Objects.DiscordGuild>" isMethod />
 Fetches a guild by its ID.
 ### fetchChannelAsync
 
@@ -77,7 +103,7 @@ Fetches a guild by its ID.
 Fetches a channel by its ID.
 ### updatePresenceAsync
 
-> <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "table" } ]} returnType="Vendor.Future<boolean>" isMethod />
+> <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "Builders.PresenceBuilder" } ]} returnType="Vendor.Future<boolean>" isMethod />
 Updates the client's presence.
 ### createGuildAsync
 
@@ -94,7 +120,7 @@ Sets the verbosity level for logging.
 
 ### new
 
-> <LuaDeclaration name="new" className="DiscordClient" args={[ { name: "discordSettings", type: "SettingsBuilder" } ]} />
+> <LuaDeclaration name="new" className="DiscordClient" args={[ { name: "discordSettings", type: "Builders.SettingsBuilder" } ]} />
 Constructor function for the Discord Client, used to instantiate a Discord Client object.
 	
 
