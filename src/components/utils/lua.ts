@@ -53,6 +53,7 @@ export const getCustomTypeDocs = (type: string) => {
 
 export const getTypeDocs = (type: string) => {
 	const normalizedType = removeTypeModifiers(type);
+	
 	return normalizedType in luaTypeDocs
 		? getLuaDocs(normalizedType)
 		: getCustomTypeDocs(type);
