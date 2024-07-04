@@ -21,52 +21,54 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
     <span class="declaration class">{className}</span>
     <span class="declaration">{(isMethod && ":") || "."}</span>
     <span class="declaration method">{name}</span>
-    <span class="declaration">(</span>
-    <div class="declaration">
-        {
-            args.map(({ name, type }) => {
-                const defaultedType = typeOrDefault(type);
-                const typeUrl = getTypeDocs(defaultedType);
-                
-                // FIXME: What would be the type of a collection of JSX elements?
-                let unionTypes: any[] | null = [];
-                if (type.includes("|")) {
-                    const unionMembers = defaultedType.split("|");
+    {
+        args.length > 0 && <span class="declaration">(</span>
+            <div class="declaration">
+                {
+                    args.map(({ name, type }) => {
+                        const defaultedType = typeOrDefault(type);
+                        const typeUrl = getTypeDocs(defaultedType);
+                        
+                        // FIXME: What would be the type of a collection of JSX elements?
+                        let unionTypes: any[] | null = [];
+                        if (type.includes("|")) {
+                            const unionMembers = defaultedType.split("|");
 
-                    unionTypes = unionMembers.map((unionType: string, count: number) => {
-                        unionType = unionType.trim();
-                        const unionTypeUrl = getTypeDocs(unionType)
+                            unionTypes = unionMembers.map((unionType: string, count: number) => {
+                                unionType = unionType.trim();
+                                const unionTypeUrl = getTypeDocs(unionType)
+
+                                return (
+                                    <>
+                                        <LuaTypeComponent url={unionTypeUrl} type={unionType} />
+                                        {count !== unionMembers.length - 1 && (
+                                            <>{unionMembers.length > 2 && <br />}</>
+                                            <span>{unionMembers.length > 2 && "\u00A0".repeat(22)}|</span>
+                                        ) || ""}
+                                    </>
+                                )
+                            })
+                        } else {
+                            unionTypes = null
+                        }
 
                         return (
                             <>
-                                <LuaTypeComponent url={unionTypeUrl} type={unionType} />
-                                {count !== unionMembers.length - 1 && (
-                                    <>{unionMembers.length > 2 && <br />}</>
-                                    <span>{unionMembers.length > 2 && "\u00A0".repeat(22)}|</span>
-                                ) || ""}
+                                <br />
+                                <span class="declaration arg">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
+                                </span>
+                                <span class="declaration type">
+                                    {unionTypes && unionTypes || (<LuaTypeComponent url={typeUrl} type={defaultedType} />)}
+                                </span>
+                                <span class="declaration" />
                             </>
-                        )
+                        );
                     })
-                } else {
-                    unionTypes = null
                 }
-
-                return (
-                    <>
-                        <br />
-                        <span class="declaration arg">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:
-                        </span>
-                        <span class="declaration type">
-                            {unionTypes && unionTypes || (<LuaTypeComponent url={typeUrl} type={defaultedType} />)}
-                        </span>
-                        <span class="declaration" />
-                    </>
-                );
-            })
-        }
-    </div>
-    <span class="declaration">)</span>
+            </div>
+        <span class="declaration">)</span> || <span class="declaration">()</span>
+    }
     <span class="declaration type"
         >&nbsp;{"-> "}
         <LuaTypeComponent url={returnTypeUrl} type={returnTypeOrDefault} />
