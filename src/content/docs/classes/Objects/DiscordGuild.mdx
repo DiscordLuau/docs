@@ -23,226 +23,140 @@ The `DiscordGuild` class represents a Discord guild (server) and provides method
 
 ## Properties
 
+### shardId
+
+<LuaProperty name="DiscordGuild.shardId" type="number" />
+### id
+
+<LuaProperty name="DiscordGuild.id" type="string" />
+### name
+
+<LuaProperty name="DiscordGuild.name" type="string" />
+### icon
+
+<LuaProperty name="DiscordGuild.icon" type="string?" />
+### iconHash
+
+<LuaProperty name="DiscordGuild.iconHash" type="string?" />
+### splash
+
+<LuaProperty name="DiscordGuild.splash" type="string?" />
+### discoverySplash
+
+<LuaProperty name="DiscordGuild.discoverySplash" type="string?" />
+### owner
+
+<LuaProperty name="DiscordGuild.owner" type="boolean" />
+### ownerId
+
+<LuaProperty name="DiscordGuild.ownerId" type="string" />
+### permissions
+
+<LuaProperty name="DiscordGuild.permissions" type="number" />
+### afkChannelId
+
+<LuaProperty name="DiscordGuild.afkChannelId" type="string?" />
+### afkTimeout
+
+<LuaProperty name="DiscordGuild.afkTimeout" type="number" />
+### widgetEnabled
+
+<LuaProperty name="DiscordGuild.widgetEnabled" type="boolean" />
+### widgetChannelId
+
+<LuaProperty name="DiscordGuild.widgetChannelId" type="string?" />
+### verificationLevel
+
+<LuaProperty name="DiscordGuild.verificationLevel" type="number" />
+### defaultMessageNotifications
+
+<LuaProperty name="DiscordGuild.defaultMessageNotifications" type="number" />
+### explicitContentFilter
+
+<LuaProperty name="DiscordGuild.explicitContentFilter" type="number" />
+### roles
+
+<LuaProperty name="DiscordGuild.roles" type="{ Objects.DiscordGuildRole }" />
+### emojis
+
+<LuaProperty name="DiscordGuild.emojis" type="{ Objects.DiscordEmoji }" />
+### features
+
+<LuaProperty name="DiscordGuild.features" type="{ string }" />
+### mfaLevel
+
+<LuaProperty name="DiscordGuild.mfaLevel" type="number" />
+### applicationId
+
+<LuaProperty name="DiscordGuild.applicationId" type="string?" />
+### systemChannelId
+
+<LuaProperty name="DiscordGuild.systemChannelId" type="string?" />
+### systemChannelFlags
+
+<LuaProperty name="DiscordGuild.systemChannelFlags" type="number" />
+### rulesChannelId
+
+<LuaProperty name="DiscordGuild.rulesChannelId" type="string?" />
+### maxPresences
+
+<LuaProperty name="DiscordGuild.maxPresences" type="number?" />
+### maxMembers
+
+<LuaProperty name="DiscordGuild.maxMembers" type="number" />
+### vanityUrlCode
+
+<LuaProperty name="DiscordGuild.vanityUrlCode" type="string?" />
+### description
+
+<LuaProperty name="DiscordGuild.description" type="string?" />
+### banner
+
+<LuaProperty name="DiscordGuild.banner" type="string?" />
+### premiumTier
+
+<LuaProperty name="DiscordGuild.premiumTier" type="number" />
+### premiumSubscriptionCount
+
+<LuaProperty name="DiscordGuild.premiumSubscriptionCount" type="number" />
+### preferredLocale
+
+<LuaProperty name="DiscordGuild.preferredLocale" type="string" />
+### publicUpdatesChannelId
+
+<LuaProperty name="DiscordGuild.publicUpdatesChannelId" type="string?" />
+### maxVideoChannelUsers
+
+<LuaProperty name="DiscordGuild.maxVideoChannelUsers" type="number" />
+### maxStageVideoChannelUsers
+
+<LuaProperty name="DiscordGuild.maxStageVideoChannelUsers" type="number" />
+### approximateMemberCount
+
+<LuaProperty name="DiscordGuild.approximateMemberCount" type="number" />
+### approximatePresenceCount
+
+<LuaProperty name="DiscordGuild.approximatePresenceCount" type="number" />
+### welcomeScreen
+
+<LuaProperty name="DiscordGuild.welcomeScreen" type="Objects.GuildWelcomeScreen?" />
+### nsfwLevel
+
+<LuaProperty name="DiscordGuild.nsfwLevel" type="number" />
+### stickers
+
+<LuaProperty name="DiscordGuild.stickers" type="{ Objects.DiscordSticker }" />
+### premiumProgressBarEnabled
+
+<LuaProperty name="DiscordGuild.premiumProgressBarEnabled" type="boolean" />
+### safetyAlertsChannelId
+
+<LuaProperty name="DiscordGuild.safetyAlertsChannelId" type="string?" />
 ### type
 
 <LuaProperty name="DiscordGuild.type" type="string" />
 ---
 The type of the DiscordGuild. Default is "DiscordGuild".
-### shardId
-
-<LuaProperty name="DiscordGuild.shardId" type="number" />
----
-	
-### id
-
-<LuaProperty name="DiscordGuild.id" type="string" />
----
-	
-### name
-
-<LuaProperty name="DiscordGuild.name" type="string" />
----
-	
-### icon
-
-<LuaProperty name="DiscordGuild.icon" type="string?" />
----
-	
-### iconHash
-
-<LuaProperty name="DiscordGuild.iconHash" type="string?" />
----
-	
-### splash
-
-<LuaProperty name="DiscordGuild.splash" type="string?" />
----
-	
-### discoverySplash
-
-<LuaProperty name="DiscordGuild.discoverySplash" type="string?" />
----
-	
-### owner
-
-<LuaProperty name="DiscordGuild.owner" type="boolean" />
----
-	
-### ownerId
-
-<LuaProperty name="DiscordGuild.ownerId" type="string" />
----
-	
-### permissions
-
-<LuaProperty name="DiscordGuild.permissions" type="number" />
----
-	
-### afkChannelId
-
-<LuaProperty name="DiscordGuild.afkChannelId" type="string?" />
----
-	
-### afkTimeout
-
-<LuaProperty name="DiscordGuild.afkTimeout" type="number" />
----
-	
-### widgetEnabled
-
-<LuaProperty name="DiscordGuild.widgetEnabled" type="boolean" />
----
-	
-### widgetChannelId
-
-<LuaProperty name="DiscordGuild.widgetChannelId" type="string?" />
----
-	
-### verificationLevel
-
-<LuaProperty name="DiscordGuild.verificationLevel" type="number" />
----
-	
-### defaultMessageNotifications
-
-<LuaProperty name="DiscordGuild.defaultMessageNotifications" type="number" />
----
-	
-### explicitContentFilter
-
-<LuaProperty name="DiscordGuild.explicitContentFilter" type="number" />
----
-	
-### roles
-
-<LuaProperty name="DiscordGuild.roles" type="{ Objects.DiscordGuildRole }" />
----
-	
-### emojis
-
-<LuaProperty name="DiscordGuild.emojis" type="{ Objects.DiscordEmoji }" />
----
-	
-### features
-
-<LuaProperty name="DiscordGuild.features" type="{ string }" />
----
-	
-### mfaLevel
-
-<LuaProperty name="DiscordGuild.mfaLevel" type="number" />
----
-	
-### applicationId
-
-<LuaProperty name="DiscordGuild.applicationId" type="string?" />
----
-	
-### systemChannelId
-
-<LuaProperty name="DiscordGuild.systemChannelId" type="string?" />
----
-	
-### systemChannelFlags
-
-<LuaProperty name="DiscordGuild.systemChannelFlags" type="number" />
----
-	
-### rulesChannelId
-
-<LuaProperty name="DiscordGuild.rulesChannelId" type="string?" />
----
-	
-### maxPresences
-
-<LuaProperty name="DiscordGuild.maxPresences" type="number?" />
----
-	
-### maxMembers
-
-<LuaProperty name="DiscordGuild.maxMembers" type="number" />
----
-	
-### vanityUrlCode
-
-<LuaProperty name="DiscordGuild.vanityUrlCode" type="string?" />
----
-	
-### description
-
-<LuaProperty name="DiscordGuild.description" type="string?" />
----
-	
-### banner
-
-<LuaProperty name="DiscordGuild.banner" type="string?" />
----
-	
-### premiumTier
-
-<LuaProperty name="DiscordGuild.premiumTier" type="number" />
----
-	
-### premiumSubscriptionCount
-
-<LuaProperty name="DiscordGuild.premiumSubscriptionCount" type="number" />
----
-	
-### preferredLocale
-
-<LuaProperty name="DiscordGuild.preferredLocale" type="string" />
----
-	
-### publicUpdatesChannelId
-
-<LuaProperty name="DiscordGuild.publicUpdatesChannelId" type="string?" />
----
-	
-### maxVideoChannelUsers
-
-<LuaProperty name="DiscordGuild.maxVideoChannelUsers" type="number" />
----
-	
-### maxStageVideoChannelUsers
-
-<LuaProperty name="DiscordGuild.maxStageVideoChannelUsers" type="number" />
----
-	
-### approximateMemberCount
-
-<LuaProperty name="DiscordGuild.approximateMemberCount" type="number" />
----
-	
-### approximatePresenceCount
-
-<LuaProperty name="DiscordGuild.approximatePresenceCount" type="number" />
----
-	
-### welcomeScreen
-
-<LuaProperty name="DiscordGuild.welcomeScreen" type="Objects.GuildWelcomeScreen?" />
----
-	
-### nsfwLevel
-
-<LuaProperty name="DiscordGuild.nsfwLevel" type="number" />
----
-	
-### stickers
-
-<LuaProperty name="DiscordGuild.stickers" type="{ Objects.DiscordSticker }" />
----
-	
-### premiumProgressBarEnabled
-
-<LuaProperty name="DiscordGuild.premiumProgressBarEnabled" type="boolean" />
----
-	
-### safetyAlertsChannelId
-
-<LuaProperty name="DiscordGuild.safetyAlertsChannelId" type="string?" />
----
-	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -367,7 +281,7 @@ Requests discord to prune the Discord guild.
 ### getGuildVoiceRegionsAsync
 
 > <LuaDeclaration name="getGuildVoiceRegionsAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ { id: string, name: string, optimal: boolean, deprecated: boolean, custom: boolean } }>" isMethod />
-Fetches the avaliable voice regions for the guild.
+Fetches the available voice regions for the guild.
 ### getGuildInvitesAsync
 
 > <LuaDeclaration name="getGuildInvitesAsync" className="DiscordGuild" args={[  ]} returnType="Vendor.Future<{ Objects.DiscordInvite }>" isMethod />

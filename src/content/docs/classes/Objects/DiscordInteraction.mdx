@@ -23,81 +23,53 @@ The `DiscordInteraction` class represents an interaction with the Discord API, s
 
 ## Properties
 
+### channel
+
+<LuaProperty name="DiscordInteraction.channel" type="Objects.DiscordChannel" />
+### guild
+
+<LuaProperty name="DiscordInteraction.guild" type="objects.DiscordGuild" />
+### user
+
+<LuaProperty name="DiscordInteraction.user" type="objects.DiscordUser" />
+### token
+
+<LuaProperty name="DiscordInteraction.token" type="string" />
+### applicationId
+
+<LuaProperty name="DiscordInteraction.applicationId" type="string" />
+### id
+
+<LuaProperty name="DiscordInteraction.id" type="string" />
+### data
+
+<LuaProperty name="DiscordInteraction.data" type="{ [any]: any }" />
+### channelId
+
+<LuaProperty name="DiscordInteraction.channelId" type="string" />
+### guilldId
+
+<LuaProperty name="DiscordInteraction.guilldId" type="string" />
+### version
+
+<LuaProperty name="DiscordInteraction.version" type="number" />
+### appPermissions
+
+<LuaProperty name="DiscordInteraction.appPermissions" type="Builders.PermissionsBuilder" />
+### guildLocale
+
+<LuaProperty name="DiscordInteraction.guildLocale" type="string" />
+### locale
+
+<LuaProperty name="DiscordInteraction.locale" type="string" />
+### deferred
+
+<LuaProperty name="DiscordInteraction.deferred" type="boolean" />
 ### type
 
 <LuaProperty name="DiscordInteraction.type" type="string" />
 ---
 The type of the DiscordInteraction. Default is "DiscordInteraction".
-### channel
-
-<LuaProperty name="DiscordInteraction.channel" type="Objects.DiscordChannel" />
----
-	
-### guild
-
-<LuaProperty name="DiscordInteraction.guild" type="objects.DiscordGuild" />
----
-	
-### user
-
-<LuaProperty name="DiscordInteraction.user" type="objects.DiscordUser" />
----
-	
-### token
-
-<LuaProperty name="DiscordInteraction.token" type="string" />
----
-	
-### applicationId
-
-<LuaProperty name="DiscordInteraction.applicationId" type="string" />
----
-	
-### id
-
-<LuaProperty name="DiscordInteraction.id" type="string" />
----
-	
-### data
-
-<LuaProperty name="DiscordInteraction.data" type="{ [any]: any }" />
----
-	
-### channelId
-
-<LuaProperty name="DiscordInteraction.channelId" type="string" />
----
-	
-### guilldId
-
-<LuaProperty name="DiscordInteraction.guilldId" type="string" />
----
-	
-### version
-
-<LuaProperty name="DiscordInteraction.version" type="number" />
----
-	
-### appPermissions
-
-<LuaProperty name="DiscordInteraction.appPermissions" type="Builders.PermissionsBuilder" />
----
-	
-### guildLocale
-
-<LuaProperty name="DiscordInteraction.guildLocale" type="string" />
----
-	
-### locale
-
-<LuaProperty name="DiscordInteraction.locale" type="string" />
----
-	
-### defered
-
-<LuaProperty name="DiscordInteraction.defered" type="boolean" />
----
-	
 
 [//]: # (----- DOCUMENT METHODS ----- )
 
@@ -117,7 +89,7 @@ Sends a modal in response to the interaction asynchronously.
 Sends a message in response to the interaction asynchronously.
 
 :::caution
-MessageBuilder cannot support Attachments UNLESS deffered, so if you're wanting to send attachments, please call `deferAsync` first!
+MessageBuilder cannot support Attachments UNLESS deferred, so if you're wanting to send attachments, please call `deferAsync` first!
 :::
 ### deferAsync
 
