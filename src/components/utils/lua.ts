@@ -41,19 +41,17 @@ export const getCustomTypeDocs = (type: string) => {
 		return null;
 	}
 
-	const path =
-		`/classes/${type
-			.split(".")
-			.map((component) => component.toLocaleLowerCase())
-			.join("/")}`
-		
+	const path = `/classes/${type
+		.split(".")
+		.map(component => component.toLocaleLowerCase())
+		.join("/")}`;
 
 	return path;
 };
 
 export const getTypeDocs = (type: string) => {
 	const normalizedType = removeTypeModifiers(type);
-	
+
 	return normalizedType in luaTypeDocs
 		? getLuaDocs(normalizedType)
 		: getCustomTypeDocs(type);
@@ -67,7 +65,7 @@ export const getKvPairs = (tblInner: string) => {
 	tblInner = tblInner.trim();
 	const pairs = tblInner
 		.split(",")
-		.map((pair) => pair.split(":").map((elem) => elem.trim()));
+		.map(pair => pair.split(":").map(elem => elem.trim()));
 
 	return pairs;
 };

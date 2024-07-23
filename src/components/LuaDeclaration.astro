@@ -5,11 +5,11 @@ import type { LuaType, LuaParam } from "./utils/lua";
 import { typeOrDefault, getTypeDocs } from "./utils/lua";
 
 type Props = AstroProps & {
-    name: string;
-    isMethod: boolean;
-    className: string;
-    args: LuaParam[];
-    returnType?: LuaType | string;
+	name: string;
+	isMethod: boolean;
+	className: string;
+	args: LuaParam[];
+	returnType?: LuaType | string;
 };
 
 const { name, className, args, returnType, isMethod } = Astro.props;

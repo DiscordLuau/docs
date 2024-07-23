@@ -19,9 +19,7 @@
     "parser": {
       "unsafeParameterDecoratorsEnabled": true
     },
-    "globals": [
-      "Astro"
-    ],
+    "globals": ["Astro"],
     "formatter": {
       "quoteStyle": "double",
       "jsxQuoteStyle": "double",
@@ -62,7 +60,7 @@
       "style": {
         "recommended": true,
         "noParameterAssign": "off",
-		"noNonNullAssertion": "off",
+        "noNonNullAssertion": "off",
         "useNodejsImportProtocol": "off"
       },
       "suspicious": {
@@ -76,9 +74,7 @@
   },
   "overrides": [
     {
-      "include": [
-        "*.astro"
-      ],
+      "include": ["*.astro"],
       "linter": {
         "rules": {
           "style": {

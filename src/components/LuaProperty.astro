@@ -1,20 +1,19 @@
 ---
-import LuaType from './LuaType.astro';
-import { getTypeDocs } from './utils/lua';
+import LuaType from "./LuaType.astro";
+import { getTypeDocs } from "./utils/lua";
 
 type Props = {
-    name: string,
-    type: string;
+	name: string;
+	type: string;
 };
 
 const { name, type } = Astro.props;
 
 let realType = type;
 if (type.includes("<")) {
-    const embeddedType = type.match(/<(.*?)>/);
-    realType = embeddedType![1];
+	const embeddedType = type.match(/<(.*?)>/);
+	realType = embeddedType![1];
 }
-
 ---
 
 <div class="declaration">

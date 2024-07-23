@@ -1,7 +1,7 @@
 ---
 interface Props {
-    repo: string;
-    file: string;
+	repo: string;
+	file: string;
 }
 const { repo, file } = Astro.props;
 
@@ -12,42 +12,42 @@ url.searchParams.set("path", `src/content/docs/${file}`);
 url.searchParams.set("per_page", "100");
 
 async function fetchCommits() {
-    const res = await fetch(url, {
-        headers: {
-            Accept: "application/vnd.github+json",
-            "User-Agent": "starlight-contributors/1.0",
-        },
-    });
+	const res = await fetch(url, {
+		headers: {
+			Accept: "application/vnd.github+json",
+			"User-Agent": "starlight-contributors/1.0",
+		},
+	});
 
-    if (res.status !== 200) {
-        console.log("Github API error, returning an empty array")
-        return []
-    }
+	if (res.status !== 200) {
+		console.log("Github API error, returning an empty array");
+		return [];
+	}
 
-    return res.json();
+	return res.json();
 }
 
 // Fetch commits from the GitHub API
 const commits = await fetchCommits();
 
 function removeDuplicates(
-    commits?: {
-        author: {
-            id: number;
-            login: string;
-        };
-    }[],
+	commits?: {
+		author: {
+			id: number;
+			login: string;
+		};
+	}[],
 ) {
-    if (!commits) return [];
-    const map = new Map();
-    for (const commit of commits) {
-        const author = commit.author;
-        if (author) {
-            // Deduplicate based on author.id
-            map.set(author.id, { login: author.login, id: author.id });
-        }
-    }
-    return Array.from(map.values());
+	if (!commits) return [];
+	const map = new Map();
+	for (const commit of commits) {
+		const author = commit.author;
+		if (author) {
+			// Deduplicate based on author.id
+			map.set(author.id, { login: author.login, id: author.id });
+		}
+	}
+	return Array.from(map.values());
 }
 
 // Remove any duplicate commit authors.

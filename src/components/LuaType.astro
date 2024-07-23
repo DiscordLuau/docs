@@ -3,8 +3,8 @@ import LuaTable from "./LuaTable.astro";
 import { getKvPairs, getTypeDocs, isObject } from "./utils/lua";
 
 type Props = {
-  url: string | null;
-  type: string;
+	url: string | null;
+	type: string;
 };
 
 let { url, type } = Astro.props;
@@ -12,14 +12,14 @@ let pairs: string[][] = [];
 
 const tableType = type.match(/\{(.*?)\}/);
 if (tableType) {
-  if (isObject(tableType[1])) {
-    // KV table
-    pairs = getKvPairs(tableType[1]);
-    url = null;
-  } else {
-    // Array shorthand notation
-    url = getTypeDocs(tableType[1].trim());
-  }
+	if (isObject(tableType[1])) {
+		// KV table
+		pairs = getKvPairs(tableType[1]);
+		url = null;
+	} else {
+		// Array shorthand notation
+		url = getTypeDocs(tableType[1].trim());
+	}
 }
 ---
 
