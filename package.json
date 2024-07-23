@@ -3,7 +3,7 @@
 	"private": true,
 	"type": "module",
 	"version": "0.0.1",
-	"packageManager": "pnpm@9.0.5",
+	"packageManager": "pnpm@9.1.4",
 	"scripts": {
 		"postinstall": "deno install -Arf jsr:@deno/deployctl",
 		"dev": "astro dev",
@@ -13,7 +13,8 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"deploy": "deployctl deploy --prod --entrypoint dist/server/entry.mjs",
-		"fmt": "prettier -w ."
+		"lint": "biome lint",
+		"fmt": "biome format --write ."
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.7.0",
@@ -23,6 +24,6 @@
 		"typescript": "^5.4.5"
 	},
 	"devDependencies": {
-		"prettier": "^3.2.5"
+		"@biomejs/biome": "1.8.3"
 	}
 }
