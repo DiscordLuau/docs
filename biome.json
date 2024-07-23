@@ -10,8 +10,8 @@
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": ["dist/**"],
-    "indentStyle": "space",
+    "ignore": ["dist/**", ".astro/**"],
+    "indentStyle": "tab",
     "indentWidth": 2,
     "lineWidth": 80
   },
@@ -41,7 +41,7 @@
     }
   },
   "linter": {
-    "ignore": ["dist/**"],
+    "ignore": ["dist/**", ".astro/**"],
     "rules": {
       "a11y": {
         "recommended": true
@@ -62,6 +62,7 @@
       "style": {
         "recommended": true,
         "noParameterAssign": "off",
+		"noNonNullAssertion": "off",
         "useNodejsImportProtocol": "off"
       },
       "suspicious": {

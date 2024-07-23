@@ -31,22 +31,22 @@ export const removeTypeModifiers = (type: string) => {
 
 export const getLuaDocs = (luaType: LuaType) => {
 	const luaDocsBaseUrl = new URL("https://www.lua.org/pil");
-	luaDocsBaseUrl.pathname += "/" + luaTypeDocs[luaType] + ".html";
+	luaDocsBaseUrl.pathname += `/${luaTypeDocs[luaType]}.html`;
 
 	return luaDocsBaseUrl.toString();
 };
 
 export const getCustomTypeDocs = (type: string) => {
-	if (type == "()" || type == "any") {
+	if (type === "()" || type === "any") {
 		return null;
 	}
 
 	const path =
-		"/classes/" +
-		type
+		`/classes/${type
 			.split(".")
 			.map((component) => component.toLocaleLowerCase())
-			.join("/");
+			.join("/")}`
+		
 
 	return path;
 };
