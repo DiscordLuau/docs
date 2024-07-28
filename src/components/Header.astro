@@ -1,0 +1,15 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Header.astro";
+
+const file = Astro.props.entry.id;
+---
+
+<>
+    {
+        file !== "index.mdx" && (
+            <Default {...Astro.props}><slot /></Default>
+        )
+    }
+
+</>

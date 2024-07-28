@@ -48,6 +48,7 @@ export default defineConfig({
 			],
 			components: {
 				Pagination: "./src/components/Pagination.astro",
+				Header: "./src/components/Header.astro",
 			},
 		}),
 	],
