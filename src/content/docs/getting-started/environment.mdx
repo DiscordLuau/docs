@@ -4,159 +4,104 @@ description: Instructions on how to set up a healthy environment for a Discord A
 ---
 
 This guide will provide a brief overview on how to setup both the [Lune](https://lune-org.github.io/docs) runtime 
-as well as several tools that will help you in the production of a DiscordLuau application.
+as well as several tools that will help you in development of a DiscordLuau application.
 
-This guide assumes you're a classic Roblox developer that's never looked at software development outside of the Roblox Engine
+This guide requires no prerequisite knowledge, and aims to get you up to speed, regardless of your background as a developer.
 
 ## Required
-
-The following tools are required to have a healthy environment to build a DiscordLuau application
+The following tools are typically required for a development environment to build a DiscordLuau application:
 
 ### Visual Studio Code
-
-Visual Studio Code is a common IDE that DiscordLuau will assume you'll be using, there will be several references to VSCode, or branches alike
+Visual Studio Code is a commonly used code editor that DiscordLuau assumes you'll be using, there will be several references to VSCode, or branches alike
 VSCode in this guide.
 
-To install Visual Studio Code, please head to their official website, and download the binaries required for your platform;
+You can get VSCode [here](https://code.visualstudio.com/).
 
-- https://code.visualstudio.com/
+To continue, create a new directory for project, and have opened that in VSCode.
 
-*(From this point on, we expect that you've created a new file system Folder for your discord application,
-and have opened that folder in VSCode)*
-
-### Aftman
-
-[Aftman](https://github.com/LPGhatguy/aftman) is a [toolchain manager](https://en.wikipedia.org/wiki/Toolchain), enabling 
+### Rokit 
+[Rokit](https://github.com/rojo-rbx/rokit) is a [toolchain manager](https://en.wikipedia.org/wiki/Toolchain), enabling 
 developers to easily download and setup project tooling.
 
-This guide assumes you're going to be using aftman, however, if not - there will be links to documentation to indicate other
-installation methods.
+This guide assumes that you're using Rokit, however, you are free to use other installation methods or toolchain managers.
 
-#### Installation of Aftman
+Please follow [these steps](https://github.com/rojo-rbx/rokit?tab=readme-ov-file#installation) to install Rokit.
 
-Please follow the [following guide on how to install the Aftman toolmanager](https://github.com/LPGhatguy/aftman?tab=readme-ov-file#installation)
+Now, run the following command to set up your current working directory with Rokit:
 
----
+```bash
+rokit init
+```
+
+### Luau LSP
+Luau LSP is a [language server protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol) implementation for the Luau programming language. It allows for autocomplete, code analysis, and other nice-to-have features in your IDE. 
+
+Install the extension from the VSCode Marketplace or OpenVSX Registry:
+
+- VSCode Marketplace: https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp
+- OpenVSX Registry: https://open-vsx.org/extension/JohnnyMorganz/luau-lsp
+
+For other IDEs, instructions may be located [here](https://github.com/JohnnyMorganz/stylua/blob/main/README.md#installation).
 
 ### Lune
+Lune is a [Luau](https://luau-lang.org/) [runtime](https://en.wikipedia.org/wiki/Runtime_system), enabling us to execute our code. Lune makes it possible to utilize various I/O functionality via its standard library.
 
-Lune in a [Luau](https://luau-lang.org/) [runtime](https://en.wikipedia.org/wiki/Runtime_system), enabling us to take advantage
-of Luau, beyond the Roblox engine, there are some destinct differences from Lune and the compiled Luau binaries though,
-the major factor being that Lune provides a standard library.
+To learn more about Lune, its standard library, and installation instructions, please [read the documentation](https://lune-org.github.io/docs/)
 
-To learn more about lune, please [head over here](https://lune-org.github.io/docs)
-
-#### Installation of Lune
-
-Installing lune can be done so through Aftman as such:
+Installing Lune can be done so through Rokit as such:
 
 ```bash
-aftman add lune-org/lune
+Rokit add lune-org/lune
 ```
 
-To verify that Lune has installed correctly, you can execute the following command in a Command Line / Terminal to interact
-with the lune CLI:
+To verify that Lune has installed correctly, you can execute the following command in your terminal to display your installed Lune version:
 
 ```bash
-lune
+lune --version
 ```
-
-:::note
-If you get an error upon the above Lune command, please ensure that the envrionment variables are setup as per aftman requires - otherwise
-your computer won't know where to find Lune!
-:::
-
-#### Setup of Lune
-
-Lune installation is not enough for us to fully take advantage of this runtime in our IDE, we also need to setup some of the 
-additional rules that Lune requires;
-
-Please follow the guide [linked here](https://lune-org.github.io/docs/getting-started/4-editor-setup)
-
----
-
-### Luau-Lsp
-
-[Luau LSP](https://github.com/JohnnyMorganz/luau-lsp) is a Language server for the Luau programming language, this is going to help make your life easier when both using luau, and 
-interacting with DiscordLuau's type interface.
-
-#### Installation of Luau-Lsp
-
-- [VSCode IDE](https://marketplace.visualstudio.com/items?itemName=JohnnyMorganz.luau-lsp) 
-- [VSCodium IDE](https://open-vsx.org/extension/JohnnyMorganz/luau-lsp)
-
-:::caution
-This assumes you have a variant of the Visual Studio Code IDE, if not - then you can install Luau-Lsp through aftman with the following
-
-```bash
-aftman install JohnnyMorganz/luau-lsp
-```
-
-using [this guide](https://github.com/JohnnyMorganz/luau-lsp/blob/main/editors/README.md), you may be able to set up the LSP for whatever your configuration is.
-:::
-
----
 
 ### Git
 
-Git is primarily a version protocol, websites such as GitHub & GitLab is built around this protocol, allowing developers to upload
-versioned code to a repository that anyone can visit and access.
+Git is primarily a [version control system](https://en.wikipedia.org/wiki/Version_control), platforms such as GitHub and GitLab allow you to publish your code as repositories.
 
-We will need to use Git in order to install the Discord-Luau library into your project.
-
-#### Installation of Git
-
-Git can be installed by following [this guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+Install it by following [this guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 :::note
-Git isn't an application, but more of a command line tool, if you're not comfortable with using the command line, there are
-git clients out there that can simplify the process of using Git!
-
-I'll link [Git Kraken](https://www.gitkraken.com/) as reference.
+Git is not a GUI-based tool. If you're not comfortable with using the command line, there are plenty of GUI-based clients to simplify the process of using Git!
 :::
 
-## Not Required
+## Optional 
 
 The following tools are nice-to-haves, but by all means can be skipped and/or ignored.
 
-### Selene Linter
+### Selene
 
-[Selene](https://github.com/Kampfkarren/selene) allows us to run a [Linter](https://en.wikipedia.org/wiki/Lint_(software)) on our Luau code, this is generally a healthy tool to have if you're going
-to be making a large codebase.
+[Selene](https://github.com/Kampfkarren/selene) is a [Linter](https://en.wikipedia.org/wiki/Lint_(software)) for Luau code, and is generally a healthy tool to use to determine poor quality code in your project.
 
-#### Installation of Selene
-
-You can install the selene lint through aftman with the following command
+Using Rokit, it can be installed by running:
 
 ```bash
-aftman install Kampfkarren/selene
+rokit add Kampfkarren/selene
 ```
 
-### Stylua Formatter
+### StyLua
+StyLua is an opinionated code formatter for Luau projects, which formats your code to be easily readable.
 
-[Stylua](https://github.com/JohnnyMorganz/StyLua) allows us to run a [Code Formatter](https://trunk.io/learn/what-is-a-code-formatter-and-why-would-i-want-to-use-one) on our Luau code, this is also quite healthy
-if you're going to either be working in a team, or the codebase is going to become quite large.
+To install StyLua, follow [this guide](https://github.com/JohnnyMorganz/stylua/blob/main/README.md#installation).
 
-#### Installation of Stylua
-
-You can install the Stylua formatter through aftman with the following command
-
+Using Rokit, this would look like:
 ```bash
-aftman install JohnnyMorganz/StyLua
+rokit add JohnnyMorganz/stylua
 ```
 
 ## Conclusion
 
-You should now have the avaliable tools to start developing a discord application in Discord Luau!
+You now have the tools to start developing a Discord application using DiscordLuau!
 
-The following is a `aftman.toml` file containing all of the above tools, you can compare what you have to this to ensure everything
-is correctly installed!
+The following is a `rokit.toml` file containing all of the above tools, you can compare what you have to this to ensure everything
+is correctly installed! Do note that this contains the latest versions of the tools at the time of writing this guide, and these versions may change in the future. 
 
 ```toml
-# This file lists tools managed by Aftman, a cross-platform toolchain manager.
-# For more information, see https://github.com/LPGhatguy/aftman
-
-# To add a new tool, add an entry to this table.
 [tools]
 lune = "lune-org/lune@0.8.4"
 stylua = "JohnnyMorganz/StyLua@0.20.0"
@@ -171,7 +116,7 @@ git -v
 ```
 
 ```bash
-aftman -V
+rokit -V
 ```
 
-and finally, you've installed an IDE, such as Visual Studio Code!
+and finally, you've installed a code editor/IDE, such as Visual Studio Code!
