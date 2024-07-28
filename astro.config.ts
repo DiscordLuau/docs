@@ -16,7 +16,7 @@ export default defineConfig({
 				src: "/src/assets/logo.png",
 				replacesTitle: true,
 			},
-			favicon: "src/assets/icon.png",
+			favicon: "/icon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
 				discord: "https://discord.gg/DpQwdD8zD3",
