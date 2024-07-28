@@ -13,11 +13,10 @@ export default defineConfig({
 		starlight({
 			title: "Discord Luau",
 			logo: {
-				light: "/src/assets/banner-light.png",
-				dark: "/src/assets/banner-dark.png",
+				src: "/src/assets/logo.png",
 				replacesTitle: true,
 			},
-			favicon: "src/assets/favicon.png",
+			favicon: "src/assets/icon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
 			},
