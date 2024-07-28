@@ -19,6 +19,7 @@ export default defineConfig({
 			favicon: "src/assets/icon.png",
 			social: {
 				github: "https://github.com/DiscordLuau/discord-luau",
+				discord: "https://discord.gg/DpQwdD8zD3",
 			},
 			sidebar: [
 				{
@@ -46,7 +47,6 @@ export default defineConfig({
 				"./src/styles/lua.css",
 			],
 			components: {
-				Hero: "./src/components/Hero.astro",
 				Pagination: "./src/components/Pagination.astro",
 			},
 		}),
