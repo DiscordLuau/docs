@@ -1,0 +1,103 @@
+---
+title: SelectionBuilder
+description: DiscordLuau docs for SelectionBuilder.
+sidebar:
+ order: 3
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+SelectionBuilder is used to construct a selection (dropdown) component for a Discord message.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+<LuaProperty name="SelectionBuilder.Type" type="table" />
+---
+An enumeration of selection types.
+
+- TextSelection: 3
+- UserSelection: 5
+- RoleSelection: 6
+- MentionableSelection: 7
+- ChannelSelection: 8
+### ChannelType
+
+<LuaProperty name="SelectionBuilder.ChannelType" type="table" />
+---
+An enumeration of channel types.
+
+- GuildText: 0
+- DirectMessage: 1
+- GuildVoice: 2
+- GroupDirectMessage: 3
+- GuildCategory: 4
+- GuildAnnouncement: 5
+- AnnouncementThread: 10
+- PublicThread: 11
+- PrivateThread: 12
+- GuildStageVoice: 13
+- GuildDirectory: 14
+- GuildForum: 15
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="SelectionBuilder" args={[ { name: "selectionType", type: "number" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets the type of the selection.
+### setChannelTypes
+
+> <LuaDeclaration name="setChannelTypes" className="SelectionBuilder" args={[ { name: "...", type: "number" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets the channel types for the selection.
+### setPlaceholder
+
+> <LuaDeclaration name="setPlaceholder" className="SelectionBuilder" args={[ { name: "placeholderText", type: "string" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets the placeholder text for the selection.
+### setDisabled
+
+> <LuaDeclaration name="setDisabled" className="SelectionBuilder" args={[ { name: "isDisabled", type: "boolean" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets whether the selection is disabled.
+### setMinValues
+
+> <LuaDeclaration name="setMinValues" className="SelectionBuilder" args={[ { name: "minValue", type: "number" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets the minimum number of values that must be selected.
+### setMaxValues
+
+> <LuaDeclaration name="setMaxValues" className="SelectionBuilder" args={[ { name: "maxValue", type: "number" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Sets the maximum number of values that can be selected.
+### addChoice
+
+> <LuaDeclaration name="addChoice" className="SelectionBuilder" args={[ { name: "choiceName", type: "string" }, { name: "choiceValue", type: "string" }, { name: "choiceDescription", type: "string" }, { name: "isDefault", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Adds a choice to the selection.
+### destroyChoice
+
+> <LuaDeclaration name="destroyChoice" className="SelectionBuilder" args={[ { name: "choiceName", type: "string" } ]} returnType="Builders.Interface.SelectionBuilder" isMethod />
+Removes a choice from the selection.
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="SelectionBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the selection to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SelectionBuilder" args={[ { name: "selectionId", type: "string" } ]} />
+Creates a new instance of SelectionBuilder.
+

@@ -1,0 +1,58 @@
+---
+title: DiscordCache
+description: DiscordLuau docs for DiscordCache.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+The `DiscordCache` class provides a caching mechanism for storing and retrieving data associated with Discord objects.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### cache
+
+<LuaProperty name="DiscordCache.cache" type="{ [string]: any }," />
+### type
+
+<LuaProperty name="DiscordCache.type" type="string" />
+---
+The type of the DiscordCache. Default is "DiscordCache".
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setData
+
+> <LuaDeclaration name="setData" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" }, { name: "data", type: "any" } ]} isMethod />
+Sets data in the cache.
+### getData
+
+> <LuaDeclaration name="getData" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" } ]} returnType="any" isMethod />
+Gets data from the cache.
+### getDataOr
+
+> <LuaDeclaration name="getDataOr" className="DiscordCache" args={[ { name: "cacheType", type: "string" }, { name: "uuid", type: "string" }, { name: "callback", type: "function" } ]} returnType="any" isMethod />
+Gets data from the cache, or calls a callback to generate and cache the data if not found.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DiscordCache" args={[  ]} />
+Creates a new DiscordCache instance.
+

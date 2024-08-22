@@ -1,0 +1,53 @@
+---
+title: EndpointCache
+description: DiscordLuau docs for EndpointCache.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+EndpointCache is a caching mechanism designed to store data temporarily with an expiration time.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### expiry
+
+<LuaProperty name="EndpointCache.expiry" type="number" />
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setExpiry
+
+> <LuaDeclaration name="setExpiry" className="EndpointCache" args={[ { name: "seconds", type: "number" } ]} isMethod />
+Sets the expiry time for the cache.
+### set
+
+> <LuaDeclaration name="set" className="EndpointCache" args={[ { name: "value", type: "any" } ]} isMethod />
+Sets the value in the cache and starts the expiry timer.
+### get
+
+> <LuaDeclaration name="get" className="EndpointCache" args={[  ]} returnType="any" isMethod />
+Gets the current value from the cache.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="EndpointCache" args={[ { name: "expiryTime", type: "number?" } ]} />
+Creates a new instance of EndpointCache.
+

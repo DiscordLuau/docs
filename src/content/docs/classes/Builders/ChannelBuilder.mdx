@@ -1,0 +1,146 @@
+---
+title: ChannelBuilder
+description: DiscordLuau docs for ChannelBuilder.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+<LuaProperty name="ChannelBuilder.Type" type="table" />
+---
+An enumeration of activity types.
+
+- Game: 0
+- Streaming: 1
+- Listening: 2
+- Watching: 3
+- Competing: 5
+### VideoQualityMode
+
+<LuaProperty name="ChannelBuilder.VideoQualityMode" type="table" />
+---
+An enumeration of activity types.
+
+- QualityAuto: 1
+- Quality720p: 2
+### SortOrder
+
+<LuaProperty name="ChannelBuilder.SortOrder" type="table" />
+---
+An enumeration of activity types.
+
+- LatestActivity: 0
+- CreationDate: 1
+### ForumLayout
+
+<LuaProperty name="ChannelBuilder.ForumLayout" type="table" />
+---
+An enumeration of activity types.
+
+- NotSet: 0
+- ListView: 1
+- GalleryView: 2
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the type of the current discord channel.
+### setBitrate
+
+> <LuaDeclaration name="setBitrate" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the bitrate of the current discord voice channel.
+### setRegion
+
+> <LuaDeclaration name="setRegion" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the region of the current discord voice channel.
+### setVideoQualityMode
+
+> <LuaDeclaration name="setVideoQualityMode" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the Video Quality Mode of a discord voice channel
+### addMemberOverwrite
+
+> <LuaDeclaration name="addMemberOverwrite" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets an overwrite for a Member, allowing you to define allowed permissions, alongside dissallowed permissions.
+### addRoleOverwrite
+
+> <LuaDeclaration name="addRoleOverwrite" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets an overwrite for a Role, allowing you to define allowed permissions, alongside dissallowed permissions.
+### setDefaultReaction
+
+> <LuaDeclaration name="setDefaultReaction" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the default reaction for Forum and Media channels.
+### setDefaultSortOrder
+
+> <LuaDeclaration name="setDefaultSortOrder" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the default sort order for Forum and Media channels.
+### setDefaultForumLayout
+
+> <LuaDeclaration name="setDefaultForumLayout" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the Default layout for Forum channels.
+### setPosition
+
+> <LuaDeclaration name="setPosition" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the name of the Discord Channel
+### setPosition
+
+> <LuaDeclaration name="setPosition" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the position of a Discord Channel, the position determines the position the channel appears in the channel hierarchy.
+### setTopic
+
+> <LuaDeclaration name="setTopic" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the topic of a Discord Channel.
+### setNSFW
+
+> <LuaDeclaration name="setNSFW" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Locks the channel to be NSFW only.
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the rate limit per user for a discord channel.
+### setParentCategoryId
+
+> <LuaDeclaration name="setParentCategoryId" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the parent category of a discord channel.
+### setDefaultAutoArchiveDuration
+
+> <LuaDeclaration name="setDefaultAutoArchiveDuration" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the default archive duration for a discord channel.
+### setDefaultThreadRateLimitPerUser
+
+> <LuaDeclaration name="setDefaultThreadRateLimitPerUser" className="ChannelBuilder" args={[  ]} returnType="Builders.ChannelBuilder" isMethod />
+Sets the default thread limit for each user in a discord channel.
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="ChannelBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the activity to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ChannelBuilder" args={[  ]} />
+Creates a new instance of ChannelBuilder.
+

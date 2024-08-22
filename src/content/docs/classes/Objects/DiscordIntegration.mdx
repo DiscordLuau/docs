@@ -1,0 +1,93 @@
+---
+title: DiscordIntegration
+description: DiscordLuau docs for DiscordIntegration.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+DiscordIntegration represents a guild integration.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### guildId
+
+<LuaProperty name="DiscordIntegration.guildId" type="string" />
+### id
+
+<LuaProperty name="DiscordIntegration.id" type="string" />
+### name
+
+<LuaProperty name="DiscordIntegration.name" type="string" />
+### type
+
+<LuaProperty name="DiscordIntegration.type" type="number" />
+### enabled
+
+<LuaProperty name="DiscordIntegration.enabled" type="boolean" />
+### syncing
+
+<LuaProperty name="DiscordIntegration.syncing" type="boolean?" />
+### roleId
+
+<LuaProperty name="DiscordIntegration.roleId" type="string?" />
+### enableEmoticons
+
+<LuaProperty name="DiscordIntegration.enableEmoticons" type="boolean?" />
+### expireBehaviour
+
+<LuaProperty name="DiscordIntegration.expireBehaviour" type="number?" />
+### expireGracePeriod
+
+<LuaProperty name="DiscordIntegration.expireGracePeriod" type="number?" />
+### user
+
+<LuaProperty name="DiscordIntegration.user" type="Objects.DiscordUser?" />
+### account
+
+<LuaProperty name="DiscordIntegration.account" type="{ id: string, name: string }?" />
+### syncedAt
+
+<LuaProperty name="DiscordIntegration.syncedAt" type="string?" />
+### subscriberCount
+
+<LuaProperty name="DiscordIntegration.subscriberCount" type="number?" />
+### revoked
+
+<LuaProperty name="DiscordIntegration.revoked" type="boolean?" />
+### application
+
+<LuaProperty name="DiscordIntegration.application" type="Objects.Application?" />
+### scopes
+
+<LuaProperty name="DiscordIntegration.scopes" type="{ string }?" />
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="DiscordIntegration" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Deletes the invite asynchronously.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DiscordIntegration" args={[ { name: "discordClient", type: "any" }, { name: "integrationData", type: "table" } ]} />
+Creates a new instance of DiscordIntegration.
+

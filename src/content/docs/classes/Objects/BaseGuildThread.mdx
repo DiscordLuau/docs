@@ -1,0 +1,129 @@
+---
+title: BaseGuildThread
+description: DiscordLuau docs for BaseGuildThread.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+A base discord Thread channel, all discord threads extend from.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### ownerId
+
+<LuaProperty name="BaseGuildThread.ownerId" type="string" />
+### messageCount
+
+<LuaProperty name="BaseGuildThread.messageCount" type="number" />
+### memberCount
+
+<LuaProperty name="BaseGuildThread.memberCount" type="number" />
+### totalMessageSent
+
+<LuaProperty name="BaseGuildThread.totalMessageSent" type="number" />
+### threadMetadata
+
+<LuaProperty name="BaseGuildThread.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string? }," />
+### availableTags
+
+<LuaProperty name="BaseGuildThread.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string? } }," />
+### appliedTags
+
+<LuaProperty name="BaseGuildThread.appliedTags" type="{ string }" />
+### defaultReactionEmoji
+
+<LuaProperty name="BaseGuildThread.defaultReactionEmoji" type="Objects.DiscordEmoji" />
+### lastPinTimestamp
+
+<LuaProperty name="BaseGuildThread.lastPinTimestamp" type="string" />
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### lastMessageId
+
+<LuaProperty name="BaseGuildThread.lastMessageId" type="string?" />
+
+> This property was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### joinThreadAsync
+
+> <LuaDeclaration name="joinThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Joins the current discord bot into the thread
+### addMemberToThreadAsync
+
+> <LuaDeclaration name="addMemberToThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Adds the passed member to the thread channel
+### leaveThreadAsync
+
+> <LuaDeclaration name="leaveThreadAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Leaves the thread channel if the discord bot is in the channel.
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Removes the passed user id from the current thread channel
+### getThreadMemberAsync
+
+> <LuaDeclaration name="getThreadMemberAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="BaseGuildThread" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future" isMethod />
+Triggers the typing indicator in the channel.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="BaseGuildThread" args={[ { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
+Gets messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="BaseGuildThread" args={[ { name: "messageId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+Gets a specific message from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="BaseGuildThread" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Vendor.Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="BaseGuildThread" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Vendor.Future" isMethod />
+Sends a message to the channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="BaseGuildThread" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+> This function was inherited from [Objects.BaseGuildTextChannel](Objects.BaseGuildTextChannel)
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The BaseGuildThread instance has no set functions!
+

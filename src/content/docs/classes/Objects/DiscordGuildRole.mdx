@@ -1,0 +1,83 @@
+---
+title: DiscordGuildRole
+description: DiscordLuau docs for DiscordGuildRole.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+The `DiscordGuildRole` class represents a role in a Discord guild (server) and provides a structure for role data.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### guildId
+
+<LuaProperty name="DiscordGuildRole.guildId" type="string" />
+### id
+
+<LuaProperty name="DiscordGuildRole.id" type="string" />
+### name
+
+<LuaProperty name="DiscordGuildRole.name" type="string" />
+### permissions
+
+<LuaProperty name="DiscordGuildRole.permissions" type="string" />
+### position
+
+<LuaProperty name="DiscordGuildRole.position" type="number" />
+### color
+
+<LuaProperty name="DiscordGuildRole.color" type="number" />
+### hoist
+
+<LuaProperty name="DiscordGuildRole.hoist" type="boolean" />
+### managed
+
+<LuaProperty name="DiscordGuildRole.managed" type="boolean" />
+### mentionable
+
+<LuaProperty name="DiscordGuildRole.mentionable" type="boolean" />
+### type
+
+<LuaProperty name="DiscordGuildRole.type" type="string" />
+---
+The type of the DiscordGuildRole. Default is "DiscordGuildRole".
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+The DiscordGuildRole instance has no set methods!
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### updatePositionAsync
+
+> <LuaDeclaration name="updatePositionAsync" className="DiscordGuildRole" args={[ { name: "position", type: "number" } ]} />
+Creates a new DiscordGuildRole instance.
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="DiscordGuildRole" args={[ { name: "position", type: "Objects.GuildRoleBuilder" } ]} />
+Allows the developer to update/modify a discord role
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="DiscordGuildRole" args={[  ]} />
+Deletes the Role from the discord guild asynchronously.
+### new
+
+> <LuaDeclaration name="new" className="DiscordGuildRole" args={[ { name: "discordClient", type: "any" }, { name: "roleData", type: "table" } ]} />
+Creates a new DiscordGuildRole instance.
+

@@ -1,0 +1,77 @@
+---
+title: MemberBuilder
+description: DiscordLuau docs for MemberBuilder.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+MemberBuilder is used to update a member object for a guild,
+
+Usage:
+```lua
+local member = MemberBuilder.new()
+	:setNickname("Discordian #0!")
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+The MemberBuilder instance has no set properties!
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setNickname
+
+> <LuaDeclaration name="setNickname" className="MemberBuilder" args={[ { name: "nickname", type: "string" } ]} returnType="Builders.MemberBuilder" isMethod />
+Sets the nickname of a discord member
+### addRole
+
+> <LuaDeclaration name="addRole" className="MemberBuilder" args={[ { name: "roleId", type: "string" } ]} returnType="Builders.MemberBuilder" isMethod />
+Adds a role to a member
+### setMuted
+
+> <LuaDeclaration name="setMuted" className="MemberBuilder" args={[ { name: "muted", type: "boolean" } ]} returnType="Builders.MemberBuilder" isMethod />
+Sets the muted state for this member
+### setDeafened
+
+> <LuaDeclaration name="setDeafened" className="MemberBuilder" args={[ { name: "deafened", type: "boolean" } ]} returnType="Builders.MemberBuilder" isMethod />
+Sets the deafened state for this member
+### setActiveVoiceChannel
+
+> <LuaDeclaration name="setActiveVoiceChannel" className="MemberBuilder" args={[ { name: "voiceChannelId", type: "string" } ]} returnType="Builders.MemberBuilder" isMethod />
+Allows you to specify the voice channel to move the member too.
+### setTimeoutFor
+
+> <LuaDeclaration name="setTimeoutFor" className="MemberBuilder" args={[ { name: "epoch", type: "number" } ]} returnType="Builders.MemberBuilder" isMethod />
+Allows you to timeout a members communication.
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="MemberBuilder" args={[ { name: "flags", type: "number" } ]} returnType="Builders.MemberBuilder" isMethod />
+Sets the bitflags for this Member
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="MemberBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the member to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="MemberBuilder" args={[  ]} />
+Creates a new instance of MemberBuilder.
+

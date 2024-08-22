@@ -1,0 +1,80 @@
+---
+title: OnboardingBuilder
+description: DiscordLuau docs for OnboardingBuilder.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+OnboardingBuilder allows you to build onboarding for discord guilds.
+
+Usage:
+```lua
+local DiscordLuau = require("../Submodules/DiscordLuau")
+
+local OnboardingBuilder = DiscordLuau.OnboardingBuilder.new()
+	:setMode(DiscordLuau.OnboardingBuilder.Mode.Default)
+	:setEnabled(true)
+	:addChannelId("1048686561685946489")
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Mode
+
+<LuaProperty name="OnboardingBuilder.Mode" type="table" />
+---
+An enumeration of onboarding modes
+
+- Default: 0
+- Advanced: 1
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setMode
+
+> <LuaDeclaration name="setMode" className="OnboardingBuilder" args={[ { name: "mode", type: "number" } ]} returnType="Builders.OnboardingBuilder" isMethod />
+Sets the mode of the Guild onbaording object
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="OnboardingBuilder" args={[ { name: "isEnabled", type: "boolean" } ]} returnType="Builders.OnboardingBuilder" isMethod />
+Sets if the guild onboarding is enabled or not
+### addChannelId
+
+> <LuaDeclaration name="addChannelId" className="OnboardingBuilder" args={[ { name: "channelId", type: "string" } ]} returnType="Builders.OnboardingBuilder" isMethod />
+Channel IDs that members get opted into automatically
+### addOnboardingPrompt
+
+> <LuaDeclaration name="addOnboardingPrompt" className="OnboardingBuilder" args={[ { name: "prompt", type: "Objects.OnboardingPromptBuilder" } ]} returnType="Builders.OnboardingBuilder" isMethod />
+Channel IDs that members get opted into automatically
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="OnboardingBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="OnboardingBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="OnboardingBuilder" args={[  ]} />
+Creates a new instance of OnboardingBuilder.
+

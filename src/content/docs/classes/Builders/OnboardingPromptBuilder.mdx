@@ -1,0 +1,87 @@
+---
+title: OnboardingPromptBuilder
+description: DiscordLuau docs for OnboardingPromptBuilder.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+OnboardingPromptBuilder allows you to build onboarding for discord guilds.
+
+Usage:
+```lua
+local DiscordLuau = require("../Submodules/DiscordLuau")
+
+local OnboardingPromptBuilder = DiscordLuau.OnboardingPromptBuilder.new()
+	:setType(DiscordLuau.OnboardingPromptBuilder.Type.Dropdown)
+	:addOption(
+		DiscordLuau.OnboardingPromptOptionBuilder.new()
+			:setTitle("option-name")
+			:setDescription("Option Description!")
+	)
+```
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### Type
+
+<LuaProperty name="OnboardingPromptBuilder.Type" type="table" />
+---
+An enumeration of prompt types
+
+- MultipleChoice: 0
+- Dropdown: 1
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="OnboardingPromptBuilder" args={[ { name: "type", type: "number" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Set the type of the Onboarding Prompt builder
+### addOption
+
+> <LuaDeclaration name="addOption" className="OnboardingPromptBuilder" args={[ { name: "option", type: "Builders.OnboardingPromptOptionBuilder" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Adds an option to the Onboarding prompt builder.
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="OnboardingPromptBuilder" args={[ { name: "title", type: "string" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Sets the title of the onboarding prompt builder
+### setSingleSelection
+
+> <LuaDeclaration name="setSingleSelection" className="OnboardingPromptBuilder" args={[ { name: "isSingleSelection", type: "boolean" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Indicates whether users are limited to selecting one option for the prompt
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="OnboardingPromptBuilder" args={[ { name: "isRequired", type: "boolean" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Indicates whether the prompt is required before a user completes the onboarding flow
+### setIsOnboarding
+
+> <LuaDeclaration name="setIsOnboarding" className="OnboardingPromptBuilder" args={[ { name: "isInOnboarding", type: "boolean" } ]} returnType="Builders.OnboardingPromptBuilder" isMethod />
+Indicates whether the prompt is present in the onboarding flow. If false, the prompt will only appear in the Channels & Roles tab
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="OnboardingPromptBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="OnboardingPromptBuilder" args={[  ]} />
+Creates a new instance of OnboardingPromptBuilder.
+

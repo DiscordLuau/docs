@@ -1,0 +1,97 @@
+---
+title: UserGroupChannel
+description: DiscordLuau docs for UserGroupChannel.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+Represents the implementation of a Discord Group Channel
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### icon
+
+<LuaProperty name="UserGroupChannel.icon" type="string" />
+### ownerId
+
+<LuaProperty name="UserGroupChannel.ownerId" type="string" />
+### applicationId
+
+<LuaProperty name="UserGroupChannel.applicationId" type="string" />
+### managed
+
+<LuaProperty name="UserGroupChannel.managed" type="boolean" />
+### id
+
+<LuaProperty name="UserGroupChannel.id" type="string" />
+
+> This property was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### recipients
+
+<LuaProperty name="UserGroupChannel.recipients" type="{ Objects.DiscordUser }" />
+
+> This property was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="UserGroupChannel" args={[ { name: "channelBuilder", type: "ChannelBuilder.ChannelBuilder" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Modifies the thread channel settings asynchronously.
+### triggerTypingIndicator
+
+> <LuaDeclaration name="triggerTypingIndicator" className="UserGroupChannel" args={[  ]} returnType="Vendor.Future" isMethod />
+Triggers the typing indicator in the channel.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="UserGroupChannel" args={[ { name: "limit", type: "number?" } ]} returnType="Vendor.Future" isMethod />
+Gets messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="UserGroupChannel" args={[ { name: "messageId", type: "string" } ]} returnType="Vendor.Future" isMethod />
+Gets a specific message from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="UserGroupChannel" args={[ { name: "messageIds", type: "{string}" } ]} returnType="Vendor.Future" isMethod />
+Deletes multiple messages from the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### sendMessageAsync
+
+> <LuaDeclaration name="sendMessageAsync" className="UserGroupChannel" args={[ { name: "messageBuilder", type: "MessageBuilder" } ]} returnType="Vendor.Future" isMethod />
+Sends a message to the channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="UserGroupChannel" args={[  ]} returnType="Vendor.Future<{[number]: DiscordMessage}>" isMethod />
+Retrieves the pinned messages in the text channel asynchronously.
+
+> This function was inherited from [Objects.BaseUserChannel](Objects.BaseUserChannel)
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The UserGroupChannel instance has no set functions!
+

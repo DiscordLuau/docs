@@ -1,0 +1,70 @@
+---
+title: DiscordApplication
+description: DiscordLuau docs for DiscordApplication.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+The `DiscordApplication` class provides methods to interact with Discord application commands such as creating, deleting, editing, fetching, and setting global application commands.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### id
+
+<LuaProperty name="DiscordApplication.id" type="string" />
+### flags
+
+<LuaProperty name="DiscordApplication.flags" type="number" />
+### id
+
+<LuaProperty name="DiscordApplication.id" type="string" />
+### flags
+
+<LuaProperty name="DiscordApplication.flags" type="number" />
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### createSlashCommandAsync
+
+> <LuaDeclaration name="createSlashCommandAsync" className="DiscordApplication" args={[ { name: "command", type: "CommandBuilder.CommandBuilder The command to create." } ]} returnType="Vendor.Future<CommandResponse>" isMethod />
+Creates a new slash command for the Discord application.
+### deleteSlashCommandAsync
+
+> <LuaDeclaration name="deleteSlashCommandAsync" className="DiscordApplication" args={[ { name: "commandId", type: "string The ID of the command to delete." } ]} returnType="Vendor.Future<CommandResponse>" isMethod />
+Deletes an existing slash command from the Discord application.
+### editSlashCommandAsync
+
+> <LuaDeclaration name="editSlashCommandAsync" className="DiscordApplication" args={[ { name: "commandId", type: "string The ID of the command to edit." }, { name: "command", type: "CommandBuilder.CommandBuilder The updated command data." } ]} returnType="Vendor.Future<CommandResponse>" isMethod />
+Edits an existing slash command for the Discord application.
+### fetchSlashCommandsAsync
+
+> <LuaDeclaration name="fetchSlashCommandsAsync" className="DiscordApplication" args={[  ]} returnType="Vendor.Future<{ApplicationCommand}>" isMethod />
+Fetches all existing slash commands for the Discord application.
+### setSlashCommandsAsync
+
+> <LuaDeclaration name="setSlashCommandsAsync" className="DiscordApplication" args={[ { name: "commands", type: "{CommandBuilder.CommandBuilder} The list of commands to set." } ]} returnType="Vendor.Future<nil>" isMethod />
+Sets the slash commands for the Discord application, updating existing ones and creating or deleting as necessary.
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DiscordApplication" args={[ { name: "discordClient", type: "any The Discord client instance." }, { name: "applicationData", type: "{id: string, flags: number} The application data." } ]} />
+Creates a new instance of the DiscordApplication.
+

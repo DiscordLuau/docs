@@ -1,0 +1,111 @@
+---
+title: GuildPrivateThreadChannel
+description: DiscordLuau docs for GuildPrivateThreadChannel.
+sidebar:
+ order: 2
+ collapsed: true
+---
+[//]: # (This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.)
+[//]: # (To actually edit documentation, make changes to the main DiscordLuau repo.)
+
+[//]: # (----- DOCUMENT IMPORTS ----- )
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+[//]: # (----- DOCUMENT DESCRIPTION ----- )
+
+Represents the implementation of a Discord Private Thread channel.
+
+[//]: # (----- DOCUMENT PROPERTIES ----- )
+
+## Properties
+
+### ownerId
+
+<LuaProperty name="GuildPrivateThreadChannel.ownerId" type="string" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### messageCount
+
+<LuaProperty name="GuildPrivateThreadChannel.messageCount" type="number" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### memberCount
+
+<LuaProperty name="GuildPrivateThreadChannel.memberCount" type="number" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### totalMessageSent
+
+<LuaProperty name="GuildPrivateThreadChannel.totalMessageSent" type="number" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### threadMetadata
+
+<LuaProperty name="GuildPrivateThreadChannel.threadMetadata" type="{ archived: boolean, autoArchiveDuration: number, archiveTimestamp: string, locked: boolean, invitable: boolean?, createTimestamp: string? }," />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### availableTags
+
+<LuaProperty name="GuildPrivateThreadChannel.availableTags" type="{ { id: string, name: string, moderated: boolean, emojiId: string?, emojiName: string? } }," />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### appliedTags
+
+<LuaProperty name="GuildPrivateThreadChannel.appliedTags" type="{ string }" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### defaultReactionEmoji
+
+<LuaProperty name="GuildPrivateThreadChannel.defaultReactionEmoji" type="Objects.DiscordEmoji" />
+
+> This property was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+
+[//]: # (----- DOCUMENT METHODS ----- )
+
+## Methods
+
+### joinThreadAsync
+
+> <LuaDeclaration name="joinThreadAsync" className="GuildPrivateThreadChannel" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Joins the current discord bot into the thread
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### addMemberToThreadAsync
+
+> <LuaDeclaration name="addMemberToThreadAsync" className="GuildPrivateThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Adds the passed member to the thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### leaveThreadAsync
+
+> <LuaDeclaration name="leaveThreadAsync" className="GuildPrivateThreadChannel" args={[  ]} returnType="Vendor.Future<unknown>" isMethod />
+Leaves the thread channel if the discord bot is in the channel.
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="GuildPrivateThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<unknown>" isMethod />
+Removes the passed user id from the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### getThreadMemberAsync
+
+> <LuaDeclaration name="getThreadMemberAsync" className="GuildPrivateThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+### removeMemberFromThreadAsync
+
+> <LuaDeclaration name="removeMemberFromThreadAsync" className="GuildPrivateThreadChannel" args={[ { name: "userId", type: "string" } ]} returnType="Vendor.Future<{ DiscordGuildMember }>" isMethod />
+Returns a list of members that are active in the current thread channel
+
+> This function was inherited from [Objects.BaseGuildThread](Objects.BaseGuildThread)
+
+[//]: # (----- DOCUMENT FUNCTIONS ----- )
+
+## Functions
+
+The GuildPrivateThreadChannel instance has no set functions!
+
