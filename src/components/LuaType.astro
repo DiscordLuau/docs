@@ -7,28 +7,85 @@ type Props = {
 	type: string;
 };
 
+type TypeInfo = {
+	typeName: string;
+	url: string | null;
+};
+
 let { url, type } = Astro.props;
 let pairs: string[][] = [];
 
-const tableType = type.match(/\{(.*?)\}/);
-if (tableType) {
-	if (isObject(tableType[1])) {
-		// KV table
-		pairs = getKvPairs(tableType[1]);
-		url = null;
-	} else {
+function extractTableType(
+	type: string
+): [string[][], string | null, RegExpMatchArray | null] {
+	const tableType = type.match(/\{(.*?)\}/);
+	if (tableType) {
+		if (isObject(tableType[1])) {
+			// KV table
+			return [getKvPairs(tableType[1]), null, tableType];
+		}
+
 		// Array shorthand notation
-		url = getTypeDocs(tableType[1].trim());
+		return [[], getTypeDocs(tableType[1].trim()), tableType];
 	}
+
+	return [[], null, tableType];
+}
+
+let tableType: RegExpMatchArray | null = null;
+[pairs, url, tableType] = extractTableType(type);
+
+const genericType = type.match(/(.*)<(.*?)>/);
+let urls: {
+	base: TypeInfo;
+	generic: TypeInfo[];
+} | null = null;
+if (genericType) {
+	const base = genericType[1].trim();
+	const generic = genericType[2].trim();
+	url = null;
+	urls = {
+		base: {
+			typeName: base,
+			url: getTypeDocs(base),
+		},
+
+		generic: generic.split(", ").map((generic) => ({
+			typeName: generic.trim(),
+			url: getTypeDocs(generic.trim()),
+		})),
+	};
 }
 ---
 
 <>
-  {
-    (url && <a href={url}>{type}</a>) ||
-      (pairs.length !== 0 && (
-        <LuaTable pairs={pairs} tableInner={tableType![1]} />
-      )) ||
-      type
-  }
+	{
+		(url && <a href={url}>{type}</a>) ||
+			(urls && (
+				<>
+					<a href={urls.base.url}>{urls.base.typeName}</a>
+					<span>&lt;</span>
+					{urls.generic.map(({ url, typeName }, index) => {
+						const [pairs, tableDocsUrl, _tableType] = extractTableType(typeName);
+						const isTable = pairs.length !== 0;
+
+						return (
+							<>
+								<a href={isTable ? tableDocsUrl : url}>{typeName}</a>
+								{index !== urls.generic.length - 1 && (
+									<>
+										<span>, </span>
+									</>
+								)}
+							</>
+						);
+					})}
+					<span>&gt;</span>
+				</>
+			)) ||
+			(pairs.length !== 0 && (
+				<LuaTable pairs={pairs} tableInner={tableType![1]} />
+			)) ||
+			type
+	}
 </>
