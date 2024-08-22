@@ -14,6 +14,7 @@ url.searchParams.set("per_page", "100");
 async function fetchCommits() {
 	const res = await fetch(url, {
 		headers: {
+            Authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`,
 			Accept: "application/vnd.github+json",
 			"User-Agent": "starlight-contributors/1.0",
 		},
