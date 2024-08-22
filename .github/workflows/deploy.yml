@@ -42,7 +42,7 @@ jobs:
         run: "pnpm install"
 
       - name: Build step
-        run: "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} pnpm astro:build"
+        run: "GITHUB_TOKEN=${{ secrets.GH_SECRET }} pnpm astro:build"
 
       - name: Upload to Deno Deploy
         run: "DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} pnpm run deploy"
