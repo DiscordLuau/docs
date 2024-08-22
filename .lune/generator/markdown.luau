@@ -102,13 +102,9 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 	markdownFile ..= newline()
 
 	markdownFile ..= comment(
-		`This file was automatically compiled through the Generator luau code under this repository`
+		`This file was automatically @generated from moonwave comments using a script. Please do not exit by hand.`
 	)
-	markdownFile ..= comment(`if you want to edit the documentation of discord-luau, please write changes`)
-	markdownFile ..= comment(
-		`to the discord-luau repository itself, we extract the comments from discord-luau and translate`
-	)
-	markdownFile ..= comment(`them into markdown files that Nextra can interpret!`)
+	markdownFile ..= comment(`To actually edit documentation, make changes to the main DiscordLuau repo.`)
 
 	markdownFile ..= newline()
 
