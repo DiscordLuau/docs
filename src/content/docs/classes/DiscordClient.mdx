@@ -99,6 +99,10 @@ Fetches a guild by its ID.
 
 > <LuaDeclaration name="fetchChannelAsync" className="DiscordClient" args={[ { name: "channelId", type: "string" } ]} returnType="Vendor.Future<Objects.DiscordChannel>" isMethod />
 Fetches a channel by its ID.
+### fetchDMChannelAsync
+
+> <LuaDeclaration name="fetchDMChannelAsync" className="DiscordClient" args={[ { name: "recipientId", type: "string" } ]} returnType="Vendor.Future<Objects.DiscordChannel>" isMethod />
+Fetches a DM channel between a user and the client.
 ### updatePresenceAsync
 
 > <LuaDeclaration name="updatePresenceAsync" className="DiscordClient" args={[ { name: "discordPresence", type: "Builders.PresenceBuilder" } ]} returnType="Vendor.Future<boolean>" isMethod />
