@@ -29,6 +29,10 @@ guild events, and interactions.
 ### onMessage
 
 <LuaProperty name="EventManager.onMessage" type="Vendor.Signal<Objects.DiscordMessage>" />
+---
+Fires when a message is sent.  
+The `message content intent` must be enabled in order to allow bots to get the message content.
+The intent can be enabled on Discord Developer Portal.
 ### onMessageChanged
 
 <LuaProperty name="EventManager.onMessageChanged" type="Vendor.Signal<Objects.DiscordMessage>" />

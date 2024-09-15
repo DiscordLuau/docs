@@ -44,6 +44,10 @@ An enumeration of onboarding modes
 
 ## Methods
 
+### toPayloadObject
+
+> <LuaDeclaration name="toPayloadObject" className="OnboardingBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
+Converts the message to a JSON object that can be sent to the Discord API.
 ### setMode
 
 > <LuaDeclaration name="setMode" className="OnboardingBuilder" args={[ { name: "mode", type: "number" } ]} returnType="Builders.OnboardingBuilder" isMethod />
@@ -60,10 +64,6 @@ Channel IDs that members get opted into automatically
 
 > <LuaDeclaration name="addOnboardingPrompt" className="OnboardingBuilder" args={[ { name: "prompt", type: "Objects.OnboardingPromptBuilder" } ]} returnType="Builders.OnboardingBuilder" isMethod />
 Channel IDs that members get opted into automatically
-### toPayloadObject
-
-> <LuaDeclaration name="toPayloadObject" className="OnboardingBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
-Converts the message to a JSON object that can be sent to the Discord API.
 ### toPayloadObject
 
 > <LuaDeclaration name="toPayloadObject" className="OnboardingBuilder" args={[  ]} returnType="Network.Resolvable" isMethod />
