@@ -86,6 +86,12 @@ luau supports sending these attachments through the `AttachmentBuilder` object.
    ```
 </details>
 
+:::caution
+   Remember to enable the message content intent on the [Discord Developer Portal](https://discord.com/developers) when the `DiscordClient.eventManager.onMessage` event is used. 
+   
+   If the intent is not enabled, the bot won't have access to the message content!
+:::
+
 That's all! For more details, refer to the relevant docs;
 
 - [DiscordAttachment](/classes/objects/discordattachment/)
