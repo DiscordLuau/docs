@@ -22,7 +22,7 @@ luau supports sending these attachments through the `AttachmentBuilder` object.
    local DiscordClient = DiscordLuau.DiscordClient.new(DiscordSettings)
 
    DiscordClient.eventManager.onMessage:connect(function(message)
-      if message.Content == "!embed" then
+      if message.content == "!embed" then
          ...
       end
    end)
