@@ -20,7 +20,7 @@ PresenceBuilder is used to construct a presence object for a Discord bot, includ
 Usage:
 ```lua
 local presence = PresenceBuilder.new()
-	:addActivity(ActivityBuilder.new():setName("Playing a game"))
+	:addActivity(ActivityBuilder.new():setActivityName("Playing a game"))
 	:setStatus(PresenceBuilder.Status.Online)
 	:setAfk(false)
 	:setSince(os.time())
