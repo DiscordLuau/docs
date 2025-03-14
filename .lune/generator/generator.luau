@@ -4,16 +4,16 @@ local net = require("@lune/net")
 local Generator = {}
 
 function Generator.removeLegacyFiles()
-	if fs.isDir("src/content/docs/classes") then
-		fs.removeDir("src/content/docs/classes")
+	if fs.isDir("src/content/docs/packages") then
+		fs.removeDir("src/content/docs/packages")
 	end
 
-	fs.writeDir("src/content/docs/classes")
+	fs.writeDir("src/content/docs/packages")
 end
 
 function Generator.writeClassName(className: string)
 	local classPath = string.split(className, ".")
-	local fullPath = "src/content/docs/classes/"
+	local fullPath = "src/content/docs/packages/"
 
 	local fileName = table.remove(classPath, #classPath)
 	local netSafeFileName = net.urlEncode(fileName, false)

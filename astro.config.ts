@@ -35,9 +35,9 @@ export default defineConfig({
 					},
 				},
 				{
-					label: "Classes",
+					label: "Packages",
 					autogenerate: {
-						directory: "classes",
+						directory: "packages",
 					},
 				},
 			],

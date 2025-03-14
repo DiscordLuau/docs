@@ -34,7 +34,7 @@ local function declaration(functionName, className, isMethod, parameters, return
 	local argumentComponents = {}
 
 	for index, paramObject in parameters do
-		table.insert(argumentComponents, `\{ name: "{paramObject.name}", type: "{paramObject.lua_type}" }`)
+		table.insert(argumentComponents, `\{ name: "{paramObject.name}", type: \`{string.gsub(paramObject.lua_type, "\n", "")}\` }`)
 	end
 
 	local formattedProps = `name="{functionName}" className="{className}" args=\{[ {table.concat(argumentComponents, ", ")} ]}`
@@ -47,7 +47,7 @@ local function declaration(functionName, className, isMethod, parameters, return
 		formattedProps ..= " isMethod"
 	end
 
-	return `> <LuaDeclaration {formattedProps} />`
+	return `> <LuaDeclaration {formattedProps} />\n\n`
 end
 
 local function property(name: string, type: string)
@@ -176,7 +176,6 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			markdownFile ..= declaration(method.name, className, true, method.params, (method.returns[1] or {lua_type = nil}).lua_type)
 
 			if method.desc then
-				markdownFile ..= newline()
 				markdownFile ..= input(method.desc)
 			end
 		end
@@ -191,11 +190,9 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 				markdownFile ..= declaration(inheritedFunction.name, className, true, inheritedFunction.params, (inheritedFunction.returns[1] or {lua_type = nil}).lua_type)
 
 				if inheritedFunction.desc then
-					markdownFile ..= newline()
 					markdownFile ..= input(inheritedFunction.desc)
 				end
 
-				markdownFile ..= newline()
 				markdownFile ..= input(`> This function was inherited from [{inheritedClassName}]({inheritedClassName})`)
 			end
 		end
@@ -217,7 +214,6 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 			markdownFile ..= declaration(func.name, className, false, func.params)		
 
 			if func.desc then
-				markdownFile ..= newline()
 				markdownFile ..= input(func.desc)
 			end
 		end
@@ -232,11 +228,9 @@ function Markdown.generateMarkdownDocumentFor(classDocumentation: Moonwave.moonw
 				markdownFile ..= declaration(inheritedFunction.name, className, false, inheritedFunction.params)		
 	
 				if inheritedFunction.desc then
-					markdownFile ..= newline()
 					markdownFile ..= input(inheritedFunction.desc)
 				end
 
-				markdownFile ..= newline()
 				markdownFile ..= input(`> This function was inherited from [{inheritedClassName}]({inheritedClassName})`)
 			end
 		end
