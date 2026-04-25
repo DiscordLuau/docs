@@ -1,6 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-*.luau linguist-language=Lua
 
 # Allow mark down files to be detected
 *.md linguist-detectable
