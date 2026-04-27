@@ -1,0 +1,28 @@
+{
+  "name": "discord-luau-docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "pnpm generate && astro dev",
+    "start": "pnpm generate && astro dev",
+    "generate": "tsx scripts/generate-docs.ts",
+    "build": "pnpm generate && astro check && astro build",
+    "astro:build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "biome lint",
+    "fmt": "biome format --write ."
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.38.4",
+    "astro": "^6.1.9",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@biomejs/biome": "^2.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
