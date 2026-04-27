@@ -37,7 +37,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install tooling
-        uses: ok-nick/setup-aftman@v0.4.2
+        uses: jdx/mise-action@v2
         with:
           cache: true
 
