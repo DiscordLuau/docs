@@ -18,10 +18,10 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			favicon: "/icon.png",
-			social: {
-				github: "https://github.com/DiscordLuau/discord-luau",
-				discord: "https://discord.gg/DpQwdD8zD3",
-			},
+			social: [
+				{ icon: "github", label: "GitHub", href: "https://github.com/DiscordLuau/discord-luau" },
+				{ icon: "discord", label: "Discord", href: "https://discord.gg/DpQwdD8zD3" },
+			],
 			sidebar: [
 				{
 					label: "Getting Started",
