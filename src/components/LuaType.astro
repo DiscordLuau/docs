@@ -1,0 +1,70 @@
+---
+import LuaTable from "./LuaTable.astro";
+import { getKvPairs, getTypeDocs, isObject } from "./utils/lua";
+
+type Props = {
+	url: string | null;
+	type: string;
+};
+
+type TypeInfo = { typeName: string; url: string | null };
+
+const { url: propUrl, type: rawType } = Astro.props;
+const resolvedType = rawType ?? "()";
+
+function extractTableType(input: string): [string[][], string | null, RegExpMatchArray | null] {
+	const match = input.match(/\{(.*?)\}/);
+	if (match) {
+		if (isObject(match[1])) return [getKvPairs(match[1]), null, match];
+		return [[], getTypeDocs(match[1].trim()), match];
+	}
+	return [[], null, null];
+}
+
+const [tablePairs, tableInnerUrl, tableMatch] = extractTableType(resolvedType);
+let url = tableInnerUrl ?? propUrl;
+
+const genericMatch = resolvedType.match(/(.*)<(.*?)>/);
+let genericUrls: { base: TypeInfo; generic: TypeInfo[] } | null = null;
+
+if (genericMatch) {
+	const baseTypeName = genericMatch[1].trim();
+	const genericTypeStr = genericMatch[2].trim();
+	const [, resolvedGenericUrl] = extractTableType(genericTypeStr);
+	url = null;
+	genericUrls = {
+		base: { typeName: baseTypeName, url: getTypeDocs(baseTypeName) },
+		generic: genericTypeStr.split(", ").map(genericPart => ({
+			typeName: genericPart.trim(),
+			url: resolvedGenericUrl ?? getTypeDocs(genericPart.trim()),
+		})),
+	};
+}
+---
+
+<>
+	{
+		url
+			? <a href={url}>{resolvedType}</a>
+			: genericUrls
+				? (
+					<>
+						<a href={genericUrls.base.url}>{genericUrls.base.typeName}</a>
+						<span>&lt;</span>
+						{genericUrls.generic.map(({ url, typeName }, index) => {
+							const [innerTablePairs, innerTableUrl] = extractTableType(typeName);
+							return (
+								<>
+									<a href={innerTablePairs.length ? innerTableUrl : url}>{typeName}</a>
+									{index !== genericUrls!.generic.length - 1 && <span>, </span>}
+								</>
+							);
+						})}
+						<span>&gt;</span>
+					</>
+				)
+				: tablePairs.length > 0
+					? <LuaTable pairs={tablePairs} tableInner={tableMatch![1]} />
+					: resolvedType
+	}
+</>

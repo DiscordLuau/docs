@@ -1,0 +1,89 @@
+---
+title: Thumbnail
+description: DiscordLuau docs for Thumbnail.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Thumbnail object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-thumbnail-structure
+
+## Properties
+
+### url
+
+<LuaProperty name="Thumbnail.url" type="string" />
+
+---
+The source url of the thumbnail.
+
+### proxyUrl
+
+<LuaProperty name="Thumbnail.proxyUrl" type="string?" />
+
+---
+A proxied url of the thumbnail.
+
+### height
+
+<LuaProperty name="Thumbnail.height" type="number?" />
+
+---
+The height of the thumbnail.
+
+### width
+
+<LuaProperty name="Thumbnail.width" type="number?" />
+
+---
+The width of the thumbnail.
+
+
+## Functions
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Thumbnail" args={[ { name: "self", type: "Thumbnail" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returnType="Thumbnail" />
+
+Set the image url for this embed.
+
+### setHeight
+
+> <LuaDeclaration name="setHeight" className="Thumbnail" args={[ { name: "self", type: "Thumbnail" }, { name: "height", type: "number" } ]} returnType="Thumbnail" />
+
+Set the image height for this embed.
+
+### setWidth
+
+> <LuaDeclaration name="setWidth" className="Thumbnail" args={[ { name: "self", type: "Thumbnail" }, { name: "width", type: "number" } ]} returnType="Thumbnail" />
+
+Set the image width for this embed.
+
+### build
+
+> <LuaDeclaration name="build" className="Thumbnail" args={[ { name: "self", type: "Thumbnail" } ]} returnType="JSON" />
+
+Responsible for building the Thumbnail JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Thumbnail" args={[ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ]} returnType="Thumbnail" />
+
+Responsible for creating a new Thumbnail.
+
+```luau
+local thumbnail = Thumbnail.new({
+	url = "https://example.com/image.png",
+	height = 100,
+	width = 100
+})
+```
+
+

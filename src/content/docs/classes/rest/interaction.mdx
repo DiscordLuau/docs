@@ -1,0 +1,68 @@
+---
+title: Interaction
+description: DiscordLuau docs for Interaction.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/interactions/receiving-and-responding
+
+## Functions
+
+### createInteractionResponseAsync
+
+> <LuaDeclaration name="createInteractionResponseAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "interactionId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateInteractionRequest" }, { name: "urlParams", type: "{ withResponse: boolean?, }" } ]} returnType="future.FutureLike<string, apiTypes.CreateInteractionResponse>" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#create-interaction-response
+
+### getOriginalInteractionResponseAsync
+
+> <LuaDeclaration name="getOriginalInteractionResponseAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike< string, apiTypes.GetOriginalInteractionResponse >" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#get-original-interaction-response
+
+### editOriginalInteractionResponseAsync
+
+> <LuaDeclaration name="editOriginalInteractionResponseAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "jsonParams", type: "apiTypes.EditOriginalInteractionRequest" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike< string, apiTypes.EditOriginalInteractionResponse >" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#edit-original-interaction-response
+
+### deleteOriginalInteractionResponseAsync
+
+> <LuaDeclaration name="deleteOriginalInteractionResponseAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" } ]} returnType="future.FutureLike< string, apiTypes.DeleteOriginalInteractionResponse >" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#delete-original-interaction-response
+
+### createFollowupMessageAsync
+
+> <LuaDeclaration name="createFollowupMessageAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateFollowupMessageRequest" }, { name: "urlParams", type: "{ wait: boolean?, threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.CreateFollowupMessageResponse>" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#create-followup-message
+
+### getFollowupMessageAsync
+
+> <LuaDeclaration name="getFollowupMessageAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetFollowupMessageResponse>" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#get-followup-message
+
+### editFollowupMessageAsync
+
+> <LuaDeclaration name="editFollowupMessageAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditFollowupMessageRequest" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.EditFollowupMessageResponse>" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#edit-followup-message
+
+### deleteFollowupMessageAsync
+
+> <LuaDeclaration name="deleteFollowupMessageAsync" className="Interaction" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "interactionToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.DeleteFollowupMessageResponse>" />
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message
+
+

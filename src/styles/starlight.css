@@ -1,0 +1,15 @@
+.site-title span {
+	display: none;
+}
+
+@media (min-width: 50rem) {
+	.header {
+		grid-template-columns: auto 1fr auto !important;
+	}
+}
+
+.sidebar-content summary,
+.sidebar-content details > a,
+.top-level > li > details > summary {
+	font-weight: 500;
+}

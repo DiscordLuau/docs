@@ -1,0 +1,240 @@
+---
+title: Application
+description: DiscordLuau docs for Application.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Application class in Luau.
+This class represents a Discord application and provides methods to manage application commands and properties.
+
+https://discord.com/developers/docs/resources/application#application-object
+
+## Properties
+
+### id
+
+<LuaProperty name="Application.id" type="string" />
+
+---
+The unique identifier for this application. This is a Discord snowflake that represents when this application
+was created and other metadata.
+
+### name
+
+<LuaProperty name="Application.name" type="string" />
+
+---
+The name of the application as it appears on Discord. This is what users will see when they interact with
+your application.
+
+### icon
+
+<LuaProperty name="Application.icon" type="string?" />
+
+---
+The icon hash of the application. This can be used to generate the application's icon URL for display
+purposes.
+
+### description
+
+<LuaProperty name="Application.description" type="string" />
+
+---
+A detailed description of what your application does. This appears in various places across Discord's
+interface.
+
+### rpcOrigins
+
+<LuaProperty name="Application.rpcOrigins" type="{ string }?" />
+
+---
+An array of allowed RPC origin URLs. These URLs are permitted to make RPC connections to your application
+if RPC is enabled.
+
+### botPublic
+
+<LuaProperty name="Application.botPublic" type="boolean" />
+
+---
+Controls who can add the bot to servers. When false, only the application owner can add the bot to servers,
+providing more control over bot distribution.
+
+### botRequireCodeGrant
+
+<LuaProperty name="Application.botRequireCodeGrant" type="boolean" />
+
+---
+Determines the OAuth2 flow behavior. When true, users must complete the full OAuth2 code grant flow before
+the bot can join their server.
+
+### bot
+
+<LuaProperty name="Application.bot" type="Classes.User?" />
+
+---
+The bot user associated with this application. Contains information about the bot's Discord user account.
+
+### termsOfServiceUrl
+
+<LuaProperty name="Application.termsOfServiceUrl" type="string?" />
+
+---
+A URL linking to your application's terms of service. This should contain important legal information
+about using your application.
+
+### privacyPolicyUrl
+
+<LuaProperty name="Application.privacyPolicyUrl" type="string?" />
+
+---
+A URL linking to your application's privacy policy. This should detail how you handle user data and
+privacy concerns.
+
+### owner
+
+<LuaProperty name="Application.owner" type="Classes.User?" />
+
+---
+The Discord user who owns this application. This user has full control over the application's settings
+and behavior.
+
+### summary
+
+<LuaProperty name="Application.summary" type="string?" />
+
+---
+A brief summary of your application. This appears in various places across Discord's interface where
+a shorter description is needed.
+
+### verifyKey
+
+<LuaProperty name="Application.verifyKey" type="string?" />
+
+---
+A hex-encoded key used for verification in interactions and the GameSDK's GetTicket. This is important
+for security verification.
+
+### team
+
+<LuaProperty name="Application.team" type="Classes.Application.Team?" />
+
+---
+Information about the team that owns and manages this application. Teams allow multiple users to
+collaborate on an application.
+
+### guildId
+
+<LuaProperty name="Application.guildId" type="string?" />
+
+---
+For applications that are games sold on Discord, this is the ID of the guild that the game has been
+linked to.
+
+### guild
+
+<LuaProperty name="Application.guild" type="Classes.UnavailableGuild?" />
+
+---
+For applications that are games sold on Discord, this represents the guild that the game has been
+linked to.
+
+### primarySkuId
+
+<LuaProperty name="Application.primarySkuId" type="string?" />
+
+---
+For games sold on Discord, this is the ID of the primary SKU that is created for the game. This
+represents the main purchasable version of the game.
+
+### slug
+
+<LuaProperty name="Application.slug" type="string?" />
+
+---
+For games sold on Discord, this is the URL-friendly string that links to the store page. This makes
+it easy to share and access the game's store listing.
+
+### coverImage
+
+<LuaProperty name="Application.coverImage" type="string?" />
+
+---
+The hash of the default rich presence invite cover image. This image appears when users share your
+application through Discord's rich presence feature.
+
+### flags
+
+<LuaProperty name="Application.flags" type="Classes.ApplicationBitflag?" />
+
+---
+The public flags associated with this application. These flags can indicate various features or states
+of the application.
+
+### installParams
+
+<LuaProperty name="Application.installParams" type="Classes.Application.InstallParams?" />
+
+---
+The default parameters used when installing the application. These parameters configure how the
+application is set up when added to a server.
+
+### integrationTypesConfig
+
+<LuaProperty name="Application.integrationTypesConfig" type="{ [apiTypes.IntegrationTypesConfig]: boolean }?" />
+
+---
+Configuration settings for different types of integrations. This determines what integration options
+are available for the application.
+
+### customInstallUrl
+
+<LuaProperty name="Application.customInstallUrl" type="string?" />
+
+---
+A custom URL that users can visit to install the application. This can be used to provide a branded
+or customized installation experience.
+
+
+## Functions
+
+### createSlashCommandAsync
+
+> <LuaDeclaration name="createSlashCommandAsync" className="Application" args={[ { name: "self", type: "Application" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
+Creates a global Slash Command for the Application, slash commands can take up to 5 minutes to sync, and will require
+developers to reload their discord client.
+
+For testing/building commands, it's advised you use guild commands, which do not suffer the same constraints.
+
+### deleteSlashCommandAsync
+
+> <LuaDeclaration name="deleteSlashCommandAsync" className="Application" args={[ { name: "self", type: "Application" }, { name: "slashCommandId", type: "apiTypes.Snowflake" } ]} />
+
+Delete an existing global application command.
+
+### editSlashCommandAsync
+
+> <LuaDeclaration name="editSlashCommandAsync" className="Application" args={[ { name: "self", type: "Application" }, { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
+Edit an existing global application command.
+
+### getSlashCommandsAsync
+
+> <LuaDeclaration name="getSlashCommandsAsync" className="Application" args={[ { name: "self", type: "Application" }, { name: "withLocalizations", type: "boolean?" } ]} />
+
+Get a list of global application commands.
+
+### overwriteSlashCommandsAsync
+
+> <LuaDeclaration name="overwriteSlashCommandsAsync" className="Application" args={[ { name: "self", type: "Application" }, { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} />
+
+Overwrite all global application commands. This will skip over commands that are the same as the current commands, and will not remove any existing commands.
+
+

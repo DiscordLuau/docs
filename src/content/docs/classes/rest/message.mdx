@@ -1,0 +1,98 @@
+---
+title: Message
+description: DiscordLuau docs for Message.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/message
+
+## Functions
+
+### getChannelMessagesAsync
+
+> <LuaDeclaration name="getChannelMessagesAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "urlParams", type: "{ around: apiTypes.Snowflake?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelMessagesResponse>" />
+
+https://discord.com/developers/docs/resources/message#get-channel-messages
+
+### getChannelMessageAsync
+
+> <LuaDeclaration name="getChannelMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#get-channel-message
+
+### createMessageAsync
+
+> <LuaDeclaration name="createMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateMessageRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#create-message
+
+### crosspostMessageAsync
+
+> <LuaDeclaration name="crosspostMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.CrosspostMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#crosspost-message
+
+### createReactionAsync
+
+> <LuaDeclaration name="createReactionAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.CreateReactionResponse>" />
+
+https://discord.com/developers/docs/resources/message#create-reaction
+
+### deleteOwnReactionAsync
+
+> <LuaDeclaration name="deleteOwnReactionAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.DeleteOwnReactionResponse>" />
+
+https://discord.com/developers/docs/resources/message#delete-own-reaction
+
+### deleteUserReactionAsync
+
+> <LuaDeclaration name="deleteUserReactionAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.DeleteUserReactionResponse>" />
+
+https://discord.com/developers/docs/resources/message#delete-user-reaction
+
+### getReactionsAsync
+
+> <LuaDeclaration name="getReactionsAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "urlParams", type: "{ type: (&quot;Normal&quot; | &quot;Burst&quot;)?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetReactionsResponse>" />
+
+https://discord.com/developers/docs/resources/message#get-reactions
+
+### deleteAllReactionsAsync
+
+> <LuaDeclaration name="deleteAllReactionsAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.DeleteAllReactionsResponse>" />
+
+https://discord.com/developers/docs/resources/message#delete-all-reactions
+
+### deleteAllReactionsForEmojiAsync
+
+> <LuaDeclaration name="deleteAllReactionsForEmojiAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.DeleteAllReactionsForEmojiResponse>" />
+
+https://discord.com/developers/docs/resources/message#delete-all-reactions-for-emoji
+
+### editMessageAsync
+
+> <LuaDeclaration name="editMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditMessageRequest" } ]} returnType="future.FutureLike<string, apiTypes.EditMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#edit-message
+
+### deleteMessageAsync
+
+> <LuaDeclaration name="deleteMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#delete-message
+
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.BulkDeleteMessagesRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.BulkDeleteMessageResponse>" />
+
+https://discord.com/developers/docs/resources/message#bulk-delete-messages
+
+

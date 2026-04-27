@@ -1,0 +1,73 @@
+---
+title: Stream
+description: DiscordLuau docs for Stream.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+A Stream is a type of object that can be used to navigate through a string safely, this is used in obscure
+	operations such as parsing FormData, JSON and other things.
+
+Streams are not essential, but they do make things easier as we can avoid tracking the position of a string
+	and instead rely on the Stream to peek, advance and so forth.
+
+## Properties
+
+### textSource
+
+<LuaProperty name="Stream.textSource" type="string" />
+
+
+### cursorPosition
+
+<LuaProperty name="Stream.cursorPosition" type="number" />
+
+
+
+## Functions
+
+### peek
+
+> <LuaDeclaration name="peek" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "length", type: "number?" } ]} returnType="string?" />
+
+Responsible for peeking further ahead into the stream, without incrementing  the cursor position.
+
+### advance
+
+> <LuaDeclaration name="advance" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "length", type: "number?" } ]} returnType="string?" />
+
+Responsible for advancing the cursor position of the stream, this will increment the cursor position by the
+	amount specified. (defaults to 1)
+
+### advanceUntil
+
+> <LuaDeclaration name="advanceUntil" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "predicate", type: "(char: string) -> ()" } ]} returnType="string?" />
+
+Responsible for advancing the cursor position of the stream until a predicate is met, this will increment the
+	cursor position by the amount specified.
+
+### readUntilEnd
+
+> <LuaDeclaration name="readUntilEnd" className="Stream" args={[ { name: "self", type: "Stream" } ]} returnType="string" />
+
+Will read the stream until the end, this will return the remaining text source.
+
+### trim
+
+> <LuaDeclaration name="trim" className="Stream" args={[ { name: "self", type: "Stream" } ]} />
+
+Trims all whitespaces from the current stream position and onwards
+
+### new
+
+> <LuaDeclaration name="new" className="Stream" args={[ { name: "textSource", type: "string" } ]} returnType="Stream" />
+
+Constructor for the Stream object, will return a new instance of the Stream object.
+
+

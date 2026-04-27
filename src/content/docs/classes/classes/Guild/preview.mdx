@@ -1,0 +1,97 @@
+---
+title: Preview
+description: DiscordLuau docs for Preview.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Guild Preview class in Luau
+
+https://discord.com/developers/docs/resources/guild#guild-preview-object
+
+## Properties
+
+### id
+
+<LuaProperty name="Preview.id" type="string" />
+
+---
+The unique identifier for this guild preview
+
+### name
+
+<LuaProperty name="Preview.name" type="string" />
+
+---
+The name of the guild
+
+### icon
+
+<LuaProperty name="Preview.icon" type="string?" />
+
+---
+The icon hash of the guild
+
+### splash
+
+<LuaProperty name="Preview.splash" type="string?" />
+
+---
+The splash hash of the guild
+
+### discoverySplash
+
+<LuaProperty name="Preview.discoverySplash" type="string?" />
+
+---
+The discovery splash hash of the guild
+
+### emojis
+
+<LuaProperty name="Preview.emojis" type="{Classes.Emoji}" />
+
+---
+Array of custom emoji objects for this guild
+
+### features
+
+<LuaProperty name="Preview.features" type="{api_types.GuildFeature}" />
+
+---
+Array of guild feature strings
+
+### approximateMemberCount
+
+<LuaProperty name="Preview.approximateMemberCount" type="number" />
+
+---
+Approximate number of members in this guild
+
+### approximatePresenceCount
+
+<LuaProperty name="Preview.approximatePresenceCount" type="number" />
+
+---
+Approximate number of online members in this guild
+
+### description
+
+<LuaProperty name="Preview.description" type="string?" />
+
+---
+The description of the guild
+
+### stickers
+
+<LuaProperty name="Preview.stickers" type="{Classes.Sticker}" />
+
+---
+Array of custom sticker objects for this guild
+
+

@@ -1,0 +1,98 @@
+---
+title: Webhook
+description: DiscordLuau docs for Webhook.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/webhook
+
+## Functions
+
+### createWebhookAsync
+
+> <LuaDeclaration name="createWebhookAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateWebhookRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateWebhookResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#create-webhook
+
+### getChannelWebhooksAsync
+
+> <LuaDeclaration name="getChannelWebhooksAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelWebhooksResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#get-channel-webhooks
+
+### getGuildWebhooksAsync
+
+> <LuaDeclaration name="getGuildWebhooksAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildWebhooksResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#get-guild-webhooks
+
+### getWebhookAsync
+
+> <LuaDeclaration name="getWebhookAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetWebhookResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#get-webhook
+
+### getWebhookWithTokenAsync
+
+> <LuaDeclaration name="getWebhookWithTokenAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.GetWebhookWithTokenResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#get-webhook-with-token
+
+### modifyWebhookAsync
+
+> <LuaDeclaration name="modifyWebhookAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyWebhookRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyWebhookResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#modify-webhook
+
+### modifyWebhookWithTokenAsync
+
+> <LuaDeclaration name="modifyWebhookWithTokenAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "jsonParams", type: "apiTypes.ModifyWebhookRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyWebhookWithTokenResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#modify-webhook-with-token
+
+### deleteWebhookAsync
+
+> <LuaDeclaration name="deleteWebhookAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteWebhookResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#delete-webhook
+
+### deleteWebhookWithTokenAsync
+
+> <LuaDeclaration name="deleteWebhookWithTokenAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteWebhookWitHTokenResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#delete-webhook-with-token
+
+### executeWebhookAsync
+
+> <LuaDeclaration name="executeWebhookAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "jsonParams", type: "apiTypes.ExecuteWebhookRequest" }, { name: "urlParams", type: "{ wait: boolean?, threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.ExecuteWebhookResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#execute-webhook
+
+### getWebhookMessageAsync
+
+> <LuaDeclaration name="getWebhookMessageAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetWebhookMessageResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#get-webhook-message
+
+### editWebhookMessageAsync
+
+> <LuaDeclaration name="editWebhookMessageAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditWebhookMessageRequest" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.EditWebhookMessageResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#edit-webhook-message
+
+### deleteWebhookMessageAsync
+
+> <LuaDeclaration name="deleteWebhookMessageAsync" className="Webhook" args={[ { name: "instance", type: "request.Request" }, { name: "webhookId", type: "apiTypes.Snowflake" }, { name: "webhookToken", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ threadId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.DeleteWebhookMessageResponse>" />
+
+https://discord.com/developers/docs/resources/webhook#delete-webhook-message
+
+

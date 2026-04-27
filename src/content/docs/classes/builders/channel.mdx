@@ -1,0 +1,308 @@
+---
+title: Channel
+description: DiscordLuau docs for Channel.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord Channel as a luau builder.	
+
+https://discord.com/developers/docs/resources/guild#create-guild-channel
+
+## Properties
+
+### permissionOverwrites
+
+<LuaProperty name="Channel.permissionOverwrites" type="{ Builders.OverwriteObject }" />
+
+---
+List of permission overwrites applied to the channel.
+
+### id
+
+<LuaProperty name="Channel.id" type="string?" />
+
+---
+The id of the channel.
+
+### name
+
+<LuaProperty name="Channel.name" type="string?" />
+
+---
+The name of the channel.
+
+### type
+
+<LuaProperty name="Channel.type" type="apiTypes.ChannelType" />
+
+---
+The type of the channel.
+
+### position
+
+<LuaProperty name="Channel.position" type="number?" />
+
+---
+Position of the channel in the list.
+
+### icon
+
+<LuaProperty name="Channel.icon" type="string?" />
+
+---
+The base64 icon for the channel (used in DMs).
+
+### flags
+
+<LuaProperty name="Channel.flags" type="number?" />
+
+---
+Bitfield flags for the channel.
+
+### topic
+
+<LuaProperty name="Channel.topic" type="string?" />
+
+---
+The topic of the text channel.
+
+### rateLimitPerUser
+
+<LuaProperty name="Channel.rateLimitPerUser" type="number?" />
+
+---
+Slowmode in seconds for users.
+
+### parentId
+
+<LuaProperty name="Channel.parentId" type="string?" />
+
+---
+Parent category ID.
+
+### nsfw
+
+<LuaProperty name="Channel.nsfw" type="boolean?" />
+
+---
+Whether the channel is marked as NSFW.
+
+### defaultAutoArchiveDuration
+
+<LuaProperty name="Channel.defaultAutoArchiveDuration" type="number?" />
+
+---
+Default auto archive duration in minutes.
+
+### defaultThreadRateLimitPerUser
+
+<LuaProperty name="Channel.defaultThreadRateLimitPerUser" type="number?" />
+
+---
+Slowmode in seconds for thread messages.
+
+### defaultReactionEmoji
+
+<LuaProperty name="Channel.defaultReactionEmoji" type="apiTypes.DefaultReactionObject?" />
+
+---
+Default reaction emoji object.
+
+### availableTags
+
+<LuaProperty name="Channel.availableTags" type="{ apiTypes.ForumTagObject }?" />
+
+---
+Available forum tags.
+
+### defaultSortOrder
+
+<LuaProperty name="Channel.defaultSortOrder" type="apiTypes.ForumSortOrder?" />
+
+---
+Default sort order for threads.
+
+### defaultForumLayout
+
+<LuaProperty name="Channel.defaultForumLayout" type="apiTypes.ForumLayout?" />
+
+---
+Default forum layout type.
+
+### videoQualityMode
+
+<LuaProperty name="Channel.videoQualityMode" type="apiTypes.VideoQualityMode?" />
+
+---
+Voice channel video quality mode.
+
+### rtcRegion
+
+<LuaProperty name="Channel.rtcRegion" type="string?" />
+
+---
+Voice region id for the channel.
+
+### userLimit
+
+<LuaProperty name="Channel.userLimit" type="number?" />
+
+---
+Maximum number of users allowed in the voice channel.
+
+### bitrate
+
+<LuaProperty name="Channel.bitrate" type="number?" />
+
+---
+Bitrate of the voice channel in bits.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "tagName", type: "string" } ]} returnType="Channel" />
+
+Set the name of this Channel
+
+### setType
+
+> <LuaDeclaration name="setType" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Channel" />
+
+Set the Type of channel this is.
+
+### setPosition
+
+> <LuaDeclaration name="setPosition" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelPosition", type: "number" } ]} returnType="Channel" />
+
+Sets the position of the channel in the discord channels list. Channels with the same position are sorted by id.
+
+### setOverwrites
+
+> <LuaDeclaration name="setOverwrites" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "overwriteObjects", type: "{ apiTypes.OverwriteObject }" } ]} returnType="Channel" />
+
+Adds an overwrite object to the channel's permission overwrites. Channel overwrites are responsible for handling
+user/role permission on a specific channel.
+
+### setTopic
+
+> <LuaDeclaration name="setTopic" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelTopic", type: "string" } ]} returnType="Channel" />
+
+Sets the channels topic, topics appear at the top of the discord app and help to inform players about the
+channel's purpose.
+
+### setBitrate
+
+> <LuaDeclaration name="setBitrate" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "bitrate", type: "number" } ]} returnType="Channel" />
+
+Sets the bitrate of the voice channel, the bitrate (in bits) of the voice or stage channel.
+
+### setUserLimit
+
+> <LuaDeclaration name="setUserLimit" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "userLimit", type: "number?" } ]} returnType="Channel" />
+
+The user limit of the voice channel. The user limit of a voice channel is the maximum number of users allowed in
+the channel at one time.
+
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "rateLimitPerUser", type: "number?" } ]} returnType="Channel" />
+
+Amount of seconds a user has to wait before sending another message. Bots and users with certain permissions are
+unaffected.
+
+### setParentId
+
+> <LuaDeclaration name="setParentId" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "parentId", type: "apiTypes.Snowflake?" } ]} returnType="Channel" />
+
+Set the parent of the channel. Channel parents are categories and can help organize a discord guild.
+
+### setNSFW
+
+> <LuaDeclaration name="setNSFW" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "isNSFW", type: "boolean" } ]} returnType="Channel" />
+
+Set whether this channel is NSFW or not.
+
+### setVoiceRegion
+
+> <LuaDeclaration name="setVoiceRegion" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "voiceRegionId", type: "string" } ]} returnType="Channel" />
+
+Set the voice region (requires querying voice region ids). Voice regions are regions that Discord uses to host
+voice channels.
+
+### setVideoQualityMode
+
+> <LuaDeclaration name="setVideoQualityMode" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" } ]} returnType="Channel" />
+
+Sets the video quality mode of the voice channel.
+
+### setDefaultAutoArchiveDuration
+
+> <LuaDeclaration name="setDefaultAutoArchiveDuration" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "autoArchiveDuration", type: "number" } ]} returnType="Channel" />
+
+Sets the default auto archive duration for the channel. This is the default duration in minutes for newly created
+threads to automatically archive after recent activity.
+
+### setDefaultReactionEmoji
+
+> <LuaDeclaration name="setDefaultReactionEmoji" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject" } ]} returnType="Channel" />
+
+Sets the default reaction emoji for either a forum or media channel.
+
+### setForumTags
+
+> <LuaDeclaration name="setForumTags" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "forumTags", type: "{ apiTypes.ForumTagObject }" } ]} returnType="Channel" />
+
+Specify channel forum tags that are available to the channel.
+
+### setDefaultSortOrder
+
+> <LuaDeclaration name="setDefaultSortOrder" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "sortOrder", type: "apiTypes.ForumSortOrder" } ]} returnType="Channel" />
+
+Sets the default sort order for the channel.
+
+### setDefaultForumLayout
+
+> <LuaDeclaration name="setDefaultForumLayout" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "forumLayout", type: "apiTypes.ForumLayout" } ]} returnType="Channel" />
+
+Sets the default forum layout for the channel.
+
+### setDefaultThreadRateLimitPerUser
+
+> <LuaDeclaration name="setDefaultThreadRateLimitPerUser" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "threadRateLimitPerUser", type: "number" } ]} returnType="Channel" />
+
+Sets the default thread rate limit per user for the channel.
+
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "bitflags", type: "number" } ]} returnType="Channel" />
+
+Sets the channel flags using a bitfield value.
+
+### setIcon
+
+> <LuaDeclaration name="setIcon" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "iconData", type: "string" } ]} returnType="Channel" />
+
+Sets the channel icon using the provided icon data.
+
+### build
+
+> <LuaDeclaration name="build" className="Channel" args={[ { name: "self", type: "Channel" } ]} returnType="JSON" />
+
+Responsible for building the channel object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="Channel" args={[ { name: "resource", type: "{ channelName: string?, channelType: apiTypes.ChannelType?, channelPosition: number?, channelPermissionOverwrites: { apiTypes.OverwriteObject }?, }?" } ]} returnType="Channel" />
+
+Constructor for the Discord Channel Builder.
+
+

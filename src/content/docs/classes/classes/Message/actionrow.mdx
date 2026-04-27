@@ -1,0 +1,34 @@
+---
+title: ActionRow
+description: DiscordLuau docs for ActionRow.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord ActionRow class in Luau
+
+https://discord.com/developers/docs/resources/message#message-object-message-activity-structure
+
+## Properties
+
+### type
+
+<LuaProperty name="ActionRow.type" type="number" />
+
+---
+The type of component. For action rows, this will always be 1.
+
+### components
+
+<LuaProperty name="ActionRow.components" type="{Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu}" />
+
+---
+An array of components within this action row. Can contain buttons, text inputs, or select menus.
+
+

@@ -1,0 +1,34 @@
+---
+import { getTypeDocs, isObject } from "./utils/lua";
+
+type Props = {
+	pairs: string[][];
+	tableInner: string;
+};
+
+const { pairs, tableInner } = Astro.props;
+---
+
+<>
+	{"{"}
+	<br />
+	{" ".repeat(6)}
+	{
+		pairs.length === 1
+			? "{" + tableInner + "}"
+			: pairs.map(([key, value], index) => {
+					const padding = " ".repeat(index === 0 ? 1 : 7);
+					return (
+						<>
+							<span>
+								{`${padding}${key}: `}
+								{isObject(value) ? "{...}" : <a href={getTypeDocs(value)}>{value}</a>}
+								{","}
+							</span>
+							<br />
+						</>
+					);
+				})
+	}
+	{" ".repeat(4) + "}"}
+</>

@@ -1,0 +1,69 @@
+---
+title: OnboardingPrompt
+description: DiscordLuau docs for OnboardingPrompt.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Prompt class in Luau
+
+https://discord.com/developers/docs/resources/guild#guild-prompt-object-prompt-prompt-structure
+
+## Properties
+
+### id
+
+<LuaProperty name="OnboardingPrompt.id" type="string" />
+
+---
+The unique identifier for this prompt
+
+### type
+
+<LuaProperty name="OnboardingPrompt.type" type="apiTypes.OnboardingPromptType" />
+
+---
+The type of prompt this is, determines how it is displayed to users
+
+### options
+
+<LuaProperty name="OnboardingPrompt.options" type="{ Classes.Option }" />
+
+---
+Array of options that users can select from this prompt
+
+### title
+
+<LuaProperty name="OnboardingPrompt.title" type="string?" />
+
+---
+The title shown to users when displaying this prompt
+
+### singleSelect
+
+<LuaProperty name="OnboardingPrompt.singleSelect" type="boolean?" />
+
+---
+Whether users can only select one option from this prompt
+
+### required
+
+<LuaProperty name="OnboardingPrompt.required" type="boolean?" />
+
+---
+Whether this prompt is required to be answered by users
+
+### inOnboarding
+
+<LuaProperty name="OnboardingPrompt.inOnboarding" type="boolean?" />
+
+---
+Whether this prompt is shown during the onboarding flow
+
+

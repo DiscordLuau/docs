@@ -1,0 +1,80 @@
+---
+title: Permission
+description: DiscordLuau docs for Permission.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Permissions as a Luau builder.	
+
+https://discord.com/developers/docs/topics/permissions#permissions
+
+## Properties
+
+### addedPermissions
+
+<LuaProperty name="Permission.addedPermissions" type="{ apiTypes.Permissions }" />
+
+---
+An array of permissions that have been added to this permission builder.
+
+### removedPermissions
+
+<LuaProperty name="Permission.removedPermissions" type="{ apiTypes.Permissions }" />
+
+---
+An array of permissions that have been removed from this permission builder.
+
+### bitflag
+
+<LuaProperty name="Permission.bitflag" type="number" />
+
+---
+The numeric representation of the permission bitflag.
+
+
+## Functions
+
+### setPermissionBitflag
+
+> <LuaDeclaration name="setPermissionBitflag" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "bitflag", type: "string | number" } ]} returnType="Permission" />
+
+Sets the bitflag for this builder.
+
+### addPermission
+
+> <LuaDeclaration name="addPermission" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" />
+
+Adds a specific permission to this permissions builder.
+
+### removePermission
+
+> <LuaDeclaration name="removePermission" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" />
+
+Removes a specific permission from this permissions builder.
+
+### build
+
+> <LuaDeclaration name="build" className="Permission" args={[ { name: "self", type: "Permission" } ]} returnType="JSON" />
+
+Returns the bitflag representation of the permission.
+
+### new
+
+> <LuaDeclaration name="new" className="Permission" args={[ { name: "resource", type: "{ bitflag: (string | number)?, }?" } ]} returnType="Permission" />
+
+Responsible for creating a new Permission.
+
+### fromPermissions
+
+> <LuaDeclaration name="fromPermissions" className="Permission" args={[ { name: "permissions", type: "{ apiTypes.Permissions }" } ]} returnType="Permission" />
+
+Enables you to create a permission builder from a list of permissions.
+
+

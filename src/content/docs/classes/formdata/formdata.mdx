@@ -1,0 +1,89 @@
+---
+title: Formdata
+description: DiscordLuau docs for Formdata.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+A multipart/form-data implementation for luau.
+
+This implementation is based on the following spec(s):
+- https://www.rfc-editor.org/rfc/rfc2388
+- https://xhr.spec.whatwg.org/#formdata
+
+## Functions
+
+### getBody
+
+> <LuaDeclaration name="getBody" className="Formdata" args={[ { name: "self", type: "FormData" } ]} returnType="string" />
+
+Not included in the spec, but we need this to be able to get the body for the formdata object.
+
+### getHeader
+
+> <LuaDeclaration name="getHeader" className="Formdata" args={[ { name: "self", type: "FormData" } ]} returnType="string" />
+
+Not included in the spec, but we need this to be able to get the header for the formdata object.
+
+### append
+
+> <LuaDeclaration name="append" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string" }, { name: "value", type: "string" }, { name: "filename", type: "string?" }, { name: "encoding", type: "string?" } ]} />
+
+Appends a new entry to the form data's internal 'entries' table.
+
+### set
+
+> <LuaDeclaration name="set" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string" }, { name: "value", type: "string" }, { name: "filename", type: "string?" }, { name: "encoding", type: "string?" } ]} />
+
+Sets the name, value and filename of an entry in the form data's internal 'entries' table.
+
+Follows the standard found here: https://xhr.spec.whatwg.org/#dom-formdata-append
+
+### delete
+
+> <LuaDeclaration name="delete" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string" } ]} />
+
+Function responsible for the removal of a formdata entry from the formdata's internal 'entries' table.
+
+### has
+
+> <LuaDeclaration name="has" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string" } ]} returnType="boolean" />
+
+Function responsible for checking if this formdata object has a specific entry.
+
+### get
+
+> <LuaDeclaration name="get" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string" } ]} returnType="FormDataEntryValue?" />
+
+Function responsible for getting the value of a formdata entry from the formdata's internal 'entries' table.
+
+### getAll
+
+> <LuaDeclaration name="getAll" className="Formdata" args={[ { name: "self", type: "FormData" }, { name: "name", type: "string?" } ]} returnType="{ FormDataEntryValue }" />
+
+Function responsible for getting all the values of a formdata entry from the formdata's internal 'entries' table.
+
+If a name is provided, it will only return the values of all entries with the provided name.
+
+### new
+
+> <LuaDeclaration name="new" className="Formdata" args={[  ]} returnType="FormData" />
+
+Constructor for the FormData object.
+
+This function is missing the form and submitter fields that are defined in the spec, but are not relevant for the
+	implementation of this feature in luau.
+
+### parse
+
+> <LuaDeclaration name="parse" className="Formdata" args={[ { name: "textSource", type: "string" }, { name: "mimeType", type: "string" } ]} returnType="FormData" />
+
+Parses formdata a string into a FormData object.
+
+

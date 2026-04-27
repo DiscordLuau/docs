@@ -1,0 +1,86 @@
+---
+title: User
+description: DiscordLuau docs for User.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/user
+
+## Functions
+
+### getCurrentUserAsync
+
+> <LuaDeclaration name="getCurrentUserAsync" className="User" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user
+
+### getUserAsync
+
+> <LuaDeclaration name="getUserAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-user
+
+### modifyCurrentUserAsync
+
+> <LuaDeclaration name="modifyCurrentUserAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyCurrentUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#modify-current-user
+
+### getCurrentUserGuildsAsync
+
+> <LuaDeclaration name="getCurrentUserGuildsAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "urlParams", type: "{ before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, withCounts: boolean?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserGuildsResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-guilds
+
+### getCurrentUserGuildMember
+
+> <LuaDeclaration name="getCurrentUserGuildMember" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-guild-member
+
+### leaveGuildAsync
+
+> <LuaDeclaration name="leaveGuildAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.LeaveGuildResponse>" />
+
+https://discord.com/developers/docs/resources/user#leave-guild
+
+### createDMAsync
+
+> <LuaDeclaration name="createDMAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateDMRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateDMResponse>" />
+
+https://discord.com/developers/docs/resources/user#create-dm
+
+### createGroupDMAsync
+
+> <LuaDeclaration name="createGroupDMAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGroupDMRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateGroupDMResponse>" />
+
+https://discord.com/developers/docs/resources/user#create-group-dm
+
+### getCurrentUserConnectionsAsync
+
+> <LuaDeclaration name="getCurrentUserConnectionsAsync" className="User" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserConnectionResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-connections
+
+### getCurrentUserApplicationRoleConnectionAsync
+
+> <LuaDeclaration name="getCurrentUserApplicationRoleConnectionAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetCurrentUserApplicationRoleConnectionResponse >" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-application-role-connection
+
+### updateCurrentUserApplicationRoleConnectionAsync
+
+> <LuaDeclaration name="updateCurrentUserApplicationRoleConnectionAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateCurrentUserApplicationRoleConnectionRequest" } ]} returnType="future.FutureLike< string, apiTypes.UpdateCurrentUserApplicationRoleConnectionResponse >" />
+
+https://discord.com/developers/docs/resources/user#update-current-user-application-role-connection
+
+

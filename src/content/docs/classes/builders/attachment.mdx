@@ -1,0 +1,48 @@
+---
+title: Attachment
+description: DiscordLuau docs for Attachment.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Attachment object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#attachment-object
+
+## Properties
+
+### attachmentId
+
+<LuaProperty name="Attachment.attachmentId" type="string?" />
+
+---
+The ID of the attachment
+
+
+## Functions
+
+### setId
+
+> <LuaDeclaration name="setId" className="Attachment" args={[ { name: "self", type: "Attachment" }, { name: "attachmentId", type: "string" } ]} returnType="Attachment" />
+
+The ID of the attachment to use.
+
+### build
+
+> <LuaDeclaration name="build" className="Attachment" args={[ { name: "self", type: "Attachment" } ]} returnType="JSON" />
+
+Responsible for building the Attachment JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Attachment" args={[ { name: "resource", type: "{ attachmentId: string, }?" } ]} returnType="Attachment" />
+
+Responsible for creating a new Attachment.
+
+

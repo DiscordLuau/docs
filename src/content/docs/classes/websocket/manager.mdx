@@ -1,0 +1,119 @@
+---
+title: Manager
+description: DiscordLuau docs for Manager.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Manages the connection and communication with the Discord Gateway using multiple shards.
+
+This serves as the primary class for developers wanting to interact with the Discord Gateway, this class is
+responsible for creating the required shards sending messages asynchronously through each shard.
+
+## Properties
+
+### token
+
+<LuaProperty name="Manager.token" type="Secret" />
+
+
+### intents
+
+<LuaProperty name="Manager.intents" type="number" />
+
+
+### webSocketVersion
+
+<LuaProperty name="Manager.webSocketVersion" type="number" />
+
+
+### largeThreshold
+
+<LuaProperty name="Manager.largeThreshold" type="number?" />
+
+
+### shouldReconnect
+
+<LuaProperty name="Manager.shouldReconnect" type="boolean" />
+
+
+### ready
+
+<LuaProperty name="Manager.ready" type="boolean" />
+
+
+### shardIds
+
+<LuaProperty name="Manager.shardIds" type="{ ShardId }" />
+
+
+### shards
+
+<LuaProperty name="Manager.shards" type="{ [ShardId]: WebSocket.Shard }" />
+
+
+### logger
+
+<LuaProperty name="Manager.logger" type="Logger.Logger" />
+
+
+### onDisconnected
+
+<LuaProperty name="Manager.onDisconnected" type="Emitter<ShardPayload<{ errorCode: number? }>>" />
+
+
+### onReconnected
+
+<LuaProperty name="Manager.onReconnected" type="Emitter<ShardPayload<{}>>," />
+
+
+### onConnected
+
+<LuaProperty name="Manager.onConnected" type="Emitter<ShardPayload<{}>>," />
+
+
+### onHeartbeat
+
+<LuaProperty name="Manager.onHeartbeat" type="Emitter<ShardPayload<{ latency: number }>>," />
+
+
+### onDispatch
+
+<LuaProperty name="Manager.onDispatch" type="Emitter<ShardPayload<{ shardId: number, event: apiTypes.ReceiveEvent, payload: apiTypes.Payload<unknown> }>>" />
+
+
+### onAllShardsReady
+
+<LuaProperty name="Manager.onAllShardsReady" type="Emitter<ShardPayload<{ shardId: number, payload: apiTypes.ReadyPayload }>>" />
+
+
+
+## Functions
+
+### connectAsync
+
+> <LuaDeclaration name="connectAsync" className="Manager" args={[ { name: "self", type: "Manager" }, { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ]} returnType="future.FutureLike<string, nil>" />
+
+Will create, as well as connect all of the shards this application requires in order to communicate
+back and fourth between discords WebSocket
+
+### sendAsync
+
+> <LuaDeclaration name="sendAsync" className="Manager" args={[ { name: "self", type: "Manager" }, { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ]} />
+
+Will send a message through all shards this Manager is currently responsible for. This message is sent to the
+discord WebSocket.
+
+### new
+
+> <LuaDeclaration name="new" className="Manager" args={[ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ]} returnType="Manager" />
+
+Will instantiate a new Manager class.
+
+

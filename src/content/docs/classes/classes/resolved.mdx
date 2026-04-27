@@ -1,0 +1,62 @@
+---
+title: Resolved
+description: DiscordLuau docs for Resolved.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Resolved class in Luau
+
+https://discord.com/developers/docs/resources/message#attachment-object
+
+## Properties
+
+### users
+
+<LuaProperty name="Resolved.users" type="{ [string]: Classes.User }" />
+
+---
+A dictionary of user objects, keyed by user ID
+
+### members
+
+<LuaProperty name="Resolved.members" type="{ [string]: Classes.Guild.Member }" />
+
+---
+A dictionary of guild member objects, keyed by user ID
+
+### roles
+
+<LuaProperty name="Resolved.roles" type="{ [string]: Classes.Guild.Role }" />
+
+---
+A dictionary of role objects, keyed by role ID
+
+### channels
+
+<LuaProperty name="Resolved.channels" type="{ [string]: api_types.AbstractChannel }" />
+
+---
+A dictionary of channel objects, keyed by channel ID
+
+### messages
+
+<LuaProperty name="Resolved.messages" type="{ [string]: Classes.Message }" />
+
+---
+A dictionary of message objects, keyed by message ID
+
+### attachments
+
+<LuaProperty name="Resolved.attachments" type="{ [string]: Classes.Attachment }" />
+
+---
+A dictionary of attachment objects, keyed by attachment ID
+
+

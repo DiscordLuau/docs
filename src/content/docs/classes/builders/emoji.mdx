@@ -1,0 +1,68 @@
+---
+title: Emoji
+description: DiscordLuau docs for Emoji.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Emoji object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/emoji#emoji-object
+
+## Properties
+
+### emojiId
+
+<LuaProperty name="Emoji.emojiId" type="string?" />
+
+---
+The ID of the emoji.
+
+### emojiName
+
+<LuaProperty name="Emoji.emojiName" type="string?" />
+
+---
+The name of the emoji.
+
+
+## Functions
+
+### setId
+
+> <LuaDeclaration name="setId" className="Emoji" args={[ { name: "self", type: "Emoji" }, { name: "emojiId", type: "string" } ]} returnType="Emoji" />
+
+Set the ID of the emoji to use.
+
+### setName
+
+> <LuaDeclaration name="setName" className="Emoji" args={[ { name: "self", type: "Emoji" }, { name: "emojiName", type: "string" } ]} returnType="Emoji" />
+
+Set the name of the emoji to use.
+
+### build
+
+> <LuaDeclaration name="build" className="Emoji" args={[ { name: "self", type: "Emoji" } ]} returnType="JSON" />
+
+Responsible for building the Emoji JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Emoji" args={[ { name: "resource", type: "{ emojiId: string, emojiName: string, }?" } ]} returnType="Emoji" />
+
+Responsible for creating a new Emoji.
+
+```luau
+local emoji = Emoji.new({
+	emojiId = "123456789",
+	emojiName = "my-emoji"
+})
+```
+
+

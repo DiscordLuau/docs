@@ -1,0 +1,297 @@
+---
+title: Guild
+description: DiscordLuau docs for Guild.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of Discord's Guild object as a Luau builder.
+
+See Discord's documentation for more information about the allow and deny fields:
+
+https://discord.com/developers/docs/resources/guild
+
+## Properties
+
+### name
+
+<LuaProperty name="Guild.name" type="string?" />
+
+---
+The name of the guild.
+
+### verificationLevel
+
+<LuaProperty name="Guild.verificationLevel" type="Classes.VerificationLevel" />
+
+---
+Verification level setting for the guild.
+
+### defaultMessageNotifications
+
+<LuaProperty name="Guild.defaultMessageNotifications" type="Classes.DefaultMessageNotification" />
+
+---
+Default message notification level.
+
+### explicitContentFilter
+
+<LuaProperty name="Guild.explicitContentFilter" type="Classes.ExplicitContentFilterLevel" />
+
+---
+Explicit content filter level setting.
+
+### afkChannelId
+
+<LuaProperty name="Guild.afkChannelId" type="string?" />
+
+---
+ID of the AFK voice channel.
+
+### afkTimeout
+
+<LuaProperty name="Guild.afkTimeout" type="number?" />
+
+---
+AFK timeout duration in seconds.
+
+### icon
+
+<LuaProperty name="Guild.icon" type="string?" />
+
+---
+Base64 encoded icon for the guild.
+
+### ownerId
+
+<LuaProperty name="Guild.ownerId" type="string?" />
+
+---
+User ID of the owner of the guild.
+
+### splash
+
+<LuaProperty name="Guild.splash" type="string?" />
+
+---
+Base64 splash image for the guild.
+
+### discoverySplash
+
+<LuaProperty name="Guild.discoverySplash" type="string?" />
+
+---
+Base64 discovery splash image for the guild.
+
+### banner
+
+<LuaProperty name="Guild.banner" type="string?" />
+
+---
+Base64 banner image for the guild.
+
+### systemChannelId
+
+<LuaProperty name="Guild.systemChannelId" type="string?" />
+
+---
+ID of the system messages channel.
+
+### systemChannelFlags
+
+<LuaProperty name="Guild.systemChannelFlags" type="number?" />
+
+---
+Flags for the system channel.
+
+### rulesChannelId
+
+<LuaProperty name="Guild.rulesChannelId" type="string?" />
+
+---
+ID of the rules channel.
+
+### publicUpdatesChannelId
+
+<LuaProperty name="Guild.publicUpdatesChannelId" type="string?" />
+
+---
+ID of the public updates channel.
+
+### preferredLocale
+
+<LuaProperty name="Guild.preferredLocale" type="Classes.LanguageLocales?" />
+
+---
+Preferred language/locale for the guild.
+
+### features
+
+<LuaProperty name="Guild.features" type="{ Builders.GuildFeature }" />
+
+---
+List of enabled guild features.
+
+### description
+
+<LuaProperty name="Guild.description" type="string?" />
+
+---
+Description of the guild.
+
+### premiumProgressBarEnabled
+
+<LuaProperty name="Guild.premiumProgressBarEnabled" type="boolean?" />
+
+---
+Whether boost progress bar is enabled.
+
+### safetyAlertsChannelId
+
+<LuaProperty name="Guild.safetyAlertsChannelId" type="string?" />
+
+---
+ID of the safety alerts channel.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "name", type: "string" } ]} returnType="Guild" />
+
+Set the name for this guild.
+
+### setVerificationLevel
+
+> <LuaDeclaration name="setVerificationLevel" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "verificationLevel", type: "apiTypes.VerificationLevel" } ]} returnType="Guild" />
+
+Set the explicit verification level for this guild.
+
+### setDefaultMessageNotifications
+
+> <LuaDeclaration name="setDefaultMessageNotifications" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "defaultMessageNotifications", type: "apiTypes.DefaultMessageNotification" } ]} returnType="Guild" />
+
+Set the explicit default message notifications for this guild.
+
+### setExplicitContentFilter
+
+> <LuaDeclaration name="setExplicitContentFilter" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "explicitContentFilter", type: "apiTypes.ExplicitContentFilterLevel" } ]} returnType="Guild" />
+
+Set the explicit content filter level for this guild.
+
+### setAfkChannelId
+
+> <LuaDeclaration name="setAfkChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "afkChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the id for the AFK channel.
+
+### setAfkTimeout
+
+> <LuaDeclaration name="setAfkTimeout" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "afkTimeout", type: "number" } ]} returnType="Guild" />
+
+Set the AFK timeout in seconds. Can be one of: 60, 300, 900, 1800, 3600.
+
+### setIcon
+
+> <LuaDeclaration name="setIcon" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+
+Set the base64 1024x1024 PNG/JPEG/GIF image for the guild icon.
+
+### setOwnerId
+
+> <LuaDeclaration name="setOwnerId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ownerId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the user ID to transfer guild ownership to (must be owner).
+
+### setSplash
+
+> <LuaDeclaration name="setSplash" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+
+Set the base64 16:9 PNG/JPEG image for the guild splash.
+
+### setDiscoverySplash
+
+> <LuaDeclaration name="setDiscoverySplash" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+
+Set the base64 16:9 PNG/JPEG image for the discovery splash of the guild.
+
+### setBanner
+
+> <LuaDeclaration name="setBanner" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+
+Set the base64 16:9 PNG/JPEG/GIF image for the guild banner.
+
+### setSystemChannelId
+
+> <LuaDeclaration name="setSystemChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "systemChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the ID of the system channel.
+
+### setSystemChannelFlags
+
+> <LuaDeclaration name="setSystemChannelFlags" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "systemChannelFlags", type: "number" } ]} returnType="Guild" />
+
+Set the system channel flags.
+
+### setRulesChannelId
+
+> <LuaDeclaration name="setRulesChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "rulesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the ID of the rules channel.
+
+### setPublicUpdatesChannelId
+
+> <LuaDeclaration name="setPublicUpdatesChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "publicUpdatesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the ID of the public updates channel.
+
+### setPreferredLocale
+
+> <LuaDeclaration name="setPreferredLocale" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "preferredLocale", type: "apiTypes.LanguageLocales" } ]} returnType="Guild" />
+
+Set the preferred locale of the guild.
+
+### addFeature
+
+> <LuaDeclaration name="addFeature" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "feature", type: "apiTypes.GuildFeature" } ]} returnType="Guild" />
+
+Enable a specific guild feature.
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "description", type: "string" } ]} returnType="Guild" />
+
+Set the description for the guild.
+
+### setPremiumProgressBarEnabled
+
+> <LuaDeclaration name="setPremiumProgressBarEnabled" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "premiumProgressBarEnabled", type: "boolean" } ]} returnType="Guild" />
+
+Set whether the guild's boost progress bar should be enabled.
+
+### setSafetyAlertsChannelId
+
+> <LuaDeclaration name="setSafetyAlertsChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "safetyAlertsChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+
+Set the ID of the safety alerts channel.
+
+### build
+
+> <LuaDeclaration name="build" className="Guild" args={[ { name: "self", type: "Guild" } ]} returnType="JSON" />
+
+Responsible for building the Guild JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Guild" args={[ { name: "resource", type: "{ name: string?, verificationLevel: apiTypes.VerificationLevel?, defaultMessageNotifications: apiTypes.DefaultMessageNotification?, explicitContentFilter: apiTypes.ExplicitContentFilterLevel?, afkChannelId: apiTypes.Snowflake?, afkTimeout: number?, icon: string?, ownerId: apiTypes.Snowflake?, splash: string?, discoverySplash: string?, banner: string?, systemChannelId: apiTypes.Snowflake?, systemChannelFlags: number?, rulesChannelId: apiTypes.Snowflake?, publicUpdatesChannelId: apiTypes.Snowflake?, preferredLocale: apiTypes.LanguageLocales?, features: { apiTypes.GuildFeature }?, description: string?, premiumProgressBarEnabled: boolean?, safetyAlertsChannelId: apiTypes.Snowflake?, }?" } ]} returnType="Guild" />
+
+Construct a new Guild object.
+
+

@@ -1,0 +1,122 @@
+---
+title: Role
+description: DiscordLuau docs for Role.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a Discord Guild Role as a Luau builder.
+
+https://discord.com/developers/docs/resources/guild#create-guild-role-json-params
+
+## Properties
+
+### name
+
+<LuaProperty name="Role.name" type="string?" />
+
+---
+The name of the role.
+
+### permissionFlags
+
+<LuaProperty name="Role.permissionFlags" type="{ apiTypes.Permissions }" />
+
+---
+The permissions assigned to the role.
+
+### color
+
+<LuaProperty name="Role.color" type="number?" />
+
+---
+The color of the role represented as a hexadecimal number.
+
+### isHoisted
+
+<LuaProperty name="Role.isHoisted" type="boolean?" />
+
+---
+Whether the role is displayed separately in the member list.
+
+### icon
+
+<LuaProperty name="Role.icon" type="string?" />
+
+---
+The icon of the role.
+
+### unicodeEmoji
+
+<LuaProperty name="Role.unicodeEmoji" type="string?" />
+
+---
+The unicode emoji of the role.
+
+### isMentionable
+
+<LuaProperty name="Role.isMentionable" type="boolean?" />
+
+---
+Whether the role can be mentioned by users.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Role" args={[ { name: "self", type: "Role" }, { name: "roleName", type: "string" } ]} returnType="Role" />
+
+Sets the name of the role, optionally this could be defined when creating the Role Builder as well.
+
+### setPermissions
+
+> <LuaDeclaration name="setPermissions" className="Role" args={[ { name: "self", type: "Role" }, { name: "...", type: "apiTypes.Permissions" } ]} returnType="Role" />
+
+Sets the permissions of the role, optionally this could be defined when creating the Role Builder as well.
+
+### setColor
+
+> <LuaDeclaration name="setColor" className="Role" args={[ { name: "self", type: "Role" }, { name: "color", type: "number" } ]} returnType="Role" />
+
+Sets the color of the role. Colors are presennted as a hexadecimal number.
+
+### setHoisted
+
+> <LuaDeclaration name="setHoisted" className="Role" args={[ { name: "self", type: "Role" }, { name: "isHoisted", type: "boolean" } ]} returnType="Role" />
+
+Sets the role to be hoisted. A hoisted role is displayed in the user listing, vs's an unhoisted role which is not displayed at all.
+
+### setMentionable
+
+> <LuaDeclaration name="setMentionable" className="Role" args={[ { name: "self", type: "Role" }, { name: "isMentionable", type: "boolean" } ]} returnType="Role" />
+
+Sets the role to be mentionable through the @ mention.
+
+### build
+
+> <LuaDeclaration name="build" className="Role" args={[ { name: "self", type: "Role" } ]} returnType="JSON" />
+
+Responsible for buillding the role object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="Role" args={[ { name: "resource", type: "{ roleName: string?, rolePermissions: { apiTypes.Permissions }?, }?" } ]} returnType="Role" />
+
+Constructs a new Role Builder.
+
+```luau
+local role = Role.new("Role Name", { permissions.Permission.SendMessages })
+	:setColor(0xFFFFFF)
+	:setHoisted(true)
+	:setMentionable(true)
+	:build()
+```
+
+

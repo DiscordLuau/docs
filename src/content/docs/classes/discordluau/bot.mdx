@@ -1,0 +1,451 @@
+---
+title: Bot
+description: DiscordLuau docs for Bot.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Top level documentation for the Discord-Luau library, welcome! 👋
+
+This package will represent the entrypoint to your adventure using Discord-Luau, through this package you'll generate
+a discord Bot object, this bot Object enables you to write discord bots for the Discord API.
+
+```luau
+local DiscordLuau = require("/path/to/discord-luau")
+local Bot = DiscordLuau.bot -- This module!
+
+local discordBot = Bot.new({
+	token = env.DISCORD_BOT_TOKEN,
+	reconnect = env.IS_PRODUCTION,
+	intents = 513, -- Guild, GuildMessages
+})
+
+discordBot:connectAsync():await()
+
+print(`Bot has connected: '{discordBot.user.username}'`)
+```
+
+## Properties
+
+### state
+
+<LuaProperty name="Bot.state" type="State.State" />
+
+
+### logger
+
+<LuaProperty name="Bot.logger" type="Logger" />
+
+
+### application
+
+<LuaProperty name="Bot.application" type="Classes.Application?" />
+
+
+### user
+
+<LuaProperty name="Bot.user" type="Classes.User?" />
+
+
+### onReady
+
+<LuaProperty name="Bot.onReady" type="Emitter<number>" />
+
+
+### onAllShardsReady
+
+<LuaProperty name="Bot.onAllShardsReady" type="Emitter<()>" />
+
+
+### onShardDisconnected
+
+<LuaProperty name="Bot.onShardDisconnected" type="Emitter<number, string>" />
+
+
+### onShardReconnected
+
+<LuaProperty name="Bot.onShardReconnected" type="Emitter<number>" />
+
+
+### onMessage
+
+<LuaProperty name="Bot.onMessage" type="Emitter<Classes.Message>" />
+
+
+### onMessageChanged
+
+<LuaProperty name="Bot.onMessageChanged" type="Emitter<Classes.Message>" />
+
+
+### onMessageDeleted
+
+<LuaProperty name="Bot.onMessageDeleted" type="Emitter<{ messageId: apiTypes.Snowflake, channelId: apiTypes.Snowflake, guildId: apiTypes.Snowflake }>" />
+
+
+### onMessageBulkDeleted
+
+<LuaProperty name="Bot.onMessageBulkDeleted" type="Emitter<{ channelId: string, guildId: string, ids: { string } }>" />
+
+
+### onGroupDMChannelCreate
+
+<LuaProperty name="Bot.onGroupDMChannelCreate" type="Emitter<Classes.GroupDM>" />
+
+
+### onCategoryChannelCreate
+
+<LuaProperty name="Bot.onCategoryChannelCreate" type="Emitter<Classes.GuildCategory>" />
+
+
+### onAnnouncementChannelCreate
+
+<LuaProperty name="Bot.onAnnouncementChannelCreate" type="Emitter<Classes.GuildAnnouncement>" />
+
+
+### onDirectoryChannelCreate
+
+<LuaProperty name="Bot.onDirectoryChannelCreate" type="Emitter<Classes.GuildDirectory>" />
+
+
+### onDMChannelCreate
+
+<LuaProperty name="Bot.onDMChannelCreate" type="Emitter<Classes.DM>" />
+
+
+### onTextChannelCreate
+
+<LuaProperty name="Bot.onTextChannelCreate" type="Emitter<Classes.GuildText>" />
+
+
+### onVoiceChannelCreate
+
+<LuaProperty name="Bot.onVoiceChannelCreate" type="Emitter<Classes.GuildVoice>" />
+
+
+### onStageVoiceChannelCreate
+
+<LuaProperty name="Bot.onStageVoiceChannelCreate" type="Emitter<Classes.GuildStageVoice>" />
+
+
+### onGroupDMChannelUpdated
+
+<LuaProperty name="Bot.onGroupDMChannelUpdated" type="Emitter<Classes.GroupDM>" />
+
+
+### onCategoryChannelUpdated
+
+<LuaProperty name="Bot.onCategoryChannelUpdated" type="Emitter<Classes.GuildCategory>" />
+
+
+### onAnnouncementChannelUpdated
+
+<LuaProperty name="Bot.onAnnouncementChannelUpdated" type="Emitter<Classes.GuildAnnouncement>" />
+
+
+### onDirectoryChannelUpdated
+
+<LuaProperty name="Bot.onDirectoryChannelUpdated" type="Emitter<Classes.GuildDirectory>" />
+
+
+### onDMChannelUpdated
+
+<LuaProperty name="Bot.onDMChannelUpdated" type="Emitter<Classes.DM>" />
+
+
+### onTextChannelUpdated
+
+<LuaProperty name="Bot.onTextChannelUpdated" type="Emitter<Classes.GuildText>" />
+
+
+### onVoiceChannelUpdated
+
+<LuaProperty name="Bot.onVoiceChannelUpdated" type="Emitter<Classes.GuildVoice>" />
+
+
+### onStageVoiceChannelUpdated
+
+<LuaProperty name="Bot.onStageVoiceChannelUpdated" type="Emitter<Classes.GuildStageVoice>" />
+
+
+### onGroupDMChannelDeleted
+
+<LuaProperty name="Bot.onGroupDMChannelDeleted" type="Emitter<Classes.GroupDM>" />
+
+
+### onCategoryChannelDeleted
+
+<LuaProperty name="Bot.onCategoryChannelDeleted" type="Emitter<Classes.GuildCategory>" />
+
+
+### onAnnouncementChannelDeleted
+
+<LuaProperty name="Bot.onAnnouncementChannelDeleted" type="Emitter<Classes.GuildAnnouncement>" />
+
+
+### onDirectoryChannelDeleted
+
+<LuaProperty name="Bot.onDirectoryChannelDeleted" type="Emitter<Classes.GuildDirectory>" />
+
+
+### onDMChannelDeleted
+
+<LuaProperty name="Bot.onDMChannelDeleted" type="Emitter<Classes.DM>" />
+
+
+### onTextChannelDeleted
+
+<LuaProperty name="Bot.onTextChannelDeleted" type="Emitter<Classes.GuildText>" />
+
+
+### onVoiceChannelDeleted
+
+<LuaProperty name="Bot.onVoiceChannelDeleted" type="Emitter<Classes.GuildVoice>" />
+
+
+### onStageVoiceChannelDeleted
+
+<LuaProperty name="Bot.onStageVoiceChannelDeleted" type="Emitter<Classes.GuildStageVoice>" />
+
+
+### onUserUpdated
+
+<LuaProperty name="Bot.onUserUpdated" type="Emitter<Classes.User>" />
+
+
+### onChannelPinsUpdate
+
+<LuaProperty name="Bot.onChannelPinsUpdate" type="Emitter<{ guildId: string, channelId: string, lastPinTimestamp: stdPolyfills.DateTime? }>" />
+
+
+### onGuildCreate
+
+<LuaProperty name="Bot.onGuildCreate" type="Emitter<classes.UnavailableGuild | classes.Guild>" />
+
+
+### onGuildUpdate
+
+<LuaProperty name="Bot.onGuildUpdate" type="Emitter<Classes.Guild>" />
+
+
+### onGuildDelete
+
+<LuaProperty name="Bot.onGuildDelete" type="Emitter<Classes.UnavailableGuild>" />
+
+
+### onGuildMemberBanned
+
+<LuaProperty name="Bot.onGuildMemberBanned" type="Emitter<{ guildId: string, user: classes.User }>" />
+
+
+### onGuildMemberUnbanned
+
+<LuaProperty name="Bot.onGuildMemberUnbanned" type="Emitter<{ guildId: string, user: classes.User }>" />
+
+
+### onGuildMemberJoined
+
+<LuaProperty name="Bot.onGuildMemberJoined" type="Emitter<Classes.GuildMember & { guildId: string }>" />
+
+
+### onGuildMemberLeft
+
+<LuaProperty name="Bot.onGuildMemberLeft" type="Emitter<{ guildId: string, user: classes.User }>" />
+
+
+### onGuildMemberUpdated
+
+<LuaProperty name="Bot.onGuildMemberUpdated" type="Emitter<{guildId: stringroles: { string },user: classes.User,nick: string?,avatar: string,joinedAt: stdPolyfills.DateTime,premiumSince: stdPolyfills.DateTime,deaf: boolean?,mute: boolean?,pending: boolean?,communicationDisabledUntil: stdPolyfills.DateTime?,}>" />
+
+
+### onPingInteraction
+
+<LuaProperty name="Bot.onPingInteraction" type="Emitter<Classes.Ping>" />
+
+
+### onCommandInteraction
+
+<LuaProperty name="Bot.onCommandInteraction" type="Emitter<Classes.TypesCommand>" />
+
+
+### onComponentInteraction
+
+<LuaProperty name="Bot.onComponentInteraction" type="Emitter<Classes.Component>" />
+
+
+### onAutocompleteInteraction
+
+<LuaProperty name="Bot.onAutocompleteInteraction" type="Emitter<Classes.Autocomplete>" />
+
+
+### onModalInteraction
+
+<LuaProperty name="Bot.onModalInteraction" type="Emitter<Classes.Modal>" />
+
+
+
+## Functions
+
+### queryGatewayInformation
+
+> <LuaDeclaration name="queryGatewayInformation" className="Bot" args={[ { name: "self", type: "Bot" } ]} returnType="future.FutureLike<string, apiTypes.GetGatewayBotResponse>" />
+
+Queries the Discord Gateway for bot information.
+
+This function sends a request to the Discord Gateway to retrieve information
+about the bot, such as the recommended number of shards and session start limit.
+
+### connectAsync
+
+> <LuaDeclaration name="connectAsync" className="Bot" args={[ { name: "self", type: "Bot" } ]} returnType="future.FutureLike<string, nil>" />
+
+Connects the bot to the Discord gateway asynchronously.
+
+This function performs the following steps:
+1. Queries gateway information
+2. Asserts that the query was successful
+3. Connects to the WebSocket using the obtained gateway information
+
+Returns a async that resolves when the connection is established.
+
+### getGuildAsync
+
+> <LuaDeclaration name="getGuildAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "guildId", type: "string" }, { name: "withCount", type: "boolean?" } ]} returnType="future.FutureLike<string, classes.Guild>" />
+
+Returns the classes.guild object for the given id. If with_counts is set to true, this endpoint will also return
+approximate_member_count and approximate_presence_count for the classes.guild.
+
+### getChannelAsync
+
+> <LuaDeclaration name="getChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.Channel>" />
+
+Returns a channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a channel.
+The channel type is determined by the generic type parameter T.
+
+### getDMChannelAsync
+
+> <LuaDeclaration name="getDMChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.DM>" />
+
+Returns a DM channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a DM channel.
+
+### getGroupDMChannelAsync
+
+> <LuaDeclaration name="getGroupDMChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GroupDM>" />
+
+Returns a Group DM channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a Group DM channel.
+
+### getAnnouncementChannelAsync
+
+> <LuaDeclaration name="getAnnouncementChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildAnnouncement>" />
+
+Returns an announcement channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about an announcement channel.
+
+### getCategoryChannelAsync
+
+> <LuaDeclaration name="getCategoryChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildCategory>" />
+
+Returns a category channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a category channel.
+
+### getDirectoryChannelAsync
+
+> <LuaDeclaration name="getDirectoryChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildDirectory>" />
+
+Returns a directory channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a directory channel.
+
+### getStageVCChannelAsync
+
+> <LuaDeclaration name="getStageVCChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildStageVoice>" />
+
+Returns a stage voice channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a stage voice channel.
+
+### getTextChannelAsync
+
+> <LuaDeclaration name="getTextChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildText>" />
+
+Returns a text channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a text channel.
+
+### getForumChannelAsync
+
+> <LuaDeclaration name="getForumChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.ThreadForum>" />
+
+Returns a text channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a text channel.
+
+### getMediaChannelAsync
+
+> <LuaDeclaration name="getMediaChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.ThreadMedia>" />
+
+Returns a text channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a text channel.
+
+### getUserAsync
+
+> <LuaDeclaration name="getUserAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, classes.User>" />
+
+Returns a user object for the given user ID.
+
+This function sends a request to the Discord API to retrieve information about a user. 
+
+### createGuildAsync
+
+> <LuaDeclaration name="createGuildAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "guildData", type: "builders.guildJSON & { name: string, }" } ]} returnType="future.FutureLike<string, classes.Guild>" />
+
+Will create a new Guild instance, returns this instance.
+
+### setLogLevel
+
+> <LuaDeclaration name="setLogLevel" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "logLevel", type: "logger.LogLevel" } ]} />
+
+Will set the Log Level for the bot, and all instantiated objects within the bot.
+
+### getVoiceChannelAsync
+
+> <LuaDeclaration name="getVoiceChannelAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.GuildVoice>" />
+
+Returns a voice channel object for the given channel ID.
+
+This function sends a request to the Discord API to retrieve information about a voice channel.
+
+### setPresenceAsync
+
+> <LuaDeclaration name="setPresenceAsync" className="Bot" args={[ { name: "self", type: "Bot" }, { name: "presence", type: "builders.presenceJSON" } ]} />
+
+Allows you to set the presence for the Discord Bot.
+
+:::caution
+	Because discord-luau is currently unable to capture when the user cancels the program, we can't close the current
+	websocket, which causes us to enter this Zombified state..
+
+	Due to this zombified state - presences may be delayed, or won't render immediately
+:::
+
+### new
+
+> <LuaDeclaration name="new" className="Bot" args={[ { name: "options", type: "{ token: string, intents: number, reconnect: boolean?, logLevel: logger.LogLevel?, globalRatelimit: number?, }" } ]} />
+
+Construct a new DiscordLuau object
+
+

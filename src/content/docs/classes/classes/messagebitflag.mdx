@@ -1,0 +1,97 @@
+---
+title: MessageBitflag
+description: DiscordLuau docs for MessageBitflag.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Message Bitflags in Luau.
+Represents various flags that can be applied to Discord messages.
+
+https://discord.com/developers/docs/resources/message#message-object-message-flags
+
+## Properties
+
+### flag
+
+<LuaProperty name="MessageBitflag.flag" type="number" />
+
+---
+The raw bitflag value for the message.
+
+
+## Functions
+
+### crossposted
+
+> <LuaDeclaration name="crossposted" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message has been published to subscribed channels (via Channel Following).
+
+### isCrossposted
+
+> <LuaDeclaration name="isCrossposted" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message originated from a message in another channel (via Channel Following).
+
+### suppressEmbeds
+
+> <LuaDeclaration name="suppressEmbeds" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if embeds should be suppressed when serializing this message.
+
+### sourceMessageDeleted
+
+> <LuaDeclaration name="sourceMessageDeleted" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if the source message for this crosspost has been deleted (via Channel Following).
+
+### urgent
+
+> <LuaDeclaration name="urgent" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message came from the urgent message system.
+
+### hasThread
+
+> <LuaDeclaration name="hasThread" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message has an associated thread, with the same id as the message.
+
+### ephemeral
+
+> <LuaDeclaration name="ephemeral" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message is only visible to the user who invoked the Interaction.
+
+### loading
+
+> <LuaDeclaration name="loading" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message is an Interaction Response and the bot is "thinking".
+
+### failedToMentionSomeRolesInThread
+
+> <LuaDeclaration name="failedToMentionSomeRolesInThread" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message failed to mention some roles and add their members to the thread.
+
+### suppressNotifications
+
+> <LuaDeclaration name="suppressNotifications" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message will not trigger push and desktop notifications.
+
+### isVouceMessage
+
+> <LuaDeclaration name="isVouceMessage" className="MessageBitflag" args={[ { name: "self", type: "MessageBitflag" } ]} />
+
+Checks if this message is a voice message.
+
+

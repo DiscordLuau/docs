@@ -1,0 +1,50 @@
+---
+title: AutoModeration
+description: DiscordLuau docs for AutoModeration.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/auto-moderation
+
+## Functions
+
+### listAutoModerationRulesForGuildAsync
+
+> <LuaDeclaration name="listAutoModerationRulesForGuildAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.ListAutoModerationRulesForGuildResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild
+
+### getAutoModerationRuleForGuildAsync
+
+> <LuaDeclaration name="getAutoModerationRuleForGuildAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule
+
+### createAutoModerationRuleAsync
+
+> <LuaDeclaration name="createAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.CreateAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule
+
+### modifyAutoModerationRuleAsync
+
+> <LuaDeclaration name="modifyAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.ModifyAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule
+
+### deleteAutoModerationRuleAsync
+
+> <LuaDeclaration name="deleteAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.DeleteAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule
+
+

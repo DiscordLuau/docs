@@ -1,0 +1,187 @@
+---
+title: Role
+description: DiscordLuau docs for Role.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Role class in Luau
+
+https://discord.com/developers/docs/topics/permissions#role-object
+
+## Properties
+
+### flags
+
+<LuaProperty name="Role.flags" type="Classes.RoleBitflag" />
+
+---
+Role flags combined as a bitfield.
+
+### tags
+
+<LuaProperty name="Role.tags" type="{ Classes.Guild.RoleTag }" />
+
+---
+Tags associated with this role.
+
+### id
+
+<LuaProperty name="Role.id" type="string" />
+
+---
+The ID of the role.
+
+### name
+
+<LuaProperty name="Role.name" type="string" />
+
+---
+The name of the role.
+
+### color
+
+<LuaProperty name="Role.color" type="number" />
+
+---
+The color of the role.
+
+### hoist
+
+<LuaProperty name="Role.hoist" type="boolean" />
+
+---
+Whether the role is displayed separately in the member list.
+
+### icon
+
+<LuaProperty name="Role.icon" type="string" />
+
+---
+The icon hash of the role.
+
+### unicodeEmoji
+
+<LuaProperty name="Role.unicodeEmoji" type="string" />
+
+---
+The unicode emoji of the role.
+
+### position
+
+<LuaProperty name="Role.position" type="number" />
+
+---
+The position of the role.
+
+### permissions
+
+<LuaProperty name="Role.permissions" type="Classes.Permission" />
+
+---
+The permissions of the role.
+
+### managed
+
+<LuaProperty name="Role.managed" type="boolean" />
+
+---
+Whether the role is managed by an integration.
+
+### mentionable
+
+<LuaProperty name="Role.mentionable" type="boolean" />
+
+---
+Whether the role is mentionable.
+
+### state
+
+<LuaProperty name="Role.state" type="State" />
+
+---
+The state object for this role.
+
+### guildId
+
+<LuaProperty name="Role.guildId" type="string" />
+
+---
+The ID of the guild this role belongs to.
+
+
+## Functions
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "reason", type: "string?" } ]} />
+
+Delete a guild role. Requires the MANAGE_ROLES permission.
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "json", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ]} />
+
+Modify a guild role. Requires the MANAGE_ROLES permission. Returns the updated role on success.
+
+### modifyPositionAsync
+
+> <LuaDeclaration name="modifyPositionAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "position", type: "number" }, { name: "reason", type: "string?" } ]} />
+
+Modify the positions of a set of role objects for the guild. Requires the MANAGE_ROLES permission.
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "name", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Sets the name of the role.
+
+### addPermissionAsync
+
+> <LuaDeclaration name="addPermissionAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ]} />
+
+Adds a permission to the role's current permission set.
+
+### removePermissionAsync
+
+> <LuaDeclaration name="removePermissionAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ]} />
+
+Removes a permission from the role's current permission set.
+
+### setColorAsync
+
+> <LuaDeclaration name="setColorAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "color", type: "number" }, { name: "reason", type: "string?" } ]} />
+
+Sets the color of the role.
+
+### setHoistedAsync
+
+> <LuaDeclaration name="setHoistedAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "hoisted", type: "boolean" }, { name: "reason", type: "string?" } ]} />
+
+Sets whether the role should be displayed separately in the member list.
+
+### setIconAsync
+
+> <LuaDeclaration name="setIconAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "iconData", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Sets the icon image for the role.
+
+### setEmojiAsync
+
+> <LuaDeclaration name="setEmojiAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "emoji", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Sets the unicode emoji for the role.
+
+### setMentionableAsync
+
+> <LuaDeclaration name="setMentionableAsync" className="Role" args={[ { name: "self", type: "Role" }, { name: "mentionable", type: "boolean" }, { name: "reason", type: "string?" } ]} />
+
+Sets the role to be mentionable through the @ mention.
+
+

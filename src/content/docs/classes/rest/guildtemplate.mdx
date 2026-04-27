@@ -1,0 +1,62 @@
+---
+title: GuildTemplate
+description: DiscordLuau docs for GuildTemplate.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/guild-template
+
+## Functions
+
+### getGuildTemplateAsync
+
+> <LuaDeclaration name="getGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "templateCode", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildTemplateResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#get-guild-template
+
+### createGuildFromGuildTemplateAsync
+
+> <LuaDeclaration name="createGuildFromGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "templateCode", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateGuildFromGuildTemplateRequest" } ]} returnType="future.Future< string, apiTypes.CreateGuildFromGuildTemplateResponse >" />
+
+https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template
+
+### getGuildTemplatesAsync
+
+> <LuaDeclaration name="getGuildTemplatesAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildTemplatesResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#get-guild-templates
+
+### createGuildTemplateAsync
+
+> <LuaDeclaration name="createGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildTemplateRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildTemplateResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#create-guild-template
+
+### syncGuildTemplateAsync
+
+> <LuaDeclaration name="syncGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "templateCode", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.SyncGuildTemplateResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#sync-guild-template
+
+### modifyGuildTemplateAsync
+
+> <LuaDeclaration name="modifyGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "templateCode", type: "string" }, { name: "jsonParams", type: "apiTypes.ModifyGuildTemplateRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildTemplateResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#modify-guild-template
+
+### deleteGuildTemplateAsync
+
+> <LuaDeclaration name="deleteGuildTemplateAsync" className="GuildTemplate" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "templateCode", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildTemplateResponse>" />
+
+https://discord.com/developers/docs/resources/guild-template#delete-guild-template
+
+

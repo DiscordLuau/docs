@@ -1,0 +1,32 @@
+---
+title: Invite
+description: DiscordLuau docs for Invite.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/invite
+
+## Functions
+
+### getInviteAsync
+
+> <LuaDeclaration name="getInviteAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetInviteResponse>" />
+
+https://discord.com/developers/docs/resources/invite#get-invite
+
+### deleteInviteAsync
+
+> <LuaDeclaration name="deleteInviteAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteInviteResponse>" />
+
+https://discord.com/developers/docs/resources/invite#delete-invite
+
+

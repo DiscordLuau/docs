@@ -1,0 +1,107 @@
+---
+title: Invite
+description: DiscordLuau docs for Invite.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Invite class in Luau
+
+https://discord.com/developers/docs/resources/invite#invite-object
+
+## Properties
+
+### channel
+
+<LuaProperty name="Invite.channel" type="Classes.Channels.Channel" />
+
+---
+The channel this invite is for
+
+### type
+
+<LuaProperty name="Invite.type" type="string" />
+
+---
+The type of invite (GUILD, GROUP_DM, FRIEND)
+
+### code
+
+<LuaProperty name="Invite.code" type="string" />
+
+---
+The unique invite code
+
+### guild
+
+<LuaProperty name="Invite.guild" type="Classes.UnavailableGuild?" />
+
+---
+The guild this invite is for
+
+### inviter
+
+<LuaProperty name="Invite.inviter" type="Classes.User?" />
+
+---
+The user who created the invite
+
+### targetType
+
+<LuaProperty name="Invite.targetType" type="string?" />
+
+---
+The type of target for this invite (STREAM, EMBEDDED_APPLICATION)
+
+### targetUser
+
+<LuaProperty name="Invite.targetUser" type="Classes.User?" />
+
+---
+The user whose stream to display for this invite, if targetType is STREAM
+
+### approximatePresenceCount
+
+<LuaProperty name="Invite.approximatePresenceCount" type="number?" />
+
+---
+Approximate count of online members (only present when target_user is set)
+
+### approximateMemberCount
+
+<LuaProperty name="Invite.approximateMemberCount" type="number?" />
+
+---
+Approximate count of total members
+
+### expiresAt
+
+<LuaProperty name="Invite.expiresAt" type="stdPolyfills.DateTime?" />
+
+---
+The expiration date of this invite
+
+### scheduledEvent
+
+<LuaProperty name="Invite.scheduledEvent" type="Classes.Guild.ScheduledEvent?" />
+
+---
+The scheduled event associated with this invite
+
+
+## Functions
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "reason", type: "string?" } ]} />
+
+Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
+if there is one. Requires the MANAGE_GUILD permission.
+
+

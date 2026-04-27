@@ -1,0 +1,199 @@
+---
+title: Ping
+description: DiscordLuau docs for Ping.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Ping Interaction class in Luau
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
+
+## Properties
+
+### type
+
+<LuaProperty name="Ping.type" type="string" />
+
+---
+The type of interaction. This can be one of the following values:
+- "PING"
+- "APPLICATION_COMMAND"
+- "MESSAGE_COMPONENT"
+- "APPLICATION_COMMAND_AUTOCOMPLETE"
+- "MODAL_SUBMIT"
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### context
+
+<LuaProperty name="Ping.context" type="string" />
+
+---
+The context type of the interaction. This can be one of the following values:
+- "GUILD"
+- "BOT_DM"
+- "PRIVATE_CHANNEL"
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### id
+
+<LuaProperty name="Ping.id" type="string" />
+
+---
+The unique identifier for the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### applicationId
+
+<LuaProperty name="Ping.applicationId" type="string" />
+
+---
+The ID of the application this interaction is for.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### data
+
+<LuaProperty name="Ping.data" type="Classes.InteractionBehaviourData?" />
+
+---
+The data associated with the interaction. The structure of this data varies based on the interaction type.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### guild
+
+<LuaProperty name="Ping.guild" type="Classes.UnavailableGuild?" />
+
+---
+The guild where the interaction was triggered. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### guildId
+
+<LuaProperty name="Ping.guildId" type="string?" />
+
+---
+The ID of the guild where the interaction was triggered. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### channelId
+
+<LuaProperty name="Ping.channelId" type="string?" />
+
+---
+The ID of the channel where the interaction was triggered.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### member
+
+<LuaProperty name="Ping.member" type="Classes.Guild.Member?" />
+
+---
+The member who triggered the interaction. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### user
+
+<LuaProperty name="Ping.user" type="Classes.User?" />
+
+---
+The user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### token
+
+<LuaProperty name="Ping.token" type="string" />
+
+---
+The token used for responding to the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### version
+
+<LuaProperty name="Ping.version" type="number" />
+
+---
+The version of the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### message
+
+<LuaProperty name="Ping.message" type="Classes.Message?" />
+
+---
+The message that triggered the interaction. This is only present for message component interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### appPermissions
+
+<LuaProperty name="Ping.appPermissions" type="Classes.Permission" />
+
+---
+The permissions the application has in the channel where the interaction was triggered.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### locale
+
+<LuaProperty name="Ping.locale" type="string?" />
+
+---
+The selected language of the user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### guildLocale
+
+<LuaProperty name="Ping.guildLocale" type="string?" />
+
+---
+The guild's preferred locale, if the interaction was triggered in a guild.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### entitlements
+
+<LuaProperty name="Ping.entitlements" type="{Classes.Entitlement}" />
+
+---
+The entitlements for the user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+### authorizingIntegrationOwners
+
+<LuaProperty name="Ping.authorizingIntegrationOwners" type="{[string]: string}" />
+
+---
+The mapping of integration types to their respective owners.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
+
+
+## Functions
+
+### pongAsync
+
+> <LuaDeclaration name="pongAsync" className="Ping" args={[ { name: "self", type: "Ping" } ]} />
+
+Acknowledge an interaction ping
+
+

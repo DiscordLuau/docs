@@ -1,0 +1,56 @@
+---
+title: GuildScheduledEvent
+description: DiscordLuau docs for GuildScheduledEvent.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/guild-scheduled-event
+
+## Functions
+
+### listScheduledEventsForGuildAsync
+
+> <LuaDeclaration name="listScheduledEventsForGuildAsync" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withUserCount: boolean?, }" } ]} returnType="future.FutureLike< string, apiTypes.ListScheduledEventsForGuildResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#list-scheduled-events-for-guild
+
+### createGuildScheduledEvent
+
+> <LuaDeclaration name="createGuildScheduledEvent" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildScheduledEventRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.CreateGuildScheduledEventResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#create-guild-scheduled-event
+
+### getScheduledEventsForGuildAsync
+
+> <LuaDeclaration name="getScheduledEventsForGuildAsync" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "scheduledEventId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withUserCount: boolean?, }" } ]} returnType="future.FutureLike< string, apiTypes.GetGuildScheduledEventResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event
+
+### modifyGuildScheduledEvent
+
+> <LuaDeclaration name="modifyGuildScheduledEvent" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "scheduledEventId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildScheduledEventRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.ModifyGuildScheduledEventResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event
+
+### deleteGuildScheduledEvent
+
+> <LuaDeclaration name="deleteGuildScheduledEvent" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "scheduledEventId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.DeleteGuildScheduledEventResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event
+
+### getGuildScheduledEventUsers
+
+> <LuaDeclaration name="getGuildScheduledEventUsers" className="GuildScheduledEvent" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "scheduledEventId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetGuildScheduledEventUsersResponse >" />
+
+https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users
+
+

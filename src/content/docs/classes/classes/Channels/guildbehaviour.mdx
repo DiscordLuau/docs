@@ -1,0 +1,152 @@
+---
+title: GuildBehaviour
+description: DiscordLuau docs for GuildBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Behaviour class that implements the properties and methods specific to guild channels in Discord.
+This behaviour is inherited by guild channel classes to provide guild-specific functionality.
+
+Guild behaviours include:
+- Managing channel positions and categories
+- Handling permission overwrites
+- Managing invites
+- Managing thread archives
+- Handling guild-specific channel properties
+
+## Properties
+
+### permissionOverwrites
+
+<LuaProperty name="GuildBehaviour.permissionOverwrites" type="{ Classes.Channels.Overwrite }" />
+
+---
+The permission overwrites for the channel.
+
+### nsfw
+
+<LuaProperty name="GuildBehaviour.nsfw" type="boolean" />
+
+---
+Whether the channel is marked as NSFW (Not Safe For Work).
+
+### topic
+
+<LuaProperty name="GuildBehaviour.topic" type="string?" />
+
+---
+The topic of the channel.
+
+### guildId
+
+<LuaProperty name="GuildBehaviour.guildId" type="string" />
+
+---
+The ID of the guild this channel belongs to.
+
+### position
+
+<LuaProperty name="GuildBehaviour.position" type="number" />
+
+---
+The position of the channel in the guild's channel list.
+
+### parentId
+
+<LuaProperty name="GuildBehaviour.parentId" type="string?" />
+
+---
+The ID of the parent category channel, if this channel is in a category.
+
+### permissions
+
+<LuaProperty name="GuildBehaviour.permissions" type="number" />
+
+---
+The computed permissions for the current user in this channel.
+
+### defaultThreadRateLimitPerUser
+
+<LuaProperty name="GuildBehaviour.defaultThreadRateLimitPerUser" type="number" />
+
+---
+The default rate limit per user for threads in this channel.
+
+### defaultAutoArchiveDuration
+
+<LuaProperty name="GuildBehaviour.defaultAutoArchiveDuration" type="number" />
+
+---
+The default duration after which threads are automatically archived.
+
+
+## Functions
+
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "position", type: "number" } ]} />
+
+Sets the position of the channel in the guild's channel list.
+
+### setParentAsync
+
+> <LuaDeclaration name="setParentAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+
+Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+### setPermissionsAsync
+
+> <LuaDeclaration name="setPermissionsAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+
+Sets the permissions for a role or member in the channel.
+
+### deletePermissionAsync
+
+> <LuaDeclaration name="deletePermissionAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Deletes a permission overwrite for a role or member in the channel.
+
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Gets a list of all invites for the channel.
+
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+
+Creates a new invite for the channel.
+
+### listPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all public archived threads in the channel. Returns thread and member information.
+
+### listPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads in the channel. Returns thread and member information.
+
+### listJoinedPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GuildBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+
+Sets the name of the channel.
+
+

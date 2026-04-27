@@ -1,0 +1,55 @@
+---
+title: DefaultReaction
+description: DiscordLuau docs for DefaultReaction.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord default reaction object as a luau builder.	
+
+An object that specifies the emoji to use as the default way to react to a forum post. Exactly one of emoji_id and emoji_name must be set.
+
+https://discord.com/developers/docs/resources/channel#default-reaction-object
+
+## Properties
+
+### emojiId
+
+<LuaProperty name="DefaultReaction.emojiId" type="string?" />
+
+---
+The id of a guild's custom emoji.
+
+### emojiName
+
+<LuaProperty name="DefaultReaction.emojiName" type="string?" />
+
+---
+The unicode character of the emoji.
+
+
+## Functions
+
+### build
+
+> <LuaDeclaration name="build" className="DefaultReaction" args={[ { name: "self", type: "DefaultReaction" } ]} returnType="JSON" />
+
+Responsible for buillding the default reaction object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="DefaultReaction" args={[ { name: "resource", type: "{ emojiId: apiTypes.Snowflake?, emojiName: string?, }" } ]} returnType="DefaultReaction" />
+
+Constructor for the Discord Default Reaction Builder.
+
+```luau
+local defaultReaction = DefaultReaction.new("000000000000000000", "secret-emoji"):build()
+```
+
+

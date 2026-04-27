@@ -1,0 +1,132 @@
+---
+title: ScheduledEvent
+description: DiscordLuau docs for ScheduledEvent.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord ScheduledEvent class in Luau
+
+https://discord.com/developers/docs/resources/scheduledevent#scheduledevent-object
+
+## Properties
+
+### id
+
+<LuaProperty name="ScheduledEvent.id" type="string" />
+
+---
+The unique identifier for this scheduled event
+
+### guildId
+
+<LuaProperty name="ScheduledEvent.guildId" type="string" />
+
+---
+The guild id which the scheduled event belongs to
+
+### channelId
+
+<LuaProperty name="ScheduledEvent.channelId" type="string?" />
+
+---
+The channel id in which the scheduled event will be hosted, or null if scheduled entity type is EXTERNAL
+
+### creatorId
+
+<LuaProperty name="ScheduledEvent.creatorId" type="string?" />
+
+---
+The id of the user that created the scheduled event
+
+### name
+
+<LuaProperty name="ScheduledEvent.name" type="string" />
+
+---
+The name of the scheduled event
+
+### description
+
+<LuaProperty name="ScheduledEvent.description" type="string?" />
+
+---
+The description of the scheduled event
+
+### scheduledStartTime
+
+<LuaProperty name="ScheduledEvent.scheduledStartTime" type="std_polyfills.DateTime" />
+
+---
+The time the scheduled event will start
+
+### scheduledEndTime
+
+<LuaProperty name="ScheduledEvent.scheduledEndTime" type="std_polyfills.DateTime?" />
+
+---
+The time the scheduled event will end, if it has a scheduled end time
+
+### privacyLevel
+
+<LuaProperty name="ScheduledEvent.privacyLevel" type="apiTypes.ScheduledEventPrivacyLevel" />
+
+---
+The privacy level of the scheduled event
+
+### status
+
+<LuaProperty name="ScheduledEvent.status" type="apiTypes.SchedledEventStatus" />
+
+---
+The status of the scheduled event
+
+### entityType
+
+<LuaProperty name="ScheduledEvent.entityType" type="apiTypes.SchedledEventEntityType" />
+
+---
+The type of the scheduled event
+
+### entityId
+
+<LuaProperty name="ScheduledEvent.entityId" type="string?" />
+
+---
+The id of an entity associated with the scheduled event
+
+### location
+
+<LuaProperty name="ScheduledEvent.location" type="string?" />
+
+---
+Location of the scheduled event
+
+### creator
+
+<LuaProperty name="ScheduledEvent.creator" type="Classes.User?" />
+
+---
+The user that created the scheduled event
+
+### userCount
+
+<LuaProperty name="ScheduledEvent.userCount" type="number?" />
+
+---
+The number of users subscribed to the scheduled event
+
+### image
+
+<LuaProperty name="ScheduledEvent.image" type="string?" />
+
+---
+The cover image hash of the scheduled event
+
+

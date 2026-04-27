@@ -1,0 +1,87 @@
+---
+title: AllowedMention
+description: DiscordLuau docs for AllowedMention.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords AllowedMention object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#allowed-mentions-object
+
+## Properties
+
+### parse
+
+<LuaProperty name="AllowedMention.parse" type="{ apiTypes.AllowedMentionTypes }" />
+
+---
+An array of allowed mention types to parse from the content.
+
+### roles
+
+<LuaProperty name="AllowedMention.roles" type="{ string }" />
+
+---
+Array of role_ids to mention (Max size of 100).
+
+### users
+
+<LuaProperty name="AllowedMention.users" type="{ string }" />
+
+---
+Array of user_ids to mention (Max size of 100).
+
+### repliedUser
+
+<LuaProperty name="AllowedMention.repliedUser" type="boolean?" />
+
+---
+For replies, whether to mention the author of the message being replied to.
+
+
+## Functions
+
+### addUserMention
+
+> <LuaDeclaration name="addUserMention" className="AllowedMention" args={[ { name: "self", type: "AllowedMention" }, { name: "userId", type: "string" } ]} returnType="AllowedMention" />
+
+Add a user mention to the allowed mentions for this message.
+
+### addRoleMention
+
+> <LuaDeclaration name="addRoleMention" className="AllowedMention" args={[ { name: "self", type: "AllowedMention" }, { name: "roleId", type: "string" } ]} returnType="AllowedMention" />
+
+Add a role mention to the allowed mentions for this message.
+
+### setRepliedUser
+
+> <LuaDeclaration name="setRepliedUser" className="AllowedMention" args={[ { name: "self", type: "AllowedMention" }, { name: "repliedUser", type: "boolean" } ]} returnType="AllowedMention" />
+
+For replies, whether to mention the author of the message being replied to (default false)
+
+### setMentionsEveryone
+
+> <LuaDeclaration name="setMentionsEveryone" className="AllowedMention" args={[ { name: "self", type: "AllowedMention" }, { name: "mentionsEveryone", type: "boolean" } ]} returnType="AllowedMention" />
+
+Controls @everyone and @here mentions
+
+### build
+
+> <LuaDeclaration name="build" className="AllowedMention" args={[ { name: "self", type: "AllowedMention" } ]} returnType="JSON" />
+
+Responsible for building the AllowedMention JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="AllowedMention" args={[ { name: "resource", type: "{ roles: { apiTypes.Snowflake }, users: { apiTypes.Snowflake }, repliedUser: boolean?, mentionsEveryone: boolean?, }?" } ]} returnType="AllowedMention" />
+
+Responsible for creating a new AllowedMention.
+
+

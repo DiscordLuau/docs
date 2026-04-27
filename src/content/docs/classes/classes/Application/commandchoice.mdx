@@ -1,0 +1,41 @@
+---
+title: CommandChoice
+description: DiscordLuau docs for CommandChoice.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Choice class in Luau
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure
+
+## Properties
+
+### name
+
+<LuaProperty name="CommandChoice.name" type="string" />
+
+---
+The name of the choice that will be displayed to users when selecting this option.
+
+### nameLocalizations
+
+<LuaProperty name="CommandChoice.nameLocalizations" type="{ [apiTypes.LanguageLocales]: string }?" />
+
+---
+Dictionary of localization overrides for the choice name. Keys are valid locale identifiers, values are localized names.
+
+### value
+
+<LuaProperty name="CommandChoice.value" type="string | number" />
+
+---
+The value that will be sent to your application when this choice is selected by a user.
+
+

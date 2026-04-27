@@ -1,0 +1,217 @@
+---
+title: Option
+description: DiscordLuau docs for Option.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Application Command Option Structure in Luau.
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+
+## Properties
+
+### type
+
+<LuaProperty name="Option.type" type="apiTypes.ApplicationCommandOptionType?" />
+
+---
+The type of option (e.g., String, Integer, SubCommand).
+
+### name
+
+<LuaProperty name="Option.name" type="string?" />
+
+---
+The name of the option.
+
+### nameLocalizations
+
+<LuaProperty name="Option.nameLocalizations" type="{ [apiTypes.LanguageLocales]: string }" />
+
+---
+Name localizations for different language locales.
+
+### description
+
+<LuaProperty name="Option.description" type="string?" />
+
+---
+The description of the option.
+
+### descriptionLocalizations
+
+<LuaProperty name="Option.descriptionLocalizations" type="{ [apiTypes.LanguageLocales]: string }" />
+
+---
+Description localizations for different language locales.
+
+### required
+
+<LuaProperty name="Option.required" type="boolean?" />
+
+---
+Whether this option is required to be set by the user.
+
+### choices
+
+<LuaProperty name="Option.choices" type="{ Builders.Interaction.Choice.JSON }" />
+
+---
+Possible choices for this option (String, Integer, or Number types only).
+
+### options
+
+<LuaProperty name="Option.options" type="{ Builders.Interaction.Option.JSON }" />
+
+---
+Sub-options for this option (SubCommand or SubCommandGroup only).
+
+### apiTypes
+
+<LuaProperty name="Option.apiTypes" type="{ apiTypes.ChannelType }" />
+
+---
+Supported channel types for Channel option type.
+
+### minValue
+
+<LuaProperty name="Option.minValue" type="number?" />
+
+---
+Minimum value allowed for the option (Integer/Number only).
+
+### maxValue
+
+<LuaProperty name="Option.maxValue" type="number?" />
+
+---
+Maximum value allowed for the option (Integer/Number only).
+
+### minLength
+
+<LuaProperty name="Option.minLength" type="number?" />
+
+---
+Minimum string length for the option (String only).
+
+### maxLength
+
+<LuaProperty name="Option.maxLength" type="number?" />
+
+---
+Maximum string length for the option (String only).
+
+### autocomplete
+
+<LuaProperty name="Option.autocomplete" type="boolean?" />
+
+---
+Whether autocomplete is enabled (String, Integer, or Number types only).
+
+
+## Functions
+
+### setType
+
+> <LuaDeclaration name="setType" className="Option" args={[ { name: "self", type: "Option" }, { name: "type", type: "apiTypes.ApplicationCommandOptionType" } ]} returnType="Option" />
+
+Set the Type of option that will be built.
+
+### setName
+
+> <LuaDeclaration name="setName" className="Option" args={[ { name: "self", type: "Option" }, { name: "name", type: "string" } ]} returnType="Option" />
+
+Set the name of this option, option name needs to be kebab case.
+
+### setNameLocalization
+
+> <LuaDeclaration name="setNameLocalization" className="Option" args={[ { name: "self", type: "Option" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returnType="Option" />
+
+Add a name localization for this option.
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="Option" args={[ { name: "self", type: "Option" }, { name: "description", type: "string" } ]} returnType="Option" />
+
+Set the description of this option.
+
+### setDescriptionLocalization
+
+> <LuaDeclaration name="setDescriptionLocalization" className="Option" args={[ { name: "self", type: "Option" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returnType="Option" />
+
+Add a description localization for this option.
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="Option" args={[ { name: "self", type: "Option" }, { name: "isRequired", type: "boolean" } ]} returnType="Option" />
+
+Set if the option is required, will not work on SubCommand or SubCommandGroup options.
+
+### addChoice
+
+> <LuaDeclaration name="addChoice" className="Option" args={[ { name: "self", type: "Option" }, { name: "choice", type: "interactionChoice.JSON" } ]} returnType="Option" />
+
+Add a choice to the option, will only work on String, Integer, or Number options.
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="Option" args={[ { name: "self", type: "Option" }, { name: "option", type: "JSON" } ]} returnType="Option" />
+
+Add an option to the option, will only work on SubCommand or SubCommandGroup options.
+
+### addChannelType
+
+> <LuaDeclaration name="addChannelType" className="Option" args={[ { name: "self", type: "Option" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Option" />
+
+Add supported channel types, will only work on Channel options.
+
+### setMinValue
+
+> <LuaDeclaration name="setMinValue" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+
+Set the min value of this option, will only work on Integer or Number options.
+
+### setMaxValue
+
+> <LuaDeclaration name="setMaxValue" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+
+Set the max value of this option, will only work on Integer or Number options.
+
+### setMinLength
+
+> <LuaDeclaration name="setMinLength" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+
+Set the min length of this option, will only work on String options.
+
+### setMaxLength
+
+> <LuaDeclaration name="setMaxLength" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+
+Set the max length of this option, will only work on String options.
+
+### setAutocompleteEnabled
+
+> <LuaDeclaration name="setAutocompleteEnabled" className="Option" args={[ { name: "self", type: "Option" }, { name: "autocompleteEnabled", type: "boolean" } ]} returnType="Option" />
+
+If autocomplete interactions are enabled for this option, will only work on String, Integer, or Number options.
+
+### build
+
+> <LuaDeclaration name="build" className="Option" args={[ { name: "self", type: "Option" } ]} returnType="JSON" />
+
+Responsible for building the option object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="Option" args={[ { name: "resource", type: "{ type: apiTypes.ApplicationCommandOptionType?, name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, required: boolean?, choices: { apiTypes.ApplicationCommandOptionChoiceObject }?, options: { JSON }?, apiTypes: { apiTypes.ChannelType }?, minValue: number?, maxValue: number?, minLength: number?, maxLength: number?, autocomplete: boolean?, }?" } ]} returnType="Option" />
+
+Constructor for the Discord Default Reaction Builder.
+
+

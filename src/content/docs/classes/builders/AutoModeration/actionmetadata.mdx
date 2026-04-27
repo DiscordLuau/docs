@@ -1,0 +1,80 @@
+---
+title: ActionMetadata
+description: DiscordLuau docs for ActionMetadata.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord automoderation action metadata object as a luau builder.
+
+## Properties
+
+### channelId
+
+<LuaProperty name="ActionMetadata.channelId" type="string" />
+
+---
+The ID of the channel where the action should be taken.
+
+### durationSeconds
+
+<LuaProperty name="ActionMetadata.durationSeconds" type="number" />
+
+---
+The duration of the action in seconds.
+
+### customMessage
+
+<LuaProperty name="ActionMetadata.customMessage" type="string?" />
+
+---
+A custom message that will be shown to members when the action is taken.
+
+
+## Functions
+
+### setChannelId
+
+> <LuaDeclaration name="setChannelId" className="ActionMetadata" args={[ { name: "self", type: "ActionMetadata" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="ActionMetadata" />
+
+Sets the ID of the channel where the action should be taken.
+
+### setDurationSeconds
+
+> <LuaDeclaration name="setDurationSeconds" className="ActionMetadata" args={[ { name: "self", type: "ActionMetadata" }, { name: "durationSeconds", type: "number" } ]} returnType="ActionMetadata" />
+
+Sets the duration of the action in seconds.
+
+### setCustomMessage
+
+> <LuaDeclaration name="setCustomMessage" className="ActionMetadata" args={[ { name: "self", type: "ActionMetadata" }, { name: "customMessage", type: "string" } ]} returnType="ActionMetadata" />
+
+Sets a custom message to be sent with the action.
+
+### build
+
+> <LuaDeclaration name="build" className="ActionMetadata" args={[ { name: "self", type: "ActionMetadata" } ]} returnType="JSON" />
+
+Builds the action metadata object.
+
+### new
+
+> <LuaDeclaration name="new" className="ActionMetadata" args={[ { name: "resource", type: "{ channelId: apiTypes.Snowflake?, durationSeconds: number?, customMessage: string?, }?" } ]} returnType="ActionMetadata" />
+
+Responsible for creating a new ActionMetadata.
+
+```luau
+local metadata = ActionMetadata.new({
+	channelId = "123456789",
+	durationSeconds = 300,
+	customMessage = "Action taken due to rule violation"
+})
+```
+
+

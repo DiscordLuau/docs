@@ -1,0 +1,134 @@
+---
+title: Button
+description: DiscordLuau docs for Button.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Button object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#buttons
+
+## Properties
+
+### style
+
+<LuaProperty name="Button.style" type="apiTypes.ButtonStyle" />
+
+---
+The style of the button that determines its appearance and behavior.
+
+### label
+
+<LuaProperty name="Button.label" type="string?" />
+
+---
+The text that appears on the button.
+
+### emoji
+
+<LuaProperty name="Button.emoji" type="Builders.Emoji?" />
+
+---
+The emoji that appears on the button.
+
+### customId
+
+<LuaProperty name="Button.customId" type="string?" />
+
+---
+A developer-defined identifier for the button.
+
+### skuId
+
+<LuaProperty name="Button.skuId" type="string?" />
+
+---
+The SKU ID for purchase buttons.
+
+### url
+
+<LuaProperty name="Button.url" type="string?" />
+
+---
+The URL that the button will navigate to when clicked.
+
+### disabled
+
+<LuaProperty name="Button.disabled" type="boolean?" />
+
+---
+Whether the button is disabled and cannot be clicked.
+
+
+## Functions
+
+### setStyle
+
+> <LuaDeclaration name="setStyle" className="Button" args={[ { name: "self", type: "Button" }, { name: "buttonStyle", type: "apiTypes.ButtonStyle" } ]} returnType="Button" />
+
+Sets the style of the button. This determines the button's appearance and behavior.
+
+### setLabel
+
+> <LuaDeclaration name="setLabel" className="Button" args={[ { name: "self", type: "Button" }, { name: "label", type: "string" } ]} returnType="Button" />
+
+Sets the text that appears on the button. Must be between 1-80 characters.
+
+### setEmoji
+
+> <LuaDeclaration name="setEmoji" className="Button" args={[ { name: "self", type: "Button" }, { name: "emoji", type: "emoji.JSON" } ]} returnType="Button" />
+
+Sets the emoji that appears on the button.
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="Button" args={[ { name: "self", type: "Button" }, { name: "customId", type: "string" } ]} returnType="Button" />
+
+Sets a developer-defined identifier for the button that will be sent when the button is clicked.
+
+### setSkuId
+
+> <LuaDeclaration name="setSkuId" className="Button" args={[ { name: "self", type: "Button" }, { name: "skuId", type: "string" } ]} returnType="Button" />
+
+Sets the SKU ID for the button, used for purchase buttons.
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Button" args={[ { name: "self", type: "Button" }, { name: "url", type: "string" } ]} returnType="Button" />
+
+Sets the URL that the button will navigate to when clicked.
+
+### setDisabled
+
+> <LuaDeclaration name="setDisabled" className="Button" args={[ { name: "self", type: "Button" }, { name: "disabled", type: "boolean" } ]} returnType="Button" />
+
+Sets whether the button is disabled and cannot be clicked.
+
+### build
+
+> <LuaDeclaration name="build" className="Button" args={[ { name: "self", type: "Button" } ]} returnType="JSON" />
+
+Responsible for building the Button JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Button" args={[ { name: "resource", type: "{ style: apiTypes.ButtonStyle, label: string?, emoji: emoji.JSON?, customId: string?, skuId: string?, url: string?, disabled: boolean?, }?" } ]} returnType="Button" />
+
+Responsible for creating a new Button.
+
+```luau
+local button = Button.new({
+	style = "Primary",
+	label = "Click me!",
+	customId = "my_button"
+})
+```
+
+

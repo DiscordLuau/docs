@@ -1,0 +1,61 @@
+---
+title: Provider
+description: DiscordLuau docs for Provider.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Provider object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-provider-structure
+
+## Properties
+
+### name
+
+<LuaProperty name="Provider.name" type="string?" />
+
+---
+The name of the provider.
+
+### url
+
+<LuaProperty name="Provider.url" type="string?" />
+
+---
+The url of the provider.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Provider" args={[ { name: "self", type: "Provider" }, { name: "name", type: "string" } ]} returnType="Provider" />
+
+Set the image url for this embed.
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Provider" args={[ { name: "self", type: "Provider" }, { name: "url", type: "string" } ]} returnType="Provider" />
+
+Set the image height for this embed.
+
+### build
+
+> <LuaDeclaration name="build" className="Provider" args={[ { name: "self", type: "Provider" } ]} returnType="JSON" />
+
+Responsible for building the Provider JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Provider" args={[ { name: "resource", type: "{ name: string?, url: string?, }?" } ]} returnType="Provider" />
+
+Responsible for creating a new Provider.
+
+

@@ -1,0 +1,40 @@
+---
+title: Buffer
+description: DiscordLuau docs for Buffer.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+A buffer is a data structure that is used to store data in a sequential manner, only 
+	allowed to access that data once it has been completely written to the buffer.
+
+It is used in th Discord Websocket to ensure that we receive an entire ZLib compressed
+	message before we attempt to decompress it.
+
+## Functions
+
+### write
+
+> <LuaDeclaration name="write" className="Buffer" args={[ { name: "self", type: "Buffer" }, { name: "data", type: "string" } ]} />
+
+Responsible for writing data to the buffer.
+
+### flush
+
+> <LuaDeclaration name="flush" className="Buffer" args={[ { name: "self", type: "Buffer" } ]} returnType="string" />
+
+Responsible for flushing the data from the buffer and returning it.
+
+### new
+
+> <LuaDeclaration name="new" className="Buffer" args={[  ]} returnType="Buffer" />
+
+Constructor for the Buffer object, will return a new instance of the Buffer object.
+
+

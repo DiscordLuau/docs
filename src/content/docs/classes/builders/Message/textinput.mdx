@@ -1,0 +1,147 @@
+---
+title: TextInput
+description: DiscordLuau docs for TextInput.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords TextInput object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+## Properties
+
+### customId
+
+<LuaProperty name="TextInput.customId" type="string?" />
+
+---
+The custom identifier for the text input component.
+
+### style
+
+<LuaProperty name="TextInput.style" type="apiTypes.TextInputStyle?" />
+
+---
+The style of the text input component.
+
+### label
+
+<LuaProperty name="TextInput.label" type="string?" />
+
+---
+The label text that appears above the text input field.
+
+### minLength
+
+<LuaProperty name="TextInput.minLength" type="number?" />
+
+---
+The minimum length of text that can be entered.
+
+### maxLength
+
+<LuaProperty name="TextInput.maxLength" type="number?" />
+
+---
+The maximum length of text that can be entered.
+
+### required
+
+<LuaProperty name="TextInput.required" type="boolean?" />
+
+---
+Whether this text input field is required to be filled.
+
+### value
+
+<LuaProperty name="TextInput.value" type="string?" />
+
+---
+The pre-filled value for the text input field.
+
+### placeholder
+
+<LuaProperty name="TextInput.placeholder" type="string?" />
+
+---
+The placeholder text that appears when no text is entered.
+
+
+## Functions
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "customId", type: "string" } ]} returnType="TextInput" />
+
+Sets the custom identifier for this text input component.
+
+### setStyle
+
+> <LuaDeclaration name="setStyle" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "style", type: "apiTypes.TextInputStyle" } ]} returnType="TextInput" />
+
+Sets the style of the text input component.
+
+### setLabel
+
+> <LuaDeclaration name="setLabel" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "label", type: "string" } ]} returnType="TextInput" />
+
+Sets the label text that appears above the text input field.
+
+### setMinLength
+
+> <LuaDeclaration name="setMinLength" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "minLength", type: "number" } ]} returnType="TextInput" />
+
+Sets the minimum length of text that can be entered.
+
+### setMaxLength
+
+> <LuaDeclaration name="setMaxLength" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "maxLength", type: "number" } ]} returnType="TextInput" />
+
+Sets the maximum length of text that can be entered.
+
+### setIsRequired
+
+> <LuaDeclaration name="setIsRequired" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "isRequired", type: "boolean" } ]} returnType="TextInput" />
+
+Sets whether this text input field is required to be filled.
+
+### setValue
+
+> <LuaDeclaration name="setValue" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "value", type: "string" } ]} returnType="TextInput" />
+
+Sets the pre-filled value for the text input field.
+
+### setPlaceholder
+
+> <LuaDeclaration name="setPlaceholder" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "placeholder", type: "string" } ]} returnType="TextInput" />
+
+Sets the placeholder text that appears when no text is entered.
+
+### build
+
+> <LuaDeclaration name="build" className="TextInput" args={[ { name: "self", type: "TextInput" } ]} returnType="JSON" />
+
+Responsible for building the TextInput JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="TextInput" args={[ { name: "resource", type: "{ customId: string?, style: apiTypes.TextInputStyle?, label: string?, minLength: number?, maxLength: number?, required: boolean?, value: string?, placeholder: string?, }?" } ]} returnType="TextInput" />
+
+Responsible for creating a new TextInput.
+
+```luau
+local textInput = TextInput.new({
+	customId = "my_text_input",
+	style = TextInputStyle.Short,
+	label = "Enter your name"
+})
+```
+
+

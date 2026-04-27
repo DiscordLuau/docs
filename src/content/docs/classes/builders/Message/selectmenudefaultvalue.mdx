@@ -1,0 +1,68 @@
+---
+title: SelectMenuDefaultValue
+description: DiscordLuau docs for SelectMenuDefaultValue.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords DefaultValue object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-default-value-structure
+
+## Properties
+
+### id
+
+<LuaProperty name="SelectMenuDefaultValue.id" type="string" />
+
+---
+The id of the default value.
+
+### type
+
+<LuaProperty name="SelectMenuDefaultValue.type" type="apiTypes.SelectDefaultValueType" />
+
+---
+The type of the default value.
+
+
+## Functions
+
+### setId
+
+> <LuaDeclaration name="setId" className="SelectMenuDefaultValue" args={[ { name: "self", type: "DefaultValue" }, { name: "id", type: "string" } ]} returnType="DefaultValue" />
+
+Sets the id of the default value.
+
+### setType
+
+> <LuaDeclaration name="setType" className="SelectMenuDefaultValue" args={[ { name: "self", type: "DefaultValue" }, { name: "type", type: "apiTypes.SelectDefaultValueType" } ]} returnType="DefaultValue" />
+
+Sets the type of the default value.
+
+### build
+
+> <LuaDeclaration name="build" className="SelectMenuDefaultValue" args={[ { name: "self", type: "DefaultValue" } ]} returnType="JSON" />
+
+Responsible for building the DefaultValue JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenuDefaultValue" args={[ { name: "resource", type: "{ id: string, type: apiTypes.SelectDefaultValueType, }?" } ]} returnType="DefaultValue" />
+
+Responsible for creating a new DefaultValue.
+
+```luau
+local defaultValue = DefaultValue.new({
+	id = "123",
+	type = "user"
+})
+```
+
+

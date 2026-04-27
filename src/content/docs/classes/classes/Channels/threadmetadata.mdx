@@ -1,0 +1,62 @@
+---
+title: ThreadMetadata
+description: DiscordLuau docs for ThreadMetadata.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord ThreadMetadata class in Luau
+
+https://discord.com/developers/docs/resources/channel#thread-metadata-object
+
+## Properties
+
+### archiveTimestamp
+
+<LuaProperty name="ThreadMetadata.archiveTimestamp" type="std_polyfills.DateTime" />
+
+---
+Timestamp for when the thread's archive status was last changed, used for calculating recent activity
+
+### createTimestamp
+
+<LuaProperty name="ThreadMetadata.createTimestamp" type="std_polyfills.DateTime?" />
+
+---
+Timestamp for when the thread was created, null if thread was created before October 2021
+
+### archived
+
+<LuaProperty name="ThreadMetadata.archived" type="boolean" />
+
+---
+Whether the thread is archived or not
+
+### autoArchiveDuration
+
+<LuaProperty name="ThreadMetadata.autoArchiveDuration" type="number" />
+
+---
+Duration in minutes to automatically archive the thread after recent activity
+
+### locked
+
+<LuaProperty name="ThreadMetadata.locked" type="boolean" />
+
+---
+Whether the thread is locked or not
+
+### invitable
+
+<LuaProperty name="ThreadMetadata.invitable" type="boolean?" />
+
+---
+Whether non-moderators can add other non-moderators to a private thread
+
+

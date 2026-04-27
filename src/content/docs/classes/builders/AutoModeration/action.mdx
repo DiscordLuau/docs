@@ -1,0 +1,59 @@
+---
+title: Action
+description: DiscordLuau docs for Action.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord automod action object as a luau builder.
+
+## Properties
+
+### type
+
+<LuaProperty name="Action.type" type="apiTypes.ActionTypes" />
+
+---
+The type of action to perform when a rule is triggered.
+
+### metadata
+
+<LuaProperty name="Action.metadata" type="Builders.AutoModeration.ActionMetadata" />
+
+---
+Additional metadata needed during execution for this specific action type.
+
+
+## Functions
+
+### setType
+
+> <LuaDeclaration name="setType" className="Action" args={[ { name: "self", type: "Action" }, { name: "type", type: "apiTypes.ActionTypes" } ]} returnType="Action" />
+
+Sets the type of the action.
+
+### setMetadata
+
+> <LuaDeclaration name="setMetadata" className="Action" args={[ { name: "self", type: "Action" }, { name: "metadata", type: "metadata.JSON" } ]} returnType="Action" />
+
+Sets the action metadata.
+
+### build
+
+> <LuaDeclaration name="build" className="Action" args={[ { name: "self", type: "Action" } ]} returnType="JSON" />
+
+Builds the action object.
+
+### new
+
+> <LuaDeclaration name="new" className="Action" args={[ { name: "resource", type: "{ type: apiTypes.ActionTypes?, metadata: metadata.JSON?, }?" } ]} returnType="Action" />
+
+Responsible for creating a new Action.
+
+

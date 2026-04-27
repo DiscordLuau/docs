@@ -1,0 +1,68 @@
+---
+title: PollAnswer
+description: DiscordLuau docs for PollAnswer.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords PollAnswer object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/poll#poll-answer-object-poll-answer-object-structure
+
+## Properties
+
+### answerId
+
+<LuaProperty name="PollAnswer.answerId" type="number?" />
+
+---
+The ID of the poll answer.
+
+### pollMedia
+
+<LuaProperty name="PollAnswer.pollMedia" type="Builders.Media?" />
+
+---
+The media attached to this poll answer.
+
+
+## Functions
+
+### setId
+
+> <LuaDeclaration name="setId" className="PollAnswer" args={[ { name: "self", type: "PollAnswer" }, { name: "id", type: "number" } ]} returnType="PollAnswer" />
+
+Sets the ID for the poll answer.
+
+### setMedia
+
+> <LuaDeclaration name="setMedia" className="PollAnswer" args={[ { name: "self", type: "PollAnswer" }, { name: "media", type: "mediaBuilder.JSON" } ]} returnType="PollAnswer" />
+
+Sets the media for the poll answer.
+
+### build
+
+> <LuaDeclaration name="build" className="PollAnswer" args={[ { name: "self", type: "PollAnswer" } ]} returnType="JSON" />
+
+Responsible for building the PollAnswer JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="PollAnswer" args={[ { name: "resource", type: "{ answerId: number?, pollMedia: mediaBuilder.JSON?, }?" } ]} returnType="PollAnswer" />
+
+Responsible for creating a new PollAnswer.
+
+```luau
+local answer = PollAnswer.new({
+	answerId = 1,
+	pollMedia = media:build()
+})
+```
+
+

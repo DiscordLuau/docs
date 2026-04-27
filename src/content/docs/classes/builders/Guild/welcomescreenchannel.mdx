@@ -1,0 +1,87 @@
+---
+title: WelcomeScreenChannel
+description: DiscordLuau docs for WelcomeScreenChannel.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords WelcomeScreenChannel object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure
+
+## Properties
+
+### channelId
+
+<LuaProperty name="WelcomeScreenChannel.channelId" type="string?" />
+
+---
+The id of the channel shown in the welcome screen.
+
+### description
+
+<LuaProperty name="WelcomeScreenChannel.description" type="string" />
+
+---
+The description shown for the channel in the welcome screen.
+
+### emojiId
+
+<LuaProperty name="WelcomeScreenChannel.emojiId" type="string?" />
+
+---
+The id of the emoji shown in the welcome screen channel.
+
+### emojiName
+
+<LuaProperty name="WelcomeScreenChannel.emojiName" type="string?" />
+
+---
+The name of the emoji shown in the welcome screen channel.
+
+
+## Functions
+
+### setChannelId
+
+> <LuaDeclaration name="setChannelId" className="WelcomeScreenChannel" args={[ { name: "self", type: "WelcomeScreenChannel" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="WelcomeScreenChannel" />
+
+Set the channel id for this welcome screen channel
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="WelcomeScreenChannel" args={[ { name: "self", type: "WelcomeScreenChannel" }, { name: "description", type: "string" } ]} returnType="WelcomeScreenChannel" />
+
+Set the description for this welcome screen channel
+
+### setEmojiId
+
+> <LuaDeclaration name="setEmojiId" className="WelcomeScreenChannel" args={[ { name: "self", type: "WelcomeScreenChannel" }, { name: "emojiId", type: "apiTypes.Snowflake" } ]} returnType="WelcomeScreenChannel" />
+
+Set the emoji id for this welcome screen channel
+
+### setEmojiName
+
+> <LuaDeclaration name="setEmojiName" className="WelcomeScreenChannel" args={[ { name: "self", type: "WelcomeScreenChannel" }, { name: "emojiName", type: "string" } ]} returnType="WelcomeScreenChannel" />
+
+Set the emoji name for this welcome screen channel
+
+### build
+
+> <LuaDeclaration name="build" className="WelcomeScreenChannel" args={[ { name: "self", type: "WelcomeScreenChannel" } ]} returnType="JSON" />
+
+Responsible for building the WelcomeScreenChannelObject JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreenChannel" args={[ { name: "resource", type: "{ channelId: apiTypes.Snowflake?, description: string?, emojiId: apiTypes.Snowflake?, emojiName: string?, }?" } ]} returnType="WelcomeScreenChannel" />
+
+Responsible for creating a new WelcomeScreenChannel.
+
+

@@ -1,0 +1,89 @@
+---
+title: Image
+description: DiscordLuau docs for Image.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Image object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-image-structure
+
+## Properties
+
+### url
+
+<LuaProperty name="Image.url" type="string" />
+
+---
+Source url of image (only supports http(s) and attachments)
+
+### proxyUrl
+
+<LuaProperty name="Image.proxyUrl" type="string?" />
+
+---
+A proxied url of the image
+
+### height
+
+<LuaProperty name="Image.height" type="number?" />
+
+---
+Height of image
+
+### width
+
+<LuaProperty name="Image.width" type="number?" />
+
+---
+Width of image
+
+
+## Functions
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Image" args={[ { name: "self", type: "Image" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returnType="Image" />
+
+Set the image url for this embed.
+
+### setHeight
+
+> <LuaDeclaration name="setHeight" className="Image" args={[ { name: "self", type: "Image" }, { name: "height", type: "number" } ]} returnType="Image" />
+
+Set the image height for this embed.
+
+### setWidth
+
+> <LuaDeclaration name="setWidth" className="Image" args={[ { name: "self", type: "Image" }, { name: "width", type: "number" } ]} returnType="Image" />
+
+Set the image width for this embed.
+
+### build
+
+> <LuaDeclaration name="build" className="Image" args={[ { name: "self", type: "Image" } ]} returnType="JSON" />
+
+Responsible for building the JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Image" args={[ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ]} returnType="Image" />
+
+Responsible for creating a new Image.
+
+```luau
+local image = Image.new({
+	url = "https://example.com/image.png",
+	height = 100,
+	width = 100
+})
+```
+
+

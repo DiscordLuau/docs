@@ -1,0 +1,44 @@
+---
+title: StageInstance
+description: DiscordLuau docs for StageInstance.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/stage-instance
+
+## Functions
+
+### createStageInstanceAsync
+
+> <LuaDeclaration name="createStageInstanceAsync" className="StageInstance" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateStageInstanceRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateStageInstanceResponse>" />
+
+https://discord.com/developers/docs/resources/stage-instance#create-stage-instance
+
+### getStageInstanceAsync
+
+> <LuaDeclaration name="getStageInstanceAsync" className="StageInstance" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetStageInstanceResponse>" />
+
+https://discord.com/developers/docs/resources/stage-instance#get-stage-instance
+
+### modifyStageInstanceAsync
+
+> <LuaDeclaration name="modifyStageInstanceAsync" className="StageInstance" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyStageInstanceRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyStageInstanceResponse>" />
+
+https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance
+
+### deleteStageInstanceAsync
+
+> <LuaDeclaration name="deleteStageInstanceAsync" className="StageInstance" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.DeleteStageInstanceResponse>" />
+
+https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance
+
+

@@ -1,0 +1,54 @@
+---
+title: ActionRow
+description: DiscordLuau docs for ActionRow.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords ActionRow object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#action-rows
+
+## Properties
+
+### components
+
+<LuaProperty name="ActionRow.components" type="{Builders.Message.Button | Builders.Message.TextInput | Builders.Message.SelectMenu}" />
+
+---
+The components that are part of this action row. Can include buttons, text inputs, and select menus.
+
+
+## Functions
+
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="ActionRow" args={[ { name: "self", type: "ActionRow" }, { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | JSON" } ]} returnType="ActionRow" />
+
+Adds a component to the action row. Components can be buttons, text inputs, or select menus.
+
+### build
+
+> <LuaDeclaration name="build" className="ActionRow" args={[ { name: "self", type: "ActionRow" } ]} returnType="JSON" />
+
+Responsible for building the ActionRow JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="ActionRow" args={[ { name: "resource", type: "{ components: { button.JSON | textInput.JSON | selectMenu.JSON | JSON }, }?" } ]} returnType="ActionRow" />
+
+Responsible for creating a new ActionRow.
+
+```luau
+local row = ActionRow.new()
+	:addComponent(button)
+	:build()
+```
+
+

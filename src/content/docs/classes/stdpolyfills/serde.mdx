@@ -1,0 +1,42 @@
+---
+title: Serde
+description: DiscordLuau docs for Serde.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+
+
+## Functions
+
+### encode
+
+> <LuaDeclaration name="encode" className="Serde" args={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "value", type: "any" }, { name: "pretty", type: "boolean?" } ]} returnType="string" />
+
+Encodes the given value using the given format.
+
+### decode
+
+> <LuaDeclaration name="decode" className="Serde" args={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "encoded", type: "buffer | string" } ]} returnType="any" />
+
+Decodes the given string using the given format into a lua value.
+
+### decompress
+
+> <LuaDeclaration name="decompress" className="Serde" args={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" } ]} returnType="string" />
+
+Decompresses the given string using the given format.
+
+### compress
+
+> <LuaDeclaration name="compress" className="Serde" args={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" }, { name: "level", type: "number?" } ]} returnType="string" />
+
+Compresses the given string using the given format.
+
+

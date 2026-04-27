@@ -1,0 +1,50 @@
+---
+title: Voice
+description: DiscordLuau docs for Voice.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/voice
+
+## Functions
+
+### listVoiceRegionsAsync
+
+> <LuaDeclaration name="listVoiceRegionsAsync" className="Voice" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.ListVoiceRegionsResponse>" />
+
+https://discord.com/developers/docs/resources/voice#list-voice-regions
+
+### getCurrentUserVoiceStateAsync
+
+> <LuaDeclaration name="getCurrentUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserVoiceStateResponse>" />
+
+https://discord.com/developers/docs/resources/voice#get-current-user-voice-state
+
+### getUserVoiceStateAsync
+
+> <LuaDeclaration name="getUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetUserVoiceStateResponse>" />
+
+https://discord.com/developers/docs/resources/voice#get-user-voice-state
+
+### modifyCurrentUserVoiceStateAsync
+
+> <LuaDeclaration name="modifyCurrentUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserVoiceStateRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyCurrentUserVoiceStateResponse>" />
+
+https://discord.com/developers/docs/resources/voice#modify-current-user-voice-state
+
+### modifyUserVoiceStateAsync
+
+> <LuaDeclaration name="modifyUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyUserVoiceStateRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyUserVoiceStateResponse>" />
+
+https://discord.com/developers/docs/resources/voice#modify-user-voice-state
+
+

@@ -1,0 +1,87 @@
+---
+title: Onboarding
+description: DiscordLuau docs for Onboarding.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Onboarding object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#modify-guild-onboarding-json-params
+
+## Properties
+
+### prompts
+
+<LuaProperty name="Onboarding.prompts" type="{Builders.Guild.OnboardingPrompt}" />
+
+---
+Array of prompts shown during onboarding
+
+### defaultChannelIds
+
+<LuaProperty name="Onboarding.defaultChannelIds" type="{string}" />
+
+---
+Array of channel IDs that members get opted into automatically
+
+### enabled
+
+<LuaProperty name="Onboarding.enabled" type="boolean" />
+
+---
+Whether onboarding is enabled in the guild
+
+### mode
+
+<LuaProperty name="Onboarding.mode" type="apiTypes.OnboardingMode" />
+
+---
+Current mode of onboarding
+
+
+## Functions
+
+### addPrompt
+
+> <LuaDeclaration name="addPrompt" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "prompt", type: "prompt.JSON" } ]} returnType="Onboarding" />
+
+Add a prompt to this onboarding
+
+### addDefaultChannelId
+
+> <LuaDeclaration name="addDefaultChannelId" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "channelId", type: "string" } ]} returnType="Onboarding" />
+
+Add a default channel to this onboarding
+
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "enabled", type: "boolean" } ]} returnType="Onboarding" />
+
+Set weather this onboarding is enabled or not.	
+
+### setMode
+
+> <LuaDeclaration name="setMode" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} returnType="Onboarding" />
+
+Set the mode of this onboarding.
+
+### build
+
+> <LuaDeclaration name="build" className="Onboarding" args={[ { name: "self", type: "Onboarding" } ]} returnType="JSON" />
+
+Responsible for building the OnboardingObject JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Onboarding" args={[ { name: "resource", type: "{ prompts: { prompt.JSON }?, defaultChannelIds: { string }?, enabled: boolean?, mode: apiTypes.OnboardingMode?, }?" } ]} returnType="Onboarding" />
+
+Responsible for creating a new Onboarding.
+
+

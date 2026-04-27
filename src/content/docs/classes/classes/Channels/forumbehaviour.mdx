@@ -1,0 +1,54 @@
+---
+title: ForumBehaviour
+description: DiscordLuau docs for ForumBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Forum Behaviour class in Luau. Responsible for implementing the various properties, 
+and methods for a forum thread channel.
+
+## Properties
+
+### availableTags
+
+<LuaProperty name="ForumBehaviour.availableTags" type="{ Classes.Channels.ForumTag }" />
+
+---
+The tags that can be applied to posts in this forum channel.
+
+### appliedTags
+
+<LuaProperty name="ForumBehaviour.appliedTags" type="{ string }" />
+
+---
+The tags currently applied to this forum channel.
+
+### defaultReaction
+
+<LuaProperty name="ForumBehaviour.defaultReaction" type="Classes.Channels.DefaultReaction?" />
+
+---
+The default reaction that will be added to new posts in this forum channel.
+
+### defaultSortOrder
+
+<LuaProperty name="ForumBehaviour.defaultSortOrder" type="apiTypes.ForumSortOrder" />
+
+---
+The default sort order for posts in this forum channel.
+
+### defaultForumLayout
+
+<LuaProperty name="ForumBehaviour.defaultForumLayout" type="apiTypes.ForumLayout" />
+
+---
+The default layout for posts in this forum channel.
+
+

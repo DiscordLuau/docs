@@ -1,0 +1,100 @@
+---
+title: ForumTag
+description: DiscordLuau docs for ForumTag.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord forum tag object as a luau builder.	
+
+https://discord.com/developers/docs/resources/channel#forum-tag-object
+
+## Properties
+
+### name
+
+<LuaProperty name="ForumTag.name" type="string" />
+
+---
+The name of the tag that is displayed.
+
+### moderated
+
+<LuaProperty name="ForumTag.moderated" type="boolean" />
+
+---
+Whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission.
+
+### emojiId
+
+<LuaProperty name="ForumTag.emojiId" type="string?" />
+
+---
+The id of a guild's custom emoji.
+
+### emojiName
+
+<LuaProperty name="ForumTag.emojiName" type="string?" />
+
+---
+The unicode character of the emoji.
+
+### id
+
+<LuaProperty name="ForumTag.id" type="string?" />
+
+---
+The id of the tag.
+
+
+## Functions
+
+### setEmoji
+
+> <LuaDeclaration name="setEmoji" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} returnType="ForumTag" />
+
+Sets either the id of a guilds custom emoji, or a unicode character of an emoji.
+
+### setModerated
+
+> <LuaDeclaration name="setModerated" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "isModerated", type: "boolean" } ]} returnType="ForumTag" />
+
+Sets whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission
+
+### setName
+
+> <LuaDeclaration name="setName" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "tagName", type: "string" } ]} returnType="ForumTag" />
+
+Set the name of this Forum Tag.
+
+### build
+
+> <LuaDeclaration name="build" className="ForumTag" args={[ { name: "self", type: "ForumTag" } ]} returnType="JSON" />
+
+Responsible for buillding the forum tag object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="ForumTag" args={[ { name: "resource", type: "{ tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ]} returnType="ForumTag" />
+
+Constructs a new tag builder.
+
+```luau
+local tag = ForumTag.new("tag-name")
+	:setModerated(true)	
+	:build()
+```	
+
+### fromId
+
+> <LuaDeclaration name="fromId" className="ForumTag" args={[ { name: "resource", type: "{ tagId: apiTypes.Snowflake, tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ]} returnType="ForumTag" />
+
+Enables us to construct a Tag Builder object from an existing tag object, used when modifying forum tags.
+
+

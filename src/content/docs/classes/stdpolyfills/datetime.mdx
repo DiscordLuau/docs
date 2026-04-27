@@ -1,0 +1,38 @@
+---
+title: Datetime
+description: DiscordLuau docs for Datetime.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+
+
+## Functions
+
+### fromIsoDate
+
+> <LuaDeclaration name="fromIsoDate" className="Datetime" args={[ { name: "isoDate", type: "string" } ]} returnType="DateTime" />
+
+Creates a new DateTime from an ISO 8601 date-time string.
+
+### fromUnixTimestamp
+
+> <LuaDeclaration name="fromUnixTimestamp" className="Datetime" args={[ { name: "unixTimestamp", type: "number" } ]} returnType="DateTime" />
+
+Creates a new DateTime from the given UNIX timestamp.
+
+This timestamp may contain both a whole and fractional part - where the fractional part denotes milliseconds / nanoseconds.
+
+### now
+
+> <LuaDeclaration name="now" className="Datetime" args={[  ]} returnType="DateTime" />
+
+Returns a DateTime representing the current moment in time.
+
+

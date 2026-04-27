@@ -1,0 +1,26 @@
+---
+title: AuditLog
+description: DiscordLuau docs for AuditLog.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/audit-log
+
+## Functions
+
+### getGuildAuditLogAsync
+
+> <LuaDeclaration name="getGuildAuditLogAsync" className="AuditLog" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ userId: apiTypes.Snowflake?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, actionType: ActionType, }" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildAuditLogResponse>" />
+
+https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log
+
+

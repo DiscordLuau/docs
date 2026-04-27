@@ -1,0 +1,70 @@
+---
+title: State
+description: DiscordLuau docs for State.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+State class, this class is responsible for storing the state of the bot as
+as well as providing a way to interact with the state.
+
+This class is responsible for storing the following elements:
+- Token
+- Discord Cache
+- Discord REST API
+- Discord Gateway Manager
+
+## Properties
+
+### token
+
+<LuaProperty name="State.token" type="Secret" />
+
+
+### applicationId
+
+<LuaProperty name="State.applicationId" type="string" />
+
+
+### rest
+
+<LuaProperty name="State.rest" type="State.Rest" />
+
+
+### webSocketManager
+
+<LuaProperty name="State.webSocketManager" type="WebSocket.Manager" />
+
+
+### intents
+
+<LuaProperty name="State.intents" type="number" />
+
+
+### version
+
+<LuaProperty name="State.version" type="number" />
+
+
+
+## Functions
+
+### setApplicationId
+
+> <LuaDeclaration name="setApplicationId" className="State" args={[ { name: "self", type: "State" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} />
+
+Will set the current application ID
+
+### new
+
+> <LuaDeclaration name="new" className="State" args={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ]} returnType="State" />
+
+Constructor for the State class.
+
+

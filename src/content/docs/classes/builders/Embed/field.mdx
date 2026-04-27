@@ -1,0 +1,74 @@
+---
+title: Field
+description: DiscordLuau docs for Field.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Field object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-field-structure
+
+## Properties
+
+### name
+
+<LuaProperty name="Field.name" type="string?" />
+
+---
+The name of the field that is displayed.
+
+### value
+
+<LuaProperty name="Field.value" type="string?" />
+
+---
+The value of the field that is displayed.
+
+### inline
+
+<LuaProperty name="Field.inline" type="boolean?" />
+
+---
+Whether or not this field should display inline.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Field" args={[ { name: "self", type: "Field" }, { name: "name", type: "string" } ]} returnType="Field" />
+
+Set the name of the field
+
+### setValue
+
+> <LuaDeclaration name="setValue" className="Field" args={[ { name: "self", type: "Field" }, { name: "value", type: "string" } ]} returnType="Field" />
+
+Set the value of the field
+
+### setIsInline
+
+> <LuaDeclaration name="setIsInline" className="Field" args={[ { name: "self", type: "Field" }, { name: "isInline", type: "boolean" } ]} returnType="Field" />
+
+Set if the field is inline.
+
+### build
+
+> <LuaDeclaration name="build" className="Field" args={[ { name: "self", type: "Field" } ]} returnType="JSON" />
+
+Responsible for building the Field JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Field" args={[ { name: "resource", type: "{ name: string?, value: string?, inline: boolean?, }?" } ]} returnType="Field" />
+
+Responsible for creating a new Field.
+
+

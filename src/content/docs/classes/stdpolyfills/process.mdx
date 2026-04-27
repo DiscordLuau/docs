@@ -1,0 +1,49 @@
+---
+title: Process
+description: DiscordLuau docs for Process.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+
+
+## Functions
+
+### getPlatform
+
+> <LuaDeclaration name="getPlatform" className="Process" args={[  ]} returnType="OS" />
+
+Returns the current OS thats being used
+
+### getArgs
+
+> <LuaDeclaration name="getArgs" className="Process" args={[  ]} returnType="{ string }" />
+
+Returns the arguments passed into the current program
+
+### getEnv
+
+> <LuaDeclaration name="getEnv" className="Process" args={[  ]} returnType="{ [string]: string }" />
+
+Returns the environment the current process is executing under
+
+### getCwd
+
+> <LuaDeclaration name="getCwd" className="Process" args={[  ]} returnType="string" />
+
+Returns the current working directory for this process
+
+### run
+
+> <LuaDeclaration name="run" className="Process" args={[ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ]} returnType="RunResult" />
+
+Runs a subprocess and returns the result. Only supported on Zune; calling from
+Lune will raise an error explaining the requirement.
+
+

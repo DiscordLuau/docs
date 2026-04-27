@@ -1,0 +1,51 @@
+---
+title: Emitter
+description: DiscordLuau docs for Emitter.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+An emitter that can be used to emit events, this class will be used to push updates from the Discord Websockets
+	out to the Consumers of this library.
+
+## Functions
+
+### listen
+
+> <LuaDeclaration name="listen" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" />
+
+Listen to this event, returns a function that can be called to disconnect the listener
+
+### listenOnce
+
+> <LuaDeclaration name="listenOnce" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" />
+
+Listen to this event once, this will automatically disconnect after the first invocation
+
+### wait
+
+> <LuaDeclaration name="wait" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" } ]} returnType="T..." />
+
+Wait for this event to be emitted from, returns the result of the emittion
+
+### invoke
+
+> <LuaDeclaration name="invoke" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "...", type: "any" } ]} />
+
+Responsible for invoking all the threads that are listening to this emitter.
+
+This will additionally resume all the threads that are currently waiting for an event to be emitted.
+
+### new
+
+> <LuaDeclaration name="new" className="Emitter" args={[  ]} returnType="Emitter<T...>" />
+
+Constructor for the Emitter object, will return a new instance of the Emitter object.
+
+

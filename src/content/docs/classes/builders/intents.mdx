@@ -1,0 +1,55 @@
+---
+title: Intents
+description: DiscordLuau docs for Intents.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discord intents as a luau builder.	
+
+https://discord.com/developers/docs/topics/gateway#list-of-intents
+
+## Properties
+
+### intents
+
+<LuaProperty name="Intents.intents" type="{ apiTypes.Intent }" />
+
+---
+An array of intent flags that determine which gateway events your client will receive.
+
+
+## Functions
+
+### addIntent
+
+> <LuaDeclaration name="addIntent" className="Intents" args={[ { name: "self", type: "Intents" }, { name: "intent", type: "apiTypes.Intent" } ]} returnType="Intents" />
+
+Sets either the id of a guilds custom emoji, or a unicode character of an emoji.
+
+### build
+
+> <LuaDeclaration name="build" className="Intents" args={[ { name: "self", type: "Intents" } ]} returnType="number" />
+
+Responsible for building all intent permissions into an integer that the Discord API can parse
+
+### new
+
+> <LuaDeclaration name="new" className="Intents" args={[ { name: "intents", type: "{}?" } ]} returnType="Intents" />
+
+Constructs a new intents builder.
+
+```luau
+Intents.new()
+	:addIntent("GuildMembers")
+	:addIntent("GuildMessages")
+	:build()
+```
+
+

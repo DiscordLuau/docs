@@ -1,0 +1,110 @@
+---
+title: SelectMenu
+description: DiscordLuau docs for SelectMenu.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords SelectMenu object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#SelectMenus
+
+## Properties
+
+### defaultValues
+
+<LuaProperty name="SelectMenu.defaultValues" type="{Builders.Message.SelectMenuDefaultValue}" />
+
+---
+Array of default values for auto-populated select menu components
+
+### options
+
+<LuaProperty name="SelectMenu.options" type="{Builders.Message.SelectMenuOption}" />
+
+---
+Array of select menu options
+
+### apiTypes
+
+<LuaProperty name="SelectMenu.apiTypes" type="{api_types.ChannelType}" />
+
+---
+Array of channel types that can be selected
+
+
+## Functions
+
+### setType
+
+> <LuaDeclaration name="setType" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "selectMenuType", type: "apiTypes.SelectMenuType" } ]} returnType="SelectMenu" />
+
+Sets the type of select menu component to be created.
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "customId", type: "string" } ]} returnType="SelectMenu" />
+
+Sets a developer-defined identifier for the select menu.
+
+### setPlaceholder
+
+> <LuaDeclaration name="setPlaceholder" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "placeholder", type: "string" } ]} returnType="SelectMenu" />
+
+Sets custom placeholder text shown when no option is selected.
+
+### setMinValues
+
+> <LuaDeclaration name="setMinValues" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "minValueCount", type: "number" } ]} returnType="SelectMenu" />
+
+Sets the minimum number of items that must be selected.
+
+### setMaxValues
+
+> <LuaDeclaration name="setMaxValues" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "maxValueCount", type: "number" } ]} returnType="SelectMenu" />
+
+Sets the maximum number of items that can be selected.
+
+### setDisabled
+
+> <LuaDeclaration name="setDisabled" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "disabled", type: "boolean" } ]} returnType="SelectMenu" />
+
+Sets whether the select menu is disabled or not.
+
+### addDefaultValue
+
+> <LuaDeclaration name="addDefaultValue" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "defaultValue", type: "defaultValue.JSON" } ]} returnType="SelectMenu" />
+
+Adds a default value to the select menu.
+
+### addChannelType
+
+> <LuaDeclaration name="addChannelType" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="SelectMenu" />
+
+Adds a channel type that can be selected in the menu.
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "option", type: "option.JSON" } ]} returnType="SelectMenu" />
+
+Adds an option to the select menu.
+
+### build
+
+> <LuaDeclaration name="build" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" } ]} returnType="JSON" />
+
+Responsible for building the SelectMenu JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenu" args={[ { name: "resource", type: "{ type: apiTypes.SelectMenuType?, customId: string?, options: { option.JSON }, apiTypes: { apiTypes.ChannelType }, placeholder: string?, defaultValues: { defaultValue.JSON }, minValues: number?, maxValues: number?, disabled: boolean?, }?" } ]} returnType="SelectMenu" />
+
+Responsible for creating a new SelectMenu.
+
+

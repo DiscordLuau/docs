@@ -1,0 +1,213 @@
+---
+title: Member
+description: DiscordLuau docs for Member.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Member class in Luau
+
+https://discord.com/developers/docs/resources/guild#guild-member-object
+
+## Properties
+
+### user
+
+<LuaProperty name="Member.user" type="Classes.User" />
+
+---
+The user this member represents.
+
+### communicationDisabledUntil
+
+<LuaProperty name="Member.communicationDisabledUntil" type="DateTime" />
+
+---
+When the member's communication is disabled until.
+
+### avatarDecorationData
+
+<LuaProperty name="Member.avatarDecorationData" type="Classes.AvatarDecoration" />
+
+---
+The member's avatar decoration data.
+
+### flags
+
+<LuaProperty name="Member.flags" type="Classes.GuildMemberBitflag" />
+
+---
+Member flags combined as a bitfield.
+
+### joinedAt
+
+<LuaProperty name="Member.joinedAt" type="DateTime" />
+
+---
+When the member joined the guild.
+
+### premiumSince
+
+<LuaProperty name="Member.premiumSince" type="DateTime" />
+
+---
+When the member started boosting the guild.
+
+### nick
+
+<LuaProperty name="Member.nick" type="string" />
+
+---
+The member's nickname.
+
+### avatar
+
+<LuaProperty name="Member.avatar" type="string" />
+
+---
+The member's avatar hash.
+
+### roles
+
+<LuaProperty name="Member.roles" type="{ string }" />
+
+---
+The member's role IDs.
+
+### deaf
+
+<LuaProperty name="Member.deaf" type="boolean" />
+
+---
+Whether the member is deafened.
+
+### mute
+
+<LuaProperty name="Member.mute" type="boolean" />
+
+---
+Whether the member is muted.
+
+### pending
+
+<LuaProperty name="Member.pending" type="boolean" />
+
+---
+Whether the member has not yet passed the guild's Membership Screening requirements.
+
+### permissions
+
+<LuaProperty name="Member.permissions" type="string" />
+
+---
+The member's permissions.
+
+### state
+
+<LuaProperty name="Member.state" type="State" />
+
+---
+The state object for this member.
+
+### guildId
+
+<LuaProperty name="Member.guildId" type="string" />
+
+---
+The ID of the guild this member belongs to.
+
+
+## Functions
+
+### banAsync
+
+> <LuaDeclaration name="banAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} />
+
+Create a guild ban, and optionally delete previous messages sent by the banned user.
+
+### kickAsync
+
+> <LuaDeclaration name="kickAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Removes a role from a guild member. Requires the MANAGE_ROLES permission.
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ]} />
+
+Modify attributes of a guild member. Returns updated guild member. If the channel_id is set to null, this will
+force the target user to be disconnected from voice.
+
+### muteAsync
+
+> <LuaDeclaration name="muteAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Will mute the user in voice channels the user is in. Returns the updated Member.
+
+### unmuteAsync
+
+> <LuaDeclaration name="unmuteAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Will unmute the user in voice channels the user is in. Returns the updated Member.
+
+### deafenAsync
+
+> <LuaDeclaration name="deafenAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Will deafen the user in voice channels the user is in. Returns the updated Member.
+
+### undeafenAsync
+
+> <LuaDeclaration name="undeafenAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Will undeafen the user in voice channels the user is in. Returns the updated Member.
+
+### setNicknameAsync
+
+> <LuaDeclaration name="setNicknameAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Will set the nickname of the user. Returns the updated Member.
+
+### setRolesAsync
+
+> <LuaDeclaration name="setRolesAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ]} />
+
+Will set all roles that the user has in this guild. Returns the updated Member.
+
+### moveVoiceChannelAsync
+
+> <LuaDeclaration name="moveVoiceChannelAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+
+Will move the user between different voice channels. Returns the updated Member.
+
+### disconnectFromVoiceChannelAsync
+
+> <LuaDeclaration name="disconnectFromVoiceChannelAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "reason", type: "string?" } ]} />
+
+Will disconnect the user from voice channels the user is in. Returns the updated Member.
+
+### disableAsync
+
+> <LuaDeclaration name="disableAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ]} />
+
+Disables the users communication up to a specific time. Returns the updated Member.
+
+### addRoleAsync
+
+> <LuaDeclaration name="addRoleAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+
+Add a role to a guild member.
+
+### removeRoleAsync
+
+> <LuaDeclaration name="removeRoleAsync" className="Member" args={[ { name: "self", type: "Member" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+
+Remove a role from a guild member.
+
+

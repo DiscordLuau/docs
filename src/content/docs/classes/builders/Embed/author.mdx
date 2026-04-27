@@ -1,0 +1,81 @@
+---
+title: Author
+description: DiscordLuau docs for Author.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Author object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-author-structure
+
+## Properties
+
+### name
+
+<LuaProperty name="Author.name" type="string?" />
+
+---
+The name of the author.
+
+### url
+
+<LuaProperty name="Author.url" type="string?" />
+
+---
+The url of the author.
+
+### iconUrl
+
+<LuaProperty name="Author.iconUrl" type="string?" />
+
+---
+The url of author's icon image.
+
+### proxyIconUrl
+
+<LuaProperty name="Author.proxyIconUrl" type="string?" />
+
+---
+A proxied url of author's icon image.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Author" args={[ { name: "self", type: "Author" }, { name: "name", type: "string" } ]} returnType="Author" />
+
+Set the image url for this embed.
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Author" args={[ { name: "self", type: "Author" }, { name: "url", type: "string" } ]} returnType="Author" />
+
+Set the image height for this embed.
+
+### setIcon
+
+> <LuaDeclaration name="setIcon" className="Author" args={[ { name: "self", type: "Author" }, { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returnType="Author" />
+
+Set the image height for this embed.
+
+### build
+
+> <LuaDeclaration name="build" className="Author" args={[ { name: "self", type: "Author" } ]} returnType="JSON" />
+
+Responsible for building the Author JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Author" args={[ { name: "resource", type: "{ name: string?, url: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ]} returnType="Author" />
+
+Responsible for creating a new Author.
+
+

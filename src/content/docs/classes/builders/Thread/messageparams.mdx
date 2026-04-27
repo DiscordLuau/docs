@@ -1,0 +1,126 @@
+---
+title: MessageParams
+description: DiscordLuau docs for MessageParams.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords MessageParams object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#start-thread-in-forum-or-media-channel-forum-and-media-thread-message-params-object
+
+## Properties
+
+### content
+
+<LuaProperty name="MessageParams.content" type="string?" />
+
+---
+The message content that will be sent.
+
+### embeds
+
+<LuaProperty name="MessageParams.embeds" type="{ Builders.Embed }" />
+
+---
+Array of embed objects that will be attached to the message.
+
+### allowedMentions
+
+<LuaProperty name="MessageParams.allowedMentions" type="Builders.Message.AllowedMention" />
+
+---
+Controls the mentions that will ping in the message.
+
+### components
+
+<LuaProperty name="MessageParams.components" type="{ Builders.Message.Button | Builders.Message.TextInput | Builders.Message.SelectMenu | Builders.Message.ActionRow }" />
+
+---
+Array of message components that will be attached to the message.
+
+### stickerIds
+
+<LuaProperty name="MessageParams.stickerIds" type="{ string }" />
+
+---
+Array of sticker IDs that will be attached to the message.
+
+### attachments
+
+<LuaProperty name="MessageParams.attachments" type="{ Builders.Attachment }" />
+
+---
+Array of attachment objects that will be attached to the message.
+
+### flags
+
+<LuaProperty name="MessageParams.flags" type="number?" />
+
+---
+Message flags to be applied to the message.
+
+
+## Functions
+
+### setContent
+
+> <LuaDeclaration name="setContent" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "content", type: "string" } ]} returnType="MessageParams" />
+
+Sets the content of the message.
+
+### addEmbed
+
+> <LuaDeclaration name="addEmbed" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "embedData", type: "embed.JSON" } ]} returnType="MessageParams" />
+
+Adds an embed to the message.
+
+### setAllowedMentions
+
+> <LuaDeclaration name="setAllowedMentions" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "mentions", type: "allowedMention.JSON" } ]} returnType="MessageParams" />
+
+Sets the allowed mentions for the message.
+
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returnType="MessageParams" />
+
+Adds a component to the message.
+
+### addStickerId
+
+> <LuaDeclaration name="addStickerId" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "stickerId", type: "string" } ]} returnType="MessageParams" />
+
+Adds a sticker ID to the message.
+
+### addAttachment
+
+> <LuaDeclaration name="addAttachment" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "attachmentData", type: "attachment.JSON" } ]} returnType="MessageParams" />
+
+Adds an attachment to the message.
+
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "flags", type: "number" } ]} returnType="MessageParams" />
+
+Sets the flags for the message.
+
+### build
+
+> <LuaDeclaration name="build" className="MessageParams" args={[ { name: "self", type: "MessageParams" } ]} returnType="JSON" />
+
+Responsible for building the MessageParams JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="MessageParams" args={[ { name: "resource", type: "{ content: string?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { attachment.JSON }?, flags: number?, }?" } ]} returnType="MessageParams" />
+
+Responsible for creating a new MessageParams.
+
+

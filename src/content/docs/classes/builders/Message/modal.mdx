@@ -1,0 +1,82 @@
+---
+title: Modal
+description: DiscordLuau docs for Modal.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Modal object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+## Properties
+
+### customId
+
+<LuaProperty name="Modal.customId" type="string?" />
+
+---
+The custom identifier for the modal.
+
+### title
+
+<LuaProperty name="Modal.title" type="string?" />
+
+---
+The title that appears at the top of the modal.
+
+### components
+
+<LuaProperty name="Modal.components" type="{ Builders.Message.TextInput }?" />
+
+---
+The components that will be displayed in this modal.
+
+
+## Functions
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "customId", type: "string" } ]} returnType="Modal" />
+
+Sets the custom ID for this modal. This is required for the Discord API to identify this modal.
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "title", type: "string" } ]} returnType="Modal" />
+
+Sets the title that appears at the top of the modal.
+
+### setComponents
+
+> <LuaDeclaration name="setComponents" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "components", type: "{ textInput.JSON }" } ]} returnType="Modal" />
+
+Sets the components that will be displayed in this modal. These must be text input components.
+
+### build
+
+> <LuaDeclaration name="build" className="Modal" args={[ { name: "self", type: "Modal" } ]} returnType="JSON" />
+
+Responsible for building the Modal JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Modal" args={[ { name: "resource", type: "{ customId: string?, title: string?, components: { textInput.JSON }?, }?" } ]} returnType="Modal" />
+
+Responsible for creating a new Modal.
+
+```luau
+local modal = Modal.new()
+	:setCustomId("my-modal")
+	:setTitle("My Modal")
+	:setComponents({textInput})
+	:build()
+```
+
+

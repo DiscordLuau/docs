@@ -1,0 +1,83 @@
+---
+title: TextInput
+description: DiscordLuau docs for TextInput.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord TextInput class in Luau
+
+https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+## Properties
+
+### type
+
+<LuaProperty name="TextInput.type" type="number" />
+
+---
+The type of component this is - for text inputs, this is always 4
+
+### customId
+
+<LuaProperty name="TextInput.customId" type="string" />
+
+---
+A developer-defined identifier for the text input, max 100 characters
+
+### style
+
+<LuaProperty name="TextInput.style" type="apiTypes.TextInputStyle" />
+
+---
+The style of the text input field - can be single-line (SHORT) or multi-line (PARAGRAPH)
+
+### label
+
+<LuaProperty name="TextInput.label" type="string" />
+
+---
+The label displayed above the text input field
+
+### minLength
+
+<LuaProperty name="TextInput.minLength" type="number?" />
+
+---
+The minimum length of text the user must input (0-4000)
+
+### maxLength
+
+<LuaProperty name="TextInput.maxLength" type="number?" />
+
+---
+The maximum length of text the user can input (1-4000)
+
+### required
+
+<LuaProperty name="TextInput.required" type="boolean?" />
+
+---
+Whether this text input is required to be filled before the form can be submitted
+
+### value
+
+<LuaProperty name="TextInput.value" type="string?" />
+
+---
+Pre-filled value for the text input field
+
+### placeholder
+
+<LuaProperty name="TextInput.placeholder" type="string?" />
+
+---
+Custom placeholder text shown when the text input field is empty
+
+

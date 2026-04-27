@@ -1,0 +1,100 @@
+---
+title: Poll
+description: DiscordLuau docs for Poll.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Poll object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/poll#poll-object
+
+## Properties
+
+### question
+
+<LuaProperty name="Poll.question" type="Builders.Media" />
+
+---
+The question to be displayed in the poll.
+
+### answers
+
+<LuaProperty name="Poll.answers" type="{Builders.Answer}" />
+
+---
+The array of possible answers for the poll.
+
+### expiry
+
+<LuaProperty name="Poll.expiry" type="string" />
+
+---
+The timestamp when the poll will expire.
+
+### allowMultiselect
+
+<LuaProperty name="Poll.allowMultiselect" type="boolean" />
+
+---
+Whether users can select multiple answers.
+
+### layoutType
+
+<LuaProperty name="Poll.layoutType" type="api_types.PollLayoutType" />
+
+---
+The layout type of the poll display.
+
+
+## Functions
+
+### addAnswer
+
+> <LuaDeclaration name="addAnswer" className="Poll" args={[ { name: "self", type: "Poll" }, { name: "answer", type: "answerBuilder.JSON" } ]} returnType="Poll" />
+
+Adds an answer to the poll.
+
+### setQuestion
+
+> <LuaDeclaration name="setQuestion" className="Poll" args={[ { name: "self", type: "Poll" }, { name: "question", type: "mediaBuilder.JSON" } ]} returnType="Poll" />
+
+Sets the question for the poll.
+
+### setExpiry
+
+> <LuaDeclaration name="setExpiry" className="Poll" args={[ { name: "self", type: "Poll" }, { name: "expiry", type: "string | number | stdPolyfills.DateTime" } ]} returnType="Poll" />
+
+Sets the expiry time for the poll.
+
+### setMultiselect
+
+> <LuaDeclaration name="setMultiselect" className="Poll" args={[ { name: "self", type: "Poll" }, { name: "multiselect", type: "boolean" } ]} returnType="Poll" />
+
+Sets whether the poll allows multiple selections.
+
+### setLayoutType
+
+> <LuaDeclaration name="setLayoutType" className="Poll" args={[ { name: "self", type: "Poll" }, { name: "layoutType", type: "apiTypes.PollLayoutType" } ]} returnType="Poll" />
+
+Sets the layout type for the poll.
+
+### build
+
+> <LuaDeclaration name="build" className="Poll" args={[ { name: "self", type: "Poll" } ]} returnType="JSON" />
+
+Builds and returns the Poll JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Poll" args={[ { name: "resource", type: "{ question: mediaBuilder.JSON?, answers: { answerBuilder.JSON }?, expiry: number?, allowMultiselect: boolean?, layoutType: apiTypes.PollLayoutType?, }?" } ]} returnType="Poll" />
+
+Responsible for creating a new Poll.
+
+

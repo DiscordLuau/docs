@@ -1,0 +1,61 @@
+---
+title: Bit
+description: DiscordLuau docs for Bit.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+A Bit wrapper library that supports both 64-bit integers and 32-bit integers. 
+Primarily required in the calculation for snowflake IDs that the Discord API will give us.
+
+## Functions
+
+### is32Bit
+
+> <LuaDeclaration name="is32Bit" className="Bit" args={[ { name: "value", type: "number" } ]} returnType="boolean" />
+
+Returns true if the given value is a 32-bit integer.
+
+### bnot
+
+> <LuaDeclaration name="bnot" className="Bit" args={[ { name: "value", type: "number" } ]} returnType="number" />
+
+Binary NOT operation for integers
+
+### bor
+
+> <LuaDeclaration name="bor" className="Bit" args={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returnType="number" />
+
+Binary OR operation for integers
+
+### band
+
+> <LuaDeclaration name="band" className="Bit" args={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returnType="number" />
+
+Binary AND operation for integers
+
+### shift
+
+> <LuaDeclaration name="shift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+
+Binary SHIFT operation for integers
+
+### lshift
+
+> <LuaDeclaration name="lshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+
+Binary LEFT SHIFT operation for integers
+
+### rshift
+
+> <LuaDeclaration name="rshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+
+Binary RIGHT SHIFT operation for integers
+
+

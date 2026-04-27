@@ -1,0 +1,51 @@
+---
+title: Net
+description: DiscordLuau docs for Net.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+
+
+## Functions
+
+### urlEncode
+
+> <LuaDeclaration name="urlEncode" className="Net" args={[ { name: "url", type: "string" }, { name: "binary", type: "boolean?" } ]} returnType="string" />
+
+Encodes the given string using URL encoding.
+
+### request
+
+> <LuaDeclaration name="request" className="Net" args={[ { name: "config", type: "string | FetchParams" } ]} returnType="FetchResponse" />
+
+Sends an HTTP request using the given url and / or parameters, and returns a dictionary that describes the
+	response received.
+
+Only throws an error if a miscellaneous network or I/O error occurs, never for unsuccessful status codes.
+
+### tcpSocket
+
+> <LuaDeclaration name="tcpSocket" className="Net" args={[ { name: "url", type: "string" } ]} />
+
+Connects to a TCP web socket at the given URL.
+
+Throws an error if the server at the given URL does not support web sockets, or if a miscellaneous network or I/O
+	error occurs.
+
+### udpSocket
+
+> <LuaDeclaration name="udpSocket" className="Net" args={[ { name: "_url", type: "string" } ]} />
+
+Connects to a UDP web socket at the given URL.
+
+Throws an error if the server at the given URL does not support web sockets, or if a miscellaneous network or I/O
+	error occurs.
+
+

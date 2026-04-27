@@ -1,0 +1,104 @@
+---
+title: NoMessageThread
+description: DiscordLuau docs for NoMessageThread.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords NoMessageThread object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params
+
+## Properties
+
+### name
+
+<LuaProperty name="NoMessageThread.name" type="string?" />
+
+---
+The name of the thread that is displayed.
+
+### autoArchiveDuration
+
+<LuaProperty name="NoMessageThread.autoArchiveDuration" type="number?" />
+
+---
+Duration in minutes to automatically archive the thread after recent activity.
+
+### type
+
+<LuaProperty name="NoMessageThread.type" type="api_types.ChannelType?" />
+
+---
+The type of thread channel.
+
+### invitable
+
+<LuaProperty name="NoMessageThread.invitable" type="boolean?" />
+
+---
+Whether non-moderators can add other non-moderators to the thread.
+
+### rateLimitPerUser
+
+<LuaProperty name="NoMessageThread.rateLimitPerUser" type="number?" />
+
+---
+Amount of seconds a user has to wait before sending another message.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" }, { name: "name", type: "string" } ]} returnType="NoMessageThread" />
+
+Sets the name of the thread.
+Name must be between 1-100 characters.
+
+### setAutoArchiveDuration
+
+> <LuaDeclaration name="setAutoArchiveDuration" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" }, { name: "duration", type: "number" } ]} returnType="NoMessageThread" />
+
+Sets the duration in minutes before the thread is automatically archived.
+Valid values are 60, 1440, 4320, or 10080.
+
+### setType
+
+> <LuaDeclaration name="setType" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" }, { name: "type", type: "apiTypes.ChannelType" } ]} returnType="NoMessageThread" />
+
+Sets the type of thread channel.
+Must be a valid Discord channel type.
+
+### setInvitable
+
+> <LuaDeclaration name="setInvitable" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" }, { name: "invitable", type: "boolean" } ]} returnType="NoMessageThread" />
+
+Sets whether non-moderators can add other non-moderators to the thread.
+
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" }, { name: "rateLimit", type: "number" } ]} returnType="NoMessageThread" />
+
+Sets the amount of seconds a user has to wait before sending another message.
+Must be less than or equal to 21600 seconds (6 hours).
+
+### build
+
+> <LuaDeclaration name="build" className="NoMessageThread" args={[ { name: "self", type: "NoMessageThread" } ]} returnType="JSON" />
+
+Responsible for building the NoMessageThread JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="NoMessageThread" args={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, type: apiTypes.ChannelType?, invitable: boolean?, rateLimitPerUser: number?, }?" } ]} returnType="NoMessageThread" />
+
+Responsible for creating a new NoMessageThread.
+
+

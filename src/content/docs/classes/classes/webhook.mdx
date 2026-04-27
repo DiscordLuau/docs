@@ -1,0 +1,90 @@
+---
+title: Webhook
+description: DiscordLuau docs for Webhook.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Webhook class in Luau
+
+https://discord.com/developers/docs/resources/webhook#webhook-object
+
+## Properties
+
+### id
+
+<LuaProperty name="Webhook.id" type="string" />
+
+---
+The unique identifier for this webhook.
+
+### type
+
+<LuaProperty name="Webhook.type" type="apiTypes.WebhookType" />
+
+---
+The type of webhook, indicating its source and behavior.
+
+### guildId
+
+<LuaProperty name="Webhook.guildId" type="string?" />
+
+---
+The ID of the guild this webhook belongs to, if it's a server webhook.
+
+### channelId
+
+<LuaProperty name="Webhook.channelId" type="string?" />
+
+---
+The ID of the channel this webhook is associated with.
+
+### user
+
+<LuaProperty name="Webhook.user" type="Classes.User?" />
+
+---
+The user who created this webhook.
+
+### name
+
+<LuaProperty name="Webhook.name" type="string?" />
+
+---
+The name of the webhook.
+
+### avatar
+
+<LuaProperty name="Webhook.avatar" type="string?" />
+
+---
+The avatar hash of the webhook.
+
+### token
+
+<LuaProperty name="Webhook.token" type="string?" />
+
+---
+The token used to authenticate webhook requests.
+
+### applicationId
+
+<LuaProperty name="Webhook.applicationId" type="string?" />
+
+---
+The ID of the application that created this webhook.
+
+### url
+
+<LuaProperty name="Webhook.url" type="string?" />
+
+---
+The URL used to execute this webhook.
+
+

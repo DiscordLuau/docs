@@ -1,0 +1,84 @@
+---
+title: Activity
+description: DiscordLuau docs for Activity.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of Discord Activity as a Luau builder.
+
+https://discord.com/developers/docs/events/gateway-events#activity-object
+
+Note: Only YouTube and Twitch URLs are allowed for streaming.
+
+## Properties
+
+### name
+
+<LuaProperty name="Activity.name" type="string" />
+
+---
+The name of the activity that is displayed.
+
+### activityType
+
+<LuaProperty name="Activity.activityType" type="api_types.ActivityType" />
+
+---
+The type of activity being performed.
+
+### streamingURL
+
+<LuaProperty name="Activity.streamingURL" type="string?" />
+
+---
+The URL of the stream, only YouTube and Twitch URLs are supported.
+
+
+## Functions
+
+### setActivityName
+
+> <LuaDeclaration name="setActivityName" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "name", type: "string" } ]} returnType="Activity" />
+
+Sets the name of the activity.
+
+### setActivityType
+
+> <LuaDeclaration name="setActivityType" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "activityType", type: "apiTypes.ActivityType" } ]} returnType="Activity" />
+
+Sets the type of the activity.
+
+### setStreamingURL
+
+> <LuaDeclaration name="setStreamingURL" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "streamURL", type: "string" } ]} returnType="Activity" />
+
+Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
+
+### build
+
+> <LuaDeclaration name="build" className="Activity" args={[ { name: "self", type: "Activity" } ]} returnType="JSON" />
+
+Builds the activity JSON payload that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="Activity" args={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ]} returnType="Activity" />
+
+Creates a new Activity.
+
+```luau
+local activity = Activity.new({
+	name = "Playing a game",
+	activityType = "Game",
+	streamingURL = "https://twitch.tv/example"
+})
+```
+
+

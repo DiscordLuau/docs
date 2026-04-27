@@ -1,0 +1,50 @@
+---
+title: Cache
+description: DiscordLuau docs for Cache.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Class responsible for handling the underlying cache for all objects in Discord-Luau
+
+## Properties
+
+### store
+
+<LuaProperty name="Cache.store" type="{ [K]: V }" />
+
+
+### expiry
+
+<LuaProperty name="Cache.expiry" type="number" />
+
+
+
+## Functions
+
+### set
+
+> <LuaDeclaration name="set" className="Cache" args={[ { name: "self", type: "Cache<K, V>" }, { name: "key", type: "K" }, { name: "value", type: "V" } ]} />
+
+Responsible for storing something in cache, will then store both the key and value so that these objects don't get
+cleaned up by the luau gc.
+
+### get
+
+> <LuaDeclaration name="get" className="Cache" args={[ { name: "self", type: "Cache<K, V>" }, { name: "key", type: "K" } ]} returnType="V?" />
+
+Responsible for getting something in the cache, will either return V or nil
+
+### new
+
+> <LuaDeclaration name="new" className="Cache" args={[ { name: "expiry", type: "number" } ]} returnType="Cache<K, V>" />
+
+Constructor for the Cache class.
+
+

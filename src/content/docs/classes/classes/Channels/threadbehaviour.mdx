@@ -1,0 +1,113 @@
+---
+title: ThreadBehaviour
+description: DiscordLuau docs for ThreadBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Behaviour class that implements the properties and methods specific to thread channels in Discord.
+This behaviour is inherited by thread channel classes to provide thread-specific functionality.
+
+Thread behaviours include:
+- Managing thread members (join, leave, add, remove)
+- Retrieving thread member information
+- Handling thread metadata and statistics
+- Managing thread ownership and parent relationships
+
+## Properties
+
+### totalMessageSent
+
+<LuaProperty name="ThreadBehaviour.totalMessageSent" type="number" />
+
+---
+The total number of messages sent in this thread.
+
+### member
+
+<LuaProperty name="ThreadBehaviour.member" type="Classes.Channels.ThreadMember?" />
+
+---
+The current user's thread member object, if they are a member of this thread.
+
+### threadMetadata
+
+<LuaProperty name="ThreadBehaviour.threadMetadata" type="Classes.Channels.ThreadMetadata?" />
+
+---
+Metadata about the thread, including archive status and auto-archive duration.
+
+### memberCount
+
+<LuaProperty name="ThreadBehaviour.memberCount" type="number" />
+
+---
+The number of members in this thread.
+
+### messageCount
+
+<LuaProperty name="ThreadBehaviour.messageCount" type="number" />
+
+---
+The number of messages in this thread.
+
+### parentId
+
+<LuaProperty name="ThreadBehaviour.parentId" type="string?" />
+
+---
+The ID of the parent channel this thread belongs to.
+
+### ownerId
+
+<LuaProperty name="ThreadBehaviour.ownerId" type="string" />
+
+---
+The ID of the user who created this thread.
+
+
+## Functions
+
+### joinAsync
+
+> <LuaDeclaration name="joinAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Adds the current user to a thread. Also requires the thread is not archived.
+
+### addMemberAsync
+
+> <LuaDeclaration name="addMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+
+Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived.
+
+### leaveAsync
+
+> <LuaDeclaration name="leaveAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Removes the current user from a thread.
+
+### removeMemberAsync
+
+> <LuaDeclaration name="removeMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+
+Removes another member from a thread. Requires the ability to manage threads.
+
+### getMemberAsync
+
+> <LuaDeclaration name="getMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+
+Gets a thread member by their user ID. Can optionally include the member object.
+
+### listMembersAsync
+
+> <LuaDeclaration name="listMembersAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all members in a thread. Can optionally include member objects and use pagination.
+
+

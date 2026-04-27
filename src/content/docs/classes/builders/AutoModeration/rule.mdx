@@ -1,0 +1,153 @@
+---
+title: Rule
+description: DiscordLuau docs for Rule.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord automoderation rule object as a luau builder.
+
+https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object
+
+## Properties
+
+### name
+
+<LuaProperty name="Rule.name" type="string" />
+
+---
+The name of the automoderation rule.
+
+### eventType
+
+<LuaProperty name="Rule.eventType" type="Builders.EventTypes" />
+
+---
+The event type that will trigger the rule.
+
+### triggerType
+
+<LuaProperty name="Rule.triggerType" type="Builders.TriggerTypes" />
+
+---
+The type of content which can trigger the rule.
+
+### triggerMetadata
+
+<LuaProperty name="Rule.triggerMetadata" type="Builders.AutoModeration.TriggerMetadata" />
+
+---
+The trigger metadata for the rule.
+
+### actions
+
+<LuaProperty name="Rule.actions" type="{Builders.AutoModeration.Action}" />
+
+---
+The actions which will execute when the rule is triggered.
+
+### enabled
+
+<LuaProperty name="Rule.enabled" type="boolean" />
+
+---
+Whether the rule is enabled.
+
+### exemptRoles
+
+<LuaProperty name="Rule.exemptRoles" type="{string}" />
+
+---
+The role ids that should not be affected by the rule.
+
+### exemptChannels
+
+<LuaProperty name="Rule.exemptChannels" type="{string}" />
+
+---
+The channel ids that should not be affected by the rule.
+
+
+## Functions
+
+### setName
+
+> <LuaDeclaration name="setName" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "name", type: "string" } ]} returnType="AutomoderationRule" />
+
+Sets the name of the automoderation rule.
+
+### setEventType
+
+> <LuaDeclaration name="setEventType" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "eventType", type: "apiTypes.EventTypes" } ]} returnType="AutomoderationRule" />
+
+Sets the event type for the automoderation rule.
+
+### setTriggerType
+
+> <LuaDeclaration name="setTriggerType" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "triggerType", type: "apiTypes.TriggerTypes" } ]} returnType="AutomoderationRule" />
+
+Sets the trigger type for the automoderation rule.
+
+### setTriggerMetadata
+
+> <LuaDeclaration name="setTriggerMetadata" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "triggerMetadata", type: "triggerMetadata.JSON" } ]} returnType="AutomoderationRule" />
+
+Sets the trigger metadata for the automoderation rule.
+
+### setActions
+
+> <LuaDeclaration name="setActions" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "actions", type: "{ action.JSON }" } ]} returnType="AutomoderationRule" />
+
+Sets the actions for the automoderation rule.
+
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "enabled", type: "boolean" } ]} returnType="AutomoderationRule" />
+
+Sets whether the automoderation rule is enabled.
+
+### setExemptRoles
+
+> <LuaDeclaration name="setExemptRoles" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "exemptRoles", type: "{ apiTypes.Snowflake }" } ]} returnType="AutomoderationRule" />
+
+Sets the exempt roles for the automoderation rule.
+
+### setExemptChannels
+
+> <LuaDeclaration name="setExemptChannels" className="Rule" args={[ { name: "self", type: "AutomoderationRule" }, { name: "exemptChannels", type: "{ apiTypes.Snowflake }" } ]} returnType="AutomoderationRule" />
+
+Sets the exempt channels for the automoderation rule.
+
+### build
+
+> <LuaDeclaration name="build" className="Rule" args={[ { name: "self", type: "AutomoderationRule" } ]} returnType="JSON" />
+
+Builds the automoderation rule object.
+
+### new
+
+> <LuaDeclaration name="new" className="Rule" args={[ { name: "resource", type: "{ name: string?, eventType: apiTypes.EventTypes?, triggerType: apiTypes.TriggerTypes?, triggerMetadata: triggerMetadata.JSON?, actions: { action.JSON }?, enabled: boolean?, exemptRoles: { apiTypes.Snowflake }?, exemptChannels: { apiTypes.Snowflake }?, }?" } ]} returnType="AutomoderationRule" />
+
+Constructs a new automoderation rule builder.
+
+```luau
+local rule = AutomoderationRule.new({
+	name = "My Rule",
+	eventType = "MESSAGE_SEND",
+	triggerType = "KEYWORD",
+	actions = {
+		{
+			type = "BLOCK_MESSAGE",
+			metadata = {}
+		}
+	}
+})
+```
+
+

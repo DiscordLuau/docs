@@ -1,0 +1,50 @@
+---
+title: Emoji
+description: DiscordLuau docs for Emoji.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/emoji#emoji-resource
+
+## Functions
+
+### listGuildEmojisAsync
+
+> <LuaDeclaration name="listGuildEmojisAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} />
+
+https://discord.com/developers/docs/resources/emoji#list-guild-emojis
+
+### getGuildEmojiAsync
+
+> <LuaDeclaration name="getGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" } ]} />
+
+https://discord.com/developers/docs/resources/emoji#get-guild-emoji
+
+### createGuildEmojiAsync
+
+> <LuaDeclaration name="createGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ]} />
+
+https://discord.com/developers/docs/resources/emoji#create-guild-emoji
+
+### modifyGuildEmojiAsync
+
+> <LuaDeclaration name="modifyGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ]} />
+
+https://discord.com/developers/docs/resources/emoji#modify-guild-emoji
+
+### deleteGuildEmojiAsync
+
+> <LuaDeclaration name="deleteGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildEmojiResponse>" />
+
+https://discord.com/developers/docs/resources/emoji#delete-guild-emoji
+
+

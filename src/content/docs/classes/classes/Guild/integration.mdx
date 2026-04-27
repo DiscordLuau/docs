@@ -1,0 +1,142 @@
+---
+title: Integration
+description: DiscordLuau docs for Integration.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Integration class in Luau
+
+https://discord.com/developers/docs/resources/integration#integration-object
+
+## Properties
+
+### id
+
+<LuaProperty name="Integration.id" type="string" />
+
+---
+The integration's id
+
+### name
+
+<LuaProperty name="Integration.name" type="string" />
+
+---
+The integration's name
+
+### type
+
+<LuaProperty name="Integration.type" type="apiTypes.IntegrationType" />
+
+---
+Integration type (twitch, youtube, discord, or guild_subscription)
+
+### enabled
+
+<LuaProperty name="Integration.enabled" type="boolean" />
+
+---
+Whether this integration is enabled
+
+### syncing
+
+<LuaProperty name="Integration.syncing" type="boolean?" />
+
+---
+Whether this integration is syncing
+
+### roleId
+
+<LuaProperty name="Integration.roleId" type="string?" />
+
+---
+ID that this integration uses for "subscribers"
+
+### enableEmoticons
+
+<LuaProperty name="Integration.enableEmoticons" type="boolean?" />
+
+---
+Whether emoticons should be synced for this integration
+
+### expireBehavior
+
+<LuaProperty name="Integration.expireBehavior" type="apiTypes.IntegrationExpireBehaviour" />
+
+---
+The behavior of expiring subscribers
+
+### expireGracePeriod
+
+<LuaProperty name="Integration.expireGracePeriod" type="number?" />
+
+---
+The grace period (in days) before expiring subscribers
+
+### user
+
+<LuaProperty name="Integration.user" type="Classes.User?" />
+
+---
+User for this integration
+
+### account
+
+<LuaProperty name="Integration.account" type="Classes.Guild.IntegrationAccount" />
+
+---
+Integration account information
+
+### syncedAt
+
+<LuaProperty name="Integration.syncedAt" type="stdPolyfills.DateTime?" />
+
+---
+When this integration was last synced
+
+### subscriberCount
+
+<LuaProperty name="Integration.subscriberCount" type="number?" />
+
+---
+How many subscribers this integration has
+
+### revoked
+
+<LuaProperty name="Integration.revoked" type="boolean?" />
+
+---
+Whether this integration has been revoked
+
+### application
+
+<LuaProperty name="Integration.application" type="Classes.Application?" />
+
+---
+The bot/OAuth2 application for discord integrations
+
+### scopes
+
+<LuaProperty name="Integration.scopes" type="{ apiTypes.OAuth2Scopes }?" />
+
+---
+The scopes the application has been authorized for
+
+
+## Functions
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="Integration" args={[ { name: "self", type: "Integration" }, { name: "reason", type: "string?" } ]} />
+
+Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
+if there is one. Requires the MANAGE_GUILD permission.
+
+

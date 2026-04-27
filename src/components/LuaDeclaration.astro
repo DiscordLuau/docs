@@ -1,0 +1,73 @@
+---
+import LuaTypeComponent from "./LuaType.astro";
+import type { LuaParam } from "./utils/lua";
+import { typeOrDefault, getTypeDocs } from "./utils/lua";
+
+const UNION_MULTILINE_THRESHOLD = 2;
+const UNION_MULTILINE_INDENT = " ".repeat(22);
+
+type Props = {
+	name: string;
+	isMethod?: boolean;
+	className: string;
+	args: LuaParam[];
+	returnType?: string;
+};
+
+const { name, className, args, returnType, isMethod } = Astro.props;
+const returnTypeOrDefault = typeOrDefault(returnType);
+const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
+---
+
+<div class="declaration">
+	<span class="declaration class">{className}</span>
+	<span class="declaration">{isMethod ? ":" : "."}</span>
+	<span class="declaration method">{name}</span>
+	{
+		args.length > 0
+			? (
+				<>
+					<span class="declaration">(</span>
+					<div class="declaration">
+						{args.map(({ name, type }) => {
+							const resolvedType = typeOrDefault(type);
+							const typeUrl = getTypeDocs(resolvedType);
+							const isUnion = type.includes("|");
+							const unionParts = isUnion
+								? resolvedType.split("|").map((rawUnionPart: string, index: number, allParts: string[]) => {
+										const unionPart = rawUnionPart.trim();
+										return (
+											<>
+												<LuaTypeComponent url={getTypeDocs(unionPart)} type={unionPart} />
+												{index !== allParts.length - 1 && (
+													<>
+														{allParts.length > UNION_MULTILINE_THRESHOLD && <br />}
+														<span>{allParts.length > UNION_MULTILINE_THRESHOLD && UNION_MULTILINE_INDENT}|</span>
+													</>
+												)}
+											</>
+										);
+									})
+								: null;
+							return (
+								<>
+									<br />
+									<span class="declaration arg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{name}:</span>
+									<span class="declaration type">
+										{unionParts ?? <LuaTypeComponent url={typeUrl} type={resolvedType} />}
+									</span>
+									<span class="declaration" />
+								</>
+							);
+						})}
+					</div>
+					<span class="declaration">)</span>
+				</>
+			)
+			: <span class="declaration">()</span>
+	}
+	<span class="declaration type">
+		&nbsp;{"-> "}
+		<LuaTypeComponent url={returnTypeUrl} type={returnTypeOrDefault} />
+	</span>
+</div>

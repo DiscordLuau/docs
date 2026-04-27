@@ -1,0 +1,118 @@
+---
+title: Command
+description: DiscordLuau docs for Command.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Command class in Luau
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-object
+
+## Properties
+
+### id
+
+<LuaProperty name="Command.id" type="string" />
+
+---
+The unique identifier for this command
+
+### type
+
+<LuaProperty name="Command.type" type="apiTypes.ApplicationCommandType" />
+
+---
+The type of command this represents
+
+### applicationId
+
+<LuaProperty name="Command.applicationId" type="string" />
+
+---
+The unique identifier of the parent application
+
+### guildId
+
+<LuaProperty name="Command.guildId" type="string?" />
+
+---
+ID of the guild this command is registered to, if any
+
+### name
+
+<LuaProperty name="Command.name" type="string" />
+
+---
+Name of the command
+
+### nameLocalizations
+
+<LuaProperty name="Command.nameLocalizations" type="{ [apiTypes.LanguageLocales]: string }?" />
+
+---
+Localization dictionary for the command name
+
+### description
+
+<LuaProperty name="Command.description" type="string" />
+
+---
+Description of the command
+
+### descriptionLocalizations
+
+<LuaProperty name="Command.descriptionLocalizations" type="{ [apiTypes.LanguageLocales]: string }?" />
+
+---
+Localization dictionary for the command description
+
+### options
+
+<LuaProperty name="Command.options" type="{ Classes.Option }" />
+
+---
+The parameters for the command
+
+### defaultMemberPermissions
+
+<LuaProperty name="Command.defaultMemberPermissions" type="Classes.Permission?" />
+
+---
+Default required permissions to use this command
+
+### nsfw
+
+<LuaProperty name="Command.nsfw" type="boolean?" />
+
+---
+Whether this command is age-restricted
+
+### integrationTypes
+
+<LuaProperty name="Command.integrationTypes" type="{ apiTypes.IntegrationTypesConfig }" />
+
+---
+The integration types this command supports
+
+### contexts
+
+<LuaProperty name="Command.contexts" type="{ apiTypes.InteractionContextType }" />
+
+---
+The contexts this command can be used in
+
+### version
+
+<LuaProperty name="Command.version" type="string" />
+
+---
+Auto-incrementing version identifier updated during substantial record changes
+
+

@@ -1,0 +1,100 @@
+---
+title: OnboardingPrompt
+description: DiscordLuau docs for OnboardingPrompt.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Prompt object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#guild-onboarding-object-onboarding-prompt-structure
+
+## Properties
+
+### options
+
+<LuaProperty name="OnboardingPrompt.options" type="{ Builders.Message.SelectMenuOption }" />
+
+---
+The array of options available within this prompt.
+
+### type
+
+<LuaProperty name="OnboardingPrompt.type" type="apiTypes.OnboardingPromptType" />
+
+---
+The type of prompt to display.
+
+### title
+
+<LuaProperty name="OnboardingPrompt.title" type="string" />
+
+---
+The title of the prompt to display.
+
+### singleSelect
+
+<LuaProperty name="OnboardingPrompt.singleSelect" type="boolean" />
+
+---
+Whether users can select only one option or multiple options.
+
+### required
+
+<LuaProperty name="OnboardingPrompt.required" type="boolean" />
+
+---
+Whether this prompt is required to be answered or not.
+
+
+## Functions
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" }, { name: "option", type: "option.JSON" } ]} returnType="Prompt" />
+
+Add an Option to this prompt
+
+### setType
+
+> <LuaDeclaration name="setType" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" }, { name: "type", type: "apiTypes.OnboardingPromptType" } ]} returnType="Prompt" />
+
+Set the type of prompt.
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" }, { name: "title", type: "string" } ]} returnType="Prompt" />
+
+Set the title of this prompt
+
+### setSingleSelect
+
+> <LuaDeclaration name="setSingleSelect" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" }, { name: "singleSelect", type: "boolean" } ]} returnType="Prompt" />
+
+Set weather or not users can select one option, or multiple.
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" }, { name: "required", type: "boolean" } ]} returnType="Prompt" />
+
+Set weather this option is required or not.
+
+### build
+
+> <LuaDeclaration name="build" className="OnboardingPrompt" args={[ { name: "self", type: "Prompt" } ]} returnType="JSON" />
+
+Responsible for building the PromptObject JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="OnboardingPrompt" args={[ { name: "resource", type: "{ type: apiTypes.OnboardingPromptType?, options: { option.JSON }?, title: string?, singleSelect: boolean?, required: boolean?, }?" } ]} returnType="Prompt" />
+
+Responsible for creating a new Prompt.
+
+

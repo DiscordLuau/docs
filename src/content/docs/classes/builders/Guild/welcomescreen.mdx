@@ -1,0 +1,74 @@
+---
+title: WelcomeScreen
+description: DiscordLuau docs for WelcomeScreen.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords WelcomeScreen object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-json-params
+
+## Properties
+
+### enabled
+
+<LuaProperty name="WelcomeScreen.enabled" type="boolean?" />
+
+---
+Whether the welcome screen is enabled or not.
+
+### description
+
+<LuaProperty name="WelcomeScreen.description" type="string?" />
+
+---
+The server description shown in the welcome screen.
+
+### welcomeChannels
+
+<LuaProperty name="WelcomeScreen.welcomeChannels" type="{ Builders.Guild.WelcomeScreenChannel }" />
+
+---
+The channels shown in the welcome screen.
+
+
+## Functions
+
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="WelcomeScreen" args={[ { name: "self", type: "WelcomeScreen" }, { name: "enabled", type: "boolean" } ]} returnType="WelcomeScreen" />
+
+Set weather the welcome screen is enabled or not.
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="WelcomeScreen" args={[ { name: "self", type: "WelcomeScreen" }, { name: "description", type: "string" } ]} returnType="WelcomeScreen" />
+
+Set the description of the welcome screen.
+
+### addChannel
+
+> <LuaDeclaration name="addChannel" className="WelcomeScreen" args={[ { name: "self", type: "WelcomeScreen" }, { name: "channel", type: "WelcomeScreenChannel.JSON" } ]} returnType="WelcomeScreen" />
+
+Add an welcome screen channel to the welcome screen
+
+### build
+
+> <LuaDeclaration name="build" className="WelcomeScreen" args={[ { name: "self", type: "WelcomeScreen" } ]} returnType="JSON" />
+
+Responsible for building the WelcomeScreenObject JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreen" args={[ { name: "resource", type: "{ enabled: boolean?, description: string?, welcomeChannels: { WelcomeScreenChannel.JSON }?, }?" } ]} returnType="WelcomeScreen" />
+
+Responsible for creating a new WelcomeScreen.
+
+

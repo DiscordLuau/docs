@@ -1,0 +1,114 @@
+---
+title: OnboardingOption
+description: DiscordLuau docs for OnboardingOption.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Option object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#guild-onboarding-object-prompt-option-structure
+
+## Properties
+
+### channelIds
+
+<LuaProperty name="OnboardingOption.channelIds" type="{string}" />
+
+---
+Array of channel IDs that are associated with this option.
+
+### roleIds
+
+<LuaProperty name="OnboardingOption.roleIds" type="{string}" />
+
+---
+Array of role IDs that are associated with this option.
+
+### emojiId
+
+<LuaProperty name="OnboardingOption.emojiId" type="string?" />
+
+---
+The ID of the emoji used for this option.
+
+### emojiName
+
+<LuaProperty name="OnboardingOption.emojiName" type="string?" />
+
+---
+The name of the emoji used for this option.
+
+### emojiAnimated
+
+<LuaProperty name="OnboardingOption.emojiAnimated" type="boolean?" />
+
+---
+Whether the emoji used for this option is animated.
+
+### title
+
+<LuaProperty name="OnboardingOption.title" type="string" />
+
+---
+The title displayed for this option.
+
+### description
+
+<LuaProperty name="OnboardingOption.description" type="string?" />
+
+---
+The description displayed for this option.
+
+
+## Functions
+
+### addChannelId
+
+> <LuaDeclaration name="addChannelId" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "channelId", type: "string" } ]} returnType="Option" />
+
+Add a Channel to this option
+
+### addRoleId
+
+> <LuaDeclaration name="addRoleId" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "roleId", type: "string" } ]} returnType="Option" />
+
+Add a Role to this option
+
+### setEmoji
+
+> <LuaDeclaration name="setEmoji" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" }, { name: "isAnimated", type: "boolean?" } ]} returnType="Option" />
+
+Sets the emoji of this option.
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "title", type: "string" } ]} returnType="Option" />
+
+Sets the title of this option.
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "description", type: "string" } ]} returnType="Option" />
+
+Sets the description of this option.
+
+### build
+
+> <LuaDeclaration name="build" className="OnboardingOption" args={[ { name: "self", type: "Option" } ]} returnType="JSON" />
+
+Responsible for building the OptionObject JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="OnboardingOption" args={[ { name: "resource", type: "{ channelIds: { string }?, roleIds: { string }?, emojiId: string?, emojiName: string?, emojiAnimated: boolean?, title: string?, description: string?, }?" } ]} returnType="Option" />
+
+Responsible for creating a new Option.
+
+

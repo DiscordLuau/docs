@@ -1,0 +1,68 @@
+---
+title: PollMedia
+description: DiscordLuau docs for PollMedia.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords PollMedia object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/poll#poll-media-object-poll-media-object-structure
+
+## Properties
+
+### text
+
+<LuaProperty name="PollMedia.text" type="string?" />
+
+---
+The text content of the poll media.
+
+### emoji
+
+<LuaProperty name="PollMedia.emoji" type="Builders.Emoji?" />
+
+---
+The emoji associated with this poll media.
+
+
+## Functions
+
+### setText
+
+> <LuaDeclaration name="setText" className="PollMedia" args={[ { name: "self", type: "PollMedia" }, { name: "text", type: "string" } ]} returnType="PollMedia" />
+
+Sets the text for the PollMedia.
+
+### setEmoji
+
+> <LuaDeclaration name="setEmoji" className="PollMedia" args={[ { name: "self", type: "PollMedia" }, { name: "emoji", type: "emojiBuilder.JSON" } ]} returnType="PollMedia" />
+
+Responsible for setting the emoji for the PollMedia.
+
+### build
+
+> <LuaDeclaration name="build" className="PollMedia" args={[ { name: "self", type: "PollMedia" } ]} returnType="JSON" />
+
+Responsible for building the PollMedia JSON that can be parsed by the Discord API.
+
+### new
+
+> <LuaDeclaration name="new" className="PollMedia" args={[ { name: "resource", type: "{ text: string?, emoji: emojiBuilder.JSON?, }?" } ]} returnType="PollMedia" />
+
+Responsible for creating a new PollMedia.
+
+```luau
+local media = PollMedia.new({
+	text = "Sample text",
+	emoji = emojiBuilder.new():build()
+})
+```
+
+

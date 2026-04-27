@@ -1,0 +1,66 @@
+---
+title: SystemChannelBitflag
+description: DiscordLuau docs for SystemChannelBitflag.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord System Channel Bitflags in Luau. This class represents various flags that can be set on a system channel in a Discord guild.
+
+https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
+
+## Properties
+
+### flag
+
+<LuaProperty name="SystemChannelBitflag.flag" type="number" />
+
+---
+The bitfield representing the system channel flags.
+
+
+## Functions
+
+### suppressJoinNotifications
+
+> <LuaDeclaration name="suppressJoinNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress join notifications bitflag set.
+
+### suppressPremiumSubscriptions
+
+> <LuaDeclaration name="suppressPremiumSubscriptions" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress premium subscriptions bitflag set.
+
+### suppressGuildReminderNotifications
+
+> <LuaDeclaration name="suppressGuildReminderNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress guild reminder notifications bitflag set.
+
+### suppressJoinNotificationReplies
+
+> <LuaDeclaration name="suppressJoinNotificationReplies" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress join notification replies bitflag set.
+
+### suppressRoleSubscriptionPurchaseNotifications
+
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress role subscriptions purchase notifications bitflag set.
+
+### suppressRoleSubscriptionPurchaseNotificationReplies
+
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotificationReplies" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+
+Returns if the system channel has the suppress role subscriptions purchase notification replies bitflag set.
+
+

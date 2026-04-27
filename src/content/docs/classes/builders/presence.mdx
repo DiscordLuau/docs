@@ -1,0 +1,48 @@
+---
+title: Presence
+description: DiscordLuau docs for Presence.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a Discord Presence as a Luau builder.
+
+https://discord.com/developers/docs/events/gateway-events#update-presence
+
+## Properties
+
+### activities
+
+<LuaProperty name="Presence.activities" type="{ Classes.Activity }" />
+
+---
+An array of activity objects that represent what the client is currently doing.
+
+### since
+
+<LuaProperty name="Presence.since" type="number?" />
+
+---
+Unix timestamp (in milliseconds) of when the client went idle, or null if the client is not idle.
+
+### afk
+
+<LuaProperty name="Presence.afk" type="boolean?" />
+
+---
+Whether or not the client is afk.
+
+### status
+
+<LuaProperty name="Presence.status" type="string?" />
+
+---
+The user's current status. Can be "online", "dnd", "idle", "invisible", or "offline".
+
+

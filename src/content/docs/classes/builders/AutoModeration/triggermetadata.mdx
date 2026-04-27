@@ -1,0 +1,118 @@
+---
+title: TriggerMetadata
+description: DiscordLuau docs for TriggerMetadata.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of a discord auto moderation trigger metadata object as a luau builder.
+
+## Properties
+
+### keywordFilter
+
+<LuaProperty name="TriggerMetadata.keywordFilter" type="{string}" />
+
+---
+Array of strings that represent keywords that will trigger the rule.
+
+### regexPatterns
+
+<LuaProperty name="TriggerMetadata.regexPatterns" type="{string}" />
+
+---
+Array of strings that represent regex patterns that will trigger the rule.
+
+### presets
+
+<LuaProperty name="TriggerMetadata.presets" type="{api_types.KeywordPresetType}" />
+
+---
+Array of preset keyword types that will trigger the rule.
+
+### allowList
+
+<LuaProperty name="TriggerMetadata.allowList" type="{string}" />
+
+---
+Array of strings that represent keywords that should not trigger the rule.
+
+### mentionTotalLimit
+
+<LuaProperty name="TriggerMetadata.mentionTotalLimit" type="number" />
+
+---
+Total number of unique role and user mentions allowed per message.
+
+### mentionRaidProtectionEnabled
+
+<LuaProperty name="TriggerMetadata.mentionRaidProtectionEnabled" type="boolean" />
+
+---
+Whether to automatically detect mention raids and remove them.
+
+
+## Functions
+
+### setKeywordFilter
+
+> <LuaDeclaration name="setKeywordFilter" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "keywordFilter", type: "{ string }" } ]} returnType="TriggerMetadata" />
+
+Sets the list of keywords to match.
+
+### setRegexPatterns
+
+> <LuaDeclaration name="setRegexPatterns" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "regexPatterns", type: "{ string }" } ]} returnType="TriggerMetadata" />
+
+Sets the list of regular expressions to match.
+
+### setPresets
+
+> <LuaDeclaration name="setPresets" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" } ]} returnType="TriggerMetadata" />
+
+Sets the list of preset keywords to match.
+
+### setAllowList
+
+> <LuaDeclaration name="setAllowList" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "allowList", type: "{ string }" } ]} returnType="TriggerMetadata" />
+
+Sets the list of allowed keywords.
+
+### setMentionTotalLimit
+
+> <LuaDeclaration name="setMentionTotalLimit" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "mentionTotalLimit", type: "number" } ]} returnType="TriggerMetadata" />
+
+Sets the maximum number of mentions allowed.
+
+### setMentionRaidProtectionEnabled
+
+> <LuaDeclaration name="setMentionRaidProtectionEnabled" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} returnType="TriggerMetadata" />
+
+Sets whether raid protection is enabled.
+
+### build
+
+> <LuaDeclaration name="build" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" } ]} returnType="JSON" />
+
+Builds the trigger metadata object.
+
+### new
+
+> <LuaDeclaration name="new" className="TriggerMetadata" args={[ { name: "resource", type: "{ keywordFilter: { string }?, regexPatterns: { string }?, presets: { apiTypes.KeywordPresetType }?, allowList: { string }?, mentionTotalLimit: number?, mentionRaidProtectionEnabled: boolean?, }?" } ]} returnType="TriggerMetadata" />
+
+Responsible for creating a new TriggerMetadata.
+
+```luau
+local metadata = TriggerMetadata.new({
+	keywordFilter = {"bad", "words"},
+	mentionTotalLimit = 5
+})
+```
+
+

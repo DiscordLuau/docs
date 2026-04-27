@@ -1,0 +1,76 @@
+---
+title: Button
+description: DiscordLuau docs for Button.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Button class in Luau
+
+https://discord.com/developers/docs/interactions/message-components#buttons
+
+## Properties
+
+### style
+
+<LuaProperty name="Button.style" type="apiTypes.ButtonStyle" />
+
+---
+The style of the button. This determines the button's appearance and behavior.
+
+### type
+
+<LuaProperty name="Button.type" type="number" />
+
+---
+The type of component. For buttons, this is always 2.
+
+### label
+
+<LuaProperty name="Button.label" type="string?" />
+
+---
+The text that appears on the button. Optional if an emoji is provided.
+
+### emoji
+
+<LuaProperty name="Button.emoji" type="Classes.Emoji?" />
+
+---
+The emoji displayed on the button. Can be used alongside or instead of a label.
+
+### customId
+
+<LuaProperty name="Button.customId" type="string?" />
+
+---
+A developer-defined identifier for the button. Required for all button styles except LINK.
+
+### skuId
+
+<LuaProperty name="Button.skuId" type="string?" />
+
+---
+The unique identifier of a SKU. Used for purchase buttons.
+
+### url
+
+<LuaProperty name="Button.url" type="string?" />
+
+---
+The URL that the button leads to. Only valid for buttons with LINK style.
+
+### disabled
+
+<LuaProperty name="Button.disabled" type="boolean?" />
+
+---
+Whether the button is disabled. When true, the button cannot be interacted with.
+
+

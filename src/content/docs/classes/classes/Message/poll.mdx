@@ -1,0 +1,62 @@
+---
+title: Poll
+description: DiscordLuau docs for Poll.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Poll class in Luau
+
+https://discord.com/developers/docs/resources/poll#poll-object
+
+## Properties
+
+### question
+
+<LuaProperty name="Poll.question" type="Classes.Message.PollMediaObject" />
+
+---
+The question being asked in the poll
+
+### answers
+
+<LuaProperty name="Poll.answers" type="{ Classes.Message.PollAnswer }" />
+
+---
+Array of possible answers for the poll
+
+### expiry
+
+<LuaProperty name="Poll.expiry" type="DateTime" />
+
+---
+When the poll will expire and close for voting
+
+### allowMultiselect
+
+<LuaProperty name="Poll.allowMultiselect" type="boolean" />
+
+---
+Whether users can select multiple answers
+
+### layoutType
+
+<LuaProperty name="Poll.layoutType" type="Classes.PollLayoutType" />
+
+---
+The layout style used to display the poll
+
+### results
+
+<LuaProperty name="Poll.results" type="Classes.Message.PollResults" />
+
+---
+The current results of the poll
+
+

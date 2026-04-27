@@ -1,0 +1,62 @@
+---
+title: Sticker
+description: DiscordLuau docs for Sticker.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/sticker
+
+## Functions
+
+### getStickerAsync
+
+> <LuaDeclaration name="getStickerAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "stickerId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetStickerResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#get-sticker
+
+### listStickerPacksAsync
+
+> <LuaDeclaration name="listStickerPacksAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.ListStickerPacksResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#list-sticker-packs
+
+### listGuildStickersAsync
+
+> <LuaDeclaration name="listGuildStickersAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.ListGuildStickersResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#list-guild-stickers
+
+### getGuildStickerAsync
+
+> <LuaDeclaration name="getGuildStickerAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "stickerId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildStickerResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#get-guild-sticker
+
+### createGuildStickerAsync
+
+> <LuaDeclaration name="createGuildStickerAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildStickerRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildStickerResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#create-guild-sticker
+
+### modifyGuildStickerAsync
+
+> <LuaDeclaration name="modifyGuildStickerAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "stickerId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildStickerRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildStickerResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#modify-guild-sticker
+
+### deleteGuildStickerAsync
+
+> <LuaDeclaration name="deleteGuildStickerAsync" className="Sticker" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "stickerId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildStickerResponse>" />
+
+https://discord.com/developers/docs/resources/sticker#delete-guild-sticker
+
+

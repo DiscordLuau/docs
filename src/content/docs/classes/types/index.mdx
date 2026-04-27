@@ -1,0 +1,20 @@
+---
+title: Types
+description: DiscordLuau docs for Types.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Responsible for handling all types in Discord-Luau, upon requiring this module you'll have access to two things:
+
+- Types, for all requests, responses and iterations with the websocket, for the v10 discord API.
+- A range of enums helping to map out discord status codes, messages and other information.
+	- Example, we map websocket operations so that the close code `4000` is known as `UnknownError`, which is clearer.
+

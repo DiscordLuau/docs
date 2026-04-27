@@ -1,0 +1,133 @@
+---
+title: Invite
+description: DiscordLuau docs for Invite.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of discords Invite object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#create-channel-invite-json-params
+
+## Properties
+
+### maxAge
+
+<LuaProperty name="Invite.maxAge" type="number?" />
+
+---
+Duration in seconds after which the invite expires. Must be between 0 and 604800 seconds.
+
+### maxUses
+
+<LuaProperty name="Invite.maxUses" type="number?" />
+
+---
+Maximum number of times this invite can be used. Must be between 0 and 100.
+
+### temporary
+
+<LuaProperty name="Invite.temporary" type="boolean?" />
+
+---
+Whether the invite grants temporary membership. Members are removed on disconnect unless granted a role.
+
+### unique
+
+<LuaProperty name="Invite.unique" type="boolean?" />
+
+---
+Whether this invite should be unique. If true, don't try to reuse a similar invite.
+
+### targetType
+
+<LuaProperty name="Invite.targetType" type="api_types.InviteTargetType?" />
+
+---
+The type of target for this invite. Used for stream and embedded application invites.
+
+### targetUserId
+
+<LuaProperty name="Invite.targetUserId" type="string?" />
+
+---
+The target user ID for this invite. Used to specify which user's stream to display.
+
+### targetApplicationId
+
+<LuaProperty name="Invite.targetApplicationId" type="string?" />
+
+---
+The target application ID for this invite. Used to specify which embedded application to open.
+
+
+## Functions
+
+### setMaxAge
+
+> <LuaDeclaration name="setMaxAge" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "age", type: "number" } ]} returnType="Invite" />
+
+Sets the duration in seconds after which the invite expires.
+Age must be between 0 and 604800 seconds.
+
+### setMaxUses
+
+> <LuaDeclaration name="setMaxUses" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "uses", type: "number" } ]} returnType="Invite" />
+
+Sets the maximum number of times this invite can be used.
+Uses must be between 0 and 100.
+
+### setTemporary
+
+> <LuaDeclaration name="setTemporary" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "isTemporary", type: "boolean" } ]} returnType="Invite" />
+
+Sets whether the invite grants temporary membership.
+Temporary members are removed when they disconnect unless granted a role.
+
+### setIsUnique
+
+> <LuaDeclaration name="setIsUnique" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "isUnique", type: "boolean" } ]} returnType="Invite" />
+
+Sets whether this invite should be unique.
+If true, don't try to reuse a similar invite.
+
+### setTargetType
+
+> <LuaDeclaration name="setTargetType" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "targetType", type: "apiTypes.InviteTargetType" } ]} returnType="Invite" />
+
+Sets the type of target for this invite.
+Used for stream and embedded application invites.
+
+### setTargetUser
+
+> <LuaDeclaration name="setTargetUser" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "userId", type: "string" } ]} returnType="Invite" />
+
+Sets the target user ID for this invite.
+Used to specify which user's stream to display for stream invites.
+
+### setTargetApplication
+
+> <LuaDeclaration name="setTargetApplication" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "applicationId", type: "string" } ]} returnType="Invite" />
+
+Sets the target application ID for this invite.
+Used to specify which embedded application to open.
+
+### build
+
+> <LuaDeclaration name="build" className="Invite" args={[ { name: "self", type: "Invite" } ]} returnType="JSON" />
+
+Responsible for buillding the invite object that the Discord API can understand.
+
+### new
+
+> <LuaDeclaration name="new" className="Invite" args={[ { name: "resource", type: "{ maxAge: number?, maxUses: number?, temporary: boolean?, unique: boolean?, targetType: apiTypes.InviteTargetType?, targetUserId: string?, targetApplicationId: string?, }?" } ]} returnType="Invite" />
+
+Responsible for creating a new Invite.
+
+

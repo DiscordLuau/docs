@@ -1,0 +1,252 @@
+---
+title: GroupDM
+description: DiscordLuau docs for GroupDM.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord GroupDM class in Luau
+
+https://discord.com/developers/docs/resources/channel#channel-object
+
+## Properties
+
+### state
+
+<LuaProperty name="GroupDM.state" type="Classes.State" />
+
+
+### type
+
+<LuaProperty name="GroupDM.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### id
+
+<LuaProperty name="GroupDM.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### name
+
+<LuaProperty name="GroupDM.name" type="string?" />
+
+---
+The name of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### flags
+
+<LuaProperty name="GroupDM.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### recipients
+
+<LuaProperty name="GroupDM.recipients" type="{ Classes.User }" />
+
+---
+The users in the Group DM channel.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### icon
+
+<LuaProperty name="GroupDM.icon" type="string?" />
+
+---
+The icon hash of the Group DM channel.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### ownerId
+
+<LuaProperty name="GroupDM.ownerId" type="string?" />
+
+---
+The ID of the user who created the Group DM channel.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### applicationId
+
+<LuaProperty name="GroupDM.applicationId" type="string?" />
+
+---
+The ID of the application that created the Group DM channel, if it was created by an application.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### managed
+
+<LuaProperty name="GroupDM.managed" type="boolean" />
+
+---
+Whether the Group DM channel is managed by an application.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### lastMessageId
+
+<LuaProperty name="GroupDM.lastMessageId" type="string?" />
+
+---
+The ID of the last message sent in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### lastPinTimestamp
+
+<LuaProperty name="GroupDM.lastPinTimestamp" type="DateTime?" />
+
+---
+The timestamp of the last pinned message in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### rateLimitPerUser
+
+<LuaProperty name="GroupDM.rateLimitPerUser" type="number" />
+
+---
+The rate limit per user for sending messages in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+
+## Functions
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### addRecipient
+
+> <LuaDeclaration name="addRecipient" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
+
+Adds a recipient to a Group DM using their access token.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### removeRecipient
+
+> <LuaDeclaration name="removeRecipient" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+
+Removes a recipient from a Group DM.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+
+Sets the name of the Group DM channel.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### setIconAsync
+
+> <LuaDeclaration name="setIconAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "iconData", type: "string" } ]} />
+
+Sets the icon of the Group DM channel using base64 encoded image data.
+
+> Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
+
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+
+Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
+MANAGE_MESSAGES permission.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
+Gets messages from a channel. Returns an array of message objects.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+
+Gets a specific message from a channel using its ID. Returns a message object.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### createMessageAsync
+
+> <LuaDeclaration name="createMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.messageJSON" } ]} />
+
+Creates a new message in the channel. Returns the created message object.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Gets all pinned messages in the channel. Returns an array of message objects.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### pinMessageAsync
+
+> <LuaDeclaration name="pinMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" } ]} />
+
+Pins a message in the channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### unpinMessageAsync
+
+> <LuaDeclaration name="unpinMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Unpins a message from the channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### startThread
+
+> <LuaDeclaration name="startThread" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+
+Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+

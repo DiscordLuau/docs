@@ -1,0 +1,90 @@
+---
+title: Entitlement
+description: DiscordLuau docs for Entitlement.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Entitlement class in Luau
+
+https://discord.com/developers/docs/monetization/entitlements#entitlement-object
+
+## Properties
+
+### type
+
+<LuaProperty name="Entitlement.type" type="apiTypes.EntitlementType" />
+
+---
+The type of entitlement this object represents. Maps to Discord's entitlement types.
+
+### id
+
+<LuaProperty name="Entitlement.id" type="apiTypes.Snowflake" />
+
+---
+The unique identifier for this entitlement.
+
+### skuId
+
+<LuaProperty name="Entitlement.skuId" type="apiTypes.Snowflake" />
+
+---
+The ID of the SKU (Stock Keeping Unit) that this entitlement grants access to.
+
+### applicationId
+
+<LuaProperty name="Entitlement.applicationId" type="apiTypes.Snowflake" />
+
+---
+The ID of the application this entitlement is for.
+
+### userId
+
+<LuaProperty name="Entitlement.userId" type="apiTypes.Snowflake?" />
+
+---
+The ID of the user this entitlement belongs to. May be null for some entitlement types.
+
+### deleted
+
+<LuaProperty name="Entitlement.deleted" type="boolean" />
+
+---
+Whether this entitlement has been deleted.
+
+### startsAt
+
+<LuaProperty name="Entitlement.startsAt" type="stdPolyfills.DateTime?" />
+
+---
+The date and time when this entitlement becomes active. May be null for permanent entitlements.
+
+### endsAt
+
+<LuaProperty name="Entitlement.endsAt" type="stdPolyfills.DateTime?" />
+
+---
+The date and time when this entitlement expires. May be null for permanent entitlements.
+
+### guildId
+
+<LuaProperty name="Entitlement.guildId" type="apiTypes.Snowflake?" />
+
+---
+The ID of the guild this entitlement is for. May be null for user-specific entitlements.
+
+### consumed
+
+<LuaProperty name="Entitlement.consumed" type="boolean?" />
+
+---
+Whether this entitlement has been consumed. Only applicable to consumable entitlements.
+
+

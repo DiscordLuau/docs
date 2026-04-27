@@ -1,0 +1,336 @@
+---
+title: GuildText
+description: DiscordLuau docs for GuildText.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord GuildText class in Luau
+
+https://discord.com/developers/docs/resources/channel#channel-object
+
+## Properties
+
+### state
+
+<LuaProperty name="GuildText.state" type="state.State" />
+
+
+### type
+
+<LuaProperty name="GuildText.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### id
+
+<LuaProperty name="GuildText.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### name
+
+<LuaProperty name="GuildText.name" type="string?" />
+
+---
+The name of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### flags
+
+<LuaProperty name="GuildText.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### permissionOverwrites
+
+<LuaProperty name="GuildText.permissionOverwrites" type="{ Classes.Channels.Overwrite }" />
+
+---
+The permission overwrites for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### nsfw
+
+<LuaProperty name="GuildText.nsfw" type="boolean" />
+
+---
+Whether the channel is marked as NSFW (Not Safe For Work).
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### topic
+
+<LuaProperty name="GuildText.topic" type="string?" />
+
+---
+The topic of the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### guildId
+
+<LuaProperty name="GuildText.guildId" type="string" />
+
+---
+The ID of the guild this channel belongs to.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### position
+
+<LuaProperty name="GuildText.position" type="number" />
+
+---
+The position of the channel in the guild's channel list.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### parentId
+
+<LuaProperty name="GuildText.parentId" type="string?" />
+
+---
+The ID of the parent category channel, if this channel is in a category.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### permissions
+
+<LuaProperty name="GuildText.permissions" type="number" />
+
+---
+The computed permissions for the current user in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### defaultThreadRateLimitPerUser
+
+<LuaProperty name="GuildText.defaultThreadRateLimitPerUser" type="number" />
+
+---
+The default rate limit per user for threads in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### defaultAutoArchiveDuration
+
+<LuaProperty name="GuildText.defaultAutoArchiveDuration" type="number" />
+
+---
+The default duration after which threads are automatically archived.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### lastMessageId
+
+<LuaProperty name="GuildText.lastMessageId" type="string?" />
+
+---
+The ID of the last message sent in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### lastPinTimestamp
+
+<LuaProperty name="GuildText.lastPinTimestamp" type="DateTime?" />
+
+---
+The timestamp of the last pinned message in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### rateLimitPerUser
+
+<LuaProperty name="GuildText.rateLimitPerUser" type="number" />
+
+---
+The rate limit per user for sending messages in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+
+## Functions
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "position", type: "number" } ]} />
+
+Sets the position of the channel in the guild's channel list.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setParentAsync
+
+> <LuaDeclaration name="setParentAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+
+Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setPermissionsAsync
+
+> <LuaDeclaration name="setPermissionsAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+
+Sets the permissions for a role or member in the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### deletePermissionAsync
+
+> <LuaDeclaration name="deletePermissionAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Deletes a permission overwrite for a role or member in the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Gets a list of all invites for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+
+Creates a new invite for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all public archived threads in the channel. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads in the channel. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listJoinedPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+
+Sets the name of the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+
+Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
+MANAGE_MESSAGES permission.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
+Gets messages from a channel. Returns an array of message objects.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+
+Gets a specific message from a channel using its ID. Returns a message object.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### createMessageAsync
+
+> <LuaDeclaration name="createMessageAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.messageJSON" } ]} />
+
+Creates a new message in the channel. Returns the created message object.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Gets all pinned messages in the channel. Returns an array of message objects.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### pinMessageAsync
+
+> <LuaDeclaration name="pinMessageAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" } ]} />
+
+Pins a message in the channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### unpinMessageAsync
+
+> <LuaDeclaration name="unpinMessageAsync" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Unpins a message from the channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+### startThread
+
+> <LuaDeclaration name="startThread" className="GuildText" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+
+Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+
+

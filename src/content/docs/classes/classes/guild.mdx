@@ -1,0 +1,679 @@
+---
+title: Guild
+description: DiscordLuau docs for Guild.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord Guild class in Luau.
+Represents a Discord guild (server) with all its properties and methods.
+
+https://discord.com/developers/docs/resources/guild#guild-object
+
+## Properties
+
+### stickers
+
+<LuaProperty name="Guild.stickers" type="{Classes.Sticker}" />
+
+---
+Collection of stickers in the guild
+
+### roles
+
+<LuaProperty name="Guild.roles" type="{Classes.Guild.Role}" />
+
+---
+Collection of roles in the guild
+
+### emojis
+
+<LuaProperty name="Guild.emojis" type="{Classes.Emoji}" />
+
+---
+Collection of emojis in the guild
+
+### verificationLevel
+
+<LuaProperty name="Guild.verificationLevel" type="string" />
+
+---
+Verification level required for the guild
+
+### defaultMessageNotifications
+
+<LuaProperty name="Guild.defaultMessageNotifications" type="string" />
+
+---
+Default message notifications level
+
+### explicitContentFilter
+
+<LuaProperty name="Guild.explicitContentFilter" type="string" />
+
+---
+Explicit content filter level
+
+### premiumTier
+
+<LuaProperty name="Guild.premiumTier" type="string" />
+
+---
+Premium tier (Server Boost level)
+
+### nsfwLevel
+
+<LuaProperty name="Guild.nsfwLevel" type="string" />
+
+---
+NSFW level of the guild
+
+### mfaLevel
+
+<LuaProperty name="Guild.mfaLevel" type="string" />
+
+---
+Required MFA level for the guild
+
+### systemChannelFlags
+
+<LuaProperty name="Guild.systemChannelFlags" type="Classes.SystemChannelBitflag" />
+
+---
+System channel flags
+
+### icon
+
+<LuaProperty name="Guild.icon" type="string?" />
+
+---
+Icon hash of the guild
+
+### iconHash
+
+<LuaProperty name="Guild.iconHash" type="string?" />
+
+---
+The hash of the guild's icon
+
+### name
+
+<LuaProperty name="Guild.name" type="string?" />
+
+---
+The name of the guild
+
+### splash
+
+<LuaProperty name="Guild.splash" type="string?" />
+
+---
+Splash hash
+
+### discoverySplash
+
+<LuaProperty name="Guild.discoverySplash" type="string?" />
+
+---
+Discovery splash hash
+
+### owner
+
+<LuaProperty name="Guild.owner" type="boolean?" />
+
+---
+Whether the user is the owner of the guild
+
+### ownerId
+
+<LuaProperty name="Guild.ownerId" type="string?" />
+
+---
+ID of guild owner
+
+### permissions
+
+<LuaProperty name="Guild.permissions" type="string?" />
+
+---
+Total permissions for the user in the guild (excludes overwrites)
+
+### region
+
+<LuaProperty name="Guild.region" type="string?" />
+
+---
+Voice region id for the guild
+
+### afkChannelId
+
+<LuaProperty name="Guild.afkChannelId" type="string?" />
+
+---
+ID of AFK channel
+
+### afkTimeout
+
+<LuaProperty name="Guild.afkTimeout" type="number?" />
+
+---
+AFK timeout in seconds
+
+### widgetEnabled
+
+<LuaProperty name="Guild.widgetEnabled" type="boolean?" />
+
+---
+Whether the server widget is enabled
+
+### widgetChannelId
+
+<LuaProperty name="Guild.widgetChannelId" type="string?" />
+
+---
+The channel id that the widget will generate an invite to
+
+### features
+
+<LuaProperty name="Guild.features" type="{string}?" />
+
+---
+Array of guild features
+
+### applicationId
+
+<LuaProperty name="Guild.applicationId" type="string?" />
+
+---
+Application ID of the guild creator if it is bot-created
+
+### systemChannelId
+
+<LuaProperty name="Guild.systemChannelId" type="string?" />
+
+---
+The id of the channel where guild notices are posted
+
+### rulesChannelId
+
+<LuaProperty name="Guild.rulesChannelId" type="string?" />
+
+---
+ID of the rules channel
+
+### maxPresences
+
+<LuaProperty name="Guild.maxPresences" type="number?" />
+
+---
+The maximum number of presences for the guild
+
+### maxMembers
+
+<LuaProperty name="Guild.maxMembers" type="number?" />
+
+---
+The maximum number of members for the guild
+
+### vanityUrlCode
+
+<LuaProperty name="Guild.vanityUrlCode" type="string?" />
+
+---
+The vanity URL code for the guild
+
+### description
+
+<LuaProperty name="Guild.description" type="string?" />
+
+---
+The description of the guild
+
+### banner
+
+<LuaProperty name="Guild.banner" type="string?" />
+
+---
+Banner hash
+
+### premiumSubscriptionCount
+
+<LuaProperty name="Guild.premiumSubscriptionCount" type="number?" />
+
+---
+The number of boosts this guild currently has
+
+### preferredLocale
+
+<LuaProperty name="Guild.preferredLocale" type="string?" />
+
+---
+The preferred locale of a Community guild
+
+### publicUpdatesChannelId
+
+<LuaProperty name="Guild.publicUpdatesChannelId" type="string?" />
+
+---
+The id of the channel where admins and moderators receive notices from Discord
+
+### maxVideoChannelUsers
+
+<LuaProperty name="Guild.maxVideoChannelUsers" type="number?" />
+
+---
+The maximum amount of users in a video channel
+
+### maxStageVideoChannelUsers
+
+<LuaProperty name="Guild.maxStageVideoChannelUsers" type="number?" />
+
+---
+The maximum amount of users in a stage video channel
+
+### approximateMemberCount
+
+<LuaProperty name="Guild.approximateMemberCount" type="number?" />
+
+---
+Approximate number of members in this guild
+
+### approximatePresenceCount
+
+<LuaProperty name="Guild.approximatePresenceCount" type="number?" />
+
+---
+Approximate number of non-offline members in this guild
+
+### premiumProgressBarEnabled
+
+<LuaProperty name="Guild.premiumProgressBarEnabled" type="boolean?" />
+
+---
+Whether the guild has the boost progress bar enabled
+
+### safetyAlertsChannelId
+
+<LuaProperty name="Guild.safetyAlertsChannelId" type="string?" />
+
+---
+The id of the channel where admins and moderators receive safety alerts from Discord
+
+
+## Functions
+
+### createSlashCommandAsync
+
+> <LuaDeclaration name="createSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
+Creates a guild Slash command for the application.
+
+### deleteSlashCommandAsync
+
+> <LuaDeclaration name="deleteSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommandId", type: "apiTypes.Snowflake" } ]} />
+
+Delete an existing guild application command.
+
+### editSlashCommandAsync
+
+> <LuaDeclaration name="editSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
+Edit an existing guild application command.
+
+### getSlashCommandsAsync
+
+> <LuaDeclaration name="getSlashCommandsAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "withLocalizations", type: "boolean?" } ]} />
+
+Get a list of guild application commands.
+
+### overwriteSlashCommandsAsync
+
+> <LuaDeclaration name="overwriteSlashCommandsAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} />
+
+Overwrite all guild application commands. This will skip over commands that are the same as the current commands,
+and will not remove any existing commands.
+
+### getPreviewAsync
+
+> <LuaDeclaration name="getPreviewAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be
+discoverable.
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.guildJSON" }, { name: "reason", type: "string?" } ]} />
+
+Modify a guild's settings. Requires the MANAGE_GUILD permission.
+Returns the updated guild object on success. Fires a Guild Update Gateway event.
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Delete a guild permanently. User must be owner.
+Returns 204 No Content on success. Fires a Guild Delete Gateway event.
+
+### getChannelsAsync
+
+> <LuaDeclaration name="getChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild channel objects. Does not include threads.
+
+Typed as unknown because the API returns a variety of channel types, and luau's type system is not currently
+capable of handling this.
+
+Please use explicit functions for specific channel types, for example: getTextChannelsAsync, getVoiceChannelsAsync, etc.
+
+### getTextChannelsAsync
+
+> <LuaDeclaration name="getTextChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild text channel objects.
+
+### getVoiceChannelsAsync
+
+> <LuaDeclaration name="getVoiceChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild voice channel objects.
+
+### getCategoryChannelsAsync
+
+> <LuaDeclaration name="getCategoryChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild category channel objects.
+
+### getAnnouncementChannelsAsync
+
+> <LuaDeclaration name="getAnnouncementChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild announcement channel objects.
+
+### getStageVoiceChannelsAsync
+
+> <LuaDeclaration name="getStageVoiceChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild stage voice channel objects.
+
+### getDirectoryChannelsAsync
+
+> <LuaDeclaration name="getDirectoryChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild directory channel objects.
+
+### createChannelAsync
+
+> <LuaDeclaration name="createChannelAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+Create a new channel object for the guild. Requires the MANAGE_CHANNELS permission.
+If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied.
+Setting MANAGE_ROLES permission in channels is only possible for guild administrators.
+Returns the new channel object on success. Fires a Channel Create Gateway event.
+
+### getRoleMemberCounts
+
+> <LuaDeclaration name="getRoleMemberCounts" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a map of role IDs to the number of members with the role. Does not include the @everyone role.
+
+### getThreadsAsync
+
+> <LuaDeclaration name="getThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns all active threads in the guild, including public and private threads.
+Threads are ordered by their id, in descending order.
+
+Typed as unknown because the API returns a variety of channel types, and luau's type system is not currently
+capable of handling this.
+
+Please use explicit functions for specific channel types, for example: getMediaThreadsAsync, getAnnouncementThreadsAsync, etc.
+
+### getAnnouncementThreadsAsync
+
+> <LuaDeclaration name="getAnnouncementThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of guild announcement thread objects.
+
+### getPublicThreadsAsync
+
+> <LuaDeclaration name="getPublicThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of public guild thread objects.
+
+### getPrivateThreadsAsync
+
+> <LuaDeclaration name="getPrivateThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of private guild thread objects.
+
+### getMemberAsync
+
+> <LuaDeclaration name="getMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "string" } ]} />
+
+Returns a guild member object for the specified user.
+
+### listMembersAsync
+
+> <LuaDeclaration name="listMembersAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "lastSnowflake", type: "string?" }, { name: "limit", type: "number?" } ]} />
+
+Returns a list of guild member objects that are members of the guild.
+
+### searchMembersAsync
+
+> <LuaDeclaration name="searchMembersAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} />
+
+Returns a list of guild member objects whose username or nickname starts with a provided string.
+
+### addMemberAsync
+
+> <LuaDeclaration name="addMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "accessToken", type: "string" }, { name: "nickname", type: "string?" }, { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "muted", type: "boolean?" }, { name: "deafened", type: "boolean?" } ]} />
+
+Adds a user to the guild, provided you have a valid oauth2 access token for the user with the guilds.join scope.
+
+For guilds with Membership Screening enabled, this endpoint will default to adding new members as pending in the
+guild member object. Members that are pending will have to complete membership screening before they become full
+members that can talk.
+
+### kickMemberAsync
+
+> <LuaDeclaration name="kickMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+
+Removes a role from a guild member. Requires the MANAGE_ROLES permission.
+
+### banMemberAsync
+
+> <LuaDeclaration name="banMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} />
+
+Create a guild ban, and optionally delete previous messages sent by the banned user.
+
+### bulkBanAsync
+
+> <LuaDeclaration name="bulkBanAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userIds", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returnType="future.Future< string, { failedUsers: { apiTypes.Snowflake }, bannedUsers: { apiTypes.Snowflake } } >" />
+
+Create a guild ban for multiple users, and optionally delete previous messages sent by the banned users.
+
+### getBansAsync
+
+> <LuaDeclaration name="getBansAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "limit", type: "number?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" } ]} />
+
+Returns a list of ban objects for the users banned from this guild.
+
+### getBanAsync
+
+> <LuaDeclaration name="getBanAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" } ]} />
+
+Returns a ban object for the given user or a 404 not found if the ban cannot be found.
+
+### getRolesAsync
+
+> <LuaDeclaration name="getRolesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of role objects for the guild.
+
+### getRoleAsync
+
+> <LuaDeclaration name="getRoleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "roleId", type: "apiTypes.Snowflake" } ]} />
+
+Returns a role object for the specified role.
+
+### createRoleAsync
+
+> <LuaDeclaration name="createRoleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "roleJson", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ]} />
+
+Create a new role for the guild. Requires the MANAGE_ROLES permission.
+Returns the new role object on success.
+
+### setMFALevelAsync
+
+> <LuaDeclaration name="setMFALevelAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "mfaLevel", type: "apiTypes.MFALevel" }, { name: "reason", type: "string?" } ]} />
+
+Modify a guild's MFA level. Requires guild ownership. Returns the updated level on success.
+
+### getPruneCountAsync
+
+> <LuaDeclaration name="getPruneCountAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "days", type: "number?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" } ]} />
+
+Returns an object with one pruned key indicating the number of members that would be removed in a prune operation.
+Requires the MANAGE_GUILD and KICK_MEMBERS permissions.
+
+By default, prune will not remove users with roles. You can optionally include specific roles in your prune by
+providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be
+counted in the prune and users with additional roles will not.
+
+### beginPruneAsync
+
+> <LuaDeclaration name="beginPruneAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "days", type: "number?" }, { name: "returnPruneCount", type: "boolean?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" }, { name: "reason", type: "string?" } ]} />
+
+Begin a prune operation. Requires the MANAGE_GUILD and KICK_MEMBERS permissions.
+Returns an object with one pruned key indicating the number of members that were removed in the prune operation.
+
+For large guilds it's recommended to set the compute_prune_count option to false, forcing pruned to null
+
+By default, prune will not remove users with roles. You can optionally include specific roles in your prune by
+providing the include_roles parameter. Any inactive user that has a subset of the provided role(s)
+will be included in the prune and users with additional roles will not.
+
+### getVoiceRegionsAsync
+
+> <LuaDeclaration name="getVoiceRegionsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region.
+
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission.
+
+### getIntegrationsAsync
+
+> <LuaDeclaration name="getIntegrationsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission.
+
+### deleteIntegrationAsync
+
+> <LuaDeclaration name="deleteIntegrationAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "integrationId", type: "string" } ]} />
+
+Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated
+bot if there is one.
+
+Requires the MANAGE_GUILD permission.
+
+### getWidgetSettingsAsync
+
+> <LuaDeclaration name="getWidgetSettingsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a guild widget settings object. Requires the MANAGE_GUILD permission.
+
+### modifyWidgetAsync
+
+> <LuaDeclaration name="modifyWidgetAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.widgetSettingsJSON" }, { name: "reason", type: "string?" } ]} />
+
+Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified.
+Requires the MANAGE_GUILD permission. Returns the updated guild widget settings object. 
+
+### getWidgetAsync
+
+> <LuaDeclaration name="getWidgetAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns the widget for the guild. Fires an Invite Create Gateway event when an invite channel is defined
+and a new Invite is generated.
+
+### getVanityUrlAsync
+
+> <LuaDeclaration name="getVanityUrlAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission.
+code will be null if a vanity url for the guild is not set.
+
+### getWidgetImageAsync
+
+> <LuaDeclaration name="getWidgetImageAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "style", type: "&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;" } ]} />
+
+Returns a PNG image widget for the guild. Requires no permissions or authentication.
+
+### getWelcomeScreenAsync
+
+> <LuaDeclaration name="getWelcomeScreenAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns the Welcome Screen object for the guild. If the welcome screen is not enabled.
+
+the MANAGE_GUILD permission is required.
+
+### modifyWelcomeScreenAsync
+
+> <LuaDeclaration name="modifyWelcomeScreenAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.welcomeScreenJSON" }, { name: "reason", type: "string?" } ]} />
+
+Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission.
+
+### getOnboardingAsync
+
+> <LuaDeclaration name="getOnboardingAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Returns the Onboarding object for the guild.
+
+### modifyOnboardingAsync
+
+> <LuaDeclaration name="modifyOnboardingAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.onboardingJSON" }, { name: "reason", type: "string?" } ]} />
+
+Modifies the onboarding configuration of the guild. Returns a 200 with the Onboarding object for the guild.
+Requires the MANAGE_GUILD and MANAGE_ROLES permissions.
+
+### getGuildAuditLogAsync
+
+> <LuaDeclaration name="getGuildAuditLogAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake?" }, { name: "actionType", type: "apiTypes.ActionTypes?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
+Returns an audit log object for the guild. Requires the VIEW_AUDIT_LOG permission.
+
+The returned list of audit log entries is ordered based on whether you use before or after. When using before, the
+	list is ordered by the audit log entry ID descending (newer entries first). If after is used, the list is reversed
+	and appears in ascending order (older entries first). Omitting both before and after defaults to before the current
+	timestamp and will show the most recent entries in descending order by ID, the opposite can be achieved using after=0
+	(showing oldest entries).
+
+### listAutomoderationRulesAsync
+
+> <LuaDeclaration name="listAutomoderationRulesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+
+Get a list of all rules currently configured for the guild. Returns a list of auto moderation rule objects for the given guild.
+
+### getAutomoderationRuleAsync
+
+> <LuaDeclaration name="getAutomoderationRuleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ruleId", type: "apiTypes.Snowflake" } ]} />
+
+Get a single rule. Returns an auto moderation rule object.
+
+### createAutomoderationRuleAsync
+
+> <LuaDeclaration name="createAutomoderationRuleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ruleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "reason", type: "string?" } ]} />
+
+Create a new rule. Returns an auto moderation rule on success.
+
+

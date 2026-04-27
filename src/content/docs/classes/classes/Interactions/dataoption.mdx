@@ -1,0 +1,58 @@
+---
+title: DataOption
+description: DiscordLuau docs for DataOption.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord DataOption class in Luau
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type
+
+## Properties
+
+### type
+
+<LuaProperty name="DataOption.type" type="ApplicationCommandOptionType" />
+
+---
+The type of command option this represents. This determines how the option is displayed and handled in Discord.
+
+### options
+
+<LuaProperty name="DataOption.options" type="{Classes.Interactions.DataOption}?" />
+
+---
+An array of additional options if this option is a subcommand group, subcommand, or group of choices.
+Can be nil if this option has no sub-options.
+
+### name
+
+<LuaProperty name="DataOption.name" type="string" />
+
+---
+The name of this command option as it appears in Discord. This is what users see when using the command.
+
+### value
+
+<LuaProperty name="DataOption.value" type="T?" />
+
+---
+The value provided by the user for this option. The type varies based on the option type.
+Can be nil if no value was provided.
+
+### focused
+
+<LuaProperty name="DataOption.focused" type="boolean?" />
+
+---
+Indicates whether this option is currently focused in the Discord client during autocomplete.
+Only present for autocomplete interactions.
+
+

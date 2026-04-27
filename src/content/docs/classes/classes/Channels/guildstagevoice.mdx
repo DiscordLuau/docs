@@ -1,0 +1,280 @@
+---
+title: GuildStageVoice
+description: DiscordLuau docs for GuildStageVoice.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+
+Implementation of the Discord GuildStageVoice class in Luau
+
+https://discord.com/developers/docs/resources/channel#channel-object
+
+## Properties
+
+### state
+
+<LuaProperty name="GuildStageVoice.state" type="Classes.State" />
+
+
+### type
+
+<LuaProperty name="GuildStageVoice.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### id
+
+<LuaProperty name="GuildStageVoice.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### name
+
+<LuaProperty name="GuildStageVoice.name" type="string?" />
+
+---
+The name of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### flags
+
+<LuaProperty name="GuildStageVoice.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### permissionOverwrites
+
+<LuaProperty name="GuildStageVoice.permissionOverwrites" type="{ Classes.Channels.Overwrite }" />
+
+---
+The permission overwrites for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### nsfw
+
+<LuaProperty name="GuildStageVoice.nsfw" type="boolean" />
+
+---
+Whether the channel is marked as NSFW (Not Safe For Work).
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### topic
+
+<LuaProperty name="GuildStageVoice.topic" type="string?" />
+
+---
+The topic of the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### guildId
+
+<LuaProperty name="GuildStageVoice.guildId" type="string" />
+
+---
+The ID of the guild this channel belongs to.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### position
+
+<LuaProperty name="GuildStageVoice.position" type="number" />
+
+---
+The position of the channel in the guild's channel list.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### parentId
+
+<LuaProperty name="GuildStageVoice.parentId" type="string?" />
+
+---
+The ID of the parent category channel, if this channel is in a category.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### permissions
+
+<LuaProperty name="GuildStageVoice.permissions" type="number" />
+
+---
+The computed permissions for the current user in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### defaultThreadRateLimitPerUser
+
+<LuaProperty name="GuildStageVoice.defaultThreadRateLimitPerUser" type="number" />
+
+---
+The default rate limit per user for threads in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### defaultAutoArchiveDuration
+
+<LuaProperty name="GuildStageVoice.defaultAutoArchiveDuration" type="number" />
+
+---
+The default duration after which threads are automatically archived.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### videoQualityMode
+
+<LuaProperty name="GuildStageVoice.videoQualityMode" type="apiTypes.VideoQualityMode" />
+
+---
+The video quality mode for the voice channel, determining the quality of video streams.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](Classes.Channels.VoiceBehaviour)
+
+### bitrate
+
+<LuaProperty name="GuildStageVoice.bitrate" type="number" />
+
+---
+The bitrate of the voice channel, determining the quality of audio transmission.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](Classes.Channels.VoiceBehaviour)
+
+### userLimit
+
+<LuaProperty name="GuildStageVoice.userLimit" type="number" />
+
+---
+The maximum number of users that can join the voice channel.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](Classes.Channels.VoiceBehaviour)
+
+### rtcRegion
+
+<LuaProperty name="GuildStageVoice.rtcRegion" type="string?" />
+
+---
+The RTC region for the voice channel, determining which server handles the voice connection.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](Classes.Channels.VoiceBehaviour)
+
+
+## Functions
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "position", type: "number" } ]} />
+
+Sets the position of the channel in the guild's channel list.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setParentAsync
+
+> <LuaDeclaration name="setParentAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+
+Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setPermissionsAsync
+
+> <LuaDeclaration name="setPermissionsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+
+Sets the permissions for a role or member in the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### deletePermissionAsync
+
+> <LuaDeclaration name="deletePermissionAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+Deletes a permission overwrite for a role or member in the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" } ]} />
+
+Gets a list of all invites for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+
+Creates a new invite for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all public archived threads in the channel. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads in the channel. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### listJoinedPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+
+Sets the name of the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+
+
