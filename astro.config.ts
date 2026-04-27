@@ -1,68 +1,56 @@
 import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
+import deno from "@deno/astro-adapter";
 
+// https://astro.build/config
 export default defineConfig({
+	output: "server",
+	adapter: deno(),
+	image: {
+		service: passthroughImageService(),
+	},
 	integrations: [
 		starlight({
 			title: "Discord Luau",
 			logo: {
-				src: "./src/assets/logo.png",
+				src: "/src/assets/logo.png",
+				replacesTitle: true,
 			},
-			social: [
-				{
-					icon: "github",
-					label: "GitHub",
-					href: "https://github.com/DiscordLuau",
-				},
-				{
-					icon: "discord",
-					label: "Discord",
-					href: "https://discord.gg/XXpTDNJMPH",
-				},
-			],
+			favicon: "/icon.png",
+			social: {
+				github: "https://github.com/DiscordLuau/discord-luau",
+				discord: "https://discord.gg/DpQwdD8zD3",
+			},
 			sidebar: [
 				{
 					label: "Getting Started",
-					autogenerate: { directory: "getting-started" },
+					autogenerate: {
+						directory: "getting-started",
+					},
 				},
 				{
 					label: "Guides",
-					autogenerate: { directory: "guides" },
+					autogenerate: {
+						directory: "guides",
+					},
 				},
-				{ label: "Discord Luau", autogenerate: { directory: "classes/discordluau" } },
-				{ label: "Classes", autogenerate: { directory: "classes/classes", collapsed: true } },
-				{ label: "Builders", autogenerate: { directory: "classes/builders", collapsed: true } },
-				{ label: "Rest", autogenerate: { directory: "classes/rest" } },
-				{ label: "Web Socket", autogenerate: { directory: "classes/websocket" } },
-				{ label: "State", autogenerate: { directory: "classes/state" } },
-				{ label: "Types", autogenerate: { directory: "classes/types" } },
-				{ label: "Std Polyfills", autogenerate: { directory: "classes/stdpolyfills" } },
 				{
-					label: "Utilities",
-					collapsed: true,
-					items: [
-						{ slug: "classes/bit/bit" },
-						{ slug: "classes/buffer/buffer" },
-						{ slug: "classes/emitter/emitter" },
-						{ slug: "classes/formdata/formdata" },
-						{ slug: "classes/logger/logger" },
-						{ slug: "classes/secret/secret" },
-						{ slug: "classes/snowflake/snowflake" },
-						{ slug: "classes/stream/stream" },
-						{ slug: "classes/utilities/utilities" },
-						{ slug: "classes/voice/voice" },
-					],
+					label: "Classes",
+					autogenerate: {
+						directory: "classes",
+					},
 				},
 			],
-			components: {
-				Header: "./src/components/Header.astro",
-				Pagination: "./src/components/Pagination.astro",
-			},
 			customCss: [
 				"./src/styles/landing.css",
 				"./src/styles/starlight.css",
 				"./src/styles/lua.css",
 			],
+			components: {
+				Pagination: "./src/components/Pagination.astro",
+				Header: "./src/components/Header.astro",
+			},
 		}),
 	],
 });

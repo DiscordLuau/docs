@@ -1,8 +1,11 @@
 {
-  "name": "discord-luau-docs",
+  "name": "@discordluau/docs",
+  "private": true,
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@9.1.4",
   "scripts": {
+    "postinstall": "deno install -Arf jsr:@deno/deployctl",
     "dev": "pnpm generate && astro dev",
     "start": "pnpm generate && astro dev",
     "generate": "tsx scripts/generate-docs.ts",
@@ -10,19 +13,20 @@
     "astro:build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy": "deployctl deploy --prod --entrypoint dist/server/entry.mjs",
     "lint": "biome lint",
     "fmt": "biome format --write ."
   },
   "dependencies": {
+    "@astrojs/check": "^0.7.0",
     "@astrojs/starlight": "^0.38.4",
+    "@deno/astro-adapter": "^0.1.2",
     "astro": "^6.1.9",
-    "sharp": "^0.34.5"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.0",
-    "@biomejs/biome": "^2.0.0",
-    "tsx": "^4.19.0",
+    "sharp": "^0.34.5",
     "typescript": "^5.8.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "tsx": "^4.19.0"
+  }
 }
