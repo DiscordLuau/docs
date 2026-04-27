@@ -1,4 +1,3 @@
-import { defineConfig } from "astro/config";
 import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import deno from "@deno/astro-adapter";
