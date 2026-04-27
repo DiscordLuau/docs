@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# generated class registry (produced by pnpm generate)
+src/generated/
 
 # dependencies
 node_modules/
