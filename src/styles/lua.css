@@ -1,3 +1,15 @@
+/*
+ * Starlight 0.34+ dropped the global css-variables Shiki theme that used to
+ * define --astro-code-token-* automatically. Define them here using the
+ * --sl-color-* vars that Starlight always provides.
+ */
+:root {
+	--astro-code-token-constant: var(--sl-color-blue-high);
+	--astro-code-token-function: var(--sl-color-purple-high);
+	--astro-code-token-parameter: var(--sl-color-red-high);
+	--astro-code-token-keyword: var(--sl-color-purple-high);
+}
+
 span.declaration {
 	font-size: 19px;
 	font-family: monospace;
