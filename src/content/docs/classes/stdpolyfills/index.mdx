@@ -11,6 +11,8 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Std Polyfills is the technology that allows Discord-Luau to support multiple runtimes, it allows us to create a
 	generated set of std functions that we call from the library.
@@ -22,6 +24,8 @@ this package maintains polyfills required for discord-luau, not as polyfills for
 
 it's recommended that you use an alternative polyfill/capabilities library.
 :::
+
+<LuaSummary className="StdPolyfills" properties={[ { name: "task", type: "StdPolyfills.task" }, { name: "serde", type: "StdPolyfills.serde" }, { name: "process", type: "StdPolyfills.process" }, { name: "datetime", type: "StdPolyfills.datetime" }, { name: "net", type: "StdPolyfills.net" } ]} />
 
 ## Properties
 

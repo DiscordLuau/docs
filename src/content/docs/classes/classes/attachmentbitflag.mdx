@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Role Bitflags in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object-attachment-flags
+
+<LuaSummary className="AttachmentBitflag" properties={[ { name: "flag", type: "number" }, { name: "flag", type: "number" } ]} methods={[ { name: "isRemix", isMethod: true, args: [  ] } ]} />
 
 ## Properties
 
@@ -32,11 +36,11 @@ The bitfield representing the attachment flags.
 The bitfield representing the attachment flags.
 
 
-## Functions
+## Methods
 
 ### isRemix
 
-> <LuaDeclaration name="isRemix" className="AttachmentBitflag" args={[ { name: "self", type: "AttachmentBitflag" } ]} />
+> <LuaDeclaration name="isRemix" className="AttachmentBitflag" args={[  ]} isMethod />
 
 This attachment has been edited using the remix feature on mobile
 

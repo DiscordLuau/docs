@@ -10,8 +10,12 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
+
+<LuaSummary className="FileSystem" functions={[ { name: "readFile", args: [ { name: "path", type: "string" } ], returnType: "string" }, { name: "readDir", args: [ { name: "path", type: "string" } ], returnType: "{ string }" }, { name: "writeDir", args: [ { name: "path", type: "string" } ] }, { name: "writeFile", args: [ { name: "path", type: "string" }, { name: "contents", type: "string" } ] }, { name: "removeDir", args: [ { name: "path", type: "string" } ] }, { name: "removeFile", args: [ { name: "path", type: "string" } ] }, { name: "isFile", args: [ { name: "path", type: "string" } ], returnType: "boolean" }, { name: "isDir", args: [ { name: "path", type: "string" } ], returnType: "boolean" } ]} />
 
 ## Functions
 
@@ -19,32 +23,48 @@ import LuaProperty from '$/components/LuaProperty.astro';
 
 > <LuaDeclaration name="readFile" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="string" />
 
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "string" } ]} />
+
 ### readDir
 
 > <LuaDeclaration name="readDir" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="{ string }" />
+
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "{ string }" } ]} />
 
 ### writeDir
 
 > <LuaDeclaration name="writeDir" className="FileSystem" args={[ { name: "path", type: "string" } ]} />
 
+<LuaParamTable params={[ { name: "path", type: "string" } ]} />
+
 ### writeFile
 
 > <LuaDeclaration name="writeFile" className="FileSystem" args={[ { name: "path", type: "string" }, { name: "contents", type: "string" } ]} />
+
+<LuaParamTable params={[ { name: "path", type: "string" }, { name: "contents", type: "string" } ]} />
 
 ### removeDir
 
 > <LuaDeclaration name="removeDir" className="FileSystem" args={[ { name: "path", type: "string" } ]} />
 
+<LuaParamTable params={[ { name: "path", type: "string" } ]} />
+
 ### removeFile
 
 > <LuaDeclaration name="removeFile" className="FileSystem" args={[ { name: "path", type: "string" } ]} />
+
+<LuaParamTable params={[ { name: "path", type: "string" } ]} />
 
 ### isFile
 
 > <LuaDeclaration name="isFile" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="boolean" />
 
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "boolean" } ]} />
+
 ### isDir
 
 > <LuaDeclaration name="isDir" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="boolean" />
+
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "boolean" } ]} />
 
 

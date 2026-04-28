@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Provider object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-provider-structure
+
+<LuaSummary className="Provider" properties={[ { name: "name", type: "string?" }, { name: "url", type: "string?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Provider" }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "Provider" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, url: string?, }?" } ], returnType: "Provider" } ]} />
 
 ## Properties
 
@@ -32,30 +36,41 @@ The name of the provider.
 The url of the provider.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Provider" args={[ { name: "self", type: "Provider" }, { name: "name", type: "string" } ]} returnType="Provider" />
+> <LuaDeclaration name="setName" className="Provider" args={[ { name: "name", type: "string" } ]} returnType="Provider" isMethod />
 
 Set the image url for this embed.
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Provider" } ]} />
+
 ### setUrl
 
-> <LuaDeclaration name="setUrl" className="Provider" args={[ { name: "self", type: "Provider" }, { name: "url", type: "string" } ]} returnType="Provider" />
+> <LuaDeclaration name="setUrl" className="Provider" args={[ { name: "url", type: "string" } ]} returnType="Provider" isMethod />
 
 Set the image height for this embed.
 
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "Provider" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Provider" args={[ { name: "self", type: "Provider" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Provider" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Provider JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Provider" args={[ { name: "resource", type: "{ name: string?, url: string?, }?" } ]} returnType="Provider" />
 
 Responsible for creating a new Provider.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, url: string?, }?" } ]} returns={[ { type: "Provider" } ]} />
 
 

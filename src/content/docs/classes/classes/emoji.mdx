@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Emoji class in Luau
 
 https://discord.com/developers/docs/resources/emoji#emoji-resource
+
+<LuaSummary className="Emoji" properties={[ { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "id", type: "apiTypes.Snowflake?" }, { name: "name", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "requireColons", type: "boolean?" }, { name: "managed", type: "boolean?" }, { name: "animated", type: "boolean?" }, { name: "available", type: "boolean?" } ]} />
 
 ## Properties
 

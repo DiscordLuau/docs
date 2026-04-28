@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Option class in Luau
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure
+
+<LuaSummary className="CommandOption" properties={[ { name: "type", type: "ApplicationCommandOptionType" }, { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [LanguageLocales]: string }?" }, { name: "description", type: "string?" }, { name: "descriptionLocalizations", type: "{ [LanguageLocales]: string }?" }, { name: "required", type: "boolean?" }, { name: "choices", type: "{ Classes.Application.CommandChoice }?" }, { name: "options", type: "{ Classes.Application.CommandOption }?" }, { name: "apiTypes", type: "{ ChannelType }" }, { name: "minValue", type: "number?" }, { name: "maxValue", type: "number?" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "autocomplete", type: "boolean?" } ]} />
 
 ## Properties
 

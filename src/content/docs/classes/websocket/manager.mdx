@@ -10,11 +10,15 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Manages the connection and communication with the Discord Gateway using multiple shards.
 
 This serves as the primary class for developers wanting to interact with the Discord Gateway, this class is
 responsible for creating the required shards sending messages asynchronously through each shard.
+
+<LuaSummary className="Manager" properties={[ { name: "token", type: "Secret" }, { name: "intents", type: "number" }, { name: "webSocketVersion", type: "number" }, { name: "largeThreshold", type: "number?" }, { name: "shouldReconnect", type: "boolean" }, { name: "ready", type: "boolean" }, { name: "shardIds", type: "{ ShardId }" }, { name: "shards", type: "{ [ShardId]: WebSocket.Shard }" }, { name: "logger", type: "Logger.Logger" }, { name: "onDisconnected", type: "Emitter<ShardPayload<{ errorCode: number? }>>" }, { name: "onReconnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onConnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onHeartbeat", type: "Emitter<ShardPayload<{ latency: number }>>," }, { name: "onDispatch", type: "Emitter<ShardPayload<{ shardId: number, event: apiTypes.ReceiveEvent, payload: apiTypes.Payload<unknown> }>>" }, { name: "onAllShardsReady", type: "Emitter<ShardPayload<{ shardId: number, payload: apiTypes.ReadyPayload }>>" } ]} methods={[ { name: "connectAsync", isMethod: true, args: [ { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sendAsync", isMethod: true, args: [ { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ], returnType: "Manager" } ]} />
 
 ## Properties
 
@@ -94,26 +98,35 @@ responsible for creating the required shards sending messages asynchronously thr
 
 
 
-## Functions
+## Methods
 
 ### connectAsync
 
-> <LuaDeclaration name="connectAsync" className="Manager" args={[ { name: "self", type: "Manager" }, { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ]} returnType="future.FutureLike<string, nil>" />
+> <LuaDeclaration name="connectAsync" className="Manager" args={[ { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Will create, as well as connect all of the shards this application requires in order to communicate
 back and fourth between discords WebSocket
 
+<LuaParamTable params={[ { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
 ### sendAsync
 
-> <LuaDeclaration name="sendAsync" className="Manager" args={[ { name: "self", type: "Manager" }, { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ]} />
+> <LuaDeclaration name="sendAsync" className="Manager" args={[ { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ]} isMethod />
 
 Will send a message through all shards this Manager is currently responsible for. This message is sent to the
 discord WebSocket.
+
+<LuaParamTable params={[ { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Manager" args={[ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ]} returnType="Manager" />
 
 Will instantiate a new Manager class.
+
+<LuaParamTable params={[ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ]} returns={[ { type: "Manager" } ]} />
 
 

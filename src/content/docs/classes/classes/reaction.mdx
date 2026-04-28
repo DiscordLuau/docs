@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Reaction class in Luau
 
 https://discord.com/developers/docs/resources/message#reaction-object-reaction-structure
+
+<LuaSummary className="Reaction" properties={[ { name: "count", type: "number" }, { name: "countDetails", type: "Classes.Reaction.CountDetails" }, { name: "me", type: "boolean" }, { name: "meBurst", type: "boolean" }, { name: "emoji", type: "Emoji" }, { name: "burstColors", type: "{ string }" } ]} />
 
 ## Properties
 

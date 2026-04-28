@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Media class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
+
+<LuaSummary className="MediaThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultForumLayout", type: "string" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultSortOrder", type: "string" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ] }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ] }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ] }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "getInvitesAsync", isMethod: true, args: [  ] }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ] }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] }, { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
 
 ## Properties
 
@@ -275,11 +279,11 @@ The rate limit per user for sending messages in this channel.
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 
-## Functions
+## Methods
 
 ### triggerTypingIndicatorAsync
 
-> <LuaDeclaration name="triggerTypingIndicatorAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="MediaThread" args={[  ]} isMethod />
 
 Post a typing indicator for the specified channel, which expires after 10 seconds.
 
@@ -290,47 +294,57 @@ take a few seconds, this endpoint may be called to let the user know that the bo
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyAsync" className="MediaThread" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
 
 ### setPositionAsync
 
-> <LuaDeclaration name="setPositionAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "position", type: "number" } ]} />
+> <LuaDeclaration name="setPositionAsync" className="MediaThread" args={[ { name: "position", type: "number" } ]} isMethod />
 
 Sets the position of the channel in the guild's channel list.
+
+<LuaParamTable params={[ { name: "position", type: "number" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setParentAsync
 
-> <LuaDeclaration name="setParentAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+> <LuaDeclaration name="setParentAsync" className="MediaThread" args={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} isMethod />
 
 Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+<LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setPermissionsAsync
 
-> <LuaDeclaration name="setPermissionsAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+> <LuaDeclaration name="setPermissionsAsync" className="MediaThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} isMethod />
 
 Sets the permissions for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### deletePermissionAsync
 
-> <LuaDeclaration name="deletePermissionAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="deletePermissionAsync" className="MediaThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Deletes a permission overwrite for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### getInvitesAsync
 
-> <LuaDeclaration name="getInvitesAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="getInvitesAsync" className="MediaThread" args={[  ]} isMethod />
 
 Gets a list of all invites for the channel.
 
@@ -338,47 +352,57 @@ Gets a list of all invites for the channel.
 
 ### createInviteAsync
 
-> <LuaDeclaration name="createInviteAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="createInviteAsync" className="MediaThread" args={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Creates a new invite for the channel.
+
+<LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="MediaThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all public archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="MediaThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all private archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listJoinedPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="MediaThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setNameAsync
 
-> <LuaDeclaration name="setNameAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+> <LuaDeclaration name="setNameAsync" className="MediaThread" args={[ { name: "groupName", type: "string" } ]} isMethod />
 
 Sets the name of the channel.
+
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### joinAsync
 
-> <LuaDeclaration name="joinAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="joinAsync" className="MediaThread" args={[  ]} isMethod />
 
 Adds the current user to a thread. Also requires the thread is not archived.
 
@@ -386,15 +410,17 @@ Adds the current user to a thread. Also requires the thread is not archived.
 
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="addMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](Classes.Channels.ThreadBehaviour)
 
 ### leaveAsync
 
-> <LuaDeclaration name="leaveAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="leaveAsync" className="MediaThread" args={[  ]} isMethod />
 
 Removes the current user from a thread.
 
@@ -402,64 +428,78 @@ Removes the current user from a thread.
 
 ### removeMemberAsync
 
-> <LuaDeclaration name="removeMemberAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="removeMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Removes another member from a thread. Requires the ability to manage threads.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](Classes.Channels.ThreadBehaviour)
 
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+> <LuaDeclaration name="getMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} isMethod />
 
 Gets a thread member by their user ID. Can optionally include the member object.
+
+<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](Classes.Channels.ThreadBehaviour)
 
 ### listMembersAsync
 
-> <LuaDeclaration name="listMembersAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listMembersAsync" className="MediaThread" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all members in a thread. Can optionally include member objects and use pagination.
+
+<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](Classes.Channels.ThreadBehaviour)
 
 ### bulkDeleteMessagesAsync
 
-> <LuaDeclaration name="bulkDeleteMessagesAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="MediaThread" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
 MANAGE_MESSAGES permission.
+
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getMessagesAsync
 
-> <LuaDeclaration name="getMessagesAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="getMessagesAsync" className="MediaThread" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Gets messages from a channel. Returns an array of message objects.
+
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getMessageAsync
 
-> <LuaDeclaration name="getMessageAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="getMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Gets a specific message from a channel using its ID. Returns a message object.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### createMessageAsync
 
-> <LuaDeclaration name="createMessageAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.messageJSON" } ]} />
+> <LuaDeclaration name="createMessageAsync" className="MediaThread" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
 
 Creates a new message in the channel. Returns the created message object.
+
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getPinnedMessagesAsync
 
-> <LuaDeclaration name="getPinnedMessagesAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="getPinnedMessagesAsync" className="MediaThread" args={[  ]} isMethod />
 
 Gets all pinned messages in the channel. Returns an array of message objects.
 
@@ -467,25 +507,31 @@ Gets all pinned messages in the channel. Returns an array of message objects.
 
 ### pinMessageAsync
 
-> <LuaDeclaration name="pinMessageAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" } ]} />
+> <LuaDeclaration name="pinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" } ]} isMethod />
 
 Pins a message in the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### unpinMessageAsync
 
-> <LuaDeclaration name="unpinMessageAsync" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="unpinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Unpins a message from the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### startThread
 
-> <LuaDeclaration name="startThread" className="MediaThread" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+> <LuaDeclaration name="startThread" className="MediaThread" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
 
 Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 

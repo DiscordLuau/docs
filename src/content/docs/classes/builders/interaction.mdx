@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of a discord Interaction object as a luau builder.
 
 https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command-json-params
+
+<LuaSummary className="Interaction" properties={[ { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [package].LanguageLocales: string }" }, { name: "description", type: "string" }, { name: "descriptionLocalizations", type: "{ [package].LanguageLocales: string }" }, { name: "options", type: "{ package.option.JSON }" }, { name: "defaultMemberPermissions", type: "string?" }, { name: "integrationTypes", type: "{ package.api_types.IntegrationTypesConfig }" }, { name: "contexts", type: "{ package.api_types.InteractionContextType }" }, { name: "nsfw", type: "boolean?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Interaction" }, { name: "setType", isMethod: true, args: [ { name: "commandType", type: "apiTypes.ApplicationCommandType" } ], returnType: "Interaction" }, { name: "setNameLocalization", isMethod: true, args: [ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ], returnType: "Interaction" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Interaction" }, { name: "setDescriptionLocalization", isMethod: true, args: [ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ], returnType: "Interaction" }, { name: "addOption", isMethod: true, args: [ { name: "option", type: "interactionOption.JSON" } ], returnType: "Interaction" }, { name: "setDefaultMemberPermissions", isMethod: true, args: [ { name: "permissions", type: "string" } ], returnType: "Interaction" }, { name: "addIntegrationType", isMethod: true, args: [ { name: "type", type: "apiTypes.IntegrationTypesConfig" } ], returnType: "Interaction" }, { name: "addContext", isMethod: true, args: [ { name: "context", type: "apiTypes.InteractionContextType" } ], returnType: "Interaction" }, { name: "setNsfw", isMethod: true, args: [ { name: "isNsfw", type: "boolean" } ], returnType: "Interaction" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, options: { interactionOption.JSON }?, defaultMemberPermissions: string?, integrationTypes: { apiTypes.IntegrationTypesConfig }?, contexts: { apiTypes.InteractionContextType }?, nsfw: boolean?, }?" } ], returnType: "Interaction" } ]} />
 
 ## Properties
 
@@ -81,78 +85,105 @@ Interaction contexts where the command can be used.
 Whether this command is age-restricted.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "name", type: "string" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setName" className="Interaction" args={[ { name: "name", type: "string" } ]} returnType="Interaction" isMethod />
 
 Name of command, 1-32 characters
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setType
 
-> <LuaDeclaration name="setType" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "commandType", type: "apiTypes.ApplicationCommandType" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setType" className="Interaction" args={[ { name: "commandType", type: "apiTypes.ApplicationCommandType" } ]} returnType="Interaction" isMethod />
 
 Set the Type of command
 
+<LuaParamTable params={[ { name: "commandType", type: "apiTypes.ApplicationCommandType" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setNameLocalization
 
-> <LuaDeclaration name="setNameLocalization" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setNameLocalization" className="Interaction" args={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returnType="Interaction" isMethod />
 
 Localization dictionary for the name field. Values follow the same restrictions as name
 
+<LuaParamTable params={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setDescription
 
-> <LuaDeclaration name="setDescription" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "description", type: "string" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setDescription" className="Interaction" args={[ { name: "description", type: "string" } ]} returnType="Interaction" isMethod />
 
 1-100 character description
 
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setDescriptionLocalization
 
-> <LuaDeclaration name="setDescriptionLocalization" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setDescriptionLocalization" className="Interaction" args={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returnType="Interaction" isMethod />
 
 Localization dictionary for the description field. Values follow the same restrictions as description
 
+<LuaParamTable params={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### addOption
 
-> <LuaDeclaration name="addOption" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "option", type: "interactionOption.JSON" } ]} returnType="Interaction" />
+> <LuaDeclaration name="addOption" className="Interaction" args={[ { name: "option", type: "interactionOption.JSON" } ]} returnType="Interaction" isMethod />
 
 The parameters for the command
 
+<LuaParamTable params={[ { name: "option", type: "interactionOption.JSON" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setDefaultMemberPermissions
 
-> <LuaDeclaration name="setDefaultMemberPermissions" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "permissions", type: "string" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setDefaultMemberPermissions" className="Interaction" args={[ { name: "permissions", type: "string" } ]} returnType="Interaction" isMethod />
 
 Set of permissions represented as a bit set, recommended that you use the permission builder.
 
+<LuaParamTable params={[ { name: "permissions", type: "string" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### addIntegrationType
 
-> <LuaDeclaration name="addIntegrationType" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "type", type: "apiTypes.IntegrationTypesConfig" } ]} returnType="Interaction" />
+> <LuaDeclaration name="addIntegrationType" className="Interaction" args={[ { name: "type", type: "apiTypes.IntegrationTypesConfig" } ]} returnType="Interaction" isMethod />
 
 Installation context(s) where the command is available
 
+<LuaParamTable params={[ { name: "type", type: "apiTypes.IntegrationTypesConfig" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### addContext
 
-> <LuaDeclaration name="addContext" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "context", type: "apiTypes.InteractionContextType" } ]} returnType="Interaction" />
+> <LuaDeclaration name="addContext" className="Interaction" args={[ { name: "context", type: "apiTypes.InteractionContextType" } ]} returnType="Interaction" isMethod />
 
 Interaction context(s) where the command can be used
 
+<LuaParamTable params={[ { name: "context", type: "apiTypes.InteractionContextType" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### setNsfw
 
-> <LuaDeclaration name="setNsfw" className="Interaction" args={[ { name: "self", type: "Interaction" }, { name: "isNsfw", type: "boolean" } ]} returnType="Interaction" />
+> <LuaDeclaration name="setNsfw" className="Interaction" args={[ { name: "isNsfw", type: "boolean" } ]} returnType="Interaction" isMethod />
 
 Indicates whether the command is age-restricted
 
+<LuaParamTable params={[ { name: "isNsfw", type: "boolean" } ]} returns={[ { type: "Interaction" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Interaction" args={[ { name: "self", type: "Interaction" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Interaction" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the default reaction object that the Discord API can understand.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Interaction" args={[ { name: "resource", type: "{ name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, options: { interactionOption.JSON }?, defaultMemberPermissions: string?, integrationTypes: { apiTypes.IntegrationTypesConfig }?, contexts: { apiTypes.InteractionContextType }?, nsfw: boolean?, }?" } ]} returnType="Interaction" />
 
 Constructor for the Discord Default Reaction Builder.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, options: { interactionOption.JSON }?, defaultMemberPermissions: string?, integrationTypes: { apiTypes.IntegrationTypesConfig }?, contexts: { apiTypes.InteractionContextType }?, nsfw: boolean?, }?" } ]} returns={[ { type: "Interaction" } ]} />
 
 

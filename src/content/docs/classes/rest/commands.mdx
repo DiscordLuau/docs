@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/interactions/application-commands
+
+<LuaSummary className="Commands" functions={[ { name: "getGlobalApplicationCommandsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withLocalizations: boolean?, }" } ], returnType: "future.FutureLike< string, apiTypes.GetGlobalApplicationCommandsResponse >" }, { name: "createGlobalApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGlobalApplicationCommandRequest" } ], returnType: "future.FutureLike< string, apiTypes.CreateGlobalApplicationCommandResponse >" }, { name: "getGlobalApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetGlobalApplicationCommandResponse >" }, { name: "editGlobalApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGlobalApplicationCommandRequest" } ], returnType: "future.FutureLike< string, apiTypes.EditGlobalApplicationCommandResponse >" }, { name: "deleteGlobalApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.DeleteGlobalApplicationCommandResponse >" }, { name: "bulkOverwriteGlobalApplicationCommandsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGlobalApplicationCommandsRequest" } ], returnType: "future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" }, { name: "getGuildApplicationCommandsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withLocalizations: boolean?, }" } ], returnType: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandsResponse >" }, { name: "createGuildApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildApplicationCommandRequest" } ], returnType: "future.FutureLike< string, apiTypes.CreateGuildApplicationCommandResponse >" }, { name: "getGuildApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandResponse >" }, { name: "editGuildApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGuildApplicationCommandRequest" } ], returnType: "future.FutureLike< string, apiTypes.EditGuildApplicationCommandResponse >" }, { name: "deleteGuildApplicationCommandAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.DeleteGuildApplicationCommandResponse >" }, { name: "bulkOverwriteGuildApplicationCommandsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGuildApplicationCommandsRequest" } ], returnType: "future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" }, { name: "getGuildApplicationCommandPermissionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandPermissionsResponse >" }, { name: "getApplicationCommandPermissionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetApplicationCommandPermissionsResponse >" }, { name: "editApplicationCommandPermissionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditApplicationCommandPermissionsRequest" } ], returnType: "future.FutureLike< string, apiTypes.EditApplicationCommandPermissionsResponse >" } ]} />
 
 ## Functions
 
@@ -23,11 +27,15 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/interactions/application-commands#get-global-application-commands
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withLocalizations: boolean?, }" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetGlobalApplicationCommandsResponse >" } ]} />
+
 ### createGlobalApplicationCommandAsync
 
 > <LuaDeclaration name="createGlobalApplicationCommandAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGlobalApplicationCommandRequest" } ]} returnType="future.FutureLike< string, apiTypes.CreateGlobalApplicationCommandResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#create-global-application-command
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGlobalApplicationCommandRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.CreateGlobalApplicationCommandResponse >" } ]} />
 
 ### getGlobalApplicationCommandAsync
 
@@ -35,11 +43,15 @@ https://discord.com/developers/docs/interactions/application-commands#create-glo
 
 https://discord.com/developers/docs/interactions/application-commands#get-global-application-command
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetGlobalApplicationCommandResponse >" } ]} />
+
 ### editGlobalApplicationCommandAsync
 
 > <LuaDeclaration name="editGlobalApplicationCommandAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGlobalApplicationCommandRequest" } ]} returnType="future.FutureLike< string, apiTypes.EditGlobalApplicationCommandResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#edit-global-application-command
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGlobalApplicationCommandRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.EditGlobalApplicationCommandResponse >" } ]} />
 
 ### deleteGlobalApplicationCommandAsync
 
@@ -47,11 +59,15 @@ https://discord.com/developers/docs/interactions/application-commands#edit-globa
 
 https://discord.com/developers/docs/interactions/application-commands#delete-global-application-command
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.DeleteGlobalApplicationCommandResponse >" } ]} />
+
 ### bulkOverwriteGlobalApplicationCommandsAsync
 
 > <LuaDeclaration name="bulkOverwriteGlobalApplicationCommandsAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGlobalApplicationCommandsRequest" } ]} returnType="future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGlobalApplicationCommandsRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" } ]} />
 
 ### getGuildApplicationCommandsAsync
 
@@ -59,11 +75,15 @@ https://discord.com/developers/docs/interactions/application-commands#bulk-overw
 
 https://discord.com/developers/docs/interactions/application-commands#get-guild-application-commands
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withLocalizations: boolean?, }" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandsResponse >" } ]} />
+
 ### createGuildApplicationCommandAsync
 
 > <LuaDeclaration name="createGuildApplicationCommandAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildApplicationCommandRequest" } ]} returnType="future.FutureLike< string, apiTypes.CreateGuildApplicationCommandResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#create-guild-application-command
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildApplicationCommandRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.CreateGuildApplicationCommandResponse >" } ]} />
 
 ### getGuildApplicationCommandAsync
 
@@ -71,11 +91,15 @@ https://discord.com/developers/docs/interactions/application-commands#create-gui
 
 https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandResponse >" } ]} />
+
 ### editGuildApplicationCommandAsync
 
 > <LuaDeclaration name="editGuildApplicationCommandAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGuildApplicationCommandRequest" } ]} returnType="future.FutureLike< string, apiTypes.EditGuildApplicationCommandResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#edit-guild-application-command
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditGuildApplicationCommandRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.EditGuildApplicationCommandResponse >" } ]} />
 
 ### deleteGuildApplicationCommandAsync
 
@@ -83,11 +107,15 @@ https://discord.com/developers/docs/interactions/application-commands#edit-guild
 
 https://discord.com/developers/docs/interactions/application-commands#delete-guild-application-command
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.DeleteGuildApplicationCommandResponse >" } ]} />
+
 ### bulkOverwriteGuildApplicationCommandsAsync
 
 > <LuaDeclaration name="bulkOverwriteGuildApplicationCommandsAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGuildApplicationCommandsRequest" } ]} returnType="future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-guild-application-commands
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkOverwriteGuildApplicationCommandsRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.BulkOverwriteGlobalApplicationCommandsResponse >" } ]} />
 
 ### getGuildApplicationCommandPermissionsAsync
 
@@ -95,16 +123,22 @@ https://discord.com/developers/docs/interactions/application-commands#bulk-overw
 
 https://discord.com/developers/docs/interactions/application-commands#get-guild-application-command-permissions
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetGuildApplicationCommandPermissionsResponse >" } ]} />
+
 ### getApplicationCommandPermissionsAsync
 
 > <LuaDeclaration name="getApplicationCommandPermissionsAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetApplicationCommandPermissionsResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetApplicationCommandPermissionsResponse >" } ]} />
+
 ### editApplicationCommandPermissionsAsync
 
 > <LuaDeclaration name="editApplicationCommandPermissionsAsync" className="Commands" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditApplicationCommandPermissionsRequest" } ]} returnType="future.FutureLike< string, apiTypes.EditApplicationCommandPermissionsResponse >" />
 
 https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "commandId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditApplicationCommandPermissionsRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.EditApplicationCommandPermissionsResponse >" } ]} />
 
 

@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Application Command Option Structure in Luau.
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
+
+<LuaSummary className="Option" properties={[ { name: "type", type: "apiTypes.ApplicationCommandOptionType?" }, { name: "name", type: "string?" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }" }, { name: "description", type: "string?" }, { name: "descriptionLocalizations", type: "{ [apiTypes.LanguageLocales]: string }" }, { name: "required", type: "boolean?" }, { name: "choices", type: "{ Builders.Interaction.Choice.JSON }" }, { name: "options", type: "{ Builders.Interaction.Option.JSON }" }, { name: "apiTypes", type: "{ apiTypes.ChannelType }" }, { name: "minValue", type: "number?" }, { name: "maxValue", type: "number?" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "autocomplete", type: "boolean?" } ]} methods={[ { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.ApplicationCommandOptionType" } ], returnType: "Option" }, { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Option" }, { name: "setNameLocalization", isMethod: true, args: [ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ], returnType: "Option" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Option" }, { name: "setDescriptionLocalization", isMethod: true, args: [ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ], returnType: "Option" }, { name: "setRequired", isMethod: true, args: [ { name: "isRequired", type: "boolean" } ], returnType: "Option" }, { name: "addChoice", isMethod: true, args: [ { name: "choice", type: "interactionChoice.JSON" } ], returnType: "Option" }, { name: "addOption", isMethod: true, args: [ { name: "option", type: "JSON" } ], returnType: "Option" }, { name: "addChannelType", isMethod: true, args: [ { name: "channelType", type: "apiTypes.ChannelType" } ], returnType: "Option" }, { name: "setMinValue", isMethod: true, args: [ { name: "value", type: "number" } ], returnType: "Option" }, { name: "setMaxValue", isMethod: true, args: [ { name: "value", type: "number" } ], returnType: "Option" }, { name: "setMinLength", isMethod: true, args: [ { name: "value", type: "number" } ], returnType: "Option" }, { name: "setMaxLength", isMethod: true, args: [ { name: "value", type: "number" } ], returnType: "Option" }, { name: "setAutocompleteEnabled", isMethod: true, args: [ { name: "autocompleteEnabled", type: "boolean" } ], returnType: "Option" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ type: apiTypes.ApplicationCommandOptionType?, name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, required: boolean?, choices: { apiTypes.ApplicationCommandOptionChoiceObject }?, options: { JSON }?, apiTypes: { apiTypes.ChannelType }?, minValue: number?, maxValue: number?, minLength: number?, maxLength: number?, autocomplete: boolean?, }?" } ], returnType: "Option" } ]} />
 
 ## Properties
 
@@ -116,102 +120,137 @@ Maximum string length for the option (String only).
 Whether autocomplete is enabled (String, Integer, or Number types only).
 
 
-## Functions
+## Methods
 
 ### setType
 
-> <LuaDeclaration name="setType" className="Option" args={[ { name: "self", type: "Option" }, { name: "type", type: "apiTypes.ApplicationCommandOptionType" } ]} returnType="Option" />
+> <LuaDeclaration name="setType" className="Option" args={[ { name: "type", type: "apiTypes.ApplicationCommandOptionType" } ]} returnType="Option" isMethod />
 
 Set the Type of option that will be built.
 
+<LuaParamTable params={[ { name: "type", type: "apiTypes.ApplicationCommandOptionType" } ]} returns={[ { type: "Option" } ]} />
+
 ### setName
 
-> <LuaDeclaration name="setName" className="Option" args={[ { name: "self", type: "Option" }, { name: "name", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setName" className="Option" args={[ { name: "name", type: "string" } ]} returnType="Option" isMethod />
 
 Set the name of this option, option name needs to be kebab case.
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setNameLocalization
 
-> <LuaDeclaration name="setNameLocalization" className="Option" args={[ { name: "self", type: "Option" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setNameLocalization" className="Option" args={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returnType="Option" isMethod />
 
 Add a name localization for this option.
 
+<LuaParamTable params={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "name", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setDescription
 
-> <LuaDeclaration name="setDescription" className="Option" args={[ { name: "self", type: "Option" }, { name: "description", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setDescription" className="Option" args={[ { name: "description", type: "string" } ]} returnType="Option" isMethod />
 
 Set the description of this option.
 
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setDescriptionLocalization
 
-> <LuaDeclaration name="setDescriptionLocalization" className="Option" args={[ { name: "self", type: "Option" }, { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setDescriptionLocalization" className="Option" args={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returnType="Option" isMethod />
 
 Add a description localization for this option.
 
+<LuaParamTable params={[ { name: "localization", type: "apiTypes.LanguageLocales" }, { name: "description", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setRequired
 
-> <LuaDeclaration name="setRequired" className="Option" args={[ { name: "self", type: "Option" }, { name: "isRequired", type: "boolean" } ]} returnType="Option" />
+> <LuaDeclaration name="setRequired" className="Option" args={[ { name: "isRequired", type: "boolean" } ]} returnType="Option" isMethod />
 
 Set if the option is required, will not work on SubCommand or SubCommandGroup options.
 
+<LuaParamTable params={[ { name: "isRequired", type: "boolean" } ]} returns={[ { type: "Option" } ]} />
+
 ### addChoice
 
-> <LuaDeclaration name="addChoice" className="Option" args={[ { name: "self", type: "Option" }, { name: "choice", type: "interactionChoice.JSON" } ]} returnType="Option" />
+> <LuaDeclaration name="addChoice" className="Option" args={[ { name: "choice", type: "interactionChoice.JSON" } ]} returnType="Option" isMethod />
 
 Add a choice to the option, will only work on String, Integer, or Number options.
 
+<LuaParamTable params={[ { name: "choice", type: "interactionChoice.JSON" } ]} returns={[ { type: "Option" } ]} />
+
 ### addOption
 
-> <LuaDeclaration name="addOption" className="Option" args={[ { name: "self", type: "Option" }, { name: "option", type: "JSON" } ]} returnType="Option" />
+> <LuaDeclaration name="addOption" className="Option" args={[ { name: "option", type: "JSON" } ]} returnType="Option" isMethod />
 
 Add an option to the option, will only work on SubCommand or SubCommandGroup options.
 
+<LuaParamTable params={[ { name: "option", type: "JSON" } ]} returns={[ { type: "Option" } ]} />
+
 ### addChannelType
 
-> <LuaDeclaration name="addChannelType" className="Option" args={[ { name: "self", type: "Option" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Option" />
+> <LuaDeclaration name="addChannelType" className="Option" args={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Option" isMethod />
 
 Add supported channel types, will only work on Channel options.
 
+<LuaParamTable params={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returns={[ { type: "Option" } ]} />
+
 ### setMinValue
 
-> <LuaDeclaration name="setMinValue" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+> <LuaDeclaration name="setMinValue" className="Option" args={[ { name: "value", type: "number" } ]} returnType="Option" isMethod />
 
 Set the min value of this option, will only work on Integer or Number options.
 
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "Option" } ]} />
+
 ### setMaxValue
 
-> <LuaDeclaration name="setMaxValue" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+> <LuaDeclaration name="setMaxValue" className="Option" args={[ { name: "value", type: "number" } ]} returnType="Option" isMethod />
 
 Set the max value of this option, will only work on Integer or Number options.
 
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "Option" } ]} />
+
 ### setMinLength
 
-> <LuaDeclaration name="setMinLength" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+> <LuaDeclaration name="setMinLength" className="Option" args={[ { name: "value", type: "number" } ]} returnType="Option" isMethod />
 
 Set the min length of this option, will only work on String options.
 
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "Option" } ]} />
+
 ### setMaxLength
 
-> <LuaDeclaration name="setMaxLength" className="Option" args={[ { name: "self", type: "Option" }, { name: "value", type: "number" } ]} returnType="Option" />
+> <LuaDeclaration name="setMaxLength" className="Option" args={[ { name: "value", type: "number" } ]} returnType="Option" isMethod />
 
 Set the max length of this option, will only work on String options.
 
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "Option" } ]} />
+
 ### setAutocompleteEnabled
 
-> <LuaDeclaration name="setAutocompleteEnabled" className="Option" args={[ { name: "self", type: "Option" }, { name: "autocompleteEnabled", type: "boolean" } ]} returnType="Option" />
+> <LuaDeclaration name="setAutocompleteEnabled" className="Option" args={[ { name: "autocompleteEnabled", type: "boolean" } ]} returnType="Option" isMethod />
 
 If autocomplete interactions are enabled for this option, will only work on String, Integer, or Number options.
 
+<LuaParamTable params={[ { name: "autocompleteEnabled", type: "boolean" } ]} returns={[ { type: "Option" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Option" args={[ { name: "self", type: "Option" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Option" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the option object that the Discord API can understand.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Option" args={[ { name: "resource", type: "{ type: apiTypes.ApplicationCommandOptionType?, name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, required: boolean?, choices: { apiTypes.ApplicationCommandOptionChoiceObject }?, options: { JSON }?, apiTypes: { apiTypes.ChannelType }?, minValue: number?, maxValue: number?, minLength: number?, maxLength: number?, autocomplete: boolean?, }?" } ]} returnType="Option" />
 
 Constructor for the Discord Default Reaction Builder.
+
+<LuaParamTable params={[ { name: "resource", type: "{ type: apiTypes.ApplicationCommandOptionType?, name: string?, nameLocalizations: { [apiTypes.LanguageLocales]: string }?, description: string?, descriptionLocalizations: { [apiTypes.LanguageLocales]: string }?, required: boolean?, choices: { apiTypes.ApplicationCommandOptionChoiceObject }?, options: { JSON }?, apiTypes: { apiTypes.ChannelType }?, minValue: number?, maxValue: number?, minLength: number?, maxLength: number?, autocomplete: boolean?, }?" } ]} returns={[ { type: "Option" } ]} />
 
 

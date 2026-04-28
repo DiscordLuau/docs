@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Option object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/guild#guild-onboarding-object-prompt-option-structure
+
+<LuaSummary className="OnboardingOption" properties={[ { name: "channelIds", type: "{string}" }, { name: "roleIds", type: "{string}" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" }, { name: "emojiAnimated", type: "boolean?" }, { name: "title", type: "string" }, { name: "description", type: "string?" } ]} methods={[ { name: "addChannelId", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "Option" }, { name: "addRoleId", isMethod: true, args: [ { name: "roleId", type: "string" } ], returnType: "Option" }, { name: "setEmoji", isMethod: true, args: [ { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" }, { name: "isAnimated", type: "boolean?" } ], returnType: "Option" }, { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Option" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Option" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ channelIds: { string }?, roleIds: { string }?, emojiId: string?, emojiName: string?, emojiAnimated: boolean?, title: string?, description: string?, }?" } ], returnType: "Option" } ]} />
 
 ## Properties
 
@@ -67,48 +71,65 @@ The title displayed for this option.
 The description displayed for this option.
 
 
-## Functions
+## Methods
 
 ### addChannelId
 
-> <LuaDeclaration name="addChannelId" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "channelId", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="addChannelId" className="OnboardingOption" args={[ { name: "channelId", type: "string" } ]} returnType="Option" isMethod />
 
 Add a Channel to this option
 
+<LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### addRoleId
 
-> <LuaDeclaration name="addRoleId" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "roleId", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="addRoleId" className="OnboardingOption" args={[ { name: "roleId", type: "string" } ]} returnType="Option" isMethod />
 
 Add a Role to this option
 
+<LuaParamTable params={[ { name: "roleId", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setEmoji
 
-> <LuaDeclaration name="setEmoji" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" }, { name: "isAnimated", type: "boolean?" } ]} returnType="Option" />
+> <LuaDeclaration name="setEmoji" className="OnboardingOption" args={[ { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" }, { name: "isAnimated", type: "boolean?" } ]} returnType="Option" isMethod />
 
 Sets the emoji of this option.
 
+<LuaParamTable params={[ { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" }, { name: "isAnimated", type: "boolean?" } ]} returns={[ { type: "Option" } ]} />
+
 ### setTitle
 
-> <LuaDeclaration name="setTitle" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "title", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setTitle" className="OnboardingOption" args={[ { name: "title", type: "string" } ]} returnType="Option" isMethod />
 
 Sets the title of this option.
 
+<LuaParamTable params={[ { name: "title", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### setDescription
 
-> <LuaDeclaration name="setDescription" className="OnboardingOption" args={[ { name: "self", type: "Option" }, { name: "description", type: "string" } ]} returnType="Option" />
+> <LuaDeclaration name="setDescription" className="OnboardingOption" args={[ { name: "description", type: "string" } ]} returnType="Option" isMethod />
 
 Sets the description of this option.
 
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="OnboardingOption" args={[ { name: "self", type: "Option" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="OnboardingOption" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the OptionObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="OnboardingOption" args={[ { name: "resource", type: "{ channelIds: { string }?, roleIds: { string }?, emojiId: string?, emojiName: string?, emojiAnimated: boolean?, title: string?, description: string?, }?" } ]} returnType="Option" />
 
 Responsible for creating a new Option.
+
+<LuaParamTable params={[ { name: "resource", type: "{ channelIds: { string }?, roleIds: { string }?, emojiId: string?, emojiName: string?, emojiAnimated: boolean?, title: string?, description: string?, }?" } ]} returns={[ { type: "Option" } ]} />
 
 

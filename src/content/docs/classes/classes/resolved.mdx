@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Resolved class in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object
+
+<LuaSummary className="Resolved" properties={[ { name: "users", type: "{ [string]: Classes.User }" }, { name: "members", type: "{ [string]: Classes.Guild.Member }" }, { name: "roles", type: "{ [string]: Classes.Guild.Role }" }, { name: "channels", type: "{ [string]: api_types.AbstractChannel }" }, { name: "messages", type: "{ [string]: Classes.Message }" }, { name: "attachments", type: "{ [string]: Classes.Attachment }" } ]} />
 
 ## Properties
 

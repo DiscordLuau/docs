@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Command Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
+
+<LuaSummary className="Command" properties={[ { name: "state", type: "state.State" }, { name: "isDeferred", type: "boolean" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "getUsers", isMethod: true, args: [  ], returnType: "{ user.User }" }, { name: "getMembers", isMethod: true, args: [  ] }, { name: "getRoles", isMethod: true, args: [  ] }, { name: "getMessages", isMethod: true, args: [  ] }, { name: "getAttachments", isMethod: true, args: [  ] }, { name: "deferAsync", isMethod: true, args: [  ] }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ] }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteResponseAsync", isMethod: true, args: [  ] }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ] }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] } ]} functions={[ { name: "getChannels", args: [ { name: "_self", type: "Command" } ] } ]} />
 
 ## Properties
 
@@ -234,47 +238,43 @@ Whether this interaction has been deferred.
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 
-## Functions
+## Methods
 
 ### getUsers
 
-> <LuaDeclaration name="getUsers" className="Command" args={[ { name: "self", type: "Command" } ]} returnType="{ user.User }" />
+> <LuaDeclaration name="getUsers" className="Command" args={[  ]} returnType="{ user.User }" isMethod />
 
 Returns a list of users who have been mentioned in this interaction
 
+<LuaParamTable returns={[ { type: "{ user.User }" } ]} />
+
 ### getMembers
 
-> <LuaDeclaration name="getMembers" className="Command" args={[ { name: "self", type: "Command" } ]} />
+> <LuaDeclaration name="getMembers" className="Command" args={[  ]} isMethod />
 
 Returns a list of members who have been mentioned in this interaction
 
 ### getRoles
 
-> <LuaDeclaration name="getRoles" className="Command" args={[ { name: "self", type: "Command" } ]} />
+> <LuaDeclaration name="getRoles" className="Command" args={[  ]} isMethod />
 
 Returns a list of roles which have been mentioned in this interaction
 
-### getChannels
-
-> <LuaDeclaration name="getChannels" className="Command" args={[ { name: "_self", type: "Command" } ]} />
-
-Returns a list of channels which have been mentioned in this interaction
-
 ### getMessages
 
-> <LuaDeclaration name="getMessages" className="Command" args={[ { name: "self", type: "Command" } ]} />
+> <LuaDeclaration name="getMessages" className="Command" args={[  ]} isMethod />
 
 Returns a list of messages which have been mentioned in this interaction
 
 ### getAttachments
 
-> <LuaDeclaration name="getAttachments" className="Command" args={[ { name: "self", type: "Command" } ]} />
+> <LuaDeclaration name="getAttachments" className="Command" args={[  ]} isMethod />
 
 Returns a list of attachments which have been mentioned in this interaction
 
 ### deferAsync
 
-> <LuaDeclaration name="deferAsync" className="Command" args={[ { name: "self", type: "Interaction" } ]} />
+> <LuaDeclaration name="deferAsync" className="Command" args={[  ]} isMethod />
 
 Acknowledge an interaction and edit a response later, the user sees a loading state.
 
@@ -282,39 +282,47 @@ Acknowledge an interaction and edit a response later, the user sees a loading st
 
 ### messageAsync
 
-> <LuaDeclaration name="messageAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+> <LuaDeclaration name="messageAsync" className="Command" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
 
 Respond to this interaction with a message.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### modalAsync
 
-> <LuaDeclaration name="modalAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+> <LuaDeclaration name="modalAsync" className="Command" args={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
 
 Respond to this interaction with a modal.
+
+<LuaParamTable params={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### getResponseAsync
 
-> <LuaDeclaration name="getResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="getResponseAsync" className="Command" args={[ { name: "threadId", type: "string?" } ]} isMethod />
 
 Get the response created by this interaction.
+
+<LuaParamTable params={[ { name: "threadId", type: "string?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### editResponseAsync
 
-> <LuaDeclaration name="editResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="editResponseAsync" className="Command" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Edit the response made by this interaction.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### deleteResponseAsync
 
-> <LuaDeclaration name="deleteResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" } ]} />
+> <LuaDeclaration name="deleteResponseAsync" className="Command" args={[  ]} isMethod />
 
 Delete the original response made by this interaction.
 
@@ -322,35 +330,54 @@ Delete the original response made by this interaction.
 
 ### createFollowupResponseAsync
 
-> <LuaDeclaration name="createFollowupResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="createFollowupResponseAsync" className="Command" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Create a followup response to an interaction, followup responses are messages you can send after
 the initial response is sent.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### getFollowupResponseAsync
 
-> <LuaDeclaration name="getFollowupResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="getFollowupResponseAsync" className="Command" args={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Get the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### editFollowupResponseAsync
 
-> <LuaDeclaration name="editFollowupResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="editFollowupResponseAsync" className="Command" args={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Edit the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
 
 ### deleteFollowupResponseAsync
 
-> <LuaDeclaration name="deleteFollowupResponseAsync" className="Command" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "string" } ]} />
+> <LuaDeclaration name="deleteFollowupResponseAsync" className="Command" args={[ { name: "messageId", type: "string" } ]} isMethod />
 
 Delete the followup response created by this interaction.
 
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+
 > Inherited from [Classes.Interactions.Interactable](Classes.Interactions.Interactable)
+
+
+## Functions
+
+### getChannels
+
+> <LuaDeclaration name="getChannels" className="Command" args={[ { name: "_self", type: "Command" } ]} />
+
+Returns a list of channels which have been mentioned in this interaction
+
+<LuaParamTable params={[ { name: "_self", type: "Command" } ]} />
 
 

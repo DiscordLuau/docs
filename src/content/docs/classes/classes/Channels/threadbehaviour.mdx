@@ -10,6 +10,8 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Behaviour class that implements the properties and methods specific to thread channels in Discord.
 This behaviour is inherited by thread channel classes to provide thread-specific functionality.
@@ -19,6 +21,8 @@ Thread behaviours include:
 - Retrieving thread member information
 - Handling thread metadata and statistics
 - Managing thread ownership and parent relationships
+
+<LuaSummary className="ThreadBehaviour" properties={[ { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] } ]} />
 
 ## Properties
 
@@ -72,42 +76,50 @@ The ID of the parent channel this thread belongs to.
 The ID of the user who created this thread.
 
 
-## Functions
+## Methods
 
 ### joinAsync
 
-> <LuaDeclaration name="joinAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="joinAsync" className="ThreadBehaviour" args={[  ]} isMethod />
 
 Adds the current user to a thread. Also requires the thread is not archived.
 
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="addMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived.
 
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+
 ### leaveAsync
 
-> <LuaDeclaration name="leaveAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="leaveAsync" className="ThreadBehaviour" args={[  ]} isMethod />
 
 Removes the current user from a thread.
 
 ### removeMemberAsync
 
-> <LuaDeclaration name="removeMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="removeMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Removes another member from a thread. Requires the ability to manage threads.
 
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+> <LuaDeclaration name="getMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} isMethod />
 
 Gets a thread member by their user ID. Can optionally include the member object.
 
+<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+
 ### listMembersAsync
 
-> <LuaDeclaration name="listMembersAsync" className="ThreadBehaviour" args={[ { name: "self", type: "Channel<T>" }, { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listMembersAsync" className="ThreadBehaviour" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all members in a thread. Can optionally include member objects and use pagination.
+
+<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
 
 

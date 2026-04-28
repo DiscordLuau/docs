@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Onboarding class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-onboarding-object
+
+<LuaSummary className="Onboarding" properties={[ { name: "guildId", type: "string" }, { name: "prompts", type: "{ Classes.Guild.OnboardingPrompt }" }, { name: "defaultChannelIds", type: "{ string }" }, { name: "enabled", type: "boolean" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} />
 
 ## Properties
 

@@ -10,6 +10,8 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 A buffer is a data structure that is used to store data in a sequential manner, only 
 	allowed to access that data once it has been completely written to the buffer.
@@ -17,24 +19,35 @@ A buffer is a data structure that is used to store data in a sequential manner, 
 It is used in th Discord Websocket to ensure that we receive an entire ZLib compressed
 	message before we attempt to decompress it.
 
-## Functions
+<LuaSummary className="Buffer" methods={[ { name: "write", isMethod: true, args: [ { name: "data", type: "string" } ] }, { name: "flush", isMethod: true, args: [  ], returnType: "string" } ]} functions={[ { name: "new", args: [  ], returnType: "Buffer" } ]} />
+
+## Methods
 
 ### write
 
-> <LuaDeclaration name="write" className="Buffer" args={[ { name: "self", type: "Buffer" }, { name: "data", type: "string" } ]} />
+> <LuaDeclaration name="write" className="Buffer" args={[ { name: "data", type: "string" } ]} isMethod />
 
 Responsible for writing data to the buffer.
 
+<LuaParamTable params={[ { name: "data", type: "string" } ]} />
+
 ### flush
 
-> <LuaDeclaration name="flush" className="Buffer" args={[ { name: "self", type: "Buffer" } ]} returnType="string" />
+> <LuaDeclaration name="flush" className="Buffer" args={[  ]} returnType="string" isMethod />
 
 Responsible for flushing the data from the buffer and returning it.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Buffer" args={[  ]} returnType="Buffer" />
 
 Constructor for the Buffer object, will return a new instance of the Buffer object.
+
+<LuaParamTable returns={[ { type: "Buffer" } ]} />
 
 

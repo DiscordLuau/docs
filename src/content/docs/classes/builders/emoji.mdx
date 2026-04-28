@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Emoji object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/emoji#emoji-object
+
+<LuaSummary className="Emoji" properties={[ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} methods={[ { name: "setId", isMethod: true, args: [ { name: "emojiId", type: "string" } ], returnType: "Emoji" }, { name: "setName", isMethod: true, args: [ { name: "emojiName", type: "string" } ], returnType: "Emoji" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ emojiId: string, emojiName: string, }?" } ], returnType: "Emoji" } ]} />
 
 ## Properties
 
@@ -32,25 +36,34 @@ The ID of the emoji.
 The name of the emoji.
 
 
-## Functions
+## Methods
 
 ### setId
 
-> <LuaDeclaration name="setId" className="Emoji" args={[ { name: "self", type: "Emoji" }, { name: "emojiId", type: "string" } ]} returnType="Emoji" />
+> <LuaDeclaration name="setId" className="Emoji" args={[ { name: "emojiId", type: "string" } ]} returnType="Emoji" isMethod />
 
 Set the ID of the emoji to use.
 
+<LuaParamTable params={[ { name: "emojiId", type: "string" } ]} returns={[ { type: "Emoji" } ]} />
+
 ### setName
 
-> <LuaDeclaration name="setName" className="Emoji" args={[ { name: "self", type: "Emoji" }, { name: "emojiName", type: "string" } ]} returnType="Emoji" />
+> <LuaDeclaration name="setName" className="Emoji" args={[ { name: "emojiName", type: "string" } ]} returnType="Emoji" isMethod />
 
 Set the name of the emoji to use.
 
+<LuaParamTable params={[ { name: "emojiName", type: "string" } ]} returns={[ { type: "Emoji" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Emoji" args={[ { name: "self", type: "Emoji" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Emoji" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Emoji JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -64,5 +77,7 @@ local emoji = Emoji.new({
 	emojiName = "my-emoji"
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ emojiId: string, emojiName: string, }?" } ]} returns={[ { type: "Emoji" } ]} />
 
 

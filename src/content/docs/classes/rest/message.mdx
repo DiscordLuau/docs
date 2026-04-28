@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/message
+
+<LuaSummary className="Message" functions={[ { name: "getChannelMessagesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "urlParams", type: "{ around: apiTypes.Snowflake?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetChannelMessagesResponse>" }, { name: "getChannelMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetChannelMessageResponse>" }, { name: "createMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateMessageRequest" } ], returnType: "future.FutureLike<string, apiTypes.CreateMessageResponse>" }, { name: "crosspostMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.CrosspostMessageResponse>" }, { name: "createReactionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.CreateReactionResponse>" }, { name: "deleteOwnReactionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.DeleteOwnReactionResponse>" }, { name: "deleteUserReactionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.DeleteUserReactionResponse>" }, { name: "getReactionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "urlParams", type: "{ type: (&quot;Normal&quot; | &quot;Burst&quot;)?, after: apiTypes.Snowflake?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetReactionsResponse>" }, { name: "deleteAllReactionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.DeleteAllReactionsResponse>" }, { name: "deleteAllReactionsForEmojiAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.DeleteAllReactionsForEmojiResponse>" }, { name: "editMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditMessageRequest" } ], returnType: "future.FutureLike<string, apiTypes.EditMessageResponse>" }, { name: "deleteMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteMessageResponse>" }, { name: "bulkDeleteMessagesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.BulkDeleteMessagesRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.BulkDeleteMessageResponse>" } ]} />
 
 ## Functions
 
@@ -23,11 +27,15 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/resources/message#get-channel-messages
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "urlParams", type: "{ around: apiTypes.Snowflake?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetChannelMessagesResponse>" } ]} />
+
 ### getChannelMessageAsync
 
 > <LuaDeclaration name="getChannelMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelMessageResponse>" />
 
 https://discord.com/developers/docs/resources/message#get-channel-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetChannelMessageResponse>" } ]} />
 
 ### createMessageAsync
 
@@ -35,11 +43,15 @@ https://discord.com/developers/docs/resources/message#get-channel-message
 
 https://discord.com/developers/docs/resources/message#create-message
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.CreateMessageRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateMessageResponse>" } ]} />
+
 ### crosspostMessageAsync
 
 > <LuaDeclaration name="crosspostMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.CrosspostMessageResponse>" />
 
 https://discord.com/developers/docs/resources/message#crosspost-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CrosspostMessageResponse>" } ]} />
 
 ### createReactionAsync
 
@@ -47,11 +59,15 @@ https://discord.com/developers/docs/resources/message#crosspost-message
 
 https://discord.com/developers/docs/resources/message#create-reaction
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateReactionResponse>" } ]} />
+
 ### deleteOwnReactionAsync
 
 > <LuaDeclaration name="deleteOwnReactionAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.DeleteOwnReactionResponse>" />
 
 https://discord.com/developers/docs/resources/message#delete-own-reaction
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteOwnReactionResponse>" } ]} />
 
 ### deleteUserReactionAsync
 
@@ -59,11 +75,15 @@ https://discord.com/developers/docs/resources/message#delete-own-reaction
 
 https://discord.com/developers/docs/resources/message#delete-user-reaction
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteUserReactionResponse>" } ]} />
+
 ### getReactionsAsync
 
 > <LuaDeclaration name="getReactionsAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "urlParams", type: "{ type: (&quot;Normal&quot; | &quot;Burst&quot;)?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetReactionsResponse>" />
 
 https://discord.com/developers/docs/resources/message#get-reactions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" }, { name: "urlParams", type: "{ type: (&quot;Normal&quot; | &quot;Burst&quot;)?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetReactionsResponse>" } ]} />
 
 ### deleteAllReactionsAsync
 
@@ -71,11 +91,15 @@ https://discord.com/developers/docs/resources/message#get-reactions
 
 https://discord.com/developers/docs/resources/message#delete-all-reactions
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteAllReactionsResponse>" } ]} />
+
 ### deleteAllReactionsForEmojiAsync
 
 > <LuaDeclaration name="deleteAllReactionsForEmojiAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.DeleteAllReactionsForEmojiResponse>" />
 
 https://discord.com/developers/docs/resources/message#delete-all-reactions-for-emoji
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "emoji", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteAllReactionsForEmojiResponse>" } ]} />
 
 ### editMessageAsync
 
@@ -83,16 +107,22 @@ https://discord.com/developers/docs/resources/message#delete-all-reactions-for-e
 
 https://discord.com/developers/docs/resources/message#edit-message
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditMessageRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.EditMessageResponse>" } ]} />
+
 ### deleteMessageAsync
 
 > <LuaDeclaration name="deleteMessageAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteMessageResponse>" />
 
 https://discord.com/developers/docs/resources/message#delete-message
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteMessageResponse>" } ]} />
+
 ### bulkDeleteMessagesAsync
 
 > <LuaDeclaration name="bulkDeleteMessagesAsync" className="Message" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.BulkDeleteMessagesRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.BulkDeleteMessageResponse>" />
 
 https://discord.com/developers/docs/resources/message#bulk-delete-messages
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "string" }, { name: "jsonParams", type: "apiTypes.BulkDeleteMessagesRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.BulkDeleteMessageResponse>" } ]} />
 
 

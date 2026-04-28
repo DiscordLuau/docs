@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of a discord forum tag object as a luau builder.	
 
 https://discord.com/developers/docs/resources/channel#forum-tag-object
+
+<LuaSummary className="ForumTag" properties={[ { name: "name", type: "string" }, { name: "moderated", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" }, { name: "id", type: "string?" } ]} methods={[ { name: "setEmoji", isMethod: true, args: [ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ], returnType: "ForumTag" }, { name: "setModerated", isMethod: true, args: [ { name: "isModerated", type: "boolean" } ], returnType: "ForumTag" }, { name: "setName", isMethod: true, args: [ { name: "tagName", type: "string" } ], returnType: "ForumTag" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ], returnType: "ForumTag" }, { name: "fromId", args: [ { name: "resource", type: "{ tagId: apiTypes.Snowflake, tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ], returnType: "ForumTag" } ]} />
 
 ## Properties
 
@@ -53,31 +57,42 @@ The unicode character of the emoji.
 The id of the tag.
 
 
-## Functions
+## Methods
 
 ### setEmoji
 
-> <LuaDeclaration name="setEmoji" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} returnType="ForumTag" />
+> <LuaDeclaration name="setEmoji" className="ForumTag" args={[ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} returnType="ForumTag" isMethod />
 
 Sets either the id of a guilds custom emoji, or a unicode character of an emoji.
 
+<LuaParamTable params={[ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} returns={[ { type: "ForumTag" } ]} />
+
 ### setModerated
 
-> <LuaDeclaration name="setModerated" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "isModerated", type: "boolean" } ]} returnType="ForumTag" />
+> <LuaDeclaration name="setModerated" className="ForumTag" args={[ { name: "isModerated", type: "boolean" } ]} returnType="ForumTag" isMethod />
 
 Sets whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission
 
+<LuaParamTable params={[ { name: "isModerated", type: "boolean" } ]} returns={[ { type: "ForumTag" } ]} />
+
 ### setName
 
-> <LuaDeclaration name="setName" className="ForumTag" args={[ { name: "self", type: "ForumTag" }, { name: "tagName", type: "string" } ]} returnType="ForumTag" />
+> <LuaDeclaration name="setName" className="ForumTag" args={[ { name: "tagName", type: "string" } ]} returnType="ForumTag" isMethod />
 
 Set the name of this Forum Tag.
 
+<LuaParamTable params={[ { name: "tagName", type: "string" } ]} returns={[ { type: "ForumTag" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="ForumTag" args={[ { name: "self", type: "ForumTag" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="ForumTag" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for buillding the forum tag object that the Discord API can understand.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -91,10 +106,14 @@ local tag = ForumTag.new("tag-name")
 	:build()
 ```	
 
+<LuaParamTable params={[ { name: "resource", type: "{ tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ]} returns={[ { type: "ForumTag" } ]} />
+
 ### fromId
 
 > <LuaDeclaration name="fromId" className="ForumTag" args={[ { name: "resource", type: "{ tagId: apiTypes.Snowflake, tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ]} returnType="ForumTag" />
 
 Enables us to construct a Tag Builder object from an existing tag object, used when modifying forum tags.
+
+<LuaParamTable params={[ { name: "resource", type: "{ tagId: apiTypes.Snowflake, tagName: string, emoji: { name: string, id: apiTypes.Snowflake, }?, }" } ]} returns={[ { type: "ForumTag" } ]} />
 
 

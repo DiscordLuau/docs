@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Field class in Luau. This class represents a field in a Discord embed, which can contain a name, value, and whether it should be displayed inline.
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-field-structure
+
+<LuaSummary className="Field" properties={[ { name: "name", type: "string" }, { name: "value", type: "string" }, { name: "inline", type: "boolean?" } ]} />
 
 ## Properties
 

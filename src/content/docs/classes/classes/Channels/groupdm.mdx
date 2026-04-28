@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord GroupDM class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
+
+<LuaSummary className="GroupDM" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ] }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
 
 ## Properties
 
@@ -131,11 +135,11 @@ The rate limit per user for sending messages in this channel.
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 
-## Functions
+## Methods
 
 ### triggerTypingIndicatorAsync
 
-> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GroupDM" args={[  ]} isMethod />
 
 Post a typing indicator for the specified channel, which expires after 10 seconds.
 
@@ -146,80 +150,98 @@ take a few seconds, this endpoint may be called to let the user know that the bo
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyAsync" className="GroupDM" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
 
 ### addRecipient
 
-> <LuaDeclaration name="addRecipient" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
+> <LuaDeclaration name="addRecipient" className="GroupDM" args={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} isMethod />
 
 Adds a recipient to a Group DM using their access token.
+
+<LuaParamTable params={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
 
 ### removeRecipient
 
-> <LuaDeclaration name="removeRecipient" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="removeRecipient" className="GroupDM" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Removes a recipient from a Group DM.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
 
 ### setNameAsync
 
-> <LuaDeclaration name="setNameAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+> <LuaDeclaration name="setNameAsync" className="GroupDM" args={[ { name: "groupName", type: "string" } ]} isMethod />
 
 Sets the name of the Group DM channel.
+
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
 
 ### setIconAsync
 
-> <LuaDeclaration name="setIconAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "iconData", type: "string" } ]} />
+> <LuaDeclaration name="setIconAsync" className="GroupDM" args={[ { name: "iconData", type: "string" } ]} isMethod />
 
 Sets the icon of the Group DM channel using base64 encoded image data.
+
+<LuaParamTable params={[ { name: "iconData", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GroupDMBehaviour](Classes.Channels.GroupDMBehaviour)
 
 ### bulkDeleteMessagesAsync
 
-> <LuaDeclaration name="bulkDeleteMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="GroupDM" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
 MANAGE_MESSAGES permission.
+
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getMessagesAsync
 
-> <LuaDeclaration name="getMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="getMessagesAsync" className="GroupDM" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Gets messages from a channel. Returns an array of message objects.
+
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getMessageAsync
 
-> <LuaDeclaration name="getMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="getMessageAsync" className="GroupDM" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Gets a specific message from a channel using its ID. Returns a message object.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### createMessageAsync
 
-> <LuaDeclaration name="createMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.messageJSON" } ]} />
+> <LuaDeclaration name="createMessageAsync" className="GroupDM" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
 
 Creates a new message in the channel. Returns the created message object.
+
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### getPinnedMessagesAsync
 
-> <LuaDeclaration name="getPinnedMessagesAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="getPinnedMessagesAsync" className="GroupDM" args={[  ]} isMethod />
 
 Gets all pinned messages in the channel. Returns an array of message objects.
 
@@ -227,25 +249,31 @@ Gets all pinned messages in the channel. Returns an array of message objects.
 
 ### pinMessageAsync
 
-> <LuaDeclaration name="pinMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" } ]} />
+> <LuaDeclaration name="pinMessageAsync" className="GroupDM" args={[ { name: "messageId", type: "string" } ]} isMethod />
 
 Pins a message in the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### unpinMessageAsync
 
-> <LuaDeclaration name="unpinMessageAsync" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="unpinMessageAsync" className="GroupDM" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Unpins a message from the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 
 ### startThread
 
-> <LuaDeclaration name="startThread" className="GroupDM" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+> <LuaDeclaration name="startThread" className="GroupDM" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
 
 Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
 

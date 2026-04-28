@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Team class in Luau
 
 https://discord.com/developers/docs/topics/teams#data-models-team-object
+
+<LuaSummary className="Team" properties={[ { name: "icon", type: "string?" }, { name: "id", type: "string" }, { name: "members", type: "{ Classes.Application.TeamMember }" }, { name: "name", type: "string" }, { name: "ownerUserId", type: "string" } ]} />
 
 ## Properties
 

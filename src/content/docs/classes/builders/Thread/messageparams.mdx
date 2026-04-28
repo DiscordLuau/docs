@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords MessageParams object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/channel#start-thread-in-forum-or-media-channel-forum-and-media-thread-message-params-object
+
+<LuaSummary className="MessageParams" properties={[ { name: "content", type: "string?" }, { name: "embeds", type: "{ Builders.Embed }" }, { name: "allowedMentions", type: "Builders.Message.AllowedMention" }, { name: "components", type: "{ Builders.Message.Button | Builders.Message.TextInput | Builders.Message.SelectMenu | Builders.Message.ActionRow }" }, { name: "stickerIds", type: "{ string }" }, { name: "attachments", type: "{ Builders.Attachment }" }, { name: "flags", type: "number?" } ]} methods={[ { name: "setContent", isMethod: true, args: [ { name: "content", type: "string" } ], returnType: "MessageParams" }, { name: "addEmbed", isMethod: true, args: [ { name: "embedData", type: "embed.JSON" } ], returnType: "MessageParams" }, { name: "setAllowedMentions", isMethod: true, args: [ { name: "mentions", type: "allowedMention.JSON" } ], returnType: "MessageParams" }, { name: "addComponent", isMethod: true, args: [ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ], returnType: "MessageParams" }, { name: "addStickerId", isMethod: true, args: [ { name: "stickerId", type: "string" } ], returnType: "MessageParams" }, { name: "addAttachment", isMethod: true, args: [ { name: "attachmentData", type: "attachment.JSON" } ], returnType: "MessageParams" }, { name: "setFlags", isMethod: true, args: [ { name: "flags", type: "number" } ], returnType: "MessageParams" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ content: string?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { attachment.JSON }?, flags: number?, }?" } ], returnType: "MessageParams" } ]} />
 
 ## Properties
 
@@ -67,60 +71,81 @@ Array of attachment objects that will be attached to the message.
 Message flags to be applied to the message.
 
 
-## Functions
+## Methods
 
 ### setContent
 
-> <LuaDeclaration name="setContent" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "content", type: "string" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="setContent" className="MessageParams" args={[ { name: "content", type: "string" } ]} returnType="MessageParams" isMethod />
 
 Sets the content of the message.
 
+<LuaParamTable params={[ { name: "content", type: "string" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### addEmbed
 
-> <LuaDeclaration name="addEmbed" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "embedData", type: "embed.JSON" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="addEmbed" className="MessageParams" args={[ { name: "embedData", type: "embed.JSON" } ]} returnType="MessageParams" isMethod />
 
 Adds an embed to the message.
 
+<LuaParamTable params={[ { name: "embedData", type: "embed.JSON" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### setAllowedMentions
 
-> <LuaDeclaration name="setAllowedMentions" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "mentions", type: "allowedMention.JSON" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="setAllowedMentions" className="MessageParams" args={[ { name: "mentions", type: "allowedMention.JSON" } ]} returnType="MessageParams" isMethod />
 
 Sets the allowed mentions for the message.
 
+<LuaParamTable params={[ { name: "mentions", type: "allowedMention.JSON" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### addComponent
 
-> <LuaDeclaration name="addComponent" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="addComponent" className="MessageParams" args={[ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returnType="MessageParams" isMethod />
 
 Adds a component to the message.
 
+<LuaParamTable params={[ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### addStickerId
 
-> <LuaDeclaration name="addStickerId" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "stickerId", type: "string" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="addStickerId" className="MessageParams" args={[ { name: "stickerId", type: "string" } ]} returnType="MessageParams" isMethod />
 
 Adds a sticker ID to the message.
 
+<LuaParamTable params={[ { name: "stickerId", type: "string" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### addAttachment
 
-> <LuaDeclaration name="addAttachment" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "attachmentData", type: "attachment.JSON" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="addAttachment" className="MessageParams" args={[ { name: "attachmentData", type: "attachment.JSON" } ]} returnType="MessageParams" isMethod />
 
 Adds an attachment to the message.
 
+<LuaParamTable params={[ { name: "attachmentData", type: "attachment.JSON" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### setFlags
 
-> <LuaDeclaration name="setFlags" className="MessageParams" args={[ { name: "self", type: "MessageParams" }, { name: "flags", type: "number" } ]} returnType="MessageParams" />
+> <LuaDeclaration name="setFlags" className="MessageParams" args={[ { name: "flags", type: "number" } ]} returnType="MessageParams" isMethod />
 
 Sets the flags for the message.
 
+<LuaParamTable params={[ { name: "flags", type: "number" } ]} returns={[ { type: "MessageParams" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="MessageParams" args={[ { name: "self", type: "MessageParams" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="MessageParams" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the MessageParams JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="MessageParams" args={[ { name: "resource", type: "{ content: string?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { attachment.JSON }?, flags: number?, }?" } ]} returnType="MessageParams" />
 
 Responsible for creating a new MessageParams.
+
+<LuaParamTable params={[ { name: "resource", type: "{ content: string?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { attachment.JSON }?, flags: number?, }?" } ]} returns={[ { type: "MessageParams" } ]} />
 
 

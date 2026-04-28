@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Reference object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/message#message-reference-structure
+
+<LuaSummary className="Reference" properties={[ { name: "type", type: "api_types.MessageReferenceType" }, { name: "messageId", type: "string" }, { name: "channelId", type: "string" }, { name: "guildId", type: "string" }, { name: "failIfNotExists", type: "boolean" } ]} methods={[ { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.MessageReferenceType" } ], returnType: "Reference" }, { name: "setMessageId", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "Reference" }, { name: "setChannelId", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "Reference" }, { name: "setGuildId", isMethod: true, args: [ { name: "guildId", type: "string" } ], returnType: "Reference" }, { name: "setFailIfNotExists", isMethod: true, args: [ { name: "failIfNotExists", type: "boolean" } ], returnType: "Reference" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ type: apiTypes.MessageReferenceType?, messageId: string?, channelId: string?, guildId: string?, failIfNotExists: boolean?, }?" } ], returnType: "Reference" } ]} />
 
 ## Properties
 
@@ -53,48 +57,65 @@ The id of the originating message's guild.
 When sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message.
 
 
-## Functions
+## Methods
 
 ### setType
 
-> <LuaDeclaration name="setType" className="Reference" args={[ { name: "self", type: "Reference" }, { name: "type", type: "apiTypes.MessageReferenceType" } ]} returnType="Reference" />
+> <LuaDeclaration name="setType" className="Reference" args={[ { name: "type", type: "apiTypes.MessageReferenceType" } ]} returnType="Reference" isMethod />
 
 The type of reference.
 
+<LuaParamTable params={[ { name: "type", type: "apiTypes.MessageReferenceType" } ]} returns={[ { type: "Reference" } ]} />
+
 ### setMessageId
 
-> <LuaDeclaration name="setMessageId" className="Reference" args={[ { name: "self", type: "Reference" }, { name: "messageId", type: "string" } ]} returnType="Reference" />
+> <LuaDeclaration name="setMessageId" className="Reference" args={[ { name: "messageId", type: "string" } ]} returnType="Reference" isMethod />
 
 The id of the originating message.
 
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} returns={[ { type: "Reference" } ]} />
+
 ### setChannelId
 
-> <LuaDeclaration name="setChannelId" className="Reference" args={[ { name: "self", type: "Reference" }, { name: "channelId", type: "string" } ]} returnType="Reference" />
+> <LuaDeclaration name="setChannelId" className="Reference" args={[ { name: "channelId", type: "string" } ]} returnType="Reference" isMethod />
 
 The id of the originating message's channel.
 
+<LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "Reference" } ]} />
+
 ### setGuildId
 
-> <LuaDeclaration name="setGuildId" className="Reference" args={[ { name: "self", type: "Reference" }, { name: "guildId", type: "string" } ]} returnType="Reference" />
+> <LuaDeclaration name="setGuildId" className="Reference" args={[ { name: "guildId", type: "string" } ]} returnType="Reference" isMethod />
 
 The id of the originating message's guild.
 
+<LuaParamTable params={[ { name: "guildId", type: "string" } ]} returns={[ { type: "Reference" } ]} />
+
 ### setFailIfNotExists
 
-> <LuaDeclaration name="setFailIfNotExists" className="Reference" args={[ { name: "self", type: "Reference" }, { name: "failIfNotExists", type: "boolean" } ]} returnType="Reference" />
+> <LuaDeclaration name="setFailIfNotExists" className="Reference" args={[ { name: "failIfNotExists", type: "boolean" } ]} returnType="Reference" isMethod />
 
 When sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true.
 
+<LuaParamTable params={[ { name: "failIfNotExists", type: "boolean" } ]} returns={[ { type: "Reference" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Reference" args={[ { name: "self", type: "Reference" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Reference" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Reference JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Reference" args={[ { name: "resource", type: "{ type: apiTypes.MessageReferenceType?, messageId: string?, channelId: string?, guildId: string?, failIfNotExists: boolean?, }?" } ]} returnType="Reference" />
 
 Responsible for creating a new Reference.
+
+<LuaParamTable params={[ { name: "resource", type: "{ type: apiTypes.MessageReferenceType?, messageId: string?, channelId: string?, guildId: string?, failIfNotExists: boolean?, }?" } ]} returns={[ { type: "Reference" } ]} />
 
 

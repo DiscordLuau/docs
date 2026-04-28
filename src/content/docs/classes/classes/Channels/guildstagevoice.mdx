@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord GuildStageVoice class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
+
+<LuaSummary className="GuildStageVoice" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" }, { name: "bitrate", type: "number" }, { name: "userLimit", type: "number" }, { name: "rtcRegion", type: "string?" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ] }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ] }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ] }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "getInvitesAsync", isMethod: true, args: [  ] }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ] }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] } ]} />
 
 ## Properties
 
@@ -176,11 +180,11 @@ The RTC region for the voice channel, determining which server handles the voice
 > Inherited from [Classes.Channels.VoiceBehaviour](Classes.Channels.VoiceBehaviour)
 
 
-## Functions
+## Methods
 
 ### triggerTypingIndicatorAsync
 
-> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GuildStageVoice" args={[  ]} isMethod />
 
 Post a typing indicator for the specified channel, which expires after 10 seconds.
 
@@ -191,47 +195,57 @@ take a few seconds, this endpoint may be called to let the user know that the bo
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyAsync" className="GuildStageVoice" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
 
 ### setPositionAsync
 
-> <LuaDeclaration name="setPositionAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "position", type: "number" } ]} />
+> <LuaDeclaration name="setPositionAsync" className="GuildStageVoice" args={[ { name: "position", type: "number" } ]} isMethod />
 
 Sets the position of the channel in the guild's channel list.
+
+<LuaParamTable params={[ { name: "position", type: "number" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setParentAsync
 
-> <LuaDeclaration name="setParentAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+> <LuaDeclaration name="setParentAsync" className="GuildStageVoice" args={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} isMethod />
 
 Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+<LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setPermissionsAsync
 
-> <LuaDeclaration name="setPermissionsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+> <LuaDeclaration name="setPermissionsAsync" className="GuildStageVoice" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} isMethod />
 
 Sets the permissions for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### deletePermissionAsync
 
-> <LuaDeclaration name="deletePermissionAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="deletePermissionAsync" className="GuildStageVoice" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Deletes a permission overwrite for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### getInvitesAsync
 
-> <LuaDeclaration name="getInvitesAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" } ]} />
+> <LuaDeclaration name="getInvitesAsync" className="GuildStageVoice" args={[  ]} isMethod />
 
 Gets a list of all invites for the channel.
 
@@ -239,41 +253,51 @@ Gets a list of all invites for the channel.
 
 ### createInviteAsync
 
-> <LuaDeclaration name="createInviteAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="createInviteAsync" className="GuildStageVoice" args={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Creates a new invite for the channel.
+
+<LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all public archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all private archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### listJoinedPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildStageVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 
 ### setNameAsync
 
-> <LuaDeclaration name="setNameAsync" className="GuildStageVoice" args={[ { name: "self", type: "Channel<T>" }, { name: "groupName", type: "string" } ]} />
+> <LuaDeclaration name="setNameAsync" className="GuildStageVoice" args={[ { name: "groupName", type: "string" } ]} isMethod />
 
 Sets the name of the channel.
+
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
 

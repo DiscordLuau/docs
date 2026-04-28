@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord RoleTag class in Luau
 
 https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure
+
+<LuaSummary className="RoleTag" properties={[ { name: "botId", type: "string?" }, { name: "integrationId", type: "string?" }, { name: "premiumSubscriber", type: "nil?" }, { name: "subscriptionListingId", type: "string?" }, { name: "availableForPurchase", type: "nil?" }, { name: "guildConnections", type: "nil?" } ]} />
 
 ## Properties
 

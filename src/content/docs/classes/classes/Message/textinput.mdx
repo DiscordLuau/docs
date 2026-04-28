@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord TextInput class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+<LuaSummary className="TextInput" properties={[ { name: "type", type: "number" }, { name: "customId", type: "string" }, { name: "style", type: "apiTypes.TextInputStyle" }, { name: "label", type: "string" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "required", type: "boolean?" }, { name: "value", type: "string?" }, { name: "placeholder", type: "string?" } ]} />
 
 ## Properties
 

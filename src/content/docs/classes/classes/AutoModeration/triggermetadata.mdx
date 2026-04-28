@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord TriggerMetadata class in Luau
 
 https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata
+
+<LuaSummary className="TriggerMetadata" properties={[ { name: "keywordFilter", type: "{ string }" }, { name: "regexPatterns", type: "{ string }" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" }, { name: "allowList", type: "{ string }" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} />
 
 ## Properties
 

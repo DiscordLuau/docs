@@ -10,12 +10,16 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of Discord's Guild object as a Luau builder.
 
 See Discord's documentation for more information about the allow and deny fields:
 
 https://discord.com/developers/docs/resources/guild
+
+<LuaSummary className="Guild" properties={[ { name: "name", type: "string?" }, { name: "verificationLevel", type: "Classes.VerificationLevel" }, { name: "defaultMessageNotifications", type: "Classes.DefaultMessageNotification" }, { name: "explicitContentFilter", type: "Classes.ExplicitContentFilterLevel" }, { name: "afkChannelId", type: "string?" }, { name: "afkTimeout", type: "number?" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "splash", type: "string?" }, { name: "discoverySplash", type: "string?" }, { name: "banner", type: "string?" }, { name: "systemChannelId", type: "string?" }, { name: "systemChannelFlags", type: "number?" }, { name: "rulesChannelId", type: "string?" }, { name: "publicUpdatesChannelId", type: "string?" }, { name: "preferredLocale", type: "Classes.LanguageLocales?" }, { name: "features", type: "{ Builders.GuildFeature }" }, { name: "description", type: "string?" }, { name: "premiumProgressBarEnabled", type: "boolean?" }, { name: "safetyAlertsChannelId", type: "string?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Guild" }, { name: "setVerificationLevel", isMethod: true, args: [ { name: "verificationLevel", type: "apiTypes.VerificationLevel" } ], returnType: "Guild" }, { name: "setDefaultMessageNotifications", isMethod: true, args: [ { name: "defaultMessageNotifications", type: "apiTypes.DefaultMessageNotification" } ], returnType: "Guild" }, { name: "setExplicitContentFilter", isMethod: true, args: [ { name: "explicitContentFilter", type: "apiTypes.ExplicitContentFilterLevel" } ], returnType: "Guild" }, { name: "setAfkChannelId", isMethod: true, args: [ { name: "afkChannelId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "setAfkTimeout", isMethod: true, args: [ { name: "afkTimeout", type: "number" } ], returnType: "Guild" }, { name: "setIcon", isMethod: true, args: [ { name: "source", type: "string" } ], returnType: "Guild" }, { name: "setOwnerId", isMethod: true, args: [ { name: "ownerId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "setSplash", isMethod: true, args: [ { name: "source", type: "string" } ], returnType: "Guild" }, { name: "setDiscoverySplash", isMethod: true, args: [ { name: "source", type: "string" } ], returnType: "Guild" }, { name: "setBanner", isMethod: true, args: [ { name: "source", type: "string" } ], returnType: "Guild" }, { name: "setSystemChannelId", isMethod: true, args: [ { name: "systemChannelId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "setSystemChannelFlags", isMethod: true, args: [ { name: "systemChannelFlags", type: "number" } ], returnType: "Guild" }, { name: "setRulesChannelId", isMethod: true, args: [ { name: "rulesChannelId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "setPublicUpdatesChannelId", isMethod: true, args: [ { name: "publicUpdatesChannelId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "setPreferredLocale", isMethod: true, args: [ { name: "preferredLocale", type: "apiTypes.LanguageLocales" } ], returnType: "Guild" }, { name: "addFeature", isMethod: true, args: [ { name: "feature", type: "apiTypes.GuildFeature" } ], returnType: "Guild" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Guild" }, { name: "setPremiumProgressBarEnabled", isMethod: true, args: [ { name: "premiumProgressBarEnabled", type: "boolean" } ], returnType: "Guild" }, { name: "setSafetyAlertsChannelId", isMethod: true, args: [ { name: "safetyAlertsChannelId", type: "apiTypes.Snowflake" } ], returnType: "Guild" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, verificationLevel: apiTypes.VerificationLevel?, defaultMessageNotifications: apiTypes.DefaultMessageNotification?, explicitContentFilter: apiTypes.ExplicitContentFilterLevel?, afkChannelId: apiTypes.Snowflake?, afkTimeout: number?, icon: string?, ownerId: apiTypes.Snowflake?, splash: string?, discoverySplash: string?, banner: string?, systemChannelId: apiTypes.Snowflake?, systemChannelFlags: number?, rulesChannelId: apiTypes.Snowflake?, publicUpdatesChannelId: apiTypes.Snowflake?, preferredLocale: apiTypes.LanguageLocales?, features: { apiTypes.GuildFeature }?, description: string?, premiumProgressBarEnabled: boolean?, safetyAlertsChannelId: apiTypes.Snowflake?, }?" } ], returnType: "Guild" } ]} />
 
 ## Properties
 
@@ -160,138 +164,185 @@ Whether boost progress bar is enabled.
 ID of the safety alerts channel.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "name", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setName" className="Guild" args={[ { name: "name", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the name for this guild.
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setVerificationLevel
 
-> <LuaDeclaration name="setVerificationLevel" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "verificationLevel", type: "apiTypes.VerificationLevel" } ]} returnType="Guild" />
+> <LuaDeclaration name="setVerificationLevel" className="Guild" args={[ { name: "verificationLevel", type: "apiTypes.VerificationLevel" } ]} returnType="Guild" isMethod />
 
 Set the explicit verification level for this guild.
 
+<LuaParamTable params={[ { name: "verificationLevel", type: "apiTypes.VerificationLevel" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setDefaultMessageNotifications
 
-> <LuaDeclaration name="setDefaultMessageNotifications" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "defaultMessageNotifications", type: "apiTypes.DefaultMessageNotification" } ]} returnType="Guild" />
+> <LuaDeclaration name="setDefaultMessageNotifications" className="Guild" args={[ { name: "defaultMessageNotifications", type: "apiTypes.DefaultMessageNotification" } ]} returnType="Guild" isMethod />
 
 Set the explicit default message notifications for this guild.
 
+<LuaParamTable params={[ { name: "defaultMessageNotifications", type: "apiTypes.DefaultMessageNotification" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setExplicitContentFilter
 
-> <LuaDeclaration name="setExplicitContentFilter" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "explicitContentFilter", type: "apiTypes.ExplicitContentFilterLevel" } ]} returnType="Guild" />
+> <LuaDeclaration name="setExplicitContentFilter" className="Guild" args={[ { name: "explicitContentFilter", type: "apiTypes.ExplicitContentFilterLevel" } ]} returnType="Guild" isMethod />
 
 Set the explicit content filter level for this guild.
 
+<LuaParamTable params={[ { name: "explicitContentFilter", type: "apiTypes.ExplicitContentFilterLevel" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setAfkChannelId
 
-> <LuaDeclaration name="setAfkChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "afkChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setAfkChannelId" className="Guild" args={[ { name: "afkChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the id for the AFK channel.
 
+<LuaParamTable params={[ { name: "afkChannelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setAfkTimeout
 
-> <LuaDeclaration name="setAfkTimeout" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "afkTimeout", type: "number" } ]} returnType="Guild" />
+> <LuaDeclaration name="setAfkTimeout" className="Guild" args={[ { name: "afkTimeout", type: "number" } ]} returnType="Guild" isMethod />
 
 Set the AFK timeout in seconds. Can be one of: 60, 300, 900, 1800, 3600.
 
+<LuaParamTable params={[ { name: "afkTimeout", type: "number" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setIcon
 
-> <LuaDeclaration name="setIcon" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setIcon" className="Guild" args={[ { name: "source", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the base64 1024x1024 PNG/JPEG/GIF image for the guild icon.
 
+<LuaParamTable params={[ { name: "source", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setOwnerId
 
-> <LuaDeclaration name="setOwnerId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ownerId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setOwnerId" className="Guild" args={[ { name: "ownerId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the user ID to transfer guild ownership to (must be owner).
 
+<LuaParamTable params={[ { name: "ownerId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setSplash
 
-> <LuaDeclaration name="setSplash" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setSplash" className="Guild" args={[ { name: "source", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the base64 16:9 PNG/JPEG image for the guild splash.
 
+<LuaParamTable params={[ { name: "source", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setDiscoverySplash
 
-> <LuaDeclaration name="setDiscoverySplash" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setDiscoverySplash" className="Guild" args={[ { name: "source", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the base64 16:9 PNG/JPEG image for the discovery splash of the guild.
 
+<LuaParamTable params={[ { name: "source", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setBanner
 
-> <LuaDeclaration name="setBanner" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "source", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setBanner" className="Guild" args={[ { name: "source", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the base64 16:9 PNG/JPEG/GIF image for the guild banner.
 
+<LuaParamTable params={[ { name: "source", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setSystemChannelId
 
-> <LuaDeclaration name="setSystemChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "systemChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setSystemChannelId" className="Guild" args={[ { name: "systemChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the ID of the system channel.
 
+<LuaParamTable params={[ { name: "systemChannelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setSystemChannelFlags
 
-> <LuaDeclaration name="setSystemChannelFlags" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "systemChannelFlags", type: "number" } ]} returnType="Guild" />
+> <LuaDeclaration name="setSystemChannelFlags" className="Guild" args={[ { name: "systemChannelFlags", type: "number" } ]} returnType="Guild" isMethod />
 
 Set the system channel flags.
 
+<LuaParamTable params={[ { name: "systemChannelFlags", type: "number" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setRulesChannelId
 
-> <LuaDeclaration name="setRulesChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "rulesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setRulesChannelId" className="Guild" args={[ { name: "rulesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the ID of the rules channel.
 
+<LuaParamTable params={[ { name: "rulesChannelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setPublicUpdatesChannelId
 
-> <LuaDeclaration name="setPublicUpdatesChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "publicUpdatesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setPublicUpdatesChannelId" className="Guild" args={[ { name: "publicUpdatesChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the ID of the public updates channel.
 
+<LuaParamTable params={[ { name: "publicUpdatesChannelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setPreferredLocale
 
-> <LuaDeclaration name="setPreferredLocale" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "preferredLocale", type: "apiTypes.LanguageLocales" } ]} returnType="Guild" />
+> <LuaDeclaration name="setPreferredLocale" className="Guild" args={[ { name: "preferredLocale", type: "apiTypes.LanguageLocales" } ]} returnType="Guild" isMethod />
 
 Set the preferred locale of the guild.
 
+<LuaParamTable params={[ { name: "preferredLocale", type: "apiTypes.LanguageLocales" } ]} returns={[ { type: "Guild" } ]} />
+
 ### addFeature
 
-> <LuaDeclaration name="addFeature" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "feature", type: "apiTypes.GuildFeature" } ]} returnType="Guild" />
+> <LuaDeclaration name="addFeature" className="Guild" args={[ { name: "feature", type: "apiTypes.GuildFeature" } ]} returnType="Guild" isMethod />
 
 Enable a specific guild feature.
 
+<LuaParamTable params={[ { name: "feature", type: "apiTypes.GuildFeature" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setDescription
 
-> <LuaDeclaration name="setDescription" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "description", type: "string" } ]} returnType="Guild" />
+> <LuaDeclaration name="setDescription" className="Guild" args={[ { name: "description", type: "string" } ]} returnType="Guild" isMethod />
 
 Set the description for the guild.
 
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setPremiumProgressBarEnabled
 
-> <LuaDeclaration name="setPremiumProgressBarEnabled" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "premiumProgressBarEnabled", type: "boolean" } ]} returnType="Guild" />
+> <LuaDeclaration name="setPremiumProgressBarEnabled" className="Guild" args={[ { name: "premiumProgressBarEnabled", type: "boolean" } ]} returnType="Guild" isMethod />
 
 Set whether the guild's boost progress bar should be enabled.
 
+<LuaParamTable params={[ { name: "premiumProgressBarEnabled", type: "boolean" } ]} returns={[ { type: "Guild" } ]} />
+
 ### setSafetyAlertsChannelId
 
-> <LuaDeclaration name="setSafetyAlertsChannelId" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "safetyAlertsChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" />
+> <LuaDeclaration name="setSafetyAlertsChannelId" className="Guild" args={[ { name: "safetyAlertsChannelId", type: "apiTypes.Snowflake" } ]} returnType="Guild" isMethod />
 
 Set the ID of the safety alerts channel.
 
+<LuaParamTable params={[ { name: "safetyAlertsChannelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "Guild" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Guild" args={[ { name: "self", type: "Guild" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Guild" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Guild JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Guild" args={[ { name: "resource", type: "{ name: string?, verificationLevel: apiTypes.VerificationLevel?, defaultMessageNotifications: apiTypes.DefaultMessageNotification?, explicitContentFilter: apiTypes.ExplicitContentFilterLevel?, afkChannelId: apiTypes.Snowflake?, afkTimeout: number?, icon: string?, ownerId: apiTypes.Snowflake?, splash: string?, discoverySplash: string?, banner: string?, systemChannelId: apiTypes.Snowflake?, systemChannelFlags: number?, rulesChannelId: apiTypes.Snowflake?, publicUpdatesChannelId: apiTypes.Snowflake?, preferredLocale: apiTypes.LanguageLocales?, features: { apiTypes.GuildFeature }?, description: string?, premiumProgressBarEnabled: boolean?, safetyAlertsChannelId: apiTypes.Snowflake?, }?" } ]} returnType="Guild" />
 
 Construct a new Guild object.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, verificationLevel: apiTypes.VerificationLevel?, defaultMessageNotifications: apiTypes.DefaultMessageNotification?, explicitContentFilter: apiTypes.ExplicitContentFilterLevel?, afkChannelId: apiTypes.Snowflake?, afkTimeout: number?, icon: string?, ownerId: apiTypes.Snowflake?, splash: string?, discoverySplash: string?, banner: string?, systemChannelId: apiTypes.Snowflake?, systemChannelFlags: number?, rulesChannelId: apiTypes.Snowflake?, publicUpdatesChannelId: apiTypes.Snowflake?, preferredLocale: apiTypes.LanguageLocales?, features: { apiTypes.GuildFeature }?, description: string?, premiumProgressBarEnabled: boolean?, safetyAlertsChannelId: apiTypes.Snowflake?, }?" } ]} returns={[ { type: "Guild" } ]} />
 
 

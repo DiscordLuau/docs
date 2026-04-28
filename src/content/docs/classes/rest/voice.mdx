@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/voice
+
+<LuaSummary className="Voice" functions={[ { name: "listVoiceRegionsAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.ListVoiceRegionsResponse>" }, { name: "getCurrentUserVoiceStateAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentUserVoiceStateResponse>" }, { name: "getUserVoiceStateAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetUserVoiceStateResponse>" }, { name: "modifyCurrentUserVoiceStateAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserVoiceStateRequest" } ], returnType: "future.FutureLike<string, apiTypes.ModifyCurrentUserVoiceStateResponse>" }, { name: "modifyUserVoiceStateAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyUserVoiceStateRequest" } ], returnType: "future.FutureLike<string, apiTypes.ModifyUserVoiceStateResponse>" } ]} />
 
 ## Functions
 
@@ -23,11 +27,15 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/resources/voice#list-voice-regions
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListVoiceRegionsResponse>" } ]} />
+
 ### getCurrentUserVoiceStateAsync
 
 > <LuaDeclaration name="getCurrentUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserVoiceStateResponse>" />
 
 https://discord.com/developers/docs/resources/voice#get-current-user-voice-state
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentUserVoiceStateResponse>" } ]} />
 
 ### getUserVoiceStateAsync
 
@@ -35,16 +43,22 @@ https://discord.com/developers/docs/resources/voice#get-current-user-voice-state
 
 https://discord.com/developers/docs/resources/voice#get-user-voice-state
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetUserVoiceStateResponse>" } ]} />
+
 ### modifyCurrentUserVoiceStateAsync
 
 > <LuaDeclaration name="modifyCurrentUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserVoiceStateRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyCurrentUserVoiceStateResponse>" />
 
 https://discord.com/developers/docs/resources/voice#modify-current-user-voice-state
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserVoiceStateRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyCurrentUserVoiceStateResponse>" } ]} />
+
 ### modifyUserVoiceStateAsync
 
 > <LuaDeclaration name="modifyUserVoiceStateAsync" className="Voice" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyUserVoiceStateRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyUserVoiceStateResponse>" />
 
 https://discord.com/developers/docs/resources/voice#modify-user-voice-state
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyUserVoiceStateRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyUserVoiceStateResponse>" } ]} />
 
 

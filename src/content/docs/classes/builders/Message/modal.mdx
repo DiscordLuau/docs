@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Modal object as a Luau builder.	
 
 https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+<LuaSummary className="Modal" properties={[ { name: "customId", type: "string?" }, { name: "title", type: "string?" }, { name: "components", type: "{ Builders.Message.TextInput }?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "Modal" }, { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Modal" }, { name: "setComponents", isMethod: true, args: [ { name: "components", type: "{ textInput.JSON }" } ], returnType: "Modal" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, title: string?, components: { textInput.JSON }?, }?" } ], returnType: "Modal" } ]} />
 
 ## Properties
 
@@ -39,31 +43,42 @@ The title that appears at the top of the modal.
 The components that will be displayed in this modal.
 
 
-## Functions
+## Methods
 
 ### setCustomId
 
-> <LuaDeclaration name="setCustomId" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "customId", type: "string" } ]} returnType="Modal" />
+> <LuaDeclaration name="setCustomId" className="Modal" args={[ { name: "customId", type: "string" } ]} returnType="Modal" isMethod />
 
 Sets the custom ID for this modal. This is required for the Discord API to identify this modal.
 
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "Modal" } ]} />
+
 ### setTitle
 
-> <LuaDeclaration name="setTitle" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "title", type: "string" } ]} returnType="Modal" />
+> <LuaDeclaration name="setTitle" className="Modal" args={[ { name: "title", type: "string" } ]} returnType="Modal" isMethod />
 
 Sets the title that appears at the top of the modal.
 
+<LuaParamTable params={[ { name: "title", type: "string" } ]} returns={[ { type: "Modal" } ]} />
+
 ### setComponents
 
-> <LuaDeclaration name="setComponents" className="Modal" args={[ { name: "self", type: "Modal" }, { name: "components", type: "{ textInput.JSON }" } ]} returnType="Modal" />
+> <LuaDeclaration name="setComponents" className="Modal" args={[ { name: "components", type: "{ textInput.JSON }" } ]} returnType="Modal" isMethod />
 
 Sets the components that will be displayed in this modal. These must be text input components.
 
+<LuaParamTable params={[ { name: "components", type: "{ textInput.JSON }" } ]} returns={[ { type: "Modal" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Modal" args={[ { name: "self", type: "Modal" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Modal" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Modal JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -78,5 +93,7 @@ local modal = Modal.new()
 	:setComponents({textInput})
 	:build()
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ customId: string?, title: string?, components: { textInput.JSON }?, }?" } ]} returns={[ { type: "Modal" } ]} />
 
 

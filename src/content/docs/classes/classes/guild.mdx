@@ -10,11 +10,15 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Guild class in Luau.
 Represents a Discord guild (server) with all its properties and methods.
 
 https://discord.com/developers/docs/resources/guild#guild-object
+
+<LuaSummary className="Guild" properties={[ { name: "stickers", type: "{Classes.Sticker}" }, { name: "roles", type: "{Classes.Guild.Role}" }, { name: "emojis", type: "{Classes.Emoji}" }, { name: "verificationLevel", type: "string" }, { name: "defaultMessageNotifications", type: "string" }, { name: "explicitContentFilter", type: "string" }, { name: "premiumTier", type: "string" }, { name: "nsfwLevel", type: "string" }, { name: "mfaLevel", type: "string" }, { name: "systemChannelFlags", type: "Classes.SystemChannelBitflag" }, { name: "icon", type: "string?" }, { name: "iconHash", type: "string?" }, { name: "name", type: "string?" }, { name: "splash", type: "string?" }, { name: "discoverySplash", type: "string?" }, { name: "owner", type: "boolean?" }, { name: "ownerId", type: "string?" }, { name: "permissions", type: "string?" }, { name: "region", type: "string?" }, { name: "afkChannelId", type: "string?" }, { name: "afkTimeout", type: "number?" }, { name: "widgetEnabled", type: "boolean?" }, { name: "widgetChannelId", type: "string?" }, { name: "features", type: "{string}?" }, { name: "applicationId", type: "string?" }, { name: "systemChannelId", type: "string?" }, { name: "rulesChannelId", type: "string?" }, { name: "maxPresences", type: "number?" }, { name: "maxMembers", type: "number?" }, { name: "vanityUrlCode", type: "string?" }, { name: "description", type: "string?" }, { name: "banner", type: "string?" }, { name: "premiumSubscriptionCount", type: "number?" }, { name: "preferredLocale", type: "string?" }, { name: "publicUpdatesChannelId", type: "string?" }, { name: "maxVideoChannelUsers", type: "number?" }, { name: "maxStageVideoChannelUsers", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "premiumProgressBarEnabled", type: "boolean?" }, { name: "safetyAlertsChannelId", type: "string?" } ]} methods={[ { name: "createSlashCommandAsync", isMethod: true, args: [ { name: "slashCommand", type: "builders.interactionJSON" } ] }, { name: "deleteSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" } ] }, { name: "editSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ] }, { name: "getSlashCommandsAsync", isMethod: true, args: [ { name: "withLocalizations", type: "boolean?" } ] }, { name: "overwriteSlashCommandsAsync", isMethod: true, args: [ { name: "slashCommands", type: "{ builders.interactionJSON }" } ] }, { name: "getPreviewAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.guildJSON" }, { name: "reason", type: "string?" } ] }, { name: "deleteAsync", isMethod: true, args: [  ] }, { name: "getChannelsAsync", isMethod: true, args: [  ] }, { name: "getTextChannelsAsync", isMethod: true, args: [  ] }, { name: "getVoiceChannelsAsync", isMethod: true, args: [  ] }, { name: "getCategoryChannelsAsync", isMethod: true, args: [  ] }, { name: "getAnnouncementChannelsAsync", isMethod: true, args: [  ] }, { name: "getStageVoiceChannelsAsync", isMethod: true, args: [  ] }, { name: "getDirectoryChannelsAsync", isMethod: true, args: [  ] }, { name: "createChannelAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "getRoleMemberCounts", isMethod: true, args: [  ] }, { name: "getThreadsAsync", isMethod: true, args: [  ] }, { name: "getAnnouncementThreadsAsync", isMethod: true, args: [  ] }, { name: "getPublicThreadsAsync", isMethod: true, args: [  ] }, { name: "getPrivateThreadsAsync", isMethod: true, args: [  ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "lastSnowflake", type: "string?" }, { name: "limit", type: "number?" } ] }, { name: "searchMembersAsync", isMethod: true, args: [ { name: "query", type: "string" }, { name: "limit", type: "number?" } ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake" }, { name: "accessToken", type: "string" }, { name: "nickname", type: "string?" }, { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "muted", type: "boolean?" }, { name: "deafened", type: "boolean?" } ] }, { name: "kickMemberAsync", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ] }, { name: "banMemberAsync", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ] }, { name: "bulkBanAsync", isMethod: true, args: [ { name: "userIds", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" }, { name: "deleteMessageSeconds", type: "number?" } ], returnType: "future.Future< string, { failedUsers: { apiTypes.Snowflake }, bannedUsers: { apiTypes.Snowflake } } >" }, { name: "getBansAsync", isMethod: true, args: [ { name: "limit", type: "number?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" } ] }, { name: "getBanAsync", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake" } ] }, { name: "getRolesAsync", isMethod: true, args: [  ] }, { name: "getRoleAsync", isMethod: true, args: [ { name: "roleId", type: "apiTypes.Snowflake" } ] }, { name: "createRoleAsync", isMethod: true, args: [ { name: "roleJson", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ] }, { name: "setMFALevelAsync", isMethod: true, args: [ { name: "mfaLevel", type: "apiTypes.MFALevel" }, { name: "reason", type: "string?" } ] }, { name: "getPruneCountAsync", isMethod: true, args: [ { name: "days", type: "number?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" } ] }, { name: "beginPruneAsync", isMethod: true, args: [ { name: "days", type: "number?" }, { name: "returnPruneCount", type: "boolean?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" }, { name: "reason", type: "string?" } ] }, { name: "getVoiceRegionsAsync", isMethod: true, args: [  ] }, { name: "getInvitesAsync", isMethod: true, args: [  ] }, { name: "getIntegrationsAsync", isMethod: true, args: [  ] }, { name: "deleteIntegrationAsync", isMethod: true, args: [ { name: "integrationId", type: "string" } ] }, { name: "getWidgetSettingsAsync", isMethod: true, args: [  ] }, { name: "modifyWidgetAsync", isMethod: true, args: [ { name: "json", type: "builders.widgetSettingsJSON" }, { name: "reason", type: "string?" } ] }, { name: "getWidgetAsync", isMethod: true, args: [  ] }, { name: "getVanityUrlAsync", isMethod: true, args: [  ] }, { name: "getWidgetImageAsync", isMethod: true, args: [ { name: "style", type: "&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;" } ] }, { name: "getWelcomeScreenAsync", isMethod: true, args: [  ] }, { name: "modifyWelcomeScreenAsync", isMethod: true, args: [ { name: "json", type: "builders.welcomeScreenJSON" }, { name: "reason", type: "string?" } ] }, { name: "getOnboardingAsync", isMethod: true, args: [  ] }, { name: "modifyOnboardingAsync", isMethod: true, args: [ { name: "json", type: "builders.onboardingJSON" }, { name: "reason", type: "string?" } ] }, { name: "getGuildAuditLogAsync", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake?" }, { name: "actionType", type: "apiTypes.ActionTypes?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "listAutomoderationRulesAsync", isMethod: true, args: [  ] }, { name: "getAutomoderationRuleAsync", isMethod: true, args: [ { name: "ruleId", type: "apiTypes.Snowflake" } ] }, { name: "createAutomoderationRuleAsync", isMethod: true, args: [ { name: "ruleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "reason", type: "string?" } ] } ]} />
 
 ## Properties
 
@@ -306,63 +310,75 @@ Whether the guild has the boost progress bar enabled
 The id of the channel where admins and moderators receive safety alerts from Discord
 
 
-## Functions
+## Methods
 
 ### createSlashCommandAsync
 
-> <LuaDeclaration name="createSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+> <LuaDeclaration name="createSlashCommandAsync" className="Guild" args={[ { name: "slashCommand", type: "builders.interactionJSON" } ]} isMethod />
 
 Creates a guild Slash command for the application.
 
+<LuaParamTable params={[ { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
 ### deleteSlashCommandAsync
 
-> <LuaDeclaration name="deleteSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommandId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="deleteSlashCommandAsync" className="Guild" args={[ { name: "slashCommandId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Delete an existing guild application command.
 
+<LuaParamTable params={[ { name: "slashCommandId", type: "apiTypes.Snowflake" } ]} />
+
 ### editSlashCommandAsync
 
-> <LuaDeclaration name="editSlashCommandAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+> <LuaDeclaration name="editSlashCommandAsync" className="Guild" args={[ { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} isMethod />
 
 Edit an existing guild application command.
 
+<LuaParamTable params={[ { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ]} />
+
 ### getSlashCommandsAsync
 
-> <LuaDeclaration name="getSlashCommandsAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "withLocalizations", type: "boolean?" } ]} />
+> <LuaDeclaration name="getSlashCommandsAsync" className="Guild" args={[ { name: "withLocalizations", type: "boolean?" } ]} isMethod />
 
 Get a list of guild application commands.
 
+<LuaParamTable params={[ { name: "withLocalizations", type: "boolean?" } ]} />
+
 ### overwriteSlashCommandsAsync
 
-> <LuaDeclaration name="overwriteSlashCommandsAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} />
+> <LuaDeclaration name="overwriteSlashCommandsAsync" className="Guild" args={[ { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} isMethod />
 
 Overwrite all guild application commands. This will skip over commands that are the same as the current commands,
 and will not remove any existing commands.
 
+<LuaParamTable params={[ { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} />
+
 ### getPreviewAsync
 
-> <LuaDeclaration name="getPreviewAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getPreviewAsync" className="Guild" args={[  ]} isMethod />
 
 Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be
 discoverable.
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.guildJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyAsync" className="Guild" args={[ { name: "json", type: "builders.guildJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Modify a guild's settings. Requires the MANAGE_GUILD permission.
 Returns the updated guild object on success. Fires a Guild Update Gateway event.
 
+<LuaParamTable params={[ { name: "json", type: "builders.guildJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="deleteAsync" className="Guild" args={[  ]} isMethod />
 
 Delete a guild permanently. User must be owner.
 Returns 204 No Content on success. Fires a Guild Delete Gateway event.
 
 ### getChannelsAsync
 
-> <LuaDeclaration name="getChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild channel objects. Does not include threads.
 
@@ -373,58 +389,60 @@ Please use explicit functions for specific channel types, for example: getTextCh
 
 ### getTextChannelsAsync
 
-> <LuaDeclaration name="getTextChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getTextChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild text channel objects.
 
 ### getVoiceChannelsAsync
 
-> <LuaDeclaration name="getVoiceChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getVoiceChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild voice channel objects.
 
 ### getCategoryChannelsAsync
 
-> <LuaDeclaration name="getCategoryChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getCategoryChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild category channel objects.
 
 ### getAnnouncementChannelsAsync
 
-> <LuaDeclaration name="getAnnouncementChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getAnnouncementChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild announcement channel objects.
 
 ### getStageVoiceChannelsAsync
 
-> <LuaDeclaration name="getStageVoiceChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getStageVoiceChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild stage voice channel objects.
 
 ### getDirectoryChannelsAsync
 
-> <LuaDeclaration name="getDirectoryChannelsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getDirectoryChannelsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild directory channel objects.
 
 ### createChannelAsync
 
-> <LuaDeclaration name="createChannelAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="createChannelAsync" className="Guild" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Create a new channel object for the guild. Requires the MANAGE_CHANNELS permission.
 If setting permission overwrites, only permissions your bot has in the guild can be allowed/denied.
 Setting MANAGE_ROLES permission in channels is only possible for guild administrators.
 Returns the new channel object on success. Fires a Channel Create Gateway event.
 
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### getRoleMemberCounts
 
-> <LuaDeclaration name="getRoleMemberCounts" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getRoleMemberCounts" className="Guild" args={[  ]} isMethod />
 
 Returns a map of role IDs to the number of members with the role. Does not include the @everyone role.
 
 ### getThreadsAsync
 
-> <LuaDeclaration name="getThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getThreadsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns all active threads in the guild, including public and private threads.
 Threads are ordered by their id, in descending order.
@@ -436,43 +454,49 @@ Please use explicit functions for specific channel types, for example: getMediaT
 
 ### getAnnouncementThreadsAsync
 
-> <LuaDeclaration name="getAnnouncementThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getAnnouncementThreadsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of guild announcement thread objects.
 
 ### getPublicThreadsAsync
 
-> <LuaDeclaration name="getPublicThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getPublicThreadsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of public guild thread objects.
 
 ### getPrivateThreadsAsync
 
-> <LuaDeclaration name="getPrivateThreadsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getPrivateThreadsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of private guild thread objects.
 
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "string" } ]} />
+> <LuaDeclaration name="getMemberAsync" className="Guild" args={[ { name: "userId", type: "string" } ]} isMethod />
 
 Returns a guild member object for the specified user.
 
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+
 ### listMembersAsync
 
-> <LuaDeclaration name="listMembersAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "lastSnowflake", type: "string?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="listMembersAsync" className="Guild" args={[ { name: "lastSnowflake", type: "string?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Returns a list of guild member objects that are members of the guild.
 
+<LuaParamTable params={[ { name: "lastSnowflake", type: "string?" }, { name: "limit", type: "number?" } ]} />
+
 ### searchMembersAsync
 
-> <LuaDeclaration name="searchMembersAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="searchMembersAsync" className="Guild" args={[ { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Returns a list of guild member objects whose username or nickname starts with a provided string.
 
+<LuaParamTable params={[ { name: "query", type: "string" }, { name: "limit", type: "number?" } ]} />
+
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "accessToken", type: "string" }, { name: "nickname", type: "string?" }, { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "muted", type: "boolean?" }, { name: "deafened", type: "boolean?" } ]} />
+> <LuaDeclaration name="addMemberAsync" className="Guild" args={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "accessToken", type: "string" }, { name: "nickname", type: "string?" }, { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "muted", type: "boolean?" }, { name: "deafened", type: "boolean?" } ]} isMethod />
 
 Adds a user to the guild, provided you have a valid oauth2 access token for the user with the guilds.join scope.
 
@@ -480,64 +504,82 @@ For guilds with Membership Screening enabled, this endpoint will default to addi
 guild member object. Members that are pending will have to complete membership screening before they become full
 members that can talk.
 
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "accessToken", type: "string" }, { name: "nickname", type: "string?" }, { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "muted", type: "boolean?" }, { name: "deafened", type: "boolean?" } ]} />
+
 ### kickMemberAsync
 
-> <LuaDeclaration name="kickMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="kickMemberAsync" className="Guild" args={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Removes a role from a guild member. Requires the MANAGE_ROLES permission.
 
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+
 ### banMemberAsync
 
-> <LuaDeclaration name="banMemberAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} />
+> <LuaDeclaration name="banMemberAsync" className="Guild" args={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} isMethod />
 
 Create a guild ban, and optionally delete previous messages sent by the banned user.
 
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} />
+
 ### bulkBanAsync
 
-> <LuaDeclaration name="bulkBanAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userIds", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returnType="future.Future< string, { failedUsers: { apiTypes.Snowflake }, bannedUsers: { apiTypes.Snowflake } } >" />
+> <LuaDeclaration name="bulkBanAsync" className="Guild" args={[ { name: "userIds", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returnType="future.Future< string, { failedUsers: { apiTypes.Snowflake }, bannedUsers: { apiTypes.Snowflake } } >" isMethod />
 
 Create a guild ban for multiple users, and optionally delete previous messages sent by the banned users.
 
+<LuaParamTable params={[ { name: "userIds", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returns={[ { type: "future.Future< string, { failedUsers: { apiTypes.Snowflake }, bannedUsers: { apiTypes.Snowflake } } >" } ]} />
+
 ### getBansAsync
 
-> <LuaDeclaration name="getBansAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "limit", type: "number?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" } ]} />
+> <LuaDeclaration name="getBansAsync" className="Guild" args={[ { name: "limit", type: "number?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" } ]} isMethod />
 
 Returns a list of ban objects for the users banned from this guild.
 
+<LuaParamTable params={[ { name: "limit", type: "number?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" } ]} />
+
 ### getBanAsync
 
-> <LuaDeclaration name="getBanAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="getBanAsync" className="Guild" args={[ { name: "userId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Returns a ban object for the given user or a 404 not found if the ban cannot be found.
 
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake" } ]} />
+
 ### getRolesAsync
 
-> <LuaDeclaration name="getRolesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getRolesAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of role objects for the guild.
 
 ### getRoleAsync
 
-> <LuaDeclaration name="getRoleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "roleId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="getRoleAsync" className="Guild" args={[ { name: "roleId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Returns a role object for the specified role.
 
+<LuaParamTable params={[ { name: "roleId", type: "apiTypes.Snowflake" } ]} />
+
 ### createRoleAsync
 
-> <LuaDeclaration name="createRoleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "roleJson", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="createRoleAsync" className="Guild" args={[ { name: "roleJson", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Create a new role for the guild. Requires the MANAGE_ROLES permission.
 Returns the new role object on success.
 
+<LuaParamTable params={[ { name: "roleJson", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### setMFALevelAsync
 
-> <LuaDeclaration name="setMFALevelAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "mfaLevel", type: "apiTypes.MFALevel" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="setMFALevelAsync" className="Guild" args={[ { name: "mfaLevel", type: "apiTypes.MFALevel" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Modify a guild's MFA level. Requires guild ownership. Returns the updated level on success.
 
+<LuaParamTable params={[ { name: "mfaLevel", type: "apiTypes.MFALevel" }, { name: "reason", type: "string?" } ]} />
+
 ### getPruneCountAsync
 
-> <LuaDeclaration name="getPruneCountAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "days", type: "number?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" } ]} />
+> <LuaDeclaration name="getPruneCountAsync" className="Guild" args={[ { name: "days", type: "number?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" } ]} isMethod />
 
 Returns an object with one pruned key indicating the number of members that would be removed in a prune operation.
 Requires the MANAGE_GUILD and KICK_MEMBERS permissions.
@@ -546,9 +588,11 @@ By default, prune will not remove users with roles. You can optionally include s
 providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be
 counted in the prune and users with additional roles will not.
 
+<LuaParamTable params={[ { name: "days", type: "number?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" } ]} />
+
 ### beginPruneAsync
 
-> <LuaDeclaration name="beginPruneAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "days", type: "number?" }, { name: "returnPruneCount", type: "boolean?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="beginPruneAsync" className="Guild" args={[ { name: "days", type: "number?" }, { name: "returnPruneCount", type: "boolean?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Begin a prune operation. Requires the MANAGE_GUILD and KICK_MEMBERS permissions.
 Returns an object with one pruned key indicating the number of members that were removed in the prune operation.
@@ -559,69 +603,77 @@ By default, prune will not remove users with roles. You can optionally include s
 providing the include_roles parameter. Any inactive user that has a subset of the provided role(s)
 will be included in the prune and users with additional roles will not.
 
+<LuaParamTable params={[ { name: "days", type: "number?" }, { name: "returnPruneCount", type: "boolean?" }, { name: "includedRoles", type: "{ apiTypes.Snowflake }?" }, { name: "reason", type: "string?" } ]} />
+
 ### getVoiceRegionsAsync
 
-> <LuaDeclaration name="getVoiceRegionsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getVoiceRegionsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region.
 
 ### getInvitesAsync
 
-> <LuaDeclaration name="getInvitesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getInvitesAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission.
 
 ### getIntegrationsAsync
 
-> <LuaDeclaration name="getIntegrationsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getIntegrationsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission.
 
 ### deleteIntegrationAsync
 
-> <LuaDeclaration name="deleteIntegrationAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "integrationId", type: "string" } ]} />
+> <LuaDeclaration name="deleteIntegrationAsync" className="Guild" args={[ { name: "integrationId", type: "string" } ]} isMethod />
 
 Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated
 bot if there is one.
 
 Requires the MANAGE_GUILD permission.
 
+<LuaParamTable params={[ { name: "integrationId", type: "string" } ]} />
+
 ### getWidgetSettingsAsync
 
-> <LuaDeclaration name="getWidgetSettingsAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getWidgetSettingsAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a guild widget settings object. Requires the MANAGE_GUILD permission.
 
 ### modifyWidgetAsync
 
-> <LuaDeclaration name="modifyWidgetAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.widgetSettingsJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyWidgetAsync" className="Guild" args={[ { name: "json", type: "builders.widgetSettingsJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified.
 Requires the MANAGE_GUILD permission. Returns the updated guild widget settings object. 
 
+<LuaParamTable params={[ { name: "json", type: "builders.widgetSettingsJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### getWidgetAsync
 
-> <LuaDeclaration name="getWidgetAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getWidgetAsync" className="Guild" args={[  ]} isMethod />
 
 Returns the widget for the guild. Fires an Invite Create Gateway event when an invite channel is defined
 and a new Invite is generated.
 
 ### getVanityUrlAsync
 
-> <LuaDeclaration name="getVanityUrlAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getVanityUrlAsync" className="Guild" args={[  ]} isMethod />
 
 Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission.
 code will be null if a vanity url for the guild is not set.
 
 ### getWidgetImageAsync
 
-> <LuaDeclaration name="getWidgetImageAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "style", type: "&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;" } ]} />
+> <LuaDeclaration name="getWidgetImageAsync" className="Guild" args={[ { name: "style", type: "&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;" } ]} isMethod />
 
 Returns a PNG image widget for the guild. Requires no permissions or authentication.
 
+<LuaParamTable params={[ { name: "style", type: "&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;" } ]} />
+
 ### getWelcomeScreenAsync
 
-> <LuaDeclaration name="getWelcomeScreenAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getWelcomeScreenAsync" className="Guild" args={[  ]} isMethod />
 
 Returns the Welcome Screen object for the guild. If the welcome screen is not enabled.
 
@@ -629,26 +681,30 @@ the MANAGE_GUILD permission is required.
 
 ### modifyWelcomeScreenAsync
 
-> <LuaDeclaration name="modifyWelcomeScreenAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.welcomeScreenJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyWelcomeScreenAsync" className="Guild" args={[ { name: "json", type: "builders.welcomeScreenJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission.
 
+<LuaParamTable params={[ { name: "json", type: "builders.welcomeScreenJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### getOnboardingAsync
 
-> <LuaDeclaration name="getOnboardingAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="getOnboardingAsync" className="Guild" args={[  ]} isMethod />
 
 Returns the Onboarding object for the guild.
 
 ### modifyOnboardingAsync
 
-> <LuaDeclaration name="modifyOnboardingAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "json", type: "builders.onboardingJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="modifyOnboardingAsync" className="Guild" args={[ { name: "json", type: "builders.onboardingJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Modifies the onboarding configuration of the guild. Returns a 200 with the Onboarding object for the guild.
 Requires the MANAGE_GUILD and MANAGE_ROLES permissions.
 
+<LuaParamTable params={[ { name: "json", type: "builders.onboardingJSON" }, { name: "reason", type: "string?" } ]} />
+
 ### getGuildAuditLogAsync
 
-> <LuaDeclaration name="getGuildAuditLogAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "userId", type: "apiTypes.Snowflake?" }, { name: "actionType", type: "apiTypes.ActionTypes?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="getGuildAuditLogAsync" className="Guild" args={[ { name: "userId", type: "apiTypes.Snowflake?" }, { name: "actionType", type: "apiTypes.ActionTypes?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Returns an audit log object for the guild. Requires the VIEW_AUDIT_LOG permission.
 
@@ -658,22 +714,28 @@ The returned list of audit log entries is ordered based on whether you use befor
 	timestamp and will show the most recent entries in descending order by ID, the opposite can be achieved using after=0
 	(showing oldest entries).
 
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake?" }, { name: "actionType", type: "apiTypes.ActionTypes?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
 ### listAutomoderationRulesAsync
 
-> <LuaDeclaration name="listAutomoderationRulesAsync" className="Guild" args={[ { name: "self", type: "Guild" } ]} />
+> <LuaDeclaration name="listAutomoderationRulesAsync" className="Guild" args={[  ]} isMethod />
 
 Get a list of all rules currently configured for the guild. Returns a list of auto moderation rule objects for the given guild.
 
 ### getAutomoderationRuleAsync
 
-> <LuaDeclaration name="getAutomoderationRuleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ruleId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="getAutomoderationRuleAsync" className="Guild" args={[ { name: "ruleId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Get a single rule. Returns an auto moderation rule object.
 
+<LuaParamTable params={[ { name: "ruleId", type: "apiTypes.Snowflake" } ]} />
+
 ### createAutomoderationRuleAsync
 
-> <LuaDeclaration name="createAutomoderationRuleAsync" className="Guild" args={[ { name: "self", type: "Guild" }, { name: "ruleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="createAutomoderationRuleAsync" className="Guild" args={[ { name: "ruleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "reason", type: "string?" } ]} isMethod />
 
 Create a new rule. Returns an auto moderation rule on success.
+
+<LuaParamTable params={[ { name: "ruleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "reason", type: "string?" } ]} />
 
 

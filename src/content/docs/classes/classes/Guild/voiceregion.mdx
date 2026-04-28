@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord VoiceRegion class in Luau
 
 https://discord.com/developers/docs/resources/voice#voice-region-object
+
+<LuaSummary className="VoiceRegion" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "optimal", type: "boolean" }, { name: "deprecated", type: "boolean" }, { name: "custom", type: "boolean" } ]} />
 
 ## Properties
 

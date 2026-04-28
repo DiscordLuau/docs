@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Permissions as a Luau builder.	
 
 https://discord.com/developers/docs/topics/permissions#permissions
+
+<LuaSummary className="Permission" properties={[ { name: "addedPermissions", type: "{ apiTypes.Permissions }" }, { name: "removedPermissions", type: "{ apiTypes.Permissions }" }, { name: "bitflag", type: "number" } ]} methods={[ { name: "setPermissionBitflag", isMethod: true, args: [ { name: "bitflag", type: "string | number" } ], returnType: "Permission" }, { name: "addPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ], returnType: "Permission" }, { name: "removePermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ], returnType: "Permission" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ bitflag: (string | number)?, }?" } ], returnType: "Permission" }, { name: "fromPermissions", args: [ { name: "permissions", type: "{ apiTypes.Permissions }" } ], returnType: "Permission" } ]} />
 
 ## Properties
 
@@ -39,31 +43,42 @@ An array of permissions that have been removed from this permission builder.
 The numeric representation of the permission bitflag.
 
 
-## Functions
+## Methods
 
 ### setPermissionBitflag
 
-> <LuaDeclaration name="setPermissionBitflag" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "bitflag", type: "string | number" } ]} returnType="Permission" />
+> <LuaDeclaration name="setPermissionBitflag" className="Permission" args={[ { name: "bitflag", type: "string | number" } ]} returnType="Permission" isMethod />
 
 Sets the bitflag for this builder.
 
+<LuaParamTable params={[ { name: "bitflag", type: "string | number" } ]} returns={[ { type: "Permission" } ]} />
+
 ### addPermission
 
-> <LuaDeclaration name="addPermission" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" />
+> <LuaDeclaration name="addPermission" className="Permission" args={[ { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" isMethod />
 
 Adds a specific permission to this permissions builder.
 
+<LuaParamTable params={[ { name: "permission", type: "apiTypes.Permissions" } ]} returns={[ { type: "Permission" } ]} />
+
 ### removePermission
 
-> <LuaDeclaration name="removePermission" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" />
+> <LuaDeclaration name="removePermission" className="Permission" args={[ { name: "permission", type: "apiTypes.Permissions" } ]} returnType="Permission" isMethod />
 
 Removes a specific permission from this permissions builder.
 
+<LuaParamTable params={[ { name: "permission", type: "apiTypes.Permissions" } ]} returns={[ { type: "Permission" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Permission" args={[ { name: "self", type: "Permission" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Permission" args={[  ]} returnType="JSON" isMethod />
 
 Returns the bitflag representation of the permission.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -71,10 +86,14 @@ Returns the bitflag representation of the permission.
 
 Responsible for creating a new Permission.
 
+<LuaParamTable params={[ { name: "resource", type: "{ bitflag: (string | number)?, }?" } ]} returns={[ { type: "Permission" } ]} />
+
 ### fromPermissions
 
 > <LuaDeclaration name="fromPermissions" className="Permission" args={[ { name: "permissions", type: "{ apiTypes.Permissions }" } ]} returnType="Permission" />
 
 Enables you to create a permission builder from a list of permissions.
+
+<LuaParamTable params={[ { name: "permissions", type: "{ apiTypes.Permissions }" } ]} returns={[ { type: "Permission" } ]} />
 
 

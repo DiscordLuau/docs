@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Permissions in Luau
 
 https://discord.com/developers/docs/topics/permissions
+
+<LuaSummary className="Permission" properties={[ { name: "permission", type: "number" } ]} methods={[ { name: "hasPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ] }, { name: "toList", isMethod: true, args: [  ], returnType: "{ apiTypes.Permissions }" } ]} />
 
 ## Properties
 
@@ -25,18 +29,22 @@ https://discord.com/developers/docs/topics/permissions
 The permission bitfield representing the permissions granted.
 
 
-## Functions
+## Methods
 
 ### hasPermission
 
-> <LuaDeclaration name="hasPermission" className="Permission" args={[ { name: "self", type: "Permission" }, { name: "permission", type: "apiTypes.Permissions" } ]} />
+> <LuaDeclaration name="hasPermission" className="Permission" args={[ { name: "permission", type: "apiTypes.Permissions" } ]} isMethod />
 
 Responsible for querying what permission a discord permission bitflag has.
 
+<LuaParamTable params={[ { name: "permission", type: "apiTypes.Permissions" } ]} />
+
 ### toList
 
-> <LuaDeclaration name="toList" className="Permission" args={[ { name: "self", type: "Permission" } ]} returnType="{ apiTypes.Permissions }" />
+> <LuaDeclaration name="toList" className="Permission" args={[  ]} returnType="{ apiTypes.Permissions }" isMethod />
 
 Generates an array of permissions that are apart of this bitflag.
+
+<LuaParamTable returns={[ { type: "{ apiTypes.Permissions }" } ]} />
 
 

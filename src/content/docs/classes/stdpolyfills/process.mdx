@@ -10,8 +10,12 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
+
+<LuaSummary className="Process" functions={[ { name: "getPlatform", args: [  ], returnType: "OS" }, { name: "getArgs", args: [  ], returnType: "{ string }" }, { name: "getEnv", args: [  ], returnType: "{ [string]: string }" }, { name: "getCwd", args: [  ], returnType: "string" }, { name: "run", args: [ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ], returnType: "RunResult" } ]} />
 
 ## Functions
 
@@ -21,11 +25,15 @@ import LuaProperty from '$/components/LuaProperty.astro';
 
 Returns the current OS thats being used
 
+<LuaParamTable returns={[ { type: "OS" } ]} />
+
 ### getArgs
 
 > <LuaDeclaration name="getArgs" className="Process" args={[  ]} returnType="{ string }" />
 
 Returns the arguments passed into the current program
+
+<LuaParamTable returns={[ { type: "{ string }" } ]} />
 
 ### getEnv
 
@@ -33,11 +41,15 @@ Returns the arguments passed into the current program
 
 Returns the environment the current process is executing under
 
+<LuaParamTable returns={[ { type: "{ [string]: string }" } ]} />
+
 ### getCwd
 
 > <LuaDeclaration name="getCwd" className="Process" args={[  ]} returnType="string" />
 
 Returns the current working directory for this process
+
+<LuaParamTable returns={[ { type: "string" } ]} />
 
 ### run
 
@@ -45,5 +57,7 @@ Returns the current working directory for this process
 
 Runs a subprocess and returns the result. Only supported on Zune; calling from
 Lune will raise an error explaining the requirement.
+
+<LuaParamTable params={[ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ]} returns={[ { type: "RunResult" } ]} />
 
 

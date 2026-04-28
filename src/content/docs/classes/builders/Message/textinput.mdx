@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords TextInput object as a Luau builder.	
 
 https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
+
+<LuaSummary className="TextInput" properties={[ { name: "customId", type: "string?" }, { name: "style", type: "apiTypes.TextInputStyle?" }, { name: "label", type: "string?" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "required", type: "boolean?" }, { name: "value", type: "string?" }, { name: "placeholder", type: "string?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "TextInput" }, { name: "setStyle", isMethod: true, args: [ { name: "style", type: "apiTypes.TextInputStyle" } ], returnType: "TextInput" }, { name: "setLabel", isMethod: true, args: [ { name: "label", type: "string" } ], returnType: "TextInput" }, { name: "setMinLength", isMethod: true, args: [ { name: "minLength", type: "number" } ], returnType: "TextInput" }, { name: "setMaxLength", isMethod: true, args: [ { name: "maxLength", type: "number" } ], returnType: "TextInput" }, { name: "setIsRequired", isMethod: true, args: [ { name: "isRequired", type: "boolean" } ], returnType: "TextInput" }, { name: "setValue", isMethod: true, args: [ { name: "value", type: "string" } ], returnType: "TextInput" }, { name: "setPlaceholder", isMethod: true, args: [ { name: "placeholder", type: "string" } ], returnType: "TextInput" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, style: apiTypes.TextInputStyle?, label: string?, minLength: number?, maxLength: number?, required: boolean?, value: string?, placeholder: string?, }?" } ], returnType: "TextInput" } ]} />
 
 ## Properties
 
@@ -74,61 +78,82 @@ The pre-filled value for the text input field.
 The placeholder text that appears when no text is entered.
 
 
-## Functions
+## Methods
 
 ### setCustomId
 
-> <LuaDeclaration name="setCustomId" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "customId", type: "string" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setCustomId" className="TextInput" args={[ { name: "customId", type: "string" } ]} returnType="TextInput" isMethod />
 
 Sets the custom identifier for this text input component.
 
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setStyle
 
-> <LuaDeclaration name="setStyle" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "style", type: "apiTypes.TextInputStyle" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setStyle" className="TextInput" args={[ { name: "style", type: "apiTypes.TextInputStyle" } ]} returnType="TextInput" isMethod />
 
 Sets the style of the text input component.
 
+<LuaParamTable params={[ { name: "style", type: "apiTypes.TextInputStyle" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setLabel
 
-> <LuaDeclaration name="setLabel" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "label", type: "string" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setLabel" className="TextInput" args={[ { name: "label", type: "string" } ]} returnType="TextInput" isMethod />
 
 Sets the label text that appears above the text input field.
 
+<LuaParamTable params={[ { name: "label", type: "string" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setMinLength
 
-> <LuaDeclaration name="setMinLength" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "minLength", type: "number" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setMinLength" className="TextInput" args={[ { name: "minLength", type: "number" } ]} returnType="TextInput" isMethod />
 
 Sets the minimum length of text that can be entered.
 
+<LuaParamTable params={[ { name: "minLength", type: "number" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setMaxLength
 
-> <LuaDeclaration name="setMaxLength" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "maxLength", type: "number" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setMaxLength" className="TextInput" args={[ { name: "maxLength", type: "number" } ]} returnType="TextInput" isMethod />
 
 Sets the maximum length of text that can be entered.
 
+<LuaParamTable params={[ { name: "maxLength", type: "number" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setIsRequired
 
-> <LuaDeclaration name="setIsRequired" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "isRequired", type: "boolean" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setIsRequired" className="TextInput" args={[ { name: "isRequired", type: "boolean" } ]} returnType="TextInput" isMethod />
 
 Sets whether this text input field is required to be filled.
 
+<LuaParamTable params={[ { name: "isRequired", type: "boolean" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setValue
 
-> <LuaDeclaration name="setValue" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "value", type: "string" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setValue" className="TextInput" args={[ { name: "value", type: "string" } ]} returnType="TextInput" isMethod />
 
 Sets the pre-filled value for the text input field.
 
+<LuaParamTable params={[ { name: "value", type: "string" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### setPlaceholder
 
-> <LuaDeclaration name="setPlaceholder" className="TextInput" args={[ { name: "self", type: "TextInput" }, { name: "placeholder", type: "string" } ]} returnType="TextInput" />
+> <LuaDeclaration name="setPlaceholder" className="TextInput" args={[ { name: "placeholder", type: "string" } ]} returnType="TextInput" isMethod />
 
 Sets the placeholder text that appears when no text is entered.
 
+<LuaParamTable params={[ { name: "placeholder", type: "string" } ]} returns={[ { type: "TextInput" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="TextInput" args={[ { name: "self", type: "TextInput" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="TextInput" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the TextInput JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -143,5 +168,7 @@ local textInput = TextInput.new({
 	label = "Enter your name"
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ customId: string?, style: apiTypes.TextInputStyle?, label: string?, minLength: number?, maxLength: number?, required: boolean?, value: string?, placeholder: string?, }?" } ]} returns={[ { type: "TextInput" } ]} />
 
 

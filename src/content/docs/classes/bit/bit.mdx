@@ -10,9 +10,13 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 A Bit wrapper library that supports both 64-bit integers and 32-bit integers. 
 Primarily required in the calculation for snowflake IDs that the Discord API will give us.
+
+<LuaSummary className="Bit" functions={[ { name: "is32Bit", args: [ { name: "value", type: "number" } ], returnType: "boolean" }, { name: "bnot", args: [ { name: "value", type: "number" } ], returnType: "number" }, { name: "bor", args: [ { name: "value0", type: "number" }, { name: "value1", type: "number" } ], returnType: "number" }, { name: "band", args: [ { name: "value0", type: "number" }, { name: "value1", type: "number" } ], returnType: "number" }, { name: "shift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" }, { name: "lshift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" }, { name: "rshift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" } ]} />
 
 ## Functions
 
@@ -22,11 +26,15 @@ Primarily required in the calculation for snowflake IDs that the Discord API wil
 
 Returns true if the given value is a 32-bit integer.
 
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "boolean" } ]} />
+
 ### bnot
 
 > <LuaDeclaration name="bnot" className="Bit" args={[ { name: "value", type: "number" } ]} returnType="number" />
 
 Binary NOT operation for integers
+
+<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "number" } ]} />
 
 ### bor
 
@@ -34,11 +42,15 @@ Binary NOT operation for integers
 
 Binary OR operation for integers
 
+<LuaParamTable params={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returns={[ { type: "number" } ]} />
+
 ### band
 
 > <LuaDeclaration name="band" className="Bit" args={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returnType="number" />
 
 Binary AND operation for integers
+
+<LuaParamTable params={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returns={[ { type: "number" } ]} />
 
 ### shift
 
@@ -46,16 +58,22 @@ Binary AND operation for integers
 
 Binary SHIFT operation for integers
 
+<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
+
 ### lshift
 
 > <LuaDeclaration name="lshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
 
 Binary LEFT SHIFT operation for integers
 
+<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
+
 ### rshift
 
 > <LuaDeclaration name="rshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
 
 Binary RIGHT SHIFT operation for integers
+
+<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
 
 

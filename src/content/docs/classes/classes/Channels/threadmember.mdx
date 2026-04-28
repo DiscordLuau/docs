@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord ThreadMember class in Luau
 
 https://discord.com/developers/docs/resources/channel#thread-member-object
+
+<LuaSummary className="ThreadMember" properties={[ { name: "joinTimestamp", type: "DateTime" }, { name: "flags", type: "ThreadMemberBitflag" }, { name: "member", type: "Member?" }, { name: "id", type: "string?" }, { name: "userId", type: "string?" } ]} />
 
 ## Properties
 

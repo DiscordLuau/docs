@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords SelectMenu object as a Luau builder.	
 
 https://discord.com/developers/docs/interactions/message-components#SelectMenus
+
+<LuaSummary className="SelectMenu" properties={[ { name: "defaultValues", type: "{Builders.Message.SelectMenuDefaultValue}" }, { name: "options", type: "{Builders.Message.SelectMenuOption}" }, { name: "apiTypes", type: "{api_types.ChannelType}" } ]} methods={[ { name: "setType", isMethod: true, args: [ { name: "selectMenuType", type: "apiTypes.SelectMenuType" } ], returnType: "SelectMenu" }, { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "SelectMenu" }, { name: "setPlaceholder", isMethod: true, args: [ { name: "placeholder", type: "string" } ], returnType: "SelectMenu" }, { name: "setMinValues", isMethod: true, args: [ { name: "minValueCount", type: "number" } ], returnType: "SelectMenu" }, { name: "setMaxValues", isMethod: true, args: [ { name: "maxValueCount", type: "number" } ], returnType: "SelectMenu" }, { name: "setDisabled", isMethod: true, args: [ { name: "disabled", type: "boolean" } ], returnType: "SelectMenu" }, { name: "addDefaultValue", isMethod: true, args: [ { name: "defaultValue", type: "defaultValue.JSON" } ], returnType: "SelectMenu" }, { name: "addChannelType", isMethod: true, args: [ { name: "channelType", type: "apiTypes.ChannelType" } ], returnType: "SelectMenu" }, { name: "addOption", isMethod: true, args: [ { name: "option", type: "option.JSON" } ], returnType: "SelectMenu" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ type: apiTypes.SelectMenuType?, customId: string?, options: { option.JSON }, apiTypes: { apiTypes.ChannelType }, placeholder: string?, defaultValues: { defaultValue.JSON }, minValues: number?, maxValues: number?, disabled: boolean?, }?" } ], returnType: "SelectMenu" } ]} />
 
 ## Properties
 
@@ -39,72 +43,97 @@ Array of select menu options
 Array of channel types that can be selected
 
 
-## Functions
+## Methods
 
 ### setType
 
-> <LuaDeclaration name="setType" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "selectMenuType", type: "apiTypes.SelectMenuType" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setType" className="SelectMenu" args={[ { name: "selectMenuType", type: "apiTypes.SelectMenuType" } ]} returnType="SelectMenu" isMethod />
 
 Sets the type of select menu component to be created.
 
+<LuaParamTable params={[ { name: "selectMenuType", type: "apiTypes.SelectMenuType" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### setCustomId
 
-> <LuaDeclaration name="setCustomId" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "customId", type: "string" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setCustomId" className="SelectMenu" args={[ { name: "customId", type: "string" } ]} returnType="SelectMenu" isMethod />
 
 Sets a developer-defined identifier for the select menu.
 
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### setPlaceholder
 
-> <LuaDeclaration name="setPlaceholder" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "placeholder", type: "string" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setPlaceholder" className="SelectMenu" args={[ { name: "placeholder", type: "string" } ]} returnType="SelectMenu" isMethod />
 
 Sets custom placeholder text shown when no option is selected.
 
+<LuaParamTable params={[ { name: "placeholder", type: "string" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### setMinValues
 
-> <LuaDeclaration name="setMinValues" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "minValueCount", type: "number" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setMinValues" className="SelectMenu" args={[ { name: "minValueCount", type: "number" } ]} returnType="SelectMenu" isMethod />
 
 Sets the minimum number of items that must be selected.
 
+<LuaParamTable params={[ { name: "minValueCount", type: "number" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### setMaxValues
 
-> <LuaDeclaration name="setMaxValues" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "maxValueCount", type: "number" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setMaxValues" className="SelectMenu" args={[ { name: "maxValueCount", type: "number" } ]} returnType="SelectMenu" isMethod />
 
 Sets the maximum number of items that can be selected.
 
+<LuaParamTable params={[ { name: "maxValueCount", type: "number" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### setDisabled
 
-> <LuaDeclaration name="setDisabled" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "disabled", type: "boolean" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="setDisabled" className="SelectMenu" args={[ { name: "disabled", type: "boolean" } ]} returnType="SelectMenu" isMethod />
 
 Sets whether the select menu is disabled or not.
 
+<LuaParamTable params={[ { name: "disabled", type: "boolean" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### addDefaultValue
 
-> <LuaDeclaration name="addDefaultValue" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "defaultValue", type: "defaultValue.JSON" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="addDefaultValue" className="SelectMenu" args={[ { name: "defaultValue", type: "defaultValue.JSON" } ]} returnType="SelectMenu" isMethod />
 
 Adds a default value to the select menu.
 
+<LuaParamTable params={[ { name: "defaultValue", type: "defaultValue.JSON" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### addChannelType
 
-> <LuaDeclaration name="addChannelType" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="addChannelType" className="SelectMenu" args={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="SelectMenu" isMethod />
 
 Adds a channel type that can be selected in the menu.
 
+<LuaParamTable params={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### addOption
 
-> <LuaDeclaration name="addOption" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" }, { name: "option", type: "option.JSON" } ]} returnType="SelectMenu" />
+> <LuaDeclaration name="addOption" className="SelectMenu" args={[ { name: "option", type: "option.JSON" } ]} returnType="SelectMenu" isMethod />
 
 Adds an option to the select menu.
 
+<LuaParamTable params={[ { name: "option", type: "option.JSON" } ]} returns={[ { type: "SelectMenu" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="SelectMenu" args={[ { name: "self", type: "SelectMenu" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="SelectMenu" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the SelectMenu JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="SelectMenu" args={[ { name: "resource", type: "{ type: apiTypes.SelectMenuType?, customId: string?, options: { option.JSON }, apiTypes: { apiTypes.ChannelType }, placeholder: string?, defaultValues: { defaultValue.JSON }, minValues: number?, maxValues: number?, disabled: boolean?, }?" } ]} returnType="SelectMenu" />
 
 Responsible for creating a new SelectMenu.
+
+<LuaParamTable params={[ { name: "resource", type: "{ type: apiTypes.SelectMenuType?, customId: string?, options: { option.JSON }, apiTypes: { apiTypes.ChannelType }, placeholder: string?, defaultValues: { defaultValue.JSON }, minValues: number?, maxValues: number?, disabled: boolean?, }?" } ]} returns={[ { type: "SelectMenu" } ]} />
 
 

@@ -10,24 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "thread" }, { name: "Utilities.createGuild", args: [  ], returnType: "string" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "thread" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
+
 ## Functions
-
-### Utilities.coroutineRun
-
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
-
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
-
-Will return the thread spawned.
-
-### Utilities.createGuild
-
-> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
-
-Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
 
 ### Utilities.tableReflect
 
@@ -54,6 +44,16 @@ a = {
 ]]
 ```
 
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+### Utilities.createGuild
+
+> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
+
+Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
 ### Utilities.validateKebabCase
 
 > <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="thread" />
@@ -62,5 +62,17 @@ Will validate a string to ensure that it's kebab-case, discord is sometimes very
 text.
 
 Will return either true/false, will not error.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
 
 

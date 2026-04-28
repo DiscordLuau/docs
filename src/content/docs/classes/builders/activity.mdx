@@ -10,12 +10,16 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of Discord Activity as a Luau builder.
 
 https://discord.com/developers/docs/events/gateway-events#activity-object
 
 Note: Only YouTube and Twitch URLs are allowed for streaming.
+
+<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "activityType", type: "api_types.ActivityType" }, { name: "streamingURL", type: "string?" } ]} methods={[ { name: "setActivityName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Activity" }, { name: "setActivityType", isMethod: true, args: [ { name: "activityType", type: "apiTypes.ActivityType" } ], returnType: "Activity" }, { name: "setStreamingURL", isMethod: true, args: [ { name: "streamURL", type: "string" } ], returnType: "Activity" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ], returnType: "Activity" } ]} />
 
 ## Properties
 
@@ -41,31 +45,42 @@ The type of activity being performed.
 The URL of the stream, only YouTube and Twitch URLs are supported.
 
 
-## Functions
+## Methods
 
 ### setActivityName
 
-> <LuaDeclaration name="setActivityName" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "name", type: "string" } ]} returnType="Activity" />
+> <LuaDeclaration name="setActivityName" className="Activity" args={[ { name: "name", type: "string" } ]} returnType="Activity" isMethod />
 
 Sets the name of the activity.
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Activity" } ]} />
+
 ### setActivityType
 
-> <LuaDeclaration name="setActivityType" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "activityType", type: "apiTypes.ActivityType" } ]} returnType="Activity" />
+> <LuaDeclaration name="setActivityType" className="Activity" args={[ { name: "activityType", type: "apiTypes.ActivityType" } ]} returnType="Activity" isMethod />
 
 Sets the type of the activity.
 
+<LuaParamTable params={[ { name: "activityType", type: "apiTypes.ActivityType" } ]} returns={[ { type: "Activity" } ]} />
+
 ### setStreamingURL
 
-> <LuaDeclaration name="setStreamingURL" className="Activity" args={[ { name: "self", type: "Activity" }, { name: "streamURL", type: "string" } ]} returnType="Activity" />
+> <LuaDeclaration name="setStreamingURL" className="Activity" args={[ { name: "streamURL", type: "string" } ]} returnType="Activity" isMethod />
 
 Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed.
 
+<LuaParamTable params={[ { name: "streamURL", type: "string" } ]} returns={[ { type: "Activity" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Activity" args={[ { name: "self", type: "Activity" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Activity" args={[  ]} returnType="JSON" isMethod />
 
 Builds the activity JSON payload that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -80,5 +95,7 @@ local activity = Activity.new({
 	streamingURL = "https://twitch.tv/example"
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ]} returns={[ { type: "Activity" } ]} />
 
 

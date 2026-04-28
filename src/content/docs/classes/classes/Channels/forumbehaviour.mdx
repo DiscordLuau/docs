@@ -10,9 +10,13 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Forum Behaviour class in Luau. Responsible for implementing the various properties, 
 and methods for a forum thread channel.
+
+<LuaSummary className="ForumBehaviour" properties={[ { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultSortOrder", type: "apiTypes.ForumSortOrder" }, { name: "defaultForumLayout", type: "apiTypes.ForumLayout" } ]} />
 
 ## Properties
 

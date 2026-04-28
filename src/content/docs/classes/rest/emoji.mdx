@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/emoji#emoji-resource
+
+<LuaSummary className="Emoji" functions={[ { name: "listGuildEmojisAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ] }, { name: "getGuildEmojiAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" } ] }, { name: "createGuildEmojiAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ] }, { name: "modifyGuildEmojiAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ] }, { name: "deleteGuildEmojiAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteGuildEmojiResponse>" } ]} />
 
 ## Functions
 
@@ -23,11 +27,15 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/resources/emoji#list-guild-emojis
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} />
+
 ### getGuildEmojiAsync
 
 > <LuaDeclaration name="getGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" } ]} />
 
 https://discord.com/developers/docs/resources/emoji#get-guild-emoji
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" } ]} />
 
 ### createGuildEmojiAsync
 
@@ -35,16 +43,22 @@ https://discord.com/developers/docs/resources/emoji#get-guild-emoji
 
 https://discord.com/developers/docs/resources/emoji#create-guild-emoji
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ]} />
+
 ### modifyGuildEmojiAsync
 
 > <LuaDeclaration name="modifyGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ]} />
 
 https://discord.com/developers/docs/resources/emoji#modify-guild-emoji
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildEmojiRequest" }, { name: "auditLogReason", type: "string?" } ]} />
+
 ### deleteGuildEmojiAsync
 
 > <LuaDeclaration name="deleteGuildEmojiAsync" className="Emoji" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildEmojiResponse>" />
 
 https://discord.com/developers/docs/resources/emoji#delete-guild-emoji
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "emojId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteGuildEmojiResponse>" } ]} />
 
 

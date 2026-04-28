@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords WidgetSettings object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/guild#guild-widget-settings-object
+
+<LuaSummary className="WidgetSettings" properties={[ { name: "enabled", type: "boolean?" }, { name: "channelId", type: "string?" } ]} methods={[ { name: "setEnabled", isMethod: true, args: [ { name: "enabled", type: "boolean" } ], returnType: "WidgetSettings" }, { name: "setChannelId", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "WidgetSettings" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ enabled: boolean?, channelId: string?, }?" } ], returnType: "WidgetSettings" } ]} />
 
 ## Properties
 
@@ -32,25 +36,34 @@ Whether the widget is enabled for the guild.
 The channel id that the widget will generate an invite to.
 
 
-## Functions
+## Methods
 
 ### setEnabled
 
-> <LuaDeclaration name="setEnabled" className="WidgetSettings" args={[ { name: "self", type: "WidgetSettings" }, { name: "enabled", type: "boolean" } ]} returnType="WidgetSettings" />
+> <LuaDeclaration name="setEnabled" className="WidgetSettings" args={[ { name: "enabled", type: "boolean" } ]} returnType="WidgetSettings" isMethod />
 
 Set whether the widget is enabled
 
+<LuaParamTable params={[ { name: "enabled", type: "boolean" } ]} returns={[ { type: "WidgetSettings" } ]} />
+
 ### setChannelId
 
-> <LuaDeclaration name="setChannelId" className="WidgetSettings" args={[ { name: "self", type: "WidgetSettings" }, { name: "channelId", type: "string" } ]} returnType="WidgetSettings" />
+> <LuaDeclaration name="setChannelId" className="WidgetSettings" args={[ { name: "channelId", type: "string" } ]} returnType="WidgetSettings" isMethod />
 
 Set the widget channel id
 
+<LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "WidgetSettings" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="WidgetSettings" args={[ { name: "self", type: "WidgetSettings" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="WidgetSettings" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the WidgetSettingsObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -64,5 +77,7 @@ local settings = WidgetSettings.new({
 	channelId = "123456789"
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ enabled: boolean?, channelId: string?, }?" } ]} returns={[ { type: "WidgetSettings" } ]} />
 
 

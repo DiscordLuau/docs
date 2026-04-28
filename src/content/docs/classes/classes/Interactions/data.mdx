@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Data class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data
+
+<LuaSummary className="Data" properties={[ { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "options", type: "{ Classes.Interactions.DataOption }" }, { name: "resolved", type: "Classes.Resolved?" }, { name: "guildId", type: "string?" }, { name: "targetId", type: "string?" }, { name: "customId", type: "string?" }, { name: "componentType", type: "string?" }, { name: "components", type: "{ Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow }?" } ]} />
 
 ## Properties
 

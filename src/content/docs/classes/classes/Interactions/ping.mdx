@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Ping Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
+
+<LuaSummary className="Ping" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" } ]} methods={[ { name: "pongAsync", isMethod: true, args: [  ] } ]} />
 
 ## Properties
 
@@ -188,11 +192,11 @@ The mapping of integration types to their respective owners.
 > Inherited from [Classes.Interactions.InteractionBehaviour](Classes.Interactions.InteractionBehaviour)
 
 
-## Functions
+## Methods
 
 ### pongAsync
 
-> <LuaDeclaration name="pongAsync" className="Ping" args={[ { name: "self", type: "Ping" } ]} />
+> <LuaDeclaration name="pongAsync" className="Ping" args={[  ]} isMethod />
 
 Acknowledge an interaction ping
 

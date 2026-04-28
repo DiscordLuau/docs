@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Author object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-author-structure
+
+<LuaSummary className="Author" properties={[ { name: "name", type: "string?" }, { name: "url", type: "string?" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Author" }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "Author" }, { name: "setIcon", isMethod: true, args: [ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ], returnType: "Author" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, url: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ], returnType: "Author" } ]} />
 
 ## Properties
 
@@ -46,36 +50,49 @@ The url of author's icon image.
 A proxied url of author's icon image.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Author" args={[ { name: "self", type: "Author" }, { name: "name", type: "string" } ]} returnType="Author" />
+> <LuaDeclaration name="setName" className="Author" args={[ { name: "name", type: "string" } ]} returnType="Author" isMethod />
 
 Set the image url for this embed.
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Author" } ]} />
+
 ### setUrl
 
-> <LuaDeclaration name="setUrl" className="Author" args={[ { name: "self", type: "Author" }, { name: "url", type: "string" } ]} returnType="Author" />
+> <LuaDeclaration name="setUrl" className="Author" args={[ { name: "url", type: "string" } ]} returnType="Author" isMethod />
 
 Set the image height for this embed.
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "Author" } ]} />
 
 ### setIcon
 
-> <LuaDeclaration name="setIcon" className="Author" args={[ { name: "self", type: "Author" }, { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returnType="Author" />
+> <LuaDeclaration name="setIcon" className="Author" args={[ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returnType="Author" isMethod />
 
 Set the image height for this embed.
 
+<LuaParamTable params={[ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returns={[ { type: "Author" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Author" args={[ { name: "self", type: "Author" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Author" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Author JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Author" args={[ { name: "resource", type: "{ name: string?, url: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ]} returnType="Author" />
 
 Responsible for creating a new Author.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, url: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ]} returns={[ { type: "Author" } ]} />
 
 

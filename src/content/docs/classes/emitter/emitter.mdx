@@ -10,42 +10,59 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 An emitter that can be used to emit events, this class will be used to push updates from the Discord Websockets
 	out to the Consumers of this library.
 
-## Functions
+<LuaSummary className="Emitter" methods={[ { name: "listen", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "listenOnce", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "wait", isMethod: true, args: [  ], returnType: "T..." }, { name: "invoke", isMethod: true, args: [ { name: "...", type: "any" } ] } ]} functions={[ { name: "new", args: [  ], returnType: "Emitter<T...>" } ]} />
+
+## Methods
 
 ### listen
 
-> <LuaDeclaration name="listen" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" />
+> <LuaDeclaration name="listen" className="Emitter" args={[ { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" isMethod />
 
 Listen to this event, returns a function that can be called to disconnect the listener
 
+<LuaParamTable params={[ { name: "callback", type: "(T...) -> ()" } ]} returns={[ { type: "() -> ()" } ]} />
+
 ### listenOnce
 
-> <LuaDeclaration name="listenOnce" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" />
+> <LuaDeclaration name="listenOnce" className="Emitter" args={[ { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" isMethod />
 
 Listen to this event once, this will automatically disconnect after the first invocation
 
+<LuaParamTable params={[ { name: "callback", type: "(T...) -> ()" } ]} returns={[ { type: "() -> ()" } ]} />
+
 ### wait
 
-> <LuaDeclaration name="wait" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" } ]} returnType="T..." />
+> <LuaDeclaration name="wait" className="Emitter" args={[  ]} returnType="T..." isMethod />
 
 Wait for this event to be emitted from, returns the result of the emittion
 
+<LuaParamTable returns={[ { type: "T..." } ]} />
+
 ### invoke
 
-> <LuaDeclaration name="invoke" className="Emitter" args={[ { name: "self", type: "Emitter<T...>" }, { name: "...", type: "any" } ]} />
+> <LuaDeclaration name="invoke" className="Emitter" args={[ { name: "...", type: "any" } ]} isMethod />
 
 Responsible for invoking all the threads that are listening to this emitter.
 
 This will additionally resume all the threads that are currently waiting for an event to be emitted.
+
+<LuaParamTable params={[ { name: "...", type: "any" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Emitter" args={[  ]} returnType="Emitter<T...>" />
 
 Constructor for the Emitter object, will return a new instance of the Emitter object.
+
+<LuaParamTable returns={[ { type: "Emitter<T...>" } ]} />
 
 

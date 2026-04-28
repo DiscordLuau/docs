@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Message class in Luau
 
 https://discord.com/developers/docs/resources/message#message-object
+
+<LuaSummary className="Message" properties={[ { name: "id", type: "string" }, { name: "channelId", type: "string" }, { name: "author", type: "Classes.User" }, { name: "content", type: "string" }, { name: "timestamp", type: "DateTime" }, { name: "tts", type: "boolean" }, { name: "mentionEveryone", type: "boolean" }, { name: "mentionChannels", type: "{ Classes.Channels.ChannelMention }" }, { name: "mentionRoles", type: "{ Classes.Guild.Role }" }, { name: "mentionChannels", type: "{ Classes.Channels.ChannelMention }" }, { name: "attachments", type: "{ Classes.Attachment }" }, { name: "embeds", type: "{ Classes.Embed }" }, { name: "reactions", type: "{ Classes.Reaction }" }, { name: "nonce", type: "string" }, { name: "pinned", type: "boolean" }, { name: "webhookId", type: "string" }, { name: "activity", type: "Classes.Activity" }, { name: "application", type: "Classes.Application" }, { name: "applicationId", type: "string" }, { name: "flags", type: "Classes.MessageBitflag" }, { name: "messageReference", type: "Classes.Message.Reference" }, { name: "referencedMessage", type: "Classes.Message" }, { name: "interactionMetadata", type: "Classes.Message.InteractionMetadata" }, { name: "interaction", type: "Classes.Interaction" }, { name: "components", type: "{ Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow | Classes.Message.Button }" }, { name: "stickerItems", type: "{ Classes.Message.StickerItem }" }, { name: "position", type: "number" }, { name: "roleSubscriptionData", type: "Classes.Message.RoleSubscriptionData" }, { name: "poll", type: "Classes.Message.Poll" }, { name: "call", type: "Classes.Message.Call" }, { name: "resolved", type: "table" }, { name: "state", type: "State" } ]} methods={[ { name: "startThreadAsync", isMethod: true, args: [ { name: "threadName", type: "string" }, { name: "autoArchiveDuration", type: "number" }, { name: "rateLimitPerUser", type: "number?" } ] }, { name: "addReactionAsync", isMethod: true, args: [ { name: "emoji", type: "builders.emojiJSON | string" } ] }, { name: "removeOwnReactionAsync", isMethod: true, args: [ { name: "emoji", type: "builders.emojiJSON | string" } ] }, { name: "deleteUserReactionAsync", isMethod: true, args: [ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "userId", type: "apiTypes.Snowflake" } ] }, { name: "getReactionsAsync", isMethod: true, args: [ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "reactionType", type: "apiTypes.ReactionType?" }, { name: "afterUserId", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "deleteAllReactionsAsync", isMethod: true, args: [  ] }, { name: "deleteAllReactionsForEmojiAsync", isMethod: true, args: [ { name: "emoji", type: "builders.emojiJSON | string" } ] }, { name: "editAsync", isMethod: true, args: [ { name: "message", type: "builders.messageJSON" } ] }, { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "replyAsync", isMethod: true, args: [ { name: "message", type: "builders.messageJSON" } ] }, { name: "pinAsync", isMethod: true, args: [  ] }, { name: "unpinAsync", isMethod: true, args: [  ] } ]} />
 
 ## Properties
 
@@ -242,78 +246,96 @@ Resolved objects from the interaction data.
 The state object for this message.
 
 
-## Functions
+## Methods
 
 ### startThreadAsync
 
-> <LuaDeclaration name="startThreadAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "threadName", type: "string" }, { name: "autoArchiveDuration", type: "number" }, { name: "rateLimitPerUser", type: "number?" } ]} />
+> <LuaDeclaration name="startThreadAsync" className="Message" args={[ { name: "threadName", type: "string" }, { name: "autoArchiveDuration", type: "number" }, { name: "rateLimitPerUser", type: "number?" } ]} isMethod />
 
 Creates a new thread from an existing message.
 
+<LuaParamTable params={[ { name: "threadName", type: "string" }, { name: "autoArchiveDuration", type: "number" }, { name: "rateLimitPerUser", type: "number?" } ]} />
+
 ### addReactionAsync
 
-> <LuaDeclaration name="addReactionAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+> <LuaDeclaration name="addReactionAsync" className="Message" args={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} isMethod />
 
 Add a reaction to a message. Requires READ_MESSAGE_HISTORY and ADD_REACTIONS permissions.
 
+<LuaParamTable params={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+
 ### removeOwnReactionAsync
 
-> <LuaDeclaration name="removeOwnReactionAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+> <LuaDeclaration name="removeOwnReactionAsync" className="Message" args={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} isMethod />
 
 Remove the current user's reaction from a message
 
+<LuaParamTable params={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+
 ### deleteUserReactionAsync
 
-> <LuaDeclaration name="deleteUserReactionAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "emoji", type: "builders.emojiJSON | string" }, { name: "userId", type: "apiTypes.Snowflake" } ]} />
+> <LuaDeclaration name="deleteUserReactionAsync" className="Message" args={[ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "userId", type: "apiTypes.Snowflake" } ]} isMethod />
 
 Remove another user's reaction from a message. Requires MANAGE_MESSAGES permission.
 
+<LuaParamTable params={[ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "userId", type: "apiTypes.Snowflake" } ]} />
+
 ### getReactionsAsync
 
-> <LuaDeclaration name="getReactionsAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "emoji", type: "builders.emojiJSON | string" }, { name: "reactionType", type: "apiTypes.ReactionType?" }, { name: "afterUserId", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+> <LuaDeclaration name="getReactionsAsync" className="Message" args={[ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "reactionType", type: "apiTypes.ReactionType?" }, { name: "afterUserId", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
 
 Get a list of users that reacted with a specific emoji
 
+<LuaParamTable params={[ { name: "emoji", type: "builders.emojiJSON | string" }, { name: "reactionType", type: "apiTypes.ReactionType?" }, { name: "afterUserId", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
 ### deleteAllReactionsAsync
 
-> <LuaDeclaration name="deleteAllReactionsAsync" className="Message" args={[ { name: "self", type: "Message" } ]} />
+> <LuaDeclaration name="deleteAllReactionsAsync" className="Message" args={[  ]} isMethod />
 
 Remove all reactions from a message. Requires MANAGE_MESSAGES permission.
 
 ### deleteAllReactionsForEmojiAsync
 
-> <LuaDeclaration name="deleteAllReactionsForEmojiAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+> <LuaDeclaration name="deleteAllReactionsForEmojiAsync" className="Message" args={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} isMethod />
 
 Remove all reactions of a specific emoji from a message. Requires MANAGE_MESSAGES permission.
 
+<LuaParamTable params={[ { name: "emoji", type: "builders.emojiJSON | string" } ]} />
+
 ### editAsync
 
-> <LuaDeclaration name="editAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "message", type: "builders.messageJSON" } ]} />
+> <LuaDeclaration name="editAsync" className="Message" args={[ { name: "message", type: "builders.messageJSON" } ]} isMethod />
 
 Edit a message. The current user must be the author of the message.
 
+<LuaParamTable params={[ { name: "message", type: "builders.messageJSON" } ]} />
+
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="deleteAsync" className="Message" args={[ { name: "reason", type: "string?" } ]} isMethod />
 
 Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user,
 this endpoint requires the MANAGE_MESSAGES permission.
 
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+
 ### replyAsync
 
-> <LuaDeclaration name="replyAsync" className="Message" args={[ { name: "self", type: "Message" }, { name: "message", type: "builders.messageJSON" } ]} />
+> <LuaDeclaration name="replyAsync" className="Message" args={[ { name: "message", type: "builders.messageJSON" } ]} isMethod />
 
 Reply to a message by creating a new message that references this one.
 
+<LuaParamTable params={[ { name: "message", type: "builders.messageJSON" } ]} />
+
 ### pinAsync
 
-> <LuaDeclaration name="pinAsync" className="Message" args={[ { name: "self", type: "Message" } ]} />
+> <LuaDeclaration name="pinAsync" className="Message" args={[  ]} isMethod />
 
 Pin this message to the channel. Requires MANAGE_MESSAGES permission.
 
 ### unpinAsync
 
-> <LuaDeclaration name="unpinAsync" className="Message" args={[ { name: "self", type: "Message" } ]} />
+> <LuaDeclaration name="unpinAsync" className="Message" args={[  ]} isMethod />
 
 Unpin this message from the channel. Requires MANAGE_MESSAGES permission.
 

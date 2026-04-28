@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of a Discord Presence as a Luau builder.
 
 https://discord.com/developers/docs/events/gateway-events#update-presence
+
+<LuaSummary className="Presence" properties={[ { name: "activities", type: "{ Classes.Activity }" }, { name: "since", type: "number?" }, { name: "afk", type: "boolean?" }, { name: "status", type: "string?" } ]} />
 
 ## Properties
 

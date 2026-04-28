@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Option class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-onboarding-object-option-option-structure
+
+<LuaSummary className="OnboardingOption" properties={[ { name: "id", type: "string?" }, { name: "channelIds", type: "{string}" }, { name: "roleIds", type: "{string}" }, { name: "emoji", type: "Classes.Emoji?" }, { name: "title", type: "string?" }, { name: "description", type: "string?" } ]} />
 
 ## Properties
 

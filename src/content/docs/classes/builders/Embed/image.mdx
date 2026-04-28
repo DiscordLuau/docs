@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Image object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-image-structure
+
+<LuaSummary className="Image" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} methods={[ { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ], returnType: "Image" }, { name: "setHeight", isMethod: true, args: [ { name: "height", type: "number" } ], returnType: "Image" }, { name: "setWidth", isMethod: true, args: [ { name: "width", type: "number" } ], returnType: "Image" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ], returnType: "Image" } ]} />
 
 ## Properties
 
@@ -46,31 +50,42 @@ Height of image
 Width of image
 
 
-## Functions
+## Methods
 
 ### setUrl
 
-> <LuaDeclaration name="setUrl" className="Image" args={[ { name: "self", type: "Image" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returnType="Image" />
+> <LuaDeclaration name="setUrl" className="Image" args={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returnType="Image" isMethod />
 
 Set the image url for this embed.
 
+<LuaParamTable params={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returns={[ { type: "Image" } ]} />
+
 ### setHeight
 
-> <LuaDeclaration name="setHeight" className="Image" args={[ { name: "self", type: "Image" }, { name: "height", type: "number" } ]} returnType="Image" />
+> <LuaDeclaration name="setHeight" className="Image" args={[ { name: "height", type: "number" } ]} returnType="Image" isMethod />
 
 Set the image height for this embed.
 
+<LuaParamTable params={[ { name: "height", type: "number" } ]} returns={[ { type: "Image" } ]} />
+
 ### setWidth
 
-> <LuaDeclaration name="setWidth" className="Image" args={[ { name: "self", type: "Image" }, { name: "width", type: "number" } ]} returnType="Image" />
+> <LuaDeclaration name="setWidth" className="Image" args={[ { name: "width", type: "number" } ]} returnType="Image" isMethod />
 
 Set the image width for this embed.
 
+<LuaParamTable params={[ { name: "width", type: "number" } ]} returns={[ { type: "Image" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Image" args={[ { name: "self", type: "Image" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Image" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -85,5 +100,7 @@ local image = Image.new({
 	width = 100
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ]} returns={[ { type: "Image" } ]} />
 
 

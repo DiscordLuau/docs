@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Sticker class in Luau
 
 https://discord.com/developers/docs/resources/sticker#sticker-object
+
+<LuaSummary className="Sticker" properties={[ { name: "id", type: "string" }, { name: "packId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "tags", type: "string?" }, { name: "type", type: "apiTypes.StickerType" }, { name: "formatType", type: "apiTypes.StickerFormatType" }, { name: "available", type: "boolean?" }, { name: "guildId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "sortValue", type: "number?" } ]} />
 
 ## Properties
 

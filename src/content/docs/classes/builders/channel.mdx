@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of a discord Channel as a luau builder.	
 
 https://discord.com/developers/docs/resources/guild#create-guild-channel
+
+<LuaSummary className="Channel" properties={[ { name: "permissionOverwrites", type: "{ Builders.OverwriteObject }" }, { name: "id", type: "string?" }, { name: "name", type: "string?" }, { name: "type", type: "apiTypes.ChannelType" }, { name: "position", type: "number?" }, { name: "icon", type: "string?" }, { name: "flags", type: "number?" }, { name: "topic", type: "string?" }, { name: "rateLimitPerUser", type: "number?" }, { name: "parentId", type: "string?" }, { name: "nsfw", type: "boolean?" }, { name: "defaultAutoArchiveDuration", type: "number?" }, { name: "defaultThreadRateLimitPerUser", type: "number?" }, { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject?" }, { name: "availableTags", type: "{ apiTypes.ForumTagObject }?" }, { name: "defaultSortOrder", type: "apiTypes.ForumSortOrder?" }, { name: "defaultForumLayout", type: "apiTypes.ForumLayout?" }, { name: "videoQualityMode", type: "apiTypes.VideoQualityMode?" }, { name: "rtcRegion", type: "string?" }, { name: "userLimit", type: "number?" }, { name: "bitrate", type: "number?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "tagName", type: "string" } ], returnType: "Channel" }, { name: "setType", isMethod: true, args: [ { name: "channelType", type: "apiTypes.ChannelType" } ], returnType: "Channel" }, { name: "setPosition", isMethod: true, args: [ { name: "channelPosition", type: "number" } ], returnType: "Channel" }, { name: "setOverwrites", isMethod: true, args: [ { name: "overwriteObjects", type: "{ apiTypes.OverwriteObject }" } ], returnType: "Channel" }, { name: "setTopic", isMethod: true, args: [ { name: "channelTopic", type: "string" } ], returnType: "Channel" }, { name: "setBitrate", isMethod: true, args: [ { name: "bitrate", type: "number" } ], returnType: "Channel" }, { name: "setUserLimit", isMethod: true, args: [ { name: "userLimit", type: "number?" } ], returnType: "Channel" }, { name: "setRateLimitPerUser", isMethod: true, args: [ { name: "rateLimitPerUser", type: "number?" } ], returnType: "Channel" }, { name: "setParentId", isMethod: true, args: [ { name: "parentId", type: "apiTypes.Snowflake?" } ], returnType: "Channel" }, { name: "setNSFW", isMethod: true, args: [ { name: "isNSFW", type: "boolean" } ], returnType: "Channel" }, { name: "setVoiceRegion", isMethod: true, args: [ { name: "voiceRegionId", type: "string" } ], returnType: "Channel" }, { name: "setVideoQualityMode", isMethod: true, args: [ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" } ], returnType: "Channel" }, { name: "setDefaultAutoArchiveDuration", isMethod: true, args: [ { name: "autoArchiveDuration", type: "number" } ], returnType: "Channel" }, { name: "setDefaultReactionEmoji", isMethod: true, args: [ { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject" } ], returnType: "Channel" }, { name: "setForumTags", isMethod: true, args: [ { name: "forumTags", type: "{ apiTypes.ForumTagObject }" } ], returnType: "Channel" }, { name: "setDefaultSortOrder", isMethod: true, args: [ { name: "sortOrder", type: "apiTypes.ForumSortOrder" } ], returnType: "Channel" }, { name: "setDefaultForumLayout", isMethod: true, args: [ { name: "forumLayout", type: "apiTypes.ForumLayout" } ], returnType: "Channel" }, { name: "setDefaultThreadRateLimitPerUser", isMethod: true, args: [ { name: "threadRateLimitPerUser", type: "number" } ], returnType: "Channel" }, { name: "setFlags", isMethod: true, args: [ { name: "bitflags", type: "number" } ], returnType: "Channel" }, { name: "setIcon", isMethod: true, args: [ { name: "iconData", type: "string" } ], returnType: "Channel" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ channelName: string?, channelType: apiTypes.ChannelType?, channelPosition: number?, channelPermissionOverwrites: { apiTypes.OverwriteObject }?, }?" } ], returnType: "Channel" } ]} />
 
 ## Properties
 
@@ -165,144 +169,191 @@ Maximum number of users allowed in the voice channel.
 Bitrate of the voice channel in bits.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "tagName", type: "string" } ]} returnType="Channel" />
+> <LuaDeclaration name="setName" className="Channel" args={[ { name: "tagName", type: "string" } ]} returnType="Channel" isMethod />
 
 Set the name of this Channel
 
+<LuaParamTable params={[ { name: "tagName", type: "string" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setType
 
-> <LuaDeclaration name="setType" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Channel" />
+> <LuaDeclaration name="setType" className="Channel" args={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returnType="Channel" isMethod />
 
 Set the Type of channel this is.
 
+<LuaParamTable params={[ { name: "channelType", type: "apiTypes.ChannelType" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setPosition
 
-> <LuaDeclaration name="setPosition" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelPosition", type: "number" } ]} returnType="Channel" />
+> <LuaDeclaration name="setPosition" className="Channel" args={[ { name: "channelPosition", type: "number" } ]} returnType="Channel" isMethod />
 
 Sets the position of the channel in the discord channels list. Channels with the same position are sorted by id.
 
+<LuaParamTable params={[ { name: "channelPosition", type: "number" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setOverwrites
 
-> <LuaDeclaration name="setOverwrites" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "overwriteObjects", type: "{ apiTypes.OverwriteObject }" } ]} returnType="Channel" />
+> <LuaDeclaration name="setOverwrites" className="Channel" args={[ { name: "overwriteObjects", type: "{ apiTypes.OverwriteObject }" } ]} returnType="Channel" isMethod />
 
 Adds an overwrite object to the channel's permission overwrites. Channel overwrites are responsible for handling
 user/role permission on a specific channel.
 
+<LuaParamTable params={[ { name: "overwriteObjects", type: "{ apiTypes.OverwriteObject }" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setTopic
 
-> <LuaDeclaration name="setTopic" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "channelTopic", type: "string" } ]} returnType="Channel" />
+> <LuaDeclaration name="setTopic" className="Channel" args={[ { name: "channelTopic", type: "string" } ]} returnType="Channel" isMethod />
 
 Sets the channels topic, topics appear at the top of the discord app and help to inform players about the
 channel's purpose.
 
+<LuaParamTable params={[ { name: "channelTopic", type: "string" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setBitrate
 
-> <LuaDeclaration name="setBitrate" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "bitrate", type: "number" } ]} returnType="Channel" />
+> <LuaDeclaration name="setBitrate" className="Channel" args={[ { name: "bitrate", type: "number" } ]} returnType="Channel" isMethod />
 
 Sets the bitrate of the voice channel, the bitrate (in bits) of the voice or stage channel.
 
+<LuaParamTable params={[ { name: "bitrate", type: "number" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setUserLimit
 
-> <LuaDeclaration name="setUserLimit" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "userLimit", type: "number?" } ]} returnType="Channel" />
+> <LuaDeclaration name="setUserLimit" className="Channel" args={[ { name: "userLimit", type: "number?" } ]} returnType="Channel" isMethod />
 
 The user limit of the voice channel. The user limit of a voice channel is the maximum number of users allowed in
 the channel at one time.
 
+<LuaParamTable params={[ { name: "userLimit", type: "number?" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setRateLimitPerUser
 
-> <LuaDeclaration name="setRateLimitPerUser" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "rateLimitPerUser", type: "number?" } ]} returnType="Channel" />
+> <LuaDeclaration name="setRateLimitPerUser" className="Channel" args={[ { name: "rateLimitPerUser", type: "number?" } ]} returnType="Channel" isMethod />
 
 Amount of seconds a user has to wait before sending another message. Bots and users with certain permissions are
 unaffected.
 
+<LuaParamTable params={[ { name: "rateLimitPerUser", type: "number?" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setParentId
 
-> <LuaDeclaration name="setParentId" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "parentId", type: "apiTypes.Snowflake?" } ]} returnType="Channel" />
+> <LuaDeclaration name="setParentId" className="Channel" args={[ { name: "parentId", type: "apiTypes.Snowflake?" } ]} returnType="Channel" isMethod />
 
 Set the parent of the channel. Channel parents are categories and can help organize a discord guild.
 
+<LuaParamTable params={[ { name: "parentId", type: "apiTypes.Snowflake?" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setNSFW
 
-> <LuaDeclaration name="setNSFW" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "isNSFW", type: "boolean" } ]} returnType="Channel" />
+> <LuaDeclaration name="setNSFW" className="Channel" args={[ { name: "isNSFW", type: "boolean" } ]} returnType="Channel" isMethod />
 
 Set whether this channel is NSFW or not.
 
+<LuaParamTable params={[ { name: "isNSFW", type: "boolean" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setVoiceRegion
 
-> <LuaDeclaration name="setVoiceRegion" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "voiceRegionId", type: "string" } ]} returnType="Channel" />
+> <LuaDeclaration name="setVoiceRegion" className="Channel" args={[ { name: "voiceRegionId", type: "string" } ]} returnType="Channel" isMethod />
 
 Set the voice region (requires querying voice region ids). Voice regions are regions that Discord uses to host
 voice channels.
 
+<LuaParamTable params={[ { name: "voiceRegionId", type: "string" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setVideoQualityMode
 
-> <LuaDeclaration name="setVideoQualityMode" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" } ]} returnType="Channel" />
+> <LuaDeclaration name="setVideoQualityMode" className="Channel" args={[ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" } ]} returnType="Channel" isMethod />
 
 Sets the video quality mode of the voice channel.
 
+<LuaParamTable params={[ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setDefaultAutoArchiveDuration
 
-> <LuaDeclaration name="setDefaultAutoArchiveDuration" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "autoArchiveDuration", type: "number" } ]} returnType="Channel" />
+> <LuaDeclaration name="setDefaultAutoArchiveDuration" className="Channel" args={[ { name: "autoArchiveDuration", type: "number" } ]} returnType="Channel" isMethod />
 
 Sets the default auto archive duration for the channel. This is the default duration in minutes for newly created
 threads to automatically archive after recent activity.
 
+<LuaParamTable params={[ { name: "autoArchiveDuration", type: "number" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setDefaultReactionEmoji
 
-> <LuaDeclaration name="setDefaultReactionEmoji" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject" } ]} returnType="Channel" />
+> <LuaDeclaration name="setDefaultReactionEmoji" className="Channel" args={[ { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject" } ]} returnType="Channel" isMethod />
 
 Sets the default reaction emoji for either a forum or media channel.
 
+<LuaParamTable params={[ { name: "defaultReactionEmoji", type: "apiTypes.DefaultReactionObject" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setForumTags
 
-> <LuaDeclaration name="setForumTags" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "forumTags", type: "{ apiTypes.ForumTagObject }" } ]} returnType="Channel" />
+> <LuaDeclaration name="setForumTags" className="Channel" args={[ { name: "forumTags", type: "{ apiTypes.ForumTagObject }" } ]} returnType="Channel" isMethod />
 
 Specify channel forum tags that are available to the channel.
 
+<LuaParamTable params={[ { name: "forumTags", type: "{ apiTypes.ForumTagObject }" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setDefaultSortOrder
 
-> <LuaDeclaration name="setDefaultSortOrder" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "sortOrder", type: "apiTypes.ForumSortOrder" } ]} returnType="Channel" />
+> <LuaDeclaration name="setDefaultSortOrder" className="Channel" args={[ { name: "sortOrder", type: "apiTypes.ForumSortOrder" } ]} returnType="Channel" isMethod />
 
 Sets the default sort order for the channel.
 
+<LuaParamTable params={[ { name: "sortOrder", type: "apiTypes.ForumSortOrder" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setDefaultForumLayout
 
-> <LuaDeclaration name="setDefaultForumLayout" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "forumLayout", type: "apiTypes.ForumLayout" } ]} returnType="Channel" />
+> <LuaDeclaration name="setDefaultForumLayout" className="Channel" args={[ { name: "forumLayout", type: "apiTypes.ForumLayout" } ]} returnType="Channel" isMethod />
 
 Sets the default forum layout for the channel.
 
+<LuaParamTable params={[ { name: "forumLayout", type: "apiTypes.ForumLayout" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setDefaultThreadRateLimitPerUser
 
-> <LuaDeclaration name="setDefaultThreadRateLimitPerUser" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "threadRateLimitPerUser", type: "number" } ]} returnType="Channel" />
+> <LuaDeclaration name="setDefaultThreadRateLimitPerUser" className="Channel" args={[ { name: "threadRateLimitPerUser", type: "number" } ]} returnType="Channel" isMethod />
 
 Sets the default thread rate limit per user for the channel.
 
+<LuaParamTable params={[ { name: "threadRateLimitPerUser", type: "number" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setFlags
 
-> <LuaDeclaration name="setFlags" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "bitflags", type: "number" } ]} returnType="Channel" />
+> <LuaDeclaration name="setFlags" className="Channel" args={[ { name: "bitflags", type: "number" } ]} returnType="Channel" isMethod />
 
 Sets the channel flags using a bitfield value.
 
+<LuaParamTable params={[ { name: "bitflags", type: "number" } ]} returns={[ { type: "Channel" } ]} />
+
 ### setIcon
 
-> <LuaDeclaration name="setIcon" className="Channel" args={[ { name: "self", type: "Channel" }, { name: "iconData", type: "string" } ]} returnType="Channel" />
+> <LuaDeclaration name="setIcon" className="Channel" args={[ { name: "iconData", type: "string" } ]} returnType="Channel" isMethod />
 
 Sets the channel icon using the provided icon data.
 
+<LuaParamTable params={[ { name: "iconData", type: "string" } ]} returns={[ { type: "Channel" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Channel" args={[ { name: "self", type: "Channel" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Channel" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the channel object that the Discord API can understand.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Channel" args={[ { name: "resource", type: "{ channelName: string?, channelType: apiTypes.ChannelType?, channelPosition: number?, channelPermissionOverwrites: { apiTypes.OverwriteObject }?, }?" } ]} returnType="Channel" />
 
 Constructor for the Discord Channel Builder.
+
+<LuaParamTable params={[ { name: "resource", type: "{ channelName: string?, channelType: apiTypes.ChannelType?, channelPosition: number?, channelPermissionOverwrites: { apiTypes.OverwriteObject }?, }?" } ]} returns={[ { type: "Channel" } ]} />
 
 

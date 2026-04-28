@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Activity class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object
+
+<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "type", type: "ActivityType" }, { name: "url", type: "string?" }, { name: "createdAt", type: "number" }, { name: "timestamps", type: "Classes.Activity.Timestamp" }, { name: "applicationId", type: "string" }, { name: "details", type: "string?" }, { name: "state", type: "string?" }, { name: "emoji", type: "Classes.Activity.Emoji?" }, { name: "party", type: "Classes.Activity.Party?" }, { name: "assets", type: "Classes.Activity.Assets?" }, { name: "secrets", type: "Classes.Activity.Secrets?" }, { name: "instance", type: "boolean?" }, { name: "flags", type: "number?" }, { name: "buttons", type: "{Classes.Activity.Button}" } ]} />
 
 ## Properties
 

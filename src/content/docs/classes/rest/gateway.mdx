@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/topics/gateway
+
+<LuaSummary className="Gateway" functions={[ { name: "getGatewayAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.GetGatewayResponse>" }, { name: "getGatewayBotAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.GetGatewayBotResponse>" } ]} />
 
 ## Functions
 
@@ -23,10 +27,14 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/topics/gateway#get-gateway
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGatewayResponse>" } ]} />
+
 ### getGatewayBotAsync
 
 > <LuaDeclaration name="getGatewayBotAsync" className="Gateway" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetGatewayBotResponse>" />
 
 https://discord.com/developers/docs/topics/gateway#get-gateway-bot
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGatewayBotResponse>" } ]} />
 
 

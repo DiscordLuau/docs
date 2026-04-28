@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords PollMedia object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/poll#poll-media-object-poll-media-object-structure
+
+<LuaSummary className="PollMedia" properties={[ { name: "text", type: "string?" }, { name: "emoji", type: "Builders.Emoji?" } ]} methods={[ { name: "setText", isMethod: true, args: [ { name: "text", type: "string" } ], returnType: "PollMedia" }, { name: "setEmoji", isMethod: true, args: [ { name: "emoji", type: "emojiBuilder.JSON" } ], returnType: "PollMedia" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ text: string?, emoji: emojiBuilder.JSON?, }?" } ], returnType: "PollMedia" } ]} />
 
 ## Properties
 
@@ -32,25 +36,34 @@ The text content of the poll media.
 The emoji associated with this poll media.
 
 
-## Functions
+## Methods
 
 ### setText
 
-> <LuaDeclaration name="setText" className="PollMedia" args={[ { name: "self", type: "PollMedia" }, { name: "text", type: "string" } ]} returnType="PollMedia" />
+> <LuaDeclaration name="setText" className="PollMedia" args={[ { name: "text", type: "string" } ]} returnType="PollMedia" isMethod />
 
 Sets the text for the PollMedia.
 
+<LuaParamTable params={[ { name: "text", type: "string" } ]} returns={[ { type: "PollMedia" } ]} />
+
 ### setEmoji
 
-> <LuaDeclaration name="setEmoji" className="PollMedia" args={[ { name: "self", type: "PollMedia" }, { name: "emoji", type: "emojiBuilder.JSON" } ]} returnType="PollMedia" />
+> <LuaDeclaration name="setEmoji" className="PollMedia" args={[ { name: "emoji", type: "emojiBuilder.JSON" } ]} returnType="PollMedia" isMethod />
 
 Responsible for setting the emoji for the PollMedia.
 
+<LuaParamTable params={[ { name: "emoji", type: "emojiBuilder.JSON" } ]} returns={[ { type: "PollMedia" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="PollMedia" args={[ { name: "self", type: "PollMedia" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="PollMedia" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the PollMedia JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -64,5 +77,7 @@ local media = PollMedia.new({
 	emoji = emojiBuilder.new():build()
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ text: string?, emoji: emojiBuilder.JSON?, }?" } ]} returns={[ { type: "PollMedia" } ]} />
 
 

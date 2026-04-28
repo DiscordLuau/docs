@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord ActivityAssets class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-assets
+
+<LuaSummary className="Assets" properties={[ { name: "largeImage", type: "string" }, { name: "largeText", type: "string" }, { name: "smallImage", type: "string" }, { name: "smallText", type: "string" } ]} />
 
 ## Properties
 

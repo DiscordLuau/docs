@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord ScheduledEvent class in Luau
 
 https://discord.com/developers/docs/resources/scheduledevent#scheduledevent-object
+
+<LuaSummary className="ScheduledEvent" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string?" }, { name: "creatorId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "scheduledStartTime", type: "std_polyfills.DateTime" }, { name: "scheduledEndTime", type: "std_polyfills.DateTime?" }, { name: "privacyLevel", type: "apiTypes.ScheduledEventPrivacyLevel" }, { name: "status", type: "apiTypes.SchedledEventStatus" }, { name: "entityType", type: "apiTypes.SchedledEventEntityType" }, { name: "entityId", type: "string?" }, { name: "location", type: "string?" }, { name: "creator", type: "Classes.User?" }, { name: "userCount", type: "number?" }, { name: "image", type: "string?" } ]} />
 
 ## Properties
 

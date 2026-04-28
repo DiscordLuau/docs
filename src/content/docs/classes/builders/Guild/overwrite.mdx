@@ -10,6 +10,8 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Permission Overwrite object as a Luau builder.	
 
@@ -17,6 +19,8 @@ See permissions for more information about the allow and deny fields.
 
 https://discord.com/developers/docs/topics/permissions#permissions
 https://discord.com/developers/docs/resources/channel#overwrite-object
+
+<LuaSummary className="Overwrite" properties={[ { name: "allowedPermissionFlags", type: "{apiTypes.Permissions}" }, { name: "deniedPermissionFlags", type: "{apiTypes.Permissions}" }, { name: "type", type: "PermissionOverwriteType" }, { name: "id", type: "string" } ]} methods={[ { name: "allowPermissions", isMethod: true, args: [ { name: "...", type: "apiTypes.Permissions" } ], returnType: "Overwrite" }, { name: "denyPermissions", isMethod: true, args: [ { name: "...", type: "apiTypes.Permissions" } ], returnType: "Overwrite" }, { name: "setPermissionType", isMethod: true, args: [ { name: "type", type: "PermissionOverwriteType" } ], returnType: "Overwrite" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ permissionType: PermissionOverwriteType, allowFlags: { apiTypes.Permissions }?, denyFlags: { apiTypes.Permissions }?, }" } ], returnType: "Overwrite" }, { name: "fromId", args: [ { name: "resource", type: "{ permissionId: apiTypes.Snowflake, permissionType: PermissionOverwriteType, allowFlags: { apiTypes.Permissions }?, denyFlags: { apiTypes.Permissions }?, }" } ], returnType: "Overwrite" } ]} />
 
 ## Properties
 
@@ -49,37 +53,50 @@ The type of overwrite, either "role" or "member".
 The ID of the role or user that the overwrite belongs to.
 
 
-## Functions
+## Methods
 
 ### allowPermissions
 
-> <LuaDeclaration name="allowPermissions" className="Overwrite" args={[ { name: "self", type: "Overwrite" }, { name: "...", type: "apiTypes.Permissions" } ]} returnType="Overwrite" />
+> <LuaDeclaration name="allowPermissions" className="Overwrite" args={[ { name: "...", type: "apiTypes.Permissions" } ]} returnType="Overwrite" isMethod />
 
 Responsible for allowing specific permissions to be set on either a Role of a Member.
 
+<LuaParamTable params={[ { name: "...", type: "apiTypes.Permissions" } ]} returns={[ { type: "Overwrite" } ]} />
+
 ### denyPermissions
 
-> <LuaDeclaration name="denyPermissions" className="Overwrite" args={[ { name: "self", type: "Overwrite" }, { name: "...", type: "apiTypes.Permissions" } ]} returnType="Overwrite" />
+> <LuaDeclaration name="denyPermissions" className="Overwrite" args={[ { name: "...", type: "apiTypes.Permissions" } ]} returnType="Overwrite" isMethod />
 
 Responsible for denying specific permissions to be set on either a Role of a Member.
 
+<LuaParamTable params={[ { name: "...", type: "apiTypes.Permissions" } ]} returns={[ { type: "Overwrite" } ]} />
+
 ### setPermissionType
 
-> <LuaDeclaration name="setPermissionType" className="Overwrite" args={[ { name: "self", type: "Overwrite" }, { name: "type", type: "PermissionOverwriteType" } ]} returnType="Overwrite" />
+> <LuaDeclaration name="setPermissionType" className="Overwrite" args={[ { name: "type", type: "PermissionOverwriteType" } ]} returnType="Overwrite" isMethod />
 
 Sets the permission type for this builder.
 
+<LuaParamTable params={[ { name: "type", type: "PermissionOverwriteType" } ]} returns={[ { type: "Overwrite" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Overwrite" args={[ { name: "self", type: "Overwrite" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Overwrite" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the OverwriteObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Overwrite" args={[ { name: "resource", type: "{ permissionType: PermissionOverwriteType, allowFlags: { apiTypes.Permissions }?, denyFlags: { apiTypes.Permissions }?, }" } ]} returnType="Overwrite" />
 
 Responsible for creating a new Overwrite.
+
+<LuaParamTable params={[ { name: "resource", type: "{ permissionType: PermissionOverwriteType, allowFlags: { apiTypes.Permissions }?, denyFlags: { apiTypes.Permissions }?, }" } ]} returns={[ { type: "Overwrite" } ]} />
 
 ### fromId
 
@@ -88,5 +105,7 @@ Responsible for creating a new Overwrite.
 Responsible for creating a new Overwrite from an existing ID/Object.
 
 Supports properties that the .new constructor doesn't support. (id)
+
+<LuaParamTable params={[ { name: "resource", type: "{ permissionId: apiTypes.Snowflake, permissionType: PermissionOverwriteType, allowFlags: { apiTypes.Permissions }?, denyFlags: { apiTypes.Permissions }?, }" } ]} returns={[ { type: "Overwrite" } ]} />
 
 

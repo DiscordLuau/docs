@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Onboarding object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/guild#modify-guild-onboarding-json-params
+
+<LuaSummary className="Onboarding" properties={[ { name: "prompts", type: "{Builders.Guild.OnboardingPrompt}" }, { name: "defaultChannelIds", type: "{string}" }, { name: "enabled", type: "boolean" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} methods={[ { name: "addPrompt", isMethod: true, args: [ { name: "prompt", type: "prompt.JSON" } ], returnType: "Onboarding" }, { name: "addDefaultChannelId", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "Onboarding" }, { name: "setEnabled", isMethod: true, args: [ { name: "enabled", type: "boolean" } ], returnType: "Onboarding" }, { name: "setMode", isMethod: true, args: [ { name: "mode", type: "apiTypes.OnboardingMode" } ], returnType: "Onboarding" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ prompts: { prompt.JSON }?, defaultChannelIds: { string }?, enabled: boolean?, mode: apiTypes.OnboardingMode?, }?" } ], returnType: "Onboarding" } ]} />
 
 ## Properties
 
@@ -46,42 +50,57 @@ Whether onboarding is enabled in the guild
 Current mode of onboarding
 
 
-## Functions
+## Methods
 
 ### addPrompt
 
-> <LuaDeclaration name="addPrompt" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "prompt", type: "prompt.JSON" } ]} returnType="Onboarding" />
+> <LuaDeclaration name="addPrompt" className="Onboarding" args={[ { name: "prompt", type: "prompt.JSON" } ]} returnType="Onboarding" isMethod />
 
 Add a prompt to this onboarding
 
+<LuaParamTable params={[ { name: "prompt", type: "prompt.JSON" } ]} returns={[ { type: "Onboarding" } ]} />
+
 ### addDefaultChannelId
 
-> <LuaDeclaration name="addDefaultChannelId" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "channelId", type: "string" } ]} returnType="Onboarding" />
+> <LuaDeclaration name="addDefaultChannelId" className="Onboarding" args={[ { name: "channelId", type: "string" } ]} returnType="Onboarding" isMethod />
 
 Add a default channel to this onboarding
 
+<LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "Onboarding" } ]} />
+
 ### setEnabled
 
-> <LuaDeclaration name="setEnabled" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "enabled", type: "boolean" } ]} returnType="Onboarding" />
+> <LuaDeclaration name="setEnabled" className="Onboarding" args={[ { name: "enabled", type: "boolean" } ]} returnType="Onboarding" isMethod />
 
 Set weather this onboarding is enabled or not.	
 
+<LuaParamTable params={[ { name: "enabled", type: "boolean" } ]} returns={[ { type: "Onboarding" } ]} />
+
 ### setMode
 
-> <LuaDeclaration name="setMode" className="Onboarding" args={[ { name: "self", type: "Onboarding" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} returnType="Onboarding" />
+> <LuaDeclaration name="setMode" className="Onboarding" args={[ { name: "mode", type: "apiTypes.OnboardingMode" } ]} returnType="Onboarding" isMethod />
 
 Set the mode of this onboarding.
 
+<LuaParamTable params={[ { name: "mode", type: "apiTypes.OnboardingMode" } ]} returns={[ { type: "Onboarding" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Onboarding" args={[ { name: "self", type: "Onboarding" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Onboarding" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the OnboardingObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Onboarding" args={[ { name: "resource", type: "{ prompts: { prompt.JSON }?, defaultChannelIds: { string }?, enabled: boolean?, mode: apiTypes.OnboardingMode?, }?" } ]} returnType="Onboarding" />
 
 Responsible for creating a new Onboarding.
+
+<LuaParamTable params={[ { name: "resource", type: "{ prompts: { prompt.JSON }?, defaultChannelIds: { string }?, enabled: boolean?, mode: apiTypes.OnboardingMode?, }?" } ]} returns={[ { type: "Onboarding" } ]} />
 
 

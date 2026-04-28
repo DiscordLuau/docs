@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Integration class in Luau
 
 https://discord.com/developers/docs/resources/integration#integration-object
+
+<LuaSummary className="Integration" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "type", type: "apiTypes.IntegrationType" }, { name: "enabled", type: "boolean" }, { name: "syncing", type: "boolean?" }, { name: "roleId", type: "string?" }, { name: "enableEmoticons", type: "boolean?" }, { name: "expireBehavior", type: "apiTypes.IntegrationExpireBehaviour" }, { name: "expireGracePeriod", type: "number?" }, { name: "user", type: "Classes.User?" }, { name: "account", type: "Classes.Guild.IntegrationAccount" }, { name: "syncedAt", type: "stdPolyfills.DateTime?" }, { name: "subscriberCount", type: "number?" }, { name: "revoked", type: "boolean?" }, { name: "application", type: "Classes.Application?" }, { name: "scopes", type: "{ apiTypes.OAuth2Scopes }?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] } ]} />
 
 ## Properties
 
@@ -130,13 +134,15 @@ The bot/OAuth2 application for discord integrations
 The scopes the application has been authorized for
 
 
-## Functions
+## Methods
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Integration" args={[ { name: "self", type: "Integration" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="deleteAsync" className="Integration" args={[ { name: "reason", type: "string?" } ]} isMethod />
 
 Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
 if there is one. Requires the MANAGE_GUILD permission.
+
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
 
 

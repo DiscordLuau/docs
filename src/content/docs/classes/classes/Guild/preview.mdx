@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Guild Preview class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-preview-object
+
+<LuaSummary className="Preview" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "splash", type: "string?" }, { name: "discoverySplash", type: "string?" }, { name: "emojis", type: "{Classes.Emoji}" }, { name: "features", type: "{api_types.GuildFeature}" }, { name: "approximateMemberCount", type: "number" }, { name: "approximatePresenceCount", type: "number" }, { name: "description", type: "string?" }, { name: "stickers", type: "{Classes.Sticker}" } ]} />
 
 ## Properties
 

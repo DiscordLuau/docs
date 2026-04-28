@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Poll class in Luau
 
 https://discord.com/developers/docs/resources/poll#poll-object
+
+<LuaSummary className="Poll" properties={[ { name: "question", type: "Classes.Message.PollMediaObject" }, { name: "answers", type: "{ Classes.Message.PollAnswer }" }, { name: "expiry", type: "DateTime" }, { name: "allowMultiselect", type: "boolean" }, { name: "layoutType", type: "Classes.PollLayoutType" }, { name: "results", type: "Classes.Message.PollResults" } ]} />
 
 ## Properties
 

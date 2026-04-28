@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord System Channel Bitflags in Luau. This class represents various flags that can be set on a system channel in a Discord guild.
 
 https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
+
+<LuaSummary className="SystemChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "suppressJoinNotifications", isMethod: true, args: [  ] }, { name: "suppressPremiumSubscriptions", isMethod: true, args: [  ] }, { name: "suppressGuildReminderNotifications", isMethod: true, args: [  ] }, { name: "suppressJoinNotificationReplies", isMethod: true, args: [  ] }, { name: "suppressRoleSubscriptionPurchaseNotifications", isMethod: true, args: [  ] }, { name: "suppressRoleSubscriptionPurchaseNotificationReplies", isMethod: true, args: [  ] } ]} />
 
 ## Properties
 
@@ -25,41 +29,41 @@ https://discord.com/developers/docs/resources/guild#guild-object-system-channel-
 The bitfield representing the system channel flags.
 
 
-## Functions
+## Methods
 
 ### suppressJoinNotifications
 
-> <LuaDeclaration name="suppressJoinNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressJoinNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress join notifications bitflag set.
 
 ### suppressPremiumSubscriptions
 
-> <LuaDeclaration name="suppressPremiumSubscriptions" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressPremiumSubscriptions" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress premium subscriptions bitflag set.
 
 ### suppressGuildReminderNotifications
 
-> <LuaDeclaration name="suppressGuildReminderNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressGuildReminderNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress guild reminder notifications bitflag set.
 
 ### suppressJoinNotificationReplies
 
-> <LuaDeclaration name="suppressJoinNotificationReplies" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressJoinNotificationReplies" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress join notification replies bitflag set.
 
 ### suppressRoleSubscriptionPurchaseNotifications
 
-> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotifications" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress role subscriptions purchase notifications bitflag set.
 
 ### suppressRoleSubscriptionPurchaseNotificationReplies
 
-> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotificationReplies" className="SystemChannelBitflag" args={[ { name: "self", type: "SystemChannelBitflag" } ]} />
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotificationReplies" className="SystemChannelBitflag" args={[  ]} isMethod />
 
 Returns if the system channel has the suppress role subscriptions purchase notification replies bitflag set.
 

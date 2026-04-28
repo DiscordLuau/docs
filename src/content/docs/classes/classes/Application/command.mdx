@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Command class in Luau
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object
+
+<LuaSummary className="Command" properties={[ { name: "id", type: "string" }, { name: "type", type: "apiTypes.ApplicationCommandType" }, { name: "applicationId", type: "string" }, { name: "guildId", type: "string?" }, { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "description", type: "string" }, { name: "descriptionLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "options", type: "{ Classes.Option }" }, { name: "defaultMemberPermissions", type: "Classes.Permission?" }, { name: "nsfw", type: "boolean?" }, { name: "integrationTypes", type: "{ apiTypes.IntegrationTypesConfig }" }, { name: "contexts", type: "{ apiTypes.InteractionContextType }" }, { name: "version", type: "string" } ]} />
 
 ## Properties
 

@@ -10,12 +10,16 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 A Stream is a type of object that can be used to navigate through a string safely, this is used in obscure
 	operations such as parsing FormData, JSON and other things.
 
 Streams are not essential, but they do make things easier as we can avoid tracking the position of a string
 	and instead rely on the Stream to peek, advance and so forth.
+
+<LuaSummary className="Stream" properties={[ { name: "textSource", type: "string" }, { name: "cursorPosition", type: "number" } ]} methods={[ { name: "peek", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "advance", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "advanceUntil", isMethod: true, args: [ { name: "predicate", type: "(char: string) -> ()" } ], returnType: "string?" }, { name: "readUntilEnd", isMethod: true, args: [  ], returnType: "string" }, { name: "trim", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "textSource", type: "string" } ], returnType: "Stream" } ]} />
 
 ## Properties
 
@@ -30,44 +34,57 @@ Streams are not essential, but they do make things easier as we can avoid tracki
 
 
 
-## Functions
+## Methods
 
 ### peek
 
-> <LuaDeclaration name="peek" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "length", type: "number?" } ]} returnType="string?" />
+> <LuaDeclaration name="peek" className="Stream" args={[ { name: "length", type: "number?" } ]} returnType="string?" isMethod />
 
 Responsible for peeking further ahead into the stream, without incrementing  the cursor position.
 
+<LuaParamTable params={[ { name: "length", type: "number?" } ]} returns={[ { type: "string?" } ]} />
+
 ### advance
 
-> <LuaDeclaration name="advance" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "length", type: "number?" } ]} returnType="string?" />
+> <LuaDeclaration name="advance" className="Stream" args={[ { name: "length", type: "number?" } ]} returnType="string?" isMethod />
 
 Responsible for advancing the cursor position of the stream, this will increment the cursor position by the
 	amount specified. (defaults to 1)
 
+<LuaParamTable params={[ { name: "length", type: "number?" } ]} returns={[ { type: "string?" } ]} />
+
 ### advanceUntil
 
-> <LuaDeclaration name="advanceUntil" className="Stream" args={[ { name: "self", type: "Stream" }, { name: "predicate", type: "(char: string) -> ()" } ]} returnType="string?" />
+> <LuaDeclaration name="advanceUntil" className="Stream" args={[ { name: "predicate", type: "(char: string) -> ()" } ]} returnType="string?" isMethod />
 
 Responsible for advancing the cursor position of the stream until a predicate is met, this will increment the
 	cursor position by the amount specified.
 
+<LuaParamTable params={[ { name: "predicate", type: "(char: string) -> ()" } ]} returns={[ { type: "string?" } ]} />
+
 ### readUntilEnd
 
-> <LuaDeclaration name="readUntilEnd" className="Stream" args={[ { name: "self", type: "Stream" } ]} returnType="string" />
+> <LuaDeclaration name="readUntilEnd" className="Stream" args={[  ]} returnType="string" isMethod />
 
 Will read the stream until the end, this will return the remaining text source.
 
+<LuaParamTable returns={[ { type: "string" } ]} />
+
 ### trim
 
-> <LuaDeclaration name="trim" className="Stream" args={[ { name: "self", type: "Stream" } ]} />
+> <LuaDeclaration name="trim" className="Stream" args={[  ]} isMethod />
 
 Trims all whitespaces from the current stream position and onwards
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Stream" args={[ { name: "textSource", type: "string" } ]} returnType="Stream" />
 
 Constructor for the Stream object, will return a new instance of the Stream object.
+
+<LuaParamTable params={[ { name: "textSource", type: "string" } ]} returns={[ { type: "Stream" } ]} />
 
 

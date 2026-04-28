@@ -11,11 +11,15 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Rest package
 
 Rest represents all possible Discord HTTP APIs, the goal for this package is to simplify the process of making a
 request to the discord API.
+
+<LuaSummary className="Rest" properties={[ { name: "interaction", type: "Rest.interaction" }, { name: "poll", type: "Rest.poll" }, { name: "voice", type: "Rest.voice" }, { name: "auditLog", type: "Rest.auditLog" }, { name: "autoModeration", type: "Rest.autoModeration" }, { name: "message", type: "Rest.message" }, { name: "request", type: "Rest.Request" }, { name: "guildScheduledEvent", type: "Rest.guildScheduledEvent" }, { name: "application", type: "Rest.application" }, { name: "channel", type: "Rest.channel" }, { name: "user", type: "Rest.user" }, { name: "guildTemplate", type: "Rest.guildTemplate" }, { name: "sticker", type: "Rest.sticker" }, { name: "commands", type: "Rest.commands" }, { name: "stageInstance", type: "Rest.stageInstance" }, { name: "webhook", type: "Rest.webhook" }, { name: "emoji", type: "Rest.emoji" }, { name: "gateway", type: "Rest.gateway" }, { name: "invite", type: "Rest.invite" }, { name: "applicationRoleConnectionMetadata", type: "Rest.applicationRoleConnectionMetadata" }, { name: "guild", type: "Rest.guild" } ]} />
 
 ## Properties
 

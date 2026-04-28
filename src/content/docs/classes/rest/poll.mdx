@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/poll
+
+<LuaSummary className="Poll" functions={[ { name: "getAnswerVotersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "answerId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ after: number?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetAnswerVotersResponse>" }, { name: "endPollAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.EndPollResponse>" } ]} />
 
 ## Functions
 
@@ -23,10 +27,14 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/resources/poll#get-answer-voters
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "answerId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ after: number?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetAnswerVotersResponse>" } ]} />
+
 ### endPollAsync
 
 > <LuaDeclaration name="endPollAsync" className="Poll" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.EndPollResponse>" />
 
 https://discord.com/developers/docs/resources/poll#end-poll
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.EndPollResponse>" } ]} />
 
 

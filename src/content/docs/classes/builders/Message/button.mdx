@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Button object as a Luau builder.	
 
 https://discord.com/developers/docs/interactions/message-components#buttons
+
+<LuaSummary className="Button" properties={[ { name: "style", type: "apiTypes.ButtonStyle" }, { name: "label", type: "string?" }, { name: "emoji", type: "Builders.Emoji?" }, { name: "customId", type: "string?" }, { name: "skuId", type: "string?" }, { name: "url", type: "string?" }, { name: "disabled", type: "boolean?" } ]} methods={[ { name: "setStyle", isMethod: true, args: [ { name: "buttonStyle", type: "apiTypes.ButtonStyle" } ], returnType: "Button" }, { name: "setLabel", isMethod: true, args: [ { name: "label", type: "string" } ], returnType: "Button" }, { name: "setEmoji", isMethod: true, args: [ { name: "emoji", type: "emoji.JSON" } ], returnType: "Button" }, { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "Button" }, { name: "setSkuId", isMethod: true, args: [ { name: "skuId", type: "string" } ], returnType: "Button" }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "Button" }, { name: "setDisabled", isMethod: true, args: [ { name: "disabled", type: "boolean" } ], returnType: "Button" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ style: apiTypes.ButtonStyle, label: string?, emoji: emoji.JSON?, customId: string?, skuId: string?, url: string?, disabled: boolean?, }?" } ], returnType: "Button" } ]} />
 
 ## Properties
 
@@ -67,55 +71,74 @@ The URL that the button will navigate to when clicked.
 Whether the button is disabled and cannot be clicked.
 
 
-## Functions
+## Methods
 
 ### setStyle
 
-> <LuaDeclaration name="setStyle" className="Button" args={[ { name: "self", type: "Button" }, { name: "buttonStyle", type: "apiTypes.ButtonStyle" } ]} returnType="Button" />
+> <LuaDeclaration name="setStyle" className="Button" args={[ { name: "buttonStyle", type: "apiTypes.ButtonStyle" } ]} returnType="Button" isMethod />
 
 Sets the style of the button. This determines the button's appearance and behavior.
 
+<LuaParamTable params={[ { name: "buttonStyle", type: "apiTypes.ButtonStyle" } ]} returns={[ { type: "Button" } ]} />
+
 ### setLabel
 
-> <LuaDeclaration name="setLabel" className="Button" args={[ { name: "self", type: "Button" }, { name: "label", type: "string" } ]} returnType="Button" />
+> <LuaDeclaration name="setLabel" className="Button" args={[ { name: "label", type: "string" } ]} returnType="Button" isMethod />
 
 Sets the text that appears on the button. Must be between 1-80 characters.
 
+<LuaParamTable params={[ { name: "label", type: "string" } ]} returns={[ { type: "Button" } ]} />
+
 ### setEmoji
 
-> <LuaDeclaration name="setEmoji" className="Button" args={[ { name: "self", type: "Button" }, { name: "emoji", type: "emoji.JSON" } ]} returnType="Button" />
+> <LuaDeclaration name="setEmoji" className="Button" args={[ { name: "emoji", type: "emoji.JSON" } ]} returnType="Button" isMethod />
 
 Sets the emoji that appears on the button.
 
+<LuaParamTable params={[ { name: "emoji", type: "emoji.JSON" } ]} returns={[ { type: "Button" } ]} />
+
 ### setCustomId
 
-> <LuaDeclaration name="setCustomId" className="Button" args={[ { name: "self", type: "Button" }, { name: "customId", type: "string" } ]} returnType="Button" />
+> <LuaDeclaration name="setCustomId" className="Button" args={[ { name: "customId", type: "string" } ]} returnType="Button" isMethod />
 
 Sets a developer-defined identifier for the button that will be sent when the button is clicked.
 
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "Button" } ]} />
+
 ### setSkuId
 
-> <LuaDeclaration name="setSkuId" className="Button" args={[ { name: "self", type: "Button" }, { name: "skuId", type: "string" } ]} returnType="Button" />
+> <LuaDeclaration name="setSkuId" className="Button" args={[ { name: "skuId", type: "string" } ]} returnType="Button" isMethod />
 
 Sets the SKU ID for the button, used for purchase buttons.
 
+<LuaParamTable params={[ { name: "skuId", type: "string" } ]} returns={[ { type: "Button" } ]} />
+
 ### setUrl
 
-> <LuaDeclaration name="setUrl" className="Button" args={[ { name: "self", type: "Button" }, { name: "url", type: "string" } ]} returnType="Button" />
+> <LuaDeclaration name="setUrl" className="Button" args={[ { name: "url", type: "string" } ]} returnType="Button" isMethod />
 
 Sets the URL that the button will navigate to when clicked.
 
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "Button" } ]} />
+
 ### setDisabled
 
-> <LuaDeclaration name="setDisabled" className="Button" args={[ { name: "self", type: "Button" }, { name: "disabled", type: "boolean" } ]} returnType="Button" />
+> <LuaDeclaration name="setDisabled" className="Button" args={[ { name: "disabled", type: "boolean" } ]} returnType="Button" isMethod />
 
 Sets whether the button is disabled and cannot be clicked.
 
+<LuaParamTable params={[ { name: "disabled", type: "boolean" } ]} returns={[ { type: "Button" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Button" args={[ { name: "self", type: "Button" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Button" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Button JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -130,5 +153,7 @@ local button = Button.new({
 	customId = "my_button"
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ style: apiTypes.ButtonStyle, label: string?, emoji: emoji.JSON?, customId: string?, skuId: string?, url: string?, disabled: boolean?, }?" } ]} returns={[ { type: "Button" } ]} />
 
 

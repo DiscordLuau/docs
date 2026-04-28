@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discord intents as a luau builder.	
 
 https://discord.com/developers/docs/topics/gateway#list-of-intents
+
+<LuaSummary className="Intents" properties={[ { name: "intents", type: "{ apiTypes.Intent }" } ]} methods={[ { name: "addIntent", isMethod: true, args: [ { name: "intent", type: "apiTypes.Intent" } ], returnType: "Intents" }, { name: "build", isMethod: true, args: [  ], returnType: "number" } ]} functions={[ { name: "new", args: [ { name: "intents", type: "{}?" } ], returnType: "Intents" } ]} />
 
 ## Properties
 
@@ -25,19 +29,26 @@ https://discord.com/developers/docs/topics/gateway#list-of-intents
 An array of intent flags that determine which gateway events your client will receive.
 
 
-## Functions
+## Methods
 
 ### addIntent
 
-> <LuaDeclaration name="addIntent" className="Intents" args={[ { name: "self", type: "Intents" }, { name: "intent", type: "apiTypes.Intent" } ]} returnType="Intents" />
+> <LuaDeclaration name="addIntent" className="Intents" args={[ { name: "intent", type: "apiTypes.Intent" } ]} returnType="Intents" isMethod />
 
 Sets either the id of a guilds custom emoji, or a unicode character of an emoji.
 
+<LuaParamTable params={[ { name: "intent", type: "apiTypes.Intent" } ]} returns={[ { type: "Intents" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Intents" args={[ { name: "self", type: "Intents" } ]} returnType="number" />
+> <LuaDeclaration name="build" className="Intents" args={[  ]} returnType="number" isMethod />
 
 Responsible for building all intent permissions into an integer that the Discord API can parse
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -51,5 +62,7 @@ Intents.new()
 	:addIntent("GuildMessages")
 	:build()
 ```
+
+<LuaParamTable params={[ { name: "intents", type: "{}?" } ]} returns={[ { type: "Intents" } ]} />
 
 

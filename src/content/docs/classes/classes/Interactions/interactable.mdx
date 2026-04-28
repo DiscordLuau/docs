@@ -10,8 +10,12 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interactable interaction behaviours for Discord interactions.
+
+<LuaSummary className="Interactable" properties={[ { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "deferAsync", isMethod: true, args: [  ] }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ] }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteResponseAsync", isMethod: true, args: [  ] }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ] }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] } ]} />
 
 ## Properties
 
@@ -44,67 +48,83 @@ The token for this interaction.
 Whether this interaction has been deferred.
 
 
-## Functions
+## Methods
 
 ### deferAsync
 
-> <LuaDeclaration name="deferAsync" className="Interactable" args={[ { name: "self", type: "Interaction" } ]} />
+> <LuaDeclaration name="deferAsync" className="Interactable" args={[  ]} isMethod />
 
 Acknowledge an interaction and edit a response later, the user sees a loading state.
 
 ### messageAsync
 
-> <LuaDeclaration name="messageAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+> <LuaDeclaration name="messageAsync" className="Interactable" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
 
 Respond to this interaction with a message.
 
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+
 ### modalAsync
 
-> <LuaDeclaration name="modalAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+> <LuaDeclaration name="modalAsync" className="Interactable" args={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
 
 Respond to this interaction with a modal.
 
+<LuaParamTable params={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+
 ### getResponseAsync
 
-> <LuaDeclaration name="getResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="getResponseAsync" className="Interactable" args={[ { name: "threadId", type: "string?" } ]} isMethod />
 
 Get the response created by this interaction.
 
+<LuaParamTable params={[ { name: "threadId", type: "string?" } ]} />
+
 ### editResponseAsync
 
-> <LuaDeclaration name="editResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="editResponseAsync" className="Interactable" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Edit the response made by this interaction.
 
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
 ### deleteResponseAsync
 
-> <LuaDeclaration name="deleteResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" } ]} />
+> <LuaDeclaration name="deleteResponseAsync" className="Interactable" args={[  ]} isMethod />
 
 Delete the original response made by this interaction.
 
 ### createFollowupResponseAsync
 
-> <LuaDeclaration name="createFollowupResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="createFollowupResponseAsync" className="Interactable" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Create a followup response to an interaction, followup responses are messages you can send after
 the initial response is sent.
 
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
 ### getFollowupResponseAsync
 
-> <LuaDeclaration name="getFollowupResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="getFollowupResponseAsync" className="Interactable" args={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Get the followup response created by this interaction.
 
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} />
+
 ### editFollowupResponseAsync
 
-> <LuaDeclaration name="editFollowupResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+> <LuaDeclaration name="editFollowupResponseAsync" className="Interactable" args={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
 
 Edit the followup response created by this interaction.
 
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
 ### deleteFollowupResponseAsync
 
-> <LuaDeclaration name="deleteFollowupResponseAsync" className="Interactable" args={[ { name: "self", type: "Interaction" }, { name: "messageId", type: "string" } ]} />
+> <LuaDeclaration name="deleteFollowupResponseAsync" className="Interactable" args={[ { name: "messageId", type: "string" } ]} isMethod />
 
 Delete the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
 
 

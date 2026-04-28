@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord AuditLog class in Luau
 
 https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
+
+<LuaSummary className="Entry" properties={[ { name: "changes", type: "{ Classes.AuditLog.Change }" }, { name: "options", type: "{ Classes.AuditLog.EntryInfo }" }, { name: "targetId", type: "string?" }, { name: "userId", type: "string?" }, { name: "id", type: "string" }, { name: "actionType", type: "apiTypes.AuditLogEvent" }, { name: "reason", type: "string?" } ]} />
 
 ## Properties
 

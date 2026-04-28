@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure
+
+<LuaSummary className="Interaction" properties={[ { name: "type", type: "apiTypes.InteractionType" }, { name: "user", type: "Classes.User" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "state", type: "state.State" } ]} />
 
 ## Properties
 

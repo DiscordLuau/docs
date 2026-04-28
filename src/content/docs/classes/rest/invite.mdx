@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/invite
+
+<LuaSummary className="Invite" functions={[ { name: "getInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetInviteResponse>" }, { name: "deleteInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteInviteResponse>" } ]} />
 
 ## Functions
 
@@ -23,10 +27,14 @@ HTTP Rest API implementation for the following Resource:
 
 https://discord.com/developers/docs/resources/invite#get-invite
 
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetInviteResponse>" } ]} />
+
 ### deleteInviteAsync
 
 > <LuaDeclaration name="deleteInviteAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteInviteResponse>" />
 
 https://discord.com/developers/docs/resources/invite#delete-invite
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteInviteResponse>" } ]} />
 
 

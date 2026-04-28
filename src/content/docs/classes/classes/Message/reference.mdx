@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Reference class in Luau
 
 https://discord.com/developers/docs/resources/message#message-reference-structure
+
+<LuaSummary className="Reference" properties={[ { name: "type", type: "apiTypes.MessageReferenceType?" }, { name: "messageId", type: "apiTypes.Snowflake?" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "channelId", type: "apiTypes.Snowflake?" }, { name: "failIfNotExists", type: "boolean?" } ]} />
 
 ## Properties
 

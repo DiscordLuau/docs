@@ -10,8 +10,12 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of a discord auto moderation trigger metadata object as a luau builder.
+
+<LuaSummary className="TriggerMetadata" properties={[ { name: "keywordFilter", type: "{string}" }, { name: "regexPatterns", type: "{string}" }, { name: "presets", type: "{api_types.KeywordPresetType}" }, { name: "allowList", type: "{string}" }, { name: "mentionTotalLimit", type: "number" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} methods={[ { name: "setKeywordFilter", isMethod: true, args: [ { name: "keywordFilter", type: "{ string }" } ], returnType: "TriggerMetadata" }, { name: "setRegexPatterns", isMethod: true, args: [ { name: "regexPatterns", type: "{ string }" } ], returnType: "TriggerMetadata" }, { name: "setPresets", isMethod: true, args: [ { name: "presets", type: "{ apiTypes.KeywordPresetType }" } ], returnType: "TriggerMetadata" }, { name: "setAllowList", isMethod: true, args: [ { name: "allowList", type: "{ string }" } ], returnType: "TriggerMetadata" }, { name: "setMentionTotalLimit", isMethod: true, args: [ { name: "mentionTotalLimit", type: "number" } ], returnType: "TriggerMetadata" }, { name: "setMentionRaidProtectionEnabled", isMethod: true, args: [ { name: "mentionRaidProtectionEnabled", type: "boolean" } ], returnType: "TriggerMetadata" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ keywordFilter: { string }?, regexPatterns: { string }?, presets: { apiTypes.KeywordPresetType }?, allowList: { string }?, mentionTotalLimit: number?, mentionRaidProtectionEnabled: boolean?, }?" } ], returnType: "TriggerMetadata" } ]} />
 
 ## Properties
 
@@ -58,49 +62,66 @@ Total number of unique role and user mentions allowed per message.
 Whether to automatically detect mention raids and remove them.
 
 
-## Functions
+## Methods
 
 ### setKeywordFilter
 
-> <LuaDeclaration name="setKeywordFilter" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "keywordFilter", type: "{ string }" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setKeywordFilter" className="TriggerMetadata" args={[ { name: "keywordFilter", type: "{ string }" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets the list of keywords to match.
 
+<LuaParamTable params={[ { name: "keywordFilter", type: "{ string }" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### setRegexPatterns
 
-> <LuaDeclaration name="setRegexPatterns" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "regexPatterns", type: "{ string }" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setRegexPatterns" className="TriggerMetadata" args={[ { name: "regexPatterns", type: "{ string }" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets the list of regular expressions to match.
 
+<LuaParamTable params={[ { name: "regexPatterns", type: "{ string }" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### setPresets
 
-> <LuaDeclaration name="setPresets" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setPresets" className="TriggerMetadata" args={[ { name: "presets", type: "{ apiTypes.KeywordPresetType }" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets the list of preset keywords to match.
 
+<LuaParamTable params={[ { name: "presets", type: "{ apiTypes.KeywordPresetType }" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### setAllowList
 
-> <LuaDeclaration name="setAllowList" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "allowList", type: "{ string }" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setAllowList" className="TriggerMetadata" args={[ { name: "allowList", type: "{ string }" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets the list of allowed keywords.
 
+<LuaParamTable params={[ { name: "allowList", type: "{ string }" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### setMentionTotalLimit
 
-> <LuaDeclaration name="setMentionTotalLimit" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "mentionTotalLimit", type: "number" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setMentionTotalLimit" className="TriggerMetadata" args={[ { name: "mentionTotalLimit", type: "number" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets the maximum number of mentions allowed.
 
+<LuaParamTable params={[ { name: "mentionTotalLimit", type: "number" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### setMentionRaidProtectionEnabled
 
-> <LuaDeclaration name="setMentionRaidProtectionEnabled" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} returnType="TriggerMetadata" />
+> <LuaDeclaration name="setMentionRaidProtectionEnabled" className="TriggerMetadata" args={[ { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} returnType="TriggerMetadata" isMethod />
 
 Sets whether raid protection is enabled.
 
+<LuaParamTable params={[ { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} returns={[ { type: "TriggerMetadata" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="TriggerMetadata" args={[ { name: "self", type: "TriggerMetadata" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="TriggerMetadata" args={[  ]} returnType="JSON" isMethod />
 
 Builds the trigger metadata object.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
@@ -114,5 +135,7 @@ local metadata = TriggerMetadata.new({
 	mentionTotalLimit = 5
 })
 ```
+
+<LuaParamTable params={[ { name: "resource", type: "{ keywordFilter: { string }?, regexPatterns: { string }?, presets: { apiTypes.KeywordPresetType }?, allowList: { string }?, mentionTotalLimit: number?, mentionRaidProtectionEnabled: boolean?, }?" } ]} returns={[ { type: "TriggerMetadata" } ]} />
 
 

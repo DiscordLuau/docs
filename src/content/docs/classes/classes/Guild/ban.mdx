@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Ban class in Luau
 
 https://discord.com/developers/docs/resources/guild#ban-object
+
+<LuaSummary className="Ban" properties={[ { name: "reason", type: "string?" }, { name: "user", type: "Classes.User" }, { name: "state", type: "lune.State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "removeAsync", isMethod: true, args: [  ] } ]} />
 
 ## Properties
 
@@ -43,11 +47,11 @@ The banned user object containing information about the user who was banned from
 
 
 
-## Functions
+## Methods
 
 ### removeAsync
 
-> <LuaDeclaration name="removeAsync" className="Ban" args={[ { name: "self", type: "Ban" } ]} />
+> <LuaDeclaration name="removeAsync" className="Ban" args={[  ]} isMethod />
 
 Remove the ban for a user. Requires the BAN_MEMBERS permissions.
 

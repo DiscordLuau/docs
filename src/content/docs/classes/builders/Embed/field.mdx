@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of discords Field object as a Luau builder.	
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-field-structure
+
+<LuaSummary className="Field" properties={[ { name: "name", type: "string?" }, { name: "value", type: "string?" }, { name: "inline", type: "boolean?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Field" }, { name: "setValue", isMethod: true, args: [ { name: "value", type: "string" } ], returnType: "Field" }, { name: "setIsInline", isMethod: true, args: [ { name: "isInline", type: "boolean" } ], returnType: "Field" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, value: string?, inline: boolean?, }?" } ], returnType: "Field" } ]} />
 
 ## Properties
 
@@ -39,36 +43,49 @@ The value of the field that is displayed.
 Whether or not this field should display inline.
 
 
-## Functions
+## Methods
 
 ### setName
 
-> <LuaDeclaration name="setName" className="Field" args={[ { name: "self", type: "Field" }, { name: "name", type: "string" } ]} returnType="Field" />
+> <LuaDeclaration name="setName" className="Field" args={[ { name: "name", type: "string" } ]} returnType="Field" isMethod />
 
 Set the name of the field
 
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "Field" } ]} />
+
 ### setValue
 
-> <LuaDeclaration name="setValue" className="Field" args={[ { name: "self", type: "Field" }, { name: "value", type: "string" } ]} returnType="Field" />
+> <LuaDeclaration name="setValue" className="Field" args={[ { name: "value", type: "string" } ]} returnType="Field" isMethod />
 
 Set the value of the field
 
+<LuaParamTable params={[ { name: "value", type: "string" } ]} returns={[ { type: "Field" } ]} />
+
 ### setIsInline
 
-> <LuaDeclaration name="setIsInline" className="Field" args={[ { name: "self", type: "Field" }, { name: "isInline", type: "boolean" } ]} returnType="Field" />
+> <LuaDeclaration name="setIsInline" className="Field" args={[ { name: "isInline", type: "boolean" } ]} returnType="Field" isMethod />
 
 Set if the field is inline.
 
+<LuaParamTable params={[ { name: "isInline", type: "boolean" } ]} returns={[ { type: "Field" } ]} />
+
 ### build
 
-> <LuaDeclaration name="build" className="Field" args={[ { name: "self", type: "Field" } ]} returnType="JSON" />
+> <LuaDeclaration name="build" className="Field" args={[  ]} returnType="JSON" isMethod />
 
 Responsible for building the Field JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
 
 ### new
 
 > <LuaDeclaration name="new" className="Field" args={[ { name: "resource", type: "{ name: string?, value: string?, inline: boolean?, }?" } ]} returnType="Field" />
 
 Responsible for creating a new Field.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, value: string?, inline: boolean?, }?" } ]} returns={[ { type: "Field" } ]} />
 
 

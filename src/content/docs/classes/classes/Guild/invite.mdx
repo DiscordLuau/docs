@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Invite class in Luau
 
 https://discord.com/developers/docs/resources/invite#invite-object
+
+<LuaSummary className="Invite" properties={[ { name: "channel", type: "Classes.Channels.Channel" }, { name: "type", type: "string" }, { name: "code", type: "string" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "inviter", type: "Classes.User?" }, { name: "targetType", type: "string?" }, { name: "targetUser", type: "Classes.User?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "expiresAt", type: "stdPolyfills.DateTime?" }, { name: "scheduledEvent", type: "Classes.Guild.ScheduledEvent?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] } ]} />
 
 ## Properties
 
@@ -95,13 +99,15 @@ The expiration date of this invite
 The scheduled event associated with this invite
 
 
-## Functions
+## Methods
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "self", type: "Invite" }, { name: "reason", type: "string?" } ]} />
+> <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "reason", type: "string?" } ]} isMethod />
 
 Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
 if there is one. Requires the MANAGE_GUILD permission.
+
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
 
 

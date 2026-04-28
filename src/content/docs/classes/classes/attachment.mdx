@@ -10,10 +10,14 @@ sidebar:
 
 import LuaDeclaration from '$/components/LuaDeclaration.astro';
 import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Implementation of the Discord Attachment class in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object
+
+<LuaSummary className="Attachment" properties={[ { name: "id", type: "string" }, { name: "filename", type: "string" }, { name: "title", type: "string?" }, { name: "description", type: "string?" }, { name: "contentType", type: "string?" }, { name: "size", type: "number" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string" }, { name: "height", type: "number?" }, { name: "width", type: "number?" }, { name: "ephemeral", type: "boolean?" }, { name: "durationSeconds", type: "number?" }, { name: "waveform", type: "string?" }, { name: "flags", type: "Classes.AttachmentBitflag?" } ]} />
 
 ## Properties
 
