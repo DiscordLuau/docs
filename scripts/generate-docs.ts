@@ -44,16 +44,7 @@ function classNameToPath(name: string, all: MoonwaveClass[]): string {
 }
 
 function classNameToUrl(name: string): string {
-	const parts = name.split(".");
-	const packageDir = parts[0].toLowerCase();
-	const namespaceDirs = parts.slice(1, -1);
-	const filename = parts[parts.length - 1].toLowerCase();
-
-	if (parts.length === 1) {
-		return `/classes/${packageDir}`;
-	}
-
-	return `/classes/${[packageDir, ...namespaceDirs, filename].join("/")}`;
+	return `/classes/${name.split(".").map(part => part.toLowerCase()).join("/")}`;
 }
 
 // #endregion

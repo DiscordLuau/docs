@@ -33,7 +33,7 @@ https://discord.com/developers/docs/resources/channel#channel-object
 ---
 The type of the channel, indicating its functionality and behavior.
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### id
 
@@ -42,7 +42,7 @@ The type of the channel, indicating its functionality and behavior.
 ---
 The unique identifier for this channel.
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### name
 
@@ -51,7 +51,7 @@ The unique identifier for this channel.
 ---
 The name of the channel.
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### flags
 
@@ -60,7 +60,7 @@ The name of the channel.
 ---
 The flags that indicate various properties and states of the channel.
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### recipients
 
@@ -69,7 +69,7 @@ The flags that indicate various properties and states of the channel.
 ---
 The users in the Group DM channel.
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### icon
 
@@ -78,7 +78,7 @@ The users in the Group DM channel.
 ---
 The icon hash of the Group DM channel.
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### ownerId
 
@@ -87,7 +87,7 @@ The icon hash of the Group DM channel.
 ---
 The ID of the user who created the Group DM channel.
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### applicationId
 
@@ -96,7 +96,7 @@ The ID of the user who created the Group DM channel.
 ---
 The ID of the application that created the Group DM channel, if it was created by an application.
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### managed
 
@@ -105,7 +105,7 @@ The ID of the application that created the Group DM channel, if it was created b
 ---
 Whether the Group DM channel is managed by an application.
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### lastMessageId
 
@@ -114,7 +114,7 @@ Whether the Group DM channel is managed by an application.
 ---
 The ID of the last message sent in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### lastPinTimestamp
 
@@ -123,7 +123,7 @@ The ID of the last message sent in this channel.
 ---
 The timestamp of the last pinned message in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### rateLimitPerUser
 
@@ -132,7 +132,7 @@ The timestamp of the last pinned message in this channel.
 ---
 The rate limit per user for sending messages in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 
 ## Methods
@@ -146,7 +146,7 @@ Post a typing indicator for the specified channel, which expires after 10 second
 Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
 take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### modifyAsync
 
@@ -156,7 +156,7 @@ Lists all private archived threads that the current user has joined. Returns thr
 
 <LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### addRecipient
 
@@ -166,7 +166,7 @@ Adds a recipient to a Group DM using their access token.
 
 <LuaParamTable params={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### removeRecipient
 
@@ -176,7 +176,7 @@ Removes a recipient from a Group DM.
 
 <LuaParamTable params={[ { name: "userId", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### setNameAsync
 
@@ -186,7 +186,7 @@ Sets the name of the Group DM channel.
 
 <LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### setIconAsync
 
@@ -196,7 +196,7 @@ Sets the icon of the Group DM channel using base64 encoded image data.
 
 <LuaParamTable params={[ { name: "iconData", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/Channels/groupdmbehaviour)
+> Inherited from [Classes.Channels.GroupDMBehaviour](/classes/classes/channels/groupdmbehaviour)
 
 ### bulkDeleteMessagesAsync
 
@@ -207,7 +207,7 @@ MANAGE_MESSAGES permission.
 
 <LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getMessagesAsync
 
@@ -217,7 +217,7 @@ Gets messages from a channel. Returns an array of message objects.
 
 <LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getMessageAsync
 
@@ -227,7 +227,7 @@ Gets a specific message from a channel using its ID. Returns a message object.
 
 <LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### createMessageAsync
 
@@ -237,7 +237,7 @@ Creates a new message in the channel. Returns the created message object.
 
 <LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getPinnedMessagesAsync
 
@@ -245,7 +245,7 @@ Creates a new message in the channel. Returns the created message object.
 
 Gets all pinned messages in the channel. Returns an array of message objects.
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### pinMessageAsync
 
@@ -255,7 +255,7 @@ Pins a message in the channel.
 
 <LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### unpinMessageAsync
 
@@ -265,7 +265,7 @@ Unpins a message from the channel.
 
 <LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### startThread
 
@@ -275,6 +275,6 @@ Starts a new thread in the channel without an associated message. Returns the th
 
 <LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 
