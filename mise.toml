@@ -19,3 +19,7 @@ description = "Build the docs site"
 [tasks.deploy]
 run = "pnpm run deploy"
 description = "Deploy to deno deploy"
+
+[settings]
+experimental = true
+lockfile = true
