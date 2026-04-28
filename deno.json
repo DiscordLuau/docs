@@ -1,6 +1,6 @@
 {
   "deploy": {
     "org": "discordluau",
-    "entrypoint": "dist/server/entry.mjs"
+    "entrypoint": "server/entry.mjs"
   }
 }
