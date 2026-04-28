@@ -65,6 +65,6 @@ if (genericMatch) {
 				)
 				: tablePairs.length > 0
 					? <LuaTable pairs={tablePairs} tableInner={tableMatch![1]} />
-					: resolvedType
+					: stripNamespace(resolvedType)
 	}
 </>
