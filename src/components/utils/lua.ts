@@ -2,7 +2,9 @@ import registryJson from "../../generated/class-registry.json";
 
 const LUA_DOCS_BASE_URL = "https://www.lua.org/pil";
 
-const classRegistry = new Set<string>(registryJson);
+const classRegistryByLowerName = new Map<string, string>(
+	registryJson.map(name => [name.toLowerCase(), name]),
+);
 
 export type LuaParam = {
 	name: string;
@@ -32,10 +34,11 @@ export const getLuaDocs = (luaType: string) => {
 
 export const getCustomTypeDocs = (type: string) => {
 	if (type === "()" || type === "any") return null;
-	if (!classRegistry.has(type)) return null;
-	const path = `/classes/${type
+	const registryName = classRegistryByLowerName.get(type.toLowerCase());
+	if (!registryName) return null;
+	const path = `/classes/${registryName
 		.split(".")
-		.map(namePart => namePart.toLocaleLowerCase())
+		.map(namePart => namePart.toLowerCase())
 		.join("/")}`;
 	return path;
 };
