@@ -33,7 +33,7 @@ https://discord.com/developers/docs/resources/channel#channel-object
 ---
 The type of the channel, indicating its functionality and behavior.
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### id
 
@@ -42,7 +42,7 @@ The type of the channel, indicating its functionality and behavior.
 ---
 The unique identifier for this channel.
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### name
 
@@ -51,7 +51,7 @@ The unique identifier for this channel.
 ---
 The name of the channel.
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### flags
 
@@ -60,7 +60,7 @@ The name of the channel.
 ---
 The flags that indicate various properties and states of the channel.
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### permissionOverwrites
 
@@ -69,7 +69,7 @@ The flags that indicate various properties and states of the channel.
 ---
 The permission overwrites for the channel.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### nsfw
 
@@ -78,7 +78,7 @@ The permission overwrites for the channel.
 ---
 Whether the channel is marked as NSFW (Not Safe For Work).
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### topic
 
@@ -87,7 +87,7 @@ Whether the channel is marked as NSFW (Not Safe For Work).
 ---
 The topic of the channel.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### guildId
 
@@ -96,7 +96,7 @@ The topic of the channel.
 ---
 The ID of the guild this channel belongs to.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### position
 
@@ -105,7 +105,7 @@ The ID of the guild this channel belongs to.
 ---
 The position of the channel in the guild's channel list.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### parentId
 
@@ -114,7 +114,7 @@ The position of the channel in the guild's channel list.
 ---
 The ID of the parent category channel, if this channel is in a category.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### permissions
 
@@ -123,7 +123,7 @@ The ID of the parent category channel, if this channel is in a category.
 ---
 The computed permissions for the current user in this channel.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### defaultThreadRateLimitPerUser
 
@@ -132,7 +132,7 @@ The computed permissions for the current user in this channel.
 ---
 The default rate limit per user for threads in this channel.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### defaultAutoArchiveDuration
 
@@ -141,7 +141,7 @@ The default rate limit per user for threads in this channel.
 ---
 The default duration after which threads are automatically archived.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### lastMessageId
 
@@ -150,7 +150,7 @@ The default duration after which threads are automatically archived.
 ---
 The ID of the last message sent in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### lastPinTimestamp
 
@@ -159,7 +159,7 @@ The ID of the last message sent in this channel.
 ---
 The timestamp of the last pinned message in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### rateLimitPerUser
 
@@ -168,7 +168,7 @@ The timestamp of the last pinned message in this channel.
 ---
 The rate limit per user for sending messages in this channel.
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 
 ## Methods
@@ -182,7 +182,7 @@ Post a typing indicator for the specified channel, which expires after 10 second
 Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
 take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### modifyAsync
 
@@ -192,7 +192,7 @@ Lists all private archived threads that the current user has joined. Returns thr
 
 <LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.Channel](Classes.Channels.Channel)
+> Inherited from [Classes.Channels.Channel](/classes/classes/Channels/channel)
 
 ### setPositionAsync
 
@@ -202,7 +202,7 @@ Sets the position of the channel in the guild's channel list.
 
 <LuaParamTable params={[ { name: "position", type: "number" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### setParentAsync
 
@@ -212,7 +212,7 @@ Sets the parent category of the channel and optionally syncs permissions with th
 
 <LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### setPermissionsAsync
 
@@ -222,7 +222,7 @@ Sets the permissions for a role or member in the channel.
 
 <LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### deletePermissionAsync
 
@@ -232,7 +232,7 @@ Deletes a permission overwrite for a role or member in the channel.
 
 <LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### getInvitesAsync
 
@@ -240,7 +240,7 @@ Deletes a permission overwrite for a role or member in the channel.
 
 Gets a list of all invites for the channel.
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### createInviteAsync
 
@@ -250,7 +250,7 @@ Creates a new invite for the channel.
 
 <LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### listPublicArchivedThreadsAsync
 
@@ -260,7 +260,7 @@ Lists all public archived threads in the channel. Returns thread and member info
 
 <LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### listPrivateArchivedThreadsAsync
 
@@ -270,7 +270,7 @@ Lists all private archived threads in the channel. Returns thread and member inf
 
 <LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### listJoinedPrivateArchivedThreadsAsync
 
@@ -280,7 +280,7 @@ Lists all private archived threads that the current user has joined. Returns thr
 
 <LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### setNameAsync
 
@@ -290,7 +290,7 @@ Sets the name of the channel.
 
 <LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.GuildBehaviour](Classes.Channels.GuildBehaviour)
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/Channels/guildbehaviour)
 
 ### bulkDeleteMessagesAsync
 
@@ -301,7 +301,7 @@ MANAGE_MESSAGES permission.
 
 <LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### getMessagesAsync
 
@@ -311,7 +311,7 @@ Gets messages from a channel. Returns an array of message objects.
 
 <LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### getMessageAsync
 
@@ -321,7 +321,7 @@ Gets a specific message from a channel using its ID. Returns a message object.
 
 <LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### createMessageAsync
 
@@ -331,7 +331,7 @@ Creates a new message in the channel. Returns the created message object.
 
 <LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### getPinnedMessagesAsync
 
@@ -339,7 +339,7 @@ Creates a new message in the channel. Returns the created message object.
 
 Gets all pinned messages in the channel. Returns an array of message objects.
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### pinMessageAsync
 
@@ -349,7 +349,7 @@ Pins a message in the channel.
 
 <LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### unpinMessageAsync
 
@@ -359,7 +359,7 @@ Unpins a message from the channel.
 
 <LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 ### startThread
 
@@ -369,6 +369,6 @@ Starts a new thread in the channel without an associated message. Returns the th
 
 <LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
 
-> Inherited from [Classes.Channels.TextBehaviour](Classes.Channels.TextBehaviour)
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/Channels/textbehaviour)
 
 

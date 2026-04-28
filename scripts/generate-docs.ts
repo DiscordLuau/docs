@@ -43,6 +43,19 @@ function classNameToPath(name: string, all: MoonwaveClass[]): string {
 	return `${CLASSES_DIR}/${[packageDir, ...namespaceDirs, filename].join("/")}.mdx`;
 }
 
+function classNameToUrl(name: string): string {
+	const parts = name.split(".");
+	const packageDir = parts[0].toLowerCase();
+	const namespaceDirs = parts.slice(1, -1);
+	const filename = parts[parts.length - 1].toLowerCase();
+
+	if (parts.length === 1) {
+		return `/classes/${packageDir}`;
+	}
+
+	return `/classes/${[packageDir, ...namespaceDirs, filename].join("/")}`;
+}
+
 // #endregion
 
 // #region Inheritance
@@ -190,7 +203,7 @@ function propertiesSection(
 			markdown += propertyComponent(`${className}.${property.name}`, property.lua_type) + "\n\n";
 			if (property.desc) markdown += `---\n${escapeDesc(property.desc)}\n`;
 			markdown += "\n";
-			markdown += `> Inherited from [${parentName}](${parentName})\n\n`;
+			markdown += `> Inherited from [${parentName}](${classNameToUrl(parentName)})\n\n`;
 		}
 	}
 
@@ -236,7 +249,7 @@ function functionsSection(
 			markdown += "\n";
 			const parameterTable = paramTableComponent(parameters, moonwaveFunction.returns);
 			if (parameterTable) markdown += parameterTable + "\n\n";
-			markdown += `> Inherited from [${parentName}](${parentName})\n\n`;
+			markdown += `> Inherited from [${parentName}](${classNameToUrl(parentName)})\n\n`;
 		}
 	}
 
