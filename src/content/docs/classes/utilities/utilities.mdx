@@ -15,6 +15,20 @@ Interface for the discord-luau Utilities package
 
 ## Functions
 
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+### Utilities.createGuild
+
+> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
+
+Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
+
 ### Utilities.tableReflect
 
 > <LuaDeclaration name="Utilities.tableReflect" className="Utilities" args={[  ]} returnType="thread" />
@@ -40,12 +54,6 @@ a = {
 ]]
 ```
 
-### Utilities.createGuild
-
-> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
-
-Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
-
 ### Utilities.validateKebabCase
 
 > <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="thread" />
@@ -54,13 +62,5 @@ Will validate a string to ensure that it's kebab-case, discord is sometimes very
 text.
 
 Will return either true/false, will not error.
-
-### Utilities.coroutineRun
-
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
-
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
-
-Will return the thread spawned.
 
 
