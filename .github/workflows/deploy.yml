@@ -31,15 +31,19 @@ jobs:
         id: pnpm-cache
         run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
 
-      - name: Cache pnpm modules
+      - name: Get Deno cache directory
+        run: echo "DENO_DIR=$(deno info --json | jq -r '.denoDir')" >> $GITHUB_ENV
+
+      - name: Cache pnpm modules, dist, and Deno directories
         uses: actions/cache@v5
         with:
           path: |
             ${{ env.STORE_PATH }}
+            ${{ env.DENO_DIR }}
             dist
             .astro
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-pnpm-store-
+          key: ${{ runner.os }}-pnpm-deno-store-${{ hashFiles('**/pnpm-lock.yaml', '**/deno.json', '**/deno.lock') }}
+          restore-keys: ${{ runner.os }}-pnpm-deno-store-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
