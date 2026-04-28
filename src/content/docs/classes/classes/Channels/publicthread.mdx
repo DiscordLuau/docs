@@ -17,7 +17,7 @@ Implementation of the Discord Public class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
 
-<LuaSummary className="PublicThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ] }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ] }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ] }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "getInvitesAsync", isMethod: true, args: [  ] }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ] }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] }, { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
+<LuaSummary className="PublicThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
 
 ## Properties
 
@@ -259,99 +259,101 @@ Lists all private archived threads that the current user has joined. Returns thr
 
 ### setPositionAsync
 
-> <LuaDeclaration name="setPositionAsync" className="PublicThread" args={[ { name: "position", type: "number" } ]} isMethod />
+> <LuaDeclaration name="setPositionAsync" className="PublicThread" args={[ { name: "position", type: "number" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Sets the position of the channel in the guild's channel list.
 
-<LuaParamTable params={[ { name: "position", type: "number" } ]} />
+<LuaParamTable params={[ { name: "position", type: "number" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### setParentAsync
 
-> <LuaDeclaration name="setParentAsync" className="PublicThread" args={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} isMethod />
+> <LuaDeclaration name="setParentAsync" className="PublicThread" args={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Sets the parent category of the channel and optionally syncs permissions with the parent.
 
-<LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} />
+<LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### setPermissionsAsync
 
-> <LuaDeclaration name="setPermissionsAsync" className="PublicThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="setPermissionsAsync" className="PublicThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Sets the permissions for a role or member in the channel.
 
-<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### deletePermissionAsync
 
-> <LuaDeclaration name="deletePermissionAsync" className="PublicThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="deletePermissionAsync" className="PublicThread" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Deletes a permission overwrite for a role or member in the channel.
 
-<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### getInvitesAsync
 
-> <LuaDeclaration name="getInvitesAsync" className="PublicThread" args={[  ]} isMethod />
+> <LuaDeclaration name="getInvitesAsync" className="PublicThread" args={[  ]} returnType="future.FutureLike<string, { invite.Invite }>" isMethod />
 
 Gets a list of all invites for the channel.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { invite.Invite }>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### createInviteAsync
 
-> <LuaDeclaration name="createInviteAsync" className="PublicThread" args={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="createInviteAsync" className="PublicThread" args={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, invite.Invite>" isMethod />
 
 Creates a new invite for the channel.
 
-<LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, invite.Invite>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### listPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
 
 Lists all public archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### listPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
 
 Lists all private archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### listJoinedPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="PublicThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### setNameAsync
 
-> <LuaDeclaration name="setNameAsync" className="PublicThread" args={[ { name: "groupName", type: "string" } ]} isMethod />
+> <LuaDeclaration name="setNameAsync" className="PublicThread" args={[ { name: "groupName", type: "string" } ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
 
 Sets the name of the channel.
 
-<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
