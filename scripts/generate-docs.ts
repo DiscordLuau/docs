@@ -8,6 +8,8 @@ const CLASS_REGISTRY_PATH = "src/generated/class-registry.json";
 const SYNCED_DIRS_PATH = "src/generated/synced-dirs.json";
 const LUA_DECLARATION_COMPONENT = "$/components/LuaDeclaration.astro";
 const LUA_PROPERTY_COMPONENT = "$/components/LuaProperty.astro";
+const LUA_SUMMARY_COMPONENT = "$/components/LuaSummary.astro";
+const LUA_PARAM_TABLE_COMPONENT = "$/components/LuaParamTable.astro";
 const INHERIT_TAG = "inherit";
 const INDEX_SIDEBAR_ORDER = 0;
 const FILE_ENCODING = "utf-8";
@@ -103,6 +105,18 @@ function escapeDesc(text: string) {
 	return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+function hasSelfParameter(parameters: MoonwaveFunction["params"]): boolean {
+	return parameters.length > 0 && parameters[0].name === "self";
+}
+
+function removeSelfParameter(parameters: MoonwaveFunction["params"]): MoonwaveFunction["params"] {
+	return hasSelfParameter(parameters) ? parameters.slice(1) : parameters;
+}
+
+function functionIsMethod(moonwaveFunction: MoonwaveFunction): boolean {
+	return moonwaveFunction.function_type === "method" || hasSelfParameter(moonwaveFunction.params);
+}
+
 function declarationComponent(
 	funcName: string,
 	className: string,
@@ -120,6 +134,37 @@ function declarationComponent(
 
 function propertyComponent(name: string, type: string) {
 	return `<LuaProperty name="${name}" type="${type}" />`;
+}
+
+function paramTableComponent(parameters: MoonwaveFunction["params"], returns: MoonwaveFunction["returns"]) {
+	const sanitize = (input: string) => (input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
+	const escapeString = (text: string) => text.replace(/"/g, "&quot;");
+
+	const hasParameters = parameters.length > 0;
+	const hasReturns = returns.length > 0;
+	if (!hasParameters && !hasReturns) return "";
+
+	let attributes = "";
+
+	if (hasParameters) {
+		const parameterList = parameters.map(moonwaveParam => {
+			let entry = `{ name: "${moonwaveParam.name}", type: "${sanitize(moonwaveParam.lua_type)}"`;
+			if (moonwaveParam.desc) entry += `, desc: "${escapeString(moonwaveParam.desc)}"`;
+			return entry + " }";
+		});
+		attributes += ` params={[ ${parameterList.join(", ")} ]}`;
+	}
+
+	if (hasReturns) {
+		const returnList = returns.map(moonwaveReturn => {
+			let entry = `{ type: "${sanitize(moonwaveReturn.lua_type)}"`;
+			if (moonwaveReturn.desc) entry += `, desc: "${escapeString(moonwaveReturn.desc)}"`;
+			return entry + " }";
+		});
+		attributes += ` returns={[ ${returnList.join(", ")} ]}`;
+	}
+
+	return `<LuaParamTable${attributes} />`;
 }
 
 function propertiesSection(
@@ -158,7 +203,8 @@ function functionsSection(
 	inherited: MoonwaveClass["inherited"],
 	type: "method" | "static",
 ) {
-	const isVisible = (func: MoonwaveFunction) => !func.private && func.function_type === type;
+	const isVisible = (moonwaveFunction: MoonwaveFunction) =>
+		!moonwaveFunction.private && (type === "method" ? functionIsMethod(moonwaveFunction) : !functionIsMethod(moonwaveFunction));
 
 	const ownFiltered = own.filter(isVisible);
 	const hasAny =
@@ -170,25 +216,96 @@ function functionsSection(
 	const heading = type === "method" ? "## Methods\n\n" : "## Functions\n\n";
 	let markdown = heading;
 
-	for (const func of ownFiltered) {
-		markdown += `### ${func.name}\n\n`;
-		markdown += declarationComponent(func.name, className, type === "method", func.params, func.returns[0]?.lua_type) + "\n";
-		if (func.desc) markdown += "\n" + escapeDesc(func.desc) + "\n";
+	for (const moonwaveFunction of ownFiltered) {
+		const parameters = removeSelfParameter(moonwaveFunction.params);
+		markdown += `### ${moonwaveFunction.name}\n\n`;
+		markdown += declarationComponent(moonwaveFunction.name, className, functionIsMethod(moonwaveFunction), parameters, moonwaveFunction.returns[0]?.lua_type) + "\n";
+		if (moonwaveFunction.desc) markdown += "\n" + escapeDesc(moonwaveFunction.desc) + "\n";
 		markdown += "\n";
+		const parameterTable = paramTableComponent(parameters, moonwaveFunction.returns);
+		if (parameterTable) markdown += parameterTable + "\n\n";
 	}
 
 	for (const [parentName, data] of Object.entries(inherited ?? {})) {
 		const inheritedFunctions = data.functions.filter(isVisible);
-		for (const func of inheritedFunctions) {
-			markdown += `### ${func.name}\n\n`;
-			markdown += declarationComponent(func.name, className, type === "method", func.params, func.returns[0]?.lua_type) + "\n";
-			if (func.desc) markdown += "\n" + escapeDesc(func.desc) + "\n";
+		for (const moonwaveFunction of inheritedFunctions) {
+			const parameters = removeSelfParameter(moonwaveFunction.params);
+			markdown += `### ${moonwaveFunction.name}\n\n`;
+			markdown += declarationComponent(moonwaveFunction.name, className, functionIsMethod(moonwaveFunction), parameters, moonwaveFunction.returns[0]?.lua_type) + "\n";
+			if (moonwaveFunction.desc) markdown += "\n" + escapeDesc(moonwaveFunction.desc) + "\n";
 			markdown += "\n";
+			const parameterTable = paramTableComponent(parameters, moonwaveFunction.returns);
+			if (parameterTable) markdown += parameterTable + "\n\n";
 			markdown += `> Inherited from [${parentName}](${parentName})\n\n`;
 		}
 	}
 
 	return markdown;
+}
+
+function summarySection(
+	className: string,
+	ownProperties: MoonwaveProperty[],
+	ownFunctions: MoonwaveFunction[],
+	inherited: MoonwaveClass["inherited"],
+): string {
+	const sanitize = (input: string) => (input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
+
+	const isVisible = (moonwaveFunction: MoonwaveFunction) => !moonwaveFunction.private;
+
+	const allProperties = [
+		...ownProperties,
+		...Object.values(inherited ?? {}).flatMap(data => data.properties),
+	];
+
+	const allMethods = [
+		...ownFunctions.filter(moonwaveFunction => isVisible(moonwaveFunction) && functionIsMethod(moonwaveFunction)),
+		...Object.values(inherited ?? {}).flatMap(data =>
+			data.functions.filter(moonwaveFunction => isVisible(moonwaveFunction) && functionIsMethod(moonwaveFunction)),
+		),
+	];
+
+	const allFunctions = [
+		...ownFunctions.filter(moonwaveFunction => isVisible(moonwaveFunction) && !functionIsMethod(moonwaveFunction)),
+		...Object.values(inherited ?? {}).flatMap(data =>
+			data.functions.filter(moonwaveFunction => isVisible(moonwaveFunction) && !functionIsMethod(moonwaveFunction)),
+		),
+	];
+
+	if (allProperties.length === 0 && allMethods.length === 0 && allFunctions.length === 0) return "";
+
+	const formatArguments = (parameters: MoonwaveFunction["params"]) => {
+		const parameterList = parameters.map(moonwaveParam => `{ name: "${moonwaveParam.name}", type: "${sanitize(moonwaveParam.lua_type)}" }`);
+		return `[ ${parameterList.join(", ")} ]`;
+	};
+
+	let attributes = `className="${className}"`;
+
+	if (allProperties.length > 0) {
+		const propertyList = allProperties.map(moonwaveProperty => `{ name: "${moonwaveProperty.name}", type: "${sanitize(moonwaveProperty.lua_type)}" }`);
+		attributes += ` properties={[ ${propertyList.join(", ")} ]}`;
+	}
+
+	if (allMethods.length > 0) {
+		const methodList = allMethods.map(moonwaveFunction => {
+			const parameters = removeSelfParameter(moonwaveFunction.params);
+			let entry = `{ name: "${moonwaveFunction.name}", isMethod: true, args: ${formatArguments(parameters)}`;
+			if (moonwaveFunction.returns[0]?.lua_type) entry += `, returnType: "${sanitize(moonwaveFunction.returns[0].lua_type)}"`;
+			return entry + " }";
+		});
+		attributes += ` methods={[ ${methodList.join(", ")} ]}`;
+	}
+
+	if (allFunctions.length > 0) {
+		const functionList = allFunctions.map(moonwaveFunction => {
+			let entry = `{ name: "${moonwaveFunction.name}", args: ${formatArguments(moonwaveFunction.params)}`;
+			if (moonwaveFunction.returns[0]?.lua_type) entry += `, returnType: "${sanitize(moonwaveFunction.returns[0].lua_type)}"`;
+			return entry + " }";
+		});
+		attributes += ` functions={[ ${functionList.join(", ")} ]}`;
+	}
+
+	return `<LuaSummary ${attributes} />\n\n`;
 }
 
 function generateMdx(moonwaveClass: MoonwaveClass, isIndex = false): string {
@@ -208,8 +325,11 @@ function generateMdx(moonwaveClass: MoonwaveClass, isIndex = false): string {
 	markdown += "\n";
 	markdown += `import LuaDeclaration from '${LUA_DECLARATION_COMPONENT}';\n`;
 	markdown += `import LuaProperty from '${LUA_PROPERTY_COMPONENT}';\n`;
+	markdown += `import LuaSummary from '${LUA_SUMMARY_COMPONENT}';\n`;
+	markdown += `import LuaParamTable from '${LUA_PARAM_TABLE_COMPONENT}';\n`;
 	markdown += "\n";
 	markdown += escapeDesc(moonwaveClass.desc) + "\n\n";
+	markdown += summarySection(className, moonwaveClass.properties, moonwaveClass.functions, moonwaveClass.inherited);
 
 	const properties = propertiesSection(className, moonwaveClass.properties, moonwaveClass.inherited);
 	const methods = functionsSection(className, moonwaveClass.functions, moonwaveClass.inherited, "method");
