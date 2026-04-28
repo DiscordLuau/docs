@@ -4,7 +4,7 @@
     "app": "docs-web",
     "runtime": {
       "type": "dynamic",
-      "entrypoint": "server/entry.mjs"
+      "entrypoint": "dist/server/entry.mjs"
     }
   }
 }
