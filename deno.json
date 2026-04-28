@@ -1,0 +1,5 @@
+{
+  "deploy": {
+    "entrypoint": "dist/server/entry.mjs"
+  }
+}

@@ -5,7 +5,6 @@
   "version": "0.0.1",
   "packageManager": "pnpm@9.1.4",
   "scripts": {
-    "postinstall": "deno install -Arf jsr:@deno/deployctl",
     "dev": "pnpm generate && astro dev",
     "start": "pnpm generate && astro dev",
     "generate": "tsx scripts/generate-docs.ts",
@@ -13,7 +12,7 @@
     "astro:build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "deployctl deploy --prod --entrypoint dist/server/entry.mjs",
+    "deploy": "deno deploy --prod --token $DENO_DEPLOY_TOKEN",
     "lint": "biome lint",
     "fmt": "biome format --write ."
   },
