@@ -1,6 +1,10 @@
 {
   "deploy": {
     "org": "discordluau",
-    "entrypoint": "server/entry.mjs"
+    "app": "docs-web",
+    "runtime": {
+      "type": "dynamic",
+      "entrypoint": "server/entry.mjs"
+    }
   }
 }
