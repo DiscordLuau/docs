@@ -26,6 +26,11 @@ export const luaTypeDocs: Record<string, string> = {
 
 export const removeTypeModifiers = (type: string) => type.replaceAll(/\?/g, "");
 
+export const stripNamespace = (type: string) => {
+	const lastDot = type.lastIndexOf(".");
+	return lastDot >= 0 ? type.slice(lastDot + 1) : type;
+};
+
 export const getLuaDocs = (luaType: string) => {
 	const url = new URL(LUA_DOCS_BASE_URL);
 	url.pathname += `/${luaTypeDocs[luaType]}.html`;

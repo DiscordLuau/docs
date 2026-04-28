@@ -1,6 +1,6 @@
 ---
 import LuaTable from "./LuaTable.astro";
-import { getKvPairs, getTypeDocs, isObject } from "./utils/lua";
+import { getKvPairs, getTypeDocs, isObject, stripNamespace } from "./utils/lua";
 
 type Props = {
 	url: string | null;
@@ -45,17 +45,17 @@ if (genericMatch) {
 <>
 	{
 		url
-			? <a href={url}>{resolvedType}</a>
+			? <a href={url}>{stripNamespace(resolvedType)}</a>
 			: genericUrls
 				? (
 					<>
-						<a href={genericUrls.base.url}>{genericUrls.base.typeName}</a>
+						<a href={genericUrls.base.url}>{stripNamespace(genericUrls.base.typeName)}</a>
 						<span>&lt;</span>
 						{genericUrls.generic.map(({ url, typeName }, index) => {
 							const [innerTablePairs, innerTableUrl] = extractTableType(typeName);
 							return (
 								<>
-									<a href={innerTablePairs.length ? innerTableUrl : url}>{typeName}</a>
+									<a href={innerTablePairs.length ? innerTableUrl : url}>{stripNamespace(typeName)}</a>
 									{index !== genericUrls!.generic.length - 1 && <span>, </span>}
 								</>
 							);
