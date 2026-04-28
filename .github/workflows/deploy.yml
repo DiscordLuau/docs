@@ -45,4 +45,4 @@ jobs:
         run: "GITHUB_TOKEN=${{ secrets.GH_SECRET }} mise run build"
 
       - name: Upload to Deno Deploy
-        run: DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} mise run ${{ github.ref_name == 'master' && '--prod' || '' }}
+        run: DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} mise run deploy ${{ github.ref_name == 'master' && '--prod' || '' }}
