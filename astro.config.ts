@@ -34,11 +34,98 @@ export default defineConfig({
 						directory: "guides",
 					},
 				},
+				// Core — what most consumers interact with directly
+				{
+					label: "Discord Luau",
+					collapsed: false,
+					autogenerate: { directory: "classes/discordluau", collapsed: true },
+				},
 				{
 					label: "Classes",
-					autogenerate: {
-						directory: "classes",
-					},
+					collapsed: false,
+					autogenerate: { directory: "classes/classes", collapsed: true },
+				},
+				{
+					label: "Builders",
+					collapsed: false,
+					autogenerate: { directory: "classes/builders", collapsed: true },
+				},
+				{
+					label: "Types",
+					collapsed: false,
+					autogenerate: { directory: "classes/types", collapsed: true },
+				},
+				{
+					label: "Rest",
+					collapsed: false,
+					autogenerate: { directory: "classes/rest", collapsed: true },
+				},
+				// Secondary — feature areas
+				{
+					label: "Voice",
+					collapsed: false,
+					autogenerate: { directory: "classes/voice", collapsed: true },
+				},
+				{
+					label: "State",
+					collapsed: false,
+					autogenerate: { directory: "classes/state", collapsed: true },
+				},
+				{
+					label: "Emitter",
+					collapsed: false,
+					autogenerate: { directory: "classes/emitter", collapsed: true },
+				},
+				{
+					label: "Utilities",
+					collapsed: false,
+					autogenerate: { directory: "classes/utilities", collapsed: true },
+				},
+				// Internal / infrastructure
+				{
+					label: "Snowflake",
+					collapsed: false,
+					autogenerate: { directory: "classes/snowflake", collapsed: true },
+				},
+				{
+					label: "Logger",
+					collapsed: false,
+					autogenerate: { directory: "classes/logger", collapsed: true },
+				},
+				{
+					label: "Formdata",
+					collapsed: false,
+					autogenerate: { directory: "classes/formdata", collapsed: true },
+				},
+				{
+					label: "Stream",
+					collapsed: false,
+					autogenerate: { directory: "classes/stream", collapsed: true },
+				},
+				{
+					label: "Secret",
+					collapsed: false,
+					autogenerate: { directory: "classes/secret", collapsed: true },
+				},
+				{
+					label: "Buffer",
+					collapsed: false,
+					autogenerate: { directory: "classes/buffer", collapsed: true },
+				},
+				{
+					label: "Bit",
+					collapsed: false,
+					autogenerate: { directory: "classes/bit", collapsed: true },
+				},
+				{
+					label: "Web Socket",
+					collapsed: false,
+					autogenerate: { directory: "classes/websocket", collapsed: true },
+				},
+				{
+					label: "STD Polyfills",
+					collapsed: false,
+					autogenerate: { directory: "classes/stdpolyfills", collapsed: true },
 				},
 			],
 			customCss: [
