@@ -1,4 +1,7 @@
 ---
+import LuaTypeComponent from "./LuaType.astro";
+import { typeOrDefault, getTypeDocs } from "./utils/lua";
+
 type Param = {
 	name: string;
 	type: string;
@@ -29,16 +32,21 @@ const hasReturns = returns.length > 0;
 					<p class="lua-pt-heading">Parameters</p>
 					<table class="lua-pt-table">
 						<tbody>
-							{params.map(param => (
-								<tr>
-									<td class="lua-pt-sig">
-										<span class="lua-s-arg">{param.name}</span>
-										<span class="lua-s-punct">: </span>
-										<span class="lua-s-type">{param.type}</span>
-									</td>
-									<td class="lua-pt-desc">{param.desc ?? ""}</td>
-								</tr>
-							))}
+							{params.map(param => {
+								const resolvedType = typeOrDefault(param.type);
+								return (
+									<tr>
+										<td class="lua-pt-sig">
+											<span class="lua-s-arg">{param.name}</span>
+											<span class="lua-s-punct">: </span>
+											<span class="lua-s-type">
+												<LuaTypeComponent url={getTypeDocs(resolvedType)} type={resolvedType} />
+											</span>
+										</td>
+										<td class="lua-pt-desc">{param.desc ?? ""}</td>
+									</tr>
+								);
+							})}
 						</tbody>
 					</table>
 				</div>
@@ -49,14 +57,19 @@ const hasReturns = returns.length > 0;
 					<p class="lua-pt-heading">Returns</p>
 					<table class="lua-pt-table">
 						<tbody>
-							{returns.map(ret => (
-								<tr>
-									<td class="lua-pt-sig">
-										<span class="lua-s-type">{ret.type}</span>
-									</td>
-									<td class="lua-pt-desc">{ret.desc ?? ""}</td>
-								</tr>
-							))}
+							{returns.map(ret => {
+								const resolvedType = typeOrDefault(ret.type);
+								return (
+									<tr>
+										<td class="lua-pt-sig">
+											<span class="lua-s-type">
+												<LuaTypeComponent url={getTypeDocs(resolvedType)} type={resolvedType} />
+											</span>
+										</td>
+										<td class="lua-pt-desc">{ret.desc ?? ""}</td>
+									</tr>
+								);
+							})}
 						</tbody>
 					</table>
 				</div>
