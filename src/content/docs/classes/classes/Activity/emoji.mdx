@@ -1,0 +1,43 @@
+---
+title: Emoji
+description: DiscordLuau docs for Emoji.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord ActivityEmoji class in Luau
+
+https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-emoji
+
+<LuaSummary className="Emoji" properties={[ { name: "animated", type: "boolean?" }, { name: "name", type: "string" }, { name: "id", type: "string" } ]} />
+
+## Properties
+
+### animated
+
+<LuaProperty name="Emoji.animated" type="boolean?" />
+
+---
+Whether this emoji is animated. This is only present if the emoji is custom.
+
+### name
+
+<LuaProperty name="Emoji.name" type="string" />
+
+---
+The name of the emoji. For custom emojis this is the name of the emoji, for default emojis this is the unicode character.
+
+### id
+
+<LuaProperty name="Emoji.id" type="string" />
+
+
+

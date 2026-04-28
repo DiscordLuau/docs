@@ -1,0 +1,130 @@
+---
+title: SelectMenuOption
+description: DiscordLuau docs for SelectMenuOption.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Option object as a Luau builder.	
+
+https://discord.com/developers/docs/interactions/message-components#Options
+
+<LuaSummary className="SelectMenuOption" properties={[ { name: "label", type: "string?" }, { name: "value", type: "string?" }, { name: "description", type: "string?" }, { name: "emoji", type: "Builders.Emoji?" }, { name: "default", type: "boolean?" } ]} methods={[ { name: "setLabel", isMethod: true, args: [ { name: "label", type: "string" } ], returnType: "Option" }, { name: "setValue", isMethod: true, args: [ { name: "value", type: "string" } ], returnType: "Option" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Option" }, { name: "setEmoji", isMethod: true, args: [ { name: "emoji", type: "emoji.JSON" } ], returnType: "Option" }, { name: "setDefault", isMethod: true, args: [ { name: "default", type: "boolean" } ], returnType: "Option" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ label: string?, value: string?, description: string?, emoji: emoji.JSON?, default: boolean?, }" } ], returnType: "Option" } ]} />
+
+## Properties
+
+### label
+
+<LuaProperty name="SelectMenuOption.label" type="string?" />
+
+---
+The user-facing name of the option.
+
+### value
+
+<LuaProperty name="SelectMenuOption.value" type="string?" />
+
+---
+The dev-defined value of the option.
+
+### description
+
+<LuaProperty name="SelectMenuOption.description" type="string?" />
+
+---
+An additional description of the option.
+
+### emoji
+
+<LuaProperty name="SelectMenuOption.emoji" type="Builders.Emoji?" />
+
+---
+The emoji to display alongside the option.
+
+### default
+
+<LuaProperty name="SelectMenuOption.default" type="boolean?" />
+
+---
+Whether this option is selected by default.
+
+
+## Methods
+
+### setLabel
+
+> <LuaDeclaration name="setLabel" className="SelectMenuOption" args={[ { name: "label", type: "string" } ]} returnType="Option" isMethod />
+
+Sets the user-facing name of the option.
+
+<LuaParamTable params={[ { name: "label", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
+### setValue
+
+> <LuaDeclaration name="setValue" className="SelectMenuOption" args={[ { name: "value", type: "string" } ]} returnType="Option" isMethod />
+
+Sets the dev-defined value of the option.
+
+<LuaParamTable params={[ { name: "value", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="SelectMenuOption" args={[ { name: "description", type: "string" } ]} returnType="Option" isMethod />
+
+Sets an additional description of the option.
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Option" } ]} />
+
+### setEmoji
+
+> <LuaDeclaration name="setEmoji" className="SelectMenuOption" args={[ { name: "emoji", type: "emoji.JSON" } ]} returnType="Option" isMethod />
+
+Sets an emoji to display alongside the option.
+
+<LuaParamTable params={[ { name: "emoji", type: "emoji.JSON" } ]} returns={[ { type: "Option" } ]} />
+
+### setDefault
+
+> <LuaDeclaration name="setDefault" className="SelectMenuOption" args={[ { name: "default", type: "boolean" } ]} returnType="Option" isMethod />
+
+Sets whether this option is selected by default.
+
+<LuaParamTable params={[ { name: "default", type: "boolean" } ]} returns={[ { type: "Option" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="SelectMenuOption" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Option JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenuOption" args={[ { name: "resource", type: "{ label: string?, value: string?, description: string?, emoji: emoji.JSON?, default: boolean?, }" } ]} returnType="Option" />
+
+Responsible for creating a new Option.
+
+```luau
+local option = Option.new({
+	label = "My Option",
+	value = "option_value",
+	description = "A description",
+	default = false
+})
+```
+
+<LuaParamTable params={[ { name: "resource", type: "{ label: string?, value: string?, description: string?, emoji: emoji.JSON?, default: boolean?, }" } ]} returns={[ { type: "Option" } ]} />
+
+

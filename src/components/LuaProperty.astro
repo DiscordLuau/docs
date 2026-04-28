@@ -9,15 +9,14 @@ type Props = {
 
 const { name, type } = Astro.props;
 
-let realType = type;
-if (type.includes("<")) {
-	const embeddedType = type.match(/<(.*?)>/);
-	realType = embeddedType![1];
-}
+const innerTypeMatch = type.includes("<") ? type.match(/<(.*?)>/) : null;
+const resolvedType = innerTypeMatch ? innerTypeMatch[1] : type;
 ---
 
 <div class="declaration">
-    <span class="declaration arg">{name}</span>
-    <span class="declaration">&nbsp;:: </span>
-    <span class="declaration type"><LuaType type={type} url={getTypeDocs(realType)} /></span>
+	<span class="declaration arg">{name}</span>
+	<span class="declaration">&nbsp;:: </span>
+	<span class="declaration type">
+		<LuaType type={type} url={getTypeDocs(resolvedType)} />
+	</span>
 </div>

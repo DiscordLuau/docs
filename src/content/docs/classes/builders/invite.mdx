@@ -1,0 +1,158 @@
+---
+title: Invite
+description: DiscordLuau docs for Invite.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Invite object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#create-channel-invite-json-params
+
+<LuaSummary className="Invite" properties={[ { name: "maxAge", type: "number?" }, { name: "maxUses", type: "number?" }, { name: "temporary", type: "boolean?" }, { name: "unique", type: "boolean?" }, { name: "targetType", type: "api_types.InviteTargetType?" }, { name: "targetUserId", type: "string?" }, { name: "targetApplicationId", type: "string?" } ]} methods={[ { name: "setMaxAge", isMethod: true, args: [ { name: "age", type: "number" } ], returnType: "Invite" }, { name: "setMaxUses", isMethod: true, args: [ { name: "uses", type: "number" } ], returnType: "Invite" }, { name: "setTemporary", isMethod: true, args: [ { name: "isTemporary", type: "boolean" } ], returnType: "Invite" }, { name: "setIsUnique", isMethod: true, args: [ { name: "isUnique", type: "boolean" } ], returnType: "Invite" }, { name: "setTargetType", isMethod: true, args: [ { name: "targetType", type: "apiTypes.InviteTargetType" } ], returnType: "Invite" }, { name: "setTargetUser", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "Invite" }, { name: "setTargetApplication", isMethod: true, args: [ { name: "applicationId", type: "string" } ], returnType: "Invite" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ maxAge: number?, maxUses: number?, temporary: boolean?, unique: boolean?, targetType: apiTypes.InviteTargetType?, targetUserId: string?, targetApplicationId: string?, }?" } ], returnType: "Invite" } ]} />
+
+## Properties
+
+### maxAge
+
+<LuaProperty name="Invite.maxAge" type="number?" />
+
+---
+Duration in seconds after which the invite expires. Must be between 0 and 604800 seconds.
+
+### maxUses
+
+<LuaProperty name="Invite.maxUses" type="number?" />
+
+---
+Maximum number of times this invite can be used. Must be between 0 and 100.
+
+### temporary
+
+<LuaProperty name="Invite.temporary" type="boolean?" />
+
+---
+Whether the invite grants temporary membership. Members are removed on disconnect unless granted a role.
+
+### unique
+
+<LuaProperty name="Invite.unique" type="boolean?" />
+
+---
+Whether this invite should be unique. If true, don't try to reuse a similar invite.
+
+### targetType
+
+<LuaProperty name="Invite.targetType" type="api_types.InviteTargetType?" />
+
+---
+The type of target for this invite. Used for stream and embedded application invites.
+
+### targetUserId
+
+<LuaProperty name="Invite.targetUserId" type="string?" />
+
+---
+The target user ID for this invite. Used to specify which user's stream to display.
+
+### targetApplicationId
+
+<LuaProperty name="Invite.targetApplicationId" type="string?" />
+
+---
+The target application ID for this invite. Used to specify which embedded application to open.
+
+
+## Methods
+
+### setMaxAge
+
+> <LuaDeclaration name="setMaxAge" className="Invite" args={[ { name: "age", type: "number" } ]} returnType="Invite" isMethod />
+
+Sets the duration in seconds after which the invite expires.
+Age must be between 0 and 604800 seconds.
+
+<LuaParamTable params={[ { name: "age", type: "number" } ]} returns={[ { type: "Invite" } ]} />
+
+### setMaxUses
+
+> <LuaDeclaration name="setMaxUses" className="Invite" args={[ { name: "uses", type: "number" } ]} returnType="Invite" isMethod />
+
+Sets the maximum number of times this invite can be used.
+Uses must be between 0 and 100.
+
+<LuaParamTable params={[ { name: "uses", type: "number" } ]} returns={[ { type: "Invite" } ]} />
+
+### setTemporary
+
+> <LuaDeclaration name="setTemporary" className="Invite" args={[ { name: "isTemporary", type: "boolean" } ]} returnType="Invite" isMethod />
+
+Sets whether the invite grants temporary membership.
+Temporary members are removed when they disconnect unless granted a role.
+
+<LuaParamTable params={[ { name: "isTemporary", type: "boolean" } ]} returns={[ { type: "Invite" } ]} />
+
+### setIsUnique
+
+> <LuaDeclaration name="setIsUnique" className="Invite" args={[ { name: "isUnique", type: "boolean" } ]} returnType="Invite" isMethod />
+
+Sets whether this invite should be unique.
+If true, don't try to reuse a similar invite.
+
+<LuaParamTable params={[ { name: "isUnique", type: "boolean" } ]} returns={[ { type: "Invite" } ]} />
+
+### setTargetType
+
+> <LuaDeclaration name="setTargetType" className="Invite" args={[ { name: "targetType", type: "apiTypes.InviteTargetType" } ]} returnType="Invite" isMethod />
+
+Sets the type of target for this invite.
+Used for stream and embedded application invites.
+
+<LuaParamTable params={[ { name: "targetType", type: "apiTypes.InviteTargetType" } ]} returns={[ { type: "Invite" } ]} />
+
+### setTargetUser
+
+> <LuaDeclaration name="setTargetUser" className="Invite" args={[ { name: "userId", type: "string" } ]} returnType="Invite" isMethod />
+
+Sets the target user ID for this invite.
+Used to specify which user's stream to display for stream invites.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "Invite" } ]} />
+
+### setTargetApplication
+
+> <LuaDeclaration name="setTargetApplication" className="Invite" args={[ { name: "applicationId", type: "string" } ]} returnType="Invite" isMethod />
+
+Sets the target application ID for this invite.
+Used to specify which embedded application to open.
+
+<LuaParamTable params={[ { name: "applicationId", type: "string" } ]} returns={[ { type: "Invite" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Invite" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for buillding the invite object that the Discord API can understand.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Invite" args={[ { name: "resource", type: "{ maxAge: number?, maxUses: number?, temporary: boolean?, unique: boolean?, targetType: apiTypes.InviteTargetType?, targetUserId: string?, targetApplicationId: string?, }?" } ]} returnType="Invite" />
+
+Responsible for creating a new Invite.
+
+<LuaParamTable params={[ { name: "resource", type: "{ maxAge: number?, maxUses: number?, temporary: boolean?, unique: boolean?, targetType: apiTypes.InviteTargetType?, targetUserId: string?, targetApplicationId: string?, }?" } ]} returns={[ { type: "Invite" } ]} />
+
+

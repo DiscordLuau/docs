@@ -1,0 +1,121 @@
+---
+title: OnboardingPrompt
+description: DiscordLuau docs for OnboardingPrompt.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Prompt object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#guild-onboarding-object-onboarding-prompt-structure
+
+<LuaSummary className="OnboardingPrompt" properties={[ { name: "options", type: "{ Builders.Message.SelectMenuOption }" }, { name: "type", type: "apiTypes.OnboardingPromptType" }, { name: "title", type: "string" }, { name: "singleSelect", type: "boolean" }, { name: "required", type: "boolean" } ]} methods={[ { name: "addOption", isMethod: true, args: [ { name: "option", type: "option.JSON" } ], returnType: "Prompt" }, { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.OnboardingPromptType" } ], returnType: "Prompt" }, { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Prompt" }, { name: "setSingleSelect", isMethod: true, args: [ { name: "singleSelect", type: "boolean" } ], returnType: "Prompt" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "Prompt" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ type: apiTypes.OnboardingPromptType?, options: { option.JSON }?, title: string?, singleSelect: boolean?, required: boolean?, }?" } ], returnType: "Prompt" } ]} />
+
+## Properties
+
+### options
+
+<LuaProperty name="OnboardingPrompt.options" type="{ Builders.Message.SelectMenuOption }" />
+
+---
+The array of options available within this prompt.
+
+### type
+
+<LuaProperty name="OnboardingPrompt.type" type="apiTypes.OnboardingPromptType" />
+
+---
+The type of prompt to display.
+
+### title
+
+<LuaProperty name="OnboardingPrompt.title" type="string" />
+
+---
+The title of the prompt to display.
+
+### singleSelect
+
+<LuaProperty name="OnboardingPrompt.singleSelect" type="boolean" />
+
+---
+Whether users can select only one option or multiple options.
+
+### required
+
+<LuaProperty name="OnboardingPrompt.required" type="boolean" />
+
+---
+Whether this prompt is required to be answered or not.
+
+
+## Methods
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="OnboardingPrompt" args={[ { name: "option", type: "option.JSON" } ]} returnType="Prompt" isMethod />
+
+Add an Option to this prompt
+
+<LuaParamTable params={[ { name: "option", type: "option.JSON" } ]} returns={[ { type: "Prompt" } ]} />
+
+### setType
+
+> <LuaDeclaration name="setType" className="OnboardingPrompt" args={[ { name: "type", type: "apiTypes.OnboardingPromptType" } ]} returnType="Prompt" isMethod />
+
+Set the type of prompt.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OnboardingPromptType" } ]} returns={[ { type: "Prompt" } ]} />
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="OnboardingPrompt" args={[ { name: "title", type: "string" } ]} returnType="Prompt" isMethod />
+
+Set the title of this prompt
+
+<LuaParamTable params={[ { name: "title", type: "string" } ]} returns={[ { type: "Prompt" } ]} />
+
+### setSingleSelect
+
+> <LuaDeclaration name="setSingleSelect" className="OnboardingPrompt" args={[ { name: "singleSelect", type: "boolean" } ]} returnType="Prompt" isMethod />
+
+Set weather or not users can select one option, or multiple.
+
+<LuaParamTable params={[ { name: "singleSelect", type: "boolean" } ]} returns={[ { type: "Prompt" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="OnboardingPrompt" args={[ { name: "required", type: "boolean" } ]} returnType="Prompt" isMethod />
+
+Set weather this option is required or not.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "Prompt" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="OnboardingPrompt" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the PromptObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="OnboardingPrompt" args={[ { name: "resource", type: "{ type: apiTypes.OnboardingPromptType?, options: { option.JSON }?, title: string?, singleSelect: boolean?, required: boolean?, }?" } ]} returnType="Prompt" />
+
+Responsible for creating a new Prompt.
+
+<LuaParamTable params={[ { name: "resource", type: "{ type: apiTypes.OnboardingPromptType?, options: { option.JSON }?, title: string?, singleSelect: boolean?, required: boolean?, }?" } ]} returns={[ { type: "Prompt" } ]} />
+
+

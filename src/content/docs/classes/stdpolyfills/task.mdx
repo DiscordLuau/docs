@@ -1,0 +1,68 @@
+---
+title: Task
+description: DiscordLuau docs for Task.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+
+
+<LuaSummary className="Task" functions={[ { name: "cancel", args: [ { name: "thread", type: "thread" } ] }, { name: "defer", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "delay", args: [ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "spawn", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "wait", args: [ { name: "duration", type: "number?" } ], returnType: "number" } ]} />
+
+## Functions
+
+### cancel
+
+> <LuaDeclaration name="cancel" className="Task" args={[ { name: "thread", type: "thread" } ]} />
+
+Stops a currently scheduled thread from resuming.
+
+<LuaParamTable params={[ { name: "thread", type: "thread" } ]} />
+
+### defer
+
+> <LuaDeclaration name="defer" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+
+Defers a thread or function to run at the end of the current task queue.
+
+<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+
+### delay
+
+> <LuaDeclaration name="delay" className="Task" args={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+
+Delays a thread or function to run after duration seconds.
+
+<LuaParamTable params={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+
+### spawn
+
+> <LuaDeclaration name="spawn" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+
+Instantly runs a thread or function.
+
+If the spawned task yields, the thread that spawned the task will resume, letting the spawned task run in the
+	background.
+
+<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+
+### wait
+
+> <LuaDeclaration name="wait" className="Task" args={[ { name: "duration", type: "number?" } ]} returnType="number" />
+
+Waits for at least the given amount of time.
+
+The minimum wait time possible when using task.wait is limited by the underlying OS sleep implementation. For most
+	systems this means task.wait is accurate down to about 5 milliseconds or less.
+
+<LuaParamTable params={[ { name: "duration", type: "number?" } ]} returns={[ { type: "number" } ]} />
+
+

@@ -1,0 +1,306 @@
+---
+title: GuildVoice
+description: DiscordLuau docs for GuildVoice.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord GuildVoice class in Luau
+
+https://discord.com/developers/docs/resources/channel#channel-object
+
+<LuaSummary className="GuildVoice" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" }, { name: "bitrate", type: "number" }, { name: "userLimit", type: "number" }, { name: "rtcRegion", type: "string?" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} />
+
+## Properties
+
+### state
+
+<LuaProperty name="GuildVoice.state" type="Classes.State" />
+
+
+### type
+
+<LuaProperty name="GuildVoice.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### id
+
+<LuaProperty name="GuildVoice.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### name
+
+<LuaProperty name="GuildVoice.name" type="string?" />
+
+---
+The name of the channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### flags
+
+<LuaProperty name="GuildVoice.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### permissionOverwrites
+
+<LuaProperty name="GuildVoice.permissionOverwrites" type="{ Classes.Channels.Overwrite }" />
+
+---
+The permission overwrites for the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### nsfw
+
+<LuaProperty name="GuildVoice.nsfw" type="boolean" />
+
+---
+Whether the channel is marked as NSFW (Not Safe For Work).
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### topic
+
+<LuaProperty name="GuildVoice.topic" type="string?" />
+
+---
+The topic of the channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### guildId
+
+<LuaProperty name="GuildVoice.guildId" type="string" />
+
+---
+The ID of the guild this channel belongs to.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### position
+
+<LuaProperty name="GuildVoice.position" type="number" />
+
+---
+The position of the channel in the guild's channel list.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### parentId
+
+<LuaProperty name="GuildVoice.parentId" type="string?" />
+
+---
+The ID of the parent category channel, if this channel is in a category.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### permissions
+
+<LuaProperty name="GuildVoice.permissions" type="number" />
+
+---
+The computed permissions for the current user in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### defaultThreadRateLimitPerUser
+
+<LuaProperty name="GuildVoice.defaultThreadRateLimitPerUser" type="number" />
+
+---
+The default rate limit per user for threads in this channel.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### defaultAutoArchiveDuration
+
+<LuaProperty name="GuildVoice.defaultAutoArchiveDuration" type="number" />
+
+---
+The default duration after which threads are automatically archived.
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### videoQualityMode
+
+<LuaProperty name="GuildVoice.videoQualityMode" type="apiTypes.VideoQualityMode" />
+
+---
+The video quality mode for the voice channel, determining the quality of video streams.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](/classes/classes/channels/voicebehaviour)
+
+### bitrate
+
+<LuaProperty name="GuildVoice.bitrate" type="number" />
+
+---
+The bitrate of the voice channel, determining the quality of audio transmission.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](/classes/classes/channels/voicebehaviour)
+
+### userLimit
+
+<LuaProperty name="GuildVoice.userLimit" type="number" />
+
+---
+The maximum number of users that can join the voice channel.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](/classes/classes/channels/voicebehaviour)
+
+### rtcRegion
+
+<LuaProperty name="GuildVoice.rtcRegion" type="string?" />
+
+---
+The RTC region for the voice channel, determining which server handles the voice connection.
+
+> Inherited from [Classes.Channels.VoiceBehaviour](/classes/classes/channels/voicebehaviour)
+
+
+## Methods
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="GuildVoice" args={[  ]} isMethod />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="GuildVoice" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### setPositionAsync
+
+> <LuaDeclaration name="setPositionAsync" className="GuildVoice" args={[ { name: "position", type: "number" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Sets the position of the channel in the guild's channel list.
+
+<LuaParamTable params={[ { name: "position", type: "number" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### setParentAsync
+
+> <LuaDeclaration name="setParentAsync" className="GuildVoice" args={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Sets the parent category of the channel and optionally syncs permissions with the parent.
+
+<LuaParamTable params={[ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### setPermissionsAsync
+
+> <LuaDeclaration name="setPermissionsAsync" className="GuildVoice" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Sets the permissions for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### deletePermissionAsync
+
+> <LuaDeclaration name="deletePermissionAsync" className="GuildVoice" args={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Deletes a permission overwrite for a role or member in the channel.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### getInvitesAsync
+
+> <LuaDeclaration name="getInvitesAsync" className="GuildVoice" args={[  ]} returnType="future.FutureLike<string, { invite.Invite }>" isMethod />
+
+Gets a list of all invites for the channel.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { invite.Invite }>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### createInviteAsync
+
+> <LuaDeclaration name="createInviteAsync" className="GuildVoice" args={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, invite.Invite>" isMethod />
+
+Creates a new invite for the channel.
+
+<LuaParamTable params={[ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, invite.Invite>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### listPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+
+Lists all public archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### listPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+
+Lists all private archived threads in the channel. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### listJoinedPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildVoice" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GuildVoice" args={[ { name: "groupName", type: "string" } ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
+
+Sets the name of the channel.
+
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+

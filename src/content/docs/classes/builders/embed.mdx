@@ -1,0 +1,246 @@
+---
+title: Embed
+description: DiscordLuau docs for Embed.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Embed object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object
+
+<LuaSummary className="Embed" properties={[ { name: "title", type: "string?" }, { name: "type", type: "apiTypes.EmbedType?" }, { name: "description", type: "string?" }, { name: "url", type: "string?" }, { name: "timestamp", type: "number?" }, { name: "color", type: "number?" }, { name: "footer", type: "Builders.EmbedFooter?" }, { name: "image", type: "Builders.EmbedImage?" }, { name: "thumbnail", type: "Builders.EmbedThumbnail?" }, { name: "video", type: "Builders.EmbedVideo?" }, { name: "provider", type: "Builders.EmbedProvider?" }, { name: "author", type: "Builders.EmbedAuthor?" }, { name: "fields", type: "{Builders.EmbedField}" } ]} methods={[ { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Embed" }, { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.EmbedType" } ], returnType: "Embed" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Embed" }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "Embed" }, { name: "setTimestamp", isMethod: true, args: [ { name: "timestamp", type: "stdPolyfills.DateTime" } ], returnType: "Embed" }, { name: "setColor", isMethod: true, args: [ { name: "color", type: "number" } ], returnType: "Embed" }, { name: "setFooter", isMethod: true, args: [ { name: "footer", type: "embedFooter.JSON" } ], returnType: "Embed" }, { name: "setImage", isMethod: true, args: [ { name: "image", type: "embedImage.JSON" } ], returnType: "Embed" }, { name: "setThumbnail", isMethod: true, args: [ { name: "thumbnail", type: "embedThumbnail.JSON" } ], returnType: "Embed" }, { name: "setVideo", isMethod: true, args: [ { name: "video", type: "embedVideo.JSON" } ], returnType: "Embed" }, { name: "setProvider", isMethod: true, args: [ { name: "provider", type: "embedProvider.JSON" } ], returnType: "Embed" }, { name: "setAuthor", isMethod: true, args: [ { name: "author", type: "embedAuthor.JSON" } ], returnType: "Embed" }, { name: "addField", isMethod: true, args: [ { name: "field", type: "embedField.JSON" } ], returnType: "Embed" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ title: string?, type: apiTypes.EmbedType?, description: string?, url: string?, timestamp: stdPolyfills.DateTime?, color: number?, footer: embedFooter.JSON?, image: embedImage.JSON?, thumbnail: embedThumbnail.JSON?, video: embedVideo.JSON?, provider: embedProvider.JSON?, author: embedAuthor.JSON?, fields: { embedField.JSON }, }?" } ], returnType: "Embed" } ]} />
+
+## Properties
+
+### title
+
+<LuaProperty name="Embed.title" type="string?" />
+
+---
+The title of the embed.
+
+### type
+
+<LuaProperty name="Embed.type" type="apiTypes.EmbedType?" />
+
+---
+The type of embed.
+
+### description
+
+<LuaProperty name="Embed.description" type="string?" />
+
+---
+The description of the embed.
+
+### url
+
+<LuaProperty name="Embed.url" type="string?" />
+
+---
+The URL of the embed.
+
+### timestamp
+
+<LuaProperty name="Embed.timestamp" type="number?" />
+
+---
+The timestamp of the embed.
+
+### color
+
+<LuaProperty name="Embed.color" type="number?" />
+
+---
+The color of the embed.
+
+### footer
+
+<LuaProperty name="Embed.footer" type="Builders.EmbedFooter?" />
+
+---
+The footer of the embed.
+
+### image
+
+<LuaProperty name="Embed.image" type="Builders.EmbedImage?" />
+
+---
+The image of the embed.
+
+### thumbnail
+
+<LuaProperty name="Embed.thumbnail" type="Builders.EmbedThumbnail?" />
+
+---
+The thumbnail of the embed.
+
+### video
+
+<LuaProperty name="Embed.video" type="Builders.EmbedVideo?" />
+
+---
+The video of the embed.
+
+### provider
+
+<LuaProperty name="Embed.provider" type="Builders.EmbedProvider?" />
+
+---
+The provider of the embed.
+
+### author
+
+<LuaProperty name="Embed.author" type="Builders.EmbedAuthor?" />
+
+---
+The author of the embed.
+
+### fields
+
+<LuaProperty name="Embed.fields" type="{Builders.EmbedField}" />
+
+---
+The fields in the embed.
+
+
+## Methods
+
+### setTitle
+
+> <LuaDeclaration name="setTitle" className="Embed" args={[ { name: "title", type: "string" } ]} returnType="Embed" isMethod />
+
+Set the title of the embed.
+
+<LuaParamTable params={[ { name: "title", type: "string" } ]} returns={[ { type: "Embed" } ]} />
+
+### setType
+
+> <LuaDeclaration name="setType" className="Embed" args={[ { name: "type", type: "apiTypes.EmbedType" } ]} returnType="Embed" isMethod />
+
+Sets the Type of the embed.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.EmbedType" } ]} returns={[ { type: "Embed" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="Embed" args={[ { name: "description", type: "string" } ]} returnType="Embed" isMethod />
+
+Set the description of the embed.
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Embed" } ]} />
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Embed" args={[ { name: "url", type: "string" } ]} returnType="Embed" isMethod />
+
+Set the URL of the embed, URL will provide a hyperlinked title.
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "Embed" } ]} />
+
+### setTimestamp
+
+> <LuaDeclaration name="setTimestamp" className="Embed" args={[ { name: "timestamp", type: "stdPolyfills.DateTime" } ]} returnType="Embed" isMethod />
+
+Set the timestamp of the embed, timestamps will exist at the bottom/footer of the embed.
+
+<LuaParamTable params={[ { name: "timestamp", type: "stdPolyfills.DateTime" } ]} returns={[ { type: "Embed" } ]} />
+
+### setColor
+
+> <LuaDeclaration name="setColor" className="Embed" args={[ { name: "color", type: "number" } ]} returnType="Embed" isMethod />
+
+Set the color of the embed, colors are numbers and in luau you can render hex as: 0x&lt;HEX&gt;
+
+example:
+	- Red Color: 0xFF0000
+	- Green Color: 0x00FF00
+	- Blue Clor: 0x0000FF
+
+<LuaParamTable params={[ { name: "color", type: "number" } ]} returns={[ { type: "Embed" } ]} />
+
+### setFooter
+
+> <LuaDeclaration name="setFooter" className="Embed" args={[ { name: "footer", type: "embedFooter.JSON" } ]} returnType="Embed" isMethod />
+
+Set the footer of the embed.
+
+<LuaParamTable params={[ { name: "footer", type: "embedFooter.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### setImage
+
+> <LuaDeclaration name="setImage" className="Embed" args={[ { name: "image", type: "embedImage.JSON" } ]} returnType="Embed" isMethod />
+
+Set the image of the embed.
+
+<LuaParamTable params={[ { name: "image", type: "embedImage.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### setThumbnail
+
+> <LuaDeclaration name="setThumbnail" className="Embed" args={[ { name: "thumbnail", type: "embedThumbnail.JSON" } ]} returnType="Embed" isMethod />
+
+Set the thumbnail of the embed.
+
+<LuaParamTable params={[ { name: "thumbnail", type: "embedThumbnail.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### setVideo
+
+> <LuaDeclaration name="setVideo" className="Embed" args={[ { name: "video", type: "embedVideo.JSON" } ]} returnType="Embed" isMethod />
+
+Set the video of the embed.
+
+<LuaParamTable params={[ { name: "video", type: "embedVideo.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### setProvider
+
+> <LuaDeclaration name="setProvider" className="Embed" args={[ { name: "provider", type: "embedProvider.JSON" } ]} returnType="Embed" isMethod />
+
+Set the provider of the embed.
+
+<LuaParamTable params={[ { name: "provider", type: "embedProvider.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### setAuthor
+
+> <LuaDeclaration name="setAuthor" className="Embed" args={[ { name: "author", type: "embedAuthor.JSON" } ]} returnType="Embed" isMethod />
+
+Set the author of the embed.
+
+<LuaParamTable params={[ { name: "author", type: "embedAuthor.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### addField
+
+> <LuaDeclaration name="addField" className="Embed" args={[ { name: "field", type: "embedField.JSON" } ]} returnType="Embed" isMethod />
+
+Add a field to the embeds.
+
+<LuaParamTable params={[ { name: "field", type: "embedField.JSON" } ]} returns={[ { type: "Embed" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Embed" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Embed JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Embed" args={[ { name: "resource", type: "{ title: string?, type: apiTypes.EmbedType?, description: string?, url: string?, timestamp: stdPolyfills.DateTime?, color: number?, footer: embedFooter.JSON?, image: embedImage.JSON?, thumbnail: embedThumbnail.JSON?, video: embedVideo.JSON?, provider: embedProvider.JSON?, author: embedAuthor.JSON?, fields: { embedField.JSON }, }?" } ]} returnType="Embed" />
+
+Responsible for creating a new Embed.
+
+<LuaParamTable params={[ { name: "resource", type: "{ title: string?, type: apiTypes.EmbedType?, description: string?, url: string?, timestamp: stdPolyfills.DateTime?, color: number?, footer: embedFooter.JSON?, image: embedImage.JSON?, thumbnail: embedThumbnail.JSON?, video: embedVideo.JSON?, provider: embedProvider.JSON?, author: embedAuthor.JSON?, fields: { embedField.JSON }, }?" } ]} returns={[ { type: "Embed" } ]} />
+
+

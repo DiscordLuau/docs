@@ -1,0 +1,108 @@
+---
+title: EntryInfo
+description: DiscordLuau docs for EntryInfo.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord AuditLog class in Luau
+
+https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
+
+<LuaSummary className="EntryInfo" properties={[ { name: "applicationId", type: "string" }, { name: "autoModeartionRuleName", type: "string" }, { name: "autoModerationRuleTriggerType", type: "string" }, { name: "channelId", type: "string" }, { name: "count", type: "string" }, { name: "deleteMemberDays", type: "string" }, { name: "id", type: "string" }, { name: "membersRemoved", type: "string" }, { name: "messageId", type: "string" }, { name: "roleName", type: "string" }, { name: "type", type: "string" }, { name: "integrationType", type: "string" } ]} />
+
+## Properties
+
+### applicationId
+
+<LuaProperty name="EntryInfo.applicationId" type="string" />
+
+---
+The ID of the application that was affected by this audit log entry
+
+### autoModeartionRuleName
+
+<LuaProperty name="EntryInfo.autoModeartionRuleName" type="string" />
+
+---
+The name of the auto moderation rule that was triggered
+
+### autoModerationRuleTriggerType
+
+<LuaProperty name="EntryInfo.autoModerationRuleTriggerType" type="string" />
+
+---
+The type of trigger that caused the auto moderation rule to activate
+
+### channelId
+
+<LuaProperty name="EntryInfo.channelId" type="string" />
+
+---
+The ID of the channel that was affected by this audit log entry
+
+### count
+
+<LuaProperty name="EntryInfo.count" type="string" />
+
+---
+The number of entities that were affected by this audit log entry
+
+### deleteMemberDays
+
+<LuaProperty name="EntryInfo.deleteMemberDays" type="string" />
+
+---
+The number of days after which inactive members were kicked
+
+### id
+
+<LuaProperty name="EntryInfo.id" type="string" />
+
+---
+The unique identifier for this audit log entry info
+
+### membersRemoved
+
+<LuaProperty name="EntryInfo.membersRemoved" type="string" />
+
+---
+The number of members that were removed in this action
+
+### messageId
+
+<LuaProperty name="EntryInfo.messageId" type="string" />
+
+---
+The ID of the message that was affected by this audit log entry
+
+### roleName
+
+<LuaProperty name="EntryInfo.roleName" type="string" />
+
+---
+The name of the role that was affected by this audit log entry
+
+### type
+
+<LuaProperty name="EntryInfo.type" type="string" />
+
+---
+The type of audit log entry info
+
+### integrationType
+
+<LuaProperty name="EntryInfo.integrationType" type="string" />
+
+---
+The type of integration that was affected by this audit log entry
+
+

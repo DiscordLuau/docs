@@ -1,0 +1,42 @@
+---
+title: Action
+description: DiscordLuau docs for Action.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Action class in Luau
+
+https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object
+
+<LuaSummary className="Action" properties={[ { name: "type", type: "apiTypes.ActionTypes" }, { name: "metadata", type: "Classes.AutoModeration.ActionMetadata?" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Action.type" type="apiTypes.ActionTypes" />
+
+---
+The type of action to take when a rule is triggered. This can be one of the following:
+* BLOCK_MESSAGE - Block the message from being sent
+* SEND_ALERT_MESSAGE - Send an alert message to a specified channel
+* TIMEOUT - Timeout the user for a specified duration
+
+### metadata
+
+<LuaProperty name="Action.metadata" type="Classes.AutoModeration.ActionMetadata?" />
+
+---
+Additional metadata needed during execution for this specific action type. Different action types may require different metadata properties.
+Only present when an action requires additional configuration.
+
+

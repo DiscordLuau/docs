@@ -1,0 +1,57 @@
+---
+title: StdPolyfills
+description: DiscordLuau docs for StdPolyfills.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Std Polyfills is the technology that allows Discord-Luau to support multiple runtimes, it allows us to create a
+	generated set of std functions that we call from the library.
+
+:::caution
+this package maintains polyfills required for discord-luau, not as polyfills for luau/other projects, if you're writing an
+	application that wants to support multiple Runtimes, you're welcome to use StdPolyfills - but we're going to be very
+	conservative on what APIs are available.
+
+it's recommended that you use an alternative polyfill/capabilities library.
+:::
+
+<LuaSummary className="StdPolyfills" properties={[ { name: "task", type: "StdPolyfills.task" }, { name: "serde", type: "StdPolyfills.serde" }, { name: "process", type: "StdPolyfills.process" }, { name: "datetime", type: "StdPolyfills.datetime" }, { name: "net", type: "StdPolyfills.net" } ]} />
+
+## Properties
+
+### task
+
+<LuaProperty name="StdPolyfills.task" type="StdPolyfills.task" />
+
+
+### serde
+
+<LuaProperty name="StdPolyfills.serde" type="StdPolyfills.serde" />
+
+
+### process
+
+<LuaProperty name="StdPolyfills.process" type="StdPolyfills.process" />
+
+
+### datetime
+
+<LuaProperty name="StdPolyfills.datetime" type="StdPolyfills.datetime" />
+
+
+### net
+
+<LuaProperty name="StdPolyfills.net" type="StdPolyfills.net" />
+
+
+

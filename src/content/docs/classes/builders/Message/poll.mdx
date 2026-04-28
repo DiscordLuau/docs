@@ -1,0 +1,121 @@
+---
+title: Poll
+description: DiscordLuau docs for Poll.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Poll object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/poll#poll-object
+
+<LuaSummary className="Poll" properties={[ { name: "question", type: "Builders.Media" }, { name: "answers", type: "{Builders.Answer}" }, { name: "expiry", type: "string" }, { name: "allowMultiselect", type: "boolean" }, { name: "layoutType", type: "api_types.PollLayoutType" } ]} methods={[ { name: "addAnswer", isMethod: true, args: [ { name: "answer", type: "answerBuilder.JSON" } ], returnType: "Poll" }, { name: "setQuestion", isMethod: true, args: [ { name: "question", type: "mediaBuilder.JSON" } ], returnType: "Poll" }, { name: "setExpiry", isMethod: true, args: [ { name: "expiry", type: "string | number | stdPolyfills.DateTime" } ], returnType: "Poll" }, { name: "setMultiselect", isMethod: true, args: [ { name: "multiselect", type: "boolean" } ], returnType: "Poll" }, { name: "setLayoutType", isMethod: true, args: [ { name: "layoutType", type: "apiTypes.PollLayoutType" } ], returnType: "Poll" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ question: mediaBuilder.JSON?, answers: { answerBuilder.JSON }?, expiry: number?, allowMultiselect: boolean?, layoutType: apiTypes.PollLayoutType?, }?" } ], returnType: "Poll" } ]} />
+
+## Properties
+
+### question
+
+<LuaProperty name="Poll.question" type="Builders.Media" />
+
+---
+The question to be displayed in the poll.
+
+### answers
+
+<LuaProperty name="Poll.answers" type="{Builders.Answer}" />
+
+---
+The array of possible answers for the poll.
+
+### expiry
+
+<LuaProperty name="Poll.expiry" type="string" />
+
+---
+The timestamp when the poll will expire.
+
+### allowMultiselect
+
+<LuaProperty name="Poll.allowMultiselect" type="boolean" />
+
+---
+Whether users can select multiple answers.
+
+### layoutType
+
+<LuaProperty name="Poll.layoutType" type="api_types.PollLayoutType" />
+
+---
+The layout type of the poll display.
+
+
+## Methods
+
+### addAnswer
+
+> <LuaDeclaration name="addAnswer" className="Poll" args={[ { name: "answer", type: "answerBuilder.JSON" } ]} returnType="Poll" isMethod />
+
+Adds an answer to the poll.
+
+<LuaParamTable params={[ { name: "answer", type: "answerBuilder.JSON" } ]} returns={[ { type: "Poll" } ]} />
+
+### setQuestion
+
+> <LuaDeclaration name="setQuestion" className="Poll" args={[ { name: "question", type: "mediaBuilder.JSON" } ]} returnType="Poll" isMethod />
+
+Sets the question for the poll.
+
+<LuaParamTable params={[ { name: "question", type: "mediaBuilder.JSON" } ]} returns={[ { type: "Poll" } ]} />
+
+### setExpiry
+
+> <LuaDeclaration name="setExpiry" className="Poll" args={[ { name: "expiry", type: "string | number | stdPolyfills.DateTime" } ]} returnType="Poll" isMethod />
+
+Sets the expiry time for the poll.
+
+<LuaParamTable params={[ { name: "expiry", type: "string | number | stdPolyfills.DateTime" } ]} returns={[ { type: "Poll" } ]} />
+
+### setMultiselect
+
+> <LuaDeclaration name="setMultiselect" className="Poll" args={[ { name: "multiselect", type: "boolean" } ]} returnType="Poll" isMethod />
+
+Sets whether the poll allows multiple selections.
+
+<LuaParamTable params={[ { name: "multiselect", type: "boolean" } ]} returns={[ { type: "Poll" } ]} />
+
+### setLayoutType
+
+> <LuaDeclaration name="setLayoutType" className="Poll" args={[ { name: "layoutType", type: "apiTypes.PollLayoutType" } ]} returnType="Poll" isMethod />
+
+Sets the layout type for the poll.
+
+<LuaParamTable params={[ { name: "layoutType", type: "apiTypes.PollLayoutType" } ]} returns={[ { type: "Poll" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Poll" args={[  ]} returnType="JSON" isMethod />
+
+Builds and returns the Poll JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Poll" args={[ { name: "resource", type: "{ question: mediaBuilder.JSON?, answers: { answerBuilder.JSON }?, expiry: number?, allowMultiselect: boolean?, layoutType: apiTypes.PollLayoutType?, }?" } ]} returnType="Poll" />
+
+Responsible for creating a new Poll.
+
+<LuaParamTable params={[ { name: "resource", type: "{ question: mediaBuilder.JSON?, answers: { answerBuilder.JSON }?, expiry: number?, allowMultiselect: boolean?, layoutType: apiTypes.PollLayoutType?, }?" } ]} returns={[ { type: "Poll" } ]} />
+
+

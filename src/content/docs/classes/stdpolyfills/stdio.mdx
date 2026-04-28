@@ -1,0 +1,38 @@
+---
+title: Stdio
+description: DiscordLuau docs for Stdio.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+
+
+<LuaSummary className="Stdio" functions={[ { name: "prompt", args: [ { name: "message", type: "string?" } ], returnType: "string" }, { name: "write", args: [ { name: "source", type: "string" } ] } ]} />
+
+## Functions
+
+### prompt
+
+> <LuaDeclaration name="prompt" className="Stdio" args={[ { name: "message", type: "string?" } ]} returnType="string" />
+
+Reads text in from the terminal
+
+<LuaParamTable params={[ { name: "message", type: "string?" } ]} returns={[ { type: "string" } ]} />
+
+### write
+
+> <LuaDeclaration name="write" className="Stdio" args={[ { name: "source", type: "string" } ]} />
+
+Writes text to stdout
+
+<LuaParamTable params={[ { name: "source", type: "string" } ]} />
+
+

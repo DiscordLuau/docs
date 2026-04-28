@@ -1,0 +1,115 @@
+---
+title: Embed
+description: DiscordLuau docs for Embed.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Embed class in Luau
+
+https://discord.com/developers/docs/resources/message#attachment-object
+
+<LuaSummary className="Embed" properties={[ { name: "title", type: "string?" }, { name: "type", type: "apiTypes.EmbedType?" }, { name: "description", type: "string?" }, { name: "url", type: "string?" }, { name: "timestamp", type: "stdPolyfills.DateTime?" }, { name: "color", type: "number?" }, { name: "footer", type: "Classes.Embed.Footer?" }, { name: "image", type: "Classes.Embed.Image?" }, { name: "thumbnail", type: "Classes.Embed.Thumbnail?" }, { name: "video", type: "Classes.Embed.Video?" }, { name: "provider", type: "Classes.Embed.Provider?" }, { name: "author", type: "Classes.Embed.Author?" }, { name: "fields", type: "{Classes.Embed.Field}?" } ]} />
+
+## Properties
+
+### title
+
+<LuaProperty name="Embed.title" type="string?" />
+
+---
+The title of the embed
+
+### type
+
+<LuaProperty name="Embed.type" type="apiTypes.EmbedType?" />
+
+---
+The type of embed (always "rich" for webhook embeds)
+
+### description
+
+<LuaProperty name="Embed.description" type="string?" />
+
+---
+The description of the embed
+
+### url
+
+<LuaProperty name="Embed.url" type="string?" />
+
+---
+The URL of the embed
+
+### timestamp
+
+<LuaProperty name="Embed.timestamp" type="stdPolyfills.DateTime?" />
+
+---
+Timestamp of embed content
+
+### color
+
+<LuaProperty name="Embed.color" type="number?" />
+
+---
+Color code of the embed
+
+### footer
+
+<LuaProperty name="Embed.footer" type="Classes.Embed.Footer?" />
+
+---
+Footer information for the embed
+
+### image
+
+<LuaProperty name="Embed.image" type="Classes.Embed.Image?" />
+
+---
+Image information for the embed
+
+### thumbnail
+
+<LuaProperty name="Embed.thumbnail" type="Classes.Embed.Thumbnail?" />
+
+---
+Thumbnail information for the embed
+
+### video
+
+<LuaProperty name="Embed.video" type="Classes.Embed.Video?" />
+
+---
+Video information for the embed
+
+### provider
+
+<LuaProperty name="Embed.provider" type="Classes.Embed.Provider?" />
+
+---
+Provider information for the embed
+
+### author
+
+<LuaProperty name="Embed.author" type="Classes.Embed.Author?" />
+
+---
+Author information for the embed
+
+### fields
+
+<LuaProperty name="Embed.fields" type="{Classes.Embed.Field}?" />
+
+---
+Array of embed field objects
+
+

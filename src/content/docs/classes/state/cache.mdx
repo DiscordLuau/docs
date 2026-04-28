@@ -1,0 +1,63 @@
+---
+title: Cache
+description: DiscordLuau docs for Cache.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Class responsible for handling the underlying cache for all objects in Discord-Luau
+
+<LuaSummary className="Cache" properties={[ { name: "store", type: "{ [K]: V }" }, { name: "expiry", type: "number" } ]} methods={[ { name: "set", isMethod: true, args: [ { name: "key", type: "K" }, { name: "value", type: "V" } ] }, { name: "get", isMethod: true, args: [ { name: "key", type: "K" } ], returnType: "V?" } ]} functions={[ { name: "new", args: [ { name: "expiry", type: "number" } ], returnType: "Cache<K, V>" } ]} />
+
+## Properties
+
+### store
+
+<LuaProperty name="Cache.store" type="{ [K]: V }" />
+
+
+### expiry
+
+<LuaProperty name="Cache.expiry" type="number" />
+
+
+
+## Methods
+
+### set
+
+> <LuaDeclaration name="set" className="Cache" args={[ { name: "key", type: "K" }, { name: "value", type: "V" } ]} isMethod />
+
+Responsible for storing something in cache, will then store both the key and value so that these objects don't get
+cleaned up by the luau gc.
+
+<LuaParamTable params={[ { name: "key", type: "K" }, { name: "value", type: "V" } ]} />
+
+### get
+
+> <LuaDeclaration name="get" className="Cache" args={[ { name: "key", type: "K" } ]} returnType="V?" isMethod />
+
+Responsible for getting something in the cache, will either return V or nil
+
+<LuaParamTable params={[ { name: "key", type: "K" } ]} returns={[ { type: "V?" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Cache" args={[ { name: "expiry", type: "number" } ]} returnType="Cache<K, V>" />
+
+Constructor for the Cache class.
+
+<LuaParamTable params={[ { name: "expiry", type: "number" } ]} returns={[ { type: "Cache<K, V>" } ]} />
+
+

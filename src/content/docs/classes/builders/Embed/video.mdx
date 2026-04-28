@@ -1,0 +1,106 @@
+---
+title: Video
+description: DiscordLuau docs for Video.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Video object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-video-structure
+
+<LuaSummary className="Video" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} methods={[ { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ], returnType: "Video" }, { name: "setHeight", isMethod: true, args: [ { name: "height", type: "number" } ], returnType: "Video" }, { name: "setWidth", isMethod: true, args: [ { name: "width", type: "number" } ], returnType: "Video" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ], returnType: "Video" } ]} />
+
+## Properties
+
+### url
+
+<LuaProperty name="Video.url" type="string" />
+
+---
+Source url of video
+
+### proxyUrl
+
+<LuaProperty name="Video.proxyUrl" type="string?" />
+
+---
+A proxied url of the video
+
+### height
+
+<LuaProperty name="Video.height" type="number?" />
+
+---
+Height of video
+
+### width
+
+<LuaProperty name="Video.width" type="number?" />
+
+---
+Width of video
+
+
+## Methods
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Video" args={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returnType="Video" isMethod />
+
+Set the image url for this embed.
+
+<LuaParamTable params={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" } ]} returns={[ { type: "Video" } ]} />
+
+### setHeight
+
+> <LuaDeclaration name="setHeight" className="Video" args={[ { name: "height", type: "number" } ]} returnType="Video" isMethod />
+
+Set the image height for this embed.
+
+<LuaParamTable params={[ { name: "height", type: "number" } ]} returns={[ { type: "Video" } ]} />
+
+### setWidth
+
+> <LuaDeclaration name="setWidth" className="Video" args={[ { name: "width", type: "number" } ]} returnType="Video" isMethod />
+
+Set the image width for this embed.
+
+<LuaParamTable params={[ { name: "width", type: "number" } ]} returns={[ { type: "Video" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Video" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Video JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Video" args={[ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ]} returnType="Video" />
+
+Responsible for creating a new Video.
+
+```luau
+local video = Video.new({
+	url = "https://example.com/video.mp4",
+	height = 720,
+	width = 1280
+})
+```
+
+<LuaParamTable params={[ { name: "resource", type: "{ url: string, proxyUrl: string?, height: number?, width: number?, }?" } ]} returns={[ { type: "Video" } ]} />
+
+

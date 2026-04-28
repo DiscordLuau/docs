@@ -1,0 +1,195 @@
+---
+title: DM
+description: DiscordLuau docs for DM.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord DM class in Luau
+
+https://discord.com/developers/docs/resources/channel#channel-object
+
+<LuaSummary className="DM" properties={[ { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
+
+## Properties
+
+### state
+
+<LuaProperty name="DM.state" type="State" />
+
+
+### type
+
+<LuaProperty name="DM.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### id
+
+<LuaProperty name="DM.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### name
+
+<LuaProperty name="DM.name" type="string?" />
+
+---
+The name of the channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### flags
+
+<LuaProperty name="DM.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### lastMessageId
+
+<LuaProperty name="DM.lastMessageId" type="string?" />
+
+---
+The ID of the last message sent in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### lastPinTimestamp
+
+<LuaProperty name="DM.lastPinTimestamp" type="DateTime?" />
+
+---
+The timestamp of the last pinned message in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### rateLimitPerUser
+
+<LuaProperty name="DM.rateLimitPerUser" type="number" />
+
+---
+The rate limit per user for sending messages in this channel.
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+
+## Methods
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="DM" args={[  ]} isMethod />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="DM" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="DM" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
+MANAGE_MESSAGES permission.
+
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="DM" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
+
+Gets messages from a channel. Returns an array of message objects.
+
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="DM" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
+
+Gets a specific message from a channel using its ID. Returns a message object.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### createMessageAsync
+
+> <LuaDeclaration name="createMessageAsync" className="DM" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
+
+Creates a new message in the channel. Returns the created message object.
+
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="DM" args={[  ]} isMethod />
+
+Gets all pinned messages in the channel. Returns an array of message objects.
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### pinMessageAsync
+
+> <LuaDeclaration name="pinMessageAsync" className="DM" args={[ { name: "messageId", type: "string" } ]} isMethod />
+
+Pins a message in the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### unpinMessageAsync
+
+> <LuaDeclaration name="unpinMessageAsync" className="DM" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Unpins a message from the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### startThread
+
+> <LuaDeclaration name="startThread" className="DM" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
+
+Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+

@@ -1,0 +1,112 @@
+---
+title: User
+description: DiscordLuau docs for User.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/user
+
+<LuaSummary className="User" functions={[ { name: "getCurrentUserAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentUserResponse>" }, { name: "getUserAsync", args: [ { name: "instance", type: "request.Request" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetUserResponse>" }, { name: "modifyCurrentUserAsync", args: [ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserRequest" } ], returnType: "future.FutureLike<string, apiTypes.ModifyCurrentUserResponse>" }, { name: "getCurrentUserGuildsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "urlParams", type: "{ before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, withCounts: boolean?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentUserGuildsResponse>" }, { name: "getCurrentUserGuildMember", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentUserGuildMemberResponse>" }, { name: "leaveGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.LeaveGuildResponse>" }, { name: "createDMAsync", args: [ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateDMRequest" } ], returnType: "future.FutureLike<string, apiTypes.CreateDMResponse>" }, { name: "createGroupDMAsync", args: [ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGroupDMRequest" } ], returnType: "future.FutureLike<string, apiTypes.CreateGroupDMResponse>" }, { name: "getCurrentUserConnectionsAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentUserConnectionResponse>" }, { name: "getCurrentUserApplicationRoleConnectionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetCurrentUserApplicationRoleConnectionResponse >" }, { name: "updateCurrentUserApplicationRoleConnectionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateCurrentUserApplicationRoleConnectionRequest" } ], returnType: "future.FutureLike< string, apiTypes.UpdateCurrentUserApplicationRoleConnectionResponse >" } ]} />
+
+## Functions
+
+### getCurrentUserAsync
+
+> <LuaDeclaration name="getCurrentUserAsync" className="User" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentUserResponse>" } ]} />
+
+### getUserAsync
+
+> <LuaDeclaration name="getUserAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-user
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetUserResponse>" } ]} />
+
+### modifyCurrentUserAsync
+
+> <LuaDeclaration name="modifyCurrentUserAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyCurrentUserResponse>" />
+
+https://discord.com/developers/docs/resources/user#modify-current-user
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentUserRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyCurrentUserResponse>" } ]} />
+
+### getCurrentUserGuildsAsync
+
+> <LuaDeclaration name="getCurrentUserGuildsAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "urlParams", type: "{ before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, withCounts: boolean?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserGuildsResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-guilds
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "urlParams", type: "{ before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, limit: number?, withCounts: boolean?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentUserGuildsResponse>" } ]} />
+
+### getCurrentUserGuildMember
+
+> <LuaDeclaration name="getCurrentUserGuildMember" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-guild-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentUserGuildMemberResponse>" } ]} />
+
+### leaveGuildAsync
+
+> <LuaDeclaration name="leaveGuildAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.LeaveGuildResponse>" />
+
+https://discord.com/developers/docs/resources/user#leave-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.LeaveGuildResponse>" } ]} />
+
+### createDMAsync
+
+> <LuaDeclaration name="createDMAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateDMRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateDMResponse>" />
+
+https://discord.com/developers/docs/resources/user#create-dm
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateDMRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateDMResponse>" } ]} />
+
+### createGroupDMAsync
+
+> <LuaDeclaration name="createGroupDMAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGroupDMRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateGroupDMResponse>" />
+
+https://discord.com/developers/docs/resources/user#create-group-dm
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGroupDMRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateGroupDMResponse>" } ]} />
+
+### getCurrentUserConnectionsAsync
+
+> <LuaDeclaration name="getCurrentUserConnectionsAsync" className="User" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentUserConnectionResponse>" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-connections
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentUserConnectionResponse>" } ]} />
+
+### getCurrentUserApplicationRoleConnectionAsync
+
+> <LuaDeclaration name="getCurrentUserApplicationRoleConnectionAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetCurrentUserApplicationRoleConnectionResponse >" />
+
+https://discord.com/developers/docs/resources/user#get-current-user-application-role-connection
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetCurrentUserApplicationRoleConnectionResponse >" } ]} />
+
+### updateCurrentUserApplicationRoleConnectionAsync
+
+> <LuaDeclaration name="updateCurrentUserApplicationRoleConnectionAsync" className="User" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateCurrentUserApplicationRoleConnectionRequest" } ]} returnType="future.FutureLike< string, apiTypes.UpdateCurrentUserApplicationRoleConnectionResponse >" />
+
+https://discord.com/developers/docs/resources/user#update-current-user-application-role-connection
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateCurrentUserApplicationRoleConnectionRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.UpdateCurrentUserApplicationRoleConnectionResponse >" } ]} />
+
+

@@ -2,33 +2,38 @@
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Pagination.astro";
 import ContributorAvatars from "./ContributorAvatars.astro";
+import syncedDirs from "../generated/synced-dirs.json";
 
-const file = Astro.props.entry.id;
-const excludes = ["404.astro", "index.mdx"];
+const file = Astro.props.entry?.id ?? "";
+const excludedPages = ["404.astro", "index.mdx"];
+const topDirectory = file.split("/")[0];
+const isFromDiscordLuau = (syncedDirs as string[]).includes(topDirectory);
+
+const contributorSources = [
+	{ repo: "DiscordLuau/docs", path: `src/content/docs/${file}` },
+	...(isFromDiscordLuau ? [{ repo: "DiscordLuau/discord-luau", path: `docs/${file}` }] : []),
+];
 ---
 
 <div>
-    {
-        !excludes.includes(file) && (
-            (
-            <>
-                <div class="contributors">
-                    <ContributorAvatars repo="DiscordLuau/docs" file={file} />
-                </div>
-                <br />
-            </>
-            )
-        )
-    }
-
-    <Default {...Astro.props}><slot /></Default>
+	{
+		!excludedPages.includes(file) && (
+			<>
+				<div class="contributors">
+					<ContributorAvatars sources={contributorSources} />
+				</div>
+				<br />
+			</>
+		)
+	}
+	<Default {...Astro.props}><slot /></Default>
 </div>
 
 <style>
-    .contributors {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        align-items: end;
-    }
+	.contributors {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+		align-items: end;
+	}
 </style>

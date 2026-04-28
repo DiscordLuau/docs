@@ -1,0 +1,94 @@
+---
+title: Data
+description: DiscordLuau docs for Data.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Data class in Luau
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data
+
+<LuaSummary className="Data" properties={[ { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "options", type: "{ Classes.Interactions.DataOption }" }, { name: "resolved", type: "Classes.Resolved?" }, { name: "guildId", type: "string?" }, { name: "targetId", type: "string?" }, { name: "customId", type: "string?" }, { name: "componentType", type: "string?" }, { name: "components", type: "{ Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow }?" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Data.type" type="string" />
+
+---
+The type of interaction this data object represents. This is a string representation of the interaction type.
+
+### id
+
+<LuaProperty name="Data.id" type="string" />
+
+---
+The unique identifier for this interaction data object.
+
+### name
+
+<LuaProperty name="Data.name" type="string" />
+
+---
+The name of the interaction, typically representing the command or component name.
+
+### options
+
+<LuaProperty name="Data.options" type="{ Classes.Interactions.DataOption }" />
+
+---
+An array of data options associated with this interaction. Contains the parsed arguments or choices.
+
+### resolved
+
+<LuaProperty name="Data.resolved" type="Classes.Resolved?" />
+
+---
+Contains resolved objects from the interaction data, such as users, members, roles, or channels.
+
+### guildId
+
+<LuaProperty name="Data.guildId" type="string?" />
+
+---
+The ID of the guild where the interaction occurred. Will be nil for DM interactions.
+
+### targetId
+
+<LuaProperty name="Data.targetId" type="string?" />
+
+---
+The ID of the targeted entity in the interaction, if applicable.
+
+### customId
+
+<LuaProperty name="Data.customId" type="string?" />
+
+---
+The custom identifier for this interaction, used primarily with message components.
+
+### componentType
+
+<LuaProperty name="Data.componentType" type="string?" />
+
+---
+The type of component this interaction represents, if it's a component interaction.
+
+### components
+
+<LuaProperty name="Data.components" type="{ Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow }?" />
+
+---
+An array of component objects that were included in this interaction.
+
+

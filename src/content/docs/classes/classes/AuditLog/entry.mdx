@@ -1,0 +1,73 @@
+---
+title: Entry
+description: DiscordLuau docs for Entry.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord AuditLog class in Luau
+
+https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
+
+<LuaSummary className="Entry" properties={[ { name: "changes", type: "{ Classes.AuditLog.Change }" }, { name: "options", type: "{ Classes.AuditLog.EntryInfo }" }, { name: "targetId", type: "string?" }, { name: "userId", type: "string?" }, { name: "id", type: "string" }, { name: "actionType", type: "apiTypes.AuditLogEvent" }, { name: "reason", type: "string?" } ]} />
+
+## Properties
+
+### changes
+
+<LuaProperty name="Entry.changes" type="{ Classes.AuditLog.Change }" />
+
+---
+An array of audit log changes that occurred during this audit log entry
+
+### options
+
+<LuaProperty name="Entry.options" type="{ Classes.AuditLog.EntryInfo }" />
+
+---
+Additional information about the audit log entry
+
+### targetId
+
+<LuaProperty name="Entry.targetId" type="string?" />
+
+---
+ID of the affected entity (webhook, user, role, etc.)
+
+### userId
+
+<LuaProperty name="Entry.userId" type="string?" />
+
+---
+The user who made the changes
+
+### id
+
+<LuaProperty name="Entry.id" type="string" />
+
+---
+Unique identifier for this entry
+
+### actionType
+
+<LuaProperty name="Entry.actionType" type="apiTypes.AuditLogEvent" />
+
+---
+Type of action that occurred
+
+### reason
+
+<LuaProperty name="Entry.reason" type="string?" />
+
+---
+The reason for the change (0-512 characters)
+
+

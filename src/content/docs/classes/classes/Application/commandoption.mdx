@@ -1,0 +1,122 @@
+---
+title: CommandOption
+description: DiscordLuau docs for CommandOption.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Option class in Luau
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure
+
+<LuaSummary className="CommandOption" properties={[ { name: "type", type: "ApplicationCommandOptionType" }, { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [LanguageLocales]: string }?" }, { name: "description", type: "string?" }, { name: "descriptionLocalizations", type: "{ [LanguageLocales]: string }?" }, { name: "required", type: "boolean?" }, { name: "choices", type: "{ Classes.Application.CommandChoice }?" }, { name: "options", type: "{ Classes.Application.CommandOption }?" }, { name: "apiTypes", type: "{ ChannelType }" }, { name: "minValue", type: "number?" }, { name: "maxValue", type: "number?" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "autocomplete", type: "boolean?" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="CommandOption.type" type="ApplicationCommandOptionType" />
+
+---
+The type of the option. This represents what kind of option it is, such as a string, number, or user input.
+
+### name
+
+<LuaProperty name="CommandOption.name" type="string" />
+
+---
+The name of the command option. This is what users will see when using the command.
+
+### nameLocalizations
+
+<LuaProperty name="CommandOption.nameLocalizations" type="{ [LanguageLocales]: string }?" />
+
+---
+Localization dictionary for the name field. Values follow the same restrictions as name.
+
+### description
+
+<LuaProperty name="CommandOption.description" type="string?" />
+
+---
+The description of the command option. Provides additional information about what the option does.
+
+### descriptionLocalizations
+
+<LuaProperty name="CommandOption.descriptionLocalizations" type="{ [LanguageLocales]: string }?" />
+
+---
+Localization dictionary for the description field. Values follow the same restrictions as description.
+
+### required
+
+<LuaProperty name="CommandOption.required" type="boolean?" />
+
+---
+If the parameter is required or optional. Default false.
+
+### choices
+
+<LuaProperty name="CommandOption.choices" type="{ Classes.Application.CommandChoice }?" />
+
+---
+Choices for the user to pick from. Only available for string and number option types.
+
+### options
+
+<LuaProperty name="CommandOption.options" type="{ Classes.Application.CommandOption }?" />
+
+---
+Sub-options if this option is a subcommand or subcommand group type.
+
+### apiTypes
+
+<LuaProperty name="CommandOption.apiTypes" type="{ ChannelType }" />
+
+---
+If the option is a channel type, these are the allowed channel types that can be selected.
+
+### minValue
+
+<LuaProperty name="CommandOption.minValue" type="number?" />
+
+---
+For integer or number options, the minimum value permitted.
+
+### maxValue
+
+<LuaProperty name="CommandOption.maxValue" type="number?" />
+
+---
+For integer or number options, the maximum value permitted.
+
+### minLength
+
+<LuaProperty name="CommandOption.minLength" type="number?" />
+
+---
+For string options, the minimum allowed length.
+
+### maxLength
+
+<LuaProperty name="CommandOption.maxLength" type="number?" />
+
+---
+For string options, the maximum allowed length.
+
+### autocomplete
+
+<LuaProperty name="CommandOption.autocomplete" type="boolean?" />
+
+---
+Enable autocomplete interactions for this option.
+
+

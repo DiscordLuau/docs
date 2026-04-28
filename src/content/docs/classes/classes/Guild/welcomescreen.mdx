@@ -1,0 +1,40 @@
+---
+title: WelcomeScreen
+description: DiscordLuau docs for WelcomeScreen.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord WelcomeScreen class in Luau
+
+https://discord.com/developers/docs/resources/guild#welcome-screen-object
+
+<LuaSummary className="WelcomeScreen" properties={[ { name: "welcomeChannels", type: "{ Classes.Guild.WelcomeScreenChannel }" }, { name: "description", type: "string?" } ]} />
+
+## Properties
+
+### welcomeChannels
+
+<LuaProperty name="WelcomeScreen.welcomeChannels" type="{ Classes.Guild.WelcomeScreenChannel }" />
+
+---
+An array of welcome screen channel objects linked to the guild's welcome screen. These channels are shown to new members
+when they join the guild.
+
+### description
+
+<LuaProperty name="WelcomeScreen.description" type="string?" />
+
+---
+The server description shown in the welcome screen. This description provides new members with information about
+the guild when they first join.
+
+

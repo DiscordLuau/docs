@@ -1,0 +1,141 @@
+---
+title: User
+description: DiscordLuau docs for User.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord User class in Luau
+
+https://discord.com/developers/docs/resources/user#user-object
+
+<LuaSummary className="User" properties={[ { name: "id", type: "string" }, { name: "username", type: "string" }, { name: "discriminator", type: "string?" }, { name: "globalName", type: "string?" }, { name: "avatar", type: "string?" }, { name: "avatarDecoration", type: "Classes.AvatarDecoration?" }, { name: "bot", type: "boolean?" }, { name: "system", type: "boolean?" }, { name: "mfaEnabled", type: "boolean?" }, { name: "locale", type: "string?" }, { name: "verified", type: "boolean?" }, { name: "banner", type: "string?" }, { name: "email", type: "string?" }, { name: "flags", type: "Classes.UserBitflag?" }, { name: "premiumType", type: "apiTypes.PremiumType?" }, { name: "publicFlags", type: "Classes.UserBitflag?" }, { name: "accentColor", type: "number?" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="User.id" type="string" />
+
+---
+The unique identifier for this user.
+
+### username
+
+<LuaProperty name="User.username" type="string" />
+
+---
+The username of this user.
+
+### discriminator
+
+<LuaProperty name="User.discriminator" type="string?" />
+
+---
+The discriminator of this user, used to distinguish between users with the same username.
+
+### globalName
+
+<LuaProperty name="User.globalName" type="string?" />
+
+---
+The global display name of this user, if they have one set.
+
+### avatar
+
+<LuaProperty name="User.avatar" type="string?" />
+
+---
+The avatar hash of this user.
+
+### avatarDecoration
+
+<LuaProperty name="User.avatarDecoration" type="Classes.AvatarDecoration?" />
+
+---
+The avatar decoration of this user, if they have one.
+
+### bot
+
+<LuaProperty name="User.bot" type="boolean?" />
+
+---
+Whether this user is a bot account.
+
+### system
+
+<LuaProperty name="User.system" type="boolean?" />
+
+---
+Whether this user is a system account.
+
+### mfaEnabled
+
+<LuaProperty name="User.mfaEnabled" type="boolean?" />
+
+---
+Whether this user has two-factor authentication enabled.
+
+### locale
+
+<LuaProperty name="User.locale" type="string?" />
+
+---
+The user's preferred language.
+
+### verified
+
+<LuaProperty name="User.verified" type="boolean?" />
+
+---
+Whether this user's email is verified.
+
+### banner
+
+<LuaProperty name="User.banner" type="string?" />
+
+
+### email
+
+<LuaProperty name="User.email" type="string?" />
+
+---
+The user's email address.
+
+### flags
+
+<LuaProperty name="User.flags" type="Classes.UserBitflag?" />
+
+---
+The flags that indicate various properties and states of the user.
+
+### premiumType
+
+<LuaProperty name="User.premiumType" type="apiTypes.PremiumType?" />
+
+---
+The type of Nitro subscription this user has.
+
+### publicFlags
+
+<LuaProperty name="User.publicFlags" type="Classes.UserBitflag?" />
+
+---
+The public flags that indicate various properties and states of the user.
+
+### accentColor
+
+<LuaProperty name="User.accentColor" type="number?" />
+
+---
+The user's custom profile accent color.
+
+

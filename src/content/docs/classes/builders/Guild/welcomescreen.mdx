@@ -1,0 +1,91 @@
+---
+title: WelcomeScreen
+description: DiscordLuau docs for WelcomeScreen.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords WelcomeScreen object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen-json-params
+
+<LuaSummary className="WelcomeScreen" properties={[ { name: "enabled", type: "boolean?" }, { name: "description", type: "string?" }, { name: "welcomeChannels", type: "{ Builders.Guild.WelcomeScreenChannel }" } ]} methods={[ { name: "setEnabled", isMethod: true, args: [ { name: "enabled", type: "boolean" } ], returnType: "WelcomeScreen" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "WelcomeScreen" }, { name: "addChannel", isMethod: true, args: [ { name: "channel", type: "WelcomeScreenChannel.JSON" } ], returnType: "WelcomeScreen" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ enabled: boolean?, description: string?, welcomeChannels: { WelcomeScreenChannel.JSON }?, }?" } ], returnType: "WelcomeScreen" } ]} />
+
+## Properties
+
+### enabled
+
+<LuaProperty name="WelcomeScreen.enabled" type="boolean?" />
+
+---
+Whether the welcome screen is enabled or not.
+
+### description
+
+<LuaProperty name="WelcomeScreen.description" type="string?" />
+
+---
+The server description shown in the welcome screen.
+
+### welcomeChannels
+
+<LuaProperty name="WelcomeScreen.welcomeChannels" type="{ Builders.Guild.WelcomeScreenChannel }" />
+
+---
+The channels shown in the welcome screen.
+
+
+## Methods
+
+### setEnabled
+
+> <LuaDeclaration name="setEnabled" className="WelcomeScreen" args={[ { name: "enabled", type: "boolean" } ]} returnType="WelcomeScreen" isMethod />
+
+Set weather the welcome screen is enabled or not.
+
+<LuaParamTable params={[ { name: "enabled", type: "boolean" } ]} returns={[ { type: "WelcomeScreen" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="WelcomeScreen" args={[ { name: "description", type: "string" } ]} returnType="WelcomeScreen" isMethod />
+
+Set the description of the welcome screen.
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "WelcomeScreen" } ]} />
+
+### addChannel
+
+> <LuaDeclaration name="addChannel" className="WelcomeScreen" args={[ { name: "channel", type: "WelcomeScreenChannel.JSON" } ]} returnType="WelcomeScreen" isMethod />
+
+Add an welcome screen channel to the welcome screen
+
+<LuaParamTable params={[ { name: "channel", type: "WelcomeScreenChannel.JSON" } ]} returns={[ { type: "WelcomeScreen" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="WelcomeScreen" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the WelcomeScreenObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreen" args={[ { name: "resource", type: "{ enabled: boolean?, description: string?, welcomeChannels: { WelcomeScreenChannel.JSON }?, }?" } ]} returnType="WelcomeScreen" />
+
+Responsible for creating a new WelcomeScreen.
+
+<LuaParamTable params={[ { name: "resource", type: "{ enabled: boolean?, description: string?, welcomeChannels: { WelcomeScreenChannel.JSON }?, }?" } ]} returns={[ { type: "WelcomeScreen" } ]} />
+
+

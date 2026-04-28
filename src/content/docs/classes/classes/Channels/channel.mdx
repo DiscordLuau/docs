@@ -1,0 +1,71 @@
+---
+title: Channel
+description: DiscordLuau docs for Channel.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Channel class in Luau. Responsible for implementing the various properties, and methods
+for a generic channel object.
+
+<LuaSummary className="Channel" properties={[ { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Channel.type" type="string" />
+
+---
+The type of the channel, indicating its functionality and behavior.
+
+### id
+
+<LuaProperty name="Channel.id" type="string" />
+
+---
+The unique identifier for this channel.
+
+### name
+
+<LuaProperty name="Channel.name" type="string?" />
+
+---
+The name of the channel.
+
+### flags
+
+<LuaProperty name="Channel.flags" type="Classes.Channels.ChannelBitflag?" />
+
+---
+The flags that indicate various properties and states of the channel.
+
+
+## Methods
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="Channel" args={[  ]} isMethod />
+
+Post a typing indicator for the specified channel, which expires after 10 seconds.
+
+Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
+take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="Channel" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Lists all private archived threads that the current user has joined. Returns thread and member information.
+
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+
+

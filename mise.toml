@@ -1,27 +1,25 @@
 [tools]
-"github:lune-org/lune" = "0.10.4"
-"github:evaera/moonwave" = "1.3.0"
-deno = "2.5.6"
+"ubi:evaera/moonwave" = "1.3.0"
+deno = "2"
+node = "25"
+pnpm = "9.1.4"
 
-[tasks.check]
-description = "Run checks for formatting and linting (ensures locked and all features)"
-shell = "bash -c"
-run = [
-    "deno biome format --check",
-    "deno task lint"
-]
+[tasks.generate]
+run = "pnpm generate"
+description = "Generate API reference docs from moonwave"
+
+[tasks.dev]
+run = "pnpm dev"
+description = "Start the dev server"
 
 [tasks.build]
-description = "Generate and build documentation site"
-shell = "bash -c"
 run = "pnpm build"
+description = "Build the docs site"
 
 [tasks.deploy]
-description = "Deploy site"
-shell = "bash -c"
-run = "pnpm deploy"
+run = 'pnpm run deploy "$@"'
+description = "Deploy to deno deploy"
 
 [settings]
 experimental = true
 lockfile = true
-

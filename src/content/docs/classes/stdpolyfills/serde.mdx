@@ -1,0 +1,54 @@
+---
+title: Serde
+description: DiscordLuau docs for Serde.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+
+
+<LuaSummary className="Serde" functions={[ { name: "encode", args: [ { name: "format", type: "EncodeDecodeFormat" }, { name: "value", type: "any" }, { name: "pretty", type: "boolean?" } ], returnType: "string" }, { name: "decode", args: [ { name: "format", type: "EncodeDecodeFormat" }, { name: "encoded", type: "buffer | string" } ], returnType: "any" }, { name: "decompress", args: [ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" } ], returnType: "string" }, { name: "compress", args: [ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" }, { name: "level", type: "number?" } ], returnType: "string" } ]} />
+
+## Functions
+
+### encode
+
+> <LuaDeclaration name="encode" className="Serde" args={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "value", type: "any" }, { name: "pretty", type: "boolean?" } ]} returnType="string" />
+
+Encodes the given value using the given format.
+
+<LuaParamTable params={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "value", type: "any" }, { name: "pretty", type: "boolean?" } ]} returns={[ { type: "string" } ]} />
+
+### decode
+
+> <LuaDeclaration name="decode" className="Serde" args={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "encoded", type: "buffer | string" } ]} returnType="any" />
+
+Decodes the given string using the given format into a lua value.
+
+<LuaParamTable params={[ { name: "format", type: "EncodeDecodeFormat" }, { name: "encoded", type: "buffer | string" } ]} returns={[ { type: "any" } ]} />
+
+### decompress
+
+> <LuaDeclaration name="decompress" className="Serde" args={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" } ]} returnType="string" />
+
+Decompresses the given string using the given format.
+
+<LuaParamTable params={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" } ]} returns={[ { type: "string" } ]} />
+
+### compress
+
+> <LuaDeclaration name="compress" className="Serde" args={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" }, { name: "level", type: "number?" } ]} returnType="string" />
+
+Compresses the given string using the given format.
+
+<LuaParamTable params={[ { name: "format", type: "CompressDecompressFormat" }, { name: "s", type: "buffer | string" }, { name: "level", type: "number?" } ]} returns={[ { type: "string" } ]} />
+
+

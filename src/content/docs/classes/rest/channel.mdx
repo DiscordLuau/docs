@@ -1,0 +1,232 @@
+---
+title: Channel
+description: DiscordLuau docs for Channel.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/channel
+
+<LuaSummary className="Channel" functions={[ { name: "getChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetChannelResponse>" }, { name: "modifyChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyChannelRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyChannelResponse>" }, { name: "deleteOrCloseChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteCloseChannelResponse>" }, { name: "editChannelPermissionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditChannelPermissionsRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.EditChannelPermissionsResponse>" }, { name: "getChannelInvitesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetChannelInvitesResponse>" }, { name: "createChannelInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateChannelInviteRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.CreateChannelInviteResponse>" }, { name: "deleteChannelPermissionAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteChannelPermissionResponse>" }, { name: "followAnnouncementChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.FollowAnnouncementChannelRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.FollowAnnouncementChannelResponse>" }, { name: "triggerTypingIndicatorAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.TriggerTypingIndicatorResponse>" }, { name: "getPinnedMessagesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetPinnedMessagesResponse>" }, { name: "pinMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.PinMessageResponse>" }, { name: "unpinMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.UnpinMessageResponse>" }, { name: "groupDMAddRecipientAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.GroupDMAddRecipientRequest" } ], returnType: "future.FutureLike<string, apiTypes.GroupDMAddRecipientResponse>" }, { name: "groupDMRemoveRecipientAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GroupDMRemoveRecipientResponse>" }, { name: "startThreadFromMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadFromMessageRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.StartThreadFromMessageResponse>" }, { name: "startThreadWithoutMessageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadWithoutMessageRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.StartThreadWithoutMessageResponse>" }, { name: "startThreadInForumOrMediaChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadInForumOrMediaChannelRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike< string, apiTypes.StartThreadInForumOrMediaChannelResponse >" }, { name: "joinThreadAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.JoinThreadResponse>" }, { name: "addThreadMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.AddThreadMemberResponse>" }, { name: "leaveThreadAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.LeaveThreadResponse>" }, { name: "removeThreadMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.RemoveThreadMemberResponse>" }, { name: "getThreadMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetThreadMemberResponse>" }, { name: "listThreadMembersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, after: apiTypes.Snowflake?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.ListThreadMembersResponse>" }, { name: "listPublicArchivedThreadsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.ListPublicArchivedThreadsResponse>" }, { name: "listPrivateArchivedThreadsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.ListPrivateArchivedThreadsResponse>" }, { name: "listJoinedPrivateArchivedThreadsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ], returnType: "future.FutureLike< string, apiTypes.ListJoinedPrivateArchivedThreadsResponse >" } ]} />
+
+## Functions
+
+### getChannelAsync
+
+> <LuaDeclaration name="getChannelAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelResponse>" />
+
+https://discord.com/developers/docs/resources/channel#get-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetChannelResponse>" } ]} />
+
+### modifyChannelAsync
+
+> <LuaDeclaration name="modifyChannelAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyChannelResponse>" />
+
+https://discord.com/developers/docs/resources/channel#modify-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyChannelResponse>" } ]} />
+
+### deleteOrCloseChannelAsync
+
+> <LuaDeclaration name="deleteOrCloseChannelAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteCloseChannelResponse>" />
+
+https://discord.com/developers/docs/resources/channel#deleteclose-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteCloseChannelResponse>" } ]} />
+
+### editChannelPermissionsAsync
+
+> <LuaDeclaration name="editChannelPermissionsAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditChannelPermissionsRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.EditChannelPermissionsResponse>" />
+
+https://discord.com/developers/docs/resources/channel#edit-channel-permissions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditChannelPermissionsRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.EditChannelPermissionsResponse>" } ]} />
+
+### getChannelInvitesAsync
+
+> <LuaDeclaration name="getChannelInvitesAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetChannelInvitesResponse>" />
+
+https://discord.com/developers/docs/resources/channel#get-channel-invites
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetChannelInvitesResponse>" } ]} />
+
+### createChannelInviteAsync
+
+> <LuaDeclaration name="createChannelInviteAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateChannelInviteRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateChannelInviteResponse>" />
+
+https://discord.com/developers/docs/resources/channel#create-channel-invite
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateChannelInviteRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateChannelInviteResponse>" } ]} />
+
+### deleteChannelPermissionAsync
+
+> <LuaDeclaration name="deleteChannelPermissionAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteChannelPermissionResponse>" />
+
+https://discord.com/developers/docs/resources/channel#delete-channel-permission
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "overwriteId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteChannelPermissionResponse>" } ]} />
+
+### followAnnouncementChannelAsync
+
+> <LuaDeclaration name="followAnnouncementChannelAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.FollowAnnouncementChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.FollowAnnouncementChannelResponse>" />
+
+https://discord.com/developers/docs/resources/channel#follow-announcement-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.FollowAnnouncementChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.FollowAnnouncementChannelResponse>" } ]} />
+
+### triggerTypingIndicatorAsync
+
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.TriggerTypingIndicatorResponse>" />
+
+https://discord.com/developers/docs/resources/channel#trigger-typing-indicator
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.TriggerTypingIndicatorResponse>" } ]} />
+
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetPinnedMessagesResponse>" />
+
+https://discord.com/developers/docs/resources/channel#get-pinned-messages
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetPinnedMessagesResponse>" } ]} />
+
+### pinMessageAsync
+
+> <LuaDeclaration name="pinMessageAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.PinMessageResponse>" />
+
+https://discord.com/developers/docs/resources/channel#pin-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.PinMessageResponse>" } ]} />
+
+### unpinMessageAsync
+
+> <LuaDeclaration name="unpinMessageAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.UnpinMessageResponse>" />
+
+https://discord.com/developers/docs/resources/channel#unpin-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.UnpinMessageResponse>" } ]} />
+
+### groupDMAddRecipientAsync
+
+> <LuaDeclaration name="groupDMAddRecipientAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.GroupDMAddRecipientRequest" } ]} returnType="future.FutureLike<string, apiTypes.GroupDMAddRecipientResponse>" />
+
+https://discord.com/developers/docs/resources/channel#group-dm-add-recipient
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.GroupDMAddRecipientRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GroupDMAddRecipientResponse>" } ]} />
+
+### groupDMRemoveRecipientAsync
+
+> <LuaDeclaration name="groupDMRemoveRecipientAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GroupDMRemoveRecipientResponse>" />
+
+https://discord.com/developers/docs/resources/channel#group-dm-remove-recipient
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GroupDMRemoveRecipientResponse>" } ]} />
+
+### startThreadFromMessageAsync
+
+> <LuaDeclaration name="startThreadFromMessageAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadFromMessageRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.StartThreadFromMessageResponse>" />
+
+https://discord.com/developers/docs/resources/channel#start-thread-from-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "messageId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadFromMessageRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.StartThreadFromMessageResponse>" } ]} />
+
+### startThreadWithoutMessageAsync
+
+> <LuaDeclaration name="startThreadWithoutMessageAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadWithoutMessageRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.StartThreadWithoutMessageResponse>" />
+
+https://discord.com/developers/docs/resources/channel#start-thread-without-message
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadWithoutMessageRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.StartThreadWithoutMessageResponse>" } ]} />
+
+### startThreadInForumOrMediaChannelAsync
+
+> <LuaDeclaration name="startThreadInForumOrMediaChannelAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadInForumOrMediaChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.StartThreadInForumOrMediaChannelResponse >" />
+
+https://discord.com/developers/docs/resources/channel#start-thread-in-forum-or-media-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.StartThreadInForumOrMediaChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.StartThreadInForumOrMediaChannelResponse >" } ]} />
+
+### joinThreadAsync
+
+> <LuaDeclaration name="joinThreadAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.JoinThreadResponse>" />
+
+https://discord.com/developers/docs/resources/channel#join-thread
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.JoinThreadResponse>" } ]} />
+
+### addThreadMemberAsync
+
+> <LuaDeclaration name="addThreadMemberAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.AddThreadMemberResponse>" />
+
+https://discord.com/developers/docs/resources/channel#add-thread-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.AddThreadMemberResponse>" } ]} />
+
+### leaveThreadAsync
+
+> <LuaDeclaration name="leaveThreadAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.LeaveThreadResponse>" />
+
+https://discord.com/developers/docs/resources/channel#leave-thread
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.LeaveThreadResponse>" } ]} />
+
+### removeThreadMemberAsync
+
+> <LuaDeclaration name="removeThreadMemberAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.RemoveThreadMemberResponse>" />
+
+https://discord.com/developers/docs/resources/channel#remove-thread-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.RemoveThreadMemberResponse>" } ]} />
+
+### getThreadMemberAsync
+
+> <LuaDeclaration name="getThreadMemberAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetThreadMemberResponse>" />
+
+https://discord.com/developers/docs/resources/channel#get-thread-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetThreadMemberResponse>" } ]} />
+
+### listThreadMembersAsync
+
+> <LuaDeclaration name="listThreadMembersAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.ListThreadMembersResponse>" />
+
+https://discord.com/developers/docs/resources/channel#list-thread-members
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withMember: boolean?, after: apiTypes.Snowflake?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListThreadMembersResponse>" } ]} />
+
+### listPublicArchivedThreadsAsync
+
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.ListPublicArchivedThreadsResponse>" />
+
+https://discord.com/developers/docs/resources/channel#list-public-archived-threads
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListPublicArchivedThreadsResponse>" } ]} />
+
+### listPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.ListPrivateArchivedThreadsResponse>" />
+
+https://discord.com/developers/docs/resources/channel#list-private-archived-threads
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListPrivateArchivedThreadsResponse>" } ]} />
+
+### listJoinedPrivateArchivedThreadsAsync
+
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="Channel" args={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returnType="future.FutureLike< string, apiTypes.ListJoinedPrivateArchivedThreadsResponse >" />
+
+https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "channelId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ before: string?, limit: number?, }" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.ListJoinedPrivateArchivedThreadsResponse >" } ]} />
+
+

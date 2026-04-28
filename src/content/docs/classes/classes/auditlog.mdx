@@ -1,0 +1,87 @@
+---
+title: AuditLog
+description: DiscordLuau docs for AuditLog.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord AuditLog class in Luau
+
+https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
+
+<LuaSummary className="AuditLog" properties={[ { name: "state", type: "state.State" }, { name: "applicationCommands", type: "{ Classes.Application.Command }" }, { name: "auditLogEntries", type: "{ Classes.AuditLog.Entry }" }, { name: "autoModerationRules", type: "{ Classes.AutoModeration.Rule }" }, { name: "guildScheduledEvents", type: "{ Classes.Guild.ScheduledEvent }" }, { name: "integrations", type: "{ Classes.Guild.Integration }" }, { name: "threads", type: "{ Classes.Channels.PublicThread }" }, { name: "users", type: "{ Classes.User }" }, { name: "webhooks", type: "{ Classes.Webhook }" } ]} />
+
+## Properties
+
+### state
+
+<LuaProperty name="AuditLog.state" type="state.State" />
+
+---
+The state object that contains all the cache and client information.
+
+### applicationCommands
+
+<LuaProperty name="AuditLog.applicationCommands" type="{ Classes.Application.Command }" />
+
+---
+Array of application commands found in the audit log.
+
+### auditLogEntries
+
+<LuaProperty name="AuditLog.auditLogEntries" type="{ Classes.AuditLog.Entry }" />
+
+---
+Array of audit log entries containing information about various changes made in the guild.
+
+### autoModerationRules
+
+<LuaProperty name="AuditLog.autoModerationRules" type="{ Classes.AutoModeration.Rule }" />
+
+---
+Array of auto moderation rules that have been created, updated, or deleted in the guild.
+
+### guildScheduledEvents
+
+<LuaProperty name="AuditLog.guildScheduledEvents" type="{ Classes.Guild.ScheduledEvent }" />
+
+---
+Array of scheduled events that have been created, updated, or deleted in the guild.
+
+### integrations
+
+<LuaProperty name="AuditLog.integrations" type="{ Classes.Guild.Integration }" />
+
+---
+Array of integrations that have been created, updated, or deleted in the guild.
+
+### threads
+
+<LuaProperty name="AuditLog.threads" type="{ Classes.Channels.PublicThread }" />
+
+---
+Array of threads that have been created, updated, or deleted in the guild.
+
+### users
+
+<LuaProperty name="AuditLog.users" type="{ Classes.User }" />
+
+---
+Array of users that are referenced in the audit log entries.
+
+### webhooks
+
+<LuaProperty name="AuditLog.webhooks" type="{ Classes.Webhook }" />
+
+---
+Array of webhooks that have been created, updated, or deleted in the guild.
+
+

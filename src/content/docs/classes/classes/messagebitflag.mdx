@@ -1,0 +1,101 @@
+---
+title: MessageBitflag
+description: DiscordLuau docs for MessageBitflag.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Message Bitflags in Luau.
+Represents various flags that can be applied to Discord messages.
+
+https://discord.com/developers/docs/resources/message#message-object-message-flags
+
+<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ] }, { name: "isCrossposted", isMethod: true, args: [  ] }, { name: "suppressEmbeds", isMethod: true, args: [  ] }, { name: "sourceMessageDeleted", isMethod: true, args: [  ] }, { name: "urgent", isMethod: true, args: [  ] }, { name: "hasThread", isMethod: true, args: [  ] }, { name: "ephemeral", isMethod: true, args: [  ] }, { name: "loading", isMethod: true, args: [  ] }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ] }, { name: "suppressNotifications", isMethod: true, args: [  ] }, { name: "isVouceMessage", isMethod: true, args: [  ] } ]} />
+
+## Properties
+
+### flag
+
+<LuaProperty name="MessageBitflag.flag" type="number" />
+
+---
+The raw bitflag value for the message.
+
+
+## Methods
+
+### crossposted
+
+> <LuaDeclaration name="crossposted" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message has been published to subscribed channels (via Channel Following).
+
+### isCrossposted
+
+> <LuaDeclaration name="isCrossposted" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message originated from a message in another channel (via Channel Following).
+
+### suppressEmbeds
+
+> <LuaDeclaration name="suppressEmbeds" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if embeds should be suppressed when serializing this message.
+
+### sourceMessageDeleted
+
+> <LuaDeclaration name="sourceMessageDeleted" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if the source message for this crosspost has been deleted (via Channel Following).
+
+### urgent
+
+> <LuaDeclaration name="urgent" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message came from the urgent message system.
+
+### hasThread
+
+> <LuaDeclaration name="hasThread" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message has an associated thread, with the same id as the message.
+
+### ephemeral
+
+> <LuaDeclaration name="ephemeral" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message is only visible to the user who invoked the Interaction.
+
+### loading
+
+> <LuaDeclaration name="loading" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message is an Interaction Response and the bot is "thinking".
+
+### failedToMentionSomeRolesInThread
+
+> <LuaDeclaration name="failedToMentionSomeRolesInThread" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message failed to mention some roles and add their members to the thread.
+
+### suppressNotifications
+
+> <LuaDeclaration name="suppressNotifications" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message will not trigger push and desktop notifications.
+
+### isVouceMessage
+
+> <LuaDeclaration name="isVouceMessage" className="MessageBitflag" args={[  ]} isMethod />
+
+Checks if this message is a voice message.
+
+

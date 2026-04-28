@@ -1,0 +1,59 @@
+---
+title: IntegrationApplication
+description: DiscordLuau docs for IntegrationApplication.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Integration Application class in Luau
+
+https://discord.com/developers/docs/resources/guild#integration-application-object
+
+<LuaSummary className="IntegrationApplication" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "description", type: "string" }, { name: "bot", type: "Classes.User?" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="IntegrationApplication.id" type="string" />
+
+---
+The unique identifier for this application
+
+### name
+
+<LuaProperty name="IntegrationApplication.name" type="string" />
+
+---
+The name of the application
+
+### icon
+
+<LuaProperty name="IntegrationApplication.icon" type="string?" />
+
+---
+The icon hash of the application, if one exists
+
+### description
+
+<LuaProperty name="IntegrationApplication.description" type="string" />
+
+---
+The description of the application
+
+### bot
+
+<LuaProperty name="IntegrationApplication.bot" type="Classes.User?" />
+
+---
+The bot user associated with this application, if it is a bot application
+
+

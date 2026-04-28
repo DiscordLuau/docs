@@ -19,30 +19,37 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-
-      - name: Install Deno
-        uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.x
-
-      - name: Install PNPM
-        uses: pnpm/action-setup@v3
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4.0.2
-        with:
-          cache: "pnpm"
+          submodules: true
 
       - name: Install tooling
-        uses: ok-nick/setup-aftman@v0.4.2
+        uses: jdx/mise-action@v2
         with:
           cache: true
 
-      - name: Install step
-        run: "pnpm install"
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+
+      - name: Get Deno cache directory
+        run: echo "DENO_DIR=$(deno info --json | jq -r '.denoDir')" >> $GITHUB_ENV
+
+      - name: Cache pnpm modules, dist, and Deno directories
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ env.STORE_PATH }}
+            ${{ env.DENO_DIR }}
+            dist
+            .astro
+          key: ${{ runner.os }}-pnpm-deno-store-${{ hashFiles('**/pnpm-lock.yaml', '**/deno.json', '**/deno.lock') }}
+          restore-keys: ${{ runner.os }}-pnpm-deno-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build step
-        run: "GITHUB_TOKEN=${{ secrets.GH_SECRET }} pnpm astro:build"
+        run: GITHUB_TOKEN=${{ secrets.GH_SECRET }} mise run build
 
       - name: Upload to Deno Deploy
-        run: "DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} pnpm run deploy"
+        run: DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} mise run deploy ${{ github.ref_name == 'master' && '--prod' || '' }}

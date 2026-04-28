@@ -1,0 +1,52 @@
+---
+title: TeamMember
+description: DiscordLuau docs for TeamMember.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Member class in Luau
+
+https://discord.com/developers/docs/topics/teams#data-models-team-object
+
+<LuaSummary className="TeamMember" properties={[ { name: "membershipState", type: "apiTypes.MembershipState" }, { name: "teamId", type: "string" }, { name: "user", type: "Classes.User" }, { name: "role", type: "apiTypes.TeamRole" } ]} />
+
+## Properties
+
+### membershipState
+
+<LuaProperty name="TeamMember.membershipState" type="apiTypes.MembershipState" />
+
+---
+The state of the team member's membership. Represents the current status of this member within the team.
+
+### teamId
+
+<LuaProperty name="TeamMember.teamId" type="string" />
+
+---
+The unique identifier of the team this member belongs to.
+
+### user
+
+<LuaProperty name="TeamMember.user" type="Classes.User" />
+
+---
+The user object associated with this team member. Contains detailed information about the user's profile.
+
+### role
+
+<LuaProperty name="TeamMember.role" type="apiTypes.TeamRole" />
+
+---
+The role assigned to this team member. Can be either Admin, Developer, or ReadOnly, determining their permissions.
+
+

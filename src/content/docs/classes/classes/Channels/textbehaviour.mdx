@@ -1,0 +1,117 @@
+---
+title: TextBehaviour
+description: DiscordLuau docs for TextBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Behaviour class that implements the properties and methods specific to text-based channels in Discord.
+This behaviour is inherited by text channel classes to provide text messaging functionality.
+
+Text behaviours include:
+- Managing messages (create, delete, bulk delete)
+- Handling message history and retrieval
+- Managing pinned messages
+- Creating threads
+- Handling rate limits and message timestamps
+
+<LuaSummary className="TextBehaviour" properties={[ { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
+
+## Properties
+
+### lastMessageId
+
+<LuaProperty name="TextBehaviour.lastMessageId" type="string?" />
+
+---
+The ID of the last message sent in this channel.
+
+### lastPinTimestamp
+
+<LuaProperty name="TextBehaviour.lastPinTimestamp" type="DateTime?" />
+
+---
+The timestamp of the last pinned message in this channel.
+
+### rateLimitPerUser
+
+<LuaProperty name="TextBehaviour.rateLimitPerUser" type="number" />
+
+---
+The rate limit per user for sending messages in this channel.
+
+
+## Methods
+
+### bulkDeleteMessagesAsync
+
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="TextBehaviour" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
+MANAGE_MESSAGES permission.
+
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+
+### getMessagesAsync
+
+> <LuaDeclaration name="getMessagesAsync" className="TextBehaviour" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
+
+Gets messages from a channel. Returns an array of message objects.
+
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+
+### getMessageAsync
+
+> <LuaDeclaration name="getMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
+
+Gets a specific message from a channel using its ID. Returns a message object.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+
+### createMessageAsync
+
+> <LuaDeclaration name="createMessageAsync" className="TextBehaviour" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
+
+Creates a new message in the channel. Returns the created message object.
+
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
+
+### getPinnedMessagesAsync
+
+> <LuaDeclaration name="getPinnedMessagesAsync" className="TextBehaviour" args={[  ]} isMethod />
+
+Gets all pinned messages in the channel. Returns an array of message objects.
+
+### pinMessageAsync
+
+> <LuaDeclaration name="pinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" } ]} isMethod />
+
+Pins a message in the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+
+### unpinMessageAsync
+
+> <LuaDeclaration name="unpinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Unpins a message from the channel.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+
+### startThread
+
+> <LuaDeclaration name="startThread" className="TextBehaviour" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
+
+Starts a new thread in the channel without an associated message. Returns the thread ID.
+
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+
+

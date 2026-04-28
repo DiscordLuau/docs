@@ -1,0 +1,90 @@
+---
+title: Footer
+description: DiscordLuau docs for Footer.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Footer object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-footer-structure
+
+<LuaSummary className="Footer" properties={[ { name: "text", type: "string?" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} methods={[ { name: "setText", isMethod: true, args: [ { name: "text", type: "string" } ], returnType: "Footer" }, { name: "setIcon", isMethod: true, args: [ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ], returnType: "Footer" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ text: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ], returnType: "Footer" } ]} />
+
+## Properties
+
+### text
+
+<LuaProperty name="Footer.text" type="string?" />
+
+---
+The text content that appears in the footer.
+
+### iconUrl
+
+<LuaProperty name="Footer.iconUrl" type="string?" />
+
+---
+The URL of the footer icon.
+
+### proxyIconUrl
+
+<LuaProperty name="Footer.proxyIconUrl" type="string?" />
+
+---
+The proxied URL of the footer icon.
+
+
+## Methods
+
+### setText
+
+> <LuaDeclaration name="setText" className="Footer" args={[ { name: "text", type: "string" } ]} returnType="Footer" isMethod />
+
+Sets the footer text content.
+
+<LuaParamTable params={[ { name: "text", type: "string" } ]} returns={[ { type: "Footer" } ]} />
+
+### setIcon
+
+> <LuaDeclaration name="setIcon" className="Footer" args={[ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returnType="Footer" isMethod />
+
+Sets the footer icon URL and optional proxy icon URL.
+
+<LuaParamTable params={[ { name: "iconUrl", type: "string" }, { name: "proxyIconUrl", type: "string?" } ]} returns={[ { type: "Footer" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Footer" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Footer JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Footer" args={[ { name: "resource", type: "{ text: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ]} returnType="Footer" />
+
+Responsible for creating a new Footer.
+
+```luau
+local footer = Footer.new({
+	text = "Footer text",
+	iconUrl = "https://example.com/icon.png"
+})
+```
+
+<LuaParamTable params={[ { name: "resource", type: "{ text: string?, iconUrl: string?, proxyIconUrl: string?, }?" } ]} returns={[ { type: "Footer" } ]} />
+
+

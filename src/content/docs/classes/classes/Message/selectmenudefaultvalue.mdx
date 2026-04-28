@@ -1,0 +1,40 @@
+---
+title: SelectMenuDefaultValue
+description: DiscordLuau docs for SelectMenuDefaultValue.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord DefaultValue class in Luau
+
+https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-default-value-structure
+
+<LuaSummary className="SelectMenuDefaultValue" properties={[ { name: "id", type: "string" }, { name: "type", type: "string" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="SelectMenuDefaultValue.id" type="string" />
+
+---
+The ID of the default value. This is typically a snowflake ID representing a user, role, channel or other Discord entity
+depending on the select menu type.
+
+### type
+
+<LuaProperty name="SelectMenuDefaultValue.type" type="string" />
+
+---
+The type of select menu option this default value represents. This corresponds to one of the SelectDefaultValueType
+values and determines what kind of entity the ID refers to.
+
+

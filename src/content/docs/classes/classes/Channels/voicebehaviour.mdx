@@ -1,0 +1,51 @@
+---
+title: VoiceBehaviour
+description: DiscordLuau docs for VoiceBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Voice Behaviour class in Luau. Responsible for implementing the various properties, 
+and methods for a voice-able channels.
+
+<LuaSummary className="VoiceBehaviour" properties={[ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" }, { name: "bitrate", type: "number" }, { name: "userLimit", type: "number" }, { name: "rtcRegion", type: "string?" } ]} />
+
+## Properties
+
+### videoQualityMode
+
+<LuaProperty name="VoiceBehaviour.videoQualityMode" type="apiTypes.VideoQualityMode" />
+
+---
+The video quality mode for the voice channel, determining the quality of video streams.
+
+### bitrate
+
+<LuaProperty name="VoiceBehaviour.bitrate" type="number" />
+
+---
+The bitrate of the voice channel, determining the quality of audio transmission.
+
+### userLimit
+
+<LuaProperty name="VoiceBehaviour.userLimit" type="number" />
+
+---
+The maximum number of users that can join the voice channel.
+
+### rtcRegion
+
+<LuaProperty name="VoiceBehaviour.rtcRegion" type="string?" />
+
+---
+The RTC region for the voice channel, determining which server handles the voice connection.
+
+

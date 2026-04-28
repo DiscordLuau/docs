@@ -1,0 +1,125 @@
+---
+title: NoMessageThread
+description: DiscordLuau docs for NoMessageThread.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords NoMessageThread object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params
+
+<LuaSummary className="NoMessageThread" properties={[ { name: "name", type: "string?" }, { name: "autoArchiveDuration", type: "number?" }, { name: "type", type: "api_types.ChannelType?" }, { name: "invitable", type: "boolean?" }, { name: "rateLimitPerUser", type: "number?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "NoMessageThread" }, { name: "setAutoArchiveDuration", isMethod: true, args: [ { name: "duration", type: "number" } ], returnType: "NoMessageThread" }, { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.ChannelType" } ], returnType: "NoMessageThread" }, { name: "setInvitable", isMethod: true, args: [ { name: "invitable", type: "boolean" } ], returnType: "NoMessageThread" }, { name: "setRateLimitPerUser", isMethod: true, args: [ { name: "rateLimit", type: "number" } ], returnType: "NoMessageThread" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, type: apiTypes.ChannelType?, invitable: boolean?, rateLimitPerUser: number?, }?" } ], returnType: "NoMessageThread" } ]} />
+
+## Properties
+
+### name
+
+<LuaProperty name="NoMessageThread.name" type="string?" />
+
+---
+The name of the thread that is displayed.
+
+### autoArchiveDuration
+
+<LuaProperty name="NoMessageThread.autoArchiveDuration" type="number?" />
+
+---
+Duration in minutes to automatically archive the thread after recent activity.
+
+### type
+
+<LuaProperty name="NoMessageThread.type" type="api_types.ChannelType?" />
+
+---
+The type of thread channel.
+
+### invitable
+
+<LuaProperty name="NoMessageThread.invitable" type="boolean?" />
+
+---
+Whether non-moderators can add other non-moderators to the thread.
+
+### rateLimitPerUser
+
+<LuaProperty name="NoMessageThread.rateLimitPerUser" type="number?" />
+
+---
+Amount of seconds a user has to wait before sending another message.
+
+
+## Methods
+
+### setName
+
+> <LuaDeclaration name="setName" className="NoMessageThread" args={[ { name: "name", type: "string" } ]} returnType="NoMessageThread" isMethod />
+
+Sets the name of the thread.
+Name must be between 1-100 characters.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+### setAutoArchiveDuration
+
+> <LuaDeclaration name="setAutoArchiveDuration" className="NoMessageThread" args={[ { name: "duration", type: "number" } ]} returnType="NoMessageThread" isMethod />
+
+Sets the duration in minutes before the thread is automatically archived.
+Valid values are 60, 1440, 4320, or 10080.
+
+<LuaParamTable params={[ { name: "duration", type: "number" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+### setType
+
+> <LuaDeclaration name="setType" className="NoMessageThread" args={[ { name: "type", type: "apiTypes.ChannelType" } ]} returnType="NoMessageThread" isMethod />
+
+Sets the type of thread channel.
+Must be a valid Discord channel type.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.ChannelType" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+### setInvitable
+
+> <LuaDeclaration name="setInvitable" className="NoMessageThread" args={[ { name: "invitable", type: "boolean" } ]} returnType="NoMessageThread" isMethod />
+
+Sets whether non-moderators can add other non-moderators to the thread.
+
+<LuaParamTable params={[ { name: "invitable", type: "boolean" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="NoMessageThread" args={[ { name: "rateLimit", type: "number" } ]} returnType="NoMessageThread" isMethod />
+
+Sets the amount of seconds a user has to wait before sending another message.
+Must be less than or equal to 21600 seconds (6 hours).
+
+<LuaParamTable params={[ { name: "rateLimit", type: "number" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="NoMessageThread" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the NoMessageThread JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="NoMessageThread" args={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, type: apiTypes.ChannelType?, invitable: boolean?, rateLimitPerUser: number?, }?" } ]} returnType="NoMessageThread" />
+
+Responsible for creating a new NoMessageThread.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, type: apiTypes.ChannelType?, invitable: boolean?, rateLimitPerUser: number?, }?" } ]} returns={[ { type: "NoMessageThread" } ]} />
+
+

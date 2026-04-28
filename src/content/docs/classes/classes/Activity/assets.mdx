@@ -1,0 +1,52 @@
+---
+title: Assets
+description: DiscordLuau docs for Assets.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord ActivityAssets class in Luau
+
+https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-assets
+
+<LuaSummary className="Assets" properties={[ { name: "largeImage", type: "string" }, { name: "largeText", type: "string" }, { name: "smallImage", type: "string" }, { name: "smallText", type: "string" } ]} />
+
+## Properties
+
+### largeImage
+
+<LuaProperty name="Assets.largeImage" type="string" />
+
+---
+The key for the large asset of the activity, usually a snowflake representing a custom image
+
+### largeText
+
+<LuaProperty name="Assets.largeText" type="string" />
+
+---
+Text displayed when hovering over the large image of the activity
+
+### smallImage
+
+<LuaProperty name="Assets.smallImage" type="string" />
+
+---
+The key for the small asset of the activity, usually a snowflake representing a custom image
+
+### smallText
+
+<LuaProperty name="Assets.smallText" type="string" />
+
+---
+Text displayed when hovering over the small image of the activity
+
+

@@ -1,0 +1,59 @@
+---
+title: Widget
+description: DiscordLuau docs for Widget.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Widget class in Luau
+
+https://discord.com/developers/docs/resources/guild#guild-widget-settings-object
+
+<LuaSummary className="Widget" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "instantInvite", type: "string?" }, { name: "channels", type: "{ Classes.Channels.Channel }" }, { name: "members", type: "{ Classes.User }" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="Widget.id" type="string" />
+
+---
+The unique identifier of this widget
+
+### name
+
+<LuaProperty name="Widget.name" type="string" />
+
+---
+The name of the widget
+
+### instantInvite
+
+<LuaProperty name="Widget.instantInvite" type="string?" />
+
+---
+The instant invite URL for this widget, if one exists
+
+### channels
+
+<LuaProperty name="Widget.channels" type="{ Classes.Channels.Channel }" />
+
+---
+Array of channels that are shown in the widget
+
+### members
+
+<LuaProperty name="Widget.members" type="{ Classes.User }" />
+
+---
+Array of users that are shown in the widget
+
+

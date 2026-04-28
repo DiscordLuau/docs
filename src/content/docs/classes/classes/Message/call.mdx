@@ -1,0 +1,38 @@
+---
+title: Call
+description: DiscordLuau docs for Call.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Call class in Luau
+
+https://discord.com/developers/docs/resources/message#message-call-object
+
+<LuaSummary className="Call" properties={[ { name: "participants", type: "{ Classes.User }" }, { name: "endedTimestamp", type: "DateTime" } ]} />
+
+## Properties
+
+### participants
+
+<LuaProperty name="Call.participants" type="{ Classes.User }" />
+
+---
+Array of user objects that participated in the call
+
+### endedTimestamp
+
+<LuaProperty name="Call.endedTimestamp" type="DateTime" />
+
+---
+When the call ended, stored as a DateTime object
+
+

@@ -1,0 +1,101 @@
+---
+title: Sticker
+description: DiscordLuau docs for Sticker.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Sticker class in Luau
+
+https://discord.com/developers/docs/resources/sticker#sticker-object
+
+<LuaSummary className="Sticker" properties={[ { name: "id", type: "string" }, { name: "packId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "tags", type: "string?" }, { name: "type", type: "apiTypes.StickerType" }, { name: "formatType", type: "apiTypes.StickerFormatType" }, { name: "available", type: "boolean?" }, { name: "guildId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "sortValue", type: "number?" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="Sticker.id" type="string" />
+
+---
+The unique identifier for this sticker.
+
+### packId
+
+<LuaProperty name="Sticker.packId" type="string?" />
+
+---
+The ID of the sticker pack this sticker belongs to.
+
+### name
+
+<LuaProperty name="Sticker.name" type="string" />
+
+---
+The name of this sticker.
+
+### description
+
+<LuaProperty name="Sticker.description" type="string?" />
+
+---
+The description of this sticker.
+
+### tags
+
+<LuaProperty name="Sticker.tags" type="string?" />
+
+---
+The tags associated with this sticker.
+
+### type
+
+<LuaProperty name="Sticker.type" type="apiTypes.StickerType" />
+
+---
+The type of this sticker.
+
+### formatType
+
+<LuaProperty name="Sticker.formatType" type="apiTypes.StickerFormatType" />
+
+---
+The format type of this sticker.
+
+### available
+
+<LuaProperty name="Sticker.available" type="boolean?" />
+
+---
+Whether this sticker is available for use.
+
+### guildId
+
+<LuaProperty name="Sticker.guildId" type="string?" />
+
+---
+The ID of the guild this sticker belongs to.
+
+### user
+
+<LuaProperty name="Sticker.user" type="Classes.User?" />
+
+---
+The user who uploaded this sticker.
+
+### sortValue
+
+<LuaProperty name="Sticker.sortValue" type="number?" />
+
+---
+The sort value of this sticker within its pack.
+
+

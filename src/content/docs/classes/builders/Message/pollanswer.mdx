@@ -1,0 +1,83 @@
+---
+title: PollAnswer
+description: DiscordLuau docs for PollAnswer.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords PollAnswer object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/poll#poll-answer-object-poll-answer-object-structure
+
+<LuaSummary className="PollAnswer" properties={[ { name: "answerId", type: "number?" }, { name: "pollMedia", type: "Builders.Media?" } ]} methods={[ { name: "setId", isMethod: true, args: [ { name: "id", type: "number" } ], returnType: "PollAnswer" }, { name: "setMedia", isMethod: true, args: [ { name: "media", type: "mediaBuilder.JSON" } ], returnType: "PollAnswer" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ answerId: number?, pollMedia: mediaBuilder.JSON?, }?" } ], returnType: "PollAnswer" } ]} />
+
+## Properties
+
+### answerId
+
+<LuaProperty name="PollAnswer.answerId" type="number?" />
+
+---
+The ID of the poll answer.
+
+### pollMedia
+
+<LuaProperty name="PollAnswer.pollMedia" type="Builders.Media?" />
+
+---
+The media attached to this poll answer.
+
+
+## Methods
+
+### setId
+
+> <LuaDeclaration name="setId" className="PollAnswer" args={[ { name: "id", type: "number" } ]} returnType="PollAnswer" isMethod />
+
+Sets the ID for the poll answer.
+
+<LuaParamTable params={[ { name: "id", type: "number" } ]} returns={[ { type: "PollAnswer" } ]} />
+
+### setMedia
+
+> <LuaDeclaration name="setMedia" className="PollAnswer" args={[ { name: "media", type: "mediaBuilder.JSON" } ]} returnType="PollAnswer" isMethod />
+
+Sets the media for the poll answer.
+
+<LuaParamTable params={[ { name: "media", type: "mediaBuilder.JSON" } ]} returns={[ { type: "PollAnswer" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="PollAnswer" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the PollAnswer JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PollAnswer" args={[ { name: "resource", type: "{ answerId: number?, pollMedia: mediaBuilder.JSON?, }?" } ]} returnType="PollAnswer" />
+
+Responsible for creating a new PollAnswer.
+
+```luau
+local answer = PollAnswer.new({
+	answerId = 1,
+	pollMedia = media:build()
+})
+```
+
+<LuaParamTable params={[ { name: "resource", type: "{ answerId: number?, pollMedia: mediaBuilder.JSON?, }?" } ]} returns={[ { type: "PollAnswer" } ]} />
+
+

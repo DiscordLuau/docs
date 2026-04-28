@@ -1,0 +1,125 @@
+---
+title: Request
+description: DiscordLuau docs for Request.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Request is a class that represents a single HTTP request. The idea behind this class is to provide
+some sort of structure and boilerplate for making HTTP requests.
+
+by default, this class will add the following headers:
+- User-Agent: "DiscordLuau"
+- Authorization: "Bot &lt;token&gt;"
+- Content-Type: "application/json"
+
+<LuaSummary className="Request" methods={[ { name: "setBody", isMethod: true, args: [ { name: "body", type: "string" } ] }, { name: "setFlag", isMethod: true, args: [ { name: "name", type: "string" }, { name: "value", type: "boolean" } ] }, { name: "addUrlParam", isMethod: true, args: [ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ] }, { name: "addHeader", isMethod: true, args: [ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ] }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "setMethod", isMethod: true, args: [ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ] }, { name: "assertToken", isMethod: true, args: [  ] }, { name: "addHook", isMethod: true, args: [ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ] }, { name: "executeAsync", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ], returnType: "Request" } ]} />
+
+## Methods
+
+### setBody
+
+> <LuaDeclaration name="setBody" className="Request" args={[ { name: "body", type: "string" } ]} isMethod />
+
+Responsible for setting the Body of this request. Body must be a string.
+
+<LuaParamTable params={[ { name: "body", type: "string" } ]} />
+
+### setFlag
+
+> <LuaDeclaration name="setFlag" className="Request" args={[ { name: "name", type: "string" }, { name: "value", type: "boolean" } ]} isMethod />
+
+Allows us to define flags for this request, used to flag requests that could potentially contain attachments. and,
+	therefore need to be translated into formdata before we push anything.
+
+<LuaParamTable params={[ { name: "name", type: "string" }, { name: "value", type: "boolean" } ]} />
+
+### addUrlParam
+
+> <LuaDeclaration name="addUrlParam" className="Request" args={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ]} isMethod />
+
+Responsible for adding to the Url Params of this request. Both the param key and values are strings.
+
+<LuaParamTable params={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ]} />
+
+### addHeader
+
+> <LuaDeclaration name="addHeader" className="Request" args={[ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ]} isMethod />
+
+Responsible for adding to the Headers of this request. Both the header key and values are strings.
+
+You are not allowed to set the following headers:
+- User-Agent
+- Authorization
+
+<LuaParamTable params={[ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ]} />
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="Request" args={[ { name: "url", type: "string" } ]} isMethod />
+
+Responsible for setting the URL of this request. URL must be a string, and formatted like so:
+
+- https://example.com/path/to/resource
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} />
+
+### setMethod
+
+> <LuaDeclaration name="setMethod" className="Request" args={[ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ]} isMethod />
+
+Responsible for setting the Method of this request. Method must be one of GET, POST, PUT, PATCH, or DELETE.
+
+Methods define the nature of the request, and the response.
+
+<LuaParamTable params={[ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ]} />
+
+### assertToken
+
+> <LuaDeclaration name="assertToken" className="Request" args={[  ]} isMethod />
+
+Responsible for validating the Authorization token of this request. Some calls require token authorization, and
+some do not, so the relevant calls should assert that the token is set.
+
+### addHook
+
+> <LuaDeclaration name="addHook" className="Request" args={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ]} isMethod />
+
+Enables developers to add a hook to this request. Hooks are functions that are called before or after the request is
+executed. Hooks are useful for things like logging, or modifying the request before it is executed.
+
+The hook callback should return a boolean, and if it returns false, the request will not be executed.
+
+<LuaParamTable params={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ]} />
+
+### executeAsync
+
+> <LuaDeclaration name="executeAsync" className="Request" args={[  ]} isMethod />
+
+Responsible for executing this request asynchronously. This will return a async that will resolve when the request is
+completed.
+
+This function will decode the response body, and return a table with the following keys:
+	- headers: A table of headers returned from the request.
+	- body: The body of the request, decoded from the response.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Request" args={[ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ]} returnType="Request" />
+
+Constructor for the Request object.
+
+<LuaParamTable params={[ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ]} returns={[ { type: "Request" } ]} />
+
+

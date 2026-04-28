@@ -1,0 +1,38 @@
+---
+title: Activity
+description: DiscordLuau docs for Activity.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Activity class in Luau
+
+https://discord.com/developers/docs/resources/message#message-object-message-activity-structure
+
+<LuaSummary className="Activity" properties={[ { name: "type", type: "MessageAcitvityType" }, { name: "partyId", type: "string?" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Activity.type" type="MessageAcitvityType" />
+
+---
+Type of message activity, such as JOIN, SPECTATE, LISTEN, or JOIN_REQUEST
+
+### partyId
+
+<LuaProperty name="Activity.partyId" type="string?" />
+
+---
+Party ID associated with this activity, used for Rich Presence
+
+

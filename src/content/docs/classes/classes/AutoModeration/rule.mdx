@@ -1,0 +1,120 @@
+---
+title: Rule
+description: DiscordLuau docs for Rule.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord AutomoderationRule class in Luau
+
+https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object
+
+<LuaSummary className="Rule" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "name", type: "string" }, { name: "creatorId", type: "string" }, { name: "eventType", type: "apiTypes.EventTypes" }, { name: "triggerType", type: "apiTypes.TriggerTypes" }, { name: "triggerMetadata", type: "Classes.AutoModeration.TriggerMetadata?" }, { name: "actions", type: "{Classes.AutoModeration.Action}" }, { name: "enabled", type: "boolean?" }, { name: "exemptRoles", type: "{string}?" }, { name: "exemptChannels", type: "{string}?" } ]} methods={[ { name: "modifyAsync", isMethod: true, args: [ { name: "automoderationRuleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "auditLogReason", type: "string?" } ] }, { name: "deleteAsync", isMethod: true, args: [ { name: "auditLogReason", type: "string?" } ] } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="Rule.id" type="string" />
+
+---
+The unique identifier for this automoderation rule.
+
+### guildId
+
+<LuaProperty name="Rule.guildId" type="string" />
+
+---
+The ID of the guild this automoderation rule belongs to.
+
+### name
+
+<LuaProperty name="Rule.name" type="string" />
+
+---
+The name of this automoderation rule.
+
+### creatorId
+
+<LuaProperty name="Rule.creatorId" type="string" />
+
+---
+The ID of the user who created this automoderation rule.
+
+### eventType
+
+<LuaProperty name="Rule.eventType" type="apiTypes.EventTypes" />
+
+---
+The type of event that triggers this automoderation rule.
+
+### triggerType
+
+<LuaProperty name="Rule.triggerType" type="apiTypes.TriggerTypes" />
+
+---
+The type of trigger that activates this automoderation rule.
+
+### triggerMetadata
+
+<LuaProperty name="Rule.triggerMetadata" type="Classes.AutoModeration.TriggerMetadata?" />
+
+---
+Additional metadata about the trigger conditions for this automoderation rule.
+
+### actions
+
+<LuaProperty name="Rule.actions" type="{Classes.AutoModeration.Action}" />
+
+---
+Array of actions to be executed when the rule is triggered.
+
+### enabled
+
+<LuaProperty name="Rule.enabled" type="boolean?" />
+
+---
+Whether this automoderation rule is enabled.
+
+### exemptRoles
+
+<LuaProperty name="Rule.exemptRoles" type="{string}?" />
+
+---
+Array of role IDs that are exempt from this automoderation rule.
+
+### exemptChannels
+
+<LuaProperty name="Rule.exemptChannels" type="{string}?" />
+
+---
+Array of channel IDs that are exempt from this automoderation rule.
+
+
+## Methods
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="Rule" args={[ { name: "automoderationRuleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "auditLogReason", type: "string?" } ]} isMethod />
+
+Modify an existing rule. Returns an auto moderation rule on success.
+
+<LuaParamTable params={[ { name: "automoderationRuleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "auditLogReason", type: "string?" } ]} />
+
+### deleteAsync
+
+> <LuaDeclaration name="deleteAsync" className="Rule" args={[ { name: "auditLogReason", type: "string?" } ]} isMethod />
+
+Deletes an automoderation rule.
+
+<LuaParamTable params={[ { name: "auditLogReason", type: "string?" } ]} />
+
+

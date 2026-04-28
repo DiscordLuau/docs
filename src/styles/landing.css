@@ -31,20 +31,15 @@
 
 [data-has-hero] .keyword {
 	display: inline-block;
-
 	background-color: var(--accent-hsl);
 	text-transform: uppercase;
 	text-align: center;
-
 	color: black;
-
 	font-style: italic;
-
 	padding-top: 1%;
 	padding-bottom: 1%;
 	padding-left: 2%;
 	padding-right: 2.7%;
-
 	border-radius: 15px;
 }
 

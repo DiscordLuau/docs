@@ -1,0 +1,61 @@
+---
+title: Attachment
+description: DiscordLuau docs for Attachment.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Attachment object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#attachment-object
+
+<LuaSummary className="Attachment" properties={[ { name: "attachmentId", type: "string?" } ]} methods={[ { name: "setId", isMethod: true, args: [ { name: "attachmentId", type: "string" } ], returnType: "Attachment" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ attachmentId: string, }?" } ], returnType: "Attachment" } ]} />
+
+## Properties
+
+### attachmentId
+
+<LuaProperty name="Attachment.attachmentId" type="string?" />
+
+---
+The ID of the attachment
+
+
+## Methods
+
+### setId
+
+> <LuaDeclaration name="setId" className="Attachment" args={[ { name: "attachmentId", type: "string" } ]} returnType="Attachment" isMethod />
+
+The ID of the attachment to use.
+
+<LuaParamTable params={[ { name: "attachmentId", type: "string" } ]} returns={[ { type: "Attachment" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Attachment" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Attachment JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Attachment" args={[ { name: "resource", type: "{ attachmentId: string, }?" } ]} returnType="Attachment" />
+
+Responsible for creating a new Attachment.
+
+<LuaParamTable params={[ { name: "resource", type: "{ attachmentId: string, }?" } ]} returns={[ { type: "Attachment" } ]} />
+
+

@@ -1,60 +1,42 @@
 ---
 import LuaTable from "./LuaTable.astro";
-import { getKvPairs, getTypeDocs, isObject } from "./utils/lua";
+import { getKvPairs, getTypeDocs, isObject, stripNamespace } from "./utils/lua";
 
 type Props = {
 	url: string | null;
 	type: string;
 };
 
-type TypeInfo = {
-	typeName: string;
-	url: string | null;
-};
+type TypeInfo = { typeName: string; url: string | null };
 
-let { url, type } = Astro.props;
-let pairs: string[][] = [];
+const { url: propUrl, type: rawType } = Astro.props;
+const resolvedType = rawType ?? "()";
 
-function extractTableType(
-	type: string
-): [string[][], string | null, RegExpMatchArray | null] {
-	const tableType = type.match(/\{(.*?)\}/);
-	if (tableType) {
-		if (isObject(tableType[1])) {
-			// KV table
-			return [getKvPairs(tableType[1]), null, tableType];
-		}
-
-		// Array shorthand notation
-		return [[], getTypeDocs(tableType[1].trim()), tableType];
+function extractTableType(input: string): [string[][], string | null, RegExpMatchArray | null] {
+	const match = input.match(/\{(.*?)\}/);
+	if (match) {
+		if (isObject(match[1])) return [getKvPairs(match[1]), null, match];
+		return [[], getTypeDocs(match[1].trim()), match];
 	}
-
-	return [[], null, tableType];
+	return [[], null, null];
 }
 
-let tableType: RegExpMatchArray | null = null;
-[pairs, url, tableType] = extractTableType(type);
+const [tablePairs, tableInnerUrl, tableMatch] = extractTableType(resolvedType);
+let url = tableInnerUrl ?? propUrl;
 
-const genericType = type.match(/(.*)<(.*?)>/);
-let urls: {
-	base: TypeInfo;
-	generic: TypeInfo[];
-} | null = null;
-if (genericType) {
-	const base = genericType[1].trim();
-	const generic = genericType[2].trim();
-	const [_pairs, type, _innerTable] = extractTableType(generic); 
+const genericMatch = resolvedType.match(/(.*)<(.*?)>/);
+let genericUrls: { base: TypeInfo; generic: TypeInfo[] } | null = null;
 
+if (genericMatch) {
+	const baseTypeName = genericMatch[1].trim();
+	const genericTypeStr = genericMatch[2].trim();
+	const [, resolvedGenericUrl] = extractTableType(genericTypeStr);
 	url = null;
-	urls = {
-		base: {
-			typeName: base,
-			url: getTypeDocs(base),
-		},
-
-		generic: generic.split(", ").map((generic) => ({
-			typeName: generic.trim(),
-			url: type ?? getTypeDocs(generic.trim()),
+	genericUrls = {
+		base: { typeName: baseTypeName, url: getTypeDocs(baseTypeName) },
+		generic: genericTypeStr.split(", ").map(genericPart => ({
+			typeName: genericPart.trim(),
+			url: resolvedGenericUrl ?? getTypeDocs(genericPart.trim()),
 		})),
 	};
 }
@@ -62,32 +44,27 @@ if (genericType) {
 
 <>
 	{
-		(url && <a href={url}>{type}</a>) ||
-			(urls && (
-				<>
-					<a href={urls.base.url}>{urls.base.typeName}</a>
-					<span>&lt;</span>
-					{urls.generic.map(({ url, typeName }, index) => {
-						const [pairs, tableDocsUrl, _tableType] = extractTableType(typeName);
-						const isTable = pairs.length !== 0;
-
-						return (
-							<>
-								<a href={isTable ? tableDocsUrl : url}>{typeName}</a>
-								{index !== urls.generic.length - 1 && (
-									<>
-										<span>, </span>
-									</>
-								)}
-							</>
-						);
-					})}
-					<span>&gt;</span>
-				</>
-			)) ||
-			(pairs.length !== 0 && (
-				<LuaTable pairs={pairs} tableInner={tableType![1]} />
-			)) ||
-			type
+		url
+			? <a href={url}>{stripNamespace(resolvedType)}</a>
+			: genericUrls
+				? (
+					<>
+						<a href={genericUrls.base.url}>{stripNamespace(genericUrls.base.typeName)}</a>
+						<span>&lt;</span>
+						{genericUrls.generic.map(({ url, typeName }, index) => {
+							const [innerTablePairs, innerTableUrl] = extractTableType(typeName);
+							return (
+								<>
+									<a href={innerTablePairs.length ? innerTableUrl : url}>{stripNamespace(typeName)}</a>
+									{index !== genericUrls!.generic.length - 1 && <span>, </span>}
+								</>
+							);
+						})}
+						<span>&gt;</span>
+					</>
+				)
+				: tablePairs.length > 0
+					? <LuaTable pairs={tablePairs} tableInner={tableMatch![1]} />
+					: stripNamespace(resolvedType)
 	}
 </>

@@ -1,0 +1,205 @@
+---
+title: Message
+description: DiscordLuau docs for Message.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords Message object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/message#message-object
+
+<LuaSummary className="Message" properties={[ { name: "embeds", type: "{ Builders.Embed }" }, { name: "allowedMentions", type: "Builders.Message.AllowedMention?" }, { name: "messageReference", type: "Builders.Message.Reference?" }, { name: "components", type: "{ Builders.Message.Button | Builders.Message.TextInput | Builders.Message.SelectMenu | Builders.Message.ActionRow }" }, { name: "stickerIds", type: "{ string }" }, { name: "attachments", type: "{ Attachment }" }, { name: "flags", type: "number?" }, { name: "enforceNonce", type: "boolean?" }, { name: "poll", type: "Builders.Message.Poll?" } ]} methods={[ { name: "setContent", isMethod: true, args: [ { name: "content", type: "string" } ], returnType: "Message" }, { name: "setNonce", isMethod: true, args: [ { name: "nonce", type: "string" } ], returnType: "Message" }, { name: "setTTS", isMethod: true, args: [ { name: "tts", type: "boolean" } ], returnType: "Message" }, { name: "addEmbed", isMethod: true, args: [ { name: "embedData", type: "embed.JSON" } ], returnType: "Message" }, { name: "setAllowedMentions", isMethod: true, args: [ { name: "mentions", type: "allowedMention.JSON" } ], returnType: "Message" }, { name: "setMessageReference", isMethod: true, args: [ { name: "ref", type: "reference.JSON" } ], returnType: "Message" }, { name: "addComponent", isMethod: true, args: [ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ], returnType: "Message" }, { name: "addStickerId", isMethod: true, args: [ { name: "stickerId", type: "string" } ], returnType: "Message" }, { name: "addAttachment", isMethod: true, args: [ { name: "data", type: "string" }, { name: "name", type: "string?" } ], returnType: "Message" }, { name: "setFlags", isMethod: true, args: [ { name: "flags", type: "number" } ], returnType: "Message" }, { name: "setEnforceNonce", isMethod: true, args: [ { name: "enforceNonce", type: "boolean" } ], returnType: "Message" }, { name: "setPoll", isMethod: true, args: [ { name: "poll", type: "poll.JSON" } ], returnType: "Message" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ content: string?, nonce: string?, tts: boolean?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, messageReference: reference.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { Attachment }?, flags: number?, enforceNonce: boolean?, poll: poll.JSON?, }?" } ], returnType: "Message" } ]} />
+
+## Properties
+
+### embeds
+
+<LuaProperty name="Message.embeds" type="{ Builders.Embed }" />
+
+---
+Embedded rich content (up to 10 embeds).
+
+### allowedMentions
+
+<LuaProperty name="Message.allowedMentions" type="Builders.Message.AllowedMention?" />
+
+---
+Allowed mentions for the message.
+
+### messageReference
+
+<LuaProperty name="Message.messageReference" type="Builders.Message.Reference?" />
+
+---
+Include to make your message a reply.
+
+### components
+
+<LuaProperty name="Message.components" type="{ Builders.Message.Button | Builders.Message.TextInput | Builders.Message.SelectMenu | Builders.Message.ActionRow }" />
+
+---
+Components to include with the message.
+
+### stickerIds
+
+<LuaProperty name="Message.stickerIds" type="{ string }" />
+
+---
+IDs of up to 3 stickers in the server to send in the message.
+
+### attachments
+
+<LuaProperty name="Message.attachments" type="{ Attachment }" />
+
+---
+Attachment objects with filename and description.
+
+### flags
+
+<LuaProperty name="Message.flags" type="number?" />
+
+---
+Message flags combined as a bitfield.
+
+### enforceNonce
+
+<LuaProperty name="Message.enforceNonce" type="boolean?" />
+
+---
+Whether to check nonce uniqueness.
+
+### poll
+
+<LuaProperty name="Message.poll" type="Builders.Message.Poll?" />
+
+---
+Poll data for the message.
+
+
+## Methods
+
+### setContent
+
+> <LuaDeclaration name="setContent" className="Message" args={[ { name: "content", type: "string" } ]} returnType="Message" isMethod />
+
+Sets the content of the message.
+
+<LuaParamTable params={[ { name: "content", type: "string" } ]} returns={[ { type: "Message" } ]} />
+
+### setNonce
+
+> <LuaDeclaration name="setNonce" className="Message" args={[ { name: "nonce", type: "string" } ]} returnType="Message" isMethod />
+
+Sets the nonce of the message.
+
+<LuaParamTable params={[ { name: "nonce", type: "string" } ]} returns={[ { type: "Message" } ]} />
+
+### setTTS
+
+> <LuaDeclaration name="setTTS" className="Message" args={[ { name: "tts", type: "boolean" } ]} returnType="Message" isMethod />
+
+Sets whether the message is text-to-speech.
+
+<LuaParamTable params={[ { name: "tts", type: "boolean" } ]} returns={[ { type: "Message" } ]} />
+
+### addEmbed
+
+> <LuaDeclaration name="addEmbed" className="Message" args={[ { name: "embedData", type: "embed.JSON" } ]} returnType="Message" isMethod />
+
+Adds an embed to the message.
+
+<LuaParamTable params={[ { name: "embedData", type: "embed.JSON" } ]} returns={[ { type: "Message" } ]} />
+
+### setAllowedMentions
+
+> <LuaDeclaration name="setAllowedMentions" className="Message" args={[ { name: "mentions", type: "allowedMention.JSON" } ]} returnType="Message" isMethod />
+
+Sets the allowed mentions for the message.
+
+<LuaParamTable params={[ { name: "mentions", type: "allowedMention.JSON" } ]} returns={[ { type: "Message" } ]} />
+
+### setMessageReference
+
+> <LuaDeclaration name="setMessageReference" className="Message" args={[ { name: "ref", type: "reference.JSON" } ]} returnType="Message" isMethod />
+
+Sets the message reference.
+
+<LuaParamTable params={[ { name: "ref", type: "reference.JSON" } ]} returns={[ { type: "Message" } ]} />
+
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="Message" args={[ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returnType="Message" isMethod />
+
+Adds a component to the message.
+
+<LuaParamTable params={[ { name: "component", type: "button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON" } ]} returns={[ { type: "Message" } ]} />
+
+### addStickerId
+
+> <LuaDeclaration name="addStickerId" className="Message" args={[ { name: "stickerId", type: "string" } ]} returnType="Message" isMethod />
+
+Adds a sticker ID to the message.
+
+<LuaParamTable params={[ { name: "stickerId", type: "string" } ]} returns={[ { type: "Message" } ]} />
+
+### addAttachment
+
+> <LuaDeclaration name="addAttachment" className="Message" args={[ { name: "data", type: "string" }, { name: "name", type: "string?" } ]} returnType="Message" isMethod />
+
+Adds an attachment to the message.
+
+<LuaParamTable params={[ { name: "data", type: "string" }, { name: "name", type: "string?" } ]} returns={[ { type: "Message" } ]} />
+
+### setFlags
+
+> <LuaDeclaration name="setFlags" className="Message" args={[ { name: "flags", type: "number" } ]} returnType="Message" isMethod />
+
+Sets the flags for the message.
+
+<LuaParamTable params={[ { name: "flags", type: "number" } ]} returns={[ { type: "Message" } ]} />
+
+### setEnforceNonce
+
+> <LuaDeclaration name="setEnforceNonce" className="Message" args={[ { name: "enforceNonce", type: "boolean" } ]} returnType="Message" isMethod />
+
+If true and nonce is present, it will be checked for uniqueness in the past few minutes.
+
+<LuaParamTable params={[ { name: "enforceNonce", type: "boolean" } ]} returns={[ { type: "Message" } ]} />
+
+### setPoll
+
+> <LuaDeclaration name="setPoll" className="Message" args={[ { name: "poll", type: "poll.JSON" } ]} returnType="Message" isMethod />
+
+Sets the poll for the message.
+
+<LuaParamTable params={[ { name: "poll", type: "poll.JSON" } ]} returns={[ { type: "Message" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Message" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Message JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Message" args={[ { name: "resource", type: "{ content: string?, nonce: string?, tts: boolean?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, messageReference: reference.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { Attachment }?, flags: number?, enforceNonce: boolean?, poll: poll.JSON?, }?" } ]} returnType="Message" />
+
+Responsible for creating a new Message.
+
+<LuaParamTable params={[ { name: "resource", type: "{ content: string?, nonce: string?, tts: boolean?, embeds: { embed.JSON }?, allowedMentions: allowedMention.JSON?, messageReference: reference.JSON?, components: { button.JSON | textInput.JSON | selectMenu.JSON | actionRow.JSON }?, stickerIds: { string }?, attachments: { Attachment }?, flags: number?, enforceNonce: boolean?, poll: poll.JSON?, }?" } ]} returns={[ { type: "Message" } ]} />
+
+

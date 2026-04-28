@@ -1,0 +1,78 @@
+---
+title: Utilities
+description: DiscordLuau docs for Utilities.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Interface for the discord-luau Utilities package
+
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "thread" }, { name: "Utilities.createGuild", args: [  ], returnType: "string" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "thread" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
+
+## Functions
+
+### Utilities.tableReflect
+
+> <LuaDeclaration name="Utilities.tableReflect" className="Utilities" args={[  ]} returnType="thread" />
+
+Will swap the K, V's, as well as keep the original K, Vs, for example:
+
+```luau
+local a = { a = 1, b = 2, c = 3 }
+
+tableReflect(a)
+
+--[[
+a = {
+	-- default values
+	a = 1,
+	b = 2,
+	c = 3,
+	-- reflected values
+	[1] = "a",
+	[2] = "b",
+	[3] = "c"
+}
+]]
+```
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+### Utilities.createGuild
+
+> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
+
+Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+### Utilities.validateKebabCase
+
+> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="thread" />
+
+Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
+text.
+
+Will return either true/false, will not error.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+

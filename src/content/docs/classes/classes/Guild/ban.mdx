@@ -1,0 +1,58 @@
+---
+title: Ban
+description: DiscordLuau docs for Ban.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Ban class in Luau
+
+https://discord.com/developers/docs/resources/guild#ban-object
+
+<LuaSummary className="Ban" properties={[ { name: "reason", type: "string?" }, { name: "user", type: "Classes.User" }, { name: "state", type: "lune.State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "removeAsync", isMethod: true, args: [  ] } ]} />
+
+## Properties
+
+### reason
+
+<LuaProperty name="Ban.reason" type="string?" />
+
+---
+The reason provided when banning the user. This field may be null if no reason was provided when creating
+the ban.
+
+### user
+
+<LuaProperty name="Ban.user" type="Classes.User" />
+
+---
+The banned user object containing information about the user who was banned from the guild.
+
+### state
+
+<LuaProperty name="Ban.state" type="lune.State" />
+
+
+### guildId
+
+<LuaProperty name="Ban.guildId" type="string" />
+
+
+
+## Methods
+
+### removeAsync
+
+> <LuaDeclaration name="removeAsync" className="Ban" args={[  ]} isMethod />
+
+Remove the ban for a user. Requires the BAN_MEMBERS permissions.
+
+

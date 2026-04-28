@@ -1,0 +1,57 @@
+---
+title: Snowflake
+description: DiscordLuau docs for Snowflake.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Wrapper around Discord snowflakes, allwowing developers to query information about a snowflake
+
+<LuaSummary className="Snowflake" methods={[ { name: "getTimestamp", isMethod: true, args: [  ] }, { name: "getInternalWorkerId", isMethod: true, args: [  ] }, { name: "getInternalProcessId", isMethod: true, args: [  ] }, { name: "getIncrement", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "snowflake", type: "string" } ] } ]} />
+
+## Methods
+
+### getTimestamp
+
+> <LuaDeclaration name="getTimestamp" className="Snowflake" args={[  ]} isMethod />
+
+Returns the timestamp of the snowflake
+
+### getInternalWorkerId
+
+> <LuaDeclaration name="getInternalWorkerId" className="Snowflake" args={[  ]} isMethod />
+
+Returns the internal worker ID of the snowflake
+
+### getInternalProcessId
+
+> <LuaDeclaration name="getInternalProcessId" className="Snowflake" args={[  ]} isMethod />
+
+Returns the internal process ID of the snowflake
+
+### getIncrement
+
+> <LuaDeclaration name="getIncrement" className="Snowflake" args={[  ]} isMethod />
+
+Returns the increment of the snowflake
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Snowflake" args={[ { name: "snowflake", type: "string" } ]} />
+
+Creates a new snowflake
+
+<LuaParamTable params={[ { name: "snowflake", type: "string" } ]} />
+
+

@@ -10,25 +10,25 @@ const { pairs, tableInner } = Astro.props;
 ---
 
 <>
-  {"{"}
-  {(<br />)}
-  {"\u00A0".repeat(6)}
-  {
-    (pairs.length == 1 && "{\u0085" + tableInner + "\u0085}") ||
-      pairs.map(([k, v], count) => {
-        const padding = "\u00A0".repeat(count == 0 ? 1 : 7);
-
-        return (
-          <>
-            <span>
-              {`${padding}${k}: `}
-              {(isObject(v) && "{...}") || <a href={getTypeDocs(v)}>{v}</a>}
-              {","}
-            </span>
-            <br />
-          </>
-        );
-      })
-  }
-  {"\u00A0".repeat(4) + "}"}
+	{"{"}
+	<br />
+	{" ".repeat(6)}
+	{
+		pairs.length === 1
+			? "{" + tableInner + "}"
+			: pairs.map(([key, value], index) => {
+					const padding = " ".repeat(index === 0 ? 1 : 7);
+					return (
+						<>
+							<span>
+								{`${padding}${key}: `}
+								{isObject(value) ? "{...}" : <a href={getTypeDocs(value)}>{value}</a>}
+								{","}
+							</span>
+							<br />
+						</>
+					);
+				})
+	}
+	{" ".repeat(4) + "}"}
 </>

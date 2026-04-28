@@ -1,0 +1,52 @@
+---
+title: Image
+description: DiscordLuau docs for Image.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Image class in Luau
+
+https://discord.com/developers/docs/resources/message#embed-object-embed-image-structure
+
+<LuaSummary className="Image" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} />
+
+## Properties
+
+### url
+
+<LuaProperty name="Image.url" type="string" />
+
+---
+The source URL of the image. Only supports HTTP(S).
+
+### proxyUrl
+
+<LuaProperty name="Image.proxyUrl" type="string?" />
+
+---
+A proxied URL of the image. This is used to prevent malicious images from being loaded directly.
+
+### height
+
+<LuaProperty name="Image.height" type="number?" />
+
+---
+The height of the image in pixels.
+
+### width
+
+<LuaProperty name="Image.width" type="number?" />
+
+---
+The width of the image in pixels.
+
+

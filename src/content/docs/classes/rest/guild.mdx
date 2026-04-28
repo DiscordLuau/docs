@@ -1,0 +1,392 @@
+---
+title: Guild
+description: DiscordLuau docs for Guild.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/guild
+
+<LuaSummary className="Guild" functions={[ { name: "createGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGuildRequest" } ], returnType: "future.FutureLike<string, apiTypes.CreateGuildResponse>" }, { name: "getGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withCounts: boolean?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildResponse>" }, { name: "getGuildPreviewAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildPreviewResponse>" }, { name: "modifyGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildResponse>" }, { name: "deleteGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.DeleteGuildResponse>" }, { name: "getGuildChannelsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildChannelsResponse>" }, { name: "createGuildChannelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildChannelRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.CreateGuildChannelResponse>" }, { name: "getGuildRoleMemberCounts", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildRoleMemberCountsResponse>" }, { name: "modifyGuildChannelPositionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildChannelPositionsRequest" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildChannelPositionsResponse>" }, { name: "listActiveGuildThreadsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.ListActiveGuildThreadsResponse>" }, { name: "getGuildMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildMemberResponse>" }, { name: "listGuildMembersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, after: string?, }" } ], returnType: "future.FutureLike<string, apiTypes.ListGuildMembersResponse>" }, { name: "searchGuildMembersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ query: string, limit: number?, }" } ], returnType: "future.FutureLike<string, apiTypes.SearchGuildMembersResponse>" }, { name: "addGuildMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.AddGuildMemberRequest" } ], returnType: "future.FutureLike<string, apiTypes.AddGuildMemberResponse>" }, { name: "modifyGuildMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMemberRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildMemberResponse>" }, { name: "modifyCurrentMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentMemberRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyCurrentMemberResponse>" }, { name: "addGuildMemberRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.AddGuildMemberRoleResponse>" }, { name: "removeGuildMemberRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.RemoveGuildMemberRoleResponse>" }, { name: "removeGuildMemberAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.RemoveGuildMemberResponse>" }, { name: "getGuildBansAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildBansResponse>" }, { name: "getGuildBanAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildBanResponse>" }, { name: "createGuildBanAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.CreateGuildBanResponse>" }, { name: "removeGuildBanAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.RemoveGuildBanResponse>" }, { name: "bulkGuildBanAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.BulkGuildBanResponse>" }, { name: "getGuildRolesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildRolesResponse>" }, { name: "getGuildRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildRoleResponse>" }, { name: "createGuildRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.CreateGuildRoleResponse>" }, { name: "modifyGuildRolePositionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRolePositionsRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildRolePositionsResponse>" }, { name: "modifyGuildRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildRoleResponse>" }, { name: "modifyGuildMFALevelAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMFALevelRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildMFALevelResponse>" }, { name: "deleteGuildRoleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteGuildRoleResponse>" }, { name: "getGuildPruneCountAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ days: number, includeRoles: string, }" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildPruneCountResponse>" }, { name: "beginGuildPruneAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BeginGuildPruneRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.BeginGuildPruneResponse>" }, { name: "getGuildVoiceRegionsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildVoiceRegionsResponse>" }, { name: "getGuildInvitesAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildInvitesResponse>" }, { name: "getGuildIntegrationsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildIntegrationsResponse>" }, { name: "deleteGuildIntegrationAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "integrationId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteGuildIntegrationResponse>" }, { name: "getGuildWidgetSettingsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildWidgetSettingsResponse>" }, { name: "modifyGuildWidgetAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWidgetRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildWidgetResponse>" }, { name: "getGuildWidgetAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildWidgetResponse>" }, { name: "getGuildVanityURLAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildVanityUrlResponse>" }, { name: "getGuildWidgetImageAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ style: (&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;)?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildWidgetImageResponse>" }, { name: "getGuildWelcomeScreenAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildWelcomeScreenResponse>" }, { name: "modifyGuildWelcomeScreenAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWelcomeScreenRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildWelcomeScreenResponse>" }, { name: "getGuildOnboardingAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetGuildOnboardingResponse>" }, { name: "modifyGuildOnboardingAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildOnboardingRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.ModifyGuildOnboardingResponse>" } ]} />
+
+## Functions
+
+### createGuildAsync
+
+> <LuaDeclaration name="createGuildAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGuildRequest" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildResponse>" />
+
+https://discord.com/developers/docs/resources/guild#create-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.CreateGuildRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateGuildResponse>" } ]} />
+
+### getGuildAsync
+
+> <LuaDeclaration name="getGuildAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withCounts: boolean?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ withCounts: boolean?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildResponse>" } ]} />
+
+### getGuildPreviewAsync
+
+> <LuaDeclaration name="getGuildPreviewAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildPreviewResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-preview
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildPreviewResponse>" } ]} />
+
+### modifyGuildAsync
+
+> <LuaDeclaration name="modifyGuildAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildResponse>" } ]} />
+
+### deleteGuildAsync
+
+> <LuaDeclaration name="deleteGuildAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildResponse>" />
+
+https://discord.com/developers/docs/resources/guild#delete-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteGuildResponse>" } ]} />
+
+### getGuildChannelsAsync
+
+> <LuaDeclaration name="getGuildChannelsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildChannelsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-channels
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildChannelsResponse>" } ]} />
+
+### createGuildChannelAsync
+
+> <LuaDeclaration name="createGuildChannelAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildChannelResponse>" />
+
+https://discord.com/developers/docs/resources/guild#create-guild-channel
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildChannelRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateGuildChannelResponse>" } ]} />
+
+### getGuildRoleMemberCounts
+
+> <LuaDeclaration name="getGuildRoleMemberCounts" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildRoleMemberCountsResponse>" />
+
+https://docs.discord.com/developers/resources/guild#get-guild-role-member-counts
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildRoleMemberCountsResponse>" } ]} />
+
+### modifyGuildChannelPositionsAsync
+
+> <LuaDeclaration name="modifyGuildChannelPositionsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildChannelPositionsRequest" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildChannelPositionsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-channel-positions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildChannelPositionsRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildChannelPositionsResponse>" } ]} />
+
+### listActiveGuildThreadsAsync
+
+> <LuaDeclaration name="listActiveGuildThreadsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.ListActiveGuildThreadsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#list-active-guild-threads
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListActiveGuildThreadsResponse>" } ]} />
+
+### getGuildMemberAsync
+
+> <LuaDeclaration name="getGuildMemberAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildMemberResponse>" } ]} />
+
+### listGuildMembersAsync
+
+> <LuaDeclaration name="listGuildMembersAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, after: string?, }" } ]} returnType="future.FutureLike<string, apiTypes.ListGuildMembersResponse>" />
+
+https://discord.com/developers/docs/resources/guild#list-guild-members
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, after: string?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListGuildMembersResponse>" } ]} />
+
+### searchGuildMembersAsync
+
+> <LuaDeclaration name="searchGuildMembersAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ query: string, limit: number?, }" } ]} returnType="future.FutureLike<string, apiTypes.SearchGuildMembersResponse>" />
+
+https://discord.com/developers/docs/resources/guild#search-guild-members
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ query: string, limit: number?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.SearchGuildMembersResponse>" } ]} />
+
+### addGuildMemberAsync
+
+> <LuaDeclaration name="addGuildMemberAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.AddGuildMemberRequest" } ]} returnType="future.FutureLike<string, apiTypes.AddGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/guild#add-guild-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.AddGuildMemberRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.AddGuildMemberResponse>" } ]} />
+
+### modifyGuildMemberAsync
+
+> <LuaDeclaration name="modifyGuildMemberAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMemberRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMemberRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildMemberResponse>" } ]} />
+
+### modifyCurrentMemberAsync
+
+> <LuaDeclaration name="modifyCurrentMemberAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentMemberRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyCurrentMemberResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-current-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyCurrentMemberRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyCurrentMemberResponse>" } ]} />
+
+### addGuildMemberRoleAsync
+
+> <LuaDeclaration name="addGuildMemberRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.AddGuildMemberRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#add-guild-member-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.AddGuildMemberRoleResponse>" } ]} />
+
+### removeGuildMemberRoleAsync
+
+> <LuaDeclaration name="removeGuildMemberRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.RemoveGuildMemberRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#remove-guild-member-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.RemoveGuildMemberRoleResponse>" } ]} />
+
+### removeGuildMemberAsync
+
+> <LuaDeclaration name="removeGuildMemberAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.RemoveGuildMemberResponse>" />
+
+https://discord.com/developers/docs/resources/guild#remove-guild-member
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.RemoveGuildMemberResponse>" } ]} />
+
+### getGuildBansAsync
+
+> <LuaDeclaration name="getGuildBansAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildBansResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-bans
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ limit: number?, before: apiTypes.Snowflake?, after: apiTypes.Snowflake?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildBansResponse>" } ]} />
+
+### getGuildBanAsync
+
+> <LuaDeclaration name="getGuildBanAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildBanResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-ban
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildBanResponse>" } ]} />
+
+### createGuildBanAsync
+
+> <LuaDeclaration name="createGuildBanAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildBanResponse>" />
+
+https://discord.com/developers/docs/resources/guild#create-guild-ban
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateGuildBanResponse>" } ]} />
+
+### removeGuildBanAsync
+
+> <LuaDeclaration name="removeGuildBanAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.RemoveGuildBanResponse>" />
+
+https://discord.com/developers/docs/resources/guild#remove-guild-ban
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.RemoveGuildBanResponse>" } ]} />
+
+### bulkGuildBanAsync
+
+> <LuaDeclaration name="bulkGuildBanAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.BulkGuildBanResponse>" />
+
+https://discord.com/developers/docs/resources/guild#bulk-guild-ban
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BulkGuildBanRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.BulkGuildBanResponse>" } ]} />
+
+### getGuildRolesAsync
+
+> <LuaDeclaration name="getGuildRolesAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildRolesResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-roles
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildRolesResponse>" } ]} />
+
+### getGuildRoleAsync
+
+> <LuaDeclaration name="getGuildRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildRoleResponse>" } ]} />
+
+### createGuildRoleAsync
+
+> <LuaDeclaration name="createGuildRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.CreateGuildRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#create-guild-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.CreateGuildRoleResponse>" } ]} />
+
+### modifyGuildRolePositionsAsync
+
+> <LuaDeclaration name="modifyGuildRolePositionsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRolePositionsRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildRolePositionsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-role-positions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRolePositionsRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildRolePositionsResponse>" } ]} />
+
+### modifyGuildRoleAsync
+
+> <LuaDeclaration name="modifyGuildRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildRoleRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildRoleResponse>" } ]} />
+
+### modifyGuildMFALevelAsync
+
+> <LuaDeclaration name="modifyGuildMFALevelAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMFALevelRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildMFALevelResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-mfa-level
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildMFALevelRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildMFALevelResponse>" } ]} />
+
+### deleteGuildRoleAsync
+
+> <LuaDeclaration name="deleteGuildRoleAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildRoleResponse>" />
+
+https://discord.com/developers/docs/resources/guild#delete-guild-role
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteGuildRoleResponse>" } ]} />
+
+### getGuildPruneCountAsync
+
+> <LuaDeclaration name="getGuildPruneCountAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ days: number, includeRoles: string, }" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildPruneCountResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-prune-count
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ days: number, includeRoles: string, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildPruneCountResponse>" } ]} />
+
+### beginGuildPruneAsync
+
+> <LuaDeclaration name="beginGuildPruneAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BeginGuildPruneRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.BeginGuildPruneResponse>" />
+
+https://discord.com/developers/docs/resources/guild#begin-guild-prune
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.BeginGuildPruneRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.BeginGuildPruneResponse>" } ]} />
+
+### getGuildVoiceRegionsAsync
+
+> <LuaDeclaration name="getGuildVoiceRegionsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildVoiceRegionsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-voice-regions
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildVoiceRegionsResponse>" } ]} />
+
+### getGuildInvitesAsync
+
+> <LuaDeclaration name="getGuildInvitesAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildInvitesResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-invites
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildInvitesResponse>" } ]} />
+
+### getGuildIntegrationsAsync
+
+> <LuaDeclaration name="getGuildIntegrationsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildIntegrationsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-integrations
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildIntegrationsResponse>" } ]} />
+
+### deleteGuildIntegrationAsync
+
+> <LuaDeclaration name="deleteGuildIntegrationAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "integrationId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.DeleteGuildIntegrationResponse>" />
+
+https://discord.com/developers/docs/resources/guild#delete-guild-integration
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "integrationId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteGuildIntegrationResponse>" } ]} />
+
+### getGuildWidgetSettingsAsync
+
+> <LuaDeclaration name="getGuildWidgetSettingsAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildWidgetSettingsResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-widget-settings
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildWidgetSettingsResponse>" } ]} />
+
+### modifyGuildWidgetAsync
+
+> <LuaDeclaration name="modifyGuildWidgetAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWidgetRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildWidgetResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-widget
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWidgetRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildWidgetResponse>" } ]} />
+
+### getGuildWidgetAsync
+
+> <LuaDeclaration name="getGuildWidgetAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildWidgetResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-widget
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildWidgetResponse>" } ]} />
+
+### getGuildVanityURLAsync
+
+> <LuaDeclaration name="getGuildVanityURLAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildVanityUrlResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-vanity-url
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildVanityUrlResponse>" } ]} />
+
+### getGuildWidgetImageAsync
+
+> <LuaDeclaration name="getGuildWidgetImageAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ style: (&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;)?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildWidgetImageResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-widget-image
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "urlParams", type: "{ style: (&quot;shield&quot; | &quot;banner1&quot; | &quot;banner2&quot; | &quot;banner3&quot; | &quot;banner4&quot;)?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildWidgetImageResponse>" } ]} />
+
+### getGuildWelcomeScreenAsync
+
+> <LuaDeclaration name="getGuildWelcomeScreenAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildWelcomeScreenResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-welcome-screen
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildWelcomeScreenResponse>" } ]} />
+
+### modifyGuildWelcomeScreenAsync
+
+> <LuaDeclaration name="modifyGuildWelcomeScreenAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWelcomeScreenRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildWelcomeScreenResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildWelcomeScreenRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildWelcomeScreenResponse>" } ]} />
+
+### getGuildOnboardingAsync
+
+> <LuaDeclaration name="getGuildOnboardingAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetGuildOnboardingResponse>" />
+
+https://discord.com/developers/docs/resources/guild#get-guild-onboarding
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetGuildOnboardingResponse>" } ]} />
+
+### modifyGuildOnboardingAsync
+
+> <LuaDeclaration name="modifyGuildOnboardingAsync" className="Guild" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildOnboardingRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike<string, apiTypes.ModifyGuildOnboardingResponse>" />
+
+https://discord.com/developers/docs/resources/guild#modify-guild-onboarding
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.ModifyGuildOnboardingRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ModifyGuildOnboardingResponse>" } ]} />
+
+

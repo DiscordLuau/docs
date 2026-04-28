@@ -1,0 +1,126 @@
+---
+title: ForumMedia
+description: DiscordLuau docs for ForumMedia.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords ForumMediaThread object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#start-thread-without-message-json-params
+
+<LuaSummary className="ForumMedia" properties={[ { name: "appliedTags", type: "{ string }" }, { name: "name", type: "string?" }, { name: "autoArchiveDuration", type: "number?" }, { name: "rateLimitPerUser", type: "number?" }, { name: "message", type: "messageParams.JSON" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "ForumMediaThread" }, { name: "setAutoArchiveDuration", isMethod: true, args: [ { name: "duration", type: "number" } ], returnType: "ForumMediaThread" }, { name: "setRateLimitPerUser", isMethod: true, args: [ { name: "rateLimit", type: "number" } ], returnType: "ForumMediaThread" }, { name: "addTag", isMethod: true, args: [ { name: "rateLimit", type: "string" } ], returnType: "ForumMediaThread" }, { name: "setMessage", isMethod: true, args: [ { name: "message", type: "messageParams.JSON" } ], returnType: "ForumMediaThread" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ], returnType: "ForumMediaThread" } ]} />
+
+## Properties
+
+### appliedTags
+
+<LuaProperty name="ForumMedia.appliedTags" type="{ string }" />
+
+---
+An array of tag IDs that have been applied to the thread.
+
+### name
+
+<LuaProperty name="ForumMedia.name" type="string?" />
+
+---
+The name of the thread.
+
+### autoArchiveDuration
+
+<LuaProperty name="ForumMedia.autoArchiveDuration" type="number?" />
+
+---
+Duration in minutes to automatically archive the thread after recent activity.
+
+### rateLimitPerUser
+
+<LuaProperty name="ForumMedia.rateLimitPerUser" type="number?" />
+
+---
+Amount of seconds a user has to wait before sending another message.
+
+### message
+
+<LuaProperty name="ForumMedia.message" type="messageParams.JSON" />
+
+---
+The message content for the forum thread.
+
+
+## Methods
+
+### setName
+
+> <LuaDeclaration name="setName" className="ForumMedia" args={[ { name: "name", type: "string" } ]} returnType="ForumMediaThread" isMethod />
+
+Sets the name of the forum thread.
+Name must be between 1-100 characters.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+### setAutoArchiveDuration
+
+> <LuaDeclaration name="setAutoArchiveDuration" className="ForumMedia" args={[ { name: "duration", type: "number" } ]} returnType="ForumMediaThread" isMethod />
+
+Sets the duration after which the thread will automatically archive.
+Duration must be one of: 60, 1440, 4320, or 10080 minutes.
+
+<LuaParamTable params={[ { name: "duration", type: "number" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="ForumMedia" args={[ { name: "rateLimit", type: "number" } ]} returnType="ForumMediaThread" isMethod />
+
+Sets the rate limit per user for the thread in seconds.
+Rate limit must not exceed 21600 seconds (6 hours).
+
+<LuaParamTable params={[ { name: "rateLimit", type: "number" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+### addTag
+
+> <LuaDeclaration name="addTag" className="ForumMedia" args={[ { name: "rateLimit", type: "string" } ]} returnType="ForumMediaThread" isMethod />
+
+Adds a tag to the forum thread.
+Tags can be used to categorize or filter threads.
+
+<LuaParamTable params={[ { name: "rateLimit", type: "string" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+### setMessage
+
+> <LuaDeclaration name="setMessage" className="ForumMedia" args={[ { name: "message", type: "messageParams.JSON" } ]} returnType="ForumMediaThread" isMethod />
+
+Sets the initial message content for the forum thread.
+The message must be a valid message parameters object.
+
+<LuaParamTable params={[ { name: "message", type: "messageParams.JSON" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="ForumMedia" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the ForumMediaThread JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ForumMedia" args={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ]} returnType="ForumMediaThread" />
+
+Responsible for creating a new ForumMediaThread.
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ]} returns={[ { type: "ForumMediaThread" } ]} />
+
+

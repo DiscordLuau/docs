@@ -1,0 +1,59 @@
+---
+title: TriggerMetadata
+description: DiscordLuau docs for TriggerMetadata.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord TriggerMetadata class in Luau
+
+https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata
+
+<LuaSummary className="TriggerMetadata" properties={[ { name: "keywordFilter", type: "{ string }" }, { name: "regexPatterns", type: "{ string }" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" }, { name: "allowList", type: "{ string }" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} />
+
+## Properties
+
+### keywordFilter
+
+<LuaProperty name="TriggerMetadata.keywordFilter" type="{ string }" />
+
+---
+List of strings that will trigger the rule. Each keyword can be up to 60 characters in length and can include spaces.
+
+### regexPatterns
+
+<LuaProperty name="TriggerMetadata.regexPatterns" type="{ string }" />
+
+---
+Array of regular expression patterns that will trigger the rule. Each regex pattern can be up to 260 characters in length.
+
+### presets
+
+<LuaProperty name="TriggerMetadata.presets" type="{ apiTypes.KeywordPresetType }" />
+
+---
+The internally pre-defined wordsets that will trigger the rule. These are managed by Discord and cannot be modified.
+
+### allowList
+
+<LuaProperty name="TriggerMetadata.allowList" type="{ string }" />
+
+---
+Substrings that should not trigger the rule. Each string can be up to 60 characters in length and can include spaces.
+
+### mentionRaidProtectionEnabled
+
+<LuaProperty name="TriggerMetadata.mentionRaidProtectionEnabled" type="boolean" />
+
+---
+Whether to automatically detect mention raids and apply the rule action. Only available for mention spam trigger type.
+
+

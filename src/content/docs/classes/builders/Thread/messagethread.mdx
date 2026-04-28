@@ -1,0 +1,102 @@
+---
+title: MessageThread
+description: DiscordLuau docs for MessageThread.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords MessageThread object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/channel#start-thread-from-message-json-params
+
+<LuaSummary className="MessageThread" properties={[ { name: "name", type: "string?" }, { name: "autoArchiveDuration", type: "number?" }, { name: "rateLimitPerUser", type: "number?" } ]} methods={[ { name: "setName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "MessageThread" }, { name: "setAutoArchiveDuration", isMethod: true, args: [ { name: "duration", type: "number" } ], returnType: "MessageThread" }, { name: "setRateLimitPerUser", isMethod: true, args: [ { name: "rateLimit", type: "number" } ], returnType: "MessageThread" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ], returnType: "MessageThread" } ]} />
+
+## Properties
+
+### name
+
+<LuaProperty name="MessageThread.name" type="string?" />
+
+---
+The name of the thread that is displayed.
+
+### autoArchiveDuration
+
+<LuaProperty name="MessageThread.autoArchiveDuration" type="number?" />
+
+---
+Duration in minutes to automatically archive the thread after recent activity.
+
+### rateLimitPerUser
+
+<LuaProperty name="MessageThread.rateLimitPerUser" type="number?" />
+
+---
+Amount of seconds a user has to wait before sending another message.
+
+
+## Methods
+
+### setName
+
+> <LuaDeclaration name="setName" className="MessageThread" args={[ { name: "name", type: "string" } ]} returnType="MessageThread" isMethod />
+
+Sets the name of the thread.
+Name must be between 1-100 characters.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "MessageThread" } ]} />
+
+### setAutoArchiveDuration
+
+> <LuaDeclaration name="setAutoArchiveDuration" className="MessageThread" args={[ { name: "duration", type: "number" } ]} returnType="MessageThread" isMethod />
+
+Sets the duration in minutes before the thread is automatically archived.
+Duration must be 60, 1440, 4320, or 10080.
+
+<LuaParamTable params={[ { name: "duration", type: "number" } ]} returns={[ { type: "MessageThread" } ]} />
+
+### setRateLimitPerUser
+
+> <LuaDeclaration name="setRateLimitPerUser" className="MessageThread" args={[ { name: "rateLimit", type: "number" } ]} returnType="MessageThread" isMethod />
+
+Sets the rate limit per user in the thread.
+Rate limit must be less than or equal to 21600 seconds.
+
+<LuaParamTable params={[ { name: "rateLimit", type: "number" } ]} returns={[ { type: "MessageThread" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="MessageThread" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the MessageThread JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="MessageThread" args={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ]} returnType="MessageThread" />
+
+Responsible for creating a new MessageThread.
+
+```luau
+local thread = MessageThread.new({
+	name = "My Thread",
+	autoArchiveDuration = 60,
+	rateLimitPerUser = 0
+})
+```
+
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, autoArchiveDuration: number?, rateLimitPerUser: number?, }?" } ]} returns={[ { type: "MessageThread" } ]} />
+
+

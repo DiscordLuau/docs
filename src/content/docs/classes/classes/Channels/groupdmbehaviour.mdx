@@ -1,0 +1,98 @@
+---
+title: GroupDMBehaviour
+description: DiscordLuau docs for GroupDMBehaviour.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Behaviour class that implements the properties and methods specific to Group DM channels in Discord.
+This behaviour is inherited by the GroupDM class to provide group DM specific functionality.
+
+Group DM behaviours include:
+- Managing recipients (adding/removing users)
+- Modifying group DM properties (name, icon)
+- Handling group DM specific data (recipients, icon, owner, etc.)
+
+<LuaSummary className="GroupDMBehaviour" properties={[ { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" } ]} methods={[ { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ] }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ] } ]} />
+
+## Properties
+
+### recipients
+
+<LuaProperty name="GroupDMBehaviour.recipients" type="{ Classes.User }" />
+
+---
+The users in the Group DM channel.
+
+### icon
+
+<LuaProperty name="GroupDMBehaviour.icon" type="string?" />
+
+---
+The icon hash of the Group DM channel.
+
+### ownerId
+
+<LuaProperty name="GroupDMBehaviour.ownerId" type="string?" />
+
+---
+The ID of the user who created the Group DM channel.
+
+### applicationId
+
+<LuaProperty name="GroupDMBehaviour.applicationId" type="string?" />
+
+---
+The ID of the application that created the Group DM channel, if it was created by an application.
+
+### managed
+
+<LuaProperty name="GroupDMBehaviour.managed" type="boolean" />
+
+---
+Whether the Group DM channel is managed by an application.
+
+
+## Methods
+
+### addRecipient
+
+> <LuaDeclaration name="addRecipient" className="GroupDMBehaviour" args={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} isMethod />
+
+Adds a recipient to a Group DM using their access token.
+
+<LuaParamTable params={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
+
+### removeRecipient
+
+> <LuaDeclaration name="removeRecipient" className="GroupDMBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
+
+Removes a recipient from a Group DM.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+
+### setNameAsync
+
+> <LuaDeclaration name="setNameAsync" className="GroupDMBehaviour" args={[ { name: "groupName", type: "string" } ]} isMethod />
+
+Sets the name of the Group DM channel.
+
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
+
+### setIconAsync
+
+> <LuaDeclaration name="setIconAsync" className="GroupDMBehaviour" args={[ { name: "iconData", type: "string" } ]} isMethod />
+
+Sets the icon of the Group DM channel using base64 encoded image data.
+
+<LuaParamTable params={[ { name: "iconData", type: "string" } ]} />
+
+

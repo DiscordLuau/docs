@@ -1,0 +1,74 @@
+---
+title: Action
+description: DiscordLuau docs for Action.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of a discord automod action object as a luau builder.
+
+<LuaSummary className="Action" properties={[ { name: "type", type: "apiTypes.ActionTypes" }, { name: "metadata", type: "Builders.AutoModeration.ActionMetadata" } ]} methods={[ { name: "setType", isMethod: true, args: [ { name: "type", type: "apiTypes.ActionTypes" } ], returnType: "Action" }, { name: "setMetadata", isMethod: true, args: [ { name: "metadata", type: "metadata.JSON" } ], returnType: "Action" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ type: apiTypes.ActionTypes?, metadata: metadata.JSON?, }?" } ], returnType: "Action" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Action.type" type="apiTypes.ActionTypes" />
+
+---
+The type of action to perform when a rule is triggered.
+
+### metadata
+
+<LuaProperty name="Action.metadata" type="Builders.AutoModeration.ActionMetadata" />
+
+---
+Additional metadata needed during execution for this specific action type.
+
+
+## Methods
+
+### setType
+
+> <LuaDeclaration name="setType" className="Action" args={[ { name: "type", type: "apiTypes.ActionTypes" } ]} returnType="Action" isMethod />
+
+Sets the type of the action.
+
+<LuaParamTable params={[ { name: "type", type: "apiTypes.ActionTypes" } ]} returns={[ { type: "Action" } ]} />
+
+### setMetadata
+
+> <LuaDeclaration name="setMetadata" className="Action" args={[ { name: "metadata", type: "metadata.JSON" } ]} returnType="Action" isMethod />
+
+Sets the action metadata.
+
+<LuaParamTable params={[ { name: "metadata", type: "metadata.JSON" } ]} returns={[ { type: "Action" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Action" args={[  ]} returnType="JSON" isMethod />
+
+Builds the action object.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Action" args={[ { name: "resource", type: "{ type: apiTypes.ActionTypes?, metadata: metadata.JSON?, }?" } ]} returnType="Action" />
+
+Responsible for creating a new Action.
+
+<LuaParamTable params={[ { name: "resource", type: "{ type: apiTypes.ActionTypes?, metadata: metadata.JSON?, }?" } ]} returns={[ { type: "Action" } ]} />
+
+

@@ -1,0 +1,81 @@
+---
+title: State
+description: DiscordLuau docs for State.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+State class, this class is responsible for storing the state of the bot as
+as well as providing a way to interact with the state.
+
+This class is responsible for storing the following elements:
+- Token
+- Discord Cache
+- Discord REST API
+- Discord Gateway Manager
+
+<LuaSummary className="State" properties={[ { name: "token", type: "Secret" }, { name: "applicationId", type: "string" }, { name: "rest", type: "State.Rest" }, { name: "webSocketManager", type: "WebSocket.Manager" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "setApplicationId", isMethod: true, args: [ { name: "applicationId", type: "apiTypes.Snowflake" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ], returnType: "State" } ]} />
+
+## Properties
+
+### token
+
+<LuaProperty name="State.token" type="Secret" />
+
+
+### applicationId
+
+<LuaProperty name="State.applicationId" type="string" />
+
+
+### rest
+
+<LuaProperty name="State.rest" type="State.Rest" />
+
+
+### webSocketManager
+
+<LuaProperty name="State.webSocketManager" type="WebSocket.Manager" />
+
+
+### intents
+
+<LuaProperty name="State.intents" type="number" />
+
+
+### version
+
+<LuaProperty name="State.version" type="number" />
+
+
+
+## Methods
+
+### setApplicationId
+
+> <LuaDeclaration name="setApplicationId" className="State" args={[ { name: "applicationId", type: "apiTypes.Snowflake" } ]} isMethod />
+
+Will set the current application ID
+
+<LuaParamTable params={[ { name: "applicationId", type: "apiTypes.Snowflake" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="State" args={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ]} returnType="State" />
+
+Constructor for the State class.
+
+<LuaParamTable params={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ]} returns={[ { type: "State" } ]} />
+
+

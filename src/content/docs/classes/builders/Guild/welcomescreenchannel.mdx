@@ -1,0 +1,106 @@
+---
+title: WelcomeScreenChannel
+description: DiscordLuau docs for WelcomeScreenChannel.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of discords WelcomeScreenChannel object as a Luau builder.	
+
+https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure
+
+<LuaSummary className="WelcomeScreenChannel" properties={[ { name: "channelId", type: "string?" }, { name: "description", type: "string" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} methods={[ { name: "setChannelId", isMethod: true, args: [ { name: "channelId", type: "apiTypes.Snowflake" } ], returnType: "WelcomeScreenChannel" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "WelcomeScreenChannel" }, { name: "setEmojiId", isMethod: true, args: [ { name: "emojiId", type: "apiTypes.Snowflake" } ], returnType: "WelcomeScreenChannel" }, { name: "setEmojiName", isMethod: true, args: [ { name: "emojiName", type: "string" } ], returnType: "WelcomeScreenChannel" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ channelId: apiTypes.Snowflake?, description: string?, emojiId: apiTypes.Snowflake?, emojiName: string?, }?" } ], returnType: "WelcomeScreenChannel" } ]} />
+
+## Properties
+
+### channelId
+
+<LuaProperty name="WelcomeScreenChannel.channelId" type="string?" />
+
+---
+The id of the channel shown in the welcome screen.
+
+### description
+
+<LuaProperty name="WelcomeScreenChannel.description" type="string" />
+
+---
+The description shown for the channel in the welcome screen.
+
+### emojiId
+
+<LuaProperty name="WelcomeScreenChannel.emojiId" type="string?" />
+
+---
+The id of the emoji shown in the welcome screen channel.
+
+### emojiName
+
+<LuaProperty name="WelcomeScreenChannel.emojiName" type="string?" />
+
+---
+The name of the emoji shown in the welcome screen channel.
+
+
+## Methods
+
+### setChannelId
+
+> <LuaDeclaration name="setChannelId" className="WelcomeScreenChannel" args={[ { name: "channelId", type: "apiTypes.Snowflake" } ]} returnType="WelcomeScreenChannel" isMethod />
+
+Set the channel id for this welcome screen channel
+
+<LuaParamTable params={[ { name: "channelId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="WelcomeScreenChannel" args={[ { name: "description", type: "string" } ]} returnType="WelcomeScreenChannel" isMethod />
+
+Set the description for this welcome screen channel
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
+
+### setEmojiId
+
+> <LuaDeclaration name="setEmojiId" className="WelcomeScreenChannel" args={[ { name: "emojiId", type: "apiTypes.Snowflake" } ]} returnType="WelcomeScreenChannel" isMethod />
+
+Set the emoji id for this welcome screen channel
+
+<LuaParamTable params={[ { name: "emojiId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
+
+### setEmojiName
+
+> <LuaDeclaration name="setEmojiName" className="WelcomeScreenChannel" args={[ { name: "emojiName", type: "string" } ]} returnType="WelcomeScreenChannel" isMethod />
+
+Set the emoji name for this welcome screen channel
+
+<LuaParamTable params={[ { name: "emojiName", type: "string" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="WelcomeScreenChannel" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the WelcomeScreenChannelObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreenChannel" args={[ { name: "resource", type: "{ channelId: apiTypes.Snowflake?, description: string?, emojiId: apiTypes.Snowflake?, emojiName: string?, }?" } ]} returnType="WelcomeScreenChannel" />
+
+Responsible for creating a new WelcomeScreenChannel.
+
+<LuaParamTable params={[ { name: "resource", type: "{ channelId: apiTypes.Snowflake?, description: string?, emojiId: apiTypes.Snowflake?, emojiName: string?, }?" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
+
+

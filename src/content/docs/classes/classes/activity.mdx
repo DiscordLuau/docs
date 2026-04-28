@@ -1,0 +1,129 @@
+---
+title: Activity
+description: DiscordLuau docs for Activity.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Activity class in Luau
+
+https://discord.com/developers/docs/topics/gateway-events#activity-object
+
+<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "type", type: "ActivityType" }, { name: "url", type: "string?" }, { name: "createdAt", type: "number" }, { name: "timestamps", type: "Classes.Activity.Timestamp" }, { name: "applicationId", type: "string" }, { name: "details", type: "string?" }, { name: "state", type: "string?" }, { name: "emoji", type: "Classes.Activity.Emoji?" }, { name: "party", type: "Classes.Activity.Party?" }, { name: "assets", type: "Classes.Activity.Assets?" }, { name: "secrets", type: "Classes.Activity.Secrets?" }, { name: "instance", type: "boolean?" }, { name: "flags", type: "number?" }, { name: "buttons", type: "{Classes.Activity.Button}" } ]} />
+
+## Properties
+
+### name
+
+<LuaProperty name="Activity.name" type="string" />
+
+---
+The name of the activity being performed
+
+### type
+
+<LuaProperty name="Activity.type" type="ActivityType" />
+
+---
+The type of activity being performed
+
+### url
+
+<LuaProperty name="Activity.url" type="string?" />
+
+---
+Stream URL, is validated when type is 1 (streaming)
+
+### createdAt
+
+<LuaProperty name="Activity.createdAt" type="number" />
+
+---
+Unix timestamp in milliseconds of when the activity was created
+
+### timestamps
+
+<LuaProperty name="Activity.timestamps" type="Classes.Activity.Timestamp" />
+
+---
+Unix timestamps for start and/or end of the game
+
+### applicationId
+
+<LuaProperty name="Activity.applicationId" type="string" />
+
+---
+Application ID for the game
+
+### details
+
+<LuaProperty name="Activity.details" type="string?" />
+
+---
+What the player is currently doing
+
+### state
+
+<LuaProperty name="Activity.state" type="string?" />
+
+---
+The user's current party status
+
+### emoji
+
+<LuaProperty name="Activity.emoji" type="Classes.Activity.Emoji?" />
+
+---
+The emoji used for a custom status
+
+### party
+
+<LuaProperty name="Activity.party" type="Classes.Activity.Party?" />
+
+---
+Information for the current party of the player
+
+### assets
+
+<LuaProperty name="Activity.assets" type="Classes.Activity.Assets?" />
+
+---
+Images for the presence and their hover texts
+
+### secrets
+
+<LuaProperty name="Activity.secrets" type="Classes.Activity.Secrets?" />
+
+---
+Secrets for Rich Presence joining and spectating
+
+### instance
+
+<LuaProperty name="Activity.instance" type="boolean?" />
+
+---
+Whether or not the activity is an instanced game session
+
+### flags
+
+<LuaProperty name="Activity.flags" type="number?" />
+
+---
+Activity flags ORd together, describes what the payload includes
+
+### buttons
+
+<LuaProperty name="Activity.buttons" type="{Classes.Activity.Button}" />
+
+---
+Custom buttons shown in the Rich Presence
+
+

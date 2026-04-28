@@ -1,0 +1,59 @@
+---
+title: ForumTag
+description: DiscordLuau docs for ForumTag.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord ForumTag class in Luau
+
+https://discord.com/developers/docs/resources/channel#forum-tag-object
+
+<LuaSummary className="ForumTag" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "moderated", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="ForumTag.id" type="string" />
+
+---
+The unique identifier for this forum tag
+
+### name
+
+<LuaProperty name="ForumTag.name" type="string" />
+
+---
+The name of the forum tag
+
+### moderated
+
+<LuaProperty name="ForumTag.moderated" type="boolean" />
+
+---
+Whether this tag can only be added to or removed by a moderator
+
+### emojiId
+
+<LuaProperty name="ForumTag.emojiId" type="string?" />
+
+---
+The id of the emoji used as the tag's icon, if the tag has a custom emoji
+
+### emojiName
+
+<LuaProperty name="ForumTag.emojiName" type="string?" />
+
+---
+The name of the emoji used as the tag's icon
+
+

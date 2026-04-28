@@ -1,0 +1,330 @@
+---
+title: Modal
+description: DiscordLuau docs for Modal.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Modal Interaction class in Luau
+
+https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
+
+<LuaSummary className="Modal" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "deferAsync", isMethod: true, args: [  ] }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ] }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ] }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteResponseAsync", isMethod: true, args: [  ] }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ] }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ] }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Modal.type" type="string" />
+
+---
+The type of interaction. This can be one of the following values:
+- "PING"
+- "APPLICATION_COMMAND"
+- "MESSAGE_COMPONENT"
+- "APPLICATION_COMMAND_AUTOCOMPLETE"
+- "MODAL_SUBMIT"
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### context
+
+<LuaProperty name="Modal.context" type="string" />
+
+---
+The context type of the interaction. This can be one of the following values:
+- "GUILD"
+- "BOT_DM"
+- "PRIVATE_CHANNEL"
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### id
+
+<LuaProperty name="Modal.id" type="string" />
+
+---
+The unique identifier for the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### applicationId
+
+<LuaProperty name="Modal.applicationId" type="string" />
+
+---
+The ID of the application this interaction is for.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### data
+
+<LuaProperty name="Modal.data" type="Classes.InteractionBehaviourData?" />
+
+---
+The data associated with the interaction. The structure of this data varies based on the interaction type.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### guild
+
+<LuaProperty name="Modal.guild" type="Classes.UnavailableGuild?" />
+
+---
+The guild where the interaction was triggered. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### guildId
+
+<LuaProperty name="Modal.guildId" type="string?" />
+
+---
+The ID of the guild where the interaction was triggered. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### channelId
+
+<LuaProperty name="Modal.channelId" type="string?" />
+
+---
+The ID of the channel where the interaction was triggered.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### member
+
+<LuaProperty name="Modal.member" type="Classes.Guild.Member?" />
+
+---
+The member who triggered the interaction. This is only present for guild interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### user
+
+<LuaProperty name="Modal.user" type="Classes.User?" />
+
+---
+The user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### token
+
+<LuaProperty name="Modal.token" type="string" />
+
+---
+The token used for responding to the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### version
+
+<LuaProperty name="Modal.version" type="number" />
+
+---
+The version of the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### message
+
+<LuaProperty name="Modal.message" type="Classes.Message?" />
+
+---
+The message that triggered the interaction. This is only present for message component interactions.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### appPermissions
+
+<LuaProperty name="Modal.appPermissions" type="Classes.Permission" />
+
+---
+The permissions the application has in the channel where the interaction was triggered.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### locale
+
+<LuaProperty name="Modal.locale" type="string?" />
+
+---
+The selected language of the user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### guildLocale
+
+<LuaProperty name="Modal.guildLocale" type="string?" />
+
+---
+The guild's preferred locale, if the interaction was triggered in a guild.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### entitlements
+
+<LuaProperty name="Modal.entitlements" type="{Classes.Entitlement}" />
+
+---
+The entitlements for the user who triggered the interaction.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### authorizingIntegrationOwners
+
+<LuaProperty name="Modal.authorizingIntegrationOwners" type="{[string]: string}" />
+
+---
+The mapping of integration types to their respective owners.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### state
+
+<LuaProperty name="Modal.state" type="State" />
+
+---
+The state object for this interaction.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### id
+
+<LuaProperty name="Modal.id" type="string" />
+
+---
+The ID of the interaction.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### token
+
+<LuaProperty name="Modal.token" type="string" />
+
+---
+The token for this interaction.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### isDeferred
+
+<LuaProperty name="Modal.isDeferred" type="boolean" />
+
+---
+Whether this interaction has been deferred.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+
+## Methods
+
+### deferAsync
+
+> <LuaDeclaration name="deferAsync" className="Modal" args={[  ]} isMethod />
+
+Acknowledge an interaction and edit a response later, the user sees a loading state.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### messageAsync
+
+> <LuaDeclaration name="messageAsync" className="Modal" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
+
+Respond to this interaction with a message.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### modalAsync
+
+> <LuaDeclaration name="modalAsync" className="Modal" args={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} isMethod />
+
+Respond to this interaction with a modal.
+
+<LuaParamTable params={[ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### getResponseAsync
+
+> <LuaDeclaration name="getResponseAsync" className="Modal" args={[ { name: "threadId", type: "string?" } ]} isMethod />
+
+Get the response created by this interaction.
+
+<LuaParamTable params={[ { name: "threadId", type: "string?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### editResponseAsync
+
+> <LuaDeclaration name="editResponseAsync" className="Modal" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
+
+Edit the response made by this interaction.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### deleteResponseAsync
+
+> <LuaDeclaration name="deleteResponseAsync" className="Modal" args={[  ]} isMethod />
+
+Delete the original response made by this interaction.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### createFollowupResponseAsync
+
+> <LuaDeclaration name="createFollowupResponseAsync" className="Modal" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
+
+Create a followup response to an interaction, followup responses are messages you can send after
+the initial response is sent.
+
+<LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### getFollowupResponseAsync
+
+> <LuaDeclaration name="getFollowupResponseAsync" className="Modal" args={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} isMethod />
+
+Get the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### editFollowupResponseAsync
+
+> <LuaDeclaration name="editFollowupResponseAsync" className="Modal" args={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} isMethod />
+
+Edit the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### deleteFollowupResponseAsync
+
+> <LuaDeclaration name="deleteFollowupResponseAsync" className="Modal" args={[ { name: "messageId", type: "string" } ]} isMethod />
+
+Delete the followup response created by this interaction.
+
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+

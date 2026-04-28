@@ -1,0 +1,45 @@
+---
+title: State
+description: DiscordLuau docs for State.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Interface for the discord-luau State package
+
+State represents some sort of data/persistant storage that is depended on from a multitude of components within the
+	Discord-Luau library, for example - if you're going to make a Network request, you need access to some sort of state
+	to derive the authorisation from.
+
+The state, cache and request states are handled under this package. They're responsible for handling the information
+	discord-luau uses.
+
+<LuaSummary className="State" properties={[ { name: "state", type: "State.State" }, { name: "cache", type: "State.Cache" }, { name: "rest", type: "State.Rest" } ]} />
+
+## Properties
+
+### state
+
+<LuaProperty name="State.state" type="State.State" />
+
+
+### cache
+
+<LuaProperty name="State.cache" type="State.Cache" />
+
+
+### rest
+
+<LuaProperty name="State.rest" type="State.Rest" />
+
+
+

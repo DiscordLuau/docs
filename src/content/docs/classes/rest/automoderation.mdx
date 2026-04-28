@@ -1,0 +1,64 @@
+---
+title: AutoModeration
+description: DiscordLuau docs for AutoModeration.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+HTTP Rest API implementation for the following Resource:
+
+- https://discord.com/developers/docs/resources/auto-moderation
+
+<LuaSummary className="AutoModeration" functions={[ { name: "listAutoModerationRulesForGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.ListAutoModerationRulesForGuildResponse >" }, { name: "getAutoModerationRuleForGuildAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetAutoModerationRuleResponse >" }, { name: "createAutoModerationRuleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike< string, apiTypes.CreateAutoModerationRuleResponse >" }, { name: "modifyAutoModerationRuleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike< string, apiTypes.ModifyAutoModerationRuleResponse >" }, { name: "deleteAutoModerationRuleAsync", args: [ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike< string, apiTypes.DeleteAutoModerationRuleResponse >" } ]} />
+
+## Functions
+
+### listAutoModerationRulesForGuildAsync
+
+> <LuaDeclaration name="listAutoModerationRulesForGuildAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.ListAutoModerationRulesForGuildResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#list-auto-moderation-rules-for-guild
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.ListAutoModerationRulesForGuildResponse >" } ]} />
+
+### getAutoModerationRuleForGuildAsync
+
+> <LuaDeclaration name="getAutoModerationRuleForGuildAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.GetAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetAutoModerationRuleResponse >" } ]} />
+
+### createAutoModerationRuleAsync
+
+> <LuaDeclaration name="createAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.CreateAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.CreateAutoModerationRuleResponse >" } ]} />
+
+### modifyAutoModerationRuleAsync
+
+> <LuaDeclaration name="modifyAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.ModifyAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.CreateAutoModerationRuleRequest" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.ModifyAutoModerationRuleResponse >" } ]} />
+
+### deleteAutoModerationRuleAsync
+
+> <LuaDeclaration name="deleteAutoModerationRuleAsync" className="AutoModeration" args={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returnType="future.FutureLike< string, apiTypes.DeleteAutoModerationRuleResponse >" />
+
+https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "autoModerationRuleId", type: "apiTypes.Snowflake" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.DeleteAutoModerationRuleResponse >" } ]} />
+
+
