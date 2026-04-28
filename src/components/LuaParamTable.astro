@@ -1,0 +1,122 @@
+---
+type Param = {
+	name: string;
+	type: string;
+	desc?: string;
+};
+
+type Return = {
+	type: string;
+	desc?: string;
+};
+
+type Props = {
+	params?: Param[];
+	returns?: Return[];
+};
+
+const { params = [], returns = [] } = Astro.props;
+
+const hasParams = params.length > 0;
+const hasReturns = returns.length > 0;
+---
+
+{
+	(hasParams || hasReturns) && (
+		<div class="lua-param-table">
+			{hasParams && (
+				<div class="lua-param-section">
+					<p class="lua-pt-heading">Parameters</p>
+					<table class="lua-pt-table">
+						<tbody>
+							{params.map(param => (
+								<tr>
+									<td class="lua-pt-sig">
+										<span class="lua-s-arg">{param.name}</span>
+										<span class="lua-s-punct">: </span>
+										<span class="lua-s-type">{param.type}</span>
+									</td>
+									<td class="lua-pt-desc">{param.desc ?? ""}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			)}
+
+			{hasReturns && (
+				<div class="lua-param-section">
+					<p class="lua-pt-heading">Returns</p>
+					<table class="lua-pt-table">
+						<tbody>
+							{returns.map(ret => (
+								<tr>
+									<td class="lua-pt-sig">
+										<span class="lua-s-type">{ret.type}</span>
+									</td>
+									<td class="lua-pt-desc">{ret.desc ?? ""}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			)}
+		</div>
+	)
+}
+
+<style>
+	.lua-param-table {
+		margin: 1rem 0;
+	}
+
+	.lua-param-section {
+		margin-bottom: 1.25rem;
+	}
+
+	.lua-pt-heading {
+		font-weight: 600;
+		font-size: 1rem;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.lua-pt-table {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.lua-pt-table tr {
+		border-bottom: 1px solid var(--sl-color-gray-5);
+	}
+
+	.lua-pt-table tr:last-child {
+		border-bottom: none;
+	}
+
+	.lua-pt-sig {
+		font-family: monospace;
+		font-size: 14px;
+		padding: 0.5rem 0.75rem;
+		white-space: nowrap;
+		width: 1%;
+	}
+
+	.lua-pt-desc {
+		padding: 0.5rem 0.75rem;
+		font-size: 0.875rem;
+		color: var(--sl-color-gray-2);
+	}
+
+	.lua-s-arg {
+		color: var(--astro-code-token-parameter);
+	}
+	.lua-s-type {
+		color: var(--astro-code-token-keyword);
+	}
+	.lua-s-punct {
+		color: var(--sl-color-gray-2);
+	}
+</style>
