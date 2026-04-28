@@ -1,0 +1,153 @@
+---
+type Param = { name: string; type: string };
+
+type FunctionEntry = {
+	name: string;
+	isMethod?: boolean;
+	args: Param[];
+	returnType?: string;
+};
+
+type PropertyEntry = {
+	name: string;
+	type: string;
+};
+
+type Props = {
+	className: string;
+	properties?: PropertyEntry[];
+	methods?: FunctionEntry[];
+	functions?: FunctionEntry[];
+};
+
+const { className, properties = [], methods = [], functions = [] } = Astro.props;
+
+const hasContent = properties.length > 0 || methods.length > 0 || functions.length > 0;
+
+function toAnchor(name: string) {
+	return `#${name.toLowerCase()}`;
+}
+
+function renderArgs(args: Param[]) {
+	return args;
+}
+---
+
+{
+	hasContent && (
+		<div class="lua-summary">
+			<h2>Summary</h2>
+
+			{properties.length > 0 && (
+				<div class="lua-summary-group">
+					<h3>Properties</h3>
+					{properties.map(prop => (
+						<a href={toAnchor(prop.name)} class="lua-summary-row">
+							<span class="lua-s-class">{className}</span>
+							<span class="lua-s-punct">.</span>
+							<span class="lua-s-arg">{prop.name}</span>
+							<span class="lua-s-punct"> :: </span>
+							<span class="lua-s-type">{prop.type}</span>
+						</a>
+					))}
+				</div>
+			)}
+
+			{methods.length > 0 && (
+				<div class="lua-summary-group">
+					<h3>Methods</h3>
+					{methods.map(func => (
+						<a href={toAnchor(func.name)} class="lua-summary-row">
+							<span class="lua-s-class">{className}</span>
+							<span class="lua-s-punct">:</span>
+							<span class="lua-s-method">{func.name}</span>
+							<span class="lua-s-punct">(</span>
+							{renderArgs(func.args).map((arg, i) => (
+								<>
+									<span class="lua-s-arg">{arg.name}</span>
+									<span class="lua-s-punct">: </span>
+									<span class="lua-s-type">{arg.type}</span>
+									{i < func.args.length - 1 && <span class="lua-s-punct">, </span>}
+								</>
+							))}
+							<span class="lua-s-punct">)</span>
+							{func.returnType && (
+								<>
+									<span class="lua-s-punct"> → </span>
+									<span class="lua-s-type">{func.returnType}</span>
+								</>
+							)}
+						</a>
+					))}
+				</div>
+			)}
+
+			{functions.length > 0 && (
+				<div class="lua-summary-group">
+					<h3>Functions</h3>
+					{functions.map(func => (
+						<a href={toAnchor(func.name)} class="lua-summary-row">
+							<span class="lua-s-class">{className}</span>
+							<span class="lua-s-punct">.</span>
+							<span class="lua-s-method">{func.name}</span>
+							<span class="lua-s-punct">(</span>
+							{renderArgs(func.args).map((arg, i) => (
+								<>
+									<span class="lua-s-arg">{arg.name}</span>
+									<span class="lua-s-punct">: </span>
+									<span class="lua-s-type">{arg.type}</span>
+									{i < func.args.length - 1 && <span class="lua-s-punct">, </span>}
+								</>
+							))}
+							<span class="lua-s-punct">)</span>
+							{func.returnType && (
+								<>
+									<span class="lua-s-punct"> → </span>
+									<span class="lua-s-type">{func.returnType}</span>
+								</>
+							)}
+						</a>
+					))}
+				</div>
+			)}
+		</div>
+	)
+}
+
+<style>
+	.lua-summary-row {
+		display: block;
+		font-family: monospace;
+		font-size: 14px;
+		padding: 0.4rem 0.75rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 4px;
+		margin-bottom: 4px;
+		text-decoration: none;
+		color: inherit;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.lua-summary-row:hover {
+		background-color: var(--sl-color-gray-6);
+		border-color: var(--sl-color-gray-4);
+	}
+
+	.lua-s-class {
+		color: var(--astro-code-token-constant);
+	}
+	.lua-s-method {
+		color: var(--astro-code-token-function);
+	}
+	.lua-s-arg {
+		color: var(--astro-code-token-parameter);
+	}
+	.lua-s-type {
+		color: var(--astro-code-token-keyword);
+	}
+	.lua-s-punct {
+		color: var(--sl-color-gray-2);
+	}
+</style>
