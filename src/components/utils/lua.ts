@@ -6,6 +6,13 @@ const classRegistryByLowerName = new Map<string, string>(
 	registryJson.map(name => [name.toLowerCase(), name]),
 );
 
+const classRegistryByPrefixAndLastSegment = new Map<string, string>(
+	registryJson.map(name => {
+		const parts = name.toLowerCase().split(".");
+		return [`${parts[0]}:${parts[parts.length - 1]}`, name];
+	}),
+);
+
 export type LuaParam = {
 	name: string;
 	type: string;
@@ -31,21 +38,36 @@ export const stripNamespace = (type: string) => {
 	return lastDot >= 0 ? type.slice(lastDot + 1) : type;
 };
 
+export const stripNamespaceFromType = (type: string) =>
+	type.replace(/[^\s<>,{}]+\.[^\s<>,{}]+/g, match => stripNamespace(match));
+
 export const getLuaDocs = (luaType: string) => {
 	const url = new URL(LUA_DOCS_BASE_URL);
 	url.pathname += `/${luaTypeDocs[luaType]}.html`;
 	return url.toString();
 };
 
-export const getCustomTypeDocs = (type: string) => {
-	if (type === "()" || type === "any") return null;
-	const registryName = classRegistryByLowerName.get(type.toLowerCase());
-	if (!registryName) return null;
-	const path = `/classes/${registryName
+const buildClassPath = (registryName: string) =>
+	`/classes/${registryName
 		.split(".")
 		.map(namePart => namePart.toLowerCase())
 		.join("/")}`;
-	return path;
+
+export const getCustomTypeDocs = (type: string) => {
+	if (type === "()" || type === "any") return null;
+	const lowerType = type.toLowerCase();
+
+	const exactMatch = classRegistryByLowerName.get(lowerType);
+	if (exactMatch) return buildClassPath(exactMatch);
+
+	const typeParts = lowerType.split(".");
+	if (typeParts.length >= 2) {
+		const prefixAndLastSegment = `${typeParts[0]}:${typeParts[typeParts.length - 1]}`;
+		const fuzzyMatch = classRegistryByPrefixAndLastSegment.get(prefixAndLastSegment);
+		if (fuzzyMatch) return buildClassPath(fuzzyMatch);
+	}
+
+	return null;
 };
 
 export const getTypeDocs = (type: string) => {

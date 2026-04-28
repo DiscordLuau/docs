@@ -1,7 +1,6 @@
 ---
 import type { LuaParam } from "./utils/lua";
-import { typeOrDefault, getTypeDocs } from "./utils/lua";
-import LuaTypeComponent from "./LuaType.astro";
+import { typeOrDefault, stripNamespaceFromType } from "./utils/lua";
 
 type Props = {
 	name: string;
@@ -13,7 +12,6 @@ type Props = {
 
 const { name, className, args, returnType, isMethod } = Astro.props;
 const returnTypeOrDefault = typeOrDefault(returnType);
-const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
 ---
 
 <div class="declaration">
@@ -30,5 +28,5 @@ const returnTypeUrl = getTypeDocs(returnTypeOrDefault);
 		))
 	}
 	<span class="declaration">)</span>
-	<span class="declaration type">&nbsp;{"-> "}<LuaTypeComponent url={returnTypeUrl} type={returnTypeOrDefault} /></span>
+	<span class="declaration type">&nbsp;{"-> "}{stripNamespaceFromType(returnTypeOrDefault)}</span>
 </div>
