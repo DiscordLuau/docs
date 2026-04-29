@@ -17,7 +17,7 @@ Implementation of the Discord Media class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
 
-<LuaSummary className="MediaThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultForumLayout", type: "string" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultSortOrder", type: "string" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ] }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
+<LuaSummary className="MediaThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultForumLayout", type: "string" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultSortOrder", type: "string" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
 
 ## Properties
 
@@ -283,22 +283,24 @@ The rate limit per user for sending messages in this channel.
 
 ### triggerTypingIndicatorAsync
 
-> <LuaDeclaration name="triggerTypingIndicatorAsync" className="MediaThread" args={[  ]} isMethod />
+> <LuaDeclaration name="triggerTypingIndicatorAsync" className="MediaThread" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Post a typing indicator for the specified channel, which expires after 10 seconds.
 
 Generally bots should not use this route. However, if a bot is responding to a command and expects the computation to
 take a few seconds, this endpoint may be called to let the user know that the bot is processing their message.
 
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
 > Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="MediaThread" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="modifyAsync" className="MediaThread" args={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
 
-Lists all private archived threads that the current user has joined. Returns thread and member information.
+Modifies the channel's settings using the provided JSON data. Optionally accepts an audit log reason.
 
-<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
 
 > Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
@@ -404,136 +406,142 @@ Sets the name of the channel.
 
 ### joinAsync
 
-> <LuaDeclaration name="joinAsync" className="MediaThread" args={[  ]} isMethod />
+> <LuaDeclaration name="joinAsync" className="MediaThread" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Adds the current user to a thread. Also requires the thread is not archived.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="addMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived.
 
-<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### leaveAsync
 
-> <LuaDeclaration name="leaveAsync" className="MediaThread" args={[  ]} isMethod />
+> <LuaDeclaration name="leaveAsync" className="MediaThread" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes the current user from a thread.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### removeMemberAsync
 
-> <LuaDeclaration name="removeMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="removeMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes another member from a thread. Requires the ability to manage threads.
 
-<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} isMethod />
+> <LuaDeclaration name="getMemberAsync" className="MediaThread" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} returnType="future.FutureLike<string, threadMember.ThreadMember>" isMethod />
 
 Gets a thread member by their user ID. Can optionally include the member object.
 
-<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, threadMember.ThreadMember>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### listMembersAsync
 
-> <LuaDeclaration name="listMembersAsync" className="MediaThread" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="listMembersAsync" className="MediaThread" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threadMember.ThreadMember }>" isMethod />
 
 Lists all members in a thread. Can optionally include member objects and use pagination.
 
-<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
 
 ### bulkDeleteMessagesAsync
 
-> <LuaDeclaration name="bulkDeleteMessagesAsync" className="MediaThread" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="MediaThread" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
 MANAGE_MESSAGES permission.
 
-<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getMessagesAsync
 
-> <LuaDeclaration name="getMessagesAsync" className="MediaThread" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="getMessagesAsync" className="MediaThread" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { message.Message }>" isMethod />
 
 Gets messages from a channel. Returns an array of message objects.
 
-<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { message.Message }>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getMessageAsync
 
-> <LuaDeclaration name="getMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
+> <LuaDeclaration name="getMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, message.Message>" isMethod />
 
 Gets a specific message from a channel using its ID. Returns a message object.
 
-<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, message.Message>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### createMessageAsync
 
-> <LuaDeclaration name="createMessageAsync" className="MediaThread" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
+> <LuaDeclaration name="createMessageAsync" className="MediaThread" args={[ { name: "json", type: "builders.messageJSON" } ]} returnType="future.FutureLike<string, message.Message>" isMethod />
 
 Creates a new message in the channel. Returns the created message object.
 
-<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} returns={[ { type: "future.FutureLike<string, message.Message>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### getPinnedMessagesAsync
 
-> <LuaDeclaration name="getPinnedMessagesAsync" className="MediaThread" args={[  ]} isMethod />
+> <LuaDeclaration name="getPinnedMessagesAsync" className="MediaThread" args={[  ]} returnType="future.FutureLike<string, { message.Message }>" isMethod />
 
 Gets all pinned messages in the channel. Returns an array of message objects.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { message.Message }>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### pinMessageAsync
 
-> <LuaDeclaration name="pinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="pinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Pins a message in the channel.
 
-<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### unpinMessageAsync
 
-> <LuaDeclaration name="unpinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="unpinMessageAsync" className="MediaThread" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Unpins a message from the channel.
 
-<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 
 ### startThread
 
-> <LuaDeclaration name="startThread" className="MediaThread" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
+> <LuaDeclaration name="startThread" className="MediaThread" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returnType="future.FutureLike<string, apiTypes.Snowflake>" isMethod />
 
 Starts a new thread in the channel without an associated message. Returns the thread ID.
 
-<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 

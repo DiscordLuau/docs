@@ -18,7 +18,7 @@ Represents various flags that can be applied to Discord messages.
 
 https://discord.com/developers/docs/resources/message#message-object-message-flags
 
-<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ] }, { name: "isCrossposted", isMethod: true, args: [  ] }, { name: "suppressEmbeds", isMethod: true, args: [  ] }, { name: "sourceMessageDeleted", isMethod: true, args: [  ] }, { name: "urgent", isMethod: true, args: [  ] }, { name: "hasThread", isMethod: true, args: [  ] }, { name: "ephemeral", isMethod: true, args: [  ] }, { name: "loading", isMethod: true, args: [  ] }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ] }, { name: "suppressNotifications", isMethod: true, args: [  ] }, { name: "isVouceMessage", isMethod: true, args: [  ] } ]} />
+<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isCrossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressEmbeds", isMethod: true, args: [  ], returnType: "boolean" }, { name: "sourceMessageDeleted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "urgent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "ephemeral", isMethod: true, args: [  ], returnType: "boolean" }, { name: "loading", isMethod: true, args: [  ], returnType: "boolean" }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isVouceMessage", isMethod: true, args: [  ], returnType: "boolean" } ]} />
 
 ## Properties
 
@@ -34,68 +34,90 @@ The raw bitflag value for the message.
 
 ### crossposted
 
-> <LuaDeclaration name="crossposted" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="crossposted" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message has been published to subscribed channels (via Channel Following).
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### isCrossposted
 
-> <LuaDeclaration name="isCrossposted" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="isCrossposted" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message originated from a message in another channel (via Channel Following).
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressEmbeds
 
-> <LuaDeclaration name="suppressEmbeds" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressEmbeds" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if embeds should be suppressed when serializing this message.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### sourceMessageDeleted
 
-> <LuaDeclaration name="sourceMessageDeleted" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="sourceMessageDeleted" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if the source message for this crosspost has been deleted (via Channel Following).
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### urgent
 
-> <LuaDeclaration name="urgent" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="urgent" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message came from the urgent message system.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### hasThread
 
-> <LuaDeclaration name="hasThread" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="hasThread" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message has an associated thread, with the same id as the message.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### ephemeral
 
-> <LuaDeclaration name="ephemeral" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="ephemeral" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message is only visible to the user who invoked the Interaction.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### loading
 
-> <LuaDeclaration name="loading" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="loading" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message is an Interaction Response and the bot is "thinking".
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### failedToMentionSomeRolesInThread
 
-> <LuaDeclaration name="failedToMentionSomeRolesInThread" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="failedToMentionSomeRolesInThread" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message failed to mention some roles and add their members to the thread.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressNotifications
 
-> <LuaDeclaration name="suppressNotifications" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressNotifications" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message will not trigger push and desktop notifications.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### isVouceMessage
 
-> <LuaDeclaration name="isVouceMessage" className="MessageBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="isVouceMessage" className="MessageBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Checks if this message is a voice message.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 

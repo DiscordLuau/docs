@@ -17,7 +17,7 @@ Implementation of the Discord Ban class in Luau
 
 https://discord.com/developers/docs/resources/guild#ban-object
 
-<LuaSummary className="Ban" properties={[ { name: "reason", type: "string?" }, { name: "user", type: "Classes.User" }, { name: "state", type: "lune.State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "removeAsync", isMethod: true, args: [  ] } ]} />
+<LuaSummary className="Ban" properties={[ { name: "reason", type: "string?" }, { name: "user", type: "Classes.User" }, { name: "state", type: "lune.State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "removeAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" } ]} />
 
 ## Properties
 
@@ -51,8 +51,10 @@ The banned user object containing information about the user who was banned from
 
 ### removeAsync
 
-> <LuaDeclaration name="removeAsync" className="Ban" args={[  ]} isMethod />
+> <LuaDeclaration name="removeAsync" className="Ban" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Remove the ban for a user. Requires the BAN_MEMBERS permissions.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 

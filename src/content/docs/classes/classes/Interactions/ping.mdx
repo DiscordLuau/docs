@@ -17,7 +17,7 @@ Implementation of the Discord Ping Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Ping" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" } ]} methods={[ { name: "pongAsync", isMethod: true, args: [  ] } ]} />
+<LuaSummary className="Ping" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" } ]} methods={[ { name: "pongAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" } ]} />
 
 ## Properties
 
@@ -196,8 +196,10 @@ The mapping of integration types to their respective owners.
 
 ### pongAsync
 
-> <LuaDeclaration name="pongAsync" className="Ping" args={[  ]} isMethod />
+> <LuaDeclaration name="pongAsync" className="Ping" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Acknowledge an interaction ping
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 

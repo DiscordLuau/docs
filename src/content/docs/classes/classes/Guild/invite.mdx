@@ -17,7 +17,7 @@ Implementation of the Discord Invite class in Luau
 
 https://discord.com/developers/docs/resources/invite#invite-object
 
-<LuaSummary className="Invite" properties={[ { name: "channel", type: "Classes.Channels.Channel" }, { name: "type", type: "string" }, { name: "code", type: "string" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "inviter", type: "Classes.User?" }, { name: "targetType", type: "string?" }, { name: "targetUser", type: "Classes.User?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "expiresAt", type: "stdPolyfills.DateTime?" }, { name: "scheduledEvent", type: "Classes.Guild.ScheduledEvent?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] } ]} />
+<LuaSummary className="Invite" properties={[ { name: "channel", type: "Classes.Channels.Channel" }, { name: "type", type: "string" }, { name: "code", type: "string" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "inviter", type: "Classes.User?" }, { name: "targetType", type: "string?" }, { name: "targetUser", type: "Classes.User?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "expiresAt", type: "stdPolyfills.DateTime?" }, { name: "scheduledEvent", type: "Classes.Guild.ScheduledEvent?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
 
 ## Properties
 
@@ -103,11 +103,11 @@ The scheduled event associated with this invite
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
 if there is one. Requires the MANAGE_GUILD permission.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 

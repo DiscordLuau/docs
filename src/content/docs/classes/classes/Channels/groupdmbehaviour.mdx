@@ -21,7 +21,7 @@ Group DM behaviours include:
 - Modifying group DM properties (name, icon)
 - Handling group DM specific data (recipients, icon, owner, etc.)
 
-<LuaSummary className="GroupDMBehaviour" properties={[ { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" } ]} methods={[ { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ] }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ] }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ] } ]} />
+<LuaSummary className="GroupDMBehaviour" properties={[ { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" } ]} methods={[ { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} />
 
 ## Properties
 
@@ -65,34 +65,34 @@ Whether the Group DM channel is managed by an application.
 
 ### addRecipient
 
-> <LuaDeclaration name="addRecipient" className="GroupDMBehaviour" args={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} isMethod />
+> <LuaDeclaration name="addRecipient" className="GroupDMBehaviour" args={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Adds a recipient to a Group DM using their access token.
 
-<LuaParamTable params={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} />
+<LuaParamTable params={[ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### removeRecipient
 
-> <LuaDeclaration name="removeRecipient" className="GroupDMBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="removeRecipient" className="GroupDMBehaviour" args={[ { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes a recipient from a Group DM.
 
-<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### setNameAsync
 
-> <LuaDeclaration name="setNameAsync" className="GroupDMBehaviour" args={[ { name: "groupName", type: "string" } ]} isMethod />
+> <LuaDeclaration name="setNameAsync" className="GroupDMBehaviour" args={[ { name: "groupName", type: "string" } ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
 
 Sets the name of the Group DM channel.
 
-<LuaParamTable params={[ { name: "groupName", type: "string" } ]} />
+<LuaParamTable params={[ { name: "groupName", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
 
 ### setIconAsync
 
-> <LuaDeclaration name="setIconAsync" className="GroupDMBehaviour" args={[ { name: "iconData", type: "string" } ]} isMethod />
+> <LuaDeclaration name="setIconAsync" className="GroupDMBehaviour" args={[ { name: "iconData", type: "string" } ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
 
 Sets the icon of the Group DM channel using base64 encoded image data.
 
-<LuaParamTable params={[ { name: "iconData", type: "string" } ]} />
+<LuaParamTable params={[ { name: "iconData", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
 
 

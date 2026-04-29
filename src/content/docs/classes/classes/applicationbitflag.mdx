@@ -18,74 +18,94 @@ This class provides methods to check various application flags that indicate dif
 
 https://discord.com/developers/docs/resources/application#application-object-application-flags
 
-<LuaSummary className="ApplicationBitflag" methods={[ { name: "applicationAutoModerationRoleCreateBadge", isMethod: true, args: [  ] }, { name: "gatewayPresence", isMethod: true, args: [  ] }, { name: "gatewayPresenceLimited", isMethod: true, args: [  ] }, { name: "gatewayGuildMembers", isMethod: true, args: [  ] }, { name: "gatewayGuildMembersLimited", isMethod: true, args: [  ] }, { name: "verificationPendingGuildLimit", isMethod: true, args: [  ] }, { name: "embedded", isMethod: true, args: [  ] }, { name: "gatewayMessageContent", isMethod: true, args: [  ] }, { name: "gatewayMessageContentLimited", isMethod: true, args: [  ] }, { name: "applicationCommandBadge", isMethod: true, args: [  ] } ]} />
+<LuaSummary className="ApplicationBitflag" methods={[ { name: "applicationAutoModerationRoleCreateBadge", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresence", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresenceLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembers", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembersLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "verificationPendingGuildLimit", isMethod: true, args: [  ], returnType: "boolean" }, { name: "embedded", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContentLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "applicationCommandBadge", isMethod: true, args: [  ], returnType: "boolean" } ]} />
 
 ## Methods
 
 ### applicationAutoModerationRoleCreateBadge
 
-> <LuaDeclaration name="applicationAutoModerationRoleCreateBadge" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="applicationAutoModerationRoleCreateBadge" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Indicates if an app uses the Auto Moderation API
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayPresence
 
-> <LuaDeclaration name="gatewayPresence" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayPresence" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in 100 or more servers to receive presence_update events
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayPresenceLimited
 
-> <LuaDeclaration name="gatewayPresenceLimited" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayPresenceLimited" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in under 100 servers to receive presence_update events,
 found on the Bot page in your app's settings
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayGuildMembers
 
-> <LuaDeclaration name="gatewayGuildMembers" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayGuildMembers" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in 100 or more servers to receive member-related events like
 guild_member_add. See the list of member-related events under GUILD_MEMBERS
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayGuildMembersLimited
 
-> <LuaDeclaration name="gatewayGuildMembersLimited" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayGuildMembersLimited" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in under 100 servers to receive member-related events
 like guild_member_add, found on the Bot page in your app's settings.
 
 See the list of member-related events under GUILD_MEMBERS
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### verificationPendingGuildLimit
 
-> <LuaDeclaration name="verificationPendingGuildLimit" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="verificationPendingGuildLimit" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Indicates unusual growth of an app that prevents verification
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### embedded
 
-> <LuaDeclaration name="embedded" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="embedded" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Indicates if an app is embedded within the Discord client (currently unavailable publicly)
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayMessageContent
 
-> <LuaDeclaration name="gatewayMessageContent" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayMessageContent" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in 100 or more servers to receive message content
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### gatewayMessageContentLimited
 
-> <LuaDeclaration name="gatewayMessageContentLimited" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="gatewayMessageContentLimited" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Intent required for bots in under 100 servers to receive message content,
 found on the Bot page in your app's settings
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### applicationCommandBadge
 
-> <LuaDeclaration name="applicationCommandBadge" className="ApplicationBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="applicationCommandBadge" className="ApplicationBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Indicates if an app has registered global application commands
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 

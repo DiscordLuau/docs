@@ -22,7 +22,7 @@ Thread behaviours include:
 - Handling thread metadata and statistics
 - Managing thread ownership and parent relationships
 
-<LuaSummary className="ThreadBehaviour" properties={[ { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ] }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ] }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ] } ]} />
+<LuaSummary className="ThreadBehaviour" properties={[ { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
 
 ## Properties
 
@@ -80,46 +80,50 @@ The ID of the user who created this thread.
 
 ### joinAsync
 
-> <LuaDeclaration name="joinAsync" className="ThreadBehaviour" args={[  ]} isMethod />
+> <LuaDeclaration name="joinAsync" className="ThreadBehaviour" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Adds the current user to a thread. Also requires the thread is not archived.
 
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
 ### addMemberAsync
 
-> <LuaDeclaration name="addMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="addMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived.
 
-<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### leaveAsync
 
-> <LuaDeclaration name="leaveAsync" className="ThreadBehaviour" args={[  ]} isMethod />
+> <LuaDeclaration name="leaveAsync" className="ThreadBehaviour" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes the current user from a thread.
 
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
 ### removeMemberAsync
 
-> <LuaDeclaration name="removeMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="removeMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes another member from a thread. Requires the ability to manage threads.
 
-<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### getMemberAsync
 
-> <LuaDeclaration name="getMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} isMethod />
+> <LuaDeclaration name="getMemberAsync" className="ThreadBehaviour" args={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} returnType="future.FutureLike<string, threadMember.ThreadMember>" isMethod />
 
 Gets a thread member by their user ID. Can optionally include the member object.
 
-<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} />
+<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, threadMember.ThreadMember>" } ]} />
 
 ### listMembersAsync
 
-> <LuaDeclaration name="listMembersAsync" className="ThreadBehaviour" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="listMembersAsync" className="ThreadBehaviour" args={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threadMember.ThreadMember }>" isMethod />
 
 Lists all members in a thread. Can optionally include member objects and use pagination.
 
-<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
 
 
