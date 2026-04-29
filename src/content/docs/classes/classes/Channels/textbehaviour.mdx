@@ -23,7 +23,7 @@ Text behaviours include:
 - Creating threads
 - Handling rate limits and message timestamps
 
-<LuaSummary className="TextBehaviour" properties={[ { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ] }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ] }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ] }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ] }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ] }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ] }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ] } ]} />
+<LuaSummary className="TextBehaviour" properties={[ { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
 
 ## Properties
 
@@ -53,65 +53,67 @@ The rate limit per user for sending messages in this channel.
 
 ### bulkDeleteMessagesAsync
 
-> <LuaDeclaration name="bulkDeleteMessagesAsync" className="TextBehaviour" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="bulkDeleteMessagesAsync" className="TextBehaviour" args={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the
 MANAGE_MESSAGES permission.
 
-<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### getMessagesAsync
 
-> <LuaDeclaration name="getMessagesAsync" className="TextBehaviour" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="getMessagesAsync" className="TextBehaviour" args={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { message.Message }>" isMethod />
 
 Gets messages from a channel. Returns an array of message objects.
 
-<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { message.Message }>" } ]} />
 
 ### getMessageAsync
 
-> <LuaDeclaration name="getMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} isMethod />
+> <LuaDeclaration name="getMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, message.Message>" isMethod />
 
 Gets a specific message from a channel using its ID. Returns a message object.
 
-<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, message.Message>" } ]} />
 
 ### createMessageAsync
 
-> <LuaDeclaration name="createMessageAsync" className="TextBehaviour" args={[ { name: "json", type: "builders.messageJSON" } ]} isMethod />
+> <LuaDeclaration name="createMessageAsync" className="TextBehaviour" args={[ { name: "json", type: "builders.messageJSON" } ]} returnType="future.FutureLike<string, message.Message>" isMethod />
 
 Creates a new message in the channel. Returns the created message object.
 
-<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.messageJSON" } ]} returns={[ { type: "future.FutureLike<string, message.Message>" } ]} />
 
 ### getPinnedMessagesAsync
 
-> <LuaDeclaration name="getPinnedMessagesAsync" className="TextBehaviour" args={[  ]} isMethod />
+> <LuaDeclaration name="getPinnedMessagesAsync" className="TextBehaviour" args={[  ]} returnType="future.FutureLike<string, { message.Message }>" isMethod />
 
 Gets all pinned messages in the channel. Returns an array of message objects.
 
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { message.Message }>" } ]} />
+
 ### pinMessageAsync
 
-> <LuaDeclaration name="pinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="pinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Pins a message in the channel.
 
-<LuaParamTable params={[ { name: "messageId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### unpinMessageAsync
 
-> <LuaDeclaration name="unpinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="unpinMessageAsync" className="TextBehaviour" args={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Unpins a message from the channel.
 
-<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### startThread
 
-> <LuaDeclaration name="startThread" className="TextBehaviour" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} isMethod />
+> <LuaDeclaration name="startThread" className="TextBehaviour" args={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returnType="future.FutureLike<string, apiTypes.Snowflake>" isMethod />
 
 Starts a new thread in the channel without an associated message. Returns the thread ID.
 
-<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} />
+<LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
 
 

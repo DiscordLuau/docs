@@ -53,9 +53,17 @@ const buildClassPath = (registryName: string) =>
 		.map(namePart => namePart.toLowerCase())
 		.join("/")}`;
 
+const vendorTypeDocs: Record<string, string> = {
+	"future.futurelike": "/vendor/futures",
+	futurelike: "/vendor/futures",
+};
+
 export const getCustomTypeDocs = (type: string) => {
 	if (type === "()" || type === "any") return null;
 	const lowerType = type.toLowerCase();
+
+	const vendorMatch = vendorTypeDocs[lowerType];
+	if (vendorMatch) return vendorMatch;
 
 	const exactMatch = classRegistryByLowerName.get(lowerType);
 	if (exactMatch) return buildClassPath(exactMatch);

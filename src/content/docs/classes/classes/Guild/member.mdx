@@ -17,7 +17,7 @@ Implementation of the Discord Member class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-member-object
 
-<LuaSummary className="Member" properties={[ { name: "user", type: "Classes.User" }, { name: "communicationDisabledUntil", type: "DateTime" }, { name: "avatarDecorationData", type: "Classes.AvatarDecoration" }, { name: "flags", type: "Classes.GuildMemberBitflag" }, { name: "joinedAt", type: "DateTime" }, { name: "premiumSince", type: "DateTime" }, { name: "nick", type: "string" }, { name: "avatar", type: "string" }, { name: "roles", type: "{ string }" }, { name: "deaf", type: "boolean" }, { name: "mute", type: "boolean" }, { name: "pending", type: "boolean" }, { name: "permissions", type: "string" }, { name: "state", type: "State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "banAsync", isMethod: true, args: [ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ] }, { name: "kickAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ] }, { name: "muteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "unmuteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "deafenAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "undeafenAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "setNicknameAsync", isMethod: true, args: [ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ] }, { name: "setRolesAsync", isMethod: true, args: [ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ] }, { name: "moveVoiceChannelAsync", isMethod: true, args: [ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ] }, { name: "disconnectFromVoiceChannelAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] }, { name: "disableAsync", isMethod: true, args: [ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ] }, { name: "addRoleAsync", isMethod: true, args: [ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ] }, { name: "removeRoleAsync", isMethod: true, args: [ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ] } ]} />
+<LuaSummary className="Member" properties={[ { name: "user", type: "Classes.User" }, { name: "communicationDisabledUntil", type: "DateTime" }, { name: "avatarDecorationData", type: "Classes.AvatarDecoration" }, { name: "flags", type: "Classes.GuildMemberBitflag" }, { name: "joinedAt", type: "DateTime" }, { name: "premiumSince", type: "DateTime" }, { name: "nick", type: "string" }, { name: "avatar", type: "string" }, { name: "roles", type: "{ string }" }, { name: "deaf", type: "boolean" }, { name: "mute", type: "boolean" }, { name: "pending", type: "boolean" }, { name: "permissions", type: "string" }, { name: "state", type: "State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "banAsync", isMethod: true, args: [ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "kickAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "muteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "unmuteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "deafenAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "undeafenAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "setNicknameAsync", isMethod: true, args: [ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "setRolesAsync", isMethod: true, args: [ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "moveVoiceChannelAsync", isMethod: true, args: [ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "disconnectFromVoiceChannelAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "disableAsync", isMethod: true, args: [ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Member>" }, { name: "addRoleAsync", isMethod: true, args: [ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "removeRoleAsync", isMethod: true, args: [ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
 
 ## Properties
 
@@ -131,115 +131,115 @@ The ID of the guild this member belongs to.
 
 ### banAsync
 
-> <LuaDeclaration name="banAsync" className="Member" args={[ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="banAsync" className="Member" args={[ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Create a guild ban, and optionally delete previous messages sent by the banned user.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" }, { name: "deleteMessageDays", type: "number?" }, { name: "deleteMessageSeconds", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### kickAsync
 
-> <LuaDeclaration name="kickAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="kickAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Removes a role from a guild member. Requires the MANAGE_ROLES permission.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### modifyAsync
 
-> <LuaDeclaration name="modifyAsync" className="Member" args={[ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="modifyAsync" className="Member" args={[ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Modify attributes of a guild member. Returns updated guild member. If the channel_id is set to null, this will
 force the target user to be disconnected from voice.
 
-<LuaParamTable params={[ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "data", type: "{ nickname: string?, roles: { apiTypes.Snowflake }?, mute: boolean?, deaf: boolean?, channelId: (apiTypes.Snowflake | boolean)?, communicationDisabledUntil: string?, }" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### muteAsync
 
-> <LuaDeclaration name="muteAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="muteAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will mute the user in voice channels the user is in. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### unmuteAsync
 
-> <LuaDeclaration name="unmuteAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="unmuteAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will unmute the user in voice channels the user is in. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### deafenAsync
 
-> <LuaDeclaration name="deafenAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="deafenAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will deafen the user in voice channels the user is in. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### undeafenAsync
 
-> <LuaDeclaration name="undeafenAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="undeafenAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will undeafen the user in voice channels the user is in. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### setNicknameAsync
 
-> <LuaDeclaration name="setNicknameAsync" className="Member" args={[ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="setNicknameAsync" className="Member" args={[ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will set the nickname of the user. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "nickname", type: "string" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### setRolesAsync
 
-> <LuaDeclaration name="setRolesAsync" className="Member" args={[ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="setRolesAsync" className="Member" args={[ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will set all roles that the user has in this guild. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "roles", type: "{ apiTypes.Snowflake }" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### moveVoiceChannelAsync
 
-> <LuaDeclaration name="moveVoiceChannelAsync" className="Member" args={[ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="moveVoiceChannelAsync" className="Member" args={[ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will move the user between different voice channels. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "channelId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### disconnectFromVoiceChannelAsync
 
-> <LuaDeclaration name="disconnectFromVoiceChannelAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="disconnectFromVoiceChannelAsync" className="Member" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Will disconnect the user from voice channels the user is in. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### disableAsync
 
-> <LuaDeclaration name="disableAsync" className="Member" args={[ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="disableAsync" className="Member" args={[ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, Member>" isMethod />
 
 Disables the users communication up to a specific time. Returns the updated Member.
 
-<LuaParamTable params={[ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "disabledUntil", type: "stdPolyfills.DateTime" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Member>" } ]} />
 
 ### addRoleAsync
 
-> <LuaDeclaration name="addRoleAsync" className="Member" args={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="addRoleAsync" className="Member" args={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Add a role to a guild member.
 
-<LuaParamTable params={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 ### removeRoleAsync
 
-> <LuaDeclaration name="removeRoleAsync" className="Member" args={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="removeRoleAsync" className="Member" args={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Remove a role from a guild member.
 
-<LuaParamTable params={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "roleId", type: "apiTypes.Snowflake" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 

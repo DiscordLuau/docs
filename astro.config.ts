@@ -34,7 +34,7 @@ export default defineConfig({
 						directory: "guides",
 					},
 				},
-				// Core — what most consumers interact with directly
+				// Core - what most consumers interact with directly
 				{
 					label: "Discord Luau",
 					collapsed: false,
@@ -60,7 +60,7 @@ export default defineConfig({
 					collapsed: false,
 					autogenerate: { directory: "classes/rest", collapsed: true },
 				},
-				// Secondary — feature areas
+				// Secondary - feature areas
 				{
 					label: "Voice",
 					collapsed: false,
@@ -126,6 +126,13 @@ export default defineConfig({
 					label: "STD Polyfills",
 					collapsed: false,
 					autogenerate: { directory: "classes/stdpolyfills", collapsed: true },
+				},
+				{
+					label: "Vendor",
+					collapsed: false,
+					autogenerate: {
+						directory: "vendor",
+					},
 				},
 			],
 			customCss: [

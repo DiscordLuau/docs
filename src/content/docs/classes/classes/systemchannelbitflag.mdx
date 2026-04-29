@@ -17,7 +17,7 @@ Implementation of the Discord System Channel Bitflags in Luau. This class repres
 
 https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
 
-<LuaSummary className="SystemChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "suppressJoinNotifications", isMethod: true, args: [  ] }, { name: "suppressPremiumSubscriptions", isMethod: true, args: [  ] }, { name: "suppressGuildReminderNotifications", isMethod: true, args: [  ] }, { name: "suppressJoinNotificationReplies", isMethod: true, args: [  ] }, { name: "suppressRoleSubscriptionPurchaseNotifications", isMethod: true, args: [  ] }, { name: "suppressRoleSubscriptionPurchaseNotificationReplies", isMethod: true, args: [  ] } ]} />
+<LuaSummary className="SystemChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "suppressJoinNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressPremiumSubscriptions", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressGuildReminderNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressJoinNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" } ]} />
 
 ## Properties
 
@@ -33,38 +33,50 @@ The bitfield representing the system channel flags.
 
 ### suppressJoinNotifications
 
-> <LuaDeclaration name="suppressJoinNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressJoinNotifications" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress join notifications bitflag set.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressPremiumSubscriptions
 
-> <LuaDeclaration name="suppressPremiumSubscriptions" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressPremiumSubscriptions" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress premium subscriptions bitflag set.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressGuildReminderNotifications
 
-> <LuaDeclaration name="suppressGuildReminderNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressGuildReminderNotifications" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress guild reminder notifications bitflag set.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressJoinNotificationReplies
 
-> <LuaDeclaration name="suppressJoinNotificationReplies" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressJoinNotificationReplies" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress join notification replies bitflag set.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressRoleSubscriptionPurchaseNotifications
 
-> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotifications" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotifications" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress role subscriptions purchase notifications bitflag set.
 
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### suppressRoleSubscriptionPurchaseNotificationReplies
 
-> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotificationReplies" className="SystemChannelBitflag" args={[  ]} isMethod />
+> <LuaDeclaration name="suppressRoleSubscriptionPurchaseNotificationReplies" className="SystemChannelBitflag" args={[  ]} returnType="boolean" isMethod />
 
 Returns if the system channel has the suppress role subscriptions purchase notification replies bitflag set.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 

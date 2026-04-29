@@ -17,7 +17,7 @@ Implementation of the Discord Integration class in Luau
 
 https://discord.com/developers/docs/resources/integration#integration-object
 
-<LuaSummary className="Integration" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "type", type: "apiTypes.IntegrationType" }, { name: "enabled", type: "boolean" }, { name: "syncing", type: "boolean?" }, { name: "roleId", type: "string?" }, { name: "enableEmoticons", type: "boolean?" }, { name: "expireBehavior", type: "apiTypes.IntegrationExpireBehaviour" }, { name: "expireGracePeriod", type: "number?" }, { name: "user", type: "Classes.User?" }, { name: "account", type: "Classes.Guild.IntegrationAccount" }, { name: "syncedAt", type: "stdPolyfills.DateTime?" }, { name: "subscriberCount", type: "number?" }, { name: "revoked", type: "boolean?" }, { name: "application", type: "Classes.Application?" }, { name: "scopes", type: "{ apiTypes.OAuth2Scopes }?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ] } ]} />
+<LuaSummary className="Integration" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "type", type: "apiTypes.IntegrationType" }, { name: "enabled", type: "boolean" }, { name: "syncing", type: "boolean?" }, { name: "roleId", type: "string?" }, { name: "enableEmoticons", type: "boolean?" }, { name: "expireBehavior", type: "apiTypes.IntegrationExpireBehaviour" }, { name: "expireGracePeriod", type: "number?" }, { name: "user", type: "Classes.User?" }, { name: "account", type: "Classes.Guild.IntegrationAccount" }, { name: "syncedAt", type: "stdPolyfills.DateTime?" }, { name: "subscriberCount", type: "number?" }, { name: "revoked", type: "boolean?" }, { name: "application", type: "Classes.Application?" }, { name: "scopes", type: "{ apiTypes.OAuth2Scopes }?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
 
 ## Properties
 
@@ -138,11 +138,11 @@ The scopes the application has been authorized for
 
 ### deleteAsync
 
-> <LuaDeclaration name="deleteAsync" className="Integration" args={[ { name: "reason", type: "string?" } ]} isMethod />
+> <LuaDeclaration name="deleteAsync" className="Integration" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot
 if there is one. Requires the MANAGE_GUILD permission.
 
-<LuaParamTable params={[ { name: "reason", type: "string?" } ]} />
+<LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 
