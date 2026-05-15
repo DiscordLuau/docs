@@ -67,6 +67,26 @@ export default defineConfig({
 					autogenerate: { directory: "classes/voice", collapsed: true },
 				},
 				{
+					label: "Opus",
+					collapsed: false,
+					autogenerate: { directory: "classes/opus", collapsed: true },
+				},
+				{
+					label: "Sodium",
+					collapsed: false,
+					autogenerate: { directory: "classes/sodium", collapsed: true },
+				},
+				{
+					label: "Dave",
+					collapsed: false,
+					autogenerate: { directory: "classes/dave", collapsed: true },
+				},
+				{
+					label: "Accumulator",
+					collapsed: false,
+					autogenerate: { directory: "classes/accumulator", collapsed: true },
+				},
+				{
 					label: "State",
 					collapsed: false,
 					autogenerate: { directory: "classes/state", collapsed: true },
