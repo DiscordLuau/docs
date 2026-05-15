@@ -1,0 +1,75 @@
+---
+title: Encoder
+description: DiscordLuau docs for Encoder.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Encodes raw PCM audio frames into Opus packets.
+
+The encoder state is an opaque libopus pointer that persists across calls - do not create a new
+Encoder per frame. One Encoder instance per audio stream is the correct usage.
+
+Call `destroy` when the encoder is no longer needed to free the native state.
+
+<LuaSummary className="Encoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ]} methods={[ { name: "encode", isMethod: true, args: [ { name: "pcmFrame", type: "buffer" } ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ], returnType: "Encoder" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="Encoder.handle" type="FFIPointer" />
+
+
+### sampleRate
+
+<LuaProperty name="Encoder.sampleRate" type="number" />
+
+
+### channels
+
+<LuaProperty name="Encoder.channels" type="number" />
+
+
+### application
+
+<LuaProperty name="Encoder.application" type="number" />
+
+
+
+## Methods
+
+### encode
+
+> <LuaDeclaration name="encode" className="Encoder" args={[ { name: "pcmFrame", type: "buffer" } ]} returnType="buffer" isMethod />
+
+Encodes a raw PCM frame into an Opus packet. The frame must be exactly one Opus frame duration of samples.
+
+<LuaParamTable params={[ { name: "pcmFrame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Encoder" args={[  ]} isMethod />
+
+Frees the native encoder state. No-op if already destroyed.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Encoder" args={[ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ]} returnType="Encoder" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ]} returns={[ { type: "Encoder" } ]} />
+
+
