@@ -1,0 +1,69 @@
+---
+title: Accumulator
+description: DiscordLuau docs for Accumulator.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+An accumulator is a data structure that collects data written to it in a sequential manner,
+only exposing that data once it has been completely written.
+
+It is used in the Discord Websocket to ensure that we receive an entire ZLib compressed
+message before we attempt to decompress it.
+
+<LuaSummary className="Accumulator" methods={[ { name: "write", isMethod: true, args: [ { name: "data", type: "string" } ] }, { name: "peek", isMethod: true, args: [  ], returnType: "string" }, { name: "size", isMethod: true, args: [  ], returnType: "number" }, { name: "flush", isMethod: true, args: [  ], returnType: "string" } ]} functions={[ { name: "new", args: [  ], returnType: "Accumulator" } ]} />
+
+## Methods
+
+### write
+
+> <LuaDeclaration name="write" className="Accumulator" args={[ { name: "data", type: "string" } ]} isMethod />
+
+Appends data to the accumulator.
+
+<LuaParamTable params={[ { name: "data", type: "string" } ]} />
+
+### peek
+
+> <LuaDeclaration name="peek" className="Accumulator" args={[  ]} returnType="string" isMethod />
+
+Returns the currently accumulated data without clearing it.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+### size
+
+> <LuaDeclaration name="size" className="Accumulator" args={[  ]} returnType="number" isMethod />
+
+Returns the number of bytes currently accumulated.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### flush
+
+> <LuaDeclaration name="flush" className="Accumulator" args={[  ]} returnType="string" isMethod />
+
+Returns all accumulated data and clears the accumulator.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Accumulator" args={[  ]} returnType="Accumulator" />
+
+Constructor for the Accumulator object, will return a new instance of the Accumulator object.
+
+<LuaParamTable returns={[ { type: "Accumulator" } ]} />
+
+
