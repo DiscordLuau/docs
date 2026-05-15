@@ -17,7 +17,7 @@ Implementation of the Discord DM class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
 
-<LuaSummary className="DM" properties={[ { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+<LuaSummary className="DM" properties={[ { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "deleteChannelAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ], returnType: "DM" }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -91,6 +91,27 @@ The rate limit per user for sending messages in this channel.
 
 
 ## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="DM" args={[ { name: "channelData", type: "apiTypes.ChannelObject" } ]} isMethod />
+
+Responsible for syncing data to this DM object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### deleteChannelAsync
+
+> <LuaDeclaration name="deleteChannelAsync" className="DM" args={[  ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
+
+Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS
+if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id
+removed and a Channel Update Gateway event will fire for each of them.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
 
 ### triggerTypingIndicatorAsync
 
@@ -193,6 +214,47 @@ Unpins a message from the channel.
 Starts a new thread in the channel without an associated message. Returns the thread ID.
 
 <LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DM" args={[ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} returnType="DM" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} returns={[ { type: "DM" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="DM" args={[ { name: "class", type: "any" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="DM" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="DM" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the TextBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 

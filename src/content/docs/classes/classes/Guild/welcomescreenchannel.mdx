@@ -17,7 +17,7 @@ Implementation of the Discord WelcomeScreenChannel class in Luau
 
 https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure
 
-<LuaSummary className="WelcomeScreenChannel" properties={[ { name: "channelId", type: "string" }, { name: "description", type: "string" }, { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" } ]} />
+<LuaSummary className="WelcomeScreenChannel" properties={[ { name: "channelId", type: "string" }, { name: "description", type: "string" }, { name: "emojiId", type: "string" }, { name: "emojiName", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenChannelObject" } ] } ]} functions={[ { name: "new", args: [ { name: "roleTagData", type: "apiTypes.WelcomeScreenChannelObject" } ], returnType: "WelcomeScreenChannel" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The id of the emoji that is shown alongside the channel
 
 ---
 The name of the emoji that is shown alongside the channel
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="WelcomeScreenChannel" args={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenChannelObject" } ]} isMethod />
+
+Responsible for syncing data to this welcome screen channel object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenChannelObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreenChannel" args={[ { name: "roleTagData", type: "apiTypes.WelcomeScreenChannelObject" } ]} returnType="WelcomeScreenChannel" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "roleTagData", type: "apiTypes.WelcomeScreenChannelObject" } ]} returns={[ { type: "WelcomeScreenChannel" } ]} />
 
 

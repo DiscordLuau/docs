@@ -17,7 +17,7 @@ Implementation of the Discord Option class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure
 
-<LuaSummary className="SelectMenuOption" properties={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" }, { name: "default", type: "boolean?" } ]} />
+<LuaSummary className="SelectMenuOption" properties={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" }, { name: "default", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "optionData", type: "apiTypes.SelectOptionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "optionData", type: "apiTypes.SelectOptionObject" } ], returnType: "Option" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ The emoji that appears next to the option label
 
 ---
 Whether this option is selected by default
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="SelectMenuOption" args={[ { name: "optionData", type: "apiTypes.SelectOptionObject" } ]} isMethod />
+
+Responsible for syncing data to this option object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "optionData", type: "apiTypes.SelectOptionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenuOption" args={[ { name: "optionData", type: "apiTypes.SelectOptionObject" } ]} returnType="Option" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "optionData", type: "apiTypes.SelectOptionObject" } ]} returns={[ { type: "Option" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord TextInput class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
 
-<LuaSummary className="TextInput" properties={[ { name: "type", type: "number" }, { name: "customId", type: "string" }, { name: "style", type: "apiTypes.TextInputStyle" }, { name: "label", type: "string" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "required", type: "boolean?" }, { name: "value", type: "string?" }, { name: "placeholder", type: "string?" } ]} />
+<LuaSummary className="TextInput" properties={[ { name: "type", type: "number" }, { name: "customId", type: "string" }, { name: "style", type: "apiTypes.TextInputStyle" }, { name: "label", type: "string" }, { name: "minLength", type: "number?" }, { name: "maxLength", type: "number?" }, { name: "required", type: "boolean?" }, { name: "value", type: "string?" }, { name: "placeholder", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ] } ]} functions={[ { name: "new", args: [ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ], returnType: "TextInput" } ]} />
 
 ## Properties
 
@@ -83,5 +83,28 @@ Pre-filled value for the text input field
 
 ---
 Custom placeholder text shown when the text input field is empty
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="TextInput" args={[ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ]} isMethod />
+
+Responsible for syncing data to this text input object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="TextInput" args={[ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ]} returnType="TextInput" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "textInputData", type: "apiTypes.TextInputComponentObject" } ]} returns={[ { type: "TextInput" } ]} />
 
 

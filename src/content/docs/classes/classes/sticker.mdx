@@ -17,7 +17,7 @@ Implementation of the Discord Sticker class in Luau
 
 https://discord.com/developers/docs/resources/sticker#sticker-object
 
-<LuaSummary className="Sticker" properties={[ { name: "id", type: "string" }, { name: "packId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "tags", type: "string?" }, { name: "type", type: "apiTypes.StickerType" }, { name: "formatType", type: "apiTypes.StickerFormatType" }, { name: "available", type: "boolean?" }, { name: "guildId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "sortValue", type: "number?" } ]} />
+<LuaSummary className="Sticker" properties={[ { name: "id", type: "string" }, { name: "packId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "tags", type: "string?" }, { name: "type", type: "apiTypes.StickerType" }, { name: "formatType", type: "apiTypes.StickerFormatType" }, { name: "available", type: "boolean?" }, { name: "guildId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "sortValue", type: "number?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "stickerData", type: "apiTypes.StickerObject" } ] } ]} functions={[ { name: "new", args: [ { name: "stickerData", type: "apiTypes.StickerObject" } ], returnType: "Sticker" } ]} />
 
 ## Properties
 
@@ -97,5 +97,28 @@ The user who uploaded this sticker.
 
 ---
 The sort value of this sticker within its pack.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Sticker" args={[ { name: "stickerData", type: "apiTypes.StickerObject" } ]} isMethod />
+
+Responsible for syncing data to this sticker object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "stickerData", type: "apiTypes.StickerObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Sticker" args={[ { name: "stickerData", type: "apiTypes.StickerObject" } ]} returnType="Sticker" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "stickerData", type: "apiTypes.StickerObject" } ]} returns={[ { type: "Sticker" } ]} />
 
 

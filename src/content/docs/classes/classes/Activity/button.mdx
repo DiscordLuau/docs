@@ -17,7 +17,7 @@ Implementation of the Discord ActivityButton class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-buttons
 
-<LuaSummary className="Button" properties={[ { name: "label", type: "string" }, { name: "url", type: "string" } ]} />
+<LuaSummary className="Button" properties={[ { name: "label", type: "string" }, { name: "url", type: "string" } ]} functions={[ { name: "new", args: [ { name: "label", type: "string" }, { name: "url", type: "string" } ], returnType: "ActivityButton" } ]} />
 
 ## Properties
 
@@ -34,5 +34,16 @@ The text shown on the button (1-32 characters)
 
 ---
 The url opened when clicking the button (1-512 characters)
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Button" args={[ { name: "label", type: "string" }, { name: "url", type: "string" } ]} returnType="ActivityButton" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "label", type: "string" }, { name: "url", type: "string" } ]} returns={[ { type: "ActivityButton" } ]} />
 
 

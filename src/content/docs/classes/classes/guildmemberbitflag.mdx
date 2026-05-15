@@ -17,7 +17,7 @@ Implementation of the Discord Role Bitflags in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-flags
 
-<LuaSummary className="GuildMemberBitflag" properties={[ { name: "flag", type: "number" } ]} />
+<LuaSummary className="GuildMemberBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "didRejoin", isMethod: true, args: [  ] }, { name: "completedOnboarding", isMethod: true, args: [  ] }, { name: "bypassesVerification", isMethod: true, args: [  ] }, { name: "startedOnboarding", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "GuildMemberBitflag" } ]} />
 
 ## Properties
 
@@ -25,5 +25,43 @@ https://discord.com/developers/docs/resources/guild#guild-member-object-guild-me
 
 <LuaProperty name="GuildMemberBitflag.flag" type="number" />
 
+
+
+## Methods
+
+### didRejoin
+
+> <LuaDeclaration name="didRejoin" className="GuildMemberBitflag" args={[  ]} isMethod />
+
+Member has left and rejoined the guild	
+
+### completedOnboarding
+
+> <LuaDeclaration name="completedOnboarding" className="GuildMemberBitflag" args={[  ]} isMethod />
+
+Member has completed onboarding	
+
+### bypassesVerification
+
+> <LuaDeclaration name="bypassesVerification" className="GuildMemberBitflag" args={[  ]} isMethod />
+
+Member is exempt from guild verification requirements	
+
+### startedOnboarding
+
+> <LuaDeclaration name="startedOnboarding" className="GuildMemberBitflag" args={[  ]} isMethod />
+
+Member has started onboarding	
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="GuildMemberBitflag" args={[ { name: "flag", type: "number" } ]} returnType="GuildMemberBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "GuildMemberBitflag" } ]} />
 
 

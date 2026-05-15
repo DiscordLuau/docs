@@ -17,7 +17,7 @@ Implementation of the Discord Entitlement class in Luau
 
 https://discord.com/developers/docs/monetization/entitlements#entitlement-object
 
-<LuaSummary className="Entitlement" properties={[ { name: "type", type: "apiTypes.EntitlementType" }, { name: "id", type: "apiTypes.Snowflake" }, { name: "skuId", type: "apiTypes.Snowflake" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake?" }, { name: "deleted", type: "boolean" }, { name: "startsAt", type: "stdPolyfills.DateTime?" }, { name: "endsAt", type: "stdPolyfills.DateTime?" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "consumed", type: "boolean?" } ]} />
+<LuaSummary className="Entitlement" properties={[ { name: "type", type: "apiTypes.EntitlementType" }, { name: "id", type: "apiTypes.Snowflake" }, { name: "skuId", type: "apiTypes.Snowflake" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "userId", type: "apiTypes.Snowflake?" }, { name: "deleted", type: "boolean" }, { name: "startsAt", type: "stdPolyfills.DateTime?" }, { name: "endsAt", type: "stdPolyfills.DateTime?" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "consumed", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ] } ]} functions={[ { name: "new", args: [ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ], returnType: "Entitlement" } ]} />
 
 ## Properties
 
@@ -90,5 +90,28 @@ The ID of the guild this entitlement is for. May be null for user-specific entit
 
 ---
 Whether this entitlement has been consumed. Only applicable to consumable entitlements.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Entitlement" args={[ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ]} isMethod />
+
+Responsible for syncing data to this entitlement object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Entitlement" args={[ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ]} returnType="Entitlement" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "entitlementData", type: "apiTypes.EntitlementObject" } ]} returns={[ { type: "Entitlement" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord Widget class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-widget-settings-object
 
-<LuaSummary className="Widget" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "instantInvite", type: "string?" }, { name: "channels", type: "{ Classes.Channels.Channel }" }, { name: "members", type: "{ Classes.User }" } ]} />
+<LuaSummary className="Widget" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "instantInvite", type: "string?" }, { name: "channels", type: "{ Classes.Channels.Channel }" }, { name: "members", type: "{ Classes.User }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ], returnType: "Widget" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ Array of channels that are shown in the widget
 
 ---
 Array of users that are shown in the widget
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Widget" args={[ { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ]} isMethod />
+
+Responsible for syncing data to this widget object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Widget" args={[ { name: "state", type: "state.State" }, { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ]} returnType="Widget" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "widgetData", type: "apiTypes.GuildWidgetObject" } ]} returns={[ { type: "Widget" } ]} />
 
 

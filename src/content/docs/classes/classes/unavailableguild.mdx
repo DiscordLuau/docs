@@ -17,7 +17,7 @@ Implementation of the Discord Unavailable Guild class in Luau
 
 https://discord.com/developers/docs/resources/guild#unavailable-guild-object
 
-<LuaSummary className="UnavailableGuild" properties={[ { name: "state", type: "Classes.State" }, { name: "id", type: "string" }, { name: "isUnavailable", type: "boolean" } ]} />
+<LuaSummary className="UnavailableGuild" properties={[ { name: "state", type: "Classes.State" }, { name: "id", type: "string" }, { name: "isUnavailable", type: "boolean" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "id", type: "apiTypes.Snowflake" } ], returnType: "UnavailableGuild" } ]} />
 
 ## Properties
 
@@ -41,5 +41,16 @@ The unique identifier for this guild as a Discord snowflake
 
 ---
 Indicates whether this guild is currently unavailable, typically due to an outage
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="UnavailableGuild" args={[ { name: "state", type: "state.State" }, { name: "id", type: "apiTypes.Snowflake" } ]} returnType="UnavailableGuild" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "id", type: "apiTypes.Snowflake" } ]} returns={[ { type: "UnavailableGuild" } ]} />
 
 

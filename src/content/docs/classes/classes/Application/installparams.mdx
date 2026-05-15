@@ -17,7 +17,7 @@ Implementation of the Discord InstallParams class in Luau
 
 https://discord.com/developers/docs/resources/application#install-params-object
 
-<LuaSummary className="InstallParams" properties={[ { name: "scopes", type: "{ apiTypes.OAuth2Scopes }" }, { name: "permissions", type: "Classes.Permission" } ]} />
+<LuaSummary className="InstallParams" properties={[ { name: "scopes", type: "{ apiTypes.OAuth2Scopes }" }, { name: "permissions", type: "Classes.Permission" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ] } ]} functions={[ { name: "new", args: [ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ], returnType: "InstallParams" } ]} />
 
 ## Properties
 
@@ -30,5 +30,28 @@ https://discord.com/developers/docs/resources/application#install-params-object
 
 <LuaProperty name="InstallParams.permissions" type="Classes.Permission" />
 
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="InstallParams" args={[ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ]} isMethod />
+
+Responsible for syncing data to this install params object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="InstallParams" args={[ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ]} returnType="InstallParams" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "installParamsData", type: "apiTypes.InstallParamsObject" } ]} returns={[ { type: "InstallParams" } ]} />
 
 

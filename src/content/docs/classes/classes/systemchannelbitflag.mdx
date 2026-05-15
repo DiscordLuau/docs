@@ -17,7 +17,7 @@ Implementation of the Discord System Channel Bitflags in Luau. This class repres
 
 https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
 
-<LuaSummary className="SystemChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "suppressJoinNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressPremiumSubscriptions", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressGuildReminderNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressJoinNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" } ]} />
+<LuaSummary className="SystemChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "suppressJoinNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressPremiumSubscriptions", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressGuildReminderNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressJoinNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressRoleSubscriptionPurchaseNotificationReplies", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "SystemChannelBitflag" } ]} />
 
 ## Properties
 
@@ -78,5 +78,16 @@ Returns if the system channel has the suppress role subscriptions purchase notif
 Returns if the system channel has the suppress role subscriptions purchase notification replies bitflag set.
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SystemChannelBitflag" args={[ { name: "flag", type: "number" } ]} returnType="SystemChannelBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "SystemChannelBitflag" } ]} />
 
 

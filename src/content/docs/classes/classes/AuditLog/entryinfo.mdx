@@ -17,7 +17,7 @@ Implementation of the Discord AuditLog class in Luau
 
 https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
 
-<LuaSummary className="EntryInfo" properties={[ { name: "applicationId", type: "string" }, { name: "autoModeartionRuleName", type: "string" }, { name: "autoModerationRuleTriggerType", type: "string" }, { name: "channelId", type: "string" }, { name: "count", type: "string" }, { name: "deleteMemberDays", type: "string" }, { name: "id", type: "string" }, { name: "membersRemoved", type: "string" }, { name: "messageId", type: "string" }, { name: "roleName", type: "string" }, { name: "type", type: "string" }, { name: "integrationType", type: "string" } ]} />
+<LuaSummary className="EntryInfo" properties={[ { name: "applicationId", type: "string" }, { name: "autoModeartionRuleName", type: "string" }, { name: "autoModerationRuleTriggerType", type: "string" }, { name: "channelId", type: "string" }, { name: "count", type: "string" }, { name: "deleteMemberDays", type: "string" }, { name: "id", type: "string" }, { name: "membersRemoved", type: "string" }, { name: "messageId", type: "string" }, { name: "roleName", type: "string" }, { name: "type", type: "string" }, { name: "integrationType", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ] } ]} functions={[ { name: "new", args: [ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ], returnType: "AuditLogEntryInfo" } ]} />
 
 ## Properties
 
@@ -104,5 +104,28 @@ The type of audit log entry info
 
 ---
 The type of integration that was affected by this audit log entry
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="EntryInfo" args={[ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ]} isMethod />
+
+Responsible for syncing data to this audit log entry info object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="EntryInfo" args={[ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ]} returnType="AuditLogEntryInfo" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "auditLogInfoData", type: "apiTypes.OptionalAuditEntryInfoObject" } ]} returns={[ { type: "AuditLogEntryInfo" } ]} />
 
 

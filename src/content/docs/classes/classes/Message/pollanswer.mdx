@@ -17,7 +17,7 @@ Implementation of the Discord Answer class in Luau
 
 https://discord.com/developers/docs/resources/poll#poll-answer-object-poll-answer-object-structure
 
-<LuaSummary className="PollAnswer" properties={[ { name: "answerId", type: "number" }, { name: "pollMedia", type: "Classes.Message.PollMediaObject" } ]} />
+<LuaSummary className="PollAnswer" properties={[ { name: "answerId", type: "number" }, { name: "pollMedia", type: "Classes.Message.PollMediaObject" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "answerData", type: "apiTypes.PollAnswerObject" } ] } ]} functions={[ { name: "new", args: [ { name: "answerData", type: "apiTypes.PollAnswerObject" } ], returnType: "Answer" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The unique identifier for this poll answer option
 
 ---
 The media content representing this answer option
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="PollAnswer" args={[ { name: "answerData", type: "apiTypes.PollAnswerObject" } ]} isMethod />
+
+Responsible for syncing data to this answer object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "answerData", type: "apiTypes.PollAnswerObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PollAnswer" args={[ { name: "answerData", type: "apiTypes.PollAnswerObject" } ]} returnType="Answer" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "answerData", type: "apiTypes.PollAnswerObject" } ]} returns={[ { type: "Answer" } ]} />
 
 

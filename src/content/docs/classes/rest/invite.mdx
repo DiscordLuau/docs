@@ -17,17 +17,17 @@ HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/invite
 
-<LuaSummary className="Invite" functions={[ { name: "getInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetInviteResponse>" }, { name: "deleteInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteInviteResponse>" } ]} />
+<LuaSummary className="Invite" functions={[ { name: "getInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: boolean?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ], returnType: "future.FutureLike<string, apiTypes.GetInviteResponse>" }, { name: "deleteInviteAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, apiTypes.DeleteInviteResponse>" }, { name: "getInviteTargetUsersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.GetInviteTargetUsersResponse>" }, { name: "updateInviteTargetUsersAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "csvContent", type: "string" } ], returnType: "future.FutureLike<string, apiTypes.UpdateInviteTargetUsersResponse>" }, { name: "getInviteTargetUsersJobStatusAsync", args: [ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ], returnType: "future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" } ]} />
 
 ## Functions
 
 ### getInviteAsync
 
-> <LuaDeclaration name="getInviteAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetInviteResponse>" />
+> <LuaDeclaration name="getInviteAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: boolean?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returnType="future.FutureLike<string, apiTypes.GetInviteResponse>" />
 
 https://discord.com/developers/docs/resources/invite#get-invite
 
-<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: number?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetInviteResponse>" } ]} />
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "urlParams", type: "{ withCounts: boolean?, withExpiration: boolean?, guildScheduledEventId: apiTypes.Snowflake?, }" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetInviteResponse>" } ]} />
 
 ### deleteInviteAsync
 
@@ -36,5 +36,29 @@ https://discord.com/developers/docs/resources/invite#get-invite
 https://discord.com/developers/docs/resources/invite#delete-invite
 
 <LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.DeleteInviteResponse>" } ]} />
+
+### getInviteTargetUsersAsync
+
+> <LuaDeclaration name="getInviteTargetUsersAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.GetInviteTargetUsersResponse>" />
+
+https://docs.discord.com/developers/resources/invite#get-target-users
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetInviteTargetUsersResponse>" } ]} />
+
+### updateInviteTargetUsersAsync
+
+> <LuaDeclaration name="updateInviteTargetUsersAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "csvContent", type: "string" } ]} returnType="future.FutureLike<string, apiTypes.UpdateInviteTargetUsersResponse>" />
+
+https://docs.discord.com/developers/resources/invite#update-target-users
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" }, { name: "csvContent", type: "string" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.UpdateInviteTargetUsersResponse>" } ]} />
+
+### getInviteTargetUsersJobStatusAsync
+
+> <LuaDeclaration name="getInviteTargetUsersJobStatusAsync" className="Invite" args={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ]} returnType="future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" />
+
+https://docs.discord.com/developers/resources/invite#get-target-users-job-status
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "inviteCode", type: "string" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" } ]} />
 
 

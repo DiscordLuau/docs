@@ -15,13 +15,13 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
-<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "thread" }, { name: "Utilities.createGuild", args: [  ], returnType: "string" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "thread" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
 
 ## Functions
 
 ### Utilities.tableReflect
 
-> <LuaDeclaration name="Utilities.tableReflect" className="Utilities" args={[  ]} returnType="thread" />
+> <LuaDeclaration name="Utilities.tableReflect" className="Utilities" args={[  ]} returnType="table" />
 
 Will swap the K, V's, as well as keep the original K, Vs, for example:
 
@@ -44,26 +44,38 @@ a = {
 ]]
 ```
 
-<LuaParamTable returns={[ { type: "thread" } ]} />
+<LuaParamTable returns={[ { type: "table" } ]} />
 
-### Utilities.createGuild
+### Utilities.createGuid
 
-> <LuaDeclaration name="Utilities.createGuild" className="Utilities" args={[  ]} returnType="string" />
+> <LuaDeclaration name="Utilities.createGuid" className="Utilities" args={[  ]} returnType="string" />
 
 Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
 
 <LuaParamTable returns={[ { type: "string" } ]} />
 
+### Utilities.validateCommandName
+
+> <LuaDeclaration name="Utilities.validateCommandName" className="Utilities" args={[  ]} returnType="boolean" />
+
+Validates a string as a Discord application command name.
+Discord requires command names to be lowercase and only contain letters, numbers,
+hyphens, underscores, or apostrophes (1–32 characters).
+
+Will return either true/false, will not error.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
 ### Utilities.validateKebabCase
 
-> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="thread" />
+> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
 
 Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
 text.
 
 Will return either true/false, will not error.
 
-<LuaParamTable returns={[ { type: "thread" } ]} />
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 ### Utilities.coroutineRun
 

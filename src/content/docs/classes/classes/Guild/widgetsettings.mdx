@@ -17,7 +17,7 @@ Implementation of the Discord WidgetSettings class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-widget-settings-object
 
-<LuaSummary className="WidgetSettings" properties={[ { name: "enabled", type: "boolean?" }, { name: "channelId", type: "string?" } ]} />
+<LuaSummary className="WidgetSettings" properties={[ { name: "enabled", type: "boolean?" }, { name: "channelId", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ] } ]} functions={[ { name: "new", args: [ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ], returnType: "WidgetSettings" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ Whether the widget is enabled for this guild
 
 ---
 The channel id that the widget will generate an invite to, or null if set to no invite
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="WidgetSettings" args={[ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ]} isMethod />
+
+Responsible for syncing data to this widget settings object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WidgetSettings" args={[ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ]} returnType="WidgetSettings" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "widgetSettingsData", type: "apiTypes.GuildWidgetSettingsObject" } ]} returns={[ { type: "WidgetSettings" } ]} />
 
 

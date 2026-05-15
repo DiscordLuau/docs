@@ -17,7 +17,7 @@ Implementation of the Discord Invite class in Luau
 
 https://discord.com/developers/docs/resources/invite#invite-object
 
-<LuaSummary className="Invite" properties={[ { name: "channel", type: "Classes.Channels.Channel" }, { name: "type", type: "string" }, { name: "code", type: "string" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "inviter", type: "Classes.User?" }, { name: "targetType", type: "string?" }, { name: "targetUser", type: "Classes.User?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "expiresAt", type: "stdPolyfills.DateTime?" }, { name: "scheduledEvent", type: "Classes.Guild.ScheduledEvent?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
+<LuaSummary className="Invite" properties={[ { name: "channel", type: "Classes.Channels.Channel" }, { name: "type", type: "string" }, { name: "code", type: "string" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "inviter", type: "Classes.User?" }, { name: "targetType", type: "string?" }, { name: "targetUser", type: "Classes.User?" }, { name: "approximatePresenceCount", type: "number?" }, { name: "approximateMemberCount", type: "number?" }, { name: "expiresAt", type: "stdPolyfills.DateTime?" }, { name: "scheduledEvent", type: "Classes.Guild.ScheduledEvent?" } ]} methods={[ { name: "getTargetUsersAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { user.User }>" }, { name: "updateTargetUsersAsync", isMethod: true, args: [ { name: "csvContent", type: "string" } ], returnType: "future.FutureLike<string, Invite>" }, { name: "getTargetUsersJobStatusAsync", isMethod: true, args: [  ], returnType: "future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" }, { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sync", isMethod: true, args: [ { name: "inviteData", type: "apiTypes.InviteObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "inviteData", type: "apiTypes.InviteObject" } ], returnType: "Invite" } ]} />
 
 ## Properties
 
@@ -101,6 +101,31 @@ The scheduled event associated with this invite
 
 ## Methods
 
+### getTargetUsersAsync
+
+> <LuaDeclaration name="getTargetUsersAsync" className="Invite" args={[  ]} returnType="future.FutureLike<string, { user.User }>" isMethod />
+
+Returns the list of users targeted by this invite's gate.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { user.User }>" } ]} />
+
+### updateTargetUsersAsync
+
+> <LuaDeclaration name="updateTargetUsersAsync" className="Invite" args={[ { name: "csvContent", type: "string" } ]} returnType="future.FutureLike<string, Invite>" isMethod />
+
+Replaces the invite gate's target user list with the provided CSV content.
+The CSV should contain one user ID per line with a `user_id` header.
+
+<LuaParamTable params={[ { name: "csvContent", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Invite>" } ]} />
+
+### getTargetUsersJobStatusAsync
+
+> <LuaDeclaration name="getTargetUsersJobStatusAsync" className="Invite" args={[  ]} returnType="future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" isMethod />
+
+Returns the processing status of the most recent target users upload job.
+
+<LuaParamTable returns={[ { type: "future.FutureLike< string, apiTypes.GetInviteTargetUsersJobStatusResponse >" } ]} />
+
 ### deleteAsync
 
 > <LuaDeclaration name="deleteAsync" className="Invite" args={[ { name: "reason", type: "string?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
@@ -109,5 +134,25 @@ Delete the attached integration object for the guild. Deletes any associated web
 if there is one. Requires the MANAGE_GUILD permission.
 
 <LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Invite" args={[ { name: "inviteData", type: "apiTypes.InviteObject" } ]} isMethod />
+
+Responsible for syncing data to this invite object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "inviteData", type: "apiTypes.InviteObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Invite" args={[ { name: "state", type: "state.State" }, { name: "inviteData", type: "apiTypes.InviteObject" } ]} returnType="Invite" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "inviteData", type: "apiTypes.InviteObject" } ]} returns={[ { type: "Invite" } ]} />
 
 

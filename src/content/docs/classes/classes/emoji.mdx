@@ -17,7 +17,7 @@ Implementation of the Discord Emoji class in Luau
 
 https://discord.com/developers/docs/resources/emoji#emoji-resource
 
-<LuaSummary className="Emoji" properties={[ { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "id", type: "apiTypes.Snowflake?" }, { name: "name", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "requireColons", type: "boolean?" }, { name: "managed", type: "boolean?" }, { name: "animated", type: "boolean?" }, { name: "available", type: "boolean?" } ]} />
+<LuaSummary className="Emoji" properties={[ { name: "roles", type: "{ apiTypes.Snowflake }?" }, { name: "id", type: "apiTypes.Snowflake?" }, { name: "name", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "requireColons", type: "boolean?" }, { name: "managed", type: "boolean?" }, { name: "animated", type: "boolean?" }, { name: "available", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "emojiData", type: "apiTypes.EmojiObject" } ] } ]} functions={[ { name: "new", args: [ { name: "emojiData", type: "apiTypes.EmojiObject" } ], returnType: "Emoji" } ]} />
 
 ## Properties
 
@@ -76,5 +76,28 @@ Whether this emoji is animated.
 
 ---
 Whether this emoji is available for use.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Emoji" args={[ { name: "emojiData", type: "apiTypes.EmojiObject" } ]} isMethod />
+
+Responsible for syncing data to this emoji object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "emojiData", type: "apiTypes.EmojiObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Emoji" args={[ { name: "emojiData", type: "apiTypes.EmojiObject" } ]} returnType="Emoji" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "emojiData", type: "apiTypes.EmojiObject" } ]} returns={[ { type: "Emoji" } ]} />
 
 

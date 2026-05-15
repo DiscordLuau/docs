@@ -17,7 +17,7 @@ Implementation of the Discord ChannelMention class in Luau
 
 https://discord.com/developers/docs/resources/message#channel-mention-object
 
-<LuaSummary className="ChannelMention" properties={[ { name: "type", type: "Classes.ChannelType" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "guildId", type: "string" } ]} />
+<LuaSummary className="ChannelMention" properties={[ { name: "type", type: "Classes.ChannelType" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "guildId", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ], returnType: "ChannelMention" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The name of the mentioned channel. This is the channel's display name without th
 
 ---
 The ID of the guild (server) that the mentioned channel belongs to. This is a Discord snowflake ID.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ChannelMention" args={[ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ]} isMethod />
+
+Responsible for syncing data to this channel mention object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ChannelMention" args={[ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ]} returnType="ChannelMention" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "mentionData", type: "apiTypes.ChannelMentionObject" } ]} returns={[ { type: "ChannelMention" } ]} />
 
 

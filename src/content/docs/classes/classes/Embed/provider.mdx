@@ -17,7 +17,7 @@ Implementation of the Discord Provider class in Luau
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-provider-structure
 
-<LuaSummary className="Provider" properties={[ { name: "name", type: "string?" }, { name: "url", type: "string?" } ]} />
+<LuaSummary className="Provider" properties={[ { name: "name", type: "string?" }, { name: "url", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ] } ]} functions={[ { name: "new", args: [ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ], returnType: "Provider" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The name of the provider
 
 ---
 The URL of the provider
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Provider" args={[ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ]} isMethod />
+
+Responsible for syncing data to this provider object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Provider" args={[ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ]} returnType="Provider" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "providerData", type: "apiTypes.EmbedProviderObject" } ]} returns={[ { type: "Provider" } ]} />
 
 

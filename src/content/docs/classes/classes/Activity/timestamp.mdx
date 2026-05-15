@@ -17,7 +17,7 @@ Implementation of the Discord ActivityTimestamps class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-timestamps
 
-<LuaSummary className="Timestamp" properties={[ { name: "startTime", type: "std_polyfills.DateTime" }, { name: "endTime", type: "std_polyfills.DateTime" } ]} />
+<LuaSummary className="Timestamp" properties={[ { name: "startTime", type: "std_polyfills.DateTime" }, { name: "endTime", type: "std_polyfills.DateTime" } ]} functions={[ { name: "new", args: [ { name: "startTime", type: "number" }, { name: "endTime", type: "number" } ], returnType: "ActivityTimestamp" } ]} />
 
 ## Properties
 
@@ -34,5 +34,16 @@ The start time of the activity. This represents when the activity began.
 
 ---
 The end time of the activity. This represents when the activity will end.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Timestamp" args={[ { name: "startTime", type: "number" }, { name: "endTime", type: "number" } ]} returnType="ActivityTimestamp" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "startTime", type: "number" }, { name: "endTime", type: "number" } ]} returns={[ { type: "ActivityTimestamp" } ]} />
 
 

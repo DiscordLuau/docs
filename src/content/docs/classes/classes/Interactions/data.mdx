@@ -17,7 +17,7 @@ Implementation of the Discord Data class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data
 
-<LuaSummary className="Data" properties={[ { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "options", type: "{ Classes.Interactions.DataOption }" }, { name: "resolved", type: "Classes.Resolved?" }, { name: "guildId", type: "string?" }, { name: "targetId", type: "string?" }, { name: "customId", type: "string?" }, { name: "componentType", type: "string?" }, { name: "components", type: "{ Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow }?" } ]} />
+<LuaSummary className="Data" properties={[ { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "options", type: "{ Classes.Interactions.DataOption }" }, { name: "resolved", type: "Classes.Resolved?" }, { name: "guildId", type: "string?" }, { name: "targetId", type: "string?" }, { name: "customId", type: "string?" }, { name: "componentType", type: "string?" }, { name: "components", type: "{ Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu | Classes.Message.ActionRow }?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "dataObject", type: "apiTypes.InteractionDataObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "dataObject", type: "apiTypes.InteractionDataObject" } ], returnType: "Data" } ]} />
 
 ## Properties
 
@@ -90,5 +90,28 @@ The type of component this interaction represents, if it's a component interacti
 
 ---
 An array of component objects that were included in this interaction.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Data" args={[ { name: "dataObject", type: "apiTypes.InteractionDataObject" } ]} isMethod />
+
+Responsible for syncing data to this interaction data object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "dataObject", type: "apiTypes.InteractionDataObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Data" args={[ { name: "state", type: "state.State" }, { name: "dataObject", type: "apiTypes.InteractionDataObject" } ]} returnType="Data" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "dataObject", type: "apiTypes.InteractionDataObject" } ]} returns={[ { type: "Data" } ]} />
 
 

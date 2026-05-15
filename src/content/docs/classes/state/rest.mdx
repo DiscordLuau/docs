@@ -17,7 +17,7 @@ REST represents an interface to manipulate the Discord REST API.
 When making any sort of REST request, this class is used so that we accurately
 track the rate limits and add the token to each request.
 
-<LuaSummary className="Rest" properties={[ { name: "token", type: "Secret" }, { name: "logger", type: "Logger" }, { name: "routeRatelimits", type: "{ [string]: { remaining: number, limit: number, resetAfter: number, cooloff: boolean? } }" }, { name: "routeBuckets", type: "{ [string]: string? }" }, { name: "globalRequestCount", type: "number" }, { name: "globalRatelimit", type: "number" }, { name: "isBlocked", type: "boolean" }, { name: "resourcesBlocked", type: "{ [string]: boolean? }" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "yieldUntil", isMethod: true, args: [ { name: "callback", type: "() -> boolean" }, { name: "message", type: "string" } ] }, { name: "implementBucketRatelimitsFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "implementGlobalRatelimitsFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "implementErrorHandlerFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "newRequest", isMethod: true, args: [  ], returnType: "rest.Request" } ]} functions={[ { name: "implementAttachmentHandlerFor", args: [ { name: "_", type: "REST" }, { name: "request", type: "rest.Request" } ] }, { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, version: number, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ], returnType: "REST" } ]} />
+<LuaSummary className="Rest" properties={[ { name: "token", type: "Secret" }, { name: "logger", type: "Logger" }, { name: "routeRatelimits", type: "{ [string]: { remaining: number, limit: number, resetAfter: number } }" }, { name: "routeBuckets", type: "{ [string]: string? }" }, { name: "globalRequestCount", type: "number" }, { name: "globalRatelimit", type: "number" }, { name: "isBlocked", type: "boolean" }, { name: "resourcesBlocked", type: "{ [string]: boolean? }" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "yieldUntil", isMethod: true, args: [ { name: "callback", type: "() -> boolean" }, { name: "message", type: "string" } ] }, { name: "implementBucketRatelimitsFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "implementGlobalRatelimitsFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "implementErrorHandlerFor", isMethod: true, args: [ { name: "request", type: "rest.Request" } ] }, { name: "newRequest", isMethod: true, args: [  ], returnType: "rest.Request" } ]} functions={[ { name: "implementAttachmentHandlerFor", args: [ { name: "_", type: "REST" }, { name: "request", type: "rest.Request" } ] }, { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, version: number, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ], returnType: "REST" } ]} />
 
 ## Properties
 
@@ -33,7 +33,7 @@ track the rate limits and add the token to each request.
 
 ### routeRatelimits
 
-<LuaProperty name="Rest.routeRatelimits" type="{ [string]: { remaining: number, limit: number, resetAfter: number, cooloff: boolean? } }" />
+<LuaProperty name="Rest.routeRatelimits" type="{ [string]: { remaining: number, limit: number, resetAfter: number } }" />
 
 
 ### routeBuckets

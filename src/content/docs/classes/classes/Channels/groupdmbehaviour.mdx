@@ -21,7 +21,7 @@ Group DM behaviours include:
 - Modifying group DM properties (name, icon)
 - Handling group DM specific data (recipients, icon, owner, etc.)
 
-<LuaSummary className="GroupDMBehaviour" properties={[ { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" } ]} methods={[ { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} />
+<LuaSummary className="GroupDMBehaviour" properties={[ { name: "recipients", type: "{ Classes.User }" }, { name: "icon", type: "string?" }, { name: "ownerId", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "managed", type: "boolean" } ]} methods={[ { name: "addRecipient", isMethod: true, args: [ { name: "accessToken", type: "string" }, { name: "userId", type: "string" }, { name: "nickname", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "removeRecipient", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} functions={[ { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -94,5 +94,26 @@ Sets the name of the Group DM channel.
 Sets the icon of the Group DM channel using base64 encoded image data.
 
 <LuaParamTable params={[ { name: "iconData", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
+
+
+## Functions
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="GroupDMBehaviour" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="GroupDMBehaviour" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the GroupDMBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 

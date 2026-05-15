@@ -21,7 +21,7 @@ by default, this class will add the following headers:
 - Authorization: "Bot &lt;token&gt;"
 - Content-Type: "application/json"
 
-<LuaSummary className="Request" methods={[ { name: "setBody", isMethod: true, args: [ { name: "body", type: "string" } ] }, { name: "setFlag", isMethod: true, args: [ { name: "name", type: "string" }, { name: "value", type: "boolean" } ] }, { name: "addUrlParam", isMethod: true, args: [ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ] }, { name: "addHeader", isMethod: true, args: [ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ] }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "setMethod", isMethod: true, args: [ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ] }, { name: "assertToken", isMethod: true, args: [  ] }, { name: "addHook", isMethod: true, args: [ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ] }, { name: "executeAsync", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ], returnType: "Request" } ]} />
+<LuaSummary className="Request" methods={[ { name: "setBody", isMethod: true, args: [ { name: "body", type: "string" } ] }, { name: "setFlag", isMethod: true, args: [ { name: "name", type: "string" }, { name: "value", type: "boolean" } ] }, { name: "addUrlParam", isMethod: true, args: [ { name: "paramName", type: "string" }, { name: "paramValue", type: "string | { string }" } ] }, { name: "addHeader", isMethod: true, args: [ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ] }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "setMethod", isMethod: true, args: [ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ] }, { name: "assertToken", isMethod: true, args: [  ] }, { name: "addHook", isMethod: true, args: [ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> (boolean, any?)" } ] }, { name: "executeAsync", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ], returnType: "Request" } ]} />
 
 ## Methods
 
@@ -44,11 +44,13 @@ Allows us to define flags for this request, used to flag requests that could pot
 
 ### addUrlParam
 
-> <LuaDeclaration name="addUrlParam" className="Request" args={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ]} isMethod />
+> <LuaDeclaration name="addUrlParam" className="Request" args={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string | { string }" } ]} isMethod />
 
-Responsible for adding to the Url Params of this request. Both the param key and values are strings.
+Responsible for adding to the Url Params of this request. Values may be a string or an array of strings;
+arrays are serialized as repeated query parameters (e.g. `key=a&key=b`) with full URL encoding applied
+by the underlying runtime's net.request implementation.
 
-<LuaParamTable params={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string" } ]} />
+<LuaParamTable params={[ { name: "paramName", type: "string" }, { name: "paramValue", type: "string | { string }" } ]} />
 
 ### addHeader
 
@@ -91,14 +93,14 @@ some do not, so the relevant calls should assert that the token is set.
 
 ### addHook
 
-> <LuaDeclaration name="addHook" className="Request" args={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ]} isMethod />
+> <LuaDeclaration name="addHook" className="Request" args={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> (boolean, any?)" } ]} isMethod />
 
 Enables developers to add a hook to this request. Hooks are functions that are called before or after the request is
 executed. Hooks are useful for things like logging, or modifying the request before it is executed.
 
 The hook callback should return a boolean, and if it returns false, the request will not be executed.
 
-<LuaParamTable params={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> any" } ]} />
+<LuaParamTable params={[ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> (boolean, any?)" } ]} />
 
 ### executeAsync
 

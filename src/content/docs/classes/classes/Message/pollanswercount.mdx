@@ -17,7 +17,7 @@ Implementation of the Discord AnswerCount class in Luau
 
 packages/classes/src/message/poll/results.luau
 
-<LuaSummary className="PollAnswerCount" properties={[ { name: "id", type: "number" }, { name: "count", type: "number" }, { name: "meVoted", type: "boolean" } ]} />
+<LuaSummary className="PollAnswerCount" properties={[ { name: "id", type: "number" }, { name: "count", type: "number" }, { name: "meVoted", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ] } ]} functions={[ { name: "new", args: [ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ], returnType: "AnswerCount" } ]} />
 
 ## Properties
 
@@ -41,5 +41,28 @@ The number of votes for this answer
 
 ---
 Whether the current user has voted for this answer
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="PollAnswerCount" args={[ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ]} isMethod />
+
+Responsible for syncing data to this answer count object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PollAnswerCount" args={[ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ]} returnType="AnswerCount" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "answerCountData", type: "apiTypes.PollAnswerCountObject" } ]} returns={[ { type: "AnswerCount" } ]} />
 
 

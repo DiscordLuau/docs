@@ -17,7 +17,7 @@ Implementation of the Discord Role class in Luau
 
 https://discord.com/developers/docs/topics/permissions#role-object
 
-<LuaSummary className="Role" properties={[ { name: "flags", type: "Classes.RoleBitflag" }, { name: "tags", type: "{ Classes.Guild.RoleTag }" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "color", type: "number" }, { name: "hoist", type: "boolean" }, { name: "icon", type: "string" }, { name: "unicodeEmoji", type: "string" }, { name: "position", type: "number" }, { name: "permissions", type: "Classes.Permission" }, { name: "managed", type: "boolean" }, { name: "mentionable", type: "boolean" }, { name: "state", type: "State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "modifyPositionAsync", isMethod: true, args: [ { name: "position", type: "number" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, { Role }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "name", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "addPermissionAsync", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "removePermissionAsync", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setColorAsync", isMethod: true, args: [ { name: "color", type: "number" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setHoistedAsync", isMethod: true, args: [ { name: "hoisted", type: "boolean" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setEmojiAsync", isMethod: true, args: [ { name: "emoji", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setMentionableAsync", isMethod: true, args: [ { name: "mentionable", type: "boolean" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" } ]} />
+<LuaSummary className="Role" properties={[ { name: "flags", type: "Classes.RoleBitflag" }, { name: "tags", type: "{ Classes.Guild.RoleTag }" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "color", type: "number" }, { name: "hoist", type: "boolean" }, { name: "icon", type: "string" }, { name: "unicodeEmoji", type: "string" }, { name: "position", type: "number" }, { name: "permissions", type: "Classes.Permission" }, { name: "managed", type: "boolean" }, { name: "mentionable", type: "boolean" }, { name: "state", type: "State" }, { name: "guildId", type: "string" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.roleJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "modifyPositionAsync", isMethod: true, args: [ { name: "position", type: "number" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, { Role }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "name", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "addPermissionAsync", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "removePermissionAsync", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setColorAsync", isMethod: true, args: [ { name: "color", type: "number" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setHoistedAsync", isMethod: true, args: [ { name: "hoisted", type: "boolean" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setIconAsync", isMethod: true, args: [ { name: "iconData", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setEmojiAsync", isMethod: true, args: [ { name: "emoji", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "setMentionableAsync", isMethod: true, args: [ { name: "mentionable", type: "boolean" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Role>" }, { name: "sync", isMethod: true, args: [ { name: "roleData", type: "apiTypes.GuildRoleObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleData", type: "apiTypes.GuildRoleObject" } ], returnType: "Role" } ]} />
 
 ## Properties
 
@@ -209,5 +209,24 @@ Sets the unicode emoji for the role.
 Sets the role to be mentionable through the @ mention.
 
 <LuaParamTable params={[ { name: "mentionable", type: "boolean" }, { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, Role>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Role" args={[ { name: "roleData", type: "apiTypes.GuildRoleObject" } ]} isMethod />
+
+Synchronizes the role object with the data from the API.
+
+<LuaParamTable params={[ { name: "roleData", type: "apiTypes.GuildRoleObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Role" args={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleData", type: "apiTypes.GuildRoleObject" } ]} returnType="Role" />
+
+Creates a new Role instance with the specified role data.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "roleData", type: "apiTypes.GuildRoleObject" } ]} returns={[ { type: "Role" } ]} />
 
 

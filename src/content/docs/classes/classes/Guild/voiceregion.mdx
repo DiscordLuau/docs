@@ -17,7 +17,7 @@ Implementation of the Discord VoiceRegion class in Luau
 
 https://discord.com/developers/docs/resources/voice#voice-region-object
 
-<LuaSummary className="VoiceRegion" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "optimal", type: "boolean" }, { name: "deprecated", type: "boolean" }, { name: "custom", type: "boolean" } ]} />
+<LuaSummary className="VoiceRegion" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "optimal", type: "boolean" }, { name: "deprecated", type: "boolean" }, { name: "custom", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ], returnType: "VoiceRegion" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ Whether this is a deprecated voice region
 
 ---
 Whether this is a custom voice region (used for events/etc)
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="VoiceRegion" args={[ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ]} isMethod />
+
+Responsible for syncing data to this voice region object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="VoiceRegion" args={[ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ]} returnType="VoiceRegion" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "voiceRegionData", type: "apiTypes.VoiceRegionObject" } ]} returns={[ { type: "VoiceRegion" } ]} />
 
 

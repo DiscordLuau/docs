@@ -17,7 +17,7 @@ HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/application-role-connection-metadata
 
-<LuaSummary className="ApplicationRoleConnectionMetadata" functions={[ { name: "getApplicationRoleConnectionMetadataRecordsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetApplicationRoleConnectionMetadataRecordsResponse >" }, { name: "updateApplicationRoleConnectionMetadataRecordsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" } ]} />
+<LuaSummary className="ApplicationRoleConnectionMetadata" functions={[ { name: "getApplicationRoleConnectionMetadataRecordsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike< string, apiTypes.GetApplicationRoleConnectionMetadataRecordsResponse >" }, { name: "updateApplicationRoleConnectionMetadataRecordsAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateApplicationRoleConnectionMetadataRecordsRequest" } ], returnType: "future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" } ]} />
 
 ## Functions
 
@@ -31,10 +31,10 @@ https://discord.com/developers/docs/resources/application-role-connection-metada
 
 ### updateApplicationRoleConnectionMetadataRecordsAsync
 
-> <LuaDeclaration name="updateApplicationRoleConnectionMetadataRecordsAsync" className="ApplicationRoleConnectionMetadata" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" />
+> <LuaDeclaration name="updateApplicationRoleConnectionMetadataRecordsAsync" className="ApplicationRoleConnectionMetadata" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateApplicationRoleConnectionMetadataRecordsRequest" } ]} returnType="future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" />
 
 https://discord.com/developers/docs/resources/application-role-connection-metadata#update-application-role-connection-metadata-records
 
-<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" } ]} />
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.UpdateApplicationRoleConnectionMetadataRecordsRequest" } ]} returns={[ { type: "future.FutureLike< string, apiTypes.UpdateApplicationRoleConnectionMetadataRecordsResponse >" } ]} />
 
 

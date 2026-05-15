@@ -17,7 +17,7 @@ Implementation of the Discord Guild Preview class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-preview-object
 
-<LuaSummary className="Preview" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "splash", type: "string?" }, { name: "discoverySplash", type: "string?" }, { name: "emojis", type: "{Classes.Emoji}" }, { name: "features", type: "{api_types.GuildFeature}" }, { name: "approximateMemberCount", type: "number" }, { name: "approximatePresenceCount", type: "number" }, { name: "description", type: "string?" }, { name: "stickers", type: "{Classes.Sticker}" } ]} />
+<LuaSummary className="Preview" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "splash", type: "string?" }, { name: "discoverySplash", type: "string?" }, { name: "emojis", type: "{Classes.Emoji}" }, { name: "features", type: "{api_types.GuildFeature}" }, { name: "approximateMemberCount", type: "number" }, { name: "approximatePresenceCount", type: "number" }, { name: "description", type: "string?" }, { name: "stickers", type: "{Classes.Sticker}" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ] } ]} functions={[ { name: "new", args: [ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ], returnType: "Preview" } ]} />
 
 ## Properties
 
@@ -97,5 +97,28 @@ The description of the guild
 
 ---
 Array of custom sticker objects for this guild
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Preview" args={[ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ]} isMethod />
+
+Responsible for syncing data to this guild preview object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Preview" args={[ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ]} returnType="Preview" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "previewData", type: "apiTypes.GuildPreviewObject" } ]} returns={[ { type: "Preview" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord TriggerMetadata class in Luau
 
 https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata
 
-<LuaSummary className="TriggerMetadata" properties={[ { name: "keywordFilter", type: "{ string }" }, { name: "regexPatterns", type: "{ string }" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" }, { name: "allowList", type: "{ string }" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} />
+<LuaSummary className="TriggerMetadata" properties={[ { name: "keywordFilter", type: "{ string }" }, { name: "regexPatterns", type: "{ string }" }, { name: "presets", type: "{ apiTypes.KeywordPresetType }" }, { name: "allowList", type: "{ string }" }, { name: "mentionRaidProtectionEnabled", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ] } ]} functions={[ { name: "new", args: [ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ], returnType: "TriggerMetadata" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ Substrings that should not trigger the rule. Each string can be up to 60 charact
 
 ---
 Whether to automatically detect mention raids and apply the rule action. Only available for mention spam trigger type.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="TriggerMetadata" args={[ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ]} isMethod />
+
+Responsible for syncing data to this trigger metadata object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="TriggerMetadata" args={[ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ]} returnType="TriggerMetadata" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "triggerMetadataData", type: "apiTypes.AutomoderationRuleTriggerMetadataObject" } ]} returns={[ { type: "TriggerMetadata" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord SelectMenu class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure
 
-<LuaSummary className="SelectMenu" properties={[ { name: "type", type: "number" }, { name: "customId", type: "string" }, { name: "options", type: "{Classes.Option}?" }, { name: "apiTypes", type: "{api_types.ChannelType}?" }, { name: "placeholder", type: "string?" }, { name: "defaultValues", type: "{Classes.Message.SelectMenuDefaultValue}?" }, { name: "minValues", type: "number?" }, { name: "maxValues", type: "number?" }, { name: "disabled", type: "boolean?" } ]} />
+<LuaSummary className="SelectMenu" properties={[ { name: "type", type: "number" }, { name: "customId", type: "string" }, { name: "options", type: "{Classes.Option}?" }, { name: "apiTypes", type: "{api_types.ChannelType}?" }, { name: "placeholder", type: "string?" }, { name: "defaultValues", type: "{Classes.Message.SelectMenuDefaultValue}?" }, { name: "minValues", type: "number?" }, { name: "maxValues", type: "number?" }, { name: "disabled", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ] } ]} functions={[ { name: "new", args: [ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ], returnType: "SelectMenu" } ]} />
 
 ## Properties
 
@@ -83,5 +83,28 @@ The maximum number of items that can be chosen. Default 1, max 25.
 
 ---
 Whether this select menu is disabled. Defaults to false if not set.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="SelectMenu" args={[ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ]} isMethod />
+
+Responsible for syncing data to this select menu object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenu" args={[ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ]} returnType="SelectMenu" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "selectMenuData", type: "apiTypes.SelectMenuComponentObject" } ]} returns={[ { type: "SelectMenu" } ]} />
 
 

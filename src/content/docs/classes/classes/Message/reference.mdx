@@ -17,7 +17,7 @@ Implementation of the Discord Reference class in Luau
 
 https://discord.com/developers/docs/resources/message#message-reference-structure
 
-<LuaSummary className="Reference" properties={[ { name: "type", type: "apiTypes.MessageReferenceType?" }, { name: "messageId", type: "apiTypes.Snowflake?" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "channelId", type: "apiTypes.Snowflake?" }, { name: "failIfNotExists", type: "boolean?" } ]} />
+<LuaSummary className="Reference" properties={[ { name: "type", type: "apiTypes.MessageReferenceType?" }, { name: "messageId", type: "apiTypes.Snowflake?" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "channelId", type: "apiTypes.Snowflake?" }, { name: "failIfNotExists", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ] } ]} functions={[ { name: "new", args: [ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ], returnType: "Reference" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ The ID of the channel containing the referenced message.
 
 ---
 Whether to fail if the referenced message does not exist.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Reference" args={[ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ]} isMethod />
+
+Responsible for syncing data to this reference object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Reference" args={[ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ]} returnType="Reference" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "referenceData", type: "apiTypes.MessageReferenceObject" } ]} returns={[ { type: "Reference" } ]} />
 
 

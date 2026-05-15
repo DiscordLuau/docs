@@ -23,7 +23,7 @@ Guild behaviours include:
 - Managing thread archives
 - Handling guild-specific channel properties
 
-<LuaSummary className="GuildBehaviour" properties={[ { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" } ]} methods={[ { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} />
+<LuaSummary className="GuildBehaviour" properties={[ { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" } ]} methods={[ { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" } ]} functions={[ { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -143,27 +143,27 @@ Creates a new invite for the channel.
 
 ### listPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all public archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 ### listPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all private archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 ### listJoinedPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="GuildBehaviour" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 ### setNameAsync
 
@@ -172,5 +172,26 @@ Lists all private archived threads that the current user has joined. Returns thr
 Sets the name of the channel.
 
 <LuaParamTable params={[ { name: "groupName", type: "string" } ]} returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
+
+
+## Functions
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="GuildBehaviour" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="GuildBehaviour" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the GuildBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 

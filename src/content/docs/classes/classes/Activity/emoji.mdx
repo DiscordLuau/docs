@@ -17,7 +17,7 @@ Implementation of the Discord ActivityEmoji class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-emoji
 
-<LuaSummary className="Emoji" properties={[ { name: "animated", type: "boolean?" }, { name: "name", type: "string" }, { name: "id", type: "string" } ]} />
+<LuaSummary className="Emoji" properties={[ { name: "animated", type: "boolean?" }, { name: "name", type: "string" }, { name: "id", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "emojiData", type: "apiTypes.ActivityEmojiObject" } ] } ]} functions={[ { name: "new", args: [ { name: "id", type: "apiTypes.Snowflake" }, { name: "emojiData", type: "apiTypes.ActivityEmojiObject?" } ], returnType: "ActivityEmoji" } ]} />
 
 ## Properties
 
@@ -39,5 +39,28 @@ The name of the emoji. For custom emojis this is the name of the emoji, for defa
 
 <LuaProperty name="Emoji.id" type="string" />
 
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Emoji" args={[ { name: "emojiData", type: "apiTypes.ActivityEmojiObject" } ]} isMethod />
+
+Responsible for syncing data to this activity emoji object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "emojiData", type: "apiTypes.ActivityEmojiObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Emoji" args={[ { name: "id", type: "apiTypes.Snowflake" }, { name: "emojiData", type: "apiTypes.ActivityEmojiObject?" } ]} returnType="ActivityEmoji" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "id", type: "apiTypes.Snowflake" }, { name: "emojiData", type: "apiTypes.ActivityEmojiObject?" } ]} returns={[ { type: "ActivityEmoji" } ]} />
 
 

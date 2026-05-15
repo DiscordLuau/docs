@@ -17,7 +17,7 @@ Implementation of the Discord Webhook class in Luau
 
 https://discord.com/developers/docs/resources/webhook#webhook-object
 
-<LuaSummary className="Webhook" properties={[ { name: "id", type: "string" }, { name: "type", type: "apiTypes.WebhookType" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "name", type: "string?" }, { name: "avatar", type: "string?" }, { name: "token", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "url", type: "string?" } ]} />
+<LuaSummary className="Webhook" properties={[ { name: "id", type: "string" }, { name: "type", type: "apiTypes.WebhookType" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "user", type: "Classes.User?" }, { name: "name", type: "string?" }, { name: "avatar", type: "string?" }, { name: "token", type: "string?" }, { name: "applicationId", type: "string?" }, { name: "url", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "webhookData", type: "apiTypes.WebhookObject" } ] } ]} functions={[ { name: "new", args: [ { name: "webhookData", type: "apiTypes.WebhookObject" } ], returnType: "Webhook" } ]} />
 
 ## Properties
 
@@ -90,5 +90,28 @@ The ID of the application that created this webhook.
 
 ---
 The URL used to execute this webhook.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Webhook" args={[ { name: "webhookData", type: "apiTypes.WebhookObject" } ]} isMethod />
+
+Responsible for syncing data to this webhook object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "webhookData", type: "apiTypes.WebhookObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Webhook" args={[ { name: "webhookData", type: "apiTypes.WebhookObject" } ]} returnType="Webhook" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "webhookData", type: "apiTypes.WebhookObject" } ]} returns={[ { type: "Webhook" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord DataOption class in Luau
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type
 
-<LuaSummary className="DataOption" properties={[ { name: "type", type: "ApplicationCommandOptionType" }, { name: "options", type: "{Classes.Interactions.DataOption}?" }, { name: "name", type: "string" }, { name: "value", type: "T?" }, { name: "focused", type: "boolean?" } ]} />
+<LuaSummary className="DataOption" properties={[ { name: "type", type: "ApplicationCommandOptionType" }, { name: "options", type: "{Classes.Interactions.DataOption}?" }, { name: "name", type: "string" }, { name: "value", type: "T?" }, { name: "focused", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ], returnType: "DataOption<T>" } ]} />
 
 ## Properties
 
@@ -58,5 +58,28 @@ Can be nil if no value was provided.
 ---
 Indicates whether this option is currently focused in the Discord client during autocomplete.
 Only present for autocomplete interactions.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="DataOption" args={[ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ]} isMethod />
+
+Responsible for syncing data to this DataOption object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DataOption" args={[ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ]} returnType="DataOption<T>" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "optionData", type: "apiTypes.ApplicationCommandInteractionDataOptionObject" } ]} returns={[ { type: "DataOption<T>" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord AutomoderationRule class in Luau
 
 https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object
 
-<LuaSummary className="Rule" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "name", type: "string" }, { name: "creatorId", type: "string" }, { name: "eventType", type: "apiTypes.EventTypes" }, { name: "triggerType", type: "apiTypes.TriggerTypes" }, { name: "triggerMetadata", type: "Classes.AutoModeration.TriggerMetadata?" }, { name: "actions", type: "{Classes.AutoModeration.Action}" }, { name: "enabled", type: "boolean?" }, { name: "exemptRoles", type: "{string}?" }, { name: "exemptChannels", type: "{string}?" } ]} methods={[ { name: "modifyAsync", isMethod: true, args: [ { name: "automoderationRuleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, AutomoderationRule>" }, { name: "deleteAsync", isMethod: true, args: [ { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
+<LuaSummary className="Rule" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "name", type: "string" }, { name: "creatorId", type: "string" }, { name: "eventType", type: "apiTypes.EventTypes" }, { name: "triggerType", type: "apiTypes.TriggerTypes" }, { name: "triggerMetadata", type: "Classes.AutoModeration.TriggerMetadata?" }, { name: "actions", type: "{Classes.AutoModeration.Action}" }, { name: "enabled", type: "boolean?" }, { name: "exemptRoles", type: "{string}?" }, { name: "exemptChannels", type: "{string}?" } ]} methods={[ { name: "modifyAsync", isMethod: true, args: [ { name: "automoderationRuleJSON", type: "builders.AutomoderationRuleJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, AutomoderationRule>" }, { name: "deleteAsync", isMethod: true, args: [ { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sync", isMethod: true, args: [ { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ], returnType: "AutomoderationRule" } ]} />
 
 ## Properties
 
@@ -116,5 +116,25 @@ Modify an existing rule. Returns an auto moderation rule on success.
 Deletes an automoderation rule.
 
 <LuaParamTable params={[ { name: "auditLogReason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Rule" args={[ { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ]} isMethod />
+
+Responsible for syncing data to this automoderation rule object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Rule" args={[ { name: "state", type: "state.State" }, { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ]} returnType="AutomoderationRule" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "automoderationData", type: "apiTypes.AutomoderationRuleObject" } ]} returns={[ { type: "AutomoderationRule" } ]} />
 
 

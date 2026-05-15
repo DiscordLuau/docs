@@ -18,7 +18,7 @@ Represents various flags that can be applied to Discord messages.
 
 https://discord.com/developers/docs/resources/message#message-object-message-flags
 
-<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isCrossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressEmbeds", isMethod: true, args: [  ], returnType: "boolean" }, { name: "sourceMessageDeleted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "urgent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "ephemeral", isMethod: true, args: [  ], returnType: "boolean" }, { name: "loading", isMethod: true, args: [  ], returnType: "boolean" }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isVouceMessage", isMethod: true, args: [  ], returnType: "boolean" } ]} />
+<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isCrossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressEmbeds", isMethod: true, args: [  ], returnType: "boolean" }, { name: "sourceMessageDeleted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "urgent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "ephemeral", isMethod: true, args: [  ], returnType: "boolean" }, { name: "loading", isMethod: true, args: [  ], returnType: "boolean" }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isVouceMessage", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "MessageBitflag" } ]} />
 
 ## Properties
 
@@ -119,5 +119,16 @@ Checks if this message will not trigger push and desktop notifications.
 Checks if this message is a voice message.
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="MessageBitflag" args={[ { name: "flag", type: "number" } ]} returnType="MessageBitflag" />
+
+Creates a new MessageBitflag instance with the specified flag value.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "MessageBitflag" } ]} />
 
 

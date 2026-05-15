@@ -17,7 +17,7 @@ Implementation of the Discord Forum class in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object
 
-<LuaSummary className="ForumThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultSortOrder", type: "apiTypes.ForumSortOrder" }, { name: "defaultForumLayout", type: "apiTypes.ForumLayout" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+<LuaSummary className="ForumThread" properties={[ { name: "state", type: "Classes.State" }, { name: "type", type: "string" }, { name: "id", type: "string" }, { name: "name", type: "string?" }, { name: "flags", type: "Classes.Channels.ChannelBitflag?" }, { name: "permissionOverwrites", type: "{ Classes.Channels.Overwrite }" }, { name: "nsfw", type: "boolean" }, { name: "topic", type: "string?" }, { name: "guildId", type: "string" }, { name: "position", type: "number" }, { name: "parentId", type: "string?" }, { name: "permissions", type: "number" }, { name: "defaultThreadRateLimitPerUser", type: "number" }, { name: "defaultAutoArchiveDuration", type: "number" }, { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" }, { name: "availableTags", type: "{ Classes.Channels.ForumTag }" }, { name: "appliedTags", type: "{ string }" }, { name: "defaultReaction", type: "Classes.Channels.DefaultReaction?" }, { name: "defaultSortOrder", type: "apiTypes.ForumSortOrder" }, { name: "defaultForumLayout", type: "apiTypes.ForumLayout" }, { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "deleteChannelAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "triggerTypingIndicatorAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "modifyAsync", isMethod: true, args: [ { name: "json", type: "builders.channelJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "setPositionAsync", isMethod: true, args: [ { name: "position", type: "number" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setParentAsync", isMethod: true, args: [ { name: "parentId", type: "string" }, { name: "syncPermissions", type: "boolean?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPermissionsAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "allowedPermissions", type: "builders.permissionJSON" }, { name: "denyPermissions", type: "builders.permissionJSON" }, { name: "auditLogReason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "deletePermissionAsync", isMethod: true, args: [ { name: "type", type: "apiTypes.OverwriteType" }, { name: "overwriteId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getInvitesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { invite.Invite }>" }, { name: "createInviteAsync", isMethod: true, args: [ { name: "json", type: "builders.inviteJSON" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, invite.Invite>" }, { name: "listPublicArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "listPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "listJoinedPrivateArchivedThreadsAsync", isMethod: true, args: [ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" }, { name: "setNameAsync", isMethod: true, args: [ { name: "groupName", type: "string" } ], returnType: "future.FutureLike<string, Channel<T>>" }, { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" }, { name: "createPostAsync", isMethod: true, args: [ { name: "post", type: "builders.forumMediaJSON" }, { name: "reason", type: "string?" } ] }, { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ], returnType: "Forum" }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -281,6 +281,27 @@ The rate limit per user for sending messages in this channel.
 
 ## Methods
 
+### sync
+
+> <LuaDeclaration name="sync" className="ForumThread" args={[ { name: "channelData", type: "apiTypes.ChannelObject" } ]} isMethod />
+
+Responsible for syncing data to this forum object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### deleteChannelAsync
+
+> <LuaDeclaration name="deleteChannelAsync" className="ForumThread" args={[  ]} returnType="future.FutureLike<string, Channel<T>>" isMethod />
+
+Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS
+if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id
+removed and a Channel Update Gateway event will fire for each of them.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, Channel<T>>" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
 ### triggerTypingIndicatorAsync
 
 > <LuaDeclaration name="triggerTypingIndicatorAsync" className="ForumThread" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
@@ -366,31 +387,31 @@ Creates a new invite for the channel.
 
 ### listPublicArchivedThreadsAsync
 
-> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listPublicArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all public archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### listPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listPrivateArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all private archived threads in the channel. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
 ### listJoinedPrivateArchivedThreadsAsync
 
-> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" isMethod />
+> <LuaDeclaration name="listJoinedPrivateArchivedThreadsAsync" className="ForumThread" args={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returnType="future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" isMethod />
 
 Lists all private archived threads that the current user has joined. Returns thread and member information.
 
-<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean }>" } ]} />
+<LuaParamTable params={[ { name: "before", type: "stdPolyfills.DateTime?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike< string, { threads: { apiTypes.Snowflake }, members: { threadMember.ThreadMember }, hasMore: boolean } >" } ]} />
 
 > Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
 
@@ -463,6 +484,24 @@ Lists all members in a thread. Can optionally include member objects and use pag
 <LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
 
 > Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
+
+### createPostAsync
+
+> <LuaDeclaration name="createPostAsync" className="ForumThread" args={[ { name: "post", type: "builders.forumMediaJSON" }, { name: "reason", type: "string?" } ]} isMethod />
+
+Creates a new forum post (thread) in the channel. Returns the ID of the created thread.
+
+Example usage:
+
+local builder = forumMediaBuilder.new()
+	:setName("My Thread")
+	:setContent("First post!")
+
+channel:createPostAsync(builder:build()):await()
+
+<LuaParamTable params={[ { name: "post", type: "builders.forumMediaJSON" }, { name: "reason", type: "string?" } ]} />
+
+> Inherited from [Classes.Channels.ForumBehaviour](/classes/classes/channels/forumbehaviour)
 
 ### bulkDeleteMessagesAsync
 
@@ -542,6 +581,107 @@ Unpins a message from the channel.
 Starts a new thread in the channel without an associated message. Returns the thread ID.
 
 <LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ForumThread" args={[ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} returnType="Forum" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} returns={[ { type: "Forum" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ForumThread" args={[ { name: "class", type: "any" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Channels.Channel](/classes/classes/channels/channel)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="ForumThread" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ForumThread" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the GuildBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Channels.GuildBehaviour](/classes/classes/channels/guildbehaviour)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="ForumThread" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+> Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ForumThread" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the ThreadBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Channels.ThreadBehaviour](/classes/classes/channels/threadbehaviour)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="ForumThread" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+> Inherited from [Classes.Channels.ForumBehaviour](/classes/classes/channels/forumbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ForumThread" args={[ { name: "class", type: "any" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Channels.ForumBehaviour](/classes/classes/channels/forumbehaviour)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="ForumThread" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+> Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ForumThread" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the TextBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 > Inherited from [Classes.Channels.TextBehaviour](/classes/classes/channels/textbehaviour)
 

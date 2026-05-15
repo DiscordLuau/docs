@@ -20,7 +20,7 @@ This implementation is based on the following document:
 
 Please defer to the above document for when it is appropriate to use each log level.
 
-<LuaSummary className="Logger" methods={[ { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "LogLevel" } ] }, { name: "getLogLevel", isMethod: true, args: [  ], returnType: "LogLevel" } ]} functions={[ { name: "parseVaradic", args: [ { name: "args", type: "{ any }" } ], returnType: "string" }, { name: "new", args: [ { name: "name", type: "string" }, { name: "logLevel", type: "LogLevel?" } ], returnType: "Logger" } ]} />
+<LuaSummary className="Logger" methods={[ { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "LogLevel" } ] }, { name: "getLogLevel", isMethod: true, args: [  ], returnType: "LogLevel" }, { name: "setSink", isMethod: true, args: [ { name: "sink", type: "(message: string) -> ()" } ] } ]} functions={[ { name: "parseVaradic", args: [ { name: "args", type: "{ any }" } ], returnType: "string" }, { name: "new", args: [ { name: "name", type: "string" }, { name: "logLevel", type: "LogLevel?" } ], returnType: "Logger" } ]} />
 
 ## Methods
 
@@ -28,8 +28,9 @@ Please defer to the above document for when it is appropriate to use each log le
 
 > <LuaDeclaration name="setLogLevel" className="Logger" args={[ { name: "logLevel", type: "LogLevel" } ]} isMethod />
 
-Function responsible for for setting the log level of the logger, for example - if the log level
-	is set to "Debug", then all log levels below, and "Debug" will be ignored.
+Function responsible for setting the log level of the logger. Log levels with an index below the
+	configured level will be suppressed. For example, setting the level to "Warn" suppresses Debug,
+	Info, and Notice, while Warn and above are still emitted.
 
 <LuaParamTable params={[ { name: "logLevel", type: "LogLevel" } ]} />
 
@@ -40,6 +41,15 @@ Function responsible for for setting the log level of the logger, for example - 
 Function responsible for for getting the log level of the logger
 
 <LuaParamTable returns={[ { type: "LogLevel" } ]} />
+
+### setSink
+
+> <LuaDeclaration name="setSink" className="Logger" args={[ { name: "sink", type: "(message: string) -> ()" } ]} isMethod />
+
+Replaces the default `print` output with a custom sink. The sink receives the fully-formatted
+log line (including ANSI codes) as a single string. Useful for capturing output in tests.
+
+<LuaParamTable params={[ { name: "sink", type: "(message: string) -> ()" } ]} />
 
 
 ## Functions

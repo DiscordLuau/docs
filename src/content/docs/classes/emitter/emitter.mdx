@@ -16,7 +16,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 An emitter that can be used to emit events, this class will be used to push updates from the Discord Websockets
 	out to the Consumers of this library.
 
-<LuaSummary className="Emitter" methods={[ { name: "listen", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "listenOnce", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "wait", isMethod: true, args: [  ], returnType: "T..." }, { name: "invoke", isMethod: true, args: [ { name: "...", type: "any" } ] } ]} functions={[ { name: "new", args: [  ], returnType: "Emitter<T...>" } ]} />
+<LuaSummary className="Emitter" methods={[ { name: "listen", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "listenOnce", isMethod: true, args: [ { name: "callback", type: "(T...) -> ()" } ], returnType: "() -> ()" }, { name: "wait", isMethod: true, args: [  ], returnType: "T..." }, { name: "invoke", isMethod: true, args: [ { name: "...", type: "T..." } ] } ]} functions={[ { name: "new", args: [  ], returnType: "Emitter<T...>" } ]} />
 
 ## Methods
 
@@ -46,13 +46,13 @@ Wait for this event to be emitted from, returns the result of the emittion
 
 ### invoke
 
-> <LuaDeclaration name="invoke" className="Emitter" args={[ { name: "...", type: "any" } ]} isMethod />
+> <LuaDeclaration name="invoke" className="Emitter" args={[ { name: "...", type: "T..." } ]} isMethod />
 
 Responsible for invoking all the threads that are listening to this emitter.
 
 This will additionally resume all the threads that are currently waiting for an event to be emitted.
 
-<LuaParamTable params={[ { name: "...", type: "any" } ]} />
+<LuaParamTable params={[ { name: "...", type: "T..." } ]} />
 
 
 ## Functions

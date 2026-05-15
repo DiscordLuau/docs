@@ -33,7 +33,7 @@ discordBot:connectAsync():await()
 print(`Bot has connected: '{discordBot.user.username}'`)
 ```
 
-<LuaSummary className="Bot" properties={[ { name: "state", type: "State.State" }, { name: "logger", type: "Logger" }, { name: "application", type: "Classes.Application?" }, { name: "user", type: "Classes.User?" }, { name: "onReady", type: "Emitter<number>" }, { name: "onAllShardsReady", type: "Emitter<()>" }, { name: "onShardDisconnected", type: "Emitter<number, string>" }, { name: "onShardReconnected", type: "Emitter<number>" }, { name: "onMessage", type: "Emitter<Classes.Message>" }, { name: "onMessageChanged", type: "Emitter<Classes.Message>" }, { name: "onMessageDeleted", type: "Emitter<{ messageId: apiTypes.Snowflake, channelId: apiTypes.Snowflake, guildId: apiTypes.Snowflake }>" }, { name: "onMessageBulkDeleted", type: "Emitter<{ channelId: string, guildId: string, ids: { string } }>" }, { name: "onGroupDMChannelCreate", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelCreate", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelCreate", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelCreate", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelCreate", type: "Emitter<Classes.DM>" }, { name: "onTextChannelCreate", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelCreate", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelCreate", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onGroupDMChannelUpdated", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelUpdated", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelUpdated", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelUpdated", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelUpdated", type: "Emitter<Classes.DM>" }, { name: "onTextChannelUpdated", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelUpdated", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelUpdated", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onGroupDMChannelDeleted", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelDeleted", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelDeleted", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelDeleted", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelDeleted", type: "Emitter<Classes.DM>" }, { name: "onTextChannelDeleted", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelDeleted", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelDeleted", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onUserUpdated", type: "Emitter<Classes.User>" }, { name: "onChannelPinsUpdate", type: "Emitter<{ guildId: string, channelId: string, lastPinTimestamp: stdPolyfills.DateTime? }>" }, { name: "onGuildCreate", type: "Emitter<classes.UnavailableGuild | classes.Guild>" }, { name: "onGuildUpdate", type: "Emitter<Classes.Guild>" }, { name: "onGuildDelete", type: "Emitter<Classes.UnavailableGuild>" }, { name: "onGuildMemberBanned", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberUnbanned", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberJoined", type: "Emitter<Classes.GuildMember & { guildId: string }>" }, { name: "onGuildMemberLeft", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberUpdated", type: "Emitter<{guildId: stringroles: { string },user: classes.User,nick: string?,avatar: string,joinedAt: stdPolyfills.DateTime,premiumSince: stdPolyfills.DateTime,deaf: boolean?,mute: boolean?,pending: boolean?,communicationDisabledUntil: stdPolyfills.DateTime?,}>" }, { name: "onPingInteraction", type: "Emitter<Classes.Ping>" }, { name: "onCommandInteraction", type: "Emitter<Classes.TypesCommand>" }, { name: "onComponentInteraction", type: "Emitter<Classes.Component>" }, { name: "onAutocompleteInteraction", type: "Emitter<Classes.Autocomplete>" }, { name: "onModalInteraction", type: "Emitter<Classes.Modal>" } ]} methods={[ { name: "queryGatewayInformation", isMethod: true, args: [  ], returnType: "future.FutureLike<string, apiTypes.GetGatewayBotResponse>" }, { name: "connectAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "getGuildAsync", isMethod: true, args: [ { name: "guildId", type: "string" }, { name: "withCount", type: "boolean?" } ], returnType: "future.FutureLike<string, classes.Guild>" }, { name: "getChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.Channel>" }, { name: "getDMChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.DM>" }, { name: "getGroupDMChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GroupDM>" }, { name: "getAnnouncementChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildAnnouncement>" }, { name: "getCategoryChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildCategory>" }, { name: "getDirectoryChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildDirectory>" }, { name: "getStageVCChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildStageVoice>" }, { name: "getTextChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildText>" }, { name: "getForumChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.ThreadForum>" }, { name: "getMediaChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.ThreadMedia>" }, { name: "getUserAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, classes.User>" }, { name: "createGuildAsync", isMethod: true, args: [ { name: "guildData", type: "builders.guildJSON & { name: string, }" } ], returnType: "future.FutureLike<string, classes.Guild>" }, { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "logger.LogLevel" } ] }, { name: "getVoiceChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildVoice>" }, { name: "setPresenceAsync", isMethod: true, args: [ { name: "presence", type: "builders.presenceJSON" } ] } ]} functions={[ { name: "new", args: [ { name: "options", type: "{ token: string, intents: number, reconnect: boolean?, logLevel: logger.LogLevel?, globalRatelimit: number?, }" } ] } ]} />
+<LuaSummary className="Bot" properties={[ { name: "state", type: "State.State" }, { name: "logger", type: "Logger" }, { name: "application", type: "Classes.Application?" }, { name: "user", type: "Classes.User?" }, { name: "onReady", type: "Emitter<number>" }, { name: "onAllShardsReady", type: "Emitter<()>" }, { name: "onShardDisconnected", type: "Emitter<number, string>" }, { name: "onShardReconnected", type: "Emitter<number>" }, { name: "onMessage", type: "Emitter<Classes.Message>" }, { name: "onMessageChanged", type: "Emitter<Classes.Message>" }, { name: "onMessageDeleted", type: "Emitter<{ messageId: apiTypes.Snowflake, channelId: apiTypes.Snowflake, guildId: apiTypes.Snowflake? }>" }, { name: "onMessageBulkDeleted", type: "Emitter<{ channelId: string, guildId: string?, ids: { string } }>" }, { name: "onGroupDMChannelCreate", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelCreate", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelCreate", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelCreate", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelCreate", type: "Emitter<Classes.DM>" }, { name: "onTextChannelCreate", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelCreate", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelCreate", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onGroupDMChannelUpdated", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelUpdated", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelUpdated", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelUpdated", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelUpdated", type: "Emitter<Classes.DM>" }, { name: "onTextChannelUpdated", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelUpdated", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelUpdated", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onGroupDMChannelDeleted", type: "Emitter<Classes.GroupDM>" }, { name: "onCategoryChannelDeleted", type: "Emitter<Classes.GuildCategory>" }, { name: "onAnnouncementChannelDeleted", type: "Emitter<Classes.GuildAnnouncement>" }, { name: "onDirectoryChannelDeleted", type: "Emitter<Classes.GuildDirectory>" }, { name: "onDMChannelDeleted", type: "Emitter<Classes.DM>" }, { name: "onTextChannelDeleted", type: "Emitter<Classes.GuildText>" }, { name: "onVoiceChannelDeleted", type: "Emitter<Classes.GuildVoice>" }, { name: "onStageVoiceChannelDeleted", type: "Emitter<Classes.GuildStageVoice>" }, { name: "onUserUpdated", type: "Emitter<Classes.User>" }, { name: "onChannelPinsUpdate", type: "Emitter<{ guildId: string, channelId: string, lastPinTimestamp: stdPolyfills.DateTime? }>" }, { name: "onGuildCreate", type: "Emitter<classes.UnavailableGuild | classes.Guild>" }, { name: "onGuildUpdate", type: "Emitter<Classes.Guild>" }, { name: "onGuildDelete", type: "Emitter<Classes.UnavailableGuild>" }, { name: "onGuildMemberBanned", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberUnbanned", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberJoined", type: "Emitter<{ guildId: string, member: Classes.GuildMember }>" }, { name: "onGuildMemberLeft", type: "Emitter<{ guildId: string, user: classes.User }>" }, { name: "onGuildMemberUpdated", type: "Emitter<{guildId: string,roles: { string },user: classes.User,nick: string?,avatar: string?,joinedAt: stdPolyfills.DateTime?,premiumSince: stdPolyfills.DateTime?,deaf: boolean?,mute: boolean?,pending: boolean?,communicationDisabledUntil: stdPolyfills.DateTime?,}>" }, { name: "onPingInteraction", type: "Emitter<Classes.Ping>" }, { name: "onCommandInteraction", type: "Emitter<Classes.TypesCommand>" }, { name: "onComponentInteraction", type: "Emitter<Classes.Component>" }, { name: "onAutocompleteInteraction", type: "Emitter<Classes.Autocomplete>" }, { name: "onModalInteraction", type: "Emitter<Classes.Modal>" }, { name: "onMessageReactionAdd", type: "Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, member: Classes.GuildMember?, emoji: Classes.Emoji, messageAuthorId: string?, burst: boolean, burstColors: { string }, reactionType: number }>" }, { name: "onMessageReactionRemove", type: "Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, emoji: Classes.Emoji, burst: boolean, reactionType: number }>" }, { name: "onMessageReactionRemoveAll", type: "Emitter<{ channelId: string, messageId: string, guildId: string? }>" }, { name: "onMessageReactionRemoveEmoji", type: "Emitter<{ channelId: string, messageId: string, guildId: string?, emoji: Classes.Emoji }>" }, { name: "onThreadListSync", type: "Emitter<{ guildId: string, channelIds: { string }?, members: { Classes.ThreadMember } }>" }, { name: "onThreadMemberUpdate", type: "Emitter<{ guildId: string, threadMember: Classes.ThreadMember }>" }, { name: "onThreadMembersUpdate", type: "Emitter<{ id: string, guildId: string, memberCount: number, addedMembers: { Classes.ThreadMember }, removedMemberIds: { string }? }>" }, { name: "onEntitlementCreate", type: "Emitter<Classes.Entitlement>" }, { name: "onEntitlementUpdate", type: "Emitter<Classes.Entitlement>" }, { name: "onEntitlementDelete", type: "Emitter<Classes.Entitlement>" }, { name: "onGuildAuditLogEntryCreate", type: "Emitter<Classes.AuditLogEntry>" }, { name: "onGuildEmojisUpdate", type: "Emitter<{ guildId: string, emojis: { Classes.Emoji } }>" }, { name: "onGuildStickersUpdate", type: "Emitter<{ guildId: string, stickers: { Classes.Sticker } }>" }, { name: "onGuildScheduledEventCreate", type: "Emitter<Classes.ScheduledEvent>" }, { name: "onGuildScheduledEventUpdate", type: "Emitter<Classes.ScheduledEvent>" }, { name: "onGuildScheduledEventDelete", type: "Emitter<Classes.ScheduledEvent>" }, { name: "onGuildScheduledEventUserAdd", type: "Emitter<{ guildScheduledEventId: string, userId: string, guildId: string }>" }, { name: "onGuildScheduledEventUserRemove", type: "Emitter<{ guildScheduledEventId: string, userId: string, guildId: string }>" }, { name: "onIntegrationCreate", type: "Emitter<Classes.Integration>" }, { name: "onIntegrationUpdate", type: "Emitter<Classes.Integration>" }, { name: "onIntegrationDelete", type: "Emitter<{ id: string, guildId: string, applicationId: string? }>" }, { name: "onInviteCreate", type: "Emitter<{ channelId: string, code: string, createdAt: stdPolyfills.DateTime, guildId: string?, inviter: Classes.User?, maxAge: number, maxUses: number, targetType: number?, targetUser: Classes.User?, temporary: boolean, uses: number }>" }, { name: "onInviteDelete", type: "Emitter<{ channelId: string, code: string, guildId: string? }>" }, { name: "onAutoModerationRuleCreate", type: "Emitter<Classes.AutomoderationRule>" }, { name: "onAutoModerationRuleUpdate", type: "Emitter<Classes.AutomoderationRule>" }, { name: "onAutoModerationRuleDelete", type: "Emitter<Classes.AutomoderationRule>" }, { name: "onAutoModerationActionExecution", type: "Emitter<{ guildId: string, action: apiTypes.AutomoderationActionObject, ruleId: string, ruleTriggerType: apiTypes.AutomoderationRuleTriggerType, userId: string, channelId: string?, messageId: string?, alertSystemMessageId: string?, content: string, matchedKeyword: string?, matchedContent: string? }>" }, { name: "onApplicationCommandPermissionsUpdate", type: "Emitter<{ id: string, applicationId: string, guildId: string, permissions: { apiTypes.GuildApplicationCommandPermissionObject } }>" }, { name: "onMessagePollVoteAdd", type: "Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, answerId: number }>" }, { name: "onMessagePollVoteRemove", type: "Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, answerId: number }>" }, { name: "onGuildRoleCreate", type: "Emitter<Classes.Role>" }, { name: "onGuildRoleUpdate", type: "Emitter<Classes.Role>" }, { name: "onGuildRoleDelete", type: "Emitter<{ guildId: string, roleId: string }>" }, { name: "onAnnouncementThreadCreate", type: "Emitter<Classes.Announcement>" }, { name: "onPublicThreadCreate", type: "Emitter<Classes.Public>" }, { name: "onPrivateThreadCreate", type: "Emitter<Classes.Private>" }, { name: "onAnnouncementThreadUpdate", type: "Emitter<Classes.Announcement>" }, { name: "onPublicThreadUpdate", type: "Emitter<Classes.Public>" }, { name: "onPrivateThreadUpdate", type: "Emitter<Classes.Private>" }, { name: "onThreadDelete", type: "Emitter<{ id: string, guildId: string, parentId: string, type: number }>" }, { name: "onPresenceUpdate", type: "Emitter<Classes.Presence>" }, { name: "onTypingStart", type: "Emitter<{ channelId: string, guildId: string?, userId: string, timestamp: number, member: Classes.GuildMember? }>" }, { name: "onGuildMembersChunk", type: "Emitter<{ guildId: string, members: { Classes.GuildMember }, chunkIndex: number, chunkCount: number, notFound: { string }?, nonce: string? }>" }, { name: "onGuildIntegrationsUpdate", type: "Emitter<{ guildId: string }>" }, { name: "onWebhooksUpdate", type: "Emitter<{ guildId: string, channelId: string }>" }, { name: "onResumed", type: "Emitter<()>" }, { name: "onVoiceStateUpdate", type: "Emitter<Classes.VoiceState>" }, { name: "onVoiceServerUpdate", type: "Emitter<{ token: string, guildId: string, endpoint: string? }>" }, { name: "onStageInstanceCreate", type: "Emitter<Classes.StageInstance>" }, { name: "onStageInstanceUpdate", type: "Emitter<Classes.StageInstance>" }, { name: "onStageInstanceDelete", type: "Emitter<Classes.StageInstance>" }, { name: "onGuildSoundboardSoundCreate", type: "Emitter<Classes.SoundboardSound>" }, { name: "onGuildSoundboardSoundUpdate", type: "Emitter<Classes.SoundboardSound>" }, { name: "onGuildSoundboardSoundDelete", type: "Emitter<{ soundId: string, guildId: string }>" }, { name: "onGuildSoundboardSoundsUpdate", type: "Emitter<{ guildId: string, soundboardSounds: { Classes.SoundboardSound } }>" }, { name: "onVoiceChannelEffectSend", type: "Emitter<{ channelId: string, guildId: string, userId: string, emoji: Classes.Emoji?, animationType: number?, animationId: number?, soundId: string?, soundVolume: number? }>" }, { name: "onRateLimited", type: "Emitter<{ opcode: number, retryAfter: number, guildId: string? }>" } ]} methods={[ { name: "queryGatewayInformation", isMethod: true, args: [  ], returnType: "future.FutureLike<string, apiTypes.GetGatewayBotResponse>" }, { name: "connectAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "listDefaultSoundboardSoundsAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { classes.SoundboardSound }>" }, { name: "getGuildAsync", isMethod: true, args: [ { name: "guildId", type: "string" }, { name: "withCount", type: "boolean?" } ], returnType: "future.FutureLike<string, classes.Guild>" }, { name: "getChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.Channel>" }, { name: "getDMChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.DM>" }, { name: "getGroupDMChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GroupDM>" }, { name: "getAnnouncementChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildAnnouncement>" }, { name: "getCategoryChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildCategory>" }, { name: "getDirectoryChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildDirectory>" }, { name: "getStageVCChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildStageVoice>" }, { name: "getTextChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildText>" }, { name: "getForumChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.ThreadForum>" }, { name: "getMediaChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.ThreadMedia>" }, { name: "getUserAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, classes.User>" }, { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "logger.LogLevel" } ] }, { name: "getVoiceChannelAsync", isMethod: true, args: [ { name: "channelId", type: "string" } ], returnType: "future.FutureLike<string, classes.GuildVoice>" }, { name: "requestGuildMembersAsync", isMethod: true, args: [ { name: "guildId", type: "apiTypes.Snowflake" }, { name: "params", type: "{ query: string?, limit: number, presences: boolean?, userIds: { apiTypes.Snowflake }?, nonce: string?, }" } ], returnType: "future.FutureLike<string, nil>" }, { name: "setPresenceAsync", isMethod: true, args: [ { name: "presence", type: "builders.presenceJSON" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "options", type: "{ token: string, intents: number, reconnect: boolean?, logLevel: logger.LogLevel?, globalRatelimit: number?, }" } ] } ]} />
 
 ## Properties
 
@@ -89,12 +89,12 @@ print(`Bot has connected: '{discordBot.user.username}'`)
 
 ### onMessageDeleted
 
-<LuaProperty name="Bot.onMessageDeleted" type="Emitter<{ messageId: apiTypes.Snowflake, channelId: apiTypes.Snowflake, guildId: apiTypes.Snowflake }>" />
+<LuaProperty name="Bot.onMessageDeleted" type="Emitter<{ messageId: apiTypes.Snowflake, channelId: apiTypes.Snowflake, guildId: apiTypes.Snowflake? }>" />
 
 
 ### onMessageBulkDeleted
 
-<LuaProperty name="Bot.onMessageBulkDeleted" type="Emitter<{ channelId: string, guildId: string, ids: { string } }>" />
+<LuaProperty name="Bot.onMessageBulkDeleted" type="Emitter<{ channelId: string, guildId: string?, ids: { string } }>" />
 
 
 ### onGroupDMChannelCreate
@@ -254,7 +254,7 @@ print(`Bot has connected: '{discordBot.user.username}'`)
 
 ### onGuildMemberJoined
 
-<LuaProperty name="Bot.onGuildMemberJoined" type="Emitter<Classes.GuildMember & { guildId: string }>" />
+<LuaProperty name="Bot.onGuildMemberJoined" type="Emitter<{ guildId: string, member: Classes.GuildMember }>" />
 
 
 ### onGuildMemberLeft
@@ -264,7 +264,7 @@ print(`Bot has connected: '{discordBot.user.username}'`)
 
 ### onGuildMemberUpdated
 
-<LuaProperty name="Bot.onGuildMemberUpdated" type="Emitter<{guildId: stringroles: { string },user: classes.User,nick: string?,avatar: string,joinedAt: stdPolyfills.DateTime,premiumSince: stdPolyfills.DateTime,deaf: boolean?,mute: boolean?,pending: boolean?,communicationDisabledUntil: stdPolyfills.DateTime?,}>" />
+<LuaProperty name="Bot.onGuildMemberUpdated" type="Emitter<{guildId: string,roles: { string },user: classes.User,nick: string?,avatar: string?,joinedAt: stdPolyfills.DateTime?,premiumSince: stdPolyfills.DateTime?,deaf: boolean?,mute: boolean?,pending: boolean?,communicationDisabledUntil: stdPolyfills.DateTime?,}>" />
 
 
 ### onPingInteraction
@@ -291,6 +291,293 @@ print(`Bot has connected: '{discordBot.user.username}'`)
 
 <LuaProperty name="Bot.onModalInteraction" type="Emitter<Classes.Modal>" />
 
+
+### onMessageReactionAdd
+
+<LuaProperty name="Bot.onMessageReactionAdd" type="Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, member: Classes.GuildMember?, emoji: Classes.Emoji, messageAuthorId: string?, burst: boolean, burstColors: { string }, reactionType: number }>" />
+
+
+### onMessageReactionRemove
+
+<LuaProperty name="Bot.onMessageReactionRemove" type="Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, emoji: Classes.Emoji, burst: boolean, reactionType: number }>" />
+
+
+### onMessageReactionRemoveAll
+
+<LuaProperty name="Bot.onMessageReactionRemoveAll" type="Emitter<{ channelId: string, messageId: string, guildId: string? }>" />
+
+
+### onMessageReactionRemoveEmoji
+
+<LuaProperty name="Bot.onMessageReactionRemoveEmoji" type="Emitter<{ channelId: string, messageId: string, guildId: string?, emoji: Classes.Emoji }>" />
+
+
+### onThreadListSync
+
+<LuaProperty name="Bot.onThreadListSync" type="Emitter<{ guildId: string, channelIds: { string }?, members: { Classes.ThreadMember } }>" />
+
+
+### onThreadMemberUpdate
+
+<LuaProperty name="Bot.onThreadMemberUpdate" type="Emitter<{ guildId: string, threadMember: Classes.ThreadMember }>" />
+
+
+### onThreadMembersUpdate
+
+<LuaProperty name="Bot.onThreadMembersUpdate" type="Emitter<{ id: string, guildId: string, memberCount: number, addedMembers: { Classes.ThreadMember }, removedMemberIds: { string }? }>" />
+
+
+### onEntitlementCreate
+
+<LuaProperty name="Bot.onEntitlementCreate" type="Emitter<Classes.Entitlement>" />
+
+
+### onEntitlementUpdate
+
+<LuaProperty name="Bot.onEntitlementUpdate" type="Emitter<Classes.Entitlement>" />
+
+
+### onEntitlementDelete
+
+<LuaProperty name="Bot.onEntitlementDelete" type="Emitter<Classes.Entitlement>" />
+
+
+### onGuildAuditLogEntryCreate
+
+<LuaProperty name="Bot.onGuildAuditLogEntryCreate" type="Emitter<Classes.AuditLogEntry>" />
+
+
+### onGuildEmojisUpdate
+
+<LuaProperty name="Bot.onGuildEmojisUpdate" type="Emitter<{ guildId: string, emojis: { Classes.Emoji } }>" />
+
+
+### onGuildStickersUpdate
+
+<LuaProperty name="Bot.onGuildStickersUpdate" type="Emitter<{ guildId: string, stickers: { Classes.Sticker } }>" />
+
+
+### onGuildScheduledEventCreate
+
+<LuaProperty name="Bot.onGuildScheduledEventCreate" type="Emitter<Classes.ScheduledEvent>" />
+
+
+### onGuildScheduledEventUpdate
+
+<LuaProperty name="Bot.onGuildScheduledEventUpdate" type="Emitter<Classes.ScheduledEvent>" />
+
+
+### onGuildScheduledEventDelete
+
+<LuaProperty name="Bot.onGuildScheduledEventDelete" type="Emitter<Classes.ScheduledEvent>" />
+
+
+### onGuildScheduledEventUserAdd
+
+<LuaProperty name="Bot.onGuildScheduledEventUserAdd" type="Emitter<{ guildScheduledEventId: string, userId: string, guildId: string }>" />
+
+
+### onGuildScheduledEventUserRemove
+
+<LuaProperty name="Bot.onGuildScheduledEventUserRemove" type="Emitter<{ guildScheduledEventId: string, userId: string, guildId: string }>" />
+
+
+### onIntegrationCreate
+
+<LuaProperty name="Bot.onIntegrationCreate" type="Emitter<Classes.Integration>" />
+
+
+### onIntegrationUpdate
+
+<LuaProperty name="Bot.onIntegrationUpdate" type="Emitter<Classes.Integration>" />
+
+
+### onIntegrationDelete
+
+<LuaProperty name="Bot.onIntegrationDelete" type="Emitter<{ id: string, guildId: string, applicationId: string? }>" />
+
+
+### onInviteCreate
+
+<LuaProperty name="Bot.onInviteCreate" type="Emitter<{ channelId: string, code: string, createdAt: stdPolyfills.DateTime, guildId: string?, inviter: Classes.User?, maxAge: number, maxUses: number, targetType: number?, targetUser: Classes.User?, temporary: boolean, uses: number }>" />
+
+
+### onInviteDelete
+
+<LuaProperty name="Bot.onInviteDelete" type="Emitter<{ channelId: string, code: string, guildId: string? }>" />
+
+
+### onAutoModerationRuleCreate
+
+<LuaProperty name="Bot.onAutoModerationRuleCreate" type="Emitter<Classes.AutomoderationRule>" />
+
+
+### onAutoModerationRuleUpdate
+
+<LuaProperty name="Bot.onAutoModerationRuleUpdate" type="Emitter<Classes.AutomoderationRule>" />
+
+
+### onAutoModerationRuleDelete
+
+<LuaProperty name="Bot.onAutoModerationRuleDelete" type="Emitter<Classes.AutomoderationRule>" />
+
+
+### onAutoModerationActionExecution
+
+<LuaProperty name="Bot.onAutoModerationActionExecution" type="Emitter<{ guildId: string, action: apiTypes.AutomoderationActionObject, ruleId: string, ruleTriggerType: apiTypes.AutomoderationRuleTriggerType, userId: string, channelId: string?, messageId: string?, alertSystemMessageId: string?, content: string, matchedKeyword: string?, matchedContent: string? }>" />
+
+
+### onApplicationCommandPermissionsUpdate
+
+<LuaProperty name="Bot.onApplicationCommandPermissionsUpdate" type="Emitter<{ id: string, applicationId: string, guildId: string, permissions: { apiTypes.GuildApplicationCommandPermissionObject } }>" />
+
+
+### onMessagePollVoteAdd
+
+<LuaProperty name="Bot.onMessagePollVoteAdd" type="Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, answerId: number }>" />
+
+
+### onMessagePollVoteRemove
+
+<LuaProperty name="Bot.onMessagePollVoteRemove" type="Emitter<{ userId: string, channelId: string, messageId: string, guildId: string?, answerId: number }>" />
+
+
+### onGuildRoleCreate
+
+<LuaProperty name="Bot.onGuildRoleCreate" type="Emitter<Classes.Role>" />
+
+
+### onGuildRoleUpdate
+
+<LuaProperty name="Bot.onGuildRoleUpdate" type="Emitter<Classes.Role>" />
+
+
+### onGuildRoleDelete
+
+<LuaProperty name="Bot.onGuildRoleDelete" type="Emitter<{ guildId: string, roleId: string }>" />
+
+
+### onAnnouncementThreadCreate
+
+<LuaProperty name="Bot.onAnnouncementThreadCreate" type="Emitter<Classes.Announcement>" />
+
+
+### onPublicThreadCreate
+
+<LuaProperty name="Bot.onPublicThreadCreate" type="Emitter<Classes.Public>" />
+
+
+### onPrivateThreadCreate
+
+<LuaProperty name="Bot.onPrivateThreadCreate" type="Emitter<Classes.Private>" />
+
+
+### onAnnouncementThreadUpdate
+
+<LuaProperty name="Bot.onAnnouncementThreadUpdate" type="Emitter<Classes.Announcement>" />
+
+
+### onPublicThreadUpdate
+
+<LuaProperty name="Bot.onPublicThreadUpdate" type="Emitter<Classes.Public>" />
+
+
+### onPrivateThreadUpdate
+
+<LuaProperty name="Bot.onPrivateThreadUpdate" type="Emitter<Classes.Private>" />
+
+
+### onThreadDelete
+
+<LuaProperty name="Bot.onThreadDelete" type="Emitter<{ id: string, guildId: string, parentId: string, type: number }>" />
+
+
+### onPresenceUpdate
+
+<LuaProperty name="Bot.onPresenceUpdate" type="Emitter<Classes.Presence>" />
+
+
+### onTypingStart
+
+<LuaProperty name="Bot.onTypingStart" type="Emitter<{ channelId: string, guildId: string?, userId: string, timestamp: number, member: Classes.GuildMember? }>" />
+
+
+### onGuildMembersChunk
+
+<LuaProperty name="Bot.onGuildMembersChunk" type="Emitter<{ guildId: string, members: { Classes.GuildMember }, chunkIndex: number, chunkCount: number, notFound: { string }?, nonce: string? }>" />
+
+
+### onGuildIntegrationsUpdate
+
+<LuaProperty name="Bot.onGuildIntegrationsUpdate" type="Emitter<{ guildId: string }>" />
+
+
+### onWebhooksUpdate
+
+<LuaProperty name="Bot.onWebhooksUpdate" type="Emitter<{ guildId: string, channelId: string }>" />
+
+
+### onResumed
+
+<LuaProperty name="Bot.onResumed" type="Emitter<()>" />
+
+
+### onVoiceStateUpdate
+
+<LuaProperty name="Bot.onVoiceStateUpdate" type="Emitter<Classes.VoiceState>" />
+
+
+### onVoiceServerUpdate
+
+<LuaProperty name="Bot.onVoiceServerUpdate" type="Emitter<{ token: string, guildId: string, endpoint: string? }>" />
+
+
+### onStageInstanceCreate
+
+<LuaProperty name="Bot.onStageInstanceCreate" type="Emitter<Classes.StageInstance>" />
+
+
+### onStageInstanceUpdate
+
+<LuaProperty name="Bot.onStageInstanceUpdate" type="Emitter<Classes.StageInstance>" />
+
+
+### onStageInstanceDelete
+
+<LuaProperty name="Bot.onStageInstanceDelete" type="Emitter<Classes.StageInstance>" />
+
+
+### onGuildSoundboardSoundCreate
+
+<LuaProperty name="Bot.onGuildSoundboardSoundCreate" type="Emitter<Classes.SoundboardSound>" />
+
+
+### onGuildSoundboardSoundUpdate
+
+<LuaProperty name="Bot.onGuildSoundboardSoundUpdate" type="Emitter<Classes.SoundboardSound>" />
+
+
+### onGuildSoundboardSoundDelete
+
+<LuaProperty name="Bot.onGuildSoundboardSoundDelete" type="Emitter<{ soundId: string, guildId: string }>" />
+
+
+### onGuildSoundboardSoundsUpdate
+
+<LuaProperty name="Bot.onGuildSoundboardSoundsUpdate" type="Emitter<{ guildId: string, soundboardSounds: { Classes.SoundboardSound } }>" />
+
+
+### onVoiceChannelEffectSend
+
+<LuaProperty name="Bot.onVoiceChannelEffectSend" type="Emitter<{ channelId: string, guildId: string, userId: string, emoji: Classes.Emoji?, animationType: number?, animationId: number?, soundId: string?, soundVolume: number? }>" />
+
+
+### onRateLimited
+
+<LuaProperty name="Bot.onRateLimited" type="Emitter<{ opcode: number, retryAfter: number, guildId: string? }>" />
+
+---
+Fired when the gateway rate limits a request. When opcode is RequestGuildMembers, guildId identifies the affected guild.
 
 
 ## Methods
@@ -320,6 +607,14 @@ This function performs the following steps:
 Returns a async that resolves when the connection is established.
 
 <LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### listDefaultSoundboardSoundsAsync
+
+> <LuaDeclaration name="listDefaultSoundboardSoundsAsync" className="Bot" args={[  ]} returnType="future.FutureLike<string, { classes.SoundboardSound }>" isMethod />
+
+Returns the list of default soundboard sounds available to all guilds.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { classes.SoundboardSound }>" } ]} />
 
 ### getGuildAsync
 
@@ -415,9 +710,9 @@ This function sends a request to the Discord API to retrieve information about a
 
 > <LuaDeclaration name="getForumChannelAsync" className="Bot" args={[ { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.ThreadForum>" isMethod />
 
-Returns a text channel object for the given channel ID.
+Returns a forum channel object for the given channel ID.
 
-This function sends a request to the Discord API to retrieve information about a text channel.
+This function sends a request to the Discord API to retrieve information about a forum channel.
 
 <LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, classes.ThreadForum>" } ]} />
 
@@ -425,9 +720,9 @@ This function sends a request to the Discord API to retrieve information about a
 
 > <LuaDeclaration name="getMediaChannelAsync" className="Bot" args={[ { name: "channelId", type: "string" } ]} returnType="future.FutureLike<string, classes.ThreadMedia>" isMethod />
 
-Returns a text channel object for the given channel ID.
+Returns a media channel object for the given channel ID.
 
-This function sends a request to the Discord API to retrieve information about a text channel.
+This function sends a request to the Discord API to retrieve information about a media channel.
 
 <LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, classes.ThreadMedia>" } ]} />
 
@@ -440,14 +735,6 @@ Returns a user object for the given user ID.
 This function sends a request to the Discord API to retrieve information about a user. 
 
 <LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, classes.User>" } ]} />
-
-### createGuildAsync
-
-> <LuaDeclaration name="createGuildAsync" className="Bot" args={[ { name: "guildData", type: "builders.guildJSON & { name: string, }" } ]} returnType="future.FutureLike<string, classes.Guild>" isMethod />
-
-Will create a new Guild instance, returns this instance.
-
-<LuaParamTable params={[ { name: "guildData", type: "builders.guildJSON & { name: string, }" } ]} returns={[ { type: "future.FutureLike<string, classes.Guild>" } ]} />
 
 ### setLogLevel
 
@@ -467,9 +754,18 @@ This function sends a request to the Discord API to retrieve information about a
 
 <LuaParamTable params={[ { name: "channelId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, classes.GuildVoice>" } ]} />
 
+### requestGuildMembersAsync
+
+> <LuaDeclaration name="requestGuildMembersAsync" className="Bot" args={[ { name: "guildId", type: "apiTypes.Snowflake" }, { name: "params", type: "{ query: string?, limit: number, presences: boolean?, userIds: { apiTypes.Snowflake }?, nonce: string?, }" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Requests guild members from the Discord Gateway. Limited to 1 request per guild every 30 seconds
+when using limit=0 with an empty query. Returns a failed future if the guild is currently rate limited.
+
+<LuaParamTable params={[ { name: "guildId", type: "apiTypes.Snowflake" }, { name: "params", type: "{ query: string?, limit: number, presences: boolean?, userIds: { apiTypes.Snowflake }?, nonce: string?, }" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
 ### setPresenceAsync
 
-> <LuaDeclaration name="setPresenceAsync" className="Bot" args={[ { name: "presence", type: "builders.presenceJSON" } ]} isMethod />
+> <LuaDeclaration name="setPresenceAsync" className="Bot" args={[ { name: "presence", type: "builders.presenceJSON" } ]} returnType="future.FutureLike<string, nil>" isMethod />
 
 Allows you to set the presence for the Discord Bot.
 
@@ -480,7 +776,7 @@ Allows you to set the presence for the Discord Bot.
 	Due to this zombified state - presences may be delayed, or won't render immediately
 :::
 
-<LuaParamTable params={[ { name: "presence", type: "builders.presenceJSON" } ]} />
+<LuaParamTable params={[ { name: "presence", type: "builders.presenceJSON" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
 
 
 ## Functions

@@ -17,7 +17,7 @@ Implementation of the Discord ActionRow class in Luau
 
 https://discord.com/developers/docs/resources/message#message-object-message-activity-structure
 
-<LuaSummary className="ActionRow" properties={[ { name: "type", type: "number" }, { name: "components", type: "{Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu}" } ]} />
+<LuaSummary className="ActionRow" properties={[ { name: "type", type: "number" }, { name: "components", type: "{Classes.Message.Button | Classes.Message.TextInput | Classes.Message.SelectMenu}" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ] } ]} functions={[ { name: "new", args: [ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ], returnType: "ActionRow" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The type of component. For action rows, this will always be 1.
 
 ---
 An array of components within this action row. Can contain buttons, text inputs, or select menus.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ActionRow" args={[ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ]} isMethod />
+
+Responsible for syncing data to this action row object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ActionRow" args={[ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ]} returnType="ActionRow" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "activityObject", type: "apiTypes.ActionRowComponentObject" } ]} returns={[ { type: "ActionRow" } ]} />
 
 

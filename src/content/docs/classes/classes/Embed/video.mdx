@@ -17,7 +17,7 @@ Implementation of the Discord Video class in Luau
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-video-structure
 
-<LuaSummary className="Video" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} />
+<LuaSummary className="Video" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ] } ]} functions={[ { name: "new", args: [ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ], returnType: "Video" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ Height of the video
 
 ---
 Width of the video
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Video" args={[ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ]} isMethod />
+
+Responsible for syncing data to this video object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Video" args={[ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ]} returnType="Video" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "videoData", type: "apiTypes.EmbedVideoObject" } ]} returns={[ { type: "Video" } ]} />
 
 

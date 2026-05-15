@@ -17,7 +17,7 @@ Implementation of the Discord Component Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Component" properties={[ { name: "isDeferred", type: "boolean" }, { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} />
+<LuaSummary className="Component" properties={[ { name: "isDeferred", type: "boolean" }, { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Component" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [  ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -201,6 +201,15 @@ The mapping of integration types to their respective owners.
 
 > Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
 
+### attachmentSizeLimit
+
+<LuaProperty name="Component.attachmentSizeLimit" type="number?" />
+
+---
+The maximum attachment size in bytes for this interaction, varies by guild boost tier and the invoking user's Nitro status.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
 ### state
 
 <LuaProperty name="Component.state" type="State" />
@@ -239,6 +248,15 @@ Whether this interaction has been deferred.
 
 
 ## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Component" args={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} isMethod />
+
+Responsible for syncing data to this component interaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
 
 ### deferAsync
 
@@ -338,6 +356,57 @@ Edit the followup response created by this interaction.
 Delete the followup response created by this interaction.
 
 <LuaParamTable params={[ { name: "messageId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Component" args={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returnType="Component" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returns={[ { type: "Component" } ]} />
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="Component" args={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+Responsible for inheriting properties from the interaction data to the class instance.
+This function initializes all the properties of an Interaction instance based on the provided interaction data.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="Component" args={[ { name: "class", type: "any" } ]} />
+
+Responsible for inheriting methods from the Interaction prototype to the class instance.
+This function copies all methods from the Interaction.Prototype to the provided class instance.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="Component" args={[  ]} />
+
+Inherit properties from the Interaction class.
+
+> Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="Component" args={[ { name: "class", type: "any" } ]} />
+
+Inherit methods from the Interaction class.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 > Inherited from [Classes.Interactions.Interactable](/classes/classes/interactions/interactable)
 

@@ -17,7 +17,7 @@ Implementation of the Discord RoleSubscriptionData class in Luau
 
 https://discord.com/developers/docs/resources/message#role-subscription-data-object
 
-<LuaSummary className="RoleSubscriptionData" properties={[ { name: "roleSubscriptionListingId", type: "string" }, { name: "tierName", type: "string" }, { name: "totalMonthsSubscribed", type: "number" }, { name: "isRenewal", type: "boolean" } ]} />
+<LuaSummary className="RoleSubscriptionData" properties={[ { name: "roleSubscriptionListingId", type: "string" }, { name: "tierName", type: "string" }, { name: "totalMonthsSubscribed", type: "number" }, { name: "isRenewal", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ] } ]} functions={[ { name: "new", args: [ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ], returnType: "RoleSubscriptionData" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The total number of months this user has been subscribed.
 
 ---
 Whether this is a renewal of an existing subscription.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="RoleSubscriptionData" args={[ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ]} isMethod />
+
+Responsible for syncing data to this role subscription data object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="RoleSubscriptionData" args={[ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ]} returnType="RoleSubscriptionData" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "subscriptionData", type: "apiTypes.RoleSubscriptionDataObject" } ]} returns={[ { type: "RoleSubscriptionData" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord Role Bitflags in Luau
 
 https://discord.com/developers/docs/resources/channel#channel-object-channel-flags
 
-<LuaSummary className="ChannelBitflag" properties={[ { name: "flag", type: "number" } ]} />
+<LuaSummary className="ChannelBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "isPinned", isMethod: true, args: [  ] }, { name: "requiresTag", isMethod: true, args: [  ] }, { name: "hideMediaDownloadOptions", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "ChannelBitflag" } ]} />
 
 ## Properties
 
@@ -25,5 +25,38 @@ https://discord.com/developers/docs/resources/channel#channel-object-channel-fla
 
 <LuaProperty name="ChannelBitflag.flag" type="number" />
 
+
+
+## Methods
+
+### isPinned
+
+> <LuaDeclaration name="isPinned" className="ChannelBitflag" args={[  ]} isMethod />
+
+if this thread is pinned to the top of its parent GUILD_FORUM or GUILD_MEDIA channel
+
+### requiresTag
+
+> <LuaDeclaration name="requiresTag" className="ChannelBitflag" args={[  ]} isMethod />
+
+whether a tag is required to be specified when creating a thread in a
+GUILD_FORUM or a GUILD_MEDIA channel. Tags are specified in the applied_tags field.
+
+### hideMediaDownloadOptions
+
+> <LuaDeclaration name="hideMediaDownloadOptions" className="ChannelBitflag" args={[  ]} isMethod />
+
+When set hides the embedded media download options. Available only for media channels
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ChannelBitflag" args={[ { name: "flag", type: "number" } ]} returnType="ChannelBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "ChannelBitflag" } ]} />
 
 

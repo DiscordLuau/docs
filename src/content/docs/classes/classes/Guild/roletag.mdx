@@ -17,7 +17,7 @@ Implementation of the Discord RoleTag class in Luau
 
 https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure
 
-<LuaSummary className="RoleTag" properties={[ { name: "botId", type: "string?" }, { name: "integrationId", type: "string?" }, { name: "premiumSubscriber", type: "nil?" }, { name: "subscriptionListingId", type: "string?" }, { name: "availableForPurchase", type: "nil?" }, { name: "guildConnections", type: "nil?" } ]} />
+<LuaSummary className="RoleTag" properties={[ { name: "botId", type: "string?" }, { name: "integrationId", type: "string?" }, { name: "premiumSubscriber", type: "nil?" }, { name: "subscriptionListingId", type: "string?" }, { name: "availableForPurchase", type: "nil?" }, { name: "guildConnections", type: "nil?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ] } ]} functions={[ { name: "new", args: [ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ], returnType: "RoleTag" } ]} />
 
 ## Properties
 
@@ -62,5 +62,28 @@ Whether this role is available for purchase
 
 ---
 Whether this role is a guild's linked role
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="RoleTag" args={[ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ]} isMethod />
+
+Responsible for syncing data to this role tag object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="RoleTag" args={[ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ]} returnType="RoleTag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "roleTagData", type: "apiTypes.GuildRoleTagObject" } ]} returns={[ { type: "RoleTag" } ]} />
 
 

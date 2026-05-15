@@ -17,7 +17,7 @@ Implementation of the Discord ActivityParty class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object-activity-party
 
-<LuaSummary className="Party" properties={[ { name: "id", type: "string" }, { name: "currentSize", type: "number" }, { name: "maxSize", type: "number" } ]} />
+<LuaSummary className="Party" properties={[ { name: "id", type: "string" }, { name: "currentSize", type: "number" }, { name: "maxSize", type: "number" } ]} functions={[ { name: "new", args: [ { name: "id", type: "apiTypes.Snowflake" }, { name: "currentSize", type: "number" }, { name: "maxSize", type: "number" } ], returnType: "ActivityParty" } ]} />
 
 ## Properties
 
@@ -41,5 +41,16 @@ The current size of the party
 
 ---
 The maximum size the party can be
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Party" args={[ { name: "id", type: "apiTypes.Snowflake" }, { name: "currentSize", type: "number" }, { name: "maxSize", type: "number" } ]} returnType="ActivityParty" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "id", type: "apiTypes.Snowflake" }, { name: "currentSize", type: "number" }, { name: "maxSize", type: "number" } ]} returns={[ { type: "ActivityParty" } ]} />
 
 

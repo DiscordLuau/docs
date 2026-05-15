@@ -13,11 +13,11 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-Implementation of the Discord IneractionMetadata class in Luau. This class represents metadata about an interaction that occurred with a message.
+Implementation of the Discord InteractionMetadata class in Luau. This class represents metadata about an interaction that occurred with a message.
 
 https://discord.com/developers/docs/resources/message#message-interaction-metadata-object-message-interaction-metadata-structure
 
-<LuaSummary className="InteractionMetadata" properties={[ { name: "type", type: "apiTypes.InteractionType" }, { name: "user", type: "Classes.User" }, { name: "id", type: "apiTypes.Snowflake" }, { name: "authorizingIntegrationOwners", type: "{ [apiTypes.IntegrationTypesConfig]: apiTypes.Snowflake }" }, { name: "originalResponseMessageId", type: "apiTypes.Snowflake?" }, { name: "interactedMessageId", type: "apiTypes.Snowflake?" }, { name: "triggeringInteractionMetadata", type: "Classes.Message.InteractionMetadata" } ]} />
+<LuaSummary className="InteractionMetadata" properties={[ { name: "type", type: "apiTypes.InteractionType" }, { name: "user", type: "Classes.User" }, { name: "id", type: "apiTypes.Snowflake" }, { name: "authorizingIntegrationOwners", type: "{ [apiTypes.IntegrationTypesConfig]: apiTypes.Snowflake }" }, { name: "originalResponseMessageId", type: "apiTypes.Snowflake?" }, { name: "interactedMessageId", type: "apiTypes.Snowflake?" }, { name: "triggeringInteractionMetadata", type: "Classes.Message.InteractionMetadata?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ] } ]} functions={[ { name: "new", args: [ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ], returnType: "InteractionMetadata" } ]} />
 
 ## Properties
 
@@ -65,9 +65,32 @@ The ID of the message that was interacted with.
 
 ### triggeringInteractionMetadata
 
-<LuaProperty name="InteractionMetadata.triggeringInteractionMetadata" type="Classes.Message.InteractionMetadata" />
+<LuaProperty name="InteractionMetadata.triggeringInteractionMetadata" type="Classes.Message.InteractionMetadata?" />
 
 ---
 The metadata of the interaction that triggered this interaction.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="InteractionMetadata" args={[ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ]} isMethod />
+
+Responsible for syncing data to this interaction metadata object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="InteractionMetadata" args={[ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ]} returnType="InteractionMetadata" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.MessageInteractionMetadataObject" } ]} returns={[ { type: "InteractionMetadata" } ]} />
 
 

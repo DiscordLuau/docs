@@ -17,7 +17,7 @@ Implementation of the Discord Action class in Luau
 
 https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object
 
-<LuaSummary className="Action" properties={[ { name: "type", type: "apiTypes.ActionTypes" }, { name: "metadata", type: "Classes.AutoModeration.ActionMetadata?" } ]} />
+<LuaSummary className="Action" properties={[ { name: "type", type: "apiTypes.ActionTypes" }, { name: "metadata", type: "Classes.AutoModeration.ActionMetadata?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ], returnType: "Action" } ]} />
 
 ## Properties
 
@@ -38,5 +38,28 @@ The type of action to take when a rule is triggered. This can be one of the foll
 ---
 Additional metadata needed during execution for this specific action type. Different action types may require different metadata properties.
 Only present when an action requires additional configuration.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Action" args={[ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ]} isMethod />
+
+Responsible for syncing data to this action object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Action" args={[ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ]} returnType="Action" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "actionData", type: "apiTypes.AutomoderationActionObject" } ]} returns={[ { type: "Action" } ]} />
 
 

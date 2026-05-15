@@ -22,7 +22,7 @@ Thread behaviours include:
 - Handling thread metadata and statistics
 - Managing thread ownership and parent relationships
 
-<LuaSummary className="ThreadBehaviour" properties={[ { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
+<LuaSummary className="ThreadBehaviour" properties={[ { name: "totalMessageSent", type: "number" }, { name: "member", type: "Classes.Channels.ThreadMember?" }, { name: "threadMetadata", type: "Classes.Channels.ThreadMetadata?" }, { name: "memberCount", type: "number" }, { name: "messageCount", type: "number" }, { name: "parentId", type: "string?" }, { name: "ownerId", type: "string" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "addMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "removeMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMemberAsync", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "withMember", type: "boolean?" } ], returnType: "future.FutureLike<string, threadMember.ThreadMember>" }, { name: "listMembersAsync", isMethod: true, args: [ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} functions={[ { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -125,5 +125,26 @@ Gets a thread member by their user ID. Can optionally include the member object.
 Lists all members in a thread. Can optionally include member objects and use pagination.
 
 <LuaParamTable params={[ { name: "withMember", type: "boolean?" }, { name: "after", type: "string?" }, { name: "limit", type: "number?" } ]} returns={[ { type: "future.FutureLike<string, { threadMember.ThreadMember }>" } ]} />
+
+
+## Functions
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="ThreadBehaviour" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="ThreadBehaviour" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the ThreadBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 

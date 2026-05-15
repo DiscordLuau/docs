@@ -17,7 +17,7 @@ Implementation of the Discord ThreadMember class in Luau
 
 https://discord.com/developers/docs/resources/channel#thread-member-object
 
-<LuaSummary className="ThreadMember" properties={[ { name: "joinTimestamp", type: "DateTime" }, { name: "flags", type: "ThreadMemberBitflag" }, { name: "member", type: "Member?" }, { name: "id", type: "string?" }, { name: "userId", type: "string?" } ]} />
+<LuaSummary className="ThreadMember" properties={[ { name: "joinTimestamp", type: "DateTime" }, { name: "flags", type: "ThreadMemberBitflag" }, { name: "member", type: "Member?" }, { name: "id", type: "string?" }, { name: "userId", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ], returnType: "ThreadMember" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ The unique identifier for this thread member.
 
 ---
 The ID of the user who is a member of this thread.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ThreadMember" args={[ { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ]} isMethod />
+
+Responsible for syncing data to this thread member object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ThreadMember" args={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ]} returnType="ThreadMember" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake" }, { name: "threadMemberData", type: "apiTypes.ThreadMemberObject" } ]} returns={[ { type: "ThreadMember" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord VanityUrl class in Luau
 
 https://discord.com/developers/docs/resources/guild#get-guild-vanity-url
 
-<LuaSummary className="VanityUrl" properties={[ { name: "code", type: "string" }, { name: "uses", type: "number" } ]} />
+<LuaSummary className="VanityUrl" properties={[ { name: "code", type: "string" }, { name: "uses", type: "number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ] } ]} functions={[ { name: "new", args: [ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ], returnType: "VanityUrl" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The unique code for this vanity URL. This code appears in the URL that users can
 
 ---
 The number of times this vanity URL has been used to join the guild.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="VanityUrl" args={[ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ]} isMethod />
+
+Responsible for syncing data to this vanity URL object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="VanityUrl" args={[ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ]} returnType="VanityUrl" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "vanityUrlData", type: "apiTypes.GuildVanityUrl" } ]} returns={[ { type: "VanityUrl" } ]} />
 
 

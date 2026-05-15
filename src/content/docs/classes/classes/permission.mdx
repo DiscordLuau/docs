@@ -17,7 +17,7 @@ Implementation of the Discord Permissions in Luau
 
 https://discord.com/developers/docs/topics/permissions
 
-<LuaSummary className="Permission" properties={[ { name: "permission", type: "number" } ]} methods={[ { name: "hasPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ] }, { name: "toList", isMethod: true, args: [  ], returnType: "{ apiTypes.Permissions }" } ]} />
+<LuaSummary className="Permission" properties={[ { name: "permission", type: "number" } ]} methods={[ { name: "hasPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ] }, { name: "toList", isMethod: true, args: [  ], returnType: "{ apiTypes.Permissions }" } ]} functions={[ { name: "new", args: [ { name: "permission", type: "string" } ], returnType: "Permission" } ]} />
 
 ## Properties
 
@@ -46,5 +46,16 @@ Responsible for querying what permission a discord permission bitflag has.
 Generates an array of permissions that are apart of this bitflag.
 
 <LuaParamTable returns={[ { type: "{ apiTypes.Permissions }" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Permission" args={[ { name: "permission", type: "string" } ]} returnType="Permission" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "permission", type: "string" } ]} returns={[ { type: "Permission" } ]} />
 
 

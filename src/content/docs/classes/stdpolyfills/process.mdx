@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
 
-<LuaSummary className="Process" functions={[ { name: "getPlatform", args: [  ], returnType: "OS" }, { name: "getArgs", args: [  ], returnType: "{ string }" }, { name: "getEnv", args: [  ], returnType: "{ [string]: string }" }, { name: "getCwd", args: [  ], returnType: "string" }, { name: "run", args: [ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ], returnType: "RunResult" } ]} />
+<LuaSummary className="Process" functions={[ { name: "getPlatform", args: [  ], returnType: "OS" }, { name: "getArgs", args: [  ], returnType: "{ string }" }, { name: "getEnv", args: [  ], returnType: "{ [string]: string }" }, { name: "getCwd", args: [  ], returnType: "string" }, { name: "run", args: [ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ], returnType: "RunResult" }, { name: "getArch", args: [  ], returnType: "Arch" }, { name: "onSignal", args: [ { name: "signal", type: "Signal" }, { name: "callback", type: "() -> ()" } ] } ]} />
 
 ## Functions
 
@@ -59,5 +59,22 @@ Runs a subprocess and returns the result. Only supported on Zune; calling from
 Lune will raise an error explaining the requirement.
 
 <LuaParamTable params={[ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ]} returns={[ { type: "RunResult" } ]} />
+
+### getArch
+
+> <LuaDeclaration name="getArch" className="Process" args={[  ]} returnType="Arch" />
+
+Returns the CPU architecture the current process is executing on
+
+<LuaParamTable returns={[ { type: "Arch" } ]} />
+
+### onSignal
+
+> <LuaDeclaration name="onSignal" className="Process" args={[ { name: "signal", type: "Signal" }, { name: "callback", type: "() -> ()" } ]} />
+
+Registers a callback to be invoked when the process receives an OS signal (e.g. `"INT"` for SIGINT).
+Only supported on Zune; on Lune this is a no-op with a warning.
+
+<LuaParamTable params={[ { name: "signal", type: "Signal" }, { name: "callback", type: "() -> ()" } ]} />
 
 
