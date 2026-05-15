@@ -1,0 +1,61 @@
+---
+title: MediaGallery
+description: DiscordLuau docs for MediaGallery.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Media Gallery component as a Luau builder.
+
+https://discord.com/developers/docs/components/reference#media-gallery
+
+<LuaSummary className="MediaGallery" properties={[ { name: "items", type: "{ { url: string, description: string?, spoiler: boolean? } }" } ]} methods={[ { name: "addItem", isMethod: true, args: [ { name: "url", type: "string" }, { name: "description", type: "string?" }, { name: "spoiler", type: "boolean?" } ], returnType: "MediaGallery" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [  ], returnType: "MediaGallery" } ]} />
+
+## Properties
+
+### items
+
+<LuaProperty name="MediaGallery.items" type="{ { url: string, description: string?, spoiler: boolean? } }" />
+
+---
+The list of media items in this gallery. Maximum 10 items.
+
+
+## Methods
+
+### addItem
+
+> <LuaDeclaration name="addItem" className="MediaGallery" args={[ { name: "url", type: "string" }, { name: "description", type: "string?" }, { name: "spoiler", type: "boolean?" } ]} returnType="MediaGallery" isMethod />
+
+Adds a media item to the gallery.
+
+<LuaParamTable params={[ { name: "url", type: "string" }, { name: "description", type: "string?" }, { name: "spoiler", type: "boolean?" } ]} returns={[ { type: "MediaGallery" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="MediaGallery" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the MediaGallery JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="MediaGallery" args={[  ]} returnType="MediaGallery" />
+
+Responsible for creating a new MediaGallery.
+
+<LuaParamTable returns={[ { type: "MediaGallery" } ]} />
+
+

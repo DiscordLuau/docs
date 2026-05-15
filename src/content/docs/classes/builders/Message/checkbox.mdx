@@ -1,0 +1,92 @@
+---
+title: Checkbox
+description: DiscordLuau docs for Checkbox.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Checkbox component as a Luau builder.
+Single checkbox for a yes/no choice. Modal-only when using the required field.
+
+https://docs.discord.com/developers/components/reference#checkbox
+
+<LuaSummary className="Checkbox" properties={[ { name: "customId", type: "string?" }, { name: "required", type: "boolean?" }, { name: "default", type: "boolean?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "Checkbox" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "Checkbox" }, { name: "setDefault", isMethod: true, args: [ { name: "default", type: "boolean" } ], returnType: "Checkbox" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, required: boolean?, default: boolean?, }?" } ], returnType: "Checkbox" } ]} />
+
+## Properties
+
+### customId
+
+<LuaProperty name="Checkbox.customId" type="string?" />
+
+---
+Developer-defined identifier; 1-100 characters.
+
+### required
+
+<LuaProperty name="Checkbox.required" type="boolean?" />
+
+---
+Whether required in modal (defaults to true).
+
+### default
+
+<LuaProperty name="Checkbox.default" type="boolean?" />
+
+---
+Whether checked by default (defaults to false).
+
+
+## Methods
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="Checkbox" args={[ { name: "customId", type: "string" } ]} returnType="Checkbox" isMethod />
+
+Sets the developer-defined identifier. 1-100 characters.
+
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "Checkbox" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="Checkbox" args={[ { name: "required", type: "boolean" } ]} returnType="Checkbox" isMethod />
+
+Sets whether this component is required in a modal.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "Checkbox" } ]} />
+
+### setDefault
+
+> <LuaDeclaration name="setDefault" className="Checkbox" args={[ { name: "default", type: "boolean" } ]} returnType="Checkbox" isMethod />
+
+Sets whether the checkbox is checked by default.
+
+<LuaParamTable params={[ { name: "default", type: "boolean" } ]} returns={[ { type: "Checkbox" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Checkbox" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Checkbox JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Checkbox" args={[ { name: "resource", type: "{ customId: string?, required: boolean?, default: boolean?, }?" } ]} returnType="Checkbox" />
+
+Responsible for creating a new Checkbox.
+
+<LuaParamTable params={[ { name: "resource", type: "{ customId: string?, required: boolean?, default: boolean?, }?" } ]} returns={[ { type: "Checkbox" } ]} />
+
+

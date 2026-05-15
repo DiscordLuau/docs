@@ -1,0 +1,92 @@
+---
+title: RadioGroup
+description: DiscordLuau docs for RadioGroup.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Radio Group component as a Luau builder.
+Single-choice set of options. Modal-only when using the required field.
+
+https://docs.discord.com/developers/components/reference#radio-group
+
+<LuaSummary className="RadioGroup" properties={[ { name: "customId", type: "string?" }, { name: "options", type: "{ apiTypes.RadioGroupOptionObject }" }, { name: "required", type: "boolean?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "RadioGroup" }, { name: "addOption", isMethod: true, args: [ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ], returnType: "RadioGroup" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "RadioGroup" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [  ], returnType: "RadioGroup" } ]} />
+
+## Properties
+
+### customId
+
+<LuaProperty name="RadioGroup.customId" type="string?" />
+
+---
+Developer-defined identifier; 1-100 characters.
+
+### options
+
+<LuaProperty name="RadioGroup.options" type="{ apiTypes.RadioGroupOptionObject }" />
+
+---
+Array of radio options; max 10.
+
+### required
+
+<LuaProperty name="RadioGroup.required" type="boolean?" />
+
+---
+Whether required in modal (defaults to true).
+
+
+## Methods
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="RadioGroup" args={[ { name: "customId", type: "string" } ]} returnType="RadioGroup" isMethod />
+
+Sets the developer-defined identifier. 1-100 characters.
+
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "RadioGroup" } ]} />
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="RadioGroup" args={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ]} returnType="RadioGroup" isMethod />
+
+Adds a radio option. Max 10 options.
+
+<LuaParamTable params={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ]} returns={[ { type: "RadioGroup" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="RadioGroup" args={[ { name: "required", type: "boolean" } ]} returnType="RadioGroup" isMethod />
+
+Sets whether this component is required in a modal.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "RadioGroup" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="RadioGroup" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the RadioGroup JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="RadioGroup" args={[  ]} returnType="RadioGroup" />
+
+Responsible for creating a new RadioGroup.
+
+<LuaParamTable returns={[ { type: "RadioGroup" } ]} />
+
+

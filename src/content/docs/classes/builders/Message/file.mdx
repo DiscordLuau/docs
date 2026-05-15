@@ -1,0 +1,77 @@
+---
+title: File
+description: DiscordLuau docs for File.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's File component as a Luau builder.
+The URL must be an attachment:// reference pointing to an uploaded file.
+
+https://discord.com/developers/docs/components/reference#file
+
+<LuaSummary className="File" properties={[ { name: "url", type: "string?" }, { name: "spoiler", type: "boolean?" } ]} methods={[ { name: "setFile", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "File" }, { name: "setSpoiler", isMethod: true, args: [ { name: "spoiler", type: "boolean" } ], returnType: "File" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ url: string?, spoiler: boolean?, }?" } ], returnType: "File" } ]} />
+
+## Properties
+
+### url
+
+<LuaProperty name="File.url" type="string?" />
+
+---
+The attachment URL (must use attachment://filename format).
+
+### spoiler
+
+<LuaProperty name="File.spoiler" type="boolean?" />
+
+---
+Whether the file is blurred as a spoiler.
+
+
+## Methods
+
+### setFile
+
+> <LuaDeclaration name="setFile" className="File" args={[ { name: "url", type: "string" } ]} returnType="File" isMethod />
+
+Sets the attachment URL. Must use the attachment://filename format.
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "File" } ]} />
+
+### setSpoiler
+
+> <LuaDeclaration name="setSpoiler" className="File" args={[ { name: "spoiler", type: "boolean" } ]} returnType="File" isMethod />
+
+Sets whether the file is blurred as a spoiler.
+
+<LuaParamTable params={[ { name: "spoiler", type: "boolean" } ]} returns={[ { type: "File" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="File" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the File JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="File" args={[ { name: "resource", type: "{ url: string?, spoiler: boolean?, }?" } ]} returnType="File" />
+
+Responsible for creating a new File.
+
+<LuaParamTable params={[ { name: "resource", type: "{ url: string?, spoiler: boolean?, }?" } ]} returns={[ { type: "File" } ]} />
+
+

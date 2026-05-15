@@ -1,0 +1,61 @@
+---
+title: TextDisplay
+description: DiscordLuau docs for TextDisplay.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Text Display component as a Luau builder.
+
+https://discord.com/developers/docs/components/reference#text-display
+
+<LuaSummary className="TextDisplay" properties={[ { name: "content", type: "string?" } ]} methods={[ { name: "setContent", isMethod: true, args: [ { name: "content", type: "string" } ], returnType: "TextDisplay" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ content: string?, }?" } ], returnType: "TextDisplay" } ]} />
+
+## Properties
+
+### content
+
+<LuaProperty name="TextDisplay.content" type="string?" />
+
+---
+The markdown text content to display.
+
+
+## Methods
+
+### setContent
+
+> <LuaDeclaration name="setContent" className="TextDisplay" args={[ { name: "content", type: "string" } ]} returnType="TextDisplay" isMethod />
+
+Sets the markdown text content to display.
+
+<LuaParamTable params={[ { name: "content", type: "string" } ]} returns={[ { type: "TextDisplay" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="TextDisplay" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the TextDisplay JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="TextDisplay" args={[ { name: "resource", type: "{ content: string?, }?" } ]} returnType="TextDisplay" />
+
+Responsible for creating a new TextDisplay.
+
+<LuaParamTable params={[ { name: "resource", type: "{ content: string?, }?" } ]} returns={[ { type: "TextDisplay" } ]} />
+
+

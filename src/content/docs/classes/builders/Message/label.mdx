@@ -1,0 +1,108 @@
+---
+title: Label
+description: DiscordLuau docs for Label.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Label component as a Luau builder.
+Labels associate a label and description with a single interactive component.
+Recommended over ActionRow in modals.
+
+https://docs.discord.com/developers/components/reference#label
+
+<LuaSummary className="Label" properties={[ { name: "label", type: "string?" }, { name: "description", type: "string?" }, { name: "component", type: "any?" }, { name: "required", type: "boolean?" } ]} methods={[ { name: "setLabel", isMethod: true, args: [ { name: "label", type: "string" } ], returnType: "Label" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "Label" }, { name: "setComponent", isMethod: true, args: [ { name: "component", type: "apiTypes.ComponentObjects" } ], returnType: "Label" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "Label" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ label: string?, description: string?, component: apiTypes.ComponentObjects?, required: boolean?, }?" } ], returnType: "Label" } ]} />
+
+## Properties
+
+### label
+
+<LuaProperty name="Label.label" type="string?" />
+
+---
+The label text; max 45 characters.
+
+### description
+
+<LuaProperty name="Label.description" type="string?" />
+
+---
+Additional description text; max 100 characters.
+
+### component
+
+<LuaProperty name="Label.component" type="any?" />
+
+---
+A component to associate with the label.
+
+### required
+
+<LuaProperty name="Label.required" type="boolean?" />
+
+---
+Whether this component is required (defaults to true).
+
+
+## Methods
+
+### setLabel
+
+> <LuaDeclaration name="setLabel" className="Label" args={[ { name: "label", type: "string" } ]} returnType="Label" isMethod />
+
+Sets the label text. Max 45 characters.
+
+<LuaParamTable params={[ { name: "label", type: "string" } ]} returns={[ { type: "Label" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="Label" args={[ { name: "description", type: "string" } ]} returnType="Label" isMethod />
+
+Sets the description text. Max 100 characters.
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "Label" } ]} />
+
+### setComponent
+
+> <LuaDeclaration name="setComponent" className="Label" args={[ { name: "component", type: "apiTypes.ComponentObjects" } ]} returnType="Label" isMethod />
+
+Sets the interactive component to associate with this label.
+
+<LuaParamTable params={[ { name: "component", type: "apiTypes.ComponentObjects" } ]} returns={[ { type: "Label" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="Label" args={[ { name: "required", type: "boolean" } ]} returnType="Label" isMethod />
+
+Sets whether this component is required in a modal.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "Label" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Label" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Label JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Label" args={[ { name: "resource", type: "{ label: string?, description: string?, component: apiTypes.ComponentObjects?, required: boolean?, }?" } ]} returnType="Label" />
+
+Responsible for creating a new Label.
+
+<LuaParamTable params={[ { name: "resource", type: "{ label: string?, description: string?, component: apiTypes.ComponentObjects?, required: boolean?, }?" } ]} returns={[ { type: "Label" } ]} />
+
+
