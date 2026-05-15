@@ -1,0 +1,127 @@
+---
+title: Snapshot
+description: DiscordLuau docs for Snapshot.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord Message Snapshot class in Luau
+
+https://discord.com/developers/docs/resources/message#message-snapshot-object
+
+Note: `content` will be empty if the bot does not have the `MESSAGE_CONTENT` intent enabled.
+Discord returns error 160014 if you attempt to forward a message without this intent.
+
+<LuaSummary className="Snapshot" properties={[ { name: "type", type: "string" }, { name: "content", type: "string" }, { name: "embeds", type: "{ Classes.Embed }" }, { name: "attachments", type: "{ Classes.Attachment }" }, { name: "timestamp", type: "DateTime" }, { name: "editedTimestamp", type: "DateTime?" }, { name: "flags", type: "number?" }, { name: "mentions", type: "{ Classes.User }" }, { name: "mentionRoles", type: "{ string }" }, { name: "stickerItems", type: "{ Classes.Message.StickerItem }" }, { name: "components", type: "{ Classes.Message.Components }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ], returnType: "nil" } ]} functions={[ { name: "new", args: [ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ], returnType: "Snapshot" } ]} />
+
+## Properties
+
+### type
+
+<LuaProperty name="Snapshot.type" type="string" />
+
+---
+Type of the forwarded message
+
+### content
+
+<LuaProperty name="Snapshot.content" type="string" />
+
+---
+Contents of the forwarded message
+
+### embeds
+
+<LuaProperty name="Snapshot.embeds" type="{ Classes.Embed }" />
+
+---
+Any embedded content in the forwarded message
+
+### attachments
+
+<LuaProperty name="Snapshot.attachments" type="{ Classes.Attachment }" />
+
+---
+Any attached files in the forwarded message
+
+### timestamp
+
+<LuaProperty name="Snapshot.timestamp" type="DateTime" />
+
+---
+When the forwarded message was sent
+
+### editedTimestamp
+
+<LuaProperty name="Snapshot.editedTimestamp" type="DateTime?" />
+
+---
+When the forwarded message was last edited
+
+### flags
+
+<LuaProperty name="Snapshot.flags" type="number?" />
+
+---
+Message flags combined as a bitfield
+
+### mentions
+
+<LuaProperty name="Snapshot.mentions" type="{ Classes.User }" />
+
+---
+Users specifically mentioned in the forwarded message
+
+### mentionRoles
+
+<LuaProperty name="Snapshot.mentionRoles" type="{ string }" />
+
+---
+Role IDs specifically mentioned in the forwarded message
+
+### stickerItems
+
+<LuaProperty name="Snapshot.stickerItems" type="{ Classes.Message.StickerItem }" />
+
+---
+Stickers sent with the forwarded message
+
+### components
+
+<LuaProperty name="Snapshot.components" type="{ Classes.Message.Components }" />
+
+---
+Components in the forwarded message
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Snapshot" args={[ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ]} returnType="nil" isMethod />
+
+Responsible for syncing data to this snapshot object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ]} returns={[ { type: "nil" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Snapshot" args={[ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ]} returnType="Snapshot" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "snapshotData", type: "apiTypes.MessageSnapshotObject" } ]} returns={[ { type: "Snapshot" } ]} />
+
+

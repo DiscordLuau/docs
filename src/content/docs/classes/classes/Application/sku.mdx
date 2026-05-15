@@ -1,0 +1,72 @@
+---
+title: Sku
+description: DiscordLuau docs for Sku.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord SKU class in Luau.
+
+https://discord.com/developers/docs/monetization/skus#sku-object
+
+<LuaSummary className="Sku" properties={[ { name: "id", type: "string" }, { name: "type", type: "number" }, { name: "applicationId", type: "string" }, { name: "name", type: "string" }, { name: "slug", type: "string" }, { name: "flags", type: "number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "skuData", type: "apiTypes.SkuObject" } ] } ]} functions={[ { name: "new", args: [ { name: "skuData", type: "apiTypes.SkuObject" } ], returnType: "Sku" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="Sku.id" type="string" />
+
+
+### type
+
+<LuaProperty name="Sku.type" type="number" />
+
+
+### applicationId
+
+<LuaProperty name="Sku.applicationId" type="string" />
+
+
+### name
+
+<LuaProperty name="Sku.name" type="string" />
+
+
+### slug
+
+<LuaProperty name="Sku.slug" type="string" />
+
+
+### flags
+
+<LuaProperty name="Sku.flags" type="number" />
+
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Sku" args={[ { name: "skuData", type: "apiTypes.SkuObject" } ]} isMethod />
+
+<LuaParamTable params={[ { name: "skuData", type: "apiTypes.SkuObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Sku" args={[ { name: "skuData", type: "apiTypes.SkuObject" } ]} returnType="Sku" />
+
+<LuaParamTable params={[ { name: "skuData", type: "apiTypes.SkuObject" } ]} returns={[ { type: "Sku" } ]} />
+
+

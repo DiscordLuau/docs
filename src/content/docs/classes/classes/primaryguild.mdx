@@ -1,0 +1,75 @@
+---
+title: PrimaryGuild
+description: DiscordLuau docs for PrimaryGuild.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord User Primary Guild class in Luau
+
+https://docs.discord.com/developers/resources/user#user-object-user-primary-guild
+
+<LuaSummary className="PrimaryGuild" properties={[ { name: "identityGuildId", type: "string?" }, { name: "identityEnabled", type: "boolean?" }, { name: "tag", type: "string?" }, { name: "badge", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ] } ]} functions={[ { name: "new", args: [ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ], returnType: "PrimaryGuild" } ]} />
+
+## Properties
+
+### identityGuildId
+
+<LuaProperty name="PrimaryGuild.identityGuildId" type="string?" />
+
+---
+The guild's ID
+
+### identityEnabled
+
+<LuaProperty name="PrimaryGuild.identityEnabled" type="boolean?" />
+
+---
+Whether the guild identity (tag) is enabled
+
+### tag
+
+<LuaProperty name="PrimaryGuild.tag" type="string?" />
+
+---
+The guild's tag shown on the user's profile (1-4 characters)
+
+### badge
+
+<LuaProperty name="PrimaryGuild.badge" type="string?" />
+
+---
+The guild's badge icon hash
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="PrimaryGuild" args={[ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ]} isMethod />
+
+Responsible for syncing data to this primary guild object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PrimaryGuild" args={[ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ]} returnType="PrimaryGuild" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "primaryGuildData", type: "apiTypes.UserPrimaryGuildObject" } ]} returns={[ { type: "PrimaryGuild" } ]} />
+
+
