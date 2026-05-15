@@ -1,0 +1,96 @@
+---
+title: CommitResult
+description: DiscordLuau docs for CommitResult.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Holds the outcome of applying an MLS commit message via `Session:processCommit`.
+
+A commit can succeed (the group epoch advanced), be ignored (the commit was redundant
+or out-of-order), or fail hard (the commit was malformed). Always inspect `isFailed`
+and `isIgnored` after calling `Session:processCommit`.
+
+After inspecting the result, call `destroy` to free the underlying handle.
+
+<LuaSummary className="CommitResult" properties={[ { name: "handle", type: "Sys.CommitResultHandle" } ]} methods={[ { name: "isFailed", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isIgnored", isMethod: true, args: [  ], returnType: "boolean" }, { name: "getRosterMemberIds", isMethod: true, args: [  ], returnType: "{ string }" }, { name: "getRosterMemberSignature", isMethod: true, args: [ { name: "rosterId", type: "string" } ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "handle", type: "Sys.CommitResultHandle" } ], returnType: "CommitResult" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="CommitResult.handle" type="Sys.CommitResultHandle" />
+
+---
+Opaque handle to the underlying libdave commit result object.
+
+
+## Methods
+
+### isFailed
+
+> <LuaDeclaration name="isFailed" className="CommitResult" args={[  ]} returnType="boolean" isMethod />
+
+Returns `true` if the commit was hard-rejected by the library. A failed commit
+indicates a protocol violation; the session should be reset.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### isIgnored
+
+> <LuaDeclaration name="isIgnored" className="CommitResult" args={[  ]} returnType="boolean" isMethod />
+
+Returns `true` if the commit was soft-rejected (ignored). This typically means the
+commit was a duplicate or arrived out of order. No epoch transition occurred and the
+session state is unchanged.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### getRosterMemberIds
+
+> <LuaDeclaration name="getRosterMemberIds" className="CommitResult" args={[  ]} returnType="{ string }" isMethod />
+
+Returns the user IDs of every member in the group roster after the commit was applied,
+as a list of decimal snowflake strings. An empty list means no members remain (the
+group was torn down).
+
+<LuaParamTable returns={[ { type: "{ string }" } ]} />
+
+### getRosterMemberSignature
+
+> <LuaDeclaration name="getRosterMemberSignature" className="CommitResult" args={[ { name: "rosterId", type: "string" } ]} returnType="buffer" isMethod />
+
+Returns the MLS credential signature for the roster member identified by `rosterId`
+(a decimal snowflake string). The signature bytes can be used to verify that the
+member's key package was signed by a trusted identity key.
+
+<LuaParamTable params={[ { name: "rosterId", type: "string" } ]} returns={[ { type: "buffer" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="CommitResult" args={[  ]} isMethod />
+
+Destroys the commit result and frees all associated libdave resources. Must be called
+after the result has been fully inspected.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="CommitResult" args={[ { name: "handle", type: "Sys.CommitResultHandle" } ]} returnType="CommitResult" />
+
+Constructs a CommitResult wrapper around an existing libdave handle. Called internally
+by `Session:processCommit`.
+
+<LuaParamTable params={[ { name: "handle", type: "Sys.CommitResultHandle" } ]} returns={[ { type: "CommitResult" } ]} />
+
+

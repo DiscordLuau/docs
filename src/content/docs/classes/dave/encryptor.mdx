@@ -1,0 +1,167 @@
+---
+title: Encryptor
+description: DiscordLuau docs for Encryptor.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Encrypts outgoing media frames using the DAVE protocol.
+
+An Encryptor operates on a single send stream. Once a `KeyRatchet` is set via
+`setKeyRatchet`, each call to `encrypt` advances the ratchet and produces an
+authenticated ciphertext. Before a ratchet is available (e.g. while the MLS group is
+being established), call `setPassthroughMode(true)` to forward frames unmodified.
+
+```luau
+local enc = Dave.Encryptor.new()
+
+enc:assignSsrcToCodec(ssrc, Dave.sys.codec.opus)
+enc:setKeyRatchet(session:getKeyRatchet(selfUserId))
+
+local encrypted = enc:encrypt(Dave.sys.mediaType.audio, ssrc, rawFrame)
+```
+
+<LuaSummary className="Encryptor" properties={[ { name: "handle", type: "Sys.EncryptorHandle" }, { name: "versionChangedClosure", type: "FFIPointer" }, { name: "versionChangedCallbackRef", type: "{ current: (() -> ())? }" } ]} methods={[ { name: "setKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "setPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "hasKeyRatchet", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isPassthroughMode", isMethod: true, args: [  ], returnType: "boolean" }, { name: "assignSsrcToCodec", isMethod: true, args: [ { name: "ssrc", type: "number" }, { name: "codec", type: "number" } ] }, { name: "getProtocolVersion", isMethod: true, args: [  ], returnType: "number" }, { name: "getMaxCiphertextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "frameSize", type: "number" } ], returnType: "number" }, { name: "encrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ], returnType: "buffer" }, { name: "setProtocolVersionChangedCallback", isMethod: true, args: [ { name: "callback", type: "() -> ()" } ] }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "EncryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Encryptor" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="Encryptor.handle" type="Sys.EncryptorHandle" />
+
+
+### versionChangedClosure
+
+<LuaProperty name="Encryptor.versionChangedClosure" type="FFIPointer" />
+
+
+### versionChangedCallbackRef
+
+<LuaProperty name="Encryptor.versionChangedCallbackRef" type="{ current: (() -> ())? }" />
+
+
+
+## Methods
+
+### setKeyRatchet
+
+> <LuaDeclaration name="setKeyRatchet" className="Encryptor" args={[ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ]} isMethod />
+
+Sets the key ratchet used for encryption. Derives fresh keys on each frame from the
+given ratchet. Obtain a ratchet from `Session:getKeyRatchet(selfUserId)` after the
+MLS group has been established.
+
+<LuaParamTable params={[ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ]} />
+
+### setPassthroughMode
+
+> <LuaDeclaration name="setPassthroughMode" className="Encryptor" args={[ { name: "enabled", type: "boolean" } ]} isMethod />
+
+Enables or disables passthrough mode. When enabled, frames are forwarded to `encrypt`
+callers unchanged without consuming key material. Use this while the MLS group is not
+yet ready.
+
+<LuaParamTable params={[ { name: "enabled", type: "boolean" } ]} />
+
+### hasKeyRatchet
+
+> <LuaDeclaration name="hasKeyRatchet" className="Encryptor" args={[  ]} returnType="boolean" isMethod />
+
+Returns `true` if a key ratchet has been set on this encryptor.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### isPassthroughMode
+
+> <LuaDeclaration name="isPassthroughMode" className="Encryptor" args={[  ]} returnType="boolean" isMethod />
+
+Returns `true` if the encryptor is currently in passthrough mode.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### assignSsrcToCodec
+
+> <LuaDeclaration name="assignSsrcToCodec" className="Encryptor" args={[ { name: "ssrc", type: "number" }, { name: "codec", type: "number" } ]} isMethod />
+
+Associates `ssrc` with `codec` so the encryptor knows how to frame-parse the stream.
+Must be called for each SSRC before the first `encrypt` call for that stream.
+`codec` should be a value from `Dave.sys.codec`.
+
+<LuaParamTable params={[ { name: "ssrc", type: "number" }, { name: "codec", type: "number" } ]} />
+
+### getProtocolVersion
+
+> <LuaDeclaration name="getProtocolVersion" className="Encryptor" args={[  ]} returnType="number" isMethod />
+
+Returns the DAVE protocol version this encryptor is currently operating at.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### getMaxCiphertextByteSize
+
+> <LuaDeclaration name="getMaxCiphertextByteSize" className="Encryptor" args={[ { name: "mediaType", type: "number" }, { name: "frameSize", type: "number" } ]} returnType="number" isMethod />
+
+Returns the maximum number of bytes that `encrypt` may write for a plaintext frame of
+`frameSize` bytes on `mediaType`. Use this to pre-allocate output buffers or to
+validate output size expectations.
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "frameSize", type: "number" } ]} returns={[ { type: "number" } ]} />
+
+### encrypt
+
+> <LuaDeclaration name="encrypt" className="Encryptor" args={[ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ]} returnType="buffer" isMethod />
+
+Encrypts `frame` and returns the ciphertext as a new buffer. The SSRC must have been
+registered via `assignSsrcToCodec`. Logs an error and halts the calling coroutine on
+any non-success result code (missing ratchet, too many retries, etc.).
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### setProtocolVersionChangedCallback
+
+> <LuaDeclaration name="setProtocolVersionChangedCallback" className="Encryptor" args={[ { name: "callback", type: "() -> ()" } ]} isMethod />
+
+Registers a callback that fires whenever the encryptor's protocol version changes
+(e.g. after the voice server negotiates an upgrade). Replaces any previously set
+callback without re-registering with the library.
+
+<LuaParamTable params={[ { name: "callback", type: "() -> ()" } ]} />
+
+### getStats
+
+> <LuaDeclaration name="getStats" className="Encryptor" args={[ { name: "mediaType", type: "number" } ]} returnType="EncryptorStats" isMethod />
+
+Returns a snapshot of encryption statistics for `mediaType`. Statistics are cumulative
+since the encryptor was created. `mediaType` should be a value from `Dave.sys.mediaType`.
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" } ]} returns={[ { type: "EncryptorStats" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Encryptor" args={[  ]} isMethod />
+
+Destroys the encryptor and frees all associated libdave resources. The encryptor must
+not be used after this call.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Encryptor" args={[  ]} returnType="Encryptor" />
+
+Constructs a new Encryptor. Registers a stable forwarder closure for the
+protocol-version-changed callback so the Luau handler can be swapped later via
+`setProtocolVersionChangedCallback`.
+
+<LuaParamTable returns={[ { type: "Encryptor" } ]} />
+
+

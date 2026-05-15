@@ -1,0 +1,209 @@
+---
+title: Session
+description: DiscordLuau docs for Session.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Manages a single MLS (Messaging Layer Security) session for Discord's DAVE protocol.
+
+A session handles the cryptographic group state shared between participants in a voice
+channel. Its responsibilities include:
+
+1. Initialising the MLS group for a given voice channel and protocol version
+2. Processing incoming MLS proposals, commits, and welcome messages
+3. Producing key packages that allow other participants to add this client to the group
+4. Deriving per-user key ratchets that feed into the Encryptor and Decryptor
+5. Computing pairwise identity fingerprints for out-of-band verification
+
+In normal operation the Discord voice server acts as an external sender: it sends the
+`setExternalSender` payload first, then relays proposal/commit/welcome messages between
+participants. `getMarshalledKeyPackage` returns an empty buffer until `setExternalSender`
+has been called and the session has a valid MLS leaf node.
+
+<LuaSummary className="Session" properties={[ { name: "handle", type: "Sys.SessionHandle" }, { name: "mlsFailureClosure", type: "FFIPointer" }, { name: "mlsFailureCallbackRef", type: "{ current: ((source: string, reason: string) -> ())? }" } ]} methods={[ { name: "init", isMethod: true, args: [ { name: "version", type: "number" }, { name: "groupId", type: "string" }, { name: "selfUserId", type: "string" } ] }, { name: "reset", isMethod: true, args: [  ] }, { name: "setProtocolVersion", isMethod: true, args: [ { name: "version", type: "number" } ] }, { name: "getProtocolVersion", isMethod: true, args: [  ], returnType: "number" }, { name: "getLastEpochAuthenticator", isMethod: true, args: [  ], returnType: "buffer" }, { name: "setExternalSender", isMethod: true, args: [ { name: "data", type: "buffer" } ] }, { name: "processProposals", isMethod: true, args: [ { name: "proposals", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ], returnType: "buffer?" }, { name: "processCommit", isMethod: true, args: [ { name: "commit", type: "buffer" } ], returnType: "CommitResult.CommitResult" }, { name: "processWelcome", isMethod: true, args: [ { name: "welcome", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ], returnType: "WelcomeResult.WelcomeResult?" }, { name: "getMarshalledKeyPackage", isMethod: true, args: [  ], returnType: "buffer" }, { name: "getKeyRatchet", isMethod: true, args: [ { name: "userId", type: "string" } ], returnType: "KeyRatchet.KeyRatchet" }, { name: "getPairwiseFingerprint", isMethod: true, args: [ { name: "version", type: "number" }, { name: "userId", type: "string" } ], returnType: "string?" }, { name: "setMlsFailureCallback", isMethod: true, args: [ { name: "callback", type: "(source: string, reason: string) -> ()" } ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "authSessionId", type: "string" }, { name: "onMlsFailure", type: "((source: string, reason: string) -> ())?" } ], returnType: "Session" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="Session.handle" type="Sys.SessionHandle" />
+
+
+### mlsFailureClosure
+
+<LuaProperty name="Session.mlsFailureClosure" type="FFIPointer" />
+
+
+### mlsFailureCallbackRef
+
+<LuaProperty name="Session.mlsFailureCallbackRef" type="{ current: ((source: string, reason: string) -> ())? }" />
+
+
+
+## Methods
+
+### init
+
+> <LuaDeclaration name="init" className="Session" args={[ { name: "version", type: "number" }, { name: "groupId", type: "string" }, { name: "selfUserId", type: "string" } ]} isMethod />
+
+Initialises the MLS group state for the given protocol version, voice channel group ID,
+and local user ID. Must be called before `getMarshalledKeyPackage` or any proposal/commit
+processing. `setExternalSender` must also be called *(with data from the voice server)*
+before the session can produce a valid key package.
+
+<LuaParamTable params={[ { name: "version", type: "number" }, { name: "groupId", type: "string" }, { name: "selfUserId", type: "string" } ]} />
+
+### reset
+
+> <LuaDeclaration name="reset" className="Session" args={[  ]} isMethod />
+
+Resets the session back to its uninitialised state, discarding all MLS group state.
+The session must be re-initialised via `init` before it can be used again.
+
+### setProtocolVersion
+
+> <LuaDeclaration name="setProtocolVersion" className="Session" args={[ { name: "version", type: "number" } ]} isMethod />
+
+Overrides the protocol version in use without fully re-initialising the session. Used
+when the voice server signals a version upgrade mid-session.
+
+<LuaParamTable params={[ { name: "version", type: "number" } ]} />
+
+### getProtocolVersion
+
+> <LuaDeclaration name="getProtocolVersion" className="Session" args={[  ]} returnType="number" isMethod />
+
+Returns the protocol version currently active on the session. Returns `0` if the
+session has not yet been initialised.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### getLastEpochAuthenticator
+
+> <LuaDeclaration name="getLastEpochAuthenticator" className="Session" args={[  ]} returnType="buffer" isMethod />
+
+Returns the authenticator bytes for the most recently committed MLS epoch. The
+authenticator uniquely identifies the current group state and can be compared across
+participants to detect tampering.
+
+Returns an empty buffer before any commit has been processed.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### setExternalSender
+
+> <LuaDeclaration name="setExternalSender" className="Session" args={[ { name: "data", type: "buffer" } ]} isMethod />
+
+Provides the external sender credential package received from the Discord voice server.
+This must be called before the session can produce a valid MLS key package.
+
+<LuaParamTable params={[ { name: "data", type: "buffer" } ]} />
+
+### processProposals
+
+> <LuaDeclaration name="processProposals" className="Session" args={[ { name: "proposals", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ]} returnType="buffer?" isMethod />
+
+Processes one or more serialised MLS proposal messages from other participants and
+produces a combined commit+welcome message to be relayed back through the voice server.
+
+Returns `nil` when there is nothing to commit (e.g. the proposals were redundant).
+`recognizedUserIds` should be the full set of user IDs currently known to be in the
+channel.
+
+<LuaParamTable params={[ { name: "proposals", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ]} returns={[ { type: "buffer?" } ]} />
+
+### processCommit
+
+> <LuaDeclaration name="processCommit" className="Session" args={[ { name: "commit", type: "buffer" } ]} returnType="CommitResult.CommitResult" isMethod />
+
+Applies a serialised MLS commit message to advance the group epoch. Returns a
+`CommitResult` describing the new roster state. Inspect `CommitResult:isFailed()` to
+detect hard rejections and `CommitResult:isIgnored()` for soft rejections.
+
+<LuaParamTable params={[ { name: "commit", type: "buffer" } ]} returns={[ { type: "CommitResult.CommitResult" } ]} />
+
+### processWelcome
+
+> <LuaDeclaration name="processWelcome" className="Session" args={[ { name: "welcome", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ]} returnType="WelcomeResult.WelcomeResult?" isMethod />
+
+Processes an MLS welcome message to join an existing group as a new participant.
+Returns a `WelcomeResult` containing the initial roster. `recognizedUserIds` should
+list every user ID this client considers valid for this channel.
+
+<LuaParamTable params={[ { name: "welcome", type: "buffer" }, { name: "recognizedUserIds", type: "{ string }" } ]} returns={[ { type: "WelcomeResult.WelcomeResult?" } ]} />
+
+### getMarshalledKeyPackage
+
+> <LuaDeclaration name="getMarshalledKeyPackage" className="Session" args={[  ]} returnType="buffer" isMethod />
+
+Returns the serialised MLS key package for this session, which other participants
+send as a proposal to add this client to the group.
+
+Returns an empty buffer if the session does not yet have a valid leaf node *(i.e.
+`setExternalSender` has not been called yet)*.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### getKeyRatchet
+
+> <LuaDeclaration name="getKeyRatchet" className="Session" args={[ { name: "userId", type: "string" } ]} returnType="KeyRatchet.KeyRatchet" isMethod />
+
+Derives a `KeyRatchet` for the given user ID from the current MLS group state.
+The ratchet is passed to an `Encryptor` or `Decryptor` to enable authenticated
+encryption for that participant's media stream.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} returns={[ { type: "KeyRatchet.KeyRatchet" } ]} />
+
+### getPairwiseFingerprint
+
+> <LuaDeclaration name="getPairwiseFingerprint" className="Session" args={[ { name: "version", type: "number" }, { name: "userId", type: "string" } ]} returnType="string?" isMethod />
+
+Computes and returns the pairwise identity fingerprint between this client and
+`userId` as a lowercase hex string. The fingerprint is derived from both parties'
+MLS leaf credentials and can be compared out-of-band to verify there is no
+man-in-the-middle.
+
+The callback fires synchronously inside libdave.
+
+<LuaParamTable params={[ { name: "version", type: "number" }, { name: "userId", type: "string" } ]} returns={[ { type: "string?" } ]} />
+
+### setMlsFailureCallback
+
+> <LuaDeclaration name="setMlsFailureCallback" className="Session" args={[ { name: "callback", type: "(source: string, reason: string) -> ()" } ]} isMethod />
+
+Replaces the MLS failure callback without re-creating the session. The new callback
+will be invoked for any subsequent MLS failures on this session.
+
+<LuaParamTable params={[ { name: "callback", type: "(source: string, reason: string) -> ()" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Session" args={[  ]} isMethod />
+
+Destroys the session and frees all associated libdave resources. The session must
+not be used after this call.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Session" args={[ { name: "authSessionId", type: "string" }, { name: "onMlsFailure", type: "((source: string, reason: string) -> ())?" } ]} returnType="Session" />
+
+Constructs a new DAVE session. `authSessionId` is an opaque string used by the
+library to persist MLS signature keys across restarts. `onMlsFailure` is called
+if the library encounters a hard MLS error; it can be replaced later via
+`setMlsFailureCallback`.
+
+<LuaParamTable params={[ { name: "authSessionId", type: "string" }, { name: "onMlsFailure", type: "((source: string, reason: string) -> ())?" } ]} returns={[ { type: "Session" } ]} />
+
+

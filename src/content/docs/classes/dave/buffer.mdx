@@ -1,0 +1,100 @@
+---
+title: Buffer
+description: DiscordLuau docs for Buffer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Internal FFI interoperability helpers for the Dave package.
+
+<LuaSummary className="Buffer" functions={[ { name: "toCString", args: [ { name: "value", type: "string" } ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" } ], returnType: "string" }, { name: "allocateSlot", args: [  ], returnType: "FFIPointer" }, { name: "readRawU64", args: [ { name: "value", type: "any" } ], returnType: "number" }, { name: "readSizeT", args: [ { name: "slot", type: "FFIPointer" } ], returnType: "number" }, { name: "readU64AtOffset", args: [ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ], returnType: "number" }, { name: "readLibBytes", args: [ { name: "dataSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "buffer" }, { name: "u64StringToBuffer", args: [ { name: "decimal", type: "string" } ], returnType: "buffer" }, { name: "bufferToU64String", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "bufferToHex", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "readPointerBytes", args: [ { name: "pointer", type: "FFIPointer" }, { name: "lengthValue", type: "any" } ], returnType: "buffer" }, { name: "readU64ArrayAndFree", args: [ { name: "pointerSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "{ string }" }, { name: "withCStringArray", args: [ { name: "ids", type: "{ string }" }, { name: "callback", type: "(pointer: FFIPointer, count: number) -> ()" } ] } ]} />
+
+## Functions
+
+### toCString
+
+> <LuaDeclaration name="toCString" className="Buffer" args={[ { name: "value", type: "string" } ]} returnType="FFIPointer" />
+
+<LuaParamTable params={[ { name: "value", type: "string" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### fromCString
+
+> <LuaDeclaration name="fromCString" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" } ]} returnType="string" />
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" } ]} returns={[ { type: "string" } ]} />
+
+### allocateSlot
+
+> <LuaDeclaration name="allocateSlot" className="Buffer" args={[  ]} returnType="FFIPointer" />
+
+<LuaParamTable returns={[ { type: "FFIPointer" } ]} />
+
+### readRawU64
+
+> <LuaDeclaration name="readRawU64" className="Buffer" args={[ { name: "value", type: "any" } ]} returnType="number" />
+
+<LuaParamTable params={[ { name: "value", type: "any" } ]} returns={[ { type: "number" } ]} />
+
+### readSizeT
+
+> <LuaDeclaration name="readSizeT" className="Buffer" args={[ { name: "slot", type: "FFIPointer" } ]} returnType="number" />
+
+<LuaParamTable params={[ { name: "slot", type: "FFIPointer" } ]} returns={[ { type: "number" } ]} />
+
+### readU64AtOffset
+
+> <LuaDeclaration name="readU64AtOffset" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ]} returnType="number" />
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ]} returns={[ { type: "number" } ]} />
+
+### readLibBytes
+
+> <LuaDeclaration name="readLibBytes" className="Buffer" args={[ { name: "dataSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ]} returnType="buffer" />
+
+<LuaParamTable params={[ { name: "dataSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ]} returns={[ { type: "buffer" } ]} />
+
+### u64StringToBuffer
+
+> <LuaDeclaration name="u64StringToBuffer" className="Buffer" args={[ { name: "decimal", type: "string" } ]} returnType="buffer" />
+
+<LuaParamTable params={[ { name: "decimal", type: "string" } ]} returns={[ { type: "buffer" } ]} />
+
+### bufferToU64String
+
+> <LuaDeclaration name="bufferToU64String" className="Buffer" args={[ { name: "bytes", type: "buffer" } ]} returnType="string" />
+
+<LuaParamTable params={[ { name: "bytes", type: "buffer" } ]} returns={[ { type: "string" } ]} />
+
+### bufferToHex
+
+> <LuaDeclaration name="bufferToHex" className="Buffer" args={[ { name: "bytes", type: "buffer" } ]} returnType="string" />
+
+<LuaParamTable params={[ { name: "bytes", type: "buffer" } ]} returns={[ { type: "string" } ]} />
+
+### readPointerBytes
+
+> <LuaDeclaration name="readPointerBytes" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "lengthValue", type: "any" } ]} returnType="buffer" />
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "lengthValue", type: "any" } ]} returns={[ { type: "buffer" } ]} />
+
+### readU64ArrayAndFree
+
+> <LuaDeclaration name="readU64ArrayAndFree" className="Buffer" args={[ { name: "pointerSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ]} returnType="{ string }" />
+
+<LuaParamTable params={[ { name: "pointerSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ]} returns={[ { type: "{ string }" } ]} />
+
+### withCStringArray
+
+> <LuaDeclaration name="withCStringArray" className="Buffer" args={[ { name: "ids", type: "{ string }" }, { name: "callback", type: "(pointer: FFIPointer, count: number) -> ()" } ]} />
+
+<LuaParamTable params={[ { name: "ids", type: "{ string }" }, { name: "callback", type: "(pointer: FFIPointer, count: number) -> ()" } ]} />
+
+

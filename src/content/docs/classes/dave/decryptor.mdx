@@ -1,0 +1,113 @@
+---
+title: Decryptor
+description: DiscordLuau docs for Decryptor.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Decrypts incoming media frames using the DAVE protocol.
+
+A Decryptor is created per remote participant stream. When the MLS group transitions
+to a new epoch, call `transitionToKeyRatchet` with the ratchet derived for that
+participant; the decryptor will maintain both the old and new ratchets for a short
+overlap window to absorb in-flight frames. Before the group is ready, call
+`transitionToPassthroughMode(true)` so frames pass through without attempting
+decryption.
+
+```lua
+local dec = Dave.Decryptor.new()
+
+dec:transitionToKeyRatchet(session:getKeyRatchet(remoteUserId))
+
+local plaintext = dec:decrypt(Dave.sys.mediaType.audio, encryptedFrame)
+```
+
+<LuaSummary className="Decryptor" properties={[ { name: "handle", type: "Sys.DecryptorHandle" } ]} methods={[ { name: "transitionToKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "transitionToPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "getMaxPlaintextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrameSize", type: "number" } ], returnType: "number" }, { name: "decrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ], returnType: "buffer" }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "DecryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Decryptor" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="Decryptor.handle" type="Sys.DecryptorHandle" />
+
+
+
+## Methods
+
+### transitionToKeyRatchet
+
+> <LuaDeclaration name="transitionToKeyRatchet" className="Decryptor" args={[ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ]} isMethod />
+
+Transitions the decryptor to use a new key ratchet, typically called after each MLS
+epoch change. The library retains both the old and new ratchets for a short overlap
+window so in-flight frames encrypted under the previous epoch are still accepted.
+Obtain a ratchet from `Session:getKeyRatchet(remoteUserId)`.
+
+<LuaParamTable params={[ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ]} />
+
+### transitionToPassthroughMode
+
+> <LuaDeclaration name="transitionToPassthroughMode" className="Decryptor" args={[ { name: "enabled", type: "boolean" } ]} isMethod />
+
+Transitions the decryptor into or out of passthrough mode. When enabled, frames are
+returned from `decrypt` unchanged without any key material being consumed. Use this
+while the MLS group is not yet established.
+
+<LuaParamTable params={[ { name: "enabled", type: "boolean" } ]} />
+
+### getMaxPlaintextByteSize
+
+> <LuaDeclaration name="getMaxPlaintextByteSize" className="Decryptor" args={[ { name: "mediaType", type: "number" }, { name: "encryptedFrameSize", type: "number" } ]} returnType="number" isMethod />
+
+Returns the maximum number of plaintext bytes that `decrypt` may produce for an
+encrypted frame of `encryptedFrameSize` bytes on `mediaType`. Useful for
+pre-allocating receive buffers.
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "encryptedFrameSize", type: "number" } ]} returns={[ { type: "number" } ]} />
+
+### decrypt
+
+> <LuaDeclaration name="decrypt" className="Decryptor" args={[ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ]} returnType="buffer" isMethod />
+
+Decrypts `encryptedFrame` and returns the plaintext as a new buffer. Logs an error
+and halts the calling coroutine on any non-success result code (missing ratchet,
+invalid nonce, etc.).
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### getStats
+
+> <LuaDeclaration name="getStats" className="Decryptor" args={[ { name: "mediaType", type: "number" } ]} returnType="DecryptorStats" isMethod />
+
+Returns a snapshot of decryption statistics for `mediaType`. Statistics are cumulative
+since the decryptor was created. `mediaType` should be a value from `Dave.sys.mediaType`.
+
+<LuaParamTable params={[ { name: "mediaType", type: "number" } ]} returns={[ { type: "DecryptorStats" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Decryptor" args={[  ]} isMethod />
+
+Destroys the decryptor and frees all associated libdave resources. The decryptor must
+not be used after this call.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Decryptor" args={[  ]} returnType="Decryptor" />
+
+Constructs a new Decryptor.
+
+<LuaParamTable returns={[ { type: "Decryptor" } ]} />
+
+

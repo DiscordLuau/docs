@@ -1,0 +1,73 @@
+---
+title: WelcomeResult
+description: DiscordLuau docs for WelcomeResult.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Holds the outcome of processing an MLS welcome message via `Session:processWelcome`.
+
+A welcome message is sent by an existing group member when they commit a proposal to
+add this client. Processing it transitions the session into the group and exposes the
+initial roster. After inspecting the result, call `destroy` to free the underlying
+handle.
+
+<LuaSummary className="WelcomeResult" properties={[ { name: "handle", type: "Sys.WelcomeResultHandle" } ]} methods={[ { name: "getRosterMemberIds", isMethod: true, args: [  ], returnType: "{ string }" }, { name: "getRosterMemberSignature", isMethod: true, args: [ { name: "rosterId", type: "string" } ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "handle", type: "Sys.WelcomeResultHandle" } ], returnType: "WelcomeResult" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="WelcomeResult.handle" type="Sys.WelcomeResultHandle" />
+
+
+
+## Methods
+
+### getRosterMemberIds
+
+> <LuaDeclaration name="getRosterMemberIds" className="WelcomeResult" args={[  ]} returnType="{ string }" isMethod />
+
+Returns the user IDs of every member present in the group when this welcome was issued,
+as a list of decimal snowflake strings. This is the initial roster after joining.
+
+<LuaParamTable returns={[ { type: "{ string }" } ]} />
+
+### getRosterMemberSignature
+
+> <LuaDeclaration name="getRosterMemberSignature" className="WelcomeResult" args={[ { name: "rosterId", type: "string" } ]} returnType="buffer" isMethod />
+
+Returns the MLS credential signature for the roster member identified by `rosterId`
+(a decimal snowflake string). The signature bytes can be used to verify that the
+member's key package was signed by a trusted identity key.
+
+<LuaParamTable params={[ { name: "rosterId", type: "string" } ]} returns={[ { type: "buffer" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="WelcomeResult" args={[  ]} isMethod />
+
+Destroys the welcome result and frees all associated libdave resources. Must be called
+after the result has been fully inspected.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeResult" args={[ { name: "handle", type: "Sys.WelcomeResultHandle" } ]} returnType="WelcomeResult" />
+
+Constructs a WelcomeResult wrapper around an existing libdave handle. Called internally
+by `Session:processWelcome`.
+
+<LuaParamTable params={[ { name: "handle", type: "Sys.WelcomeResultHandle" } ]} returns={[ { type: "WelcomeResult" } ]} />
+
+
