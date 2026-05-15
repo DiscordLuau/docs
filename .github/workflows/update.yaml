@@ -18,16 +18,29 @@ jobs:
           submodules: true
 
       - name: Install tooling
-        uses: ok-nick/setup-aftman@v0.4.2
+        uses: jdx/mise-action@v2
         with:
           cache: true
 
       - name: Update discord-luau source
         run: git submodule update --remote --recursive
 
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Update ref files
-        run: |
-          ./lunew generateReference
+        run: mise run generate
 
       - name: Commit & push
         run: |
