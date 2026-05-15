@@ -1,0 +1,97 @@
+---
+title: Buffer
+description: DiscordLuau docs for Buffer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Internal FFI interoperability helpers for the Sodium package.
+Wraps `stdPolyfills.ffi` into named operations so higher-level modules never interact with it directly.
+
+<LuaSummary className="Buffer" functions={[ { name: "alloc", args: [ { name: "size", type: "number" } ], returnType: "FFIPointer" }, { name: "dupe", args: [ { name: "buf", type: "buffer" } ], returnType: "FFIPointer" }, { name: "free", args: [ { name: "pointer", type: "FFIPointer" } ] }, { name: "read", args: [ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ], returnType: "buffer" }, { name: "getNull", args: [  ], returnType: "FFIPointer" }, { name: "allocSlot", args: [  ], returnType: "FFIPointer" }, { name: "readRawU64", args: [ { name: "value", type: "any" } ], returnType: "number" }, { name: "readSizeT", args: [ { name: "slot", type: "FFIPointer" } ], returnType: "number" }, { name: "toCString", args: [ { name: "s", type: "string" } ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" }, { name: "maxLength", type: "number" } ], returnType: "string" } ]} />
+
+## Functions
+
+### alloc
+
+> <LuaDeclaration name="alloc" className="Buffer" args={[ { name: "size", type: "number" } ]} returnType="FFIPointer" />
+
+<LuaParamTable params={[ { name: "size", type: "number" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### dupe
+
+> <LuaDeclaration name="dupe" className="Buffer" args={[ { name: "buf", type: "buffer" } ]} returnType="FFIPointer" />
+
+<LuaParamTable params={[ { name: "buf", type: "buffer" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### free
+
+> <LuaDeclaration name="free" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" } ]} />
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" } ]} />
+
+### read
+
+> <LuaDeclaration name="read" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ]} returnType="buffer" />
+
+Reads `length` bytes from `pointer` into a freshly created Luau buffer.
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ]} returns={[ { type: "buffer" } ]} />
+
+### getNull
+
+> <LuaDeclaration name="getNull" className="Buffer" args={[  ]} returnType="FFIPointer" />
+
+Returns a null FFI pointer for optional pointer arguments.
+
+<LuaParamTable returns={[ { type: "FFIPointer" } ]} />
+
+### allocSlot
+
+> <LuaDeclaration name="allocSlot" className="Buffer" args={[  ]} returnType="FFIPointer" />
+
+Allocates an 8-byte, 8-aligned slot for `size_t *` output parameters.
+
+<LuaParamTable returns={[ { type: "FFIPointer" } ]} />
+
+### readRawU64
+
+> <LuaDeclaration name="readRawU64" className="Buffer" args={[ { name: "value", type: "any" } ]} returnType="number" />
+
+Reads a `u64` return that may come back as a plain Luau `number` or a two-word `buffer`.
+
+<LuaParamTable params={[ { name: "value", type: "any" } ]} returns={[ { type: "number" } ]} />
+
+### readSizeT
+
+> <LuaDeclaration name="readSizeT" className="Buffer" args={[ { name: "slot", type: "FFIPointer" } ]} returnType="number" />
+
+Reads a `size_t` value written into an 8-byte slot by a libsodium function.
+
+<LuaParamTable params={[ { name: "slot", type: "FFIPointer" } ]} returns={[ { type: "number" } ]} />
+
+### toCString
+
+> <LuaDeclaration name="toCString" className="Buffer" args={[ { name: "s", type: "string" } ]} returnType="FFIPointer" />
+
+Copies `s` into a null-terminated C string in FFI memory; caller must free the result.
+
+<LuaParamTable params={[ { name: "s", type: "string" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### fromCString
+
+> <LuaDeclaration name="fromCString" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "maxLength", type: "number" } ]} returnType="string" />
+
+Reads a null-terminated C string from an FFI pointer into a Luau string, up to `maxLength` bytes.
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "maxLength", type: "number" } ]} returns={[ { type: "string" } ]} />
+
+

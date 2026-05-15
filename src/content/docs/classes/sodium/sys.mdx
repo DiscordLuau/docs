@@ -1,0 +1,91 @@
+---
+title: Sys
+description: DiscordLuau docs for Sys.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Raw FFI bindings for libsodium.
+Loads the shared library and exposes the complete C API as a typed Luau interface.
+Prefer the higher-level modules in `Sodium` over calling `lib` directly.
+
+<LuaSummary className="Sys" properties={[ { name: "lib", type: "Lib" }, { name: "aes256gcm", type: "{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" }, { name: "chacha20poly1305", type: "{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" }, { name: "xchacha20poly1305", type: "{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" }, { name: "secretbox", type: "{ KEY_BYTES: number, NONCE_BYTES: number, MAC_BYTES: number }" }, { name: "box", type: "{ PUBLIC_KEY_BYTES: number, SECRET_KEY_BYTES: number, NONCE_BYTES: number, MAC_BYTES: number, BEFORENM_BYTES: number }" }, { name: "sign", type: "{ PUBLIC_KEY_BYTES: number, SECRET_KEY_BYTES: number, BYTES: number }" }, { name: "generichash", type: "{ BYTES: number, BYTES_MIN: number, BYTES_MAX: number, KEY_BYTES: number, KEY_BYTES_MIN: number, KEY_BYTES_MAX: number }" }, { name: "hash", type: "{ SHA256_BYTES: number, SHA512_BYTES: number }" }, { name: "auth", type: "{ BYTES: number, KEY_BYTES: number }" }, { name: "kdf", type: "{ BYTES_MIN: number, BYTES_MAX: number, CONTEXT_BYTES: number, KEY_BYTES: number }" }, { name: "pwhash", type: "{ BYTES_MIN: number, BYTES_MAX: number, SALT_BYTES: number, STR_BYTES: number, ALG_ARGON2ID13: number, OPSLIMIT_INTERACTIVE: number, MEMLIMIT_INTERACTIVE: number, OPSLIMIT_MODERATE: number, MEMLIMIT_MODERATE: number, OPSLIMIT_SENSITIVE: number, MEMLIMIT_SENSITIVE: number }" }, { name: "base64", type: "{ VARIANT_ORIGINAL: number, VARIANT_ORIGINAL_NO_PADDING: number, VARIANT_URLSAFE: number, VARIANT_URLSAFE_NO_PADDING: number }" } ]} />
+
+## Properties
+
+### lib
+
+<LuaProperty name="Sys.lib" type="Lib" />
+
+---
+The loaded libsodium FFI library handle. All libsodium functions are called through this.
+
+### aes256gcm
+
+<LuaProperty name="Sys.aes256gcm" type="{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" />
+
+
+### chacha20poly1305
+
+<LuaProperty name="Sys.chacha20poly1305" type="{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" />
+
+
+### xchacha20poly1305
+
+<LuaProperty name="Sys.xchacha20poly1305" type="{ KEY_BYTES: number, NONCE_BYTES: number, TAG_BYTES: number }" />
+
+
+### secretbox
+
+<LuaProperty name="Sys.secretbox" type="{ KEY_BYTES: number, NONCE_BYTES: number, MAC_BYTES: number }" />
+
+
+### box
+
+<LuaProperty name="Sys.box" type="{ PUBLIC_KEY_BYTES: number, SECRET_KEY_BYTES: number, NONCE_BYTES: number, MAC_BYTES: number, BEFORENM_BYTES: number }" />
+
+
+### sign
+
+<LuaProperty name="Sys.sign" type="{ PUBLIC_KEY_BYTES: number, SECRET_KEY_BYTES: number, BYTES: number }" />
+
+
+### generichash
+
+<LuaProperty name="Sys.generichash" type="{ BYTES: number, BYTES_MIN: number, BYTES_MAX: number, KEY_BYTES: number, KEY_BYTES_MIN: number, KEY_BYTES_MAX: number }" />
+
+
+### hash
+
+<LuaProperty name="Sys.hash" type="{ SHA256_BYTES: number, SHA512_BYTES: number }" />
+
+
+### auth
+
+<LuaProperty name="Sys.auth" type="{ BYTES: number, KEY_BYTES: number }" />
+
+
+### kdf
+
+<LuaProperty name="Sys.kdf" type="{ BYTES_MIN: number, BYTES_MAX: number, CONTEXT_BYTES: number, KEY_BYTES: number }" />
+
+
+### pwhash
+
+<LuaProperty name="Sys.pwhash" type="{ BYTES_MIN: number, BYTES_MAX: number, SALT_BYTES: number, STR_BYTES: number, ALG_ARGON2ID13: number, OPSLIMIT_INTERACTIVE: number, MEMLIMIT_INTERACTIVE: number, OPSLIMIT_MODERATE: number, MEMLIMIT_MODERATE: number, OPSLIMIT_SENSITIVE: number, MEMLIMIT_SENSITIVE: number }" />
+
+
+### base64
+
+<LuaProperty name="Sys.base64" type="{ VARIANT_ORIGINAL: number, VARIANT_ORIGINAL_NO_PADDING: number, VARIANT_URLSAFE: number, VARIANT_URLSAFE_NO_PADDING: number }" />
+
+
+

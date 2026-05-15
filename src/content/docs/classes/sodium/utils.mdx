@@ -1,0 +1,77 @@
+---
+title: Utils
+description: DiscordLuau docs for Utils.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Utility helpers: constant-time comparison, memory zeroing, and hex/base64 encode/decode.
+All encoding and decoding goes through libsodium, ensuring compatibility with other libsodium consumers.
+
+<LuaSummary className="Utils" functions={[ { name: "memcmp", args: [ { name: "a", type: "buffer" }, { name: "b", type: "buffer" } ], returnType: "boolean" }, { name: "memzero", args: [ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ] }, { name: "bin2hex", args: [ { name: "data", type: "buffer" } ], returnType: "string" }, { name: "hex2bin", args: [ { name: "hex", type: "string" } ], returnType: "buffer" }, { name: "bin2base64", args: [ { name: "data", type: "buffer" }, { name: "variant", type: "number?" } ], returnType: "string" }, { name: "base642bin", args: [ { name: "base64", type: "string" }, { name: "variant", type: "number?" } ], returnType: "buffer" } ]} />
+
+## Functions
+
+### memcmp
+
+> <LuaDeclaration name="memcmp" className="Utils" args={[ { name: "a", type: "buffer" }, { name: "b", type: "buffer" } ]} returnType="boolean" />
+
+Compares `a` and `b` in constant time; returns `true` if they are equal.
+Both buffers must be the same length - use this for all secret-value comparisons to prevent timing attacks.
+
+<LuaParamTable params={[ { name: "a", type: "buffer" }, { name: "b", type: "buffer" } ]} returns={[ { type: "boolean" } ]} />
+
+### memzero
+
+> <LuaDeclaration name="memzero" className="Utils" args={[ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ]} />
+
+Zeroes `length` bytes at `pointer` in a way the compiler cannot optimise away.
+Operates on FFI-allocated memory only; for Luau buffers use `buffer.fill` instead.
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ]} />
+
+### bin2hex
+
+> <LuaDeclaration name="bin2hex" className="Utils" args={[ { name: "data", type: "buffer" } ]} returnType="string" />
+
+Encodes `data` as a lowercase hex string via libsodium.
+Output length is always `2 * buffer.len(data)` characters.
+
+<LuaParamTable params={[ { name: "data", type: "buffer" } ]} returns={[ { type: "string" } ]} />
+
+### hex2bin
+
+> <LuaDeclaration name="hex2bin" className="Utils" args={[ { name: "hex", type: "string" } ]} returnType="buffer" />
+
+Decodes a hex string into a binary buffer; accepts both upper and lower case.
+Errors if `hex` contains characters outside `[0-9a-fA-F]`.
+
+<LuaParamTable params={[ { name: "hex", type: "string" } ]} returns={[ { type: "buffer" } ]} />
+
+### bin2base64
+
+> <LuaDeclaration name="bin2base64" className="Utils" args={[ { name: "data", type: "buffer" }, { name: "variant", type: "number?" } ]} returnType="string" />
+
+Encodes `data` as a base64 string; `variant` selects the alphabet and padding.
+Variants: `Sys.base64.VARIANT_ORIGINAL` (default), `Sys.base64.VARIANT_ORIGINAL_NO_PADDING`, `BASE64_URLSAFE`, `BASE64_URLSAFE_NO_PADDING`.
+
+<LuaParamTable params={[ { name: "data", type: "buffer" }, { name: "variant", type: "number?" } ]} returns={[ { type: "string" } ]} />
+
+### base642bin
+
+> <LuaDeclaration name="base642bin" className="Utils" args={[ { name: "base64", type: "string" }, { name: "variant", type: "number?" } ]} returnType="buffer" />
+
+Decodes a base64 string into a binary buffer; `variant` must match the one used during encoding.
+Whitespace is not ignored - strip it beforehand. Errors on invalid input.
+
+<LuaParamTable params={[ { name: "base64", type: "string" }, { name: "variant", type: "number?" } ]} returns={[ { type: "buffer" } ]} />
+
+

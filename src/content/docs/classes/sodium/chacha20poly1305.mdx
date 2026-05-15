@@ -1,0 +1,51 @@
+---
+title: Chacha20poly1305
+description: DiscordLuau docs for Chacha20poly1305.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+ChaCha20-Poly1305 (IETF, 12-byte nonce) authenticated encryption, detached tag variant.
+
+Does not require AES-NI and works on all CPUs; for random nonces at scale use `xchacha20poly1305` instead.
+Always use a strict counter nonce and rotate the key before reaching 2^32 messages.
+
+<LuaSummary className="Chacha20poly1305" functions={[ { name: "keygen", args: [  ], returnType: "buffer" }, { name: "encrypt", args: [ { name: "plaintext", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ], returnType: "EncryptResult" }, { name: "decrypt", args: [ { name: "cipher", type: "buffer" }, { name: "tag", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ], returnType: "buffer" } ]} />
+
+## Functions
+
+### keygen
+
+> <LuaDeclaration name="keygen" className="Chacha20poly1305" args={[  ]} returnType="buffer" />
+
+Generates a random 32-byte ChaCha20-Poly1305 key via libsodium's CSPRNG.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### encrypt
+
+> <LuaDeclaration name="encrypt" className="Chacha20poly1305" args={[ { name: "plaintext", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ]} returnType="EncryptResult" />
+
+Encrypts `plaintext` with `key` (32 bytes) and `nonce` (12 bytes).
+Returns `{ cipher, tag }` where `cipher` is the same length as `plaintext` and `tag` is 16 bytes.
+
+<LuaParamTable params={[ { name: "plaintext", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ]} returns={[ { type: "EncryptResult" } ]} />
+
+### decrypt
+
+> <LuaDeclaration name="decrypt" className="Chacha20poly1305" args={[ { name: "cipher", type: "buffer" }, { name: "tag", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ]} returnType="buffer" />
+
+Decrypts `cipher` using its detached `tag`, `key` (32 bytes), and `nonce` (12 bytes).
+Returns the plaintext buffer; errors if authentication tag does not verify.
+
+<LuaParamTable params={[ { name: "cipher", type: "buffer" }, { name: "tag", type: "buffer" }, { name: "key", type: "buffer" }, { name: "nonce", type: "buffer" }, { name: "ad", type: "buffer?" } ]} returns={[ { type: "buffer" } ]} />
+
+

@@ -1,0 +1,42 @@
+---
+title: Kdf
+description: DiscordLuau docs for Kdf.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+BLAKE2b-based key derivation - derives independent subkeys from a single master key.
+Each subkey is identified by a numeric ID and an 8-character ASCII context string.
+The context namespaces subkeys within the master key; use distinct contexts per subsystem.
+Shorter contexts are zero-padded to 8 bytes; longer contexts will error.
+
+<LuaSummary className="Kdf" functions={[ { name: "keygen", args: [  ], returnType: "buffer" }, { name: "deriveKey", args: [ { name: "masterKey", type: "buffer" }, { name: "subkeyId", type: "number" }, { name: "context", type: "string" }, { name: "outputBytes", type: "number?" } ], returnType: "buffer" } ]} />
+
+## Functions
+
+### keygen
+
+> <LuaDeclaration name="keygen" className="Kdf" args={[  ]} returnType="buffer" />
+
+Generates a random 32-byte master key via libsodium's CSPRNG.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### deriveKey
+
+> <LuaDeclaration name="deriveKey" className="Kdf" args={[ { name: "masterKey", type: "buffer" }, { name: "subkeyId", type: "number" }, { name: "context", type: "string" }, { name: "outputBytes", type: "number?" } ]} returnType="buffer" />
+
+Derives a subkey from `masterKey` (32 bytes) identified by `subkeyId` and an 8-char `context` string.
+`outputBytes` controls the subkey length (16–64, default 32); errors if `context` or `outputBytes` is out of range.
+
+<LuaParamTable params={[ { name: "masterKey", type: "buffer" }, { name: "subkeyId", type: "number" }, { name: "context", type: "string" }, { name: "outputBytes", type: "number?" } ]} returns={[ { type: "buffer" } ]} />
+
+
