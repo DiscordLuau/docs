@@ -1,0 +1,104 @@
+---
+title: Jitter
+description: DiscordLuau docs for Jitter.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Per-SSRC jitter buffer for the voice receive pipeline.
+
+Holds incoming Opus packets indexed by RTP sequence number and replays them at a steady 20ms rate
+after an initial four-frame delay. Gaps in the sequence are filled via FEC (if the next packet is
+already buffered) or Opus PLC, so the consumer always receives a continuous PCM stream.
+
+The tick loop uses clock-anchored absolute deadlines to prevent timing drift over long calls. If
+the speaker stops talking and resumes (VAD silence gap), the buffer detects the discontinuity and
+resyncs automatically.
+
+<LuaSummary className="Jitter" properties={[ { name: "packets", type: "{ [number]: buffer }" }, { name: "nextSequence", type: "number" }, { name: "stopped", type: "boolean" }, { name: "clockAnchor", type: "number" }, { name: "tickCount", type: "number" }, { name: "thread", type: "thread?" }, { name: "decoder", type: "opus.Decoder" } ]} methods={[ { name: "push", isMethod: true, args: [ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ] }, { name: "start", isMethod: true, args: [ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "firstSequence", type: "number" } ], returnType: "Jitter" } ]} />
+
+## Properties
+
+### packets
+
+<LuaProperty name="Jitter.packets" type="{ [number]: buffer }" />
+
+
+### nextSequence
+
+<LuaProperty name="Jitter.nextSequence" type="number" />
+
+
+### stopped
+
+<LuaProperty name="Jitter.stopped" type="boolean" />
+
+
+### clockAnchor
+
+<LuaProperty name="Jitter.clockAnchor" type="number" />
+
+
+### tickCount
+
+<LuaProperty name="Jitter.tickCount" type="number" />
+
+
+### thread
+
+<LuaProperty name="Jitter.thread" type="thread?" />
+
+
+### decoder
+
+<LuaProperty name="Jitter.decoder" type="opus.Decoder" />
+
+
+
+## Methods
+
+### push
+
+> <LuaDeclaration name="push" className="Jitter" args={[ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ]} isMethod />
+
+Inserts an Opus packet for the given RTP sequence number. Packets that have already been played or
+are implausibly far ahead are silently discarded. Detects VAD silence gaps and resyncs the buffer.
+
+<LuaParamTable params={[ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ]} />
+
+### start
+
+> <LuaDeclaration name="start" className="Jitter" args={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ]} isMethod />
+
+Starts the 20ms tick loop. Fires `onRawFrame(sequence, packet)` when a packet was present in the
+buffer, and `onPcmFrame(pcm)` for every slot whether a packet was present or not, filling gaps
+with FEC from the next buffered packet or Opus PLC.
+
+<LuaParamTable params={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Jitter" args={[  ]} isMethod />
+
+Stops the tick loop and frees the Opus decoder. Must not be called more than once.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Jitter" args={[ { name: "firstSequence", type: "number" } ]} returnType="Jitter" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "firstSequence", type: "number" } ]} returns={[ { type: "Jitter" } ]} />
+
+

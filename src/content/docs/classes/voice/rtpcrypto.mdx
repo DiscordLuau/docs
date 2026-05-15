@@ -1,0 +1,86 @@
+---
+title: RtpCrypto
+description: DiscordLuau docs for RtpCrypto.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Handles RTP packet encryption and decryption for a voice connection.
+Owns the session secret key, encryption mode selection, and all sequence, timestamp, and nonce counters.
+
+<LuaSummary className="RtpCrypto" properties={[ { name: "secretKey", type: "buffer?" }, { name: "encryptionMode", type: "string?" }, { name: "rtpSequence", type: "number" }, { name: "rtpTimestamp", type: "number" }, { name: "rtpNonceCounter", type: "number" } ]} methods={[ { name: "encryptRtp", isMethod: true, args: [ { name: "rtpPacket", type: "buffer" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "ssrc", type: "number" } ], returnType: "buffer" }, { name: "decryptRtp", isMethod: true, args: [ { name: "rtpPacket", type: "buffer" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" } ], returnType: "buffer" }, { name: "reset", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "RtpCrypto" } ]} />
+
+## Properties
+
+### secretKey
+
+<LuaProperty name="RtpCrypto.secretKey" type="buffer?" />
+
+
+### encryptionMode
+
+<LuaProperty name="RtpCrypto.encryptionMode" type="string?" />
+
+
+### rtpSequence
+
+<LuaProperty name="RtpCrypto.rtpSequence" type="number" />
+
+
+### rtpTimestamp
+
+<LuaProperty name="RtpCrypto.rtpTimestamp" type="number" />
+
+
+### rtpNonceCounter
+
+<LuaProperty name="RtpCrypto.rtpNonceCounter" type="number" />
+
+
+
+## Methods
+
+### encryptRtp
+
+> <LuaDeclaration name="encryptRtp" className="RtpCrypto" args={[ { name: "rtpPacket", type: "buffer" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "ssrc", type: "number" } ]} returnType="buffer" isMethod />
+
+Encrypts an RTP packet. If a DAVE encryptor with an active key ratchet is provided, the Opus payload
+is DAVE-encrypted before the session cipher is applied.
+
+<LuaParamTable params={[ { name: "rtpPacket", type: "buffer" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "ssrc", type: "number" } ]} returns={[ { type: "buffer" } ]} />
+
+### decryptRtp
+
+> <LuaDeclaration name="decryptRtp" className="RtpCrypto" args={[ { name: "rtpPacket", type: "buffer" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" } ]} returnType="buffer" isMethod />
+
+Decrypts an RTP packet using the session cipher. Handles RTP header extensions and padding, then
+optionally DAVE-decrypts the Opus payload using the per-user decryptor for the sender's SSRC.
+
+<LuaParamTable params={[ { name: "rtpPacket", type: "buffer" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" } ]} returns={[ { type: "buffer" } ]} />
+
+### reset
+
+> <LuaDeclaration name="reset" className="RtpCrypto" args={[  ]} isMethod />
+
+Clears the secret key and encryption mode, and resets all sequence, timestamp, and nonce counters to zero.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="RtpCrypto" args={[  ]} returnType="RtpCrypto" />
+
+Responsible for constructing this class.
+
+<LuaParamTable returns={[ { type: "RtpCrypto" } ]} />
+
+

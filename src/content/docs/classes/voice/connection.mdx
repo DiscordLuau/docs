@@ -1,0 +1,219 @@
+---
+title: Connection
+description: DiscordLuau docs for Connection.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Coordinates a full Discord voice connection. Owns four sub-components:
+
+- `webSocket` - WebSocket lifecycle and heartbeating
+- `udp` - UDP socket, keepalive, and RTP audio send/receive
+- `rtp` - RTP encryption and sequence/timestamp/nonce counters
+- `dave` - DAVE E2EE MLS session and per-user key rotation
+
+Connection handles voice signalling (Identify, Resume, SelectProtocol, Speaking), opcode
+dispatch, jitter buffering per SSRC, and gateway shard integration.
+
+Consumer-facing events: `onReady`, `onSpeaking`, `onClientConnect`, `onClientDisconnect`,
+`onDaveEpochTransition`, `onRawAudioFrame`, `onAudioFrame`.
+
+<LuaSummary className="Connection" properties={[ { name: "webSocket", type: "voiceWebsocket.WebSocketTransport" }, { name: "udp", type: "voiceUdp.UdpTransport" }, { name: "rtp", type: "voiceRtpCrypto.RtpCrypto" }, { name: "dave", type: "voiceDaveManager.DaveManager" }, { name: "jitters", type: "{ [number]: voiceJitter.Jitter }" }, { name: "shard", type: "websocket.Shard" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "sessionId", type: "string" }, { name: "token", type: "secret.Secret<string>" }, { name: "endpoint", type: "string" }, { name: "onConnected", type: "emitter.Emitter<()>" }, { name: "onDisconnected", type: "emitter.Emitter<number?, boolean?>" }, { name: "onReady", type: "emitter.Emitter<()>" }, { name: "onHeartbeat", type: "emitter.Emitter<number?>" }, { name: "onRawMessage", type: "emitter.Emitter<apiTypes.Payload<unknown>>" }, { name: "onSpeaking", type: "emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" }, { name: "onClientConnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onClientDisconnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onDaveEpochTransition", type: "emitter.Emitter<number>" }, { name: "onRawAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "onAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "connectAsync", isMethod: true, args: [  ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "reconnectAsync", isMethod: true, args: [  ] }, { name: "requestVoiceAsync", isMethod: true, args: [  ] }, { name: "setSpeakingAsync", isMethod: true, args: [ { name: "speakingFlags", type: "number" } ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" } ] } ]} />
+
+## Properties
+
+### webSocket
+
+<LuaProperty name="Connection.webSocket" type="voiceWebsocket.WebSocketTransport" />
+
+
+### udp
+
+<LuaProperty name="Connection.udp" type="voiceUdp.UdpTransport" />
+
+
+### rtp
+
+<LuaProperty name="Connection.rtp" type="voiceRtpCrypto.RtpCrypto" />
+
+
+### dave
+
+<LuaProperty name="Connection.dave" type="voiceDaveManager.DaveManager" />
+
+
+### jitters
+
+<LuaProperty name="Connection.jitters" type="{ [number]: voiceJitter.Jitter }" />
+
+
+### shard
+
+<LuaProperty name="Connection.shard" type="websocket.Shard" />
+
+
+### guildId
+
+<LuaProperty name="Connection.guildId" type="string" />
+
+
+### channelId
+
+<LuaProperty name="Connection.channelId" type="string" />
+
+
+### userId
+
+<LuaProperty name="Connection.userId" type="string" />
+
+
+### sessionId
+
+<LuaProperty name="Connection.sessionId" type="string" />
+
+
+### token
+
+<LuaProperty name="Connection.token" type="secret.Secret<string>" />
+
+
+### endpoint
+
+<LuaProperty name="Connection.endpoint" type="string" />
+
+
+### onConnected
+
+<LuaProperty name="Connection.onConnected" type="emitter.Emitter<()>" />
+
+
+### onDisconnected
+
+<LuaProperty name="Connection.onDisconnected" type="emitter.Emitter<number?, boolean?>" />
+
+
+### onReady
+
+<LuaProperty name="Connection.onReady" type="emitter.Emitter<()>" />
+
+
+### onHeartbeat
+
+<LuaProperty name="Connection.onHeartbeat" type="emitter.Emitter<number?>" />
+
+
+### onRawMessage
+
+<LuaProperty name="Connection.onRawMessage" type="emitter.Emitter<apiTypes.Payload<unknown>>" />
+
+
+### onSpeaking
+
+<LuaProperty name="Connection.onSpeaking" type="emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" />
+
+
+### onClientConnect
+
+<LuaProperty name="Connection.onClientConnect" type="emitter.Emitter<{ userId: string }>" />
+
+
+### onClientDisconnect
+
+<LuaProperty name="Connection.onClientDisconnect" type="emitter.Emitter<{ userId: string }>" />
+
+
+### onDaveEpochTransition
+
+<LuaProperty name="Connection.onDaveEpochTransition" type="emitter.Emitter<number>" />
+
+
+### onRawAudioFrame
+
+<LuaProperty name="Connection.onRawAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
+
+---
+Fires for each decoded audio frame before Opus decoding. `frame` is the fully decrypted
+RTP packet (12-byte RTP header + Opus payload) with all encryption layers (DAVE E2EE and
+RTP encryption) already removed. Wire-level ciphertext is never exposed.
+
+### onAudioFrame
+
+<LuaProperty name="Connection.onAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
+
+
+### logger
+
+<LuaProperty name="Connection.logger" type="logger.Logger" />
+
+
+
+## Methods
+
+### sendAsync
+
+> <LuaDeclaration name="sendAsync" className="Connection" args={[ { name: "data", type: "string | buffer" } ]} isMethod />
+
+Sends a raw message to the voice gateway WebSocket.
+
+<LuaParamTable params={[ { name: "data", type: "string | buffer" } ]} />
+
+### connectAsync
+
+> <LuaDeclaration name="connectAsync" className="Connection" args={[  ]} isMethod />
+
+Opens the voice WebSocket connection. Session state is preserved when resuming.
+
+### forceClose
+
+> <LuaDeclaration name="forceClose" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Closes the voice WebSocket connection with an optional close code.
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+### forceClose
+
+> <LuaDeclaration name="forceClose" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Synchronously closes the voice connection and cleans up all session state. Safe to call from
+a signal handler or any context where yielding is not permitted.
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+### reconnectAsync
+
+> <LuaDeclaration name="reconnectAsync" className="Connection" args={[  ]} isMethod />
+
+Disconnects and reconnects the voice WebSocket. Concurrent reconnect attempts are rejected.
+
+### requestVoiceAsync
+
+> <LuaDeclaration name="requestVoiceAsync" className="Connection" args={[  ]} isMethod />
+
+Sends a VOICE_STATE_UPDATE to the gateway shard to request a voice server for this channel.
+
+### setSpeakingAsync
+
+> <LuaDeclaration name="setSpeakingAsync" className="Connection" args={[ { name: "speakingFlags", type: "number" } ]} isMethod />
+
+Sets the bot's speaking state. Pass a bitmask of speaking flags (Microphone = 1, Soundshare = 2, Priority = 4).
+
+<LuaParamTable params={[ { name: "speakingFlags", type: "number" } ]} />
+
+### sendOpusAsync
+
+> <LuaDeclaration name="sendOpusAsync" className="Connection" args={[ { name: "audioFrame", type: "buffer" } ]} isMethod />
+
+Encrypts and sends a raw Opus audio frame over UDP.
+
+<LuaParamTable params={[ { name: "audioFrame", type: "buffer" } ]} />
+
+

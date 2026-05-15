@@ -1,0 +1,160 @@
+---
+title: DaveManager
+description: DiscordLuau docs for DaveManager.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Manages the DAVE (Discord Audio/Video Encryption) MLS session lifecycle for a voice connection.
+
+Owns the MLS session, encryptor, per-user decryptors, and SSRC-to-user-ID mapping. Opcode
+handlers return frames to send and roster IDs rather than performing I/O - the caller
+(Voice.Connection) is responsible for sending frames and firing events.
+
+<LuaSummary className="DaveManager" properties={[ { name: "daveSession", type: "dave.Session?" }, { name: "pendingDaveProtocolVersion", type: "number?" }, { name: "isPendingCommitter", type: "boolean" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" }, { name: "recognizedUserIds", type: "{ string }" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "rotateDaveKeys", isMethod: true, args: [ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ] }, { name: "initSession", isMethod: true, args: [ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ] }, { name: "handlePrepareTransition", isMethod: true, args: [ { name: "payload", type: "any" } ], returnType: "buffer" }, { name: "handleExecuteTransition", isMethod: true, args: [ { name: "_payload", type: "any" } ] }, { name: "handlePrepareEpoch", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ] }, { name: "handleExternalSender", isMethod: true, args: [ { name: "payload", type: "any" } ], returnType: "buffer?" }, { name: "handleProposals", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ], returnType: "buffer?" }, { name: "handleCommitTransition", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ], returnType: "{ string }?" }, { name: "handleWelcome", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ], returnType: "{ string }?" } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "DaveManager" } ]} />
+
+## Properties
+
+### daveSession
+
+<LuaProperty name="DaveManager.daveSession" type="dave.Session?" />
+
+
+### pendingDaveProtocolVersion
+
+<LuaProperty name="DaveManager.pendingDaveProtocolVersion" type="number?" />
+
+
+### isPendingCommitter
+
+<LuaProperty name="DaveManager.isPendingCommitter" type="boolean" />
+
+
+### daveEncryptor
+
+<LuaProperty name="DaveManager.daveEncryptor" type="dave.Encryptor?" />
+
+
+### daveDecryptors
+
+<LuaProperty name="DaveManager.daveDecryptors" type="{ [string]: dave.Decryptor }" />
+
+
+### recognizedUserIds
+
+<LuaProperty name="DaveManager.recognizedUserIds" type="{ string }" />
+
+
+### ssrcToUserId
+
+<LuaProperty name="DaveManager.ssrcToUserId" type="{ [number]: string }" />
+
+
+### logger
+
+<LuaProperty name="DaveManager.logger" type="logger.Logger" />
+
+
+
+## Methods
+
+### cleanup
+
+> <LuaDeclaration name="cleanup" className="DaveManager" args={[  ]} isMethod />
+
+Destroys the active DAVE session, encryptor, and all per-user decryptors, then resets all state.
+
+### rotateDaveKeys
+
+> <LuaDeclaration name="rotateDaveKeys" className="DaveManager" args={[ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} isMethod />
+
+Updates the encryptor key ratchet and rebuilds per-user decryptors from the current MLS roster.
+Destroys decryptors for users no longer in the roster.
+
+<LuaParamTable params={[ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} />
+
+### initSession
+
+> <LuaDeclaration name="initSession" className="DaveManager" args={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} isMethod />
+
+Creates and initialises a new DAVE MLS session for the given protocol version, channel, and user.
+
+<LuaParamTable params={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} />
+
+### handlePrepareTransition
+
+> <LuaDeclaration name="handlePrepareTransition" className="DaveManager" args={[ { name: "payload", type: "any" } ]} returnType="buffer" isMethod />
+
+Stores the incoming protocol version and returns a DaveProtocolTransitionReady frame to send to the server.
+
+<LuaParamTable params={[ { name: "payload", type: "any" } ]} returns={[ { type: "buffer" } ]} />
+
+### handleExecuteTransition
+
+> <LuaDeclaration name="handleExecuteTransition" className="DaveManager" args={[ { name: "_payload", type: "any" } ]} isMethod />
+
+Applies the pending protocol version to the active session and clears the pending state.
+
+<LuaParamTable params={[ { name: "_payload", type: "any" } ]} />
+
+### handlePrepareEpoch
+
+> <LuaDeclaration name="handlePrepareEpoch" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} isMethod />
+
+Resets or creates the DAVE session in preparation for a new MLS epoch, then initialises it.
+
+<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} />
+
+### handleExternalSender
+
+> <LuaDeclaration name="handleExternalSender" className="DaveManager" args={[ { name: "payload", type: "any" } ]} returnType="buffer?" isMethod />
+
+Sets the MLS external sender and returns a DaveMlsKeyPackage frame for the server.
+
+<LuaParamTable params={[ { name: "payload", type: "any" } ]} returns={[ { type: "buffer?" } ]} />
+
+### handleProposals
+
+> <LuaDeclaration name="handleProposals" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returnType="buffer?" isMethod />
+
+Processes incoming MLS proposals and returns a commit+welcome frame and the current roster snapshot.
+
+<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returns={[ { type: "buffer?" }, { type: "{ string }?" } ]} />
+
+### handleCommitTransition
+
+> <LuaDeclaration name="handleCommitTransition" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returnType="{ string }?" isMethod />
+
+Processes an MLS commit, advances the epoch, and rotates encryption keys for the new roster.
+Returns the updated roster member IDs, or nil if the commit was rejected or ignored.
+
+<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returns={[ { type: "{ string }?" } ]} />
+
+### handleWelcome
+
+> <LuaDeclaration name="handleWelcome" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returnType="{ string }?" isMethod />
+
+Processes an MLS welcome for clients being added to an existing epoch, then rotates keys for the roster.
+
+<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returns={[ { type: "{ string }?" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DaveManager" args={[ { name: "loggerInstance", type: "logger.Logger" } ]} returnType="DaveManager" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "loggerInstance", type: "logger.Logger" } ]} returns={[ { type: "DaveManager" } ]} />
+
+
