@@ -9,7 +9,7 @@ on:
 
 jobs:
   ci:
-    name: Deploy
+    name: CI 
     runs-on: ubuntu-latest
 
     permissions:
