@@ -112,7 +112,12 @@ export default defineConfig({
 					label: "Accumulator",
 					collapsed: false,
 					items: [
-						{ autogenerate: { directory: "classes/accumulator", collapsed: true } },
+						{
+							autogenerate: {
+								directory: "classes/accumulator",
+								collapsed: true,
+							},
+						},
 					],
 				},
 				{
