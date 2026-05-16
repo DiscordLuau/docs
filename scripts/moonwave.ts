@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { readdirSync, existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 
 export interface MoonwaveSource {
 	line: number;

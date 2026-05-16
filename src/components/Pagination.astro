@@ -1,8 +1,8 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Pagination.astro";
-import ContributorAvatars from "./ContributorAvatars.astro";
+import type { Props } from "@astrojs/starlight/props";
 import syncedDirs from "../generated/synced-dirs.json";
+import ContributorAvatars from "./ContributorAvatars.astro";
 
 const file = Astro.props.entry?.id ?? "";
 const excludedPages = ["404.astro", "index.mdx"];

@@ -1,18 +1,18 @@
 import {
+	cpSync,
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
+import { dirname } from "node:path";
+import {
 	extract,
 	type MoonwaveClass,
 	type MoonwaveFunction,
 	type MoonwaveProperty,
 } from "./moonwave.ts";
-import {
-	mkdirSync,
-	rmSync,
-	writeFileSync,
-	existsSync,
-	cpSync,
-	readdirSync,
-} from "node:fs";
-import { dirname } from "node:path";
 
 const CLASSES_DIR = "src/content/docs/classes";
 const GENERATED_DIR = "src/generated";
