@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
 
-<LuaSummary className="Runtime" functions={[ { name: "getRuntime", args: [  ], returnType: "RuntimeValue" }, { name: "assertRuntime", args: [  ], returnType: "RuntimeValue" } ]} />
+<LuaSummary className="Runtime" functions={[ { name: "getRuntime", args: [  ], returnType: "RuntimeValue" }, { name: "assertRuntime", args: [  ], returnType: "RuntimeValue" }, { name: "capabilities", args: [  ], returnType: "Capabilities" } ]} />
 
 ## Functions
 
@@ -34,5 +34,21 @@ Will return the Runtime that this code is being executed under.
 Will error out if the current Runtime is not supported by Discord-Luau
 
 <LuaParamTable returns={[ { type: "RuntimeValue" } ]} />
+
+### capabilities
+
+> <LuaDeclaration name="capabilities" className="Runtime" args={[  ]} returnType="Capabilities" />
+
+Returns a table describing which optional capabilities are available on the current runtime.
+Use this to guard features that are not universally supported before attempting to load them.
+
+```luau
+local caps = stdPolyfills.runtime.capabilities()
+if not caps.ffi then
+	-- skip FFI-dependent setup
+end
+```
+
+<LuaParamTable returns={[ { type: "Capabilities" } ]} />
 
 

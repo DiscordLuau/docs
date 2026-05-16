@@ -17,7 +17,7 @@ Implementation of the Discord Embed class in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object
 
-<LuaSummary className="Embed" properties={[ { name: "title", type: "string?" }, { name: "type", type: "apiTypes.EmbedType?" }, { name: "description", type: "string?" }, { name: "url", type: "string?" }, { name: "timestamp", type: "stdPolyfills.DateTime?" }, { name: "color", type: "number?" }, { name: "footer", type: "Classes.Embed.Footer?" }, { name: "image", type: "Classes.Embed.Image?" }, { name: "thumbnail", type: "Classes.Embed.Thumbnail?" }, { name: "video", type: "Classes.Embed.Video?" }, { name: "provider", type: "Classes.Embed.Provider?" }, { name: "author", type: "Classes.Embed.Author?" }, { name: "fields", type: "{Classes.Embed.Field}?" } ]} />
+<LuaSummary className="Embed" properties={[ { name: "title", type: "string?" }, { name: "type", type: "apiTypes.EmbedType?" }, { name: "description", type: "string?" }, { name: "url", type: "string?" }, { name: "timestamp", type: "stdPolyfills.DateTime?" }, { name: "color", type: "number?" }, { name: "footer", type: "Classes.Embed.Footer?" }, { name: "image", type: "Classes.Embed.Image?" }, { name: "thumbnail", type: "Classes.Embed.Thumbnail?" }, { name: "video", type: "Classes.Embed.Video?" }, { name: "provider", type: "Classes.Embed.Provider?" }, { name: "author", type: "Classes.Embed.Author?" }, { name: "fields", type: "{Classes.Embed.Field}?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "embedData", type: "apiTypes.EmbedObject" } ] } ]} functions={[ { name: "new", args: [ { name: "embedData", type: "apiTypes.EmbedObject" } ], returnType: "Embed" } ]} />
 
 ## Properties
 
@@ -111,5 +111,28 @@ Author information for the embed
 
 ---
 Array of embed field objects
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Embed" args={[ { name: "embedData", type: "apiTypes.EmbedObject" } ]} isMethod />
+
+Responsible for syncing data to this embed object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "embedData", type: "apiTypes.EmbedObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Embed" args={[ { name: "embedData", type: "apiTypes.EmbedObject" } ]} returnType="Embed" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "embedData", type: "apiTypes.EmbedObject" } ]} returns={[ { type: "Embed" } ]} />
 
 

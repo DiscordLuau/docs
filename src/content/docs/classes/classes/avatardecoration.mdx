@@ -17,7 +17,7 @@ Implementation of the Discord Presence class in Luau
 
 https://discord.com/developers/docs/resources/user#avatar-decoration-data-object
 
-<LuaSummary className="AvatarDecoration" properties={[ { name: "asset", type: "string" }, { name: "skuId", type: "Snowflake" } ]} />
+<LuaSummary className="AvatarDecoration" properties={[ { name: "asset", type: "string" }, { name: "skuId", type: "Snowflake" } ]} functions={[ { name: "new", args: [ { name: "asset", type: "string" }, { name: "skuId", type: "apiTypes.Snowflake" } ], returnType: "AvatarDecoration" } ]} />
 
 ## Properties
 
@@ -34,5 +34,16 @@ The asset URL for this avatar decoration.
 
 ---
 The SKU ID for this avatar decoration.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="AvatarDecoration" args={[ { name: "asset", type: "string" }, { name: "skuId", type: "apiTypes.Snowflake" } ]} returnType="AvatarDecoration" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "asset", type: "string" }, { name: "skuId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "AvatarDecoration" } ]} />
 
 

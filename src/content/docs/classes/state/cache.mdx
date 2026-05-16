@@ -13,20 +13,20 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-Class responsible for handling the underlying cache for all objects in Discord-Luau
+Class responsible for handling the underlying cache for all objects in Discord-Luau.
 
-<LuaSummary className="Cache" properties={[ { name: "store", type: "{ [K]: V }" }, { name: "expiry", type: "number" } ]} methods={[ { name: "set", isMethod: true, args: [ { name: "key", type: "K" }, { name: "value", type: "V" } ] }, { name: "get", isMethod: true, args: [ { name: "key", type: "K" } ], returnType: "V?" } ]} functions={[ { name: "new", args: [ { name: "expiry", type: "number" } ], returnType: "Cache<K, V>" } ]} />
+Entries are evicted explicitly via `remove()` - callers must call this on DELETE gateway events.
+The previous weak-table + TTL-coroutine approach was removed because it could silently evict
+entries while they were still valid, and the coroutine workaround that prevented that eviction
+made the TTL meaningless.
+
+<LuaSummary className="Cache" properties={[ { name: "store", type: "{ [K]: V }" } ]} methods={[ { name: "set", isMethod: true, args: [ { name: "key", type: "K" }, { name: "value", type: "V" } ] }, { name: "get", isMethod: true, args: [ { name: "key", type: "K" } ], returnType: "V?" }, { name: "remove", isMethod: true, args: [ { name: "key", type: "K" } ] } ]} functions={[ { name: "new", args: [  ], returnType: "Cache<K, V>" } ]} />
 
 ## Properties
 
 ### store
 
 <LuaProperty name="Cache.store" type="{ [K]: V }" />
-
-
-### expiry
-
-<LuaProperty name="Cache.expiry" type="number" />
 
 
 
@@ -36,8 +36,7 @@ Class responsible for handling the underlying cache for all objects in Discord-L
 
 > <LuaDeclaration name="set" className="Cache" args={[ { name: "key", type: "K" }, { name: "value", type: "V" } ]} isMethod />
 
-Responsible for storing something in cache, will then store both the key and value so that these objects don't get
-cleaned up by the luau gc.
+Stores a value in the cache under the given key.
 
 <LuaParamTable params={[ { name: "key", type: "K" }, { name: "value", type: "V" } ]} />
 
@@ -45,19 +44,28 @@ cleaned up by the luau gc.
 
 > <LuaDeclaration name="get" className="Cache" args={[ { name: "key", type: "K" } ]} returnType="V?" isMethod />
 
-Responsible for getting something in the cache, will either return V or nil
+Returns the cached value for the given key, or nil if not present.
 
 <LuaParamTable params={[ { name: "key", type: "K" } ]} returns={[ { type: "V?" } ]} />
+
+### remove
+
+> <LuaDeclaration name="remove" className="Cache" args={[ { name: "key", type: "K" } ]} isMethod />
+
+Removes the cached value for the given key. Call this on DELETE gateway events to keep
+the cache consistent with Discord's state.
+
+<LuaParamTable params={[ { name: "key", type: "K" } ]} />
 
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="Cache" args={[ { name: "expiry", type: "number" } ]} returnType="Cache<K, V>" />
+> <LuaDeclaration name="new" className="Cache" args={[  ]} returnType="Cache<K, V>" />
 
 Constructor for the Cache class.
 
-<LuaParamTable params={[ { name: "expiry", type: "number" } ]} returns={[ { type: "Cache<K, V>" } ]} />
+<LuaParamTable returns={[ { type: "Cache<K, V>" } ]} />
 
 

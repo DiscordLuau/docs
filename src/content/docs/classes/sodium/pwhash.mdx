@@ -1,0 +1,61 @@
+---
+title: Pwhash
+description: DiscordLuau docs for Pwhash.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Argon2id password hashing and key derivation from passwords - all operations are intentionally slow.
+Key derivation (`hash`): derives a fixed-length symmetric key from a password and a random salt.
+Password storage (`hashStr`/`verifyStr`): produces a self-contained encoded string with embedded salt.
+Use `INTERACTIVE` presets for login flows and `SENSITIVE` for long-lived key derivation.
+
+<LuaSummary className="Pwhash" functions={[ { name: "hash", args: [ { name: "password", type: "buffer" }, { name: "salt", type: "buffer" }, { name: "outputBytes", type: "number" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ], returnType: "buffer" }, { name: "hashStr", args: [ { name: "password", type: "buffer" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ], returnType: "string" }, { name: "verifyStr", args: [ { name: "hashString", type: "string" }, { name: "password", type: "buffer" } ], returnType: "boolean" }, { name: "needsRehash", args: [ { name: "hashString", type: "string" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ], returnType: "boolean" } ]} />
+
+## Functions
+
+### hash
+
+> <LuaDeclaration name="hash" className="Pwhash" args={[ { name: "password", type: "buffer" }, { name: "salt", type: "buffer" }, { name: "outputBytes", type: "number" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returnType="buffer" />
+
+Derives a key of `outputBytes` bytes from `password` and a 16-byte `salt` using Argon2id.
+`opsLimit` and `memLimit` default to the interactive presets; increase to moderate or sensitive for stronger derivation.
+
+<LuaParamTable params={[ { name: "password", type: "buffer" }, { name: "salt", type: "buffer" }, { name: "outputBytes", type: "number" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returns={[ { type: "buffer" } ]} />
+
+### hashStr
+
+> <LuaDeclaration name="hashStr" className="Pwhash" args={[ { name: "password", type: "buffer" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returnType="string" />
+
+Hashes `password` for storage, returning a self-contained encoded string with embedded salt and parameters.
+`opsLimit` and `memLimit` default to the interactive presets; errors if hashing fails.
+
+<LuaParamTable params={[ { name: "password", type: "buffer" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returns={[ { type: "string" } ]} />
+
+### verifyStr
+
+> <LuaDeclaration name="verifyStr" className="Pwhash" args={[ { name: "hashString", type: "string" }, { name: "password", type: "buffer" } ]} returnType="boolean" />
+
+Verifies that `password` matches the encoded hash produced by `hashStr`.
+Returns `true` if the password is correct, `false` otherwise - does not error on wrong passwords.
+
+<LuaParamTable params={[ { name: "hashString", type: "string" }, { name: "password", type: "buffer" } ]} returns={[ { type: "boolean" } ]} />
+
+### needsRehash
+
+> <LuaDeclaration name="needsRehash" className="Pwhash" args={[ { name: "hashString", type: "string" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returnType="boolean" />
+
+Returns `true` if the stored hash was produced with parameters weaker than `opsLimit`/`memLimit`.
+Use after a successful `verifyStr` to decide whether to upgrade the stored hash; errors if `hashStr` is invalid.
+
+<LuaParamTable params={[ { name: "hashString", type: "string" }, { name: "opsLimit", type: "number?" }, { name: "memLimit", type: "number?" } ]} returns={[ { type: "boolean" } ]} />
+
+

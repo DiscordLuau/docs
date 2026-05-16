@@ -1,0 +1,92 @@
+---
+title: CheckboxGroup
+description: DiscordLuau docs for CheckboxGroup.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Checkbox Group component as a Luau builder.
+Multi-selectable group of checkboxes. Modal-only when using the required field.
+
+https://docs.discord.com/developers/components/reference#checkbox-group
+
+<LuaSummary className="CheckboxGroup" properties={[ { name: "customId", type: "string?" }, { name: "options", type: "{ apiTypes.RadioGroupOptionObject }" }, { name: "required", type: "boolean?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "CheckboxGroup" }, { name: "addOption", isMethod: true, args: [ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ], returnType: "CheckboxGroup" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "CheckboxGroup" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [  ], returnType: "CheckboxGroup" } ]} />
+
+## Properties
+
+### customId
+
+<LuaProperty name="CheckboxGroup.customId" type="string?" />
+
+---
+Developer-defined identifier; 1-100 characters.
+
+### options
+
+<LuaProperty name="CheckboxGroup.options" type="{ apiTypes.RadioGroupOptionObject }" />
+
+---
+Array of checkbox options; max 10.
+
+### required
+
+<LuaProperty name="CheckboxGroup.required" type="boolean?" />
+
+---
+Whether required in modal (defaults to true).
+
+
+## Methods
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="CheckboxGroup" args={[ { name: "customId", type: "string" } ]} returnType="CheckboxGroup" isMethod />
+
+Sets the developer-defined identifier. 1-100 characters.
+
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "CheckboxGroup" } ]} />
+
+### addOption
+
+> <LuaDeclaration name="addOption" className="CheckboxGroup" args={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ]} returnType="CheckboxGroup" isMethod />
+
+Adds a checkbox option. Max 10 options.
+
+<LuaParamTable params={[ { name: "label", type: "string" }, { name: "value", type: "string" }, { name: "description", type: "string?" }, { name: "emoji", type: "apiTypes.EmojiObject?" }, { name: "default", type: "boolean?" } ]} returns={[ { type: "CheckboxGroup" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="CheckboxGroup" args={[ { name: "required", type: "boolean" } ]} returnType="CheckboxGroup" isMethod />
+
+Sets whether this component is required in a modal.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "CheckboxGroup" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="CheckboxGroup" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the CheckboxGroup JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="CheckboxGroup" args={[  ]} returnType="CheckboxGroup" />
+
+Responsible for creating a new CheckboxGroup.
+
+<LuaParamTable returns={[ { type: "CheckboxGroup" } ]} />
+
+

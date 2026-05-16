@@ -17,7 +17,7 @@ Implementation of the Discord Role Bitflags in Luau
 
 https://discord.com/developers/docs/topics/permissions#role-object-role-flags
 
-<LuaSummary className="RoleBitflag" properties={[ { name: "flag", type: "number" } ]} />
+<LuaSummary className="RoleBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "isInOnboardingPrompt", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "RoleBitflag" } ]} />
 
 ## Properties
 
@@ -25,5 +25,25 @@ https://discord.com/developers/docs/topics/permissions#role-object-role-flags
 
 <LuaProperty name="RoleBitflag.flag" type="number" />
 
+
+
+## Methods
+
+### isInOnboardingPrompt
+
+> <LuaDeclaration name="isInOnboardingPrompt" className="RoleBitflag" args={[  ]} isMethod />
+
+Checks if the role is in an onboarding prompt.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="RoleBitflag" args={[ { name: "flag", type: "number" } ]} returnType="RoleBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "RoleBitflag" } ]} />
 
 

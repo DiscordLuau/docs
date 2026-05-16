@@ -1,0 +1,92 @@
+---
+title: ComponentThumbnail
+description: DiscordLuau docs for ComponentThumbnail.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Thumbnail component as a Luau builder.
+This is a Components V2 layout component, distinct from the embed thumbnail.
+
+https://discord.com/developers/docs/components/reference#thumbnail
+
+<LuaSummary className="ComponentThumbnail" properties={[ { name: "url", type: "string?" }, { name: "description", type: "string?" }, { name: "spoiler", type: "boolean?" } ]} methods={[ { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ], returnType: "ComponentThumbnail" }, { name: "setDescription", isMethod: true, args: [ { name: "description", type: "string" } ], returnType: "ComponentThumbnail" }, { name: "setSpoiler", isMethod: true, args: [ { name: "spoiler", type: "boolean" } ], returnType: "ComponentThumbnail" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ url: string?, description: string?, spoiler: boolean?, }?" } ], returnType: "ComponentThumbnail" } ]} />
+
+## Properties
+
+### url
+
+<LuaProperty name="ComponentThumbnail.url" type="string?" />
+
+---
+The URL of the media to display. Use attachment://filename for uploaded files.
+
+### description
+
+<LuaProperty name="ComponentThumbnail.description" type="string?" />
+
+---
+Alt text for the thumbnail image.
+
+### spoiler
+
+<LuaProperty name="ComponentThumbnail.spoiler" type="boolean?" />
+
+---
+Whether the thumbnail is blurred as a spoiler.
+
+
+## Methods
+
+### setUrl
+
+> <LuaDeclaration name="setUrl" className="ComponentThumbnail" args={[ { name: "url", type: "string" } ]} returnType="ComponentThumbnail" isMethod />
+
+Sets the media URL for the thumbnail.
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} returns={[ { type: "ComponentThumbnail" } ]} />
+
+### setDescription
+
+> <LuaDeclaration name="setDescription" className="ComponentThumbnail" args={[ { name: "description", type: "string" } ]} returnType="ComponentThumbnail" isMethod />
+
+Sets the alt text description for the thumbnail.
+
+<LuaParamTable params={[ { name: "description", type: "string" } ]} returns={[ { type: "ComponentThumbnail" } ]} />
+
+### setSpoiler
+
+> <LuaDeclaration name="setSpoiler" className="ComponentThumbnail" args={[ { name: "spoiler", type: "boolean" } ]} returnType="ComponentThumbnail" isMethod />
+
+Sets whether the thumbnail is blurred as a spoiler.
+
+<LuaParamTable params={[ { name: "spoiler", type: "boolean" } ]} returns={[ { type: "ComponentThumbnail" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="ComponentThumbnail" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the ComponentThumbnail JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ComponentThumbnail" args={[ { name: "resource", type: "{ url: string?, description: string?, spoiler: boolean?, }?" } ]} returnType="ComponentThumbnail" />
+
+Responsible for creating a new ComponentThumbnail.
+
+<LuaParamTable params={[ { name: "resource", type: "{ url: string?, description: string?, spoiler: boolean?, }?" } ]} returns={[ { type: "ComponentThumbnail" } ]} />
+
+

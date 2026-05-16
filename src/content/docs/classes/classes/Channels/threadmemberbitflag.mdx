@@ -19,7 +19,7 @@ https://discord.com/developers/docs/resources/channel#thread-member-object
 
 ⚠️ Discord currently doesn't provide any flag documentation for this class? Wack.
 
-<LuaSummary className="ThreadMemberBitflag" properties={[ { name: "flag", type: "number" } ]} />
+<LuaSummary className="ThreadMemberBitflag" properties={[ { name: "flag", type: "number" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "ThreadMemberBitflag" } ]} />
 
 ## Properties
 
@@ -29,5 +29,16 @@ https://discord.com/developers/docs/resources/channel#thread-member-object
 
 ---
 The bitfield representing the thread member flags.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ThreadMemberBitflag" args={[ { name: "flag", type: "number" } ]} returnType="ThreadMemberBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "ThreadMemberBitflag" } ]} />
 
 

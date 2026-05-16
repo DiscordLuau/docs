@@ -1,0 +1,106 @@
+---
+title: Box
+description: DiscordLuau docs for Box.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+X25519 + XSalsa20-Poly1305 public-key authenticated encryption.
+Encrypts from sender secret key to recipient public key; only the recipient can decrypt.
+Both parties must know each other's public key; call `precompute` once per recipient
+to derive a shared key and avoid repeated Diffie-Hellman for multiple messages.
+
+<LuaSummary className="Box" functions={[ { name: "keypair", args: [  ], returnType: "Keypair" }, { name: "nonce", args: [  ], returnType: "buffer" }, { name: "seal", args: [ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "buffer" }, { name: "open", args: [ { name: "ciphertext", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "buffer" }, { name: "sealDetached", args: [ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "SealResult" }, { name: "openDetached", args: [ { name: "cipher", type: "buffer" }, { name: "mac", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "buffer" }, { name: "precompute", args: [ { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" } ], returnType: "buffer" }, { name: "sealAfterPrecompute", args: [ { name: "message", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "buffer" }, { name: "openAfterPrecompute", args: [ { name: "ciphertext", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ], returnType: "buffer" } ]} />
+
+## Functions
+
+### keypair
+
+> <LuaDeclaration name="keypair" className="Box" args={[  ]} returnType="Keypair" />
+
+Generates a random X25519 keypair; public key is safe to share, secret key must be kept private.
+The secret key is 32 bytes.
+
+<LuaParamTable returns={[ { type: "Keypair" } ]} />
+
+### nonce
+
+> <LuaDeclaration name="nonce" className="Box" args={[  ]} returnType="buffer" />
+
+Generates a random 24-byte nonce via libsodium's CSPRNG.
+Generate a fresh nonce for every message - never reuse a nonce with the same keypair.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### seal
+
+> <LuaDeclaration name="seal" className="Box" args={[ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="buffer" />
+
+Encrypts `message` from `senderSecretKey` to `recipientPublicKey` using `nonce` (24 bytes).
+Returns a combined buffer: `[mac (16 B)][ciphertext]`.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### open
+
+> <LuaDeclaration name="open" className="Box" args={[ { name: "ciphertext", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="buffer" />
+
+Decrypts a combined `ciphertext` (from `seal`) using `senderPublicKey`, `recipientSecretKey`, and `nonce`.
+Errors if the MAC does not verify.
+
+<LuaParamTable params={[ { name: "ciphertext", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### sealDetached
+
+> <LuaDeclaration name="sealDetached" className="Box" args={[ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="SealResult" />
+
+Encrypts `message` from `senderSecretKey` to `recipientPublicKey`, returning MAC and ciphertext separately.
+Ciphertext is the same length as the message; MAC and ciphertext are returned as `{ cipher, mac }`.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" }, { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "SealResult" } ]} />
+
+### openDetached
+
+> <LuaDeclaration name="openDetached" className="Box" args={[ { name: "cipher", type: "buffer" }, { name: "mac", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="buffer" />
+
+Decrypts `cipher` using its detached `mac`, `senderPublicKey`, `recipientSecretKey`, and `nonce`.
+Errors if the MAC does not verify.
+
+<LuaParamTable params={[ { name: "cipher", type: "buffer" }, { name: "mac", type: "buffer" }, { name: "senderPublicKey", type: "buffer" }, { name: "recipientSecretKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### precompute
+
+> <LuaDeclaration name="precompute" className="Box" args={[ { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" } ]} returnType="buffer" />
+
+Computes a 32-byte shared key from `recipientPublicKey` and `senderSecretKey` via X25519 Diffie-Hellman.
+Pass the result to `sealAfterPrecompute`/`openAfterPrecompute` to avoid repeating the DH per message.
+
+<LuaParamTable params={[ { name: "recipientPublicKey", type: "buffer" }, { name: "senderSecretKey", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### sealAfterPrecompute
+
+> <LuaDeclaration name="sealAfterPrecompute" className="Box" args={[ { name: "message", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="buffer" />
+
+Encrypts `message` using a precomputed `sharedKey` (from `precompute`) and `nonce`.
+Returns a combined buffer: `[mac (16 B)][ciphertext]`.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### openAfterPrecompute
+
+> <LuaDeclaration name="openAfterPrecompute" className="Box" args={[ { name: "ciphertext", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returnType="buffer" />
+
+Decrypts a combined `ciphertext` (from `sealAfterPrecompute`) using a precomputed `sharedKey` and `nonce`.
+Errors if the MAC does not verify.
+
+<LuaParamTable params={[ { name: "ciphertext", type: "buffer" }, { name: "sharedKey", type: "buffer" }, { name: "nonce", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+

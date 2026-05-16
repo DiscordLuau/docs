@@ -1,0 +1,138 @@
+---
+title: VoiceState
+description: DiscordLuau docs for VoiceState.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord VoiceState class in Luau
+
+https://discord.com/developers/docs/resources/voice#voice-state-object
+
+<LuaSummary className="VoiceState" properties={[ { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "userId", type: "string" }, { name: "member", type: "Classes.GuildMember?" }, { name: "sessionId", type: "string" }, { name: "deaf", type: "boolean" }, { name: "mute", type: "boolean" }, { name: "selfDeaf", type: "boolean" }, { name: "selfMute", type: "boolean" }, { name: "selfStream", type: "boolean?" }, { name: "selfVideo", type: "boolean" }, { name: "suppress", type: "boolean" }, { name: "requestToSpeakTimestamp", type: "DateTime?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ] } ]} functions={[ { name: "new", args: [ { name: "voiceStateState", type: "state.State" }, { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ], returnType: "VoiceState" } ]} />
+
+## Properties
+
+### guildId
+
+<LuaProperty name="VoiceState.guildId" type="string?" />
+
+---
+The guild id this voice state is for
+
+### channelId
+
+<LuaProperty name="VoiceState.channelId" type="string?" />
+
+---
+The channel id this user is connected to
+
+### userId
+
+<LuaProperty name="VoiceState.userId" type="string" />
+
+---
+The user id this voice state is for
+
+### member
+
+<LuaProperty name="VoiceState.member" type="Classes.GuildMember?" />
+
+---
+The guild member this voice state is for
+
+### sessionId
+
+<LuaProperty name="VoiceState.sessionId" type="string" />
+
+---
+The session id for this voice state
+
+### deaf
+
+<LuaProperty name="VoiceState.deaf" type="boolean" />
+
+---
+Whether this user is deafened by the server
+
+### mute
+
+<LuaProperty name="VoiceState.mute" type="boolean" />
+
+---
+Whether this user is muted by the server
+
+### selfDeaf
+
+<LuaProperty name="VoiceState.selfDeaf" type="boolean" />
+
+---
+Whether this user is locally deafened
+
+### selfMute
+
+<LuaProperty name="VoiceState.selfMute" type="boolean" />
+
+---
+Whether this user is locally muted
+
+### selfStream
+
+<LuaProperty name="VoiceState.selfStream" type="boolean?" />
+
+---
+Whether this user is streaming using "Go Live"
+
+### selfVideo
+
+<LuaProperty name="VoiceState.selfVideo" type="boolean" />
+
+---
+Whether this user's camera is enabled
+
+### suppress
+
+<LuaProperty name="VoiceState.suppress" type="boolean" />
+
+---
+Whether this user's permission to speak is denied
+
+### requestToSpeakTimestamp
+
+<LuaProperty name="VoiceState.requestToSpeakTimestamp" type="DateTime?" />
+
+---
+The time at which the user requested to speak
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="VoiceState" args={[ { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ]} isMethod />
+
+Responsible for syncing data to this voice state object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="VoiceState" args={[ { name: "voiceStateState", type: "state.State" }, { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ]} returnType="VoiceState" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "voiceStateState", type: "state.State" }, { name: "voiceStateData", type: "apiTypes.VoiceStateObject" } ]} returns={[ { type: "VoiceState" } ]} />
+
+

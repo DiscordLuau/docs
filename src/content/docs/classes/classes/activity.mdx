@@ -17,7 +17,7 @@ Implementation of the Discord Activity class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#activity-object
 
-<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "type", type: "ActivityType" }, { name: "url", type: "string?" }, { name: "createdAt", type: "number" }, { name: "timestamps", type: "Classes.Activity.Timestamp" }, { name: "applicationId", type: "string" }, { name: "details", type: "string?" }, { name: "state", type: "string?" }, { name: "emoji", type: "Classes.Activity.Emoji?" }, { name: "party", type: "Classes.Activity.Party?" }, { name: "assets", type: "Classes.Activity.Assets?" }, { name: "secrets", type: "Classes.Activity.Secrets?" }, { name: "instance", type: "boolean?" }, { name: "flags", type: "number?" }, { name: "buttons", type: "{Classes.Activity.Button}" } ]} />
+<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "type", type: "ActivityType" }, { name: "url", type: "string?" }, { name: "createdAt", type: "number" }, { name: "timestamps", type: "Classes.Activity.Timestamp" }, { name: "applicationId", type: "string" }, { name: "details", type: "string?" }, { name: "state", type: "string?" }, { name: "emoji", type: "Classes.Activity.Emoji?" }, { name: "party", type: "Classes.Activity.Party?" }, { name: "assets", type: "Classes.Activity.Assets?" }, { name: "secrets", type: "Classes.Activity.Secrets?" }, { name: "instance", type: "boolean?" }, { name: "flags", type: "number?" }, { name: "buttons", type: "{Classes.Activity.Button}" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "activityData", type: "apiTypes.ActivityObject" } ] } ]} functions={[ { name: "new", args: [ { name: "data", type: "apiTypes.ActivityObject" } ], returnType: "Activity" } ]} />
 
 ## Properties
 
@@ -125,5 +125,28 @@ Activity flags ORd together, describes what the payload includes
 
 ---
 Custom buttons shown in the Rich Presence
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Activity" args={[ { name: "activityData", type: "apiTypes.ActivityObject" } ]} isMethod />
+
+Responsible for syncing data to this activity object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "activityData", type: "apiTypes.ActivityObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Activity" args={[ { name: "data", type: "apiTypes.ActivityObject" } ]} returnType="Activity" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "data", type: "apiTypes.ActivityObject" } ]} returns={[ { type: "Activity" } ]} />
 
 

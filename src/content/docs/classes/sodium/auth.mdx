@@ -1,0 +1,49 @@
+---
+title: Auth
+description: DiscordLuau docs for Auth.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+HMAC-SHA512256 symmetric MAC - produces and verifies 32-byte authentication tags.
+The verification step runs in constant time to prevent timing attacks.
+Both parties must share the same secret key; use an AEAD module for encrypted messages.
+
+<LuaSummary className="Auth" functions={[ { name: "keygen", args: [  ], returnType: "buffer" }, { name: "sign", args: [ { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ], returnType: "buffer" }, { name: "verify", args: [ { name: "mac", type: "buffer" }, { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ], returnType: "boolean" } ]} />
+
+## Functions
+
+### keygen
+
+> <LuaDeclaration name="keygen" className="Auth" args={[  ]} returnType="buffer" />
+
+Generates a random 32-byte authentication key via libsodium's CSPRNG.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### sign
+
+> <LuaDeclaration name="sign" className="Auth" args={[ { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ]} returnType="buffer" />
+
+Computes a 32-byte HMAC-SHA512256 authentication tag for `message` under `key`.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### verify
+
+> <LuaDeclaration name="verify" className="Auth" args={[ { name: "mac", type: "buffer" }, { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ]} returnType="boolean" />
+
+Verifies `mac` against `message` under `key` in constant time.
+Returns `true` if valid, `false` otherwise - does not error on failed verification.
+
+<LuaParamTable params={[ { name: "mac", type: "buffer" }, { name: "message", type: "buffer" }, { name: "key", type: "buffer" } ]} returns={[ { type: "boolean" } ]} />
+
+

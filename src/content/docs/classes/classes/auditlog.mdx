@@ -17,7 +17,7 @@ Implementation of the Discord AuditLog class in Luau
 
 https://discord.com/developers/docs/resources/audit-log#audit-log-object-audit-log-structure
 
-<LuaSummary className="AuditLog" properties={[ { name: "state", type: "state.State" }, { name: "applicationCommands", type: "{ Classes.Application.Command }" }, { name: "auditLogEntries", type: "{ Classes.AuditLog.Entry }" }, { name: "autoModerationRules", type: "{ Classes.AutoModeration.Rule }" }, { name: "guildScheduledEvents", type: "{ Classes.Guild.ScheduledEvent }" }, { name: "integrations", type: "{ Classes.Guild.Integration }" }, { name: "threads", type: "{ Classes.Channels.PublicThread }" }, { name: "users", type: "{ Classes.User }" }, { name: "webhooks", type: "{ Classes.Webhook }" } ]} />
+<LuaSummary className="AuditLog" properties={[ { name: "state", type: "state.State" }, { name: "applicationCommands", type: "{ Classes.Application.Command }" }, { name: "auditLogEntries", type: "{ Classes.AuditLog.Entry }" }, { name: "autoModerationRules", type: "{ Classes.AutoModeration.Rule }" }, { name: "guildScheduledEvents", type: "{ Classes.Guild.ScheduledEvent }" }, { name: "integrations", type: "{ Classes.Guild.Integration }" }, { name: "threads", type: "{ Classes.Channels.PublicThread }" }, { name: "users", type: "{ Classes.User }" }, { name: "webhooks", type: "{ Classes.Webhook }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ], returnType: "AuditLogs" } ]} />
 
 ## Properties
 
@@ -83,5 +83,28 @@ Array of users that are referenced in the audit log entries.
 
 ---
 Array of webhooks that have been created, updated, or deleted in the guild.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="AuditLog" args={[ { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ]} isMethod />
+
+Responsible for syncing data to this audit logs object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="AuditLog" args={[ { name: "state", type: "state.State" }, { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ]} returnType="AuditLogs" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "auditLogsData", type: "apiTypes.AuditLogObject" } ]} returns={[ { type: "AuditLogs" } ]} />
 
 

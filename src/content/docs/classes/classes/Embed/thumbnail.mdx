@@ -17,7 +17,7 @@ Implementation of the Discord Thumbnail class in Luau
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-thumbnail-structure
 
-<LuaSummary className="Thumbnail" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} />
+<LuaSummary className="Thumbnail" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ] } ]} functions={[ { name: "new", args: [ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ], returnType: "Thumbnail" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ Height of the thumbnail
 
 ---
 Width of the thumbnail
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Thumbnail" args={[ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ]} isMethod />
+
+Responsible for syncing data to this thumbnail object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Thumbnail" args={[ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ]} returnType="Thumbnail" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "thumbnailData", type: "apiTypes.EmbedThumbnailObject" } ]} returns={[ { type: "Thumbnail" } ]} />
 
 

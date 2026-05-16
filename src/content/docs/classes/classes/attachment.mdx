@@ -17,7 +17,7 @@ Implementation of the Discord Attachment class in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object
 
-<LuaSummary className="Attachment" properties={[ { name: "id", type: "string" }, { name: "filename", type: "string" }, { name: "title", type: "string?" }, { name: "description", type: "string?" }, { name: "contentType", type: "string?" }, { name: "size", type: "number" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string" }, { name: "height", type: "number?" }, { name: "width", type: "number?" }, { name: "ephemeral", type: "boolean?" }, { name: "durationSeconds", type: "number?" }, { name: "waveform", type: "string?" }, { name: "flags", type: "Classes.AttachmentBitflag?" } ]} />
+<LuaSummary className="Attachment" properties={[ { name: "id", type: "string" }, { name: "filename", type: "string" }, { name: "title", type: "string?" }, { name: "description", type: "string?" }, { name: "contentType", type: "string?" }, { name: "size", type: "number" }, { name: "url", type: "string" }, { name: "proxyUrl", type: "string" }, { name: "height", type: "number?" }, { name: "width", type: "number?" }, { name: "ephemeral", type: "boolean?" }, { name: "durationSeconds", type: "number?" }, { name: "waveform", type: "string?" }, { name: "flags", type: "Classes.AttachmentBitflag?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ] } ]} functions={[ { name: "new", args: [ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ], returnType: "Attachment" } ]} />
 
 ## Properties
 
@@ -118,5 +118,28 @@ Base64 encoded waveform data for audio files
 
 ---
 Attachment flags that describe extra features or properties
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Attachment" args={[ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ]} isMethod />
+
+Responsible for syncing data to this attachment object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Attachment" args={[ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ]} returnType="Attachment" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "attachmentData", type: "apiTypes.AttachmentObject" } ]} returns={[ { type: "Attachment" } ]} />
 
 

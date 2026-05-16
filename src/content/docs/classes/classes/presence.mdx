@@ -17,7 +17,7 @@ Implementation of the Discord Presence class in Luau
 
 https://discord.com/developers/docs/topics/gateway-events#update-presence
 
-<LuaSummary className="Presence" properties={[ { name: "since", type: "DateTime" }, { name: "activities", type: "{ Classes.Activity }" }, { name: "status", type: "string" }, { name: "afk", type: "boolean" } ]} />
+<LuaSummary className="Presence" properties={[ { name: "since", type: "DateTime" }, { name: "activities", type: "{ Classes.Activity }" }, { name: "status", type: "string" }, { name: "afk", type: "boolean" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ] } ]} functions={[ { name: "new", args: [ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ], returnType: "Presence" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The current status of this user (online, idle, dnd, offline).
 
 ---
 Whether this user is currently marked as AFK.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Presence" args={[ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ]} isMethod />
+
+Responsible for syncing data to this presence object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Presence" args={[ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ]} returnType="Presence" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "presenceData", type: "apiTypes.PresenceUpdateObject" } ]} returns={[ { type: "Presence" } ]} />
 
 

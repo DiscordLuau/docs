@@ -17,7 +17,7 @@ Implementation of the Discord Member class in Luau
 
 https://discord.com/developers/docs/topics/teams#data-models-team-object
 
-<LuaSummary className="TeamMember" properties={[ { name: "membershipState", type: "apiTypes.MembershipState" }, { name: "teamId", type: "string" }, { name: "user", type: "Classes.User" }, { name: "role", type: "apiTypes.TeamRole" } ]} />
+<LuaSummary className="TeamMember" properties={[ { name: "membershipState", type: "apiTypes.MembershipState" }, { name: "teamId", type: "string" }, { name: "user", type: "Classes.User" }, { name: "role", type: "apiTypes.TeamRole" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "memberData", type: "apiTypes.TeamMemberObject" } ] } ]} functions={[ { name: "new", args: [ { name: "memberData", type: "apiTypes.TeamMemberObject" } ], returnType: "Member" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The user object associated with this team member. Contains detailed information 
 
 ---
 The role assigned to this team member. Can be either Admin, Developer, or ReadOnly, determining their permissions.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="TeamMember" args={[ { name: "memberData", type: "apiTypes.TeamMemberObject" } ]} isMethod />
+
+Responsible for syncing data to this member object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "memberData", type: "apiTypes.TeamMemberObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="TeamMember" args={[ { name: "memberData", type: "apiTypes.TeamMemberObject" } ]} returnType="Member" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "memberData", type: "apiTypes.TeamMemberObject" } ]} returns={[ { type: "Member" } ]} />
 
 

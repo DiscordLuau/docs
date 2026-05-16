@@ -1,0 +1,87 @@
+---
+title: Decoder
+description: DiscordLuau docs for Decoder.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Decodes Opus packets back into raw PCM audio frames.
+
+The decoder state is an opaque libopus pointer that persists across calls - do not create a new
+Decoder per packet. One Decoder instance per audio stream is the correct usage.
+
+Call `destroy` when the decoder is no longer needed to free the native state.
+
+<LuaSummary className="Decoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} methods={[ { name: "decode", isMethod: true, args: [ { name: "opusBuffer", type: "buffer" } ], returnType: "buffer" }, { name: "decodeFec", isMethod: true, args: [ { name: "nextPacket", type: "buffer" } ], returnType: "buffer" }, { name: "decodePLC", isMethod: true, args: [  ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ], returnType: "Decoder" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="Decoder.handle" type="FFIPointer" />
+
+
+### sampleRate
+
+<LuaProperty name="Decoder.sampleRate" type="number" />
+
+
+### channels
+
+<LuaProperty name="Decoder.channels" type="number" />
+
+
+
+## Methods
+
+### decode
+
+> <LuaDeclaration name="decode" className="Decoder" args={[ { name: "opusBuffer", type: "buffer" } ]} returnType="buffer" isMethod />
+
+Decodes an Opus packet into a raw s16le PCM frame.
+
+<LuaParamTable params={[ { name: "opusBuffer", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### decodeFec
+
+> <LuaDeclaration name="decodeFec" className="Decoder" args={[ { name: "nextPacket", type: "buffer" } ]} returnType="buffer" isMethod />
+
+Recovers the lost frame preceding `nextPacket` using the FEC data embedded in that packet.
+Use when a packet is missing but the following packet has already arrived.
+
+<LuaParamTable params={[ { name: "nextPacket", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### decodePLC
+
+> <LuaDeclaration name="decodePLC" className="Decoder" args={[  ]} returnType="buffer" isMethod />
+
+Synthesises a comfort-noise frame for a lost packet when no FEC data is available (packet loss concealment).
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Decoder" args={[  ]} isMethod />
+
+Frees the native decoder state. No-op if already destroyed.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Decoder" args={[ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} returnType="Decoder" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} returns={[ { type: "Decoder" } ]} />
+
+

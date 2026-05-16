@@ -17,7 +17,7 @@ Implementation of the Discord Poll class in Luau
 
 https://discord.com/developers/docs/resources/poll#poll-object
 
-<LuaSummary className="Poll" properties={[ { name: "question", type: "Classes.Message.PollMediaObject" }, { name: "answers", type: "{ Classes.Message.PollAnswer }" }, { name: "expiry", type: "DateTime" }, { name: "allowMultiselect", type: "boolean" }, { name: "layoutType", type: "Classes.PollLayoutType" }, { name: "results", type: "Classes.Message.PollResults" } ]} />
+<LuaSummary className="Poll" properties={[ { name: "question", type: "Classes.Message.PollMediaObject" }, { name: "answers", type: "{ Classes.Message.PollAnswer }" }, { name: "expiry", type: "DateTime" }, { name: "allowMultiselect", type: "boolean" }, { name: "layoutType", type: "Classes.PollLayoutType" }, { name: "results", type: "Classes.Message.PollResults" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "pollData", type: "apiTypes.PollObject" } ] } ]} functions={[ { name: "new", args: [ { name: "pollData", type: "apiTypes.PollObject" } ], returnType: "Poll" } ]} />
 
 ## Properties
 
@@ -62,5 +62,28 @@ The layout style used to display the poll
 
 ---
 The current results of the poll
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Poll" args={[ { name: "pollData", type: "apiTypes.PollObject" } ]} isMethod />
+
+Responsible for syncing data to this poll object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "pollData", type: "apiTypes.PollObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Poll" args={[ { name: "pollData", type: "apiTypes.PollObject" } ]} returnType="Poll" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "pollData", type: "apiTypes.PollObject" } ]} returns={[ { type: "Poll" } ]} />
 
 

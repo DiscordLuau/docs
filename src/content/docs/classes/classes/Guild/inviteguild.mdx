@@ -1,0 +1,104 @@
+---
+title: InviteGuild
+description: DiscordLuau docs for InviteGuild.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the partial guild object returned inside Discord invite responses.
+
+https://discord.com/developers/docs/resources/invite#invite-object
+
+<LuaSummary className="InviteGuild" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "splash", type: "string?" }, { name: "banner", type: "string?" }, { name: "description", type: "string?" }, { name: "features", type: "{ apiTypes.GuildFeature }" }, { name: "verificationLevel", type: "apiTypes.VerificationLevel?" }, { name: "vanityUrlCode", type: "string?" }, { name: "nsfwLevel", type: "number?" }, { name: "premiumSubscriptionCount", type: "number?" }, { name: "roles", type: "{ apiTypes.Snowflake }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "guildData", type: "apiTypes.InviteGuildObject" } ] } ]} functions={[ { name: "new", args: [ { name: "guildData", type: "apiTypes.InviteGuildObject" } ], returnType: "InviteGuild" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="InviteGuild.id" type="string" />
+
+
+### name
+
+<LuaProperty name="InviteGuild.name" type="string" />
+
+
+### icon
+
+<LuaProperty name="InviteGuild.icon" type="string?" />
+
+
+### splash
+
+<LuaProperty name="InviteGuild.splash" type="string?" />
+
+
+### banner
+
+<LuaProperty name="InviteGuild.banner" type="string?" />
+
+
+### description
+
+<LuaProperty name="InviteGuild.description" type="string?" />
+
+
+### features
+
+<LuaProperty name="InviteGuild.features" type="{ apiTypes.GuildFeature }" />
+
+
+### verificationLevel
+
+<LuaProperty name="InviteGuild.verificationLevel" type="apiTypes.VerificationLevel?" />
+
+
+### vanityUrlCode
+
+<LuaProperty name="InviteGuild.vanityUrlCode" type="string?" />
+
+
+### nsfwLevel
+
+<LuaProperty name="InviteGuild.nsfwLevel" type="number?" />
+
+
+### premiumSubscriptionCount
+
+<LuaProperty name="InviteGuild.premiumSubscriptionCount" type="number?" />
+
+
+### roles
+
+<LuaProperty name="InviteGuild.roles" type="{ apiTypes.Snowflake }" />
+
+---
+IDs of roles present in this guild.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="InviteGuild" args={[ { name: "guildData", type: "apiTypes.InviteGuildObject" } ]} isMethod />
+
+<LuaParamTable params={[ { name: "guildData", type: "apiTypes.InviteGuildObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="InviteGuild" args={[ { name: "guildData", type: "apiTypes.InviteGuildObject" } ]} returnType="InviteGuild" />
+
+<LuaParamTable params={[ { name: "guildData", type: "apiTypes.InviteGuildObject" } ]} returns={[ { type: "InviteGuild" } ]} />
+
+

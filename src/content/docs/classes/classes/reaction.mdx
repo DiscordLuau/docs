@@ -17,7 +17,7 @@ Implementation of the Discord Reaction class in Luau
 
 https://discord.com/developers/docs/resources/message#reaction-object-reaction-structure
 
-<LuaSummary className="Reaction" properties={[ { name: "count", type: "number" }, { name: "countDetails", type: "Classes.Reaction.CountDetails" }, { name: "me", type: "boolean" }, { name: "meBurst", type: "boolean" }, { name: "emoji", type: "Emoji" }, { name: "burstColors", type: "{ string }" } ]} />
+<LuaSummary className="Reaction" properties={[ { name: "count", type: "number" }, { name: "countDetails", type: "Classes.Reaction.CountDetails" }, { name: "me", type: "boolean" }, { name: "meBurst", type: "boolean" }, { name: "emoji", type: "Emoji" }, { name: "burstColors", type: "{ string }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "reactionData", type: "apiTypes.ReactionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "reactionData", type: "apiTypes.ReactionObject" } ], returnType: "Reaction" } ]} />
 
 ## Properties
 
@@ -62,5 +62,28 @@ The emoji used for this reaction.
 
 ---
 The colors used for burst reactions.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Reaction" args={[ { name: "reactionData", type: "apiTypes.ReactionObject" } ]} isMethod />
+
+Responsible for syncing data to this reaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "reactionData", type: "apiTypes.ReactionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Reaction" args={[ { name: "reactionData", type: "apiTypes.ReactionObject" } ]} returnType="Reaction" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "reactionData", type: "apiTypes.ReactionObject" } ]} returns={[ { type: "Reaction" } ]} />
 
 

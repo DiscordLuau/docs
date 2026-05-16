@@ -1,0 +1,152 @@
+---
+title: UdpTransport
+description: DiscordLuau docs for UdpTransport.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Manages the UDP socket for a voice connection: IP discovery, keepalive, RTP receive, and audio send.
+
+`decryptPacket` and `onAudioPacket` must be set by the owner before starting the receive loop.
+
+<LuaSummary className="UdpTransport" properties={[ { name: "udpSocket", type: "stdPolyfills.UdpSocket?" }, { name: "udpReceiveThread", type: "thread?" }, { name: "keepaliveThread", type: "thread?" }, { name: "keepaliveSequence", type: "number" }, { name: "keepaliveSentAt", type: "{ [number]: number }" }, { name: "udpPing", type: "number?" }, { name: "ssrc", type: "number?" }, { name: "udpIp", type: "string?" }, { name: "udpPort", type: "number?" }, { name: "modes", type: "{ string }?" }, { name: "streams", type: "{ { [string]: any } }?" }, { name: "experiments", type: "{ string }?" }, { name: "decryptPacket", type: "((packet: buffer) -> buffer?)?" }, { name: "onAudioPacket", type: "((ssrc: number, sequence: number, frame: buffer) -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "discoverIpAsync", isMethod: true, args: [  ] }, { name: "_sendKeepalive", isMethod: true, args: [  ] }, { name: "_startKeepaliveLoop", isMethod: true, args: [  ] }, { name: "_startUdpReceiveLoop", isMethod: true, args: [  ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "UdpTransport" } ]} />
+
+## Properties
+
+### udpSocket
+
+<LuaProperty name="UdpTransport.udpSocket" type="stdPolyfills.UdpSocket?" />
+
+
+### udpReceiveThread
+
+<LuaProperty name="UdpTransport.udpReceiveThread" type="thread?" />
+
+
+### keepaliveThread
+
+<LuaProperty name="UdpTransport.keepaliveThread" type="thread?" />
+
+
+### keepaliveSequence
+
+<LuaProperty name="UdpTransport.keepaliveSequence" type="number" />
+
+
+### keepaliveSentAt
+
+<LuaProperty name="UdpTransport.keepaliveSentAt" type="{ [number]: number }" />
+
+
+### udpPing
+
+<LuaProperty name="UdpTransport.udpPing" type="number?" />
+
+
+### ssrc
+
+<LuaProperty name="UdpTransport.ssrc" type="number?" />
+
+
+### udpIp
+
+<LuaProperty name="UdpTransport.udpIp" type="string?" />
+
+
+### udpPort
+
+<LuaProperty name="UdpTransport.udpPort" type="number?" />
+
+
+### modes
+
+<LuaProperty name="UdpTransport.modes" type="{ string }?" />
+
+
+### streams
+
+<LuaProperty name="UdpTransport.streams" type="{ { [string]: any } }?" />
+
+
+### experiments
+
+<LuaProperty name="UdpTransport.experiments" type="{ string }?" />
+
+
+### decryptPacket
+
+<LuaProperty name="UdpTransport.decryptPacket" type="((packet: buffer) -> buffer?)?" />
+
+
+### onAudioPacket
+
+<LuaProperty name="UdpTransport.onAudioPacket" type="((ssrc: number, sequence: number, frame: buffer) -> ())?" />
+
+
+### logger
+
+<LuaProperty name="UdpTransport.logger" type="logger.Logger" />
+
+
+
+## Methods
+
+### cleanup
+
+> <LuaDeclaration name="cleanup" className="UdpTransport" args={[  ]} isMethod />
+
+Closes the UDP socket and stops both the receive loop and keepalive loop.
+
+### discoverIpAsync
+
+> <LuaDeclaration name="discoverIpAsync" className="UdpTransport" args={[  ]} isMethod />
+
+Performs UDP IP discovery via the voice server and returns the bot's external IP and port.
+
+### _sendKeepalive
+
+> <LuaDeclaration name="_sendKeepalive" className="UdpTransport" args={[  ]} isMethod />
+
+Sends a single UDP keepalive packet and records the send time for RTT measurement.
+
+### _startKeepaliveLoop
+
+> <LuaDeclaration name="_startKeepaliveLoop" className="UdpTransport" args={[  ]} isMethod />
+
+Starts the keepalive loop that fires every five seconds while the UDP socket is open.
+
+### _startUdpReceiveLoop
+
+> <LuaDeclaration name="_startUdpReceiveLoop" className="UdpTransport" args={[  ]} isMethod />
+
+Starts the UDP receive loop. Routes keepalive echo packets to the RTT tracker and RTP audio
+packets to `onAudioPacket` after decryption via `decryptPacket`.
+
+### sendOpusAsync
+
+> <LuaDeclaration name="sendOpusAsync" className="UdpTransport" args={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ]} isMethod />
+
+Builds an RTP packet from the given Opus frame, encrypts it (with optional DAVE layer), and sends it over UDP.
+
+<LuaParamTable params={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="UdpTransport" args={[ { name: "loggerInstance", type: "logger.Logger" } ]} returnType="UdpTransport" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "loggerInstance", type: "logger.Logger" } ]} returns={[ { type: "UdpTransport" } ]} />
+
+

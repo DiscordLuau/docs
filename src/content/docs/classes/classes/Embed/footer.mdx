@@ -17,7 +17,7 @@ Implementation of the Discord Footer class in Luau
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-footer-structure
 
-<LuaSummary className="Footer" properties={[ { name: "text", type: "string" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} />
+<LuaSummary className="Footer" properties={[ { name: "text", type: "string" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ] } ]} functions={[ { name: "new", args: [ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ], returnType: "Footer" } ]} />
 
 ## Properties
 
@@ -41,5 +41,28 @@ The URL of the footer icon
 
 ---
 The proxied URL of the footer icon
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Footer" args={[ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ]} isMethod />
+
+Responsible for syncing data to this footer object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Footer" args={[ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ]} returnType="Footer" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "footerData", type: "apiTypes.EmbedFooterObject" } ]} returns={[ { type: "Footer" } ]} />
 
 

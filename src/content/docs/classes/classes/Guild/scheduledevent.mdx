@@ -17,7 +17,7 @@ Implementation of the Discord ScheduledEvent class in Luau
 
 https://discord.com/developers/docs/resources/scheduledevent#scheduledevent-object
 
-<LuaSummary className="ScheduledEvent" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string?" }, { name: "creatorId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "scheduledStartTime", type: "std_polyfills.DateTime" }, { name: "scheduledEndTime", type: "std_polyfills.DateTime?" }, { name: "privacyLevel", type: "apiTypes.ScheduledEventPrivacyLevel" }, { name: "status", type: "apiTypes.SchedledEventStatus" }, { name: "entityType", type: "apiTypes.SchedledEventEntityType" }, { name: "entityId", type: "string?" }, { name: "location", type: "string?" }, { name: "creator", type: "Classes.User?" }, { name: "userCount", type: "number?" }, { name: "image", type: "string?" } ]} />
+<LuaSummary className="ScheduledEvent" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string?" }, { name: "creatorId", type: "string?" }, { name: "name", type: "string" }, { name: "description", type: "string?" }, { name: "scheduledStartTime", type: "std_polyfills.DateTime" }, { name: "scheduledEndTime", type: "std_polyfills.DateTime?" }, { name: "privacyLevel", type: "apiTypes.ScheduledEventPrivacyLevel" }, { name: "status", type: "apiTypes.ScheduledEventStatus" }, { name: "entityType", type: "apiTypes.ScheduledEventEntityType" }, { name: "entityId", type: "string?" }, { name: "location", type: "string?" }, { name: "creator", type: "Classes.User?" }, { name: "userCount", type: "number?" }, { name: "image", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ] } ]} functions={[ { name: "new", args: [ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ], returnType: "ScheduledEvent" } ]} />
 
 ## Properties
 
@@ -86,14 +86,14 @@ The privacy level of the scheduled event
 
 ### status
 
-<LuaProperty name="ScheduledEvent.status" type="apiTypes.SchedledEventStatus" />
+<LuaProperty name="ScheduledEvent.status" type="apiTypes.ScheduledEventStatus" />
 
 ---
 The status of the scheduled event
 
 ### entityType
 
-<LuaProperty name="ScheduledEvent.entityType" type="apiTypes.SchedledEventEntityType" />
+<LuaProperty name="ScheduledEvent.entityType" type="apiTypes.ScheduledEventEntityType" />
 
 ---
 The type of the scheduled event
@@ -132,5 +132,28 @@ The number of users subscribed to the scheduled event
 
 ---
 The cover image hash of the scheduled event
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ScheduledEvent" args={[ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ]} isMethod />
+
+Responsible for syncing data to this scheduled event object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ScheduledEvent" args={[ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ]} returnType="ScheduledEvent" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "scheduledEventData", type: "apiTypes.GuildScheduledEventObject" } ]} returns={[ { type: "ScheduledEvent" } ]} />
 
 

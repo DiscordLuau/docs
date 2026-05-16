@@ -17,7 +17,7 @@ Implementation of discords Modal object as a Luau builder.
 
 https://discord.com/developers/docs/interactions/message-components#text-input-object-text-input-structure
 
-<LuaSummary className="Modal" properties={[ { name: "customId", type: "string?" }, { name: "title", type: "string?" }, { name: "components", type: "{ Builders.Message.TextInput }?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "Modal" }, { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Modal" }, { name: "setComponents", isMethod: true, args: [ { name: "components", type: "{ textInput.JSON }" } ], returnType: "Modal" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, title: string?, components: { textInput.JSON }?, }?" } ], returnType: "Modal" } ]} />
+<LuaSummary className="Modal" properties={[ { name: "customId", type: "string?" }, { name: "title", type: "string?" }, { name: "components", type: "{ Builders.Message.TextInput }?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "Modal" }, { name: "setTitle", isMethod: true, args: [ { name: "title", type: "string" } ], returnType: "Modal" }, { name: "setComponents", isMethod: true, args: [ { name: "components", type: "{ textInput.JSON }" } ], returnType: "Modal" }, { name: "addLabel", isMethod: true, args: [ { name: "labelComponent", type: "label.JSON" } ], returnType: "Modal" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, title: string?, components: { textInput.JSON }?, }?" } ], returnType: "Modal" } ]} />
 
 ## Properties
 
@@ -68,6 +68,14 @@ Sets the title that appears at the top of the modal.
 Sets the components that will be displayed in this modal. These must be text input components.
 
 <LuaParamTable params={[ { name: "components", type: "{ textInput.JSON }" } ]} returns={[ { type: "Modal" } ]} />
+
+### addLabel
+
+> <LuaDeclaration name="addLabel" className="Modal" args={[ { name: "labelComponent", type: "label.JSON" } ]} returnType="Modal" isMethod />
+
+Adds a Label component to the modal. Labels are the recommended replacement for ActionRow in modals.
+
+<LuaParamTable params={[ { name: "labelComponent", type: "label.JSON" } ]} returns={[ { type: "Modal" } ]} />
 
 ### build
 

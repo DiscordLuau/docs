@@ -17,7 +17,7 @@ Implementation of the Discord Ping Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Ping" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" } ]} methods={[ { name: "pongAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" } ]} />
+<LuaSummary className="Ping" properties={[ { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" } ]} methods={[ { name: "pongAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Ping" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -191,6 +191,15 @@ The mapping of integration types to their respective owners.
 
 > Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
 
+### attachmentSizeLimit
+
+<LuaProperty name="Ping.attachmentSizeLimit" type="number?" />
+
+---
+The maximum attachment size in bytes for this interaction, varies by guild boost tier and the invoking user's Nitro status.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
 
 ## Methods
 
@@ -201,5 +210,47 @@ The mapping of integration types to their respective owners.
 Acknowledge an interaction ping
 
 <LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Ping" args={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} isMethod />
+
+Responsible for syncing data to this interaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Ping" args={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returnType="Ping" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returns={[ { type: "Ping" } ]} />
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="Ping" args={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+Responsible for inheriting properties from the interaction data to the class instance.
+This function initializes all the properties of an Interaction instance based on the provided interaction data.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="Ping" args={[ { name: "class", type: "any" } ]} />
+
+Responsible for inheriting methods from the Interaction prototype to the class instance.
+This function copies all methods from the Interaction.Prototype to the provided class instance.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
 
 

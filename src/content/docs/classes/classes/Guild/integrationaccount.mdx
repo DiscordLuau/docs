@@ -17,7 +17,7 @@ Implementation of the Discord Integration Account class in Luau
 
 https://discord.com/developers/docs/resources/guild#integration-account-object
 
-<LuaSummary className="IntegrationAccount" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" } ]} />
+<LuaSummary className="IntegrationAccount" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ] } ]} functions={[ { name: "new", args: [ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ], returnType: "Account" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The unique identifier for this integration account
 
 ---
 The name of the integration account
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="IntegrationAccount" args={[ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ]} isMethod />
+
+Responsible for syncing data to this account object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="IntegrationAccount" args={[ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ]} returnType="Account" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "accountData", type: "apiTypes.IntegrationAccountObject" } ]} returns={[ { type: "Account" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord ForumTag class in Luau
 
 https://discord.com/developers/docs/resources/channel#forum-tag-object
 
-<LuaSummary className="ForumTag" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "moderated", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} />
+<LuaSummary className="ForumTag" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "moderated", type: "boolean" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ] } ]} functions={[ { name: "new", args: [ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ], returnType: "ForumTag" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ The id of the emoji used as the tag's icon, if the tag has a custom emoji
 
 ---
 The name of the emoji used as the tag's icon
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ForumTag" args={[ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ]} isMethod />
+
+Responsible for syncing data to this forum tag object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ForumTag" args={[ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ]} returnType="ForumTag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "forumTagData", type: "apiTypes.ForumTagObject" } ]} returns={[ { type: "ForumTag" } ]} />
 
 

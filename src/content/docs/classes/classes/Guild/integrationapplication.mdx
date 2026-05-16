@@ -17,7 +17,7 @@ Implementation of the Discord Integration Application class in Luau
 
 https://discord.com/developers/docs/resources/guild#integration-application-object
 
-<LuaSummary className="IntegrationApplication" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "description", type: "string" }, { name: "bot", type: "Classes.User?" } ]} />
+<LuaSummary className="IntegrationApplication" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "description", type: "string" }, { name: "bot", type: "Classes.User?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ] } ]} functions={[ { name: "new", args: [ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ], returnType: "Application" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ The description of the application
 
 ---
 The bot user associated with this application, if it is a bot application
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="IntegrationApplication" args={[ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ]} isMethod />
+
+Responsible for syncing data to this application object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="IntegrationApplication" args={[ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ]} returnType="Application" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "applicationData", type: "apiTypes.IntegrationApplicationObject" } ]} returns={[ { type: "Application" } ]} />
 
 

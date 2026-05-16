@@ -17,7 +17,7 @@ Implementation of the Discord MediaObject class in Luau
 
 https://discord.com/developers/docs/resources/poll#poll-object
 
-<LuaSummary className="PollMediaObject" properties={[ { name: "text", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" } ]} />
+<LuaSummary className="PollMediaObject" properties={[ { name: "text", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "mediaData", type: "apiTypes.PollMediaObject" } ] } ]} functions={[ { name: "new", args: [ { name: "mediaData", type: "apiTypes.PollMediaObject" } ], returnType: "MediaObject" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The text content of the media object
 
 ---
 The emoji attached to the media object, if any
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="PollMediaObject" args={[ { name: "mediaData", type: "apiTypes.PollMediaObject" } ]} isMethod />
+
+Responsible for syncing data to this media object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "mediaData", type: "apiTypes.PollMediaObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PollMediaObject" args={[ { name: "mediaData", type: "apiTypes.PollMediaObject" } ]} returnType="MediaObject" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "mediaData", type: "apiTypes.PollMediaObject" } ]} returns={[ { type: "MediaObject" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord Author class in Luau. This class represents the au
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-author-structure
 
-<LuaSummary className="Author" properties={[ { name: "name", type: "string" }, { name: "url", type: "string?" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} />
+<LuaSummary className="Author" properties={[ { name: "name", type: "string" }, { name: "url", type: "string?" }, { name: "iconUrl", type: "string?" }, { name: "proxyIconUrl", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ] } ]} functions={[ { name: "new", args: [ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ], returnType: "Author" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The URL of the author's icon.
 
 ---
 The proxied URL of the author's icon.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Author" args={[ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ]} isMethod />
+
+Responsible for syncing data to this author object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Author" args={[ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ]} returnType="Author" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "authorData", type: "apiTypes.EmbedAuthorObject" } ]} returns={[ { type: "Author" } ]} />
 
 

@@ -17,16 +17,16 @@ Implementation of the Discord Call class in Luau
 
 https://discord.com/developers/docs/resources/message#message-call-object
 
-<LuaSummary className="Call" properties={[ { name: "participants", type: "{ Classes.User }" }, { name: "endedTimestamp", type: "DateTime" } ]} />
+<LuaSummary className="Call" properties={[ { name: "participants", type: "{ Snowflake }" }, { name: "endedTimestamp", type: "DateTime" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "callData", type: "apiTypes.MessageCallObject" } ] } ]} functions={[ { name: "new", args: [ { name: "callData", type: "apiTypes.MessageCallObject" } ], returnType: "Call" } ]} />
 
 ## Properties
 
 ### participants
 
-<LuaProperty name="Call.participants" type="{ Classes.User }" />
+<LuaProperty name="Call.participants" type="{ Snowflake }" />
 
 ---
-Array of user objects that participated in the call
+Array of user IDs that participated in the call
 
 ### endedTimestamp
 
@@ -34,5 +34,28 @@ Array of user objects that participated in the call
 
 ---
 When the call ended, stored as a DateTime object
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Call" args={[ { name: "callData", type: "apiTypes.MessageCallObject" } ]} isMethod />
+
+Responsible for syncing data to this call object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "callData", type: "apiTypes.MessageCallObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Call" args={[ { name: "callData", type: "apiTypes.MessageCallObject" } ]} returnType="Call" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "callData", type: "apiTypes.MessageCallObject" } ]} returns={[ { type: "Call" } ]} />
 
 

@@ -1,0 +1,68 @@
+---
+title: Sys
+description: DiscordLuau docs for Sys.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Raw FFI bindings for libdave - the C interface to Discord's DAVE end-to-end encryption protocol.
+
+This module loads libdave via `stdPolyfills.ffi.dlopen` and exposes the full C API as a typed Luau
+interface. It is a low-level binding layer; higher-level wrappers should be built on top of
+`lib` rather than consuming this module directly.
+
+<LuaSummary className="Sys" properties={[ { name: "lib", type: "Lib" }, { name: "structs", type: "{ encryptorStats: FFIStructureType, decryptorStats: FFIStructureType }" }, { name: "pointers", type: "{ sessionHandle: FFIPointerType, commitResultHandle: FFIPointerType, welcomeResultHandle: FFIPointerType, keyRatchetHandle: FFIPointerType, encryptorHandle: FFIPointerType, decryptorHandle: FFIPointerType }" }, { name: "codec", type: "{ unknown: number, opus: number, vp8: number, vp9: number, h264: number, h265: number, av1: number }" }, { name: "mediaType", type: "{ audio: number, video: number }" }, { name: "encryptorResultCode", type: "{ success: number, encryptionFailure: number, missingKeyRatchet: number, missingCryptor: number, tooManyAttempts: number }" }, { name: "decryptorResultCode", type: "{ success: number, decryptionFailure: number, missingKeyRatchet: number, invalidNonce: number, missingCryptor: number }" }, { name: "loggingSeverity", type: "{ verbose: number, info: number, warning: number, error: number, none: number }" } ]} />
+
+## Properties
+
+### lib
+
+<LuaProperty name="Sys.lib" type="Lib" />
+
+---
+The loaded libdave FFI library. All DAVE protocol functions are called through this handle.
+
+### structs
+
+<LuaProperty name="Sys.structs" type="{ encryptorStats: FFIStructureType, decryptorStats: FFIStructureType }" />
+
+
+### pointers
+
+<LuaProperty name="Sys.pointers" type="{ sessionHandle: FFIPointerType, commitResultHandle: FFIPointerType, welcomeResultHandle: FFIPointerType, keyRatchetHandle: FFIPointerType, encryptorHandle: FFIPointerType, decryptorHandle: FFIPointerType }" />
+
+
+### codec
+
+<LuaProperty name="Sys.codec" type="{ unknown: number, opus: number, vp8: number, vp9: number, h264: number, h265: number, av1: number }" />
+
+
+### mediaType
+
+<LuaProperty name="Sys.mediaType" type="{ audio: number, video: number }" />
+
+
+### encryptorResultCode
+
+<LuaProperty name="Sys.encryptorResultCode" type="{ success: number, encryptionFailure: number, missingKeyRatchet: number, missingCryptor: number, tooManyAttempts: number }" />
+
+
+### decryptorResultCode
+
+<LuaProperty name="Sys.decryptorResultCode" type="{ success: number, decryptionFailure: number, missingKeyRatchet: number, invalidNonce: number, missingCryptor: number }" />
+
+
+### loggingSeverity
+
+<LuaProperty name="Sys.loggingSeverity" type="{ verbose: number, info: number, warning: number, error: number, none: number }" />
+
+
+

@@ -32,7 +32,7 @@ Its key responsibilities include:
 The Shard module is crucial for maintaining real-time communication with Discord's Gateway,
 ensuring the bot stays connected and can send and receive updates efficiently.
 
-<LuaSummary className="Shard" properties={[ { name: "token", type: "Secret" }, { name: "intents", type: "number" }, { name: "shardId", type: "number" }, { name: "shardCount", type: "number" }, { name: "shouldReconnect", type: "boolean" }, { name: "largeThreshold", type: "number?" }, { name: "zlibBuffer", type: "Buffer" }, { name: "onSocketConnected", type: "Emitter<()>" }, { name: "onSocketReconnected", type: "Emitter<number?>" }, { name: "onSocketDisconnected", type: "Emitter<number?, boolean?>" }, { name: "onSocketHeartbeat", type: "Emitter<number?>" }, { name: "onSocketDispatch", type: "Emitter<apiTypes.Payload<unknown>>" }, { name: "onSocketRawMessage", type: "Emitter<apiTypes.Payload<unknown>>" }, { name: "onSocketReady", type: "Emitter<()>" }, { name: "heartbeatAcknowledged", type: "boolean?" }, { name: "heartbeatClockTime", type: "number?" }, { name: "heartbeatInterval", type: "number?" }, { name: "heartbeatThread", type: "thread?" }, { name: "heartbeatPing", type: "number?" }, { name: "lastSequence", type: "number?" }, { name: "logger", type: "Logger" }, { name: "socketActive", type: "boolean" }, { name: "socketReconnecting", type: "boolean" }, { name: "socketDisconnecting", type: "boolean" }, { name: "socketIdentified", type: "boolean" }, { name: "sessionId", type: "string?" }, { name: "sessionGateway", type: "string?" }, { name: "socketVersion", type: "number?" }, { name: "socketUrl", type: "string?" }, { name: "socketInstance", type: "any?" }, { name: "socketThread", type: "thread?" } ]} methods={[ { name: "heartbeatAsync", isMethod: true, args: [ { name: "requested", type: "boolean?" } ] }, { name: "identifyAsync", isMethod: true, args: [  ] }, { name: "disconnectAsync", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "connectAsync", isMethod: true, args: [ { name: "socketUrl", type: "string" }, { name: "socketVersion", type: "number" } ] }, { name: "resumeAsync", isMethod: true, args: [  ] }, { name: "reconnectAsync", isMethod: true, args: [  ] }, { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string" } ] }, { name: "reinstantiateAsync", isMethod: true, args: [ { name: "noFail", type: "boolean?" } ] }, { name: "heartbeatIn", isMethod: true, args: [ { name: "milliseconds", type: "number" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, shardId: number, shardCount: number, shouldReconnect: boolean, logLevel: logger.LogLevel, largeThreshold: number?, }" } ], returnType: "Shard" } ]} />
+<LuaSummary className="Shard" properties={[ { name: "token", type: "Secret" }, { name: "intents", type: "number" }, { name: "shardId", type: "number" }, { name: "shardCount", type: "number" }, { name: "shouldReconnect", type: "boolean" }, { name: "largeThreshold", type: "number?" }, { name: "zlibBuffer", type: "Accumulator" }, { name: "onSocketConnected", type: "Emitter<()>" }, { name: "onSocketReconnected", type: "Emitter<number?>" }, { name: "onSocketDisconnected", type: "Emitter<number?, boolean?>" }, { name: "onSocketHeartbeat", type: "Emitter<number?>" }, { name: "onSocketDispatch", type: "Emitter<apiTypes.Payload<unknown>>" }, { name: "onSocketRawMessage", type: "Emitter<apiTypes.Payload<unknown>>" }, { name: "onSocketReady", type: "Emitter<()>" }, { name: "onSocketRateLimited", type: "Emitter<{ opcode: number, retryAfter: number, guildId: string? }>" }, { name: "heartbeatAcknowledged", type: "boolean?" }, { name: "heartbeatClockTime", type: "number?" }, { name: "heartbeatInterval", type: "number?" }, { name: "heartbeatThread", type: "thread?" }, { name: "heartbeatPing", type: "number?" }, { name: "lastSequence", type: "number?" }, { name: "logger", type: "Logger" }, { name: "socketActive", type: "boolean" }, { name: "socketReconnecting", type: "boolean" }, { name: "socketDisconnecting", type: "boolean" }, { name: "socketIdentified", type: "boolean" }, { name: "sessionId", type: "string?" }, { name: "sessionGateway", type: "string?" }, { name: "socketVersion", type: "number?" }, { name: "socketUrl", type: "string?" }, { name: "socketInstance", type: "any?" }, { name: "socketThread", type: "thread?" }, { name: "gatewaySendTimestamps", type: "{ number }" } ]} methods={[ { name: "_handleMessage", isMethod: true, args: [ { name: "message", type: "string" } ] }, { name: "heartbeatAsync", isMethod: true, args: [ { name: "requested", type: "boolean?" } ] }, { name: "identifyAsync", isMethod: true, args: [  ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "disconnectAsync", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "connectAsync", isMethod: true, args: [ { name: "socketUrl", type: "string" }, { name: "socketVersion", type: "number" } ] }, { name: "resumeAsync", isMethod: true, args: [  ] }, { name: "reconnectAsync", isMethod: true, args: [  ] }, { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string" }, { name: "ignoreRateLimit", type: "boolean?" } ] }, { name: "reinstantiateAsync", isMethod: true, args: [ { name: "noFail", type: "boolean?" } ] }, { name: "heartbeatIn", isMethod: true, args: [ { name: "milliseconds", type: "number" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, shardId: number, shardCount: number, shouldReconnect: boolean, logLevel: logger.LogLevel, largeThreshold: number?, }" } ], returnType: "Shard" } ]} />
 
 ## Properties
 
@@ -68,7 +68,7 @@ ensuring the bot stays connected and can send and receive updates efficiently.
 
 ### zlibBuffer
 
-<LuaProperty name="Shard.zlibBuffer" type="Buffer" />
+<LuaProperty name="Shard.zlibBuffer" type="Accumulator" />
 
 
 ### onSocketConnected
@@ -104,6 +104,11 @@ ensuring the bot stays connected and can send and receive updates efficiently.
 ### onSocketReady
 
 <LuaProperty name="Shard.onSocketReady" type="Emitter<()>" />
+
+
+### onSocketRateLimited
+
+<LuaProperty name="Shard.onSocketRateLimited" type="Emitter<{ opcode: number, retryAfter: number, guildId: string? }>" />
 
 
 ### heartbeatAcknowledged
@@ -191,8 +196,33 @@ ensuring the bot stays connected and can send and receive updates efficiently.
 <LuaProperty name="Shard.socketThread" type="thread?" />
 
 
+### gatewaySendTimestamps
+
+<LuaProperty name="Shard.gatewaySendTimestamps" type="{ number }" />
+
+---
+Rolling log of `os.clock()` timestamps for every non-heartbeat send, used to enforce Discord's 120-events-per-60s gateway send rate limit.
+
 
 ## Methods
+
+### _handleMessage
+
+> <LuaDeclaration name="_handleMessage" className="Shard" args={[ { name: "message", type: "string" } ]} isMethod />
+
+Function responsible for handling incoming messages from the WebSocket connection.
+
+It performs the following steps:
+1. Decompresses the incoming message if it's ZLIB-compressed
+	i. It's worth noting that payloads may not be complete, meaning we should add data to the
+		buffer until we have a complete message
+2. Decodes the JSON payload
+3. Invokes the appropriate callback based on the received event type
+
+Roughly based on the following documentation:
+https://discord.com/developers/docs/topics/gateway#zlibstream
+
+<LuaParamTable params={[ { name: "message", type: "string" } ]} />
 
 ### heartbeatAsync
 
@@ -207,6 +237,15 @@ Sends a heartbeat to the Discord Gateway API.
 > <LuaDeclaration name="identifyAsync" className="Shard" args={[  ]} isMethod />
 
 Identifies the current shard with the Discord Gateway.
+
+### forceClose
+
+> <LuaDeclaration name="forceClose" className="Shard" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Synchronously closes the shard's socket and kills all associated threads. Safe to call from
+a signal handler or any context where yielding is not permitted.
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
 
 ### disconnectAsync
 
@@ -249,13 +288,16 @@ This is not a re-instantiation of the shard, but a re-connection of the shard.
 
 ### sendAsync
 
-> <LuaDeclaration name="sendAsync" className="Shard" args={[ { name: "data", type: "string" } ]} isMethod />
+> <LuaDeclaration name="sendAsync" className="Shard" args={[ { name: "data", type: "string" }, { name: "ignoreRateLimit", type: "boolean?" } ]} isMethod />
 
 Sends a message through the WebSocket to Discords Gateway.
 
 NOTE: Messages are expected to be JSON encoded strings.
 
-<LuaParamTable params={[ { name: "data", type: "string" } ]} />
+Pass `ignoreRateLimit = true` to bypass the 120-events-per-60s send rate limit tracking.
+This should only be used for op 1 (Heartbeat) sends, which Discord explicitly exempts.
+
+<LuaParamTable params={[ { name: "data", type: "string" }, { name: "ignoreRateLimit", type: "boolean?" } ]} />
 
 ### reinstantiateAsync
 

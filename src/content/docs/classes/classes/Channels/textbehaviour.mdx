@@ -23,7 +23,7 @@ Text behaviours include:
 - Creating threads
 - Handling rate limits and message timestamps
 
-<LuaSummary className="TextBehaviour" properties={[ { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+<LuaSummary className="TextBehaviour" properties={[ { name: "lastMessageId", type: "string?" }, { name: "lastPinTimestamp", type: "DateTime?" }, { name: "rateLimitPerUser", type: "number" } ]} methods={[ { name: "bulkDeleteMessagesAsync", isMethod: true, args: [ { name: "messageIds", type: "{ string }" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "getMessagesAsync", isMethod: true, args: [ { name: "around", type: "apiTypes.Snowflake?" }, { name: "before", type: "apiTypes.Snowflake?" }, { name: "after", type: "apiTypes.Snowflake?" }, { name: "limit", type: "number?" } ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "getMessageAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "createMessageAsync", isMethod: true, args: [ { name: "json", type: "builders.messageJSON" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getPinnedMessagesAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { message.Message }>" }, { name: "pinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unpinMessageAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "startThread", isMethod: true, args: [ { name: "json", type: "builders.noMessageThreadJSON" } ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} functions={[ { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -115,5 +115,26 @@ Unpins a message from the channel.
 Starts a new thread in the channel without an associated message. Returns the thread ID.
 
 <LuaParamTable params={[ { name: "json", type: "builders.noMessageThreadJSON" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+
+
+## Functions
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="TextBehaviour" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+Inherits properties from the channel data into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="TextBehaviour" args={[ { name: "class", type: "any" } ]} />
+
+Inherits methods from the TextBehaviour prototype into the class instance.
+This is typically called during object creation or updates.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 

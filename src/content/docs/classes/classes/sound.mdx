@@ -1,0 +1,102 @@
+---
+title: Sound
+description: DiscordLuau docs for Sound.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord SoundboardSound class in Luau
+
+https://discord.com/developers/docs/resources/soundboard#soundboard-sound-object
+
+<LuaSummary className="Sound" properties={[ { name: "soundId", type: "string" }, { name: "name", type: "string" }, { name: "volume", type: "number" }, { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" }, { name: "guildId", type: "string?" }, { name: "available", type: "boolean" }, { name: "user", type: "Classes.User?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ] } ]} functions={[ { name: "new", args: [ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ], returnType: "Sound" } ]} />
+
+## Properties
+
+### soundId
+
+<LuaProperty name="Sound.soundId" type="string" />
+
+---
+The unique identifier for this sound.
+
+### name
+
+<LuaProperty name="Sound.name" type="string" />
+
+---
+The name of this sound.
+
+### volume
+
+<LuaProperty name="Sound.volume" type="number" />
+
+---
+The volume of this sound, from 0 to 1.
+
+### emojiId
+
+<LuaProperty name="Sound.emojiId" type="string?" />
+
+---
+The ID of this sound's custom emoji.
+
+### emojiName
+
+<LuaProperty name="Sound.emojiName" type="string?" />
+
+---
+The unicode character of this sound's standard emoji.
+
+### guildId
+
+<LuaProperty name="Sound.guildId" type="string?" />
+
+---
+The ID of the guild this sound is in. Absent for default sounds.
+
+### available
+
+<LuaProperty name="Sound.available" type="boolean" />
+
+---
+Whether this sound can be used.
+
+### user
+
+<LuaProperty name="Sound.user" type="Classes.User?" />
+
+---
+The user who created this sound. Not included in list endpoints.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Sound" args={[ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ]} isMethod />
+
+Responsible for syncing data to this sound object.
+
+<LuaParamTable params={[ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Sound" args={[ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ]} returnType="Sound" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "soundData", type: "apiTypes.SoundboardSoundObject" } ]} returns={[ { type: "Sound" } ]} />
+
+

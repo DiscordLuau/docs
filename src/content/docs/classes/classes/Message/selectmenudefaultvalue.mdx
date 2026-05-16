@@ -17,7 +17,7 @@ Implementation of the Discord DefaultValue class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-default-value-structure
 
-<LuaSummary className="SelectMenuDefaultValue" properties={[ { name: "id", type: "string" }, { name: "type", type: "string" } ]} />
+<LuaSummary className="SelectMenuDefaultValue" properties={[ { name: "id", type: "string" }, { name: "type", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ] } ]} functions={[ { name: "new", args: [ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ], returnType: "DefaultValue" } ]} />
 
 ## Properties
 
@@ -36,5 +36,28 @@ depending on the select menu type.
 ---
 The type of select menu option this default value represents. This corresponds to one of the SelectDefaultValueType
 values and determines what kind of entity the ID refers to.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="SelectMenuDefaultValue" args={[ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ]} isMethod />
+
+Responsible for syncing data to this DefaultValue object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="SelectMenuDefaultValue" args={[ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ]} returnType="DefaultValue" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "valueData", type: "apiTypes.SelectDefaultValueObject" } ]} returns={[ { type: "DefaultValue" } ]} />
 
 

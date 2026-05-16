@@ -13,10 +13,10 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-Implementation of the Discord Voice Behaviour class in Luau. Responsible for implementing the various properties, 
+Implementation of the Discord Voice Behaviour class in Luau. Responsible for implementing the various properties,
 and methods for a voice-able channels.
 
-<LuaSummary className="VoiceBehaviour" properties={[ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" }, { name: "bitrate", type: "number" }, { name: "userLimit", type: "number" }, { name: "rtcRegion", type: "string?" } ]} />
+<LuaSummary className="VoiceBehaviour" properties={[ { name: "videoQualityMode", type: "apiTypes.VideoQualityMode" }, { name: "bitrate", type: "number" }, { name: "userLimit", type: "number" }, { name: "rtcRegion", type: "string?" }, { name: "connection", type: "voice.Connection?" }, { name: "onReady", type: "emitter.Emitter<()>" }, { name: "onSpeaking", type: "emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" }, { name: "onClientConnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onClientDisconnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "onRawAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "onDaveEpochTransition", type: "emitter.Emitter<number>" } ]} methods={[ { name: "joinAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<nil>" }, { name: "leaveAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<nil>" }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" } ], returnType: "future.FutureLike<nil>" }, { name: "setSpeakingAsync", isMethod: true, args: [ { name: "speakingFlags", type: "number" } ], returnType: "future.FutureLike<nil>" }, { name: "sendSoundboardSoundAsync", isMethod: true, args: [ { name: "soundId", type: "apiTypes.Snowflake" }, { name: "sourceGuildId", type: "apiTypes.Snowflake?" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -24,28 +24,133 @@ and methods for a voice-able channels.
 
 <LuaProperty name="VoiceBehaviour.videoQualityMode" type="apiTypes.VideoQualityMode" />
 
----
-The video quality mode for the voice channel, determining the quality of video streams.
 
 ### bitrate
 
 <LuaProperty name="VoiceBehaviour.bitrate" type="number" />
 
----
-The bitrate of the voice channel, determining the quality of audio transmission.
 
 ### userLimit
 
 <LuaProperty name="VoiceBehaviour.userLimit" type="number" />
 
----
-The maximum number of users that can join the voice channel.
 
 ### rtcRegion
 
 <LuaProperty name="VoiceBehaviour.rtcRegion" type="string?" />
 
+
+### connection
+
+<LuaProperty name="VoiceBehaviour.connection" type="voice.Connection?" />
+
+
+### onReady
+
+<LuaProperty name="VoiceBehaviour.onReady" type="emitter.Emitter<()>" />
+
 ---
-The RTC region for the voice channel, determining which server handles the voice connection.
+Fires when the voice connection is established and ready to send and receive audio.
+
+### onSpeaking
+
+<LuaProperty name="VoiceBehaviour.onSpeaking" type="emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" />
+
+---
+Fires when a user's speaking state changes. `speaking` is a bitmask (1 = Microphone, 2 = Soundshare, 4 = Priority).
+
+### onClientConnect
+
+<LuaProperty name="VoiceBehaviour.onClientConnect" type="emitter.Emitter<{ userId: string }>" />
+
+---
+Fires when a user joins the voice channel.
+
+### onClientDisconnect
+
+<LuaProperty name="VoiceBehaviour.onClientDisconnect" type="emitter.Emitter<{ userId: string }>" />
+
+---
+Fires when a user leaves the voice channel.
+
+### onAudioFrame
+
+<LuaProperty name="VoiceBehaviour.onAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
+
+---
+Fires with a decoded PCM audio frame for each incoming Opus packet after jitter buffering.
+
+### onRawAudioFrame
+
+<LuaProperty name="VoiceBehaviour.onRawAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
+
+---
+Fires with the raw Opus-encoded frame before PCM decoding. Use `onAudioFrame` for decoded audio.
+
+### onDaveEpochTransition
+
+<LuaProperty name="VoiceBehaviour.onDaveEpochTransition" type="emitter.Emitter<number>" />
+
+---
+Fires when the DAVE E2EE MLS epoch advances. The argument is the new roster member count.
+
+
+## Methods
+
+### joinAsync
+
+> <LuaDeclaration name="joinAsync" className="VoiceBehaviour" args={[  ]} returnType="future.FutureLike<nil>" isMethod />
+
+Connects the bot to this voice channel, initialising the voice WebSocket and UDP transport.
+Returns the underlying `Connection` object; signals can be listened to before or after calling this.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<nil>" } ]} />
+
+### leaveAsync
+
+> <LuaDeclaration name="leaveAsync" className="VoiceBehaviour" args={[  ]} returnType="future.FutureLike<nil>" isMethod />
+
+Disconnects from the current voice channel. No-op if not connected.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<nil>" } ]} />
+
+### sendOpusAsync
+
+> <LuaDeclaration name="sendOpusAsync" className="VoiceBehaviour" args={[ { name: "audioFrame", type: "buffer" } ]} returnType="future.FutureLike<nil>" isMethod />
+
+Encrypts and sends a raw Opus audio frame over UDP. The connection must be ready before calling this.
+
+<LuaParamTable params={[ { name: "audioFrame", type: "buffer" } ]} returns={[ { type: "future.FutureLike<nil>" } ]} />
+
+### setSpeakingAsync
+
+> <LuaDeclaration name="setSpeakingAsync" className="VoiceBehaviour" args={[ { name: "speakingFlags", type: "number" } ]} returnType="future.FutureLike<nil>" isMethod />
+
+Sets the bot's speaking state. Pass a bitmask of speaking flags: Microphone = 1, Soundshare = 2, Priority = 4.
+
+<LuaParamTable params={[ { name: "speakingFlags", type: "number" } ]} returns={[ { type: "future.FutureLike<nil>" } ]} />
+
+### sendSoundboardSoundAsync
+
+> <LuaDeclaration name="sendSoundboardSoundAsync" className="VoiceBehaviour" args={[ { name: "soundId", type: "apiTypes.Snowflake" }, { name: "sourceGuildId", type: "apiTypes.Snowflake?" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Sends a soundboard sound to this voice channel.
+
+<LuaParamTable params={[ { name: "soundId", type: "apiTypes.Snowflake" }, { name: "sourceGuildId", type: "apiTypes.Snowflake?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+
+## Functions
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="VoiceBehaviour" args={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "channelData", type: "apiTypes.ChannelObject" } ]} />
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="VoiceBehaviour" args={[ { name: "class", type: "any" } ]} />
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 

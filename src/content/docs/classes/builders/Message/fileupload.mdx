@@ -1,0 +1,107 @@
+---
+title: FileUpload
+description: DiscordLuau docs for FileUpload.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's File Upload component as a Luau builder.
+Modal-only component for uploading files.
+
+https://docs.discord.com/developers/components/reference#file-upload
+
+<LuaSummary className="FileUpload" properties={[ { name: "customId", type: "string?" }, { name: "accept", type: "string?" }, { name: "maxSize", type: "number?" }, { name: "required", type: "boolean?" } ]} methods={[ { name: "setCustomId", isMethod: true, args: [ { name: "customId", type: "string" } ], returnType: "FileUpload" }, { name: "setAccept", isMethod: true, args: [ { name: "accept", type: "string" } ], returnType: "FileUpload" }, { name: "setMaxSize", isMethod: true, args: [ { name: "maxSize", type: "number" } ], returnType: "FileUpload" }, { name: "setRequired", isMethod: true, args: [ { name: "required", type: "boolean" } ], returnType: "FileUpload" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ customId: string?, accept: string?, maxSize: number?, required: boolean?, }?" } ], returnType: "FileUpload" } ]} />
+
+## Properties
+
+### customId
+
+<LuaProperty name="FileUpload.customId" type="string?" />
+
+---
+Developer-defined identifier; 1-100 characters.
+
+### accept
+
+<LuaProperty name="FileUpload.accept" type="string?" />
+
+---
+Allowed file types; max 200 characters.
+
+### maxSize
+
+<LuaProperty name="FileUpload.maxSize" type="number?" />
+
+---
+Maximum file size in bytes; max 512 MB.
+
+### required
+
+<LuaProperty name="FileUpload.required" type="boolean?" />
+
+---
+Whether required to answer in modal (defaults to true).
+
+
+## Methods
+
+### setCustomId
+
+> <LuaDeclaration name="setCustomId" className="FileUpload" args={[ { name: "customId", type: "string" } ]} returnType="FileUpload" isMethod />
+
+Sets the developer-defined identifier. 1-100 characters.
+
+<LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "FileUpload" } ]} />
+
+### setAccept
+
+> <LuaDeclaration name="setAccept" className="FileUpload" args={[ { name: "accept", type: "string" } ]} returnType="FileUpload" isMethod />
+
+Sets the allowed file types. Max 200 characters.
+
+<LuaParamTable params={[ { name: "accept", type: "string" } ]} returns={[ { type: "FileUpload" } ]} />
+
+### setMaxSize
+
+> <LuaDeclaration name="setMaxSize" className="FileUpload" args={[ { name: "maxSize", type: "number" } ]} returnType="FileUpload" isMethod />
+
+Sets the maximum file size in bytes.
+
+<LuaParamTable params={[ { name: "maxSize", type: "number" } ]} returns={[ { type: "FileUpload" } ]} />
+
+### setRequired
+
+> <LuaDeclaration name="setRequired" className="FileUpload" args={[ { name: "required", type: "boolean" } ]} returnType="FileUpload" isMethod />
+
+Sets whether this component is required in a modal.
+
+<LuaParamTable params={[ { name: "required", type: "boolean" } ]} returns={[ { type: "FileUpload" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="FileUpload" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the FileUpload JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="FileUpload" args={[ { name: "resource", type: "{ customId: string?, accept: string?, maxSize: number?, required: boolean?, }?" } ]} returnType="FileUpload" />
+
+Responsible for creating a new FileUpload.
+
+<LuaParamTable params={[ { name: "resource", type: "{ customId: string?, accept: string?, maxSize: number?, required: boolean?, }?" } ]} returns={[ { type: "FileUpload" } ]} />
+
+

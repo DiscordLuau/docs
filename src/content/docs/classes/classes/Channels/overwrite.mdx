@@ -17,7 +17,7 @@ Implementation of the Discord Overwrite class in Luau
 
 https://discord.com/developers/docs/resources/channel#overwrite-object
 
-<LuaSummary className="Overwrite" properties={[ { name: "type", type: "OverwriteType" }, { name: "id", type: "string" }, { name: "allow", type: "string" }, { name: "deny", type: "string" } ]} />
+<LuaSummary className="Overwrite" properties={[ { name: "type", type: "OverwriteType" }, { name: "id", type: "string" }, { name: "allow", type: "string" }, { name: "deny", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ] } ]} functions={[ { name: "new", args: [ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ], returnType: "Overwrite" } ]} />
 
 ## Properties
 
@@ -49,5 +49,28 @@ The permissions that are explicitly allowed for this overwrite.
 
 ---
 The permissions that are explicitly denied for this overwrite.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Overwrite" args={[ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ]} isMethod />
+
+Responsible for syncing data to this overwrite object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Overwrite" args={[ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ]} returnType="Overwrite" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "overwriteData", type: "apiTypes.OverwriteObject" } ]} returns={[ { type: "Overwrite" } ]} />
 
 

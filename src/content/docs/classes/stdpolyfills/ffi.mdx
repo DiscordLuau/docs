@@ -1,0 +1,197 @@
+---
+title: Ffi
+description: DiscordLuau docs for Ffi.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+FFI polyfill for loading and calling native shared libraries. Only available on Zune;
+calling any function from an unsupported runtime will raise an error.
+
+Use `dlopen` to load a shared library and bind its exported C functions. Use `struct` to
+describe C struct layouts, `closure` to expose Luau callbacks as C function pointers, and
+`alloc`/`create`/`free` to manage raw memory for out-parameters and byte buffers.
+
+<LuaSummary className="Ffi" functions={[ { name: "getTypes", args: [  ], returnType: "_zune_ffi_types" }, { name: "getNull", args: [  ], returnType: "FFIPointer" }, { name: "getPrefix", args: [  ], returnType: "string" }, { name: "getSuffix", args: [  ], returnType: "string" }, { name: "dlopen", args: [ { name: "path", type: "string" }, { name: "functions", type: "{ [string]: FFIFunctionDefinition }" } ], returnType: "FFILibrary" }, { name: "struct", args: [ { name: "fields", type: "{ { [string]: FFIAnyDataType } }" } ], returnType: "FFIStructureType" }, { name: "closure", args: [ { name: "definition", type: "FFIFunctionDefinition" }, { name: "handler", type: "(...any) -> any" } ], returnType: "FFIPointer" }, { name: "fn", args: [ { name: "definition", type: "FFIFunctionDefinition" }, { name: "srcPtr", type: "FFIPointer" } ], returnType: "(...any) -> any" }, { name: "alloc", args: [ { name: "size", type: "number" }, { name: "alignment", type: "number?" } ], returnType: "FFIPointer" }, { name: "create", args: [ { name: "dataType", type: "FFIAnyDataType" } ], returnType: "FFIPointer" }, { name: "free", args: [ { name: "src", type: "FFIPointer" } ] }, { name: "dupe", args: [ { name: "src", type: "buffer | FFIPointer | vector" } ], returnType: "FFIPointer" }, { name: "ptr", args: [ { name: "src", type: "FFIPointer" } ], returnType: "FFIPointer" }, { name: "ptrFromAddress", args: [ { name: "src", type: "buffer" } ], returnType: "FFIPointer" }, { name: "tagName", args: [ { name: "tag", type: "number" } ], returnType: "string?" }, { name: "getLuaState", args: [ { name: "mainthread", type: "boolean?" } ], returnType: "FFIPointer" } ]} />
+
+## Functions
+
+### getTypes
+
+> <LuaDeclaration name="getTypes" className="Ffi" args={[  ]} returnType="_zune_ffi_types" />
+
+Returns the primitive FFI type descriptors. Use the returned table's fields as `returns`
+and `args` values in `dlopen`, `closure`, and `fn` definitions. Available types: `void`,
+`i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `float`, `double`, `pointer`.
+
+<LuaParamTable returns={[ { type: "_zune_ffi_types" } ]} />
+
+### getNull
+
+> <LuaDeclaration name="getNull" className="Ffi" args={[  ]} returnType="FFIPointer" />
+
+Returns a null (`0x0`) FFI pointer. Pass this wherever a C function expects a NULL pointer argument.
+
+<LuaParamTable returns={[ { type: "FFIPointer" } ]} />
+
+### getPrefix
+
+> <LuaDeclaration name="getPrefix" className="Ffi" args={[  ]} returnType="string" />
+
+Returns the platform-specific shared library filename prefix, e.g. `"lib"` on Linux and
+macOS, `""` on Windows.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+### getSuffix
+
+> <LuaDeclaration name="getSuffix" className="Ffi" args={[  ]} returnType="string" />
+
+Returns the platform-specific shared library filename suffix, e.g. `".so"` on Linux,
+`".dylib"` on macOS, `".dll"` on Windows.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+### dlopen
+
+> <LuaDeclaration name="dlopen" className="Ffi" args={[ { name: "path", type: "string" }, { name: "functions", type: "{ [string]: FFIFunctionDefinition }" } ]} returnType="FFILibrary" />
+
+Opens a native shared library at `path` and binds the listed exported C functions.
+Each entry in `functions` maps a symbol name to its return type and argument types.
+Returns an `FFILibrary` whose fields are callable bound functions.
+
+```lua
+local lib = ffi.dlopen("/usr/lib/libfoo.so", {
+    fooInit = { returns = ffi.getTypes().void, args = {} },
+    fooAdd  = { returns = ffi.getTypes().i32, args = { ffi.getTypes().i32, ffi.getTypes().i32 } },
+})
+lib.fooInit()
+print(lib.fooAdd(1, 2))
+```
+
+<LuaParamTable params={[ { name: "path", type: "string" }, { name: "functions", type: "{ [string]: FFIFunctionDefinition }" } ]} returns={[ { type: "FFILibrary" } ]} />
+
+### struct
+
+> <LuaDeclaration name="struct" className="Ffi" args={[ { name: "fields", type: "{ { [string]: FFIAnyDataType } }" } ]} returnType="FFIStructureType" />
+
+Defines a C struct layout from an ordered list of named fields. Each entry is a
+single-key table mapping the field name to its `FFIAnyDataType`. Returns an
+`FFIStructureType` you can pass to `create` or use with `:new()` to allocate an
+initialised buffer.
+
+```lua
+local Vec2 = ffi.struct({ { x = ffi.getTypes().f32 }, { y = ffi.getTypes().f32 } })
+local v = Vec2:new({ x = 1, y = 2 })
+```
+
+<LuaParamTable params={[ { name: "fields", type: "{ { [string]: FFIAnyDataType } }" } ]} returns={[ { type: "FFIStructureType" } ]} />
+
+### closure
+
+> <LuaDeclaration name="closure" className="Ffi" args={[ { name: "definition", type: "FFIFunctionDefinition" }, { name: "handler", type: "(...any) -> any" } ]} returnType="FFIPointer" />
+
+Wraps a Luau function as a C-callable function pointer. The `definition` describes the C
+signature the native side will use to call back into Luau. Returns an `FFIPointer` that
+remains valid until garbage-collected; retain it for the lifetime of any native code that
+may invoke it.
+
+```lua
+local cb = ffi.closure(
+    { returns = ffi.getTypes().void, args = { ffi.getTypes().pointer, ffi.getTypes().u64 } },
+    function(dataPtr, length) ... end
+)
+```
+
+<LuaParamTable params={[ { name: "definition", type: "FFIFunctionDefinition" }, { name: "handler", type: "(...any) -> any" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### fn
+
+> <LuaDeclaration name="fn" className="Ffi" args={[ { name: "definition", type: "FFIFunctionDefinition" }, { name: "srcPtr", type: "FFIPointer" } ]} returnType="(...any) -> any" />
+
+Wraps a raw `FFIPointer` to a C function as a callable Luau function according to
+`definition`. Useful when a library hands you a function pointer at runtime.
+
+<LuaParamTable params={[ { name: "definition", type: "FFIFunctionDefinition" }, { name: "srcPtr", type: "FFIPointer" } ]} returns={[ { type: "(...any) -> any" } ]} />
+
+### alloc
+
+> <LuaDeclaration name="alloc" className="Ffi" args={[ { name: "size", type: "number" }, { name: "alignment", type: "number?" } ]} returnType="FFIPointer" />
+
+Allocates `size` bytes of native memory aligned to `alignment` bytes (defaults to 1).
+Returns an `FFIPointer` to the allocation. Must be freed with `ffi.free` when no
+longer needed.
+
+<LuaParamTable params={[ { name: "size", type: "number" }, { name: "alignment", type: "number?" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### create
+
+> <LuaDeclaration name="create" className="Ffi" args={[ { name: "dataType", type: "FFIAnyDataType" } ]} returnType="FFIPointer" />
+
+Allocates native memory large enough for a value of `dataType` and returns a pointer to
+it. Useful for allocating out-parameter slots (`size_t*`, `uint8_t**`, etc.).
+
+<LuaParamTable params={[ { name: "dataType", type: "FFIAnyDataType" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### free
+
+> <LuaDeclaration name="free" className="Ffi" args={[ { name: "src", type: "FFIPointer" } ]} />
+
+Frees native memory previously allocated with `alloc` or `create`.
+
+<LuaParamTable params={[ { name: "src", type: "FFIPointer" } ]} />
+
+### dupe
+
+> <LuaDeclaration name="dupe" className="Ffi" args={[ { name: "src", type: "buffer | FFIPointer | vector" } ]} returnType="FFIPointer" />
+
+Copies a Luau `buffer`, `FFIPointer`, or `vector` into a freshly allocated native memory
+region and returns a pointer to the copy.
+
+<LuaParamTable params={[ { name: "src", type: "buffer | FFIPointer | vector" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### ptr
+
+> <LuaDeclaration name="ptr" className="Ffi" args={[ { name: "src", type: "FFIPointer" } ]} returnType="FFIPointer" />
+
+Returns a pointer to the memory backing `src`. Use `dupe` instead if you need an owned copy.
+
+<LuaParamTable params={[ { name: "src", type: "FFIPointer" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### ptrFromAddress
+
+> <LuaDeclaration name="ptrFromAddress" className="Ffi" args={[ { name: "src", type: "buffer" } ]} returnType="FFIPointer" />
+
+Constructs an `FFIPointer` from a raw address stored in an 8-byte `buffer` (little-endian
+`uint64`). Use this to materialise a pointer returned as a `buffer` by `readu64`.
+
+<LuaParamTable params={[ { name: "src", type: "buffer" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+### tagName
+
+> <LuaDeclaration name="tagName" className="Ffi" args={[ { name: "tag", type: "number" } ]} returnType="string?" />
+
+Returns the tag name string associated with `tag`, or `nil` if the tag was never
+registered. Useful for debugging tagged pointer types created with `pointer:newTag`.
+
+<LuaParamTable params={[ { name: "tag", type: "number" } ]} returns={[ { type: "string?" } ]} />
+
+### getLuaState
+
+> <LuaDeclaration name="getLuaState" className="Ffi" args={[ { name: "mainthread", type: "boolean?" } ]} returnType="FFIPointer" />
+
+Returns an `FFIPointer` to the current Lua state. When `mainthread` is `true`, returns
+the main thread's state rather than the current coroutine's. Required for some C APIs
+that expect a `lua_State*`.
+
+<LuaParamTable params={[ { name: "mainthread", type: "boolean?" } ]} returns={[ { type: "FFIPointer" } ]} />
+
+

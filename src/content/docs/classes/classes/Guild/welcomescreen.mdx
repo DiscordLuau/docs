@@ -17,7 +17,7 @@ Implementation of the Discord WelcomeScreen class in Luau
 
 https://discord.com/developers/docs/resources/guild#welcome-screen-object
 
-<LuaSummary className="WelcomeScreen" properties={[ { name: "welcomeChannels", type: "{ Classes.Guild.WelcomeScreenChannel }" }, { name: "description", type: "string?" } ]} />
+<LuaSummary className="WelcomeScreen" properties={[ { name: "welcomeChannels", type: "{ Classes.Guild.WelcomeScreenChannel }" }, { name: "description", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ] } ]} functions={[ { name: "new", args: [ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ], returnType: "WelcomeScreen" } ]} />
 
 ## Properties
 
@@ -36,5 +36,28 @@ when they join the guild.
 ---
 The server description shown in the welcome screen. This description provides new members with information about
 the guild when they first join.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="WelcomeScreen" args={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ]} isMethod />
+
+Responsible for syncing data to this welcome screen object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WelcomeScreen" args={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ]} returnType="WelcomeScreen" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "welcomeScreenData", type: "apiTypes.WelcomeScreenObject" } ]} returns={[ { type: "WelcomeScreen" } ]} />
 
 

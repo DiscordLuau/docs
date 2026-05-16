@@ -1,0 +1,41 @@
+---
+title: Stats
+description: DiscordLuau docs for Stats.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Analyses a decoded s16le PCM frame and returns human-readable metrics.
+
+All amplitude values are normalised to 0.0–1.0 relative to the s16 full-scale range (32768).
+dBFS follows the standard convention: 0.0 dBFS is full scale, silence is -math.huge.
+
+<LuaSummary className="Stats" functions={[ { name: "stats", args: [ { name: "frame", type: "buffer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ], returnType: "FrameStats" } ]} />
+
+## Functions
+
+### stats
+
+> <LuaDeclaration name="stats" className="Stats" args={[ { name: "frame", type: "buffer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} returnType="FrameStats" />
+
+Analyses `frame` (raw s16le PCM) and returns a `FrameStats` breakdown.
+
+- `sampleCount` - total s16 samples across all channels
+- `durationMs` - playback duration in milliseconds
+- `peakAmplitude` - loudest sample, normalised 0.0–1.0
+- `rms` - root-mean-square level, normalised 0.0–1.0
+- `dBFS` - RMS level in decibels relative to full scale (≤ 0; -math.huge for silence)
+- `dcOffset` - mean sample value normalised -1.0–1.0 (non-zero suggests a DC bias)
+- `clippedSamples` - samples sitting at ±32767/32768 (full scale saturation)
+
+<LuaParamTable params={[ { name: "frame", type: "buffer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} returns={[ { type: "FrameStats" } ]} />
+
+

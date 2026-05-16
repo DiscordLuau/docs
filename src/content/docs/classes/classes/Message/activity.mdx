@@ -17,13 +17,13 @@ Implementation of the Discord Activity class in Luau
 
 https://discord.com/developers/docs/resources/message#message-object-message-activity-structure
 
-<LuaSummary className="Activity" properties={[ { name: "type", type: "MessageAcitvityType" }, { name: "partyId", type: "string?" } ]} />
+<LuaSummary className="Activity" properties={[ { name: "type", type: "MessageActivityType" }, { name: "partyId", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "activityData", type: "apiTypes.MessageActivityObject" } ] } ]} functions={[ { name: "new", args: [ { name: "activityData", type: "apiTypes.MessageActivityObject" } ], returnType: "Activity" } ]} />
 
 ## Properties
 
 ### type
 
-<LuaProperty name="Activity.type" type="MessageAcitvityType" />
+<LuaProperty name="Activity.type" type="MessageActivityType" />
 
 ---
 Type of message activity, such as JOIN, SPECTATE, LISTEN, or JOIN_REQUEST
@@ -34,5 +34,28 @@ Type of message activity, such as JOIN, SPECTATE, LISTEN, or JOIN_REQUEST
 
 ---
 Party ID associated with this activity, used for Rich Presence
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Activity" args={[ { name: "activityData", type: "apiTypes.MessageActivityObject" } ]} isMethod />
+
+Responsible for syncing data to this activity object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "activityData", type: "apiTypes.MessageActivityObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Activity" args={[ { name: "activityData", type: "apiTypes.MessageActivityObject" } ]} returnType="Activity" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "activityData", type: "apiTypes.MessageActivityObject" } ]} returns={[ { type: "Activity" } ]} />
 
 

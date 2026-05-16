@@ -1,0 +1,174 @@
+---
+title: WebSocketTransport
+description: DiscordLuau docs for WebSocketTransport.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Manages the WebSocket connection to the Discord voice gateway: socket lifecycle, binary and JSON
+message framing, and heartbeating. Detects zombified connections (unacknowledged heartbeat) and
+notifies the owner via the `onZombified` callback.
+
+<LuaSummary className="WebSocketTransport" properties={[ { name: "socketActive", type: "boolean" }, { name: "socketReconnecting", type: "boolean" }, { name: "socketDisconnecting", type: "boolean" }, { name: "isResuming", type: "boolean" }, { name: "socketInstance", type: "any?" }, { name: "socketThread", type: "thread?" }, { name: "heartbeatInterval", type: "number?" }, { name: "heartbeatThread", type: "thread?" }, { name: "heartbeatAcknowledged", type: "boolean" }, { name: "heartbeatClockTime", type: "number?" }, { name: "heartbeatPing", type: "number?" }, { name: "sequenceAcknowledgement", type: "number" }, { name: "onConnected", type: "(() -> ())?" }, { name: "onDisconnected", type: "((code: number?, closedBySelf: boolean?) -> ())?" }, { name: "onMessage", type: "((payload: any) -> ())?" }, { name: "onZombified", type: "(() -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "_handleMessage", isMethod: true, args: [ { name: "message", type: "string" } ] }, { name: "heartbeatAsync", isMethod: true, args: [ { name: "requested", type: "boolean?" } ] }, { name: "heartbeatIn", isMethod: true, args: [ { name: "milliseconds", type: "number" } ] }, { name: "_openSocket", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "WebSocketTransport" } ]} />
+
+## Properties
+
+### socketActive
+
+<LuaProperty name="WebSocketTransport.socketActive" type="boolean" />
+
+
+### socketReconnecting
+
+<LuaProperty name="WebSocketTransport.socketReconnecting" type="boolean" />
+
+
+### socketDisconnecting
+
+<LuaProperty name="WebSocketTransport.socketDisconnecting" type="boolean" />
+
+
+### isResuming
+
+<LuaProperty name="WebSocketTransport.isResuming" type="boolean" />
+
+
+### socketInstance
+
+<LuaProperty name="WebSocketTransport.socketInstance" type="any?" />
+
+
+### socketThread
+
+<LuaProperty name="WebSocketTransport.socketThread" type="thread?" />
+
+
+### heartbeatInterval
+
+<LuaProperty name="WebSocketTransport.heartbeatInterval" type="number?" />
+
+
+### heartbeatThread
+
+<LuaProperty name="WebSocketTransport.heartbeatThread" type="thread?" />
+
+
+### heartbeatAcknowledged
+
+<LuaProperty name="WebSocketTransport.heartbeatAcknowledged" type="boolean" />
+
+
+### heartbeatClockTime
+
+<LuaProperty name="WebSocketTransport.heartbeatClockTime" type="number?" />
+
+
+### heartbeatPing
+
+<LuaProperty name="WebSocketTransport.heartbeatPing" type="number?" />
+
+
+### sequenceAcknowledgement
+
+<LuaProperty name="WebSocketTransport.sequenceAcknowledgement" type="number" />
+
+
+### onConnected
+
+<LuaProperty name="WebSocketTransport.onConnected" type="(() -> ())?" />
+
+
+### onDisconnected
+
+<LuaProperty name="WebSocketTransport.onDisconnected" type="((code: number?, closedBySelf: boolean?) -> ())?" />
+
+
+### onMessage
+
+<LuaProperty name="WebSocketTransport.onMessage" type="((payload: any) -> ())?" />
+
+
+### onZombified
+
+<LuaProperty name="WebSocketTransport.onZombified" type="(() -> ())?" />
+
+
+### logger
+
+<LuaProperty name="WebSocketTransport.logger" type="logger.Logger" />
+
+
+
+## Methods
+
+### sendAsync
+
+> <LuaDeclaration name="sendAsync" className="WebSocketTransport" args={[ { name: "data", type: "string | buffer" } ]} isMethod />
+
+Sends a raw message over the voice WebSocket.
+
+<LuaParamTable params={[ { name: "data", type: "string | buffer" } ]} />
+
+### _handleMessage
+
+> <LuaDeclaration name="_handleMessage" className="WebSocketTransport" args={[ { name: "message", type: "string" } ]} isMethod />
+
+Decodes an incoming voice gateway message and dispatches it to `onMessage`. Binary frames are
+unwrapped from the voice binary framing format; JSON payloads are decoded directly.
+
+<LuaParamTable params={[ { name: "message", type: "string" } ]} />
+
+### heartbeatAsync
+
+> <LuaDeclaration name="heartbeatAsync" className="WebSocketTransport" args={[ { name: "requested", type: "boolean?" } ]} isMethod />
+
+Sends a voice heartbeat. If the previous heartbeat was never acknowledged the connection is marked
+as zombified and `onZombified` is fired instead.
+
+<LuaParamTable params={[ { name: "requested", type: "boolean?" } ]} />
+
+### heartbeatIn
+
+> <LuaDeclaration name="heartbeatIn" className="WebSocketTransport" args={[ { name: "milliseconds", type: "number" } ]} isMethod />
+
+Schedules the next heartbeat to fire after the given number of milliseconds, cancelling any pending heartbeat.
+
+<LuaParamTable params={[ { name: "milliseconds", type: "number" } ]} />
+
+### _openSocket
+
+> <LuaDeclaration name="_openSocket" className="WebSocketTransport" args={[ { name: "url", type: "string" } ]} isMethod />
+
+Opens the WebSocket to the given URL, starts the receive loop, and fires `onConnected`.
+
+<LuaParamTable params={[ { name: "url", type: "string" } ]} />
+
+### forceClose
+
+> <LuaDeclaration name="forceClose" className="WebSocketTransport" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Synchronously closes the voice WebSocket and kills all associated threads. Safe to call from
+a signal handler or any context where yielding is not permitted.
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WebSocketTransport" args={[ { name: "loggerInstance", type: "logger.Logger" } ]} returnType="WebSocketTransport" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "loggerInstance", type: "logger.Logger" } ]} returns={[ { type: "WebSocketTransport" } ]} />
+
+

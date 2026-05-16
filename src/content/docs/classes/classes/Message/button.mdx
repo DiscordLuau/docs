@@ -17,7 +17,7 @@ Implementation of the Discord Button class in Luau
 
 https://discord.com/developers/docs/interactions/message-components#buttons
 
-<LuaSummary className="Button" properties={[ { name: "style", type: "apiTypes.ButtonStyle" }, { name: "type", type: "number" }, { name: "label", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" }, { name: "customId", type: "string?" }, { name: "skuId", type: "string?" }, { name: "url", type: "string?" }, { name: "disabled", type: "boolean?" } ]} />
+<LuaSummary className="Button" properties={[ { name: "style", type: "apiTypes.ButtonStyle" }, { name: "type", type: "number" }, { name: "label", type: "string?" }, { name: "emoji", type: "Classes.Emoji?" }, { name: "customId", type: "string?" }, { name: "skuId", type: "string?" }, { name: "url", type: "string?" }, { name: "disabled", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ] } ]} functions={[ { name: "new", args: [ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ], returnType: "Button" } ]} />
 
 ## Properties
 
@@ -76,5 +76,28 @@ The URL that the button leads to. Only valid for buttons with LINK style.
 
 ---
 Whether the button is disabled. When true, the button cannot be interacted with.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Button" args={[ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ]} isMethod />
+
+Responsible for syncing data to this button object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Button" args={[ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ]} returnType="Button" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "buttonData", type: "apiTypes.ButtonComponentObject" } ]} returns={[ { type: "Button" } ]} />
 
 

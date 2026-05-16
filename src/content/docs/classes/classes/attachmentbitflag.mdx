@@ -17,7 +17,7 @@ Implementation of the Discord Role Bitflags in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object-attachment-flags
 
-<LuaSummary className="AttachmentBitflag" properties={[ { name: "flag", type: "number" }, { name: "flag", type: "number" } ]} methods={[ { name: "isRemix", isMethod: true, args: [  ], returnType: "boolean" } ]} />
+<LuaSummary className="AttachmentBitflag" properties={[ { name: "flag", type: "number" }, { name: "flag", type: "number" } ]} methods={[ { name: "isRemix", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "AttachmentBitflag" } ]} />
 
 ## Properties
 
@@ -45,5 +45,16 @@ The bitfield representing the attachment flags.
 This attachment has been edited using the remix feature on mobile
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="AttachmentBitflag" args={[ { name: "flag", type: "number" } ]} returnType="AttachmentBitflag" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "AttachmentBitflag" } ]} />
 
 

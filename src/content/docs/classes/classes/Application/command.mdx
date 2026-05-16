@@ -17,7 +17,7 @@ Implementation of the Discord Command class in Luau
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object
 
-<LuaSummary className="Command" properties={[ { name: "id", type: "string" }, { name: "type", type: "apiTypes.ApplicationCommandType" }, { name: "applicationId", type: "string" }, { name: "guildId", type: "string?" }, { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "description", type: "string" }, { name: "descriptionLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "options", type: "{ Classes.Option }" }, { name: "defaultMemberPermissions", type: "Classes.Permission?" }, { name: "nsfw", type: "boolean?" }, { name: "integrationTypes", type: "{ apiTypes.IntegrationTypesConfig }" }, { name: "contexts", type: "{ apiTypes.InteractionContextType }" }, { name: "version", type: "string" } ]} />
+<LuaSummary className="Command" properties={[ { name: "id", type: "string" }, { name: "type", type: "apiTypes.ApplicationCommandType" }, { name: "applicationId", type: "string" }, { name: "guildId", type: "string?" }, { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "description", type: "string" }, { name: "descriptionLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "options", type: "{ Classes.Option }" }, { name: "defaultMemberPermissions", type: "Classes.Permission?" }, { name: "nsfw", type: "boolean?" }, { name: "integrationTypes", type: "{ apiTypes.IntegrationTypesConfig }" }, { name: "contexts", type: "{ apiTypes.InteractionContextType }" }, { name: "version", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ] } ]} functions={[ { name: "new", args: [ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ], returnType: "Command" } ]} />
 
 ## Properties
 
@@ -118,5 +118,28 @@ The contexts this command can be used in
 
 ---
 Auto-incrementing version identifier updated during substantial record changes
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Command" args={[ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ]} isMethod />
+
+Responsible for syncing data to this command object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Command" args={[ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ]} returnType="Command" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "commandData", type: "apiTypes.ApplicationCommandObject" } ]} returns={[ { type: "Command" } ]} />
 
 

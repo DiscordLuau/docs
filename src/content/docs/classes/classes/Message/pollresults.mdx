@@ -17,7 +17,7 @@ Implementation of the Discord Results class in Luau
 
 https://discord.com/developers/docs/resources/poll#poll-results-object-poll-results-object-structure
 
-<LuaSummary className="PollResults" properties={[ { name: "isFinalized", type: "boolean" }, { name: "answerCounts", type: "{ Classes.Message.PollAnswerCount }" } ]} />
+<LuaSummary className="PollResults" properties={[ { name: "isFinalized", type: "boolean" }, { name: "answerCounts", type: "{ Classes.Message.PollAnswerCount }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "resultsData", type: "apiTypes.PollResultObject" } ] } ]} functions={[ { name: "new", args: [ { name: "resultsData", type: "apiTypes.PollResultObject" } ], returnType: "Results" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ Whether the poll results are finalized and can no longer be updated
 
 ---
 Array of answer counts for each poll option
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="PollResults" args={[ { name: "resultsData", type: "apiTypes.PollResultObject" } ]} isMethod />
+
+Responsible for syncing data to this results object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "resultsData", type: "apiTypes.PollResultObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="PollResults" args={[ { name: "resultsData", type: "apiTypes.PollResultObject" } ]} returnType="Results" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "resultsData", type: "apiTypes.PollResultObject" } ]} returns={[ { type: "Results" } ]} />
 
 

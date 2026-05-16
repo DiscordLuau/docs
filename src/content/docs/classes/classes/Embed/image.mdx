@@ -17,7 +17,7 @@ Implementation of the Discord Image class in Luau
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-image-structure
 
-<LuaSummary className="Image" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} />
+<LuaSummary className="Image" properties={[ { name: "url", type: "string" }, { name: "proxyUrl", type: "string?" }, { name: "height", type: "number?" }, { name: "width", type: "number?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "imageData", type: "apiTypes.EmbedImageObject" } ] } ]} functions={[ { name: "new", args: [ { name: "imageData", type: "apiTypes.EmbedImageObject" } ], returnType: "Image" } ]} />
 
 ## Properties
 
@@ -48,5 +48,28 @@ The height of the image in pixels.
 
 ---
 The width of the image in pixels.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Image" args={[ { name: "imageData", type: "apiTypes.EmbedImageObject" } ]} isMethod />
+
+Responsible for syncing data to this image object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "imageData", type: "apiTypes.EmbedImageObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Image" args={[ { name: "imageData", type: "apiTypes.EmbedImageObject" } ]} returnType="Image" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "imageData", type: "apiTypes.EmbedImageObject" } ]} returns={[ { type: "Image" } ]} />
 
 

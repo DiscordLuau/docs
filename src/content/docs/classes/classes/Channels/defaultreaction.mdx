@@ -17,7 +17,7 @@ Implementation of the Discord DefaultReaction class in Luau
 
 https://discord.com/developers/docs/resources/channel#default-reaction-object
 
-<LuaSummary className="DefaultReaction" properties={[ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} />
+<LuaSummary className="DefaultReaction" properties={[ { name: "emojiId", type: "string?" }, { name: "emojiName", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ], returnType: "DefaultReaction" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The ID of the emoji to use as the default reaction
 
 ---
 The name of the emoji to use as the default reaction
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="DefaultReaction" args={[ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ]} isMethod />
+
+Responsible for syncing data to this default reaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DefaultReaction" args={[ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ]} returnType="DefaultReaction" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "DefaultReactionData", type: "apiTypes.DefaultReactionObject" } ]} returns={[ { type: "DefaultReaction" } ]} />
 
 

@@ -17,7 +17,7 @@ Implementation of the Discord Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#message-interaction-object-message-interaction-structure
 
-<LuaSummary className="Interaction" properties={[ { name: "type", type: "apiTypes.InteractionType" }, { name: "user", type: "Classes.User" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "state", type: "state.State" } ]} />
+<LuaSummary className="Interaction" properties={[ { name: "type", type: "apiTypes.InteractionType" }, { name: "user", type: "Classes.User" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "state", type: "state.State" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ], returnType: "Interaction" } ]} />
 
 ## Properties
 
@@ -62,5 +62,28 @@ The name of the application command
 
 ---
 The state object that this interaction is associated with
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Interaction" args={[ { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ]} isMethod />
+
+Responsible for syncing data to this interaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Interaction" args={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ]} returnType="Interaction" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.MessageInteractionObject" } ]} returns={[ { type: "Interaction" } ]} />
 
 

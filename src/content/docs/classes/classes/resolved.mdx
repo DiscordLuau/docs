@@ -17,7 +17,7 @@ Implementation of the Discord Resolved class in Luau
 
 https://discord.com/developers/docs/resources/message#attachment-object
 
-<LuaSummary className="Resolved" properties={[ { name: "users", type: "{ [string]: Classes.User }" }, { name: "members", type: "{ [string]: Classes.Guild.Member }" }, { name: "roles", type: "{ [string]: Classes.Guild.Role }" }, { name: "channels", type: "{ [string]: api_types.AbstractChannel }" }, { name: "messages", type: "{ [string]: Classes.Message }" }, { name: "attachments", type: "{ [string]: Classes.Attachment }" } ]} />
+<LuaSummary className="Resolved" properties={[ { name: "users", type: "{ [string]: Classes.User }" }, { name: "members", type: "{ [string]: Classes.Guild.Member }" }, { name: "roles", type: "{ [string]: Classes.Guild.Role }" }, { name: "channels", type: "{ [string]: api_types.AbstractChannel }" }, { name: "messages", type: "{ [string]: Classes.Message }" }, { name: "attachments", type: "{ [string]: Classes.Attachment }" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ], returnType: "Resolved" } ]} />
 
 ## Properties
 
@@ -62,5 +62,28 @@ A dictionary of message objects, keyed by message ID
 
 ---
 A dictionary of attachment objects, keyed by attachment ID
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Resolved" args={[ { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ]} isMethod />
+
+Responsible for syncing data to this resolved object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Resolved" args={[ { name: "state", type: "state.State" }, { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ]} returnType="Resolved" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "resolvedData", type: "apiTypes.ResolvedDataStructure" } ]} returns={[ { type: "Resolved" } ]} />
 
 

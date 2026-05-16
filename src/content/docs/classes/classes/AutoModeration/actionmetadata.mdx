@@ -17,7 +17,7 @@ Implementation of the Discord ActionMetadata class in Luau
 
 https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-action-object-action-metadata
 
-<LuaSummary className="ActionMetadata" properties={[ { name: "channelId", type: "string" }, { name: "durationSeconds", type: "number" }, { name: "customMessage", type: "string?" } ]} />
+<LuaSummary className="ActionMetadata" properties={[ { name: "channelId", type: "string" }, { name: "durationSeconds", type: "number" }, { name: "customMessage", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ] } ]} functions={[ { name: "new", args: [ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ], returnType: "ActionMetadata" } ]} />
 
 ## Properties
 
@@ -42,5 +42,28 @@ The timeout duration in seconds. This is required when the action type is set to
 
 ---
 A custom message that will be displayed to members when their message is blocked. Maximum 150 characters.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="ActionMetadata" args={[ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ]} isMethod />
+
+Responsible for syncing data to this action metadata object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ActionMetadata" args={[ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ]} returnType="ActionMetadata" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "actionMetadataData", type: "apiTypes.AutomoderationActionMetadataObject" } ]} returns={[ { type: "ActionMetadata" } ]} />
 
 

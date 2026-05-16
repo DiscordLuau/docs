@@ -19,7 +19,7 @@ A Stream is a type of object that can be used to navigate through a string safel
 Streams are not essential, but they do make things easier as we can avoid tracking the position of a string
 	and instead rely on the Stream to peek, advance and so forth.
 
-<LuaSummary className="Stream" properties={[ { name: "textSource", type: "string" }, { name: "cursorPosition", type: "number" } ]} methods={[ { name: "peek", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "advance", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "advanceUntil", isMethod: true, args: [ { name: "predicate", type: "(char: string) -> ()" } ], returnType: "string?" }, { name: "readUntilEnd", isMethod: true, args: [  ], returnType: "string" }, { name: "trim", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "textSource", type: "string" } ], returnType: "Stream" } ]} />
+<LuaSummary className="Stream" properties={[ { name: "textSource", type: "string" }, { name: "cursorPosition", type: "number" } ]} methods={[ { name: "peek", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "advance", isMethod: true, args: [ { name: "length", type: "number?" } ], returnType: "string?" }, { name: "rewind", isMethod: true, args: [ { name: "length", type: "number?" } ] }, { name: "advanceUntil", isMethod: true, args: [ { name: "predicate", type: "(char: string) -> boolean" } ], returnType: "string?" }, { name: "readUntilEnd", isMethod: true, args: [  ], returnType: "string" }, { name: "trim", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "textSource", type: "string" } ], returnType: "Stream" } ]} />
 
 ## Properties
 
@@ -53,14 +53,23 @@ Responsible for advancing the cursor position of the stream, this will increment
 
 <LuaParamTable params={[ { name: "length", type: "number?" } ]} returns={[ { type: "string?" } ]} />
 
+### rewind
+
+> <LuaDeclaration name="rewind" className="Stream" args={[ { name: "length", type: "number?" } ]} isMethod />
+
+Responsible for rewinding the cursor position of the stream by the given amount. The cursor
+will not go below zero.
+
+<LuaParamTable params={[ { name: "length", type: "number?" } ]} />
+
 ### advanceUntil
 
-> <LuaDeclaration name="advanceUntil" className="Stream" args={[ { name: "predicate", type: "(char: string) -> ()" } ]} returnType="string?" isMethod />
+> <LuaDeclaration name="advanceUntil" className="Stream" args={[ { name: "predicate", type: "(char: string) -> boolean" } ]} returnType="string?" isMethod />
 
 Responsible for advancing the cursor position of the stream until a predicate is met, this will increment the
 	cursor position by the amount specified.
 
-<LuaParamTable params={[ { name: "predicate", type: "(char: string) -> ()" } ]} returns={[ { type: "string?" } ]} />
+<LuaParamTable params={[ { name: "predicate", type: "(char: string) -> boolean" } ]} returns={[ { type: "string?" } ]} />
 
 ### readUntilEnd
 

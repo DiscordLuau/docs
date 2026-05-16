@@ -17,7 +17,7 @@ Implementation of the Discord Onboarding class in Luau
 
 https://discord.com/developers/docs/resources/guild#guild-onboarding-object
 
-<LuaSummary className="Onboarding" properties={[ { name: "guildId", type: "string" }, { name: "prompts", type: "{ Classes.Guild.OnboardingPrompt }" }, { name: "defaultChannelIds", type: "{ string }" }, { name: "enabled", type: "boolean" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} />
+<LuaSummary className="Onboarding" properties={[ { name: "guildId", type: "string" }, { name: "prompts", type: "{ Classes.Guild.OnboardingPrompt }" }, { name: "defaultChannelIds", type: "{ string }" }, { name: "enabled", type: "boolean" }, { name: "mode", type: "apiTypes.OnboardingMode" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ] } ]} functions={[ { name: "new", args: [ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ], returnType: "Onboarding" } ]} />
 
 ## Properties
 
@@ -55,5 +55,28 @@ Whether onboarding is enabled in the guild
 
 ---
 Current mode of onboarding, determines what users can see and interact with
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Onboarding" args={[ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ]} isMethod />
+
+Responsible for syncing data to this onboarding object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Onboarding" args={[ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ]} returnType="Onboarding" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "onboardingData", type: "apiTypes.GuildOnboardingObject" } ]} returns={[ { type: "Onboarding" } ]} />
 
 

@@ -18,7 +18,7 @@ This class provides methods to check various application flags that indicate dif
 
 https://discord.com/developers/docs/resources/application#application-object-application-flags
 
-<LuaSummary className="ApplicationBitflag" methods={[ { name: "applicationAutoModerationRoleCreateBadge", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresence", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresenceLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembers", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembersLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "verificationPendingGuildLimit", isMethod: true, args: [  ], returnType: "boolean" }, { name: "embedded", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContentLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "applicationCommandBadge", isMethod: true, args: [  ], returnType: "boolean" } ]} />
+<LuaSummary className="ApplicationBitflag" methods={[ { name: "applicationAutoModerationRoleCreateBadge", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresence", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayPresenceLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembers", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayGuildMembersLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "verificationPendingGuildLimit", isMethod: true, args: [  ], returnType: "boolean" }, { name: "embedded", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "gatewayMessageContentLimited", isMethod: true, args: [  ], returnType: "boolean" }, { name: "applicationCommandBadge", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "ApplicationBitflag" } ]} />
 
 ## Methods
 
@@ -107,5 +107,16 @@ found on the Bot page in your app's settings
 Indicates if an app has registered global application commands
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="ApplicationBitflag" args={[ { name: "flag", type: "number" } ]} returnType="ApplicationBitflag" />
+
+Creates a new ApplicationBitflag instance with the specified flag value.
+
+<LuaParamTable params={[ { name: "flag", type: "number" } ]} returns={[ { type: "ApplicationBitflag" } ]} />
 
 

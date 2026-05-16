@@ -17,24 +17,32 @@ HTTP Rest API implementation for the following Resource:
 
 - https://discord.com/developers/docs/resources/application
 
-<LuaSummary className="Application" functions={[ { name: "getCurrentApplicationAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" }, { name: "editCurrentApplicationAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ], returnType: "future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" } ]} />
+<LuaSummary className="Application" functions={[ { name: "getCurrentApplicationAsync", args: [ { name: "instance", type: "request.Request" } ], returnType: "future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" }, { name: "editCurrentApplicationAsync", args: [ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ], returnType: "future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" }, { name: "listSkusAsync", args: [ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, apiTypes.ListSkusResponse>" } ]} />
 
 ## Functions
 
 ### getCurrentApplicationAsync
 
-> <LuaDeclaration name="getCurrentApplicationAsync" className="Application" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" />
+> <LuaDeclaration name="getCurrentApplicationAsync" className="Application" args={[ { name: "instance", type: "request.Request" } ]} returnType="future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" />
 
 https://discord.com/developers/docs/resources/application#get-current-application
 
-<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" } ]} />
+<LuaParamTable params={[ { name: "instance", type: "request.Request" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.GetCurrentApplicationResponse>" } ]} />
 
 ### editCurrentApplicationAsync
 
-> <LuaDeclaration name="editCurrentApplicationAsync" className="Application" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ]} returnType="future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" />
+> <LuaDeclaration name="editCurrentApplicationAsync" className="Application" args={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ]} returnType="future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" />
 
 https://discord.com/developers/docs/resources/application#edit-current-application
 
-<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" } ]} />
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "jsonParams", type: "apiTypes.EditCurrentApplicationRequest" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.EditCurrentApplicationResponse>" } ]} />
+
+### listSkusAsync
+
+> <LuaDeclaration name="listSkusAsync" className="Application" args={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returnType="future.FutureLike<string, apiTypes.ListSkusResponse>" />
+
+https://discord.com/developers/docs/monetization/skus#list-skus
+
+<LuaParamTable params={[ { name: "instance", type: "request.Request" }, { name: "applicationId", type: "apiTypes.Snowflake" } ]} returns={[ { type: "future.FutureLike<string, apiTypes.ListSkusResponse>" } ]} />
 
 

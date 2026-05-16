@@ -1,0 +1,39 @@
+---
+title: Hash
+description: DiscordLuau docs for Hash.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+SHA-256 and SHA-512 one-shot hash functions.
+For a keyed hash or variable-length output, prefer `generichash`; for password hashing, use `pwhash`.
+
+<LuaSummary className="Hash" functions={[ { name: "sha256", args: [ { name: "message", type: "buffer" } ], returnType: "buffer" }, { name: "sha512", args: [ { name: "message", type: "buffer" } ], returnType: "buffer" } ]} />
+
+## Functions
+
+### sha256
+
+> <LuaDeclaration name="sha256" className="Hash" args={[ { name: "message", type: "buffer" } ]} returnType="buffer" />
+
+Returns the SHA-256 digest of `message` as a 32-byte buffer.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+### sha512
+
+> <LuaDeclaration name="sha512" className="Hash" args={[ { name: "message", type: "buffer" } ]} returnType="buffer" />
+
+Returns the SHA-512 digest of `message` as a 64-byte buffer.
+
+<LuaParamTable params={[ { name: "message", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
+
+

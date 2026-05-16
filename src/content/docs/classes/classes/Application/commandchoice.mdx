@@ -17,7 +17,7 @@ Implementation of the Discord Choice class in Luau
 
 https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-choice-structure
 
-<LuaSummary className="CommandChoice" properties={[ { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "value", type: "string | number" } ]} />
+<LuaSummary className="CommandChoice" properties={[ { name: "name", type: "string" }, { name: "nameLocalizations", type: "{ [apiTypes.LanguageLocales]: string }?" }, { name: "value", type: "string | number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ] } ]} functions={[ { name: "new", args: [ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ], returnType: "Choice" } ]} />
 
 ## Properties
 
@@ -41,5 +41,28 @@ Dictionary of localization overrides for the choice name. Keys are valid locale 
 
 ---
 The value that will be sent to your application when this choice is selected by a user.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="CommandChoice" args={[ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ]} isMethod />
+
+Responsible for syncing data to this choice object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="CommandChoice" args={[ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ]} returnType="Choice" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "choiceData", type: "apiTypes.ApplicationCommandOptionChoiceObject" } ]} returns={[ { type: "Choice" } ]} />
 
 

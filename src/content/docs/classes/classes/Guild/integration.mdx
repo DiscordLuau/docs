@@ -17,7 +17,7 @@ Implementation of the Discord Integration class in Luau
 
 https://discord.com/developers/docs/resources/integration#integration-object
 
-<LuaSummary className="Integration" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "type", type: "apiTypes.IntegrationType" }, { name: "enabled", type: "boolean" }, { name: "syncing", type: "boolean?" }, { name: "roleId", type: "string?" }, { name: "enableEmoticons", type: "boolean?" }, { name: "expireBehavior", type: "apiTypes.IntegrationExpireBehaviour" }, { name: "expireGracePeriod", type: "number?" }, { name: "user", type: "Classes.User?" }, { name: "account", type: "Classes.Guild.IntegrationAccount" }, { name: "syncedAt", type: "stdPolyfills.DateTime?" }, { name: "subscriberCount", type: "number?" }, { name: "revoked", type: "boolean?" }, { name: "application", type: "Classes.Application?" }, { name: "scopes", type: "{ apiTypes.OAuth2Scopes }?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" } ]} />
+<LuaSummary className="Integration" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "type", type: "apiTypes.IntegrationType" }, { name: "enabled", type: "boolean" }, { name: "syncing", type: "boolean?" }, { name: "roleId", type: "string?" }, { name: "enableEmoticons", type: "boolean?" }, { name: "expireBehavior", type: "apiTypes.IntegrationExpireBehaviour" }, { name: "expireGracePeriod", type: "number?" }, { name: "user", type: "Classes.User?" }, { name: "account", type: "Classes.Guild.IntegrationAccount" }, { name: "syncedAt", type: "stdPolyfills.DateTime?" }, { name: "subscriberCount", type: "number?" }, { name: "revoked", type: "boolean?" }, { name: "application", type: "Classes.Application?" }, { name: "scopes", type: "{ apiTypes.OAuth2Scopes }?" } ]} methods={[ { name: "deleteAsync", isMethod: true, args: [ { name: "reason", type: "string?" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sync", isMethod: true, args: [ { name: "integrationData", type: "apiTypes.IntegrationObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "integrationData", type: "apiTypes.IntegrationObject" } ], returnType: "Integration" } ]} />
 
 ## Properties
 
@@ -144,5 +144,20 @@ Delete the attached integration object for the guild. Deletes any associated web
 if there is one. Requires the MANAGE_GUILD permission.
 
 <LuaParamTable params={[ { name: "reason", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Integration" args={[ { name: "integrationData", type: "apiTypes.IntegrationObject" } ]} isMethod />
+
+<LuaParamTable params={[ { name: "integrationData", type: "apiTypes.IntegrationObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Integration" args={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "integrationData", type: "apiTypes.IntegrationObject" } ]} returnType="Integration" />
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "guildId", type: "apiTypes.Snowflake?" }, { name: "integrationData", type: "apiTypes.IntegrationObject" } ]} returns={[ { type: "Integration" } ]} />
 
 

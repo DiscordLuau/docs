@@ -1,0 +1,96 @@
+---
+title: StageInstance
+description: DiscordLuau docs for StageInstance.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Discord StageInstance class in Luau
+
+https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
+
+<LuaSummary className="StageInstance" properties={[ { name: "id", type: "string" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" }, { name: "topic", type: "string" }, { name: "privacyLevel", type: "apiTypes.PrivacyLevel" }, { name: "discoverableDisabled", type: "boolean" }, { name: "guildScheduledEventId", type: "string?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "stageData", type: "apiTypes.StageInstanceObject" } ] } ]} functions={[ { name: "new", args: [ { name: "stageData", type: "apiTypes.StageInstanceObject" } ], returnType: "StageInstance" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="StageInstance.id" type="string" />
+
+---
+The id of this Stage instance
+
+### guildId
+
+<LuaProperty name="StageInstance.guildId" type="string" />
+
+---
+The guild id of the associated Stage channel
+
+### channelId
+
+<LuaProperty name="StageInstance.channelId" type="string" />
+
+---
+The id of the associated Stage channel
+
+### topic
+
+<LuaProperty name="StageInstance.topic" type="string" />
+
+---
+The topic of the Stage instance (1-120 characters)
+
+### privacyLevel
+
+<LuaProperty name="StageInstance.privacyLevel" type="apiTypes.PrivacyLevel" />
+
+---
+The privacy level of the Stage instance
+
+### discoverableDisabled
+
+<LuaProperty name="StageInstance.discoverableDisabled" type="boolean" />
+
+---
+Whether or not Stage Discovery is disabled (deprecated)
+
+### guildScheduledEventId
+
+<LuaProperty name="StageInstance.guildScheduledEventId" type="string?" />
+
+---
+The id of the scheduled event for this Stage instance
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="StageInstance" args={[ { name: "stageData", type: "apiTypes.StageInstanceObject" } ]} isMethod />
+
+Responsible for syncing data to this stage instance object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "stageData", type: "apiTypes.StageInstanceObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="StageInstance" args={[ { name: "stageData", type: "apiTypes.StageInstanceObject" } ]} returnType="StageInstance" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "stageData", type: "apiTypes.StageInstanceObject" } ]} returns={[ { type: "StageInstance" } ]} />
+
+

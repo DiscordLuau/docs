@@ -17,7 +17,7 @@ Implementation of a Discord Presence as a Luau builder.
 
 https://discord.com/developers/docs/events/gateway-events#update-presence
 
-<LuaSummary className="Presence" properties={[ { name: "activities", type: "{ Classes.Activity }" }, { name: "since", type: "number?" }, { name: "afk", type: "boolean?" }, { name: "status", type: "string?" } ]} />
+<LuaSummary className="Presence" properties={[ { name: "activities", type: "{ Classes.Activity }" }, { name: "since", type: "number?" }, { name: "afk", type: "boolean?" }, { name: "status", type: "string?" } ]} methods={[ { name: "addActivity", isMethod: true, args: [ { name: "activity", type: "activity.JSON" } ], returnType: "Presence" }, { name: "setStatus", isMethod: true, args: [ { name: "status", type: "apiTypes.Status" } ], returnType: "Presence" }, { name: "setAfk", isMethod: true, args: [ { name: "isAfk", type: "boolean" } ], returnType: "Presence" }, { name: "setSince", isMethod: true, args: [ { name: "delta", type: "number" } ], returnType: "Presence" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ status: string?, afk: boolean?, since: number?, activities: { activity.JSON }?, }?" } ], returnType: "Presence" } ]} />
 
 ## Properties
 
@@ -48,5 +48,59 @@ Whether or not the client is afk.
 
 ---
 The user's current status. Can be "online", "dnd", "idle", "invisible", or "offline".
+
+
+## Methods
+
+### addActivity
+
+> <LuaDeclaration name="addActivity" className="Presence" args={[ { name: "activity", type: "activity.JSON" } ]} returnType="Presence" isMethod />
+
+Adds an activity to the presence.
+
+<LuaParamTable params={[ { name: "activity", type: "activity.JSON" } ]} returns={[ { type: "Presence" } ]} />
+
+### setStatus
+
+> <LuaDeclaration name="setStatus" className="Presence" args={[ { name: "status", type: "apiTypes.Status" } ]} returnType="Presence" isMethod />
+
+Sets the status of the presence.
+
+<LuaParamTable params={[ { name: "status", type: "apiTypes.Status" } ]} returns={[ { type: "Presence" } ]} />
+
+### setAfk
+
+> <LuaDeclaration name="setAfk" className="Presence" args={[ { name: "isAfk", type: "boolean" } ]} returnType="Presence" isMethod />
+
+Sets whether the presence is AFK.
+
+<LuaParamTable params={[ { name: "isAfk", type: "boolean" } ]} returns={[ { type: "Presence" } ]} />
+
+### setSince
+
+> <LuaDeclaration name="setSince" className="Presence" args={[ { name: "delta", type: "number" } ]} returnType="Presence" isMethod />
+
+Sets the time since the presence was last updated.
+
+<LuaParamTable params={[ { name: "delta", type: "number" } ]} returns={[ { type: "Presence" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Presence" args={[  ]} returnType="JSON" isMethod />
+
+Builds the presence object that can be sent to the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Presence" args={[ { name: "resource", type: "{ status: string?, afk: boolean?, since: number?, activities: { activity.JSON }?, }?" } ]} returnType="Presence" />
+
+Constructor for the Discord Presence Builder.
+
+<LuaParamTable params={[ { name: "resource", type: "{ status: string?, afk: boolean?, since: number?, activities: { activity.JSON }?, }?" } ]} returns={[ { type: "Presence" } ]} />
 
 

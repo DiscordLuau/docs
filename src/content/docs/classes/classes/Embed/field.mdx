@@ -17,7 +17,7 @@ Implementation of the Discord Field class in Luau. This class represents a field
 
 https://discord.com/developers/docs/resources/message#embed-object-embed-field-structure
 
-<LuaSummary className="Field" properties={[ { name: "name", type: "string" }, { name: "value", type: "string" }, { name: "inline", type: "boolean?" } ]} />
+<LuaSummary className="Field" properties={[ { name: "name", type: "string" }, { name: "value", type: "string" }, { name: "inline", type: "boolean?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ] } ]} functions={[ { name: "new", args: [ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ], returnType: "Field" } ]} />
 
 ## Properties
 
@@ -41,5 +41,28 @@ The value of the field.
 
 ---
 Whether this field should be displayed inline with other fields.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="Field" args={[ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ]} isMethod />
+
+Responsible for syncing data to this field object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Field" args={[ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ]} returnType="Field" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "fieldData", type: "apiTypes.EmbedFieldObject" } ]} returns={[ { type: "Field" } ]} />
 
 

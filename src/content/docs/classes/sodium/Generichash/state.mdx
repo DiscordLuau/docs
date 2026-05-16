@@ -1,0 +1,70 @@
+---
+title: State
+description: DiscordLuau docs for State.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Incremental BLAKE2b hash state; created via `generichash.new()`.
+Feed data incrementally with `update`, then call `final` exactly once to retrieve the digest.
+Always call `final` - the internal FFI buffer cannot be reclaimed by the GC if it is skipped,
+even when all references to the State are dropped.
+
+<LuaSummary className="State" properties={[ { name: "statePointer", type: "FFIPointer" }, { name: "outputBytes", type: "number" }, { name: "finalized", type: "boolean" } ]} methods={[ { name: "update", isMethod: true, args: [ { name: "chunk", type: "buffer" } ] }, { name: "final", isMethod: true, args: [  ], returnType: "buffer" } ]} functions={[ { name: "new", args: [ { name: "outputBytes", type: "number?" }, { name: "key", type: "buffer?" } ], returnType: "State" } ]} />
+
+## Properties
+
+### statePointer
+
+<LuaProperty name="State.statePointer" type="FFIPointer" />
+
+
+### outputBytes
+
+<LuaProperty name="State.outputBytes" type="number" />
+
+
+### finalized
+
+<LuaProperty name="State.finalized" type="boolean" />
+
+
+
+## Methods
+
+### update
+
+> <LuaDeclaration name="update" className="State" args={[ { name: "chunk", type: "buffer" } ]} isMethod />
+
+Feeds `chunk` into the hash state. May be called any number of times before `final`.
+Errors if called after `final`.
+
+<LuaParamTable params={[ { name: "chunk", type: "buffer" } ]} />
+
+### final
+
+> <LuaDeclaration name="final" className="State" args={[  ]} returnType="buffer" isMethod />
+
+Finalises the hash and returns the digest. Frees the internal state buffer.
+Errors if called more than once on the same `State`.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="State" args={[ { name: "outputBytes", type: "number?" }, { name: "key", type: "buffer?" } ]} returnType="State" />
+
+<LuaParamTable params={[ { name: "outputBytes", type: "number?" }, { name: "key", type: "buffer?" } ]} returns={[ { type: "State" } ]} />
+
+

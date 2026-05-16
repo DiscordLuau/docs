@@ -17,7 +17,7 @@ Implementation of the Discord StickerItem class in Luau
 
 https://discord.com/developers/docs/resources/sticker#sticker-item-object
 
-<LuaSummary className="StickerItem" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "formatType", type: "string" } ]} />
+<LuaSummary className="StickerItem" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "formatType", type: "string" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "stickerData", type: "apiTypes.StickerItemObject" } ] } ]} functions={[ { name: "new", args: [ { name: "stickerData", type: "apiTypes.StickerItemObject" } ], returnType: "StickerItem" } ]} />
 
 ## Properties
 
@@ -41,5 +41,28 @@ The name of this sticker.
 
 ---
 The format type of this sticker.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="StickerItem" args={[ { name: "stickerData", type: "apiTypes.StickerItemObject" } ]} isMethod />
+
+Responsible for syncing data to this sticker item object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "stickerData", type: "apiTypes.StickerItemObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="StickerItem" args={[ { name: "stickerData", type: "apiTypes.StickerItemObject" } ]} returnType="StickerItem" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "stickerData", type: "apiTypes.StickerItemObject" } ]} returns={[ { type: "StickerItem" } ]} />
 
 

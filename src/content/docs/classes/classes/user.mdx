@@ -17,7 +17,7 @@ Implementation of the Discord User class in Luau
 
 https://discord.com/developers/docs/resources/user#user-object
 
-<LuaSummary className="User" properties={[ { name: "id", type: "string" }, { name: "username", type: "string" }, { name: "discriminator", type: "string?" }, { name: "globalName", type: "string?" }, { name: "avatar", type: "string?" }, { name: "avatarDecoration", type: "Classes.AvatarDecoration?" }, { name: "bot", type: "boolean?" }, { name: "system", type: "boolean?" }, { name: "mfaEnabled", type: "boolean?" }, { name: "locale", type: "string?" }, { name: "verified", type: "boolean?" }, { name: "banner", type: "string?" }, { name: "email", type: "string?" }, { name: "flags", type: "Classes.UserBitflag?" }, { name: "premiumType", type: "apiTypes.PremiumType?" }, { name: "publicFlags", type: "Classes.UserBitflag?" }, { name: "accentColor", type: "number?" } ]} />
+<LuaSummary className="User" properties={[ { name: "id", type: "string" }, { name: "username", type: "string" }, { name: "discriminator", type: "string?" }, { name: "globalName", type: "string?" }, { name: "avatar", type: "string?" }, { name: "avatarDecoration", type: "Classes.AvatarDecoration?" }, { name: "bot", type: "boolean?" }, { name: "system", type: "boolean?" }, { name: "mfaEnabled", type: "boolean?" }, { name: "locale", type: "string?" }, { name: "verified", type: "boolean?" }, { name: "banner", type: "string?" }, { name: "email", type: "string?" }, { name: "flags", type: "Classes.UserBitflag?" }, { name: "premiumType", type: "apiTypes.PremiumType?" }, { name: "publicFlags", type: "Classes.UserBitflag?" }, { name: "accentColor", type: "number?" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "userData", type: "apiTypes.UserObject" } ] }, { name: "modifyAsync", isMethod: true, args: [ { name: "username", type: "string?" }, { name: "avatarData", type: "string?" } ], returnType: "future.FutureLike<string, User>" }, { name: "getDmChannelIdAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, apiTypes.Snowflake>" } ]} functions={[ { name: "new", args: [ { name: "userData", type: "apiTypes.UserObject" }, { name: "userState", type: "state.State?" } ], returnType: "User" } ]} />
 
 ## Properties
 
@@ -137,5 +137,45 @@ The public flags that indicate various properties and states of the user.
 
 ---
 The user's custom profile accent color.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="User" args={[ { name: "userData", type: "apiTypes.UserObject" } ]} isMethod />
+
+Responsible for syncing data to this webhook object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "userData", type: "apiTypes.UserObject" } ]} />
+
+### modifyAsync
+
+> <LuaDeclaration name="modifyAsync" className="User" args={[ { name: "username", type: "string?" }, { name: "avatarData", type: "string?" } ]} returnType="future.FutureLike<string, User>" isMethod />
+
+Modifies the bot's own username or avatar. Requires state; only valid when this User object
+represents the current bot user.
+
+<LuaParamTable params={[ { name: "username", type: "string?" }, { name: "avatarData", type: "string?" } ]} returns={[ { type: "future.FutureLike<string, User>" } ]} />
+
+### getDmChannelIdAsync
+
+> <LuaDeclaration name="getDmChannelIdAsync" className="User" args={[  ]} returnType="future.FutureLike<string, apiTypes.Snowflake>" isMethod />
+
+Opens a DM channel with this user.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, apiTypes.Snowflake>" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="User" args={[ { name: "userData", type: "apiTypes.UserObject" }, { name: "userState", type: "state.State?" } ]} returnType="User" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "userData", type: "apiTypes.UserObject" }, { name: "userState", type: "state.State?" } ]} returns={[ { type: "User" } ]} />
 
 

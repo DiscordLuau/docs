@@ -18,7 +18,7 @@ Manages the connection and communication with the Discord Gateway using multiple
 This serves as the primary class for developers wanting to interact with the Discord Gateway, this class is
 responsible for creating the required shards sending messages asynchronously through each shard.
 
-<LuaSummary className="Manager" properties={[ { name: "token", type: "Secret" }, { name: "intents", type: "number" }, { name: "webSocketVersion", type: "number" }, { name: "largeThreshold", type: "number?" }, { name: "shouldReconnect", type: "boolean" }, { name: "ready", type: "boolean" }, { name: "shardIds", type: "{ ShardId }" }, { name: "shards", type: "{ [ShardId]: WebSocket.Shard }" }, { name: "logger", type: "Logger.Logger" }, { name: "onDisconnected", type: "Emitter<ShardPayload<{ errorCode: number? }>>" }, { name: "onReconnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onConnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onHeartbeat", type: "Emitter<ShardPayload<{ latency: number }>>," }, { name: "onDispatch", type: "Emitter<ShardPayload<{ shardId: number, event: apiTypes.ReceiveEvent, payload: apiTypes.Payload<unknown> }>>" }, { name: "onAllShardsReady", type: "Emitter<ShardPayload<{ shardId: number, payload: apiTypes.ReadyPayload }>>" } ]} methods={[ { name: "connectAsync", isMethod: true, args: [ { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sendAsync", isMethod: true, args: [ { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ], returnType: "Manager" } ]} />
+<LuaSummary className="Manager" properties={[ { name: "token", type: "Secret" }, { name: "intents", type: "number" }, { name: "webSocketVersion", type: "number" }, { name: "largeThreshold", type: "number?" }, { name: "shouldReconnect", type: "boolean" }, { name: "ready", type: "boolean" }, { name: "shardIds", type: "{ ShardId }" }, { name: "shards", type: "{ [ShardId]: WebSocket.Shard }" }, { name: "logger", type: "Logger.Logger" }, { name: "onDisconnected", type: "Emitter<ShardPayload<{ errorCode: number? }>>" }, { name: "onReconnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onConnected", type: "Emitter<ShardPayload<{}>>," }, { name: "onHeartbeat", type: "Emitter<ShardPayload<{ latency: number }>>," }, { name: "onDispatch", type: "Emitter<ShardPayload<{ shardId: number, event: apiTypes.ReceiveEvent, payload: apiTypes.Payload<unknown> }>>" }, { name: "onAllShardsReady", type: "Emitter<ShardPayload<{ shardId: number, payload: apiTypes.ReadyPayload }>>" }, { name: "onRateLimited", type: "Emitter<ShardPayload<{ opcode: number, retryAfter: number, guildId: string? }>>" } ]} methods={[ { name: "connectAsync", isMethod: true, args: [ { name: "gatewayInformation", type: "apiTypes.GetGatewayBotResponse" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sendAsync", isMethod: true, args: [ { name: "operation", type: "apiTypes.Opcode" }, { name: "data", type: "T" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: secret.Secret<string>, intents: number, largeThreshold: number?, webSocketVersion: number, reconnect: boolean, }" } ], returnType: "Manager" } ]} />
 
 ## Properties
 
@@ -95,6 +95,11 @@ responsible for creating the required shards sending messages asynchronously thr
 ### onAllShardsReady
 
 <LuaProperty name="Manager.onAllShardsReady" type="Emitter<ShardPayload<{ shardId: number, payload: apiTypes.ReadyPayload }>>" />
+
+
+### onRateLimited
+
+<LuaProperty name="Manager.onRateLimited" type="Emitter<ShardPayload<{ opcode: number, retryAfter: number, guildId: string? }>>" />
 
 
 

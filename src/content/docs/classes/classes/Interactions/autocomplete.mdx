@@ -17,7 +17,7 @@ Implementation of the Discord Autocomplete Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Autocomplete" properties={[ { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" } ]} />
+<LuaSummary className="Autocomplete" properties={[ { name: "state", type: "State" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" } ]} methods={[ { name: "respondAsync", isMethod: true, args: [ { name: "choices", type: "{ builders.choiceJSON }" } ], returnType: "future.FutureLike<string, nil>" }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Autocomplete" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -193,6 +193,76 @@ The entitlements for the user who triggered the interaction.
 
 ---
 The mapping of integration types to their respective owners.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### attachmentSizeLimit
+
+<LuaProperty name="Autocomplete.attachmentSizeLimit" type="number?" />
+
+---
+The maximum attachment size in bytes for this interaction, varies by guild boost tier and the invoking user's Nitro status.
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+
+## Methods
+
+### respondAsync
+
+> <LuaDeclaration name="respondAsync" className="Autocomplete" args={[ { name: "choices", type: "{ builders.choiceJSON }" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Respond to an autocomplete interaction with a list of choices. Sends interaction response type 8
+(APPLICATION_COMMAND_AUTOCOMPLETE_RESULT).
+
+```luau
+interaction:respondAsync({
+	builders.choice.new({ name = "Option A", value = "a" }):build(),
+	builders.choice.new({ name = "Option B", value = "b" }):build(),
+}):await()
+```
+
+<LuaParamTable params={[ { name: "choices", type: "{ builders.choiceJSON }" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Autocomplete" args={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} isMethod />
+
+Responsible for syncing data to this interaction object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Autocomplete" args={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returnType="Autocomplete" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} returns={[ { type: "Autocomplete" } ]} />
+
+### inheritProperties
+
+> <LuaDeclaration name="inheritProperties" className="Autocomplete" args={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+Responsible for inheriting properties from the interaction data to the class instance.
+This function initializes all the properties of an Interaction instance based on the provided interaction data.
+
+<LuaParamTable params={[ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ]} />
+
+> Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
+
+### inheritMethods
+
+> <LuaDeclaration name="inheritMethods" className="Autocomplete" args={[ { name: "class", type: "any" } ]} />
+
+Responsible for inheriting methods from the Interaction prototype to the class instance.
+This function copies all methods from the Interaction.Prototype to the provided class instance.
+
+<LuaParamTable params={[ { name: "class", type: "any" } ]} />
 
 > Inherited from [Classes.Interactions.InteractionBehaviour](/classes/classes/interactions/interactionbehaviour)
 

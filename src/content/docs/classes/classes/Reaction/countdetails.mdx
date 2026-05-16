@@ -17,7 +17,7 @@ Implementation of the Discord CountDetails class in Luau
 
 https://discord.com/developers/docs/resources/message#reaction-count-details-object
 
-<LuaSummary className="CountDetails" properties={[ { name: "burst", type: "number" }, { name: "normal", type: "number" } ]} />
+<LuaSummary className="CountDetails" properties={[ { name: "burst", type: "number" }, { name: "normal", type: "number" } ]} methods={[ { name: "sync", isMethod: true, args: [ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ] } ]} functions={[ { name: "new", args: [ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ], returnType: "CountDetails" } ]} />
 
 ## Properties
 
@@ -34,5 +34,28 @@ The number of burst reactions.
 
 ---
 The number of normal reactions.
+
+
+## Methods
+
+### sync
+
+> <LuaDeclaration name="sync" className="CountDetails" args={[ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ]} isMethod />
+
+Responsible for syncing data to this count details object. This is typically called by the API when this object is
+created or updated.
+
+<LuaParamTable params={[ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="CountDetails" args={[ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ]} returnType="CountDetails" />
+
+Responsible for constructing this class.
+
+<LuaParamTable params={[ { name: "reactionCountDetailsData", type: "apiTypes.ReactionCountDetailsObject" } ]} returns={[ { type: "CountDetails" } ]} />
 
 

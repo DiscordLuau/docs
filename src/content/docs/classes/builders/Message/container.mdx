@@ -1,0 +1,93 @@
+---
+title: Container
+description: DiscordLuau docs for Container.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of Discord's Container component as a Luau builder.
+Containers are top-level wrappers for Components V2 layouts.
+Requires the IS_COMPONENTS_V2 message flag (bit 15) to be set.
+
+https://discord.com/developers/docs/components/reference#container
+
+<LuaSummary className="Container" properties={[ { name: "components", type: "{ any }" }, { name: "accentColor", type: "number?" }, { name: "spoiler", type: "boolean?" } ]} methods={[ { name: "addComponent", isMethod: true, args: [ { name: "component", type: "apiTypes.ComponentObjects" } ], returnType: "Container" }, { name: "setAccentColor", isMethod: true, args: [ { name: "accentColor", type: "number" } ], returnType: "Container" }, { name: "setSpoiler", isMethod: true, args: [ { name: "spoiler", type: "boolean" } ], returnType: "Container" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [  ], returnType: "Container" } ]} />
+
+## Properties
+
+### components
+
+<LuaProperty name="Container.components" type="{ any }" />
+
+---
+The child components. Maximum 40 total.
+
+### accentColor
+
+<LuaProperty name="Container.accentColor" type="number?" />
+
+---
+Hex color integer for the left border accent.
+
+### spoiler
+
+<LuaProperty name="Container.spoiler" type="boolean?" />
+
+---
+Whether the container contents are blurred as a spoiler.
+
+
+## Methods
+
+### addComponent
+
+> <LuaDeclaration name="addComponent" className="Container" args={[ { name: "component", type: "apiTypes.ComponentObjects" } ]} returnType="Container" isMethod />
+
+Adds a child component. Maximum 40 total components.
+
+<LuaParamTable params={[ { name: "component", type: "apiTypes.ComponentObjects" } ]} returns={[ { type: "Container" } ]} />
+
+### setAccentColor
+
+> <LuaDeclaration name="setAccentColor" className="Container" args={[ { name: "accentColor", type: "number" } ]} returnType="Container" isMethod />
+
+Sets the accent color for the left border as a hex color integer.
+
+<LuaParamTable params={[ { name: "accentColor", type: "number" } ]} returns={[ { type: "Container" } ]} />
+
+### setSpoiler
+
+> <LuaDeclaration name="setSpoiler" className="Container" args={[ { name: "spoiler", type: "boolean" } ]} returnType="Container" isMethod />
+
+Sets whether the container contents are blurred as a spoiler.
+
+<LuaParamTable params={[ { name: "spoiler", type: "boolean" } ]} returns={[ { type: "Container" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="Container" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the Container JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Container" args={[  ]} returnType="Container" />
+
+Responsible for creating a new Container.
+
+<LuaParamTable returns={[ { type: "Container" } ]} />
+
+

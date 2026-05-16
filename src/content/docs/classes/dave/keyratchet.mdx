@@ -1,0 +1,58 @@
+---
+title: KeyRatchet
+description: DiscordLuau docs for KeyRatchet.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+An opaque handle to an MLS-derived key ratchet for a single participant.
+
+Key ratchets are obtained from `Session:getKeyRatchet(userId)` after the MLS group
+has been established.
+
+They are consumed by `Encryptor:setKeyRatchet` and `Decryptor:transitionToKeyRatchet` to
+enable authenticated encryption on a media stream. The underlying key material is owned
+by libdave; destroying the ratchet releases it.
+
+<LuaSummary className="KeyRatchet" properties={[ { name: "handle", type: "Sys.KeyRatchetHandle" } ]} methods={[ { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "handle", type: "Sys.KeyRatchetHandle" } ], returnType: "KeyRatchet" } ]} />
+
+## Properties
+
+### handle
+
+<LuaProperty name="KeyRatchet.handle" type="Sys.KeyRatchetHandle" />
+
+
+
+## Methods
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="KeyRatchet" args={[  ]} isMethod />
+
+Destroys the key ratchet and releases the associated key material. The ratchet must
+not be used after this call. Note that the `Encryptor` and `Decryptor` do not take
+ownership of the ratchet handle, so it remains the caller's responsibility to destroy
+it when no longer needed.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="KeyRatchet" args={[ { name: "handle", type: "Sys.KeyRatchetHandle" } ]} returnType="KeyRatchet" />
+
+Constructs a KeyRatchet wrapper around an existing libdave handle. Called internally
+by `Session:getKeyRatchet`.
+
+<LuaParamTable params={[ { name: "handle", type: "Sys.KeyRatchetHandle" } ]} returns={[ { type: "KeyRatchet" } ]} />
+
+

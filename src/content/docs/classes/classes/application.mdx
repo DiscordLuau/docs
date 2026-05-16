@@ -18,7 +18,7 @@ This class represents a Discord application and provides methods to manage appli
 
 https://discord.com/developers/docs/resources/application#application-object
 
-<LuaSummary className="Application" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "description", type: "string" }, { name: "rpcOrigins", type: "{ string }?" }, { name: "botPublic", type: "boolean" }, { name: "botRequireCodeGrant", type: "boolean" }, { name: "bot", type: "Classes.User?" }, { name: "termsOfServiceUrl", type: "string?" }, { name: "privacyPolicyUrl", type: "string?" }, { name: "owner", type: "Classes.User?" }, { name: "summary", type: "string?" }, { name: "verifyKey", type: "string?" }, { name: "team", type: "Classes.Application.Team?" }, { name: "guildId", type: "string?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "primarySkuId", type: "string?" }, { name: "slug", type: "string?" }, { name: "coverImage", type: "string?" }, { name: "flags", type: "Classes.ApplicationBitflag?" }, { name: "installParams", type: "Classes.Application.InstallParams?" }, { name: "integrationTypesConfig", type: "{ [apiTypes.IntegrationTypesConfig]: boolean }?" }, { name: "customInstallUrl", type: "string?" } ]} methods={[ { name: "createSlashCommandAsync", isMethod: true, args: [ { name: "slashCommand", type: "builders.interactionJSON" } ], returnType: "future.FutureLike<string, commandObject.Command>" }, { name: "deleteSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, nil>" }, { name: "editSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ], returnType: "future.FutureLike<string, commandObject.Command>" }, { name: "getSlashCommandsAsync", isMethod: true, args: [ { name: "withLocalizations", type: "boolean?" } ], returnType: "future.FutureLike<string, { commandObject.Command }>" }, { name: "overwriteSlashCommandsAsync", isMethod: true, args: [ { name: "slashCommands", type: "{ builders.interactionJSON }" } ], returnType: "future.FutureLike<string, { commandObject.Command }>" } ]} />
+<LuaSummary className="Application" properties={[ { name: "id", type: "string" }, { name: "name", type: "string" }, { name: "icon", type: "string?" }, { name: "description", type: "string" }, { name: "rpcOrigins", type: "{ string }?" }, { name: "botPublic", type: "boolean" }, { name: "botRequireCodeGrant", type: "boolean" }, { name: "bot", type: "Classes.User?" }, { name: "termsOfServiceUrl", type: "string?" }, { name: "privacyPolicyUrl", type: "string?" }, { name: "owner", type: "Classes.User?" }, { name: "summary", type: "string?" }, { name: "verifyKey", type: "string?" }, { name: "team", type: "Classes.Application.Team?" }, { name: "guildId", type: "string?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "primarySkuId", type: "string?" }, { name: "slug", type: "string?" }, { name: "coverImage", type: "string?" }, { name: "flags", type: "Classes.ApplicationBitflag?" }, { name: "installParams", type: "Classes.Application.InstallParams?" }, { name: "integrationTypesConfig", type: "{ [apiTypes.IntegrationTypesConfig]: boolean }?" }, { name: "customInstallUrl", type: "string?" } ]} methods={[ { name: "createSlashCommandAsync", isMethod: true, args: [ { name: "slashCommand", type: "builders.interactionJSON" } ], returnType: "future.FutureLike<string, commandObject.Command>" }, { name: "deleteSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" } ], returnType: "future.FutureLike<string, nil>" }, { name: "editSlashCommandAsync", isMethod: true, args: [ { name: "slashCommandId", type: "apiTypes.Snowflake" }, { name: "slashCommand", type: "builders.interactionJSON" } ], returnType: "future.FutureLike<string, commandObject.Command>" }, { name: "getSlashCommandsAsync", isMethod: true, args: [ { name: "withLocalizations", type: "boolean?" } ], returnType: "future.FutureLike<string, { commandObject.Command }>" }, { name: "overwriteSlashCommandsAsync", isMethod: true, args: [ { name: "slashCommands", type: "{ builders.interactionJSON }" } ], returnType: "future.FutureLike<string, { commandObject.Command }>" }, { name: "listSkusAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, { sku.Sku }>" }, { name: "sync", isMethod: true, args: [ { name: "applicationData", type: "apiTypes.ApplicationObject" } ] } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "applicationData", type: "apiTypes.ApplicationObject" } ], returnType: "Application" } ]} />
 
 ## Properties
 
@@ -250,5 +250,32 @@ Get a list of global application commands.
 Overwrite all global application commands. This will skip over commands that are the same as the current commands, and will not remove any existing commands.
 
 <LuaParamTable params={[ { name: "slashCommands", type: "{ builders.interactionJSON }" } ]} returns={[ { type: "future.FutureLike<string, { commandObject.Command }>" } ]} />
+
+### listSkusAsync
+
+> <LuaDeclaration name="listSkusAsync" className="Application" args={[  ]} returnType="future.FutureLike<string, { sku.Sku }>" isMethod />
+
+Returns a list of SKUs for this application.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, { sku.Sku }>" } ]} />
+
+### sync
+
+> <LuaDeclaration name="sync" className="Application" args={[ { name: "applicationData", type: "apiTypes.ApplicationObject" } ]} isMethod />
+
+Synchronizes the application object with the data from the API.
+
+<LuaParamTable params={[ { name: "applicationData", type: "apiTypes.ApplicationObject" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Application" args={[ { name: "state", type: "state.State" }, { name: "applicationData", type: "apiTypes.ApplicationObject" } ]} returnType="Application" />
+
+Creates a new Application instance with the specified application data.
+
+<LuaParamTable params={[ { name: "state", type: "state.State" }, { name: "applicationData", type: "apiTypes.ApplicationObject" } ]} returns={[ { type: "Application" } ]} />
 
 
