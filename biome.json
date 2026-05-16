@@ -26,7 +26,8 @@
 	"files": {
 		"includes": [
 			"**",
-			"!**/dist",
+			"!discord-luau",
+      "!**/dist",
 			"!**/node_modules",
 			"!**/.astro",
 			"!**/src/content/docs/classes"
