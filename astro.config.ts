@@ -1,6 +1,7 @@
 import cloudflare from "@astrojs/cloudflare";
 import starlight from "@astrojs/starlight";
 import { defineConfig, passthroughImageService } from "astro/config";
+
 // https://astro.build/config
 export default defineConfig({
 	output: "server",
@@ -37,7 +38,6 @@ export default defineConfig({
 					label: "Guides",
 					items: [{ autogenerate: { directory: "guides" } }],
 				},
-				// Core - what most consumers interact with directly
 				{
 					label: "Discord Luau",
 					collapsed: false,
@@ -80,7 +80,6 @@ export default defineConfig({
 						{ autogenerate: { directory: "classes/rest", collapsed: true } },
 					],
 				},
-				// Secondary - feature areas
 				{
 					label: "Voice",
 					collapsed: false,
@@ -91,22 +90,30 @@ export default defineConfig({
 				{
 					label: "Opus",
 					collapsed: false,
-					autogenerate: { directory: "classes/opus", collapsed: true },
+					items: [
+						{ autogenerate: { directory: "classes/opus", collapsed: true } },
+					],
 				},
 				{
 					label: "Sodium",
 					collapsed: false,
-					autogenerate: { directory: "classes/sodium", collapsed: true },
+					items: [
+						{ autogenerate: { directory: "classes/sodium", collapsed: true } },
+					],
 				},
 				{
 					label: "Dave",
 					collapsed: false,
-					autogenerate: { directory: "classes/dave", collapsed: true },
+					items: [
+						{ autogenerate: { directory: "classes/dave", collapsed: true } },
+					],
 				},
 				{
 					label: "Accumulator",
 					collapsed: false,
-					autogenerate: { directory: "classes/accumulator", collapsed: true },
+					items: [
+						{ autogenerate: { directory: "classes/accumulator", collapsed: true } },
+					],
 				},
 				{
 					label: "State",
@@ -131,7 +138,6 @@ export default defineConfig({
 						},
 					],
 				},
-				// Internal / infrastructure
 				{
 					label: "Snowflake",
 					collapsed: false,
