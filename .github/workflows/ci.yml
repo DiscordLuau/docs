@@ -8,7 +8,7 @@ on:
     types: [deploy]
 
 jobs:
-  deploy:
+  ci:
     name: Deploy
     runs-on: ubuntu-latest
 
