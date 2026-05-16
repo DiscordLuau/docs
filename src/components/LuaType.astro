@@ -12,7 +12,9 @@ type TypeInfo = { typeName: string; url: string | null };
 const { url: propUrl, type: rawType } = Astro.props;
 const resolvedType = rawType ?? "()";
 
-function extractTableType(input: string): [string[][], string | null, RegExpMatchArray | null] {
+function extractTableType(
+	input: string,
+): [string[][], string | null, RegExpMatchArray | null] {
 	const match = input.match(/\{(.*?)\}/);
 	if (match) {
 		if (isObject(match[1])) return [getKvPairs(match[1]), null, match];

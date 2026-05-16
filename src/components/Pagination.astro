@@ -11,7 +11,9 @@ const isFromDiscordLuau = (syncedDirs as string[]).includes(topDirectory);
 
 const contributorSources = [
 	{ repo: "DiscordLuau/docs", path: `src/content/docs/${file}` },
-	...(isFromDiscordLuau ? [{ repo: "DiscordLuau/discord-luau", path: `docs/${file}` }] : []),
+	...(isFromDiscordLuau
+		? [{ repo: "DiscordLuau/discord-luau", path: `docs/${file}` }]
+		: []),
 ];
 ---
 

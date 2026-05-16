@@ -71,7 +71,8 @@ export const getCustomTypeDocs = (type: string) => {
 	const typeParts = lowerType.split(".");
 	if (typeParts.length >= 2) {
 		const prefixAndLastSegment = `${typeParts[0]}:${typeParts[typeParts.length - 1]}`;
-		const fuzzyMatch = classRegistryByPrefixAndLastSegment.get(prefixAndLastSegment);
+		const fuzzyMatch =
+			classRegistryByPrefixAndLastSegment.get(prefixAndLastSegment);
 		if (fuzzyMatch) return buildClassPath(fuzzyMatch);
 	}
 
@@ -80,7 +81,9 @@ export const getCustomTypeDocs = (type: string) => {
 
 export const getTypeDocs = (type: string) => {
 	const normalized = removeTypeModifiers(type);
-	return normalized in luaTypeDocs ? getLuaDocs(normalized) : getCustomTypeDocs(normalized);
+	return normalized in luaTypeDocs
+		? getLuaDocs(normalized)
+		: getCustomTypeDocs(normalized);
 };
 
 export const typeOrDefault = (type?: string) => type ?? "()";
@@ -92,4 +95,5 @@ export const getKvPairs = (tableInner: string) =>
 		.map(pair => pair.split(":").map(part => part.trim()))
 		.filter(pair => pair[0] !== "" && pair[1] !== undefined);
 
-export const isObject = (tableInner: string) => tableInner.match(/(.*):(.*)/) !== null;
+export const isObject = (tableInner: string) =>
+	tableInner.match(/(.*):(.*)/) !== null;

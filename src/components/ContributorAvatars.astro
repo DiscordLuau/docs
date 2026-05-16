@@ -24,7 +24,9 @@ interface Props {
 
 const { sources } = Astro.props;
 
-async function fetchCommitsForSource(source: CommitSource): Promise<GitHubCommit[]> {
+async function fetchCommitsForSource(
+	source: CommitSource,
+): Promise<GitHubCommit[]> {
 	const url = new URL(`https://api.github.com/repos/${source.repo}/commits`);
 	url.searchParams.set("path", source.path);
 	url.searchParams.set("per_page", GITHUB_API_COMMITS_PER_PAGE);
@@ -49,7 +51,9 @@ function dedupeAuthors(commits: GitHubCommit[]): GitHubAuthor[] {
 	return Array.from(authorMap.values());
 }
 
-const allCommits = (await Promise.all(sources.map(fetchCommitsForSource))).flat();
+const allCommits = (
+	await Promise.all(sources.map(fetchCommitsForSource))
+).flat();
 const authors = dedupeAuthors(allCommits);
 ---
 
