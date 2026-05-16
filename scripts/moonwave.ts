@@ -78,12 +78,16 @@ export function extract(): MoonwaveClass[] {
 		);
 
 		if (result.status !== 0) {
-			throw new Error(`Moonwave extraction failed for ${srcPath}:\n${result.stderr}`);
+			throw new Error(
+				`Moonwave extraction failed for ${srcPath}:\n${result.stderr}`,
+			);
 		}
 
 		const data: MoonwaveClass[] = JSON.parse(result.stdout);
 		allClasses.push(...data);
 	}
 
-	return allClasses.filter(cls => !cls.source.path.includes("/Vendor/Embedded"));
+	return allClasses.filter(
+		cls => !cls.source.path.includes("/Vendor/Embedded"),
+	);
 }
