@@ -1,4 +1,4 @@
-name: Deploy
+name: CI 
 on:
   push:
     branches: master
@@ -31,25 +31,22 @@ jobs:
         id: pnpm-cache
         run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
 
-      - name: Get Deno cache directory
-        run: echo "DENO_DIR=$(deno info --json | jq -r '.denoDir')" >> $GITHUB_ENV
-
       - name: Cache pnpm modules, dist, and Deno directories
         uses: actions/cache@v5
         with:
           path: |
             ${{ env.STORE_PATH }}
-            ${{ env.DENO_DIR }}
             dist
             .astro
-          key: ${{ runner.os }}-pnpm-deno-store-${{ hashFiles('**/pnpm-lock.yaml', '**/deno.json', '**/deno.lock') }}
-          restore-keys: ${{ runner.os }}-pnpm-deno-store-
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build step
+      - name: Check
+        run: mise run check
+
+      - name: Build 
         run: GITHUB_TOKEN=${{ secrets.GH_SECRET }} mise run build
 
-      - name: Upload to Deno Deploy
-        run: DENO_DEPLOY_TOKEN=${{ secrets.DENO_DEPLOY_TOKEN }} mise run deploy ${{ github.ref_name == 'master' && '--prod' || '' }}

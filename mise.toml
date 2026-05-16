@@ -15,6 +15,10 @@ description = "Start the dev server"
 run = "pnpm build"
 description = "Build the docs site"
 
+[tasks.check]
+run = "pnpm biome check"
+description = "Run code checks"
+
 [settings]
 experimental = true
 lockfile = true
