@@ -1,6 +1,5 @@
 [tools]
 "ubi:evaera/moonwave" = "1.3.0"
-deno = "2"
 node = "25"
 pnpm = "9.1.4"
 
@@ -15,10 +14,6 @@ description = "Start the dev server"
 [tasks.build]
 run = "pnpm build"
 description = "Build the docs site"
-
-[tasks.deploy]
-run = 'pnpm run deploy "$@"'
-description = "Deploy to deno deploy"
 
 [settings]
 experimental = true
