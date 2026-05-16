@@ -30,7 +30,7 @@
 			"!**/dist",
 			"!**/node_modules",
 			"!**/.astro",
-			"!**/src/content/docs/classes"
+			"!**/src/content/docs"
 		]
 	}
 }
