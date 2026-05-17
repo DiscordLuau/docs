@@ -54,7 +54,7 @@ jobs:
             const message = context.payload.head_commit?.message?.split('\n')[0] || '';
             
             core.setOutput('commit-message', message ? `${message} (${sha})` : sha);
-            core.setOutput('branch', context.ref === 'refs/heads/master' ? 'production' : 'preview');
+            core.setOutput('environment', context.ref === 'refs/heads/master' ? 'production' : 'preview');
 
       - name: Upload build artifact
         env:
@@ -62,5 +62,5 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           mise run deploy \
-            --branch ${{ steps.deployment-info.outputs.branch }} \
+            --env ${{ steps.deployment-info.outputs.environment }} \
             --commit-message "${{ steps.deployment-info.outputs.commit-message }}"

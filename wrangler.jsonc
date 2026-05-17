@@ -5,5 +5,9 @@
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
+	},
+	"env": {
+		"preview": {},
+		"production": {}
 	}
 }
