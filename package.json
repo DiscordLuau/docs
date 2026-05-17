@@ -10,9 +10,10 @@
 		"generate": "tsx scripts/generate-docs.ts",
 		"build": "astro build",
 		"preview": "astro preview",
+    "deploy": "wrangler pages deploy dist/",
 		"check": "biome ci && astro check",
-    "astro": "astro",
-		"fmt": "biome format --write ."
+		"fmt": "biome format --write .",
+    "astro": "astro"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.7.0",

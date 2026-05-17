@@ -1,0 +1,70 @@
+name: Deploy
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+  repository_dispatch:
+    types: [deploy]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Install tooling
+        uses: jdx/mise-action@v2
+        with:
+          cache: true
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+
+      - name: Cache pnpm modules, dist, and Deno directories
+        uses: actions/cache@v5
+        with:
+          path: |
+            ${{ env.STORE_PATH }}
+            dist
+            .astro
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml', 'package.json') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_SECRET }}
+        run: mise run build
+
+      - name: Get deployment info
+        uses: actions/github-script@v9
+        id: deployment-info
+        with:
+          script: |
+            const sha = context.sha.slice(0, 7);
+            const message = context.payload.head_commit?.message?.split('\n')[0] || '';
+            
+            core.setOutput('commit-message', message ? `${message} (${sha})` : sha);
+            core.setOutput('branch', context.ref === 'refs/heads/master' ? 'production' : 'preview');
+
+      - name: Upload build artifact
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          mise run deploy \
+            --branch ${{ steps.deployment-info.outputs.branch }} \
+            --commit-message "${{ steps.deployment-info.outputs.commit-message }}"
