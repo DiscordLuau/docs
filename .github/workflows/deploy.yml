@@ -1,7 +1,9 @@
 name: Deploy
 on:
   push:
-    branches: master
+    branches: 
+      - master
+      - dev
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
@@ -58,6 +60,7 @@ jobs:
             return context.ref === 'refs/heads/master' ? 'production' : 'preview'
 
       - name: Upload build artifact
+        if: github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
