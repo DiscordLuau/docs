@@ -2,12 +2,21 @@
 	"name": "discordluau-docs",
 	"compatibility_date": "2025-01-01",
 	"compatibility_flags": ["nodejs_compat"],
+
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
 	},
+
 	"env": {
 		"preview": {},
 		"production": {}
+	},
+
+	"observability": {
+		"logs": {
+			"enabled": true,
+			"invocation_logs": true
+		}
 	}
 }
