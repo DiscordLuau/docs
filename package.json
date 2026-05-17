@@ -8,11 +8,10 @@
 		"dev": "pnpm generate && astro dev",
 		"start": "pnpm generate && astro dev",
 		"generate": "tsx scripts/generate-docs.ts",
-		"build": "pnpm generate && astro check && astro build",
-		"astro:build": "astro check && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro",
-		"lint": "biome lint",
+		"check": "biome ci && astro check",
+    "astro": "astro",
 		"fmt": "biome format --write ."
 	},
 	"dependencies": {

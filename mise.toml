@@ -16,7 +16,7 @@ run = "pnpm build"
 description = "Build the docs site"
 
 [tasks.check]
-run = "pnpm biome ci"
+run = "pnpm run check"
 description = "Run code checks"
 
 [settings]
