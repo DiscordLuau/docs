@@ -51,7 +51,7 @@ jobs:
             git push || echo "warn: no changes to commit"
 
       - name: Deploy dispatch
-        uses: peter-evans/repository-dispatch@v3
+        uses: peter-evans/repository-dispatch@v4
         with:
           repository: DiscordLuau/docs
           event-type: deploy
