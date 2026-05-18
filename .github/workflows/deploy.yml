@@ -16,6 +16,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Clone repository
@@ -68,11 +71,63 @@ jobs:
             core.setOutput('preview-alias', context.eventName === 'pull_request_target' ? `--preview-alias ${alias}` : '');
 
       - name: Upload build artifact
+        id: deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          pnpm wrangler \
+          OUTPUT=$(wrangler \
             ${{ steps.deployment-info.outputs.wrangler-command }} \
             ${{ steps.deployment-info.outputs.commit-message }} \
-            ${{ steps.deployment-info.outputs.preview-alias }} 
+            ${{ steps.deployment-info.outputs.preview-alias }} | tee /dev/stderr)
+          
+          echo "version-id=$(echo "$OUTPUT" | grep -oP 'Worker Version ID: \K\S+')" >> $GITHUB_OUTPUT
+          echo "preview-url=$(echo "$OUTPUT" | grep -oP 'Version Preview URL: \K\S+')" >> $GITHUB_OUTPUT
+          echo "alias-url=$(echo "$OUTPUT" | grep -oP 'Version Preview Alias URL: \K\S+')" >> $GITHUB_OUTPUT
+
+      - name: Comment deployment info
+        if: github.event_name == 'pull_request_target'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const sha = context.sha.slice(0, 7);
+            const aliasUrl = '${{ steps.deploy.outputs.alias-url }}';
+            const previewUrl = '${{ steps.deploy.outputs.preview-url }}';
+            const versionId = '${{ steps.deploy.outputs.version-id }}';
+
+            const commitUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/commit/${context.sha}`;
+            const newRow = `| [\`${sha}\`](${commitUrl}) | [\`${versionId}\`](${previewUrl}) |`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              issue_number: pr,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+
+            const existingComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes('Preview deployment ready'));
+
+            if (existingComment) {
+              const updatedBody = existing.body + '\n' + newRow;
+              await github.rest.issues.updateComment({
+                comment_id: existing.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: updatedBody,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                issue_number: pr,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: [
+                  '🚀 Preview deployment ready',
+                  '',
+                  `**Pull Request Preview**: ${aliasUrl}`,
+                  '',
+                  '| Commit | Preview Deployment |',
+                  '|---|---|',
+                  newRow,
+                ].join('\n')
+              });
+            }
