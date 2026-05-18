@@ -110,7 +110,7 @@ jobs:
             if (existingComment) {
               const updatedBody = existing.body + '\n' + newRow;
               await github.rest.issues.updateComment({
-                comment_id: existing.id,
+                comment_id: existingComment.id,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: updatedBody,
