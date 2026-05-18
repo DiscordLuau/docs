@@ -121,9 +121,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: [
-                  '🚀 Preview deployment ready',
-                  '',
-                  `**Pull Request Preview**: ${aliasUrl}`,
+                  `## [🚀 Preview Deployment Ready](${aliasUrl})`,
                   '',
                   '| Commit | Preview Deployment |',
                   '|---|---|',
