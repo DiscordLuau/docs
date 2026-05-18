@@ -1,14 +1,11 @@
 import cloudflare from "@astrojs/cloudflare";
 import starlight from "@astrojs/starlight";
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
 	output: "server",
-	adapter: cloudflare(),
-	image: {
-		service: passthroughImageService(),
-	},
+	adapter: cloudflare({ imageService: "passthrough" }),
 	integrations: [
 		starlight({
 			title: "Discord Luau",
