@@ -15,10 +15,6 @@ description = "Start the dev server"
 run = "pnpm generate && pnpm build"
 description = "Generate and build the docs site"
 
-[tasks.deploy]
-run = 'pnpm run deploy "$@"'
-description = "Deploy to deno deploy"
-
 [tasks.check]
 run = "pnpm run check"
 description = "Run code checks"

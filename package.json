@@ -10,7 +10,6 @@
 		"generate": "tsx scripts/generate-docs.ts",
 		"build": "astro build",
 		"preview": "astro preview",
-		"deploy": "wrangler deploy",
 		"check": "biome ci && astro check",
 		"fmt": "biome format --write .",
 		"astro": "astro"
