@@ -15,9 +15,28 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
-<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" } ]} />
 
 ## Functions
+
+### Utilities.createGuid
+
+> <LuaDeclaration name="Utilities.createGuid" className="Utilities" args={[  ]} returnType="string" />
+
+Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
+
+<LuaParamTable returns={[ { type: "string" } ]} />
+
+### Utilities.validateKebabCase
+
+> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
+
+Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
+text.
+
+Will return either true/false, will not error.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 ### Utilities.tableReflect
 
@@ -46,13 +65,15 @@ a = {
 
 <LuaParamTable returns={[ { type: "table" } ]} />
 
-### Utilities.createGuid
+### Utilities.coroutineRun
 
-> <LuaDeclaration name="Utilities.createGuid" className="Utilities" args={[  ]} returnType="string" />
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
 
-Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
 
-<LuaParamTable returns={[ { type: "string" } ]} />
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
 
 ### Utilities.validateCommandName
 
@@ -65,26 +86,5 @@ hyphens, underscores, or apostrophes (1–32 characters).
 Will return either true/false, will not error.
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
-
-### Utilities.validateKebabCase
-
-> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
-
-Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
-text.
-
-Will return either true/false, will not error.
-
-<LuaParamTable returns={[ { type: "boolean" } ]} />
-
-### Utilities.coroutineRun
-
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
-
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
-
-Will return the thread spawned.
-
-<LuaParamTable returns={[ { type: "thread" } ]} />
 
 
