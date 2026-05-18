@@ -5,7 +5,7 @@ import syncedDirs from "../generated/synced-dirs.json";
 import ContributorAvatars from "./ContributorAvatars.astro";
 
 const file = Astro.props.entry?.id ?? "";
-const excludedPages = ["404.astro", "index.mdx"];
+const excludedPages = ["", "404"];
 const topDirectory = file.split("/")[0];
 const isFromDiscordLuau = (syncedDirs as string[]).includes(topDirectory);
 
