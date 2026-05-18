@@ -108,7 +108,7 @@ jobs:
             const existingComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes('Preview deployment ready'));
 
             if (existingComment) {
-              const updatedBody = existing.body + '\n' + newRow;
+              const updatedBody = existingComment.body + '\n' + newRow;
               await github.rest.issues.updateComment({
                 comment_id: existingComment.id,
                 owner: context.repo.owner,
