@@ -105,7 +105,8 @@ jobs:
               repo: context.repo.repo,
             });
 
-            const existingComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes('Preview deployment ready'));
+            const COMMENT_HEADING = "🚀 Preview Deployment Ready";
+            const existingComment = comments.find(c => c.user.login === 'github-actions[bot]' && c.body.includes(COMMENT_HEADING));
 
             if (existingComment) {
               const updatedBody = existingComment.body + '\n' + newRow;
@@ -121,7 +122,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: [
-                  `## [🚀 Preview Deployment Ready](${aliasUrl})`,
+                  `## [${COMMENT_HEADING}](${aliasUrl})`,
                   '',
                   '| Commit | Preview Deployment |',
                   '|---|---|',
