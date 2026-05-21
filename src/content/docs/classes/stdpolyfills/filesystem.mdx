@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
 
-<LuaSummary className="FileSystem" functions={[ { name: "readFile", args: [ { name: "path", type: "string" } ], returnType: "string" }, { name: "readDir", args: [ { name: "path", type: "string" } ], returnType: "{ string }" }, { name: "writeDir", args: [ { name: "path", type: "string" } ] }, { name: "writeFile", args: [ { name: "path", type: "string" }, { name: "contents", type: "string" } ] }, { name: "removeDir", args: [ { name: "path", type: "string" } ] }, { name: "removeFile", args: [ { name: "path", type: "string" } ] }, { name: "isFile", args: [ { name: "path", type: "string" } ], returnType: "boolean" }, { name: "isDir", args: [ { name: "path", type: "string" } ], returnType: "boolean" } ]} />
+<LuaSummary className="FileSystem" functions={[ { name: "readFile", args: [ { name: "path", type: "string" } ], returnType: "string" }, { name: "readDir", args: [ { name: "path", type: "string" } ], returnType: "{ string }" }, { name: "readDirEntries", args: [ { name: "path", type: "string" } ], returnType: "{ { name: string, kind: string } }" }, { name: "stat", args: [ { name: "path", type: "string" } ], returnType: "{ kind: string, modified: number?, size: number? }" }, { name: "watch", args: [ { name: "path", type: "string" }, { name: "callback", type: "(path: string, events: { string }) -> ()" } ], returnType: "{ stop: () -> () }" }, { name: "writeDir", args: [ { name: "path", type: "string" } ] }, { name: "writeFile", args: [ { name: "path", type: "string" }, { name: "contents", type: "string" } ] }, { name: "removeDir", args: [ { name: "path", type: "string" } ] }, { name: "removeFile", args: [ { name: "path", type: "string" } ] }, { name: "isFile", args: [ { name: "path", type: "string" } ], returnType: "boolean" }, { name: "isDir", args: [ { name: "path", type: "string" } ], returnType: "boolean" } ]} />
 
 ## Functions
 
@@ -30,6 +30,24 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 > <LuaDeclaration name="readDir" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="{ string }" />
 
 <LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "{ string }" } ]} />
+
+### readDirEntries
+
+> <LuaDeclaration name="readDirEntries" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="{ { name: string, kind: string } }" />
+
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "{ { name: string, kind: string } }" } ]} />
+
+### stat
+
+> <LuaDeclaration name="stat" className="FileSystem" args={[ { name: "path", type: "string" } ]} returnType="{ kind: string, modified: number?, size: number? }" />
+
+<LuaParamTable params={[ { name: "path", type: "string" } ]} returns={[ { type: "{ kind: string, modified: number?, size: number? }" } ]} />
+
+### watch
+
+> <LuaDeclaration name="watch" className="FileSystem" args={[ { name: "path", type: "string" }, { name: "callback", type: "(path: string, events: { string }) -> ()" } ]} returnType="{ stop: () -> () }" />
+
+<LuaParamTable params={[ { name: "path", type: "string" }, { name: "callback", type: "(path: string, events: { string }) -> ()" } ]} returns={[ { type: "{ stop: () -> () }" } ]} />
 
 ### writeDir
 

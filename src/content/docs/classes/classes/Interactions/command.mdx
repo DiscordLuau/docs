@@ -17,7 +17,7 @@ Implementation of the Discord Command Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Command" properties={[ { name: "state", type: "state.State" }, { name: "isDeferred", type: "boolean" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "getUsers", isMethod: true, args: [  ], returnType: "{ user.User }" }, { name: "getMembers", isMethod: true, args: [  ] }, { name: "getRoles", isMethod: true, args: [  ] }, { name: "getMessages", isMethod: true, args: [  ] }, { name: "getAttachments", isMethod: true, args: [  ] }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "getChannels", args: [ { name: "_self", type: "Command" } ], returnType: "{ apiTypes.Snowflake }" }, { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Command" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [  ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
+<LuaSummary className="Command" properties={[ { name: "state", type: "state.State" }, { name: "isDeferred", type: "boolean" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "getUsers", isMethod: true, args: [  ], returnType: "{ user.User }" }, { name: "getMembers", isMethod: true, args: [  ] }, { name: "getRoles", isMethod: true, args: [  ] }, { name: "getChannels", isMethod: true, args: [  ] }, { name: "getMessages", isMethod: true, args: [  ] }, { name: "getAttachments", isMethod: true, args: [  ] }, { name: "getOption", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Command" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [  ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -269,6 +269,12 @@ Returns a list of members who have been mentioned in this interaction
 
 Returns a list of roles which have been mentioned in this interaction
 
+### getChannels
+
+> <LuaDeclaration name="getChannels" className="Command" args={[  ]} isMethod />
+
+Returns a list of channels which have been mentioned in this interaction
+
 ### getMessages
 
 > <LuaDeclaration name="getMessages" className="Command" args={[  ]} isMethod />
@@ -280,6 +286,14 @@ Returns a list of messages which have been mentioned in this interaction
 > <LuaDeclaration name="getAttachments" className="Command" args={[  ]} isMethod />
 
 Returns a list of attachments which have been mentioned in this interaction
+
+### getOption
+
+> <LuaDeclaration name="getOption" className="Command" args={[ { name: "name", type: "string" } ]} isMethod />
+
+Returns the option with the given name, or nil if not found. Searches top-level options only.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} />
 
 ### sync
 
@@ -304,7 +318,7 @@ Acknowledge an interaction and edit a response later, the user sees a loading st
 
 > <LuaDeclaration name="messageAsync" className="Command" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} returnType="future.FutureLike<string, message.Message?>" isMethod />
 
-Respond to this interaction with a message.
+Respond to this interaction with a message. If the interaction was already deferred, edits the original response instead.
 
 <LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, message.Message?>" } ]} />
 
@@ -393,14 +407,6 @@ Delete the followup response created by this interaction.
 
 
 ## Functions
-
-### getChannels
-
-> <LuaDeclaration name="getChannels" className="Command" args={[ { name: "_self", type: "Command" } ]} returnType="{ apiTypes.Snowflake }" />
-
-Returns a list of channels which have been mentioned in this interaction
-
-<LuaParamTable params={[ { name: "_self", type: "Command" } ]} returns={[ { type: "{ apiTypes.Snowflake }" } ]} />
 
 ### new
 

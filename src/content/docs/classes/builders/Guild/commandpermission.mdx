@@ -1,0 +1,99 @@
+---
+title: CommandPermission
+description: DiscordLuau docs for CommandPermission.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Implementation of the Application Command Permission Structure as a Luau builder.
+
+https://discord.com/developers/docs/interactions/application-commands#application-command-permissions-object-application-command-permissions-structure
+
+<LuaSummary className="CommandPermission" properties={[ { name: "id", type: "string?" }, { name: "type", type: "CommandPermissionType?" }, { name: "permission", type: "boolean" } ]} methods={[ { name: "setId", isMethod: true, args: [ { name: "id", type: "apiTypes.Snowflake" } ], returnType: "CommandPermission" }, { name: "setType", isMethod: true, args: [ { name: "permissionType", type: "CommandPermissionType" } ], returnType: "CommandPermission" }, { name: "allow", isMethod: true, args: [  ], returnType: "CommandPermission" }, { name: "deny", isMethod: true, args: [  ], returnType: "CommandPermission" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ id: apiTypes.Snowflake?, permissionType: CommandPermissionType?, permission: boolean?, }?" } ], returnType: "CommandPermission" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="CommandPermission.id" type="string?" />
+
+---
+The ID of the role, user, or channel this permission applies to.
+
+### type
+
+<LuaProperty name="CommandPermission.type" type="CommandPermissionType?" />
+
+---
+Whether this permission targets a role, user, or channel.
+
+### permission
+
+<LuaProperty name="CommandPermission.permission" type="boolean" />
+
+---
+Whether the target is allowed (true) or denied (false) access to the command.
+
+
+## Methods
+
+### setId
+
+> <LuaDeclaration name="setId" className="CommandPermission" args={[ { name: "id", type: "apiTypes.Snowflake" } ]} returnType="CommandPermission" isMethod />
+
+Sets the ID of the role, user, or channel this permission applies to.
+
+<LuaParamTable params={[ { name: "id", type: "apiTypes.Snowflake" } ]} returns={[ { type: "CommandPermission" } ]} />
+
+### setType
+
+> <LuaDeclaration name="setType" className="CommandPermission" args={[ { name: "permissionType", type: "CommandPermissionType" } ]} returnType="CommandPermission" isMethod />
+
+Sets the type of entity this permission targets.
+
+<LuaParamTable params={[ { name: "permissionType", type: "CommandPermissionType" } ]} returns={[ { type: "CommandPermission" } ]} />
+
+### allow
+
+> <LuaDeclaration name="allow" className="CommandPermission" args={[  ]} returnType="CommandPermission" isMethod />
+
+Allows the targeted role, user, or channel to use the command.
+
+<LuaParamTable returns={[ { type: "CommandPermission" } ]} />
+
+### deny
+
+> <LuaDeclaration name="deny" className="CommandPermission" args={[  ]} returnType="CommandPermission" isMethod />
+
+Denies the targeted role, user, or channel from using the command.
+
+<LuaParamTable returns={[ { type: "CommandPermission" } ]} />
+
+### build
+
+> <LuaDeclaration name="build" className="CommandPermission" args={[  ]} returnType="JSON" isMethod />
+
+Responsible for building the GuildApplicationCommandPermissionObject JSON that can be parsed by the Discord API.
+
+<LuaParamTable returns={[ { type: "JSON" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="CommandPermission" args={[ { name: "resource", type: "{ id: apiTypes.Snowflake?, permissionType: CommandPermissionType?, permission: boolean?, }?" } ]} returnType="CommandPermission" />
+
+Responsible for creating a new CommandPermission.
+
+<LuaParamTable params={[ { name: "resource", type: "{ id: apiTypes.Snowflake?, permissionType: CommandPermissionType?, permission: boolean?, }?" } ]} returns={[ { type: "CommandPermission" } ]} />
+
+

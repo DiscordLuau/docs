@@ -62,7 +62,7 @@ Acknowledge an interaction and edit a response later, the user sees a loading st
 
 > <LuaDeclaration name="messageAsync" className="Interactable" args={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} returnType="future.FutureLike<string, message.Message?>" isMethod />
 
-Respond to this interaction with a message.
+Respond to this interaction with a message. If the interaction was already deferred, edits the original response instead.
 
 <LuaParamTable params={[ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ]} returns={[ { type: "future.FutureLike<string, message.Message?>" } ]} />
 
