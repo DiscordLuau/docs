@@ -36,6 +36,12 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: "guides" } }],
 				},
 				{
+					label: "Commands Framework",
+					items: [
+						{ autogenerate: { directory: "commands-framework" } },
+					],
+				},
+				{
 					label: "Discord Luau",
 					collapsed: false,
 					items: [
