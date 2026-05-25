@@ -1,0 +1,77 @@
+---
+title: Loader
+description: DiscordLuau docs for Loader.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Loads command modules from a directory tree and supports hot-reload via file watching.
+
+<LuaSummary className="Loader" properties={[ { name: "registry", type: "registry.Registry" }, { name: "logger", type: "logger.Logger" }, { name: "context", type: "any" } ]} methods={[ { name: "load", isMethod: true, args: [ { name: "directoryPath", type: "string" } ] }, { name: "reload", isMethod: true, args: [ { name: "directoryPath", type: "string" }, { name: "name", type: "string" } ] }, { name: "watch", isMethod: true, args: [ { name: "directoryPath", type: "string" } ], returnType: "() -> ()" } ]} functions={[ { name: "new", args: [ { name: "registryInstance", type: "registry.Registry" }, { name: "loggerInstance", type: "logger.Logger" }, { name: "context", type: "any" } ], returnType: "Loader" } ]} />
+
+## Properties
+
+### registry
+
+<LuaProperty name="Loader.registry" type="registry.Registry" />
+
+
+### logger
+
+<LuaProperty name="Loader.logger" type="logger.Logger" />
+
+
+### context
+
+<LuaProperty name="Loader.context" type="any" />
+
+
+
+## Methods
+
+### load
+
+> <LuaDeclaration name="load" className="Loader" args={[ { name: "directoryPath", type: "string" } ]} isMethod />
+
+Recursively loads all .luau command modules found under `directoryPath`.
+
+<LuaParamTable params={[ { name: "directoryPath", type: "string" } ]} />
+
+### reload
+
+> <LuaDeclaration name="reload" className="Loader" args={[ { name: "directoryPath", type: "string" }, { name: "name", type: "string" } ]} isMethod />
+
+Re-requires a command file by writing its content to a temp file, bypassing the module cache.
+The temporary file is deleted immediately after the require call.
+
+<LuaParamTable params={[ { name: "directoryPath", type: "string" }, { name: "name", type: "string" } ]} />
+
+### watch
+
+> <LuaDeclaration name="watch" className="Loader" args={[ { name: "directoryPath", type: "string" } ]} returnType="() -> ()" isMethod />
+
+Watches `directoryPath` recursively for file changes, reloading or unloading commands as needed.
+Returns a stop function that cancels all watchers.
+
+<LuaParamTable params={[ { name: "directoryPath", type: "string" } ]} returns={[ { type: "() -> ()" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Loader" args={[ { name: "registryInstance", type: "registry.Registry" }, { name: "loggerInstance", type: "logger.Logger" }, { name: "context", type: "any" } ]} returnType="Loader" />
+
+Constructs a new loader bound to the given registry, logger, and optional context object.
+
+<LuaParamTable params={[ { name: "registryInstance", type: "registry.Registry" }, { name: "loggerInstance", type: "logger.Logger" }, { name: "context", type: "any" } ]} returns={[ { type: "Loader" } ]} />
+
+

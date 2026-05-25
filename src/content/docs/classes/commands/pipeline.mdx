@@ -1,0 +1,82 @@
+---
+title: Pipeline
+description: DiscordLuau docs for Pipeline.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Utility functions for the command dispatch pipeline - error responses, guards, permissionission
+checks, option transforms, middleware, and post-execute hooks.
+
+<LuaSummary className="Pipeline" functions={[ { name: "sendErrorResponse", args: [ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ] }, { name: "runGuards", args: [ { name: "guardEntries", type: "{ command.GuardEntry }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onGuardFailed", type: "((classes.TypesCommand) -> ())?" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "boolean" }, { name: "getMissingPermissions", args: [ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ], returnType: "{ apiTypes.Permissions }" }, { name: "runTransforms", args: [ { name: "transforms", type: "{ [string]: command.TransformFunction }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "{ [string]: any }?" }, { name: "injectGetTransformed", args: [ { name: "interaction", type: "classes.TypesCommand" }, { name: "transformed", type: "{ [string]: any }" } ] }, { name: "runAfterHooks", args: [ { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "perCommand", type: "((classes.TypesCommand) -> ())?" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" } ] }, { name: "runMiddleware", args: [ { name: "middlewares", type: "{ (any, () -> ()) -> () }" }, { name: "index", type: "number" }, { name: "interaction", type: "any" }, { name: "final", type: "() -> ()" }, { name: "log", type: "logger.Logger" } ] } ]} />
+
+## Functions
+
+### sendErrorResponse
+
+> <LuaDeclaration name="sendErrorResponse" className="Pipeline" args={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} />
+
+Sends a generic error reply to the interaction, or delegates to `override` if provided.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} />
+
+### runGuards
+
+> <LuaDeclaration name="runGuards" className="Pipeline" args={[ { name: "guardEntries", type: "{ command.GuardEntry }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onGuardFailed", type: "((classes.TypesCommand) -> ())?" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} returnType="boolean" />
+
+Evaluates all guard entries against the interaction. AND guards must all pass; within an OR
+group at least one must pass. Returns false and fires the guard-failed handler on first failure.
+
+<LuaParamTable params={[ { name: "guardEntries", type: "{ command.GuardEntry }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onGuardFailed", type: "((classes.TypesCommand) -> ())?" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} returns={[ { type: "boolean" } ]} />
+
+### getMissingPermissions
+
+> <LuaDeclaration name="getMissingPermissions" className="Pipeline" args={[ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ]} returnType="{ apiTypes.Permissions }" />
+
+Returns permissionissions from `required` that are absent from `permissionObject`.
+
+<LuaParamTable params={[ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ]} returns={[ { type: "{ apiTypes.Permissions }" } ]} />
+
+### runTransforms
+
+> <LuaDeclaration name="runTransforms" className="Pipeline" args={[ { name: "transforms", type: "{ [string]: command.TransformFunction }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} returnType="{ [string]: any }?" />
+
+Runs each named transform over its option value. Returns nil and fires the error handler
+if any transform throws; otherwise returns the full map of transformed values.
+
+<LuaParamTable params={[ { name: "transforms", type: "{ [string]: command.TransformFunction }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} returns={[ { type: "{ [string]: any }?" } ]} />
+
+### injectGetTransformed
+
+> <LuaDeclaration name="injectGetTransformed" className="Pipeline" args={[ { name: "interaction", type: "classes.TypesCommand" }, { name: "transformed", type: "{ [string]: any }" } ]} />
+
+Injects a `getTransformed(name)` method onto the interaction for retrieving transformed option values.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.TypesCommand" }, { name: "transformed", type: "{ [string]: any }" } ]} />
+
+### runAfterHooks
+
+> <LuaDeclaration name="runAfterHooks" className="Pipeline" args={[ { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "perCommand", type: "((classes.TypesCommand) -> ())?" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" } ]} />
+
+Runs the per-command `afterExecute` hook followed by all global after-hooks.
+Errors in individual hooks are logged but do not propagate.
+
+<LuaParamTable params={[ { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "perCommand", type: "((classes.TypesCommand) -> ())?" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" } ]} />
+
+### runMiddleware
+
+> <LuaDeclaration name="runMiddleware" className="Pipeline" args={[ { name: "middlewares", type: "{ (any, () -> ()) -> () }" }, { name: "index", type: "number" }, { name: "interaction", type: "any" }, { name: "final", type: "() -> ()" }, { name: "log", type: "logger.Logger" } ]} />
+
+Recursively runs each middleware in order, calling `final` when the chain is exhausted.
+
+<LuaParamTable params={[ { name: "middlewares", type: "{ (any, () -> ()) -> () }" }, { name: "index", type: "number" }, { name: "interaction", type: "any" }, { name: "final", type: "() -> ()" }, { name: "log", type: "logger.Logger" } ]} />
+
+

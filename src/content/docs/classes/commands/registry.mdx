@@ -1,0 +1,73 @@
+---
+title: Registry
+description: DiscordLuau docs for Registry.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+In-memory store mapping command names to their definitions.
+
+<LuaSummary className="Registry" properties={[ { name: "commands", type: "{ [string]: command.CommandDefinition }" } ]} methods={[ { name: "set", isMethod: true, args: [ { name: "commandDefinition", type: "command.CommandDefinition" } ] }, { name: "remove", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "get", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "command.CommandDefinition?" }, { name: "getAll", isMethod: true, args: [  ], returnType: "{ command.CommandDefinition }" } ]} functions={[ { name: "new", args: [  ], returnType: "Registry" } ]} />
+
+## Properties
+
+### commands
+
+<LuaProperty name="Registry.commands" type="{ [string]: command.CommandDefinition }" />
+
+
+
+## Methods
+
+### set
+
+> <LuaDeclaration name="set" className="Registry" args={[ { name: "commandDefinition", type: "command.CommandDefinition" } ]} isMethod />
+
+Adds or overwrites a command definition keyed by its name.
+
+<LuaParamTable params={[ { name: "commandDefinition", type: "command.CommandDefinition" } ]} />
+
+### remove
+
+> <LuaDeclaration name="remove" className="Registry" args={[ { name: "name", type: "string" } ]} isMethod />
+
+Removes a command definition by name.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} />
+
+### get
+
+> <LuaDeclaration name="get" className="Registry" args={[ { name: "name", type: "string" } ]} returnType="command.CommandDefinition?" isMethod />
+
+Returns the definition for a single command, or nil if not registered.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "command.CommandDefinition?" } ]} />
+
+### getAll
+
+> <LuaDeclaration name="getAll" className="Registry" args={[  ]} returnType="{ command.CommandDefinition }" isMethod />
+
+Returns all registered command definitions as an array.
+
+<LuaParamTable returns={[ { type: "{ command.CommandDefinition }" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Registry" args={[  ]} returnType="Registry" />
+
+Constructs a new empty registry.
+
+<LuaParamTable returns={[ { type: "Registry" } ]} />
+
+

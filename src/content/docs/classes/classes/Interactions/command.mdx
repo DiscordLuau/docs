@@ -17,7 +17,7 @@ Implementation of the Discord Command Interaction class in Luau
 
 https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure
 
-<LuaSummary className="Command" properties={[ { name: "state", type: "state.State" }, { name: "isDeferred", type: "boolean" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "getUsers", isMethod: true, args: [  ], returnType: "{ user.User }" }, { name: "getMembers", isMethod: true, args: [  ] }, { name: "getRoles", isMethod: true, args: [  ] }, { name: "getChannels", isMethod: true, args: [  ] }, { name: "getMessages", isMethod: true, args: [  ] }, { name: "getAttachments", isMethod: true, args: [  ] }, { name: "getOption", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Command" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [  ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
+<LuaSummary className="Command" properties={[ { name: "state", type: "state.State" }, { name: "isDeferred", type: "boolean" }, { name: "type", type: "string" }, { name: "context", type: "string" }, { name: "id", type: "string" }, { name: "applicationId", type: "string" }, { name: "data", type: "Classes.InteractionBehaviourData?" }, { name: "guild", type: "Classes.UnavailableGuild?" }, { name: "guildId", type: "string?" }, { name: "channelId", type: "string?" }, { name: "member", type: "Classes.Guild.Member?" }, { name: "user", type: "Classes.User?" }, { name: "token", type: "string" }, { name: "version", type: "number" }, { name: "message", type: "Classes.Message?" }, { name: "appPermissions", type: "Classes.Permission" }, { name: "locale", type: "string?" }, { name: "guildLocale", type: "string?" }, { name: "entitlements", type: "{Classes.Entitlement}" }, { name: "authorizingIntegrationOwners", type: "{[string]: string}" }, { name: "attachmentSizeLimit", type: "number?" }, { name: "state", type: "State" }, { name: "id", type: "string" }, { name: "token", type: "string" }, { name: "isDeferred", type: "boolean" } ]} methods={[ { name: "getUsers", isMethod: true, args: [  ], returnType: "{ user.User }" }, { name: "getMembers", isMethod: true, args: [  ] }, { name: "getRoles", isMethod: true, args: [  ] }, { name: "getChannels", isMethod: true, args: [  ] }, { name: "getMessages", isMethod: true, args: [  ] }, { name: "getAttachments", isMethod: true, args: [  ] }, { name: "getOption", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "getString", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "string?" }, { name: "getInteger", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "number?" }, { name: "getNumber", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "number?" }, { name: "getBoolean", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "boolean?" }, { name: "getUser", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "user.User?" }, { name: "getMember", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "guildMember.Member?" }, { name: "getRole", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "role.Role?" }, { name: "getChannel", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "apiTypes.AbstractChannel?" }, { name: "getAttachment", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "attachment.Attachment?" }, { name: "sync", isMethod: true, args: [ { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "deferAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "messageAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "modalAsync", isMethod: true, args: [ { name: "modalJSON", type: "builders.ModalJSON" }, { name: "responseMessage", type: "boolean?" } ], returnType: "future.FutureLike<string, message.Message?>" }, { name: "getResponseAsync", isMethod: true, args: [ { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteResponseAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "createFollowupResponseAsync", isMethod: true, args: [ { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "getFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "editFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "apiTypes.Snowflake" }, { name: "messageJSON", type: "builders.messageJSON" }, { name: "threadId", type: "string?" } ], returnType: "future.FutureLike<string, message.Message>" }, { name: "deleteFollowupResponseAsync", isMethod: true, args: [ { name: "messageId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "state", type: "state.State" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ], returnType: "Command" }, { name: "inheritProperties", args: [ { name: "class", type: "any" }, { name: "interactionData", type: "apiTypes.InteractionObject" } ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] }, { name: "inheritProperties", args: [  ] }, { name: "inheritMethods", args: [ { name: "class", type: "any" } ] } ]} />
 
 ## Properties
 
@@ -291,9 +291,84 @@ Returns a list of attachments which have been mentioned in this interaction
 
 > <LuaDeclaration name="getOption" className="Command" args={[ { name: "name", type: "string" } ]} isMethod />
 
-Returns the option with the given name, or nil if not found. Searches top-level options only.
+Returns the raw option object for `name`, descending into the active subcommand or
+subcommand-group if present. Returns nil when the option is absent or data is missing.
 
 <LuaParamTable params={[ { name: "name", type: "string" } ]} />
+
+### getString
+
+> <LuaDeclaration name="getString" className="Command" args={[ { name: "name", type: "string" } ]} returnType="string?" isMethod />
+
+Returns the string value of the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "string?" } ]} />
+
+### getInteger
+
+> <LuaDeclaration name="getInteger" className="Command" args={[ { name: "name", type: "string" } ]} returnType="number?" isMethod />
+
+Returns the integer value of the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "number?" } ]} />
+
+### getNumber
+
+> <LuaDeclaration name="getNumber" className="Command" args={[ { name: "name", type: "string" } ]} returnType="number?" isMethod />
+
+Returns the number (float) value of the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "number?" } ]} />
+
+### getBoolean
+
+> <LuaDeclaration name="getBoolean" className="Command" args={[ { name: "name", type: "string" } ]} returnType="boolean?" isMethod />
+
+Returns the boolean value of the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "boolean?" } ]} />
+
+### getUser
+
+> <LuaDeclaration name="getUser" className="Command" args={[ { name: "name", type: "string" } ]} returnType="user.User?" isMethod />
+
+Returns the resolved User for the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "user.User?" } ]} />
+
+### getMember
+
+> <LuaDeclaration name="getMember" className="Command" args={[ { name: "name", type: "string" } ]} returnType="guildMember.Member?" isMethod />
+
+Returns the resolved GuildMember for the named option, or nil if absent.
+Only populated in guild interactions.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "guildMember.Member?" } ]} />
+
+### getRole
+
+> <LuaDeclaration name="getRole" className="Command" args={[ { name: "name", type: "string" } ]} returnType="role.Role?" isMethod />
+
+Returns the resolved Role for the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "role.Role?" } ]} />
+
+### getChannel
+
+> <LuaDeclaration name="getChannel" className="Command" args={[ { name: "name", type: "string" } ]} returnType="apiTypes.AbstractChannel?" isMethod />
+
+Returns the partial channel for the named option, or nil if absent.
+Channels in resolved data are partial — id, name, type, and permissions only.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "apiTypes.AbstractChannel?" } ]} />
+
+### getAttachment
+
+> <LuaDeclaration name="getAttachment" className="Command" args={[ { name: "name", type: "string" } ]} returnType="attachment.Attachment?" isMethod />
+
+Returns the resolved Attachment for the named option, or nil if absent.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} returns={[ { type: "attachment.Attachment?" } ]} />
 
 ### sync
 

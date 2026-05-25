@@ -1,0 +1,300 @@
+---
+title: Commands
+description: DiscordLuau docs for Commands.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Main entry point for the discord-luau commands framework. Routes slash commands, context
+menus, components, modals, and autocomplete interactions to their registered handlers.
+
+Supports middleware, per-command guards (AND and OR logic), cooldowns, concurrency limits,
+option transforms, subcommands, interaction collectors, hot-reloading, and plugins.
+
+<LuaSummary className="Commands" properties={[ { name: "bot", type: "DiscordLuau.Bot" }, { name: "logger", type: "logger.Logger" }, { name: "registry", type: "registry.Registry" }, { name: "loader", type: "loader.Loader" }, { name: "context", type: "any" }, { name: "middleware", type: "{ Middleware }" }, { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "cooldowns", type: "{ [string]: number }" }, { name: "concurrency", type: "{ [string]: number }" }, { name: "componentCollectors", type: "{ ComponentCollector }" }, { name: "modalCollectors", type: "{ ModalCollector }" }, { name: "plugins", type: "{ [string]: () -> () }" }, { name: "watchEnabled", type: "boolean" }, { name: "watchers", type: "{ () -> () }" }, { name: "onError", type: "ErrorHandler" }, { name: "onGuardFailed", type: "GuardFailedHandler" }, { name: "onConcurrencyLimited", type: "ConcurrencyLimitedHandler" } ]} methods={[ { name: "load", isMethod: true, args: [ { name: "directoryPath", type: "string" } ] }, { name: "watch", isMethod: true, args: [ { name: "directoryPath", type: "string" } ], returnType: "() -> ()" }, { name: "getContext", isMethod: true, args: [  ], returnType: "any" }, { name: "usePlugin", isMethod: true, args: [ { name: "plugin", type: "PluginDefinition" } ] }, { name: "unloadPlugin", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "add", isMethod: true, args: [ { name: "commandDefinition", type: "command.CommandDefinition" } ] }, { name: "remove", isMethod: true, args: [ { name: "name", type: "string" } ] }, { name: "destroy", isMethod: true, args: [  ] }, { name: "use", isMethod: true, args: [ { name: "middleware", type: "Middleware" } ] }, { name: "after", isMethod: true, args: [ { name: "hook", type: "(interaction: classes.TypesCommand) -> ()" } ] }, { name: "waitForComponent", isMethod: true, args: [ { name: "options", type: "{ filter: ((interaction: classes.Component) -> boolean)?, timeout: number?, }" } ], returnType: "future.FutureLike<classes.Component, string>" }, { name: "waitForModal", isMethod: true, args: [ { name: "options", type: "{ filter: ((interaction: classes.Modal) -> boolean)?, timeout: number?, }" } ], returnType: "future.FutureLike<classes.Modal, string>" }, { name: "dispatchCommand", isMethod: true, args: [ { name: "interaction", type: "classes.TypesCommand" } ] }, { name: "dispatchComponent", isMethod: true, args: [ { name: "interaction", type: "classes.Component" } ] }, { name: "dispatchModal", isMethod: true, args: [ { name: "interaction", type: "classes.Modal" } ] }, { name: "dispatchAutocomplete", isMethod: true, args: [ { name: "interaction", type: "classes.Autocomplete" } ] }, { name: "registerAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "registerGuildAsync", isMethod: true, args: [ { name: "guildId", type: "string" } ], returnType: "future.FutureLike<string, nil>" }, { name: "unregisterAsync", isMethod: true, args: [  ], returnType: "future.FutureLike<string, nil>" }, { name: "unregisterGuildAsync", isMethod: true, args: [ { name: "guildId", type: "string" } ], returnType: "future.FutureLike<string, nil>" } ]} functions={[ { name: "new", args: [ { name: "bot", type: "any" }, { name: "options", type: "{ help: boolean?, watch: boolean?, context: any?, onError: ErrorHandler, onGuardFailed: GuardFailedHandler, }?" } ], returnType: "Commands" } ]} />
+
+## Properties
+
+### bot
+
+<LuaProperty name="Commands.bot" type="DiscordLuau.Bot" />
+
+
+### logger
+
+<LuaProperty name="Commands.logger" type="logger.Logger" />
+
+
+### registry
+
+<LuaProperty name="Commands.registry" type="registry.Registry" />
+
+
+### loader
+
+<LuaProperty name="Commands.loader" type="loader.Loader" />
+
+
+### context
+
+<LuaProperty name="Commands.context" type="any" />
+
+
+### middleware
+
+<LuaProperty name="Commands.middleware" type="{ Middleware }" />
+
+
+### afterHooks
+
+<LuaProperty name="Commands.afterHooks" type="{ (classes.TypesCommand) -> () }" />
+
+
+### cooldowns
+
+<LuaProperty name="Commands.cooldowns" type="{ [string]: number }" />
+
+
+### concurrency
+
+<LuaProperty name="Commands.concurrency" type="{ [string]: number }" />
+
+
+### componentCollectors
+
+<LuaProperty name="Commands.componentCollectors" type="{ ComponentCollector }" />
+
+
+### modalCollectors
+
+<LuaProperty name="Commands.modalCollectors" type="{ ModalCollector }" />
+
+
+### plugins
+
+<LuaProperty name="Commands.plugins" type="{ [string]: () -> () }" />
+
+
+### watchEnabled
+
+<LuaProperty name="Commands.watchEnabled" type="boolean" />
+
+
+### watchers
+
+<LuaProperty name="Commands.watchers" type="{ () -> () }" />
+
+
+### onError
+
+<LuaProperty name="Commands.onError" type="ErrorHandler" />
+
+
+### onGuardFailed
+
+<LuaProperty name="Commands.onGuardFailed" type="GuardFailedHandler" />
+
+
+### onConcurrencyLimited
+
+<LuaProperty name="Commands.onConcurrencyLimited" type="ConcurrencyLimitedHandler" />
+
+
+
+## Methods
+
+### load
+
+> <LuaDeclaration name="load" className="Commands" args={[ { name: "directoryPath", type: "string" } ]} isMethod />
+
+Recursively loads all .luau command modules found under `directoryPath`. If `watchEnabled`
+is true, also begins watching the directory for changes.
+
+<LuaParamTable params={[ { name: "directoryPath", type: "string" } ]} />
+
+### watch
+
+> <LuaDeclaration name="watch" className="Commands" args={[ { name: "directoryPath", type: "string" } ]} returnType="() -> ()" isMethod />
+
+Begins watching `directoryPath` for command file changes. Returns a stop function.
+
+<LuaParamTable params={[ { name: "directoryPath", type: "string" } ]} returns={[ { type: "() -> ()" } ]} />
+
+### getContext
+
+> <LuaDeclaration name="getContext" className="Commands" args={[  ]} returnType="any" isMethod />
+
+Returns the shared context object passed at construction.
+
+<LuaParamTable returns={[ { type: "any" } ]} />
+
+### usePlugin
+
+> <LuaDeclaration name="usePlugin" className="Commands" args={[ { name: "plugin", type: "PluginDefinition" } ]} isMethod />
+
+Installs a plugin by calling its `setup` function. Skips silently if the plugin is already loaded.
+
+<LuaParamTable params={[ { name: "plugin", type: "PluginDefinition" } ]} />
+
+### unloadPlugin
+
+> <LuaDeclaration name="unloadPlugin" className="Commands" args={[ { name: "name", type: "string" } ]} isMethod />
+
+Unloads a plugin by name, calling its teardown function if one was returned by `setup`.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} />
+
+### add
+
+> <LuaDeclaration name="add" className="Commands" args={[ { name: "commandDefinition", type: "command.CommandDefinition" } ]} isMethod />
+
+Registers a command definition directly, without loading from disk.
+
+<LuaParamTable params={[ { name: "commandDefinition", type: "command.CommandDefinition" } ]} />
+
+### remove
+
+> <LuaDeclaration name="remove" className="Commands" args={[ { name: "name", type: "string" } ]} isMethod />
+
+Unregisters a command by name.
+
+<LuaParamTable params={[ { name: "name", type: "string" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Commands" args={[  ]} isMethod />
+
+Stops all active file watchers started via `watch`.
+
+### use
+
+> <LuaDeclaration name="use" className="Commands" args={[ { name: "middleware", type: "Middleware" } ]} isMethod />
+
+Appends a middleware function to the dispatch pipeline.
+
+<LuaParamTable params={[ { name: "middleware", type: "Middleware" } ]} />
+
+### after
+
+> <LuaDeclaration name="after" className="Commands" args={[ { name: "hook", type: "(interaction: classes.TypesCommand) -> ()" } ]} isMethod />
+
+Registers a global hook that fires after every command execution, regardless of success or error.
+
+<LuaParamTable params={[ { name: "hook", type: "(interaction: classes.TypesCommand) -> ()" } ]} />
+
+### waitForComponent
+
+> <LuaDeclaration name="waitForComponent" className="Commands" args={[ { name: "options", type: "{ filter: ((interaction: classes.Component) -> boolean)?, timeout: number?, }" } ]} returnType="future.FutureLike<classes.Component, string>" isMethod />
+
+Wait for a single component interaction that satisfies `filter`, then resolve
+with it. If no matching interaction arrives within `timeout` seconds (default
+30), the Future errors with `"timeout"`.
+
+Only the first matching interaction is captured; it is not forwarded to any
+static component handler.
+
+<LuaParamTable params={[ { name: "options", type: "{ filter: ((interaction: classes.Component) -> boolean)?, timeout: number?, }" } ]} returns={[ { type: "future.FutureLike<classes.Component, string>" } ]} />
+
+### waitForModal
+
+> <LuaDeclaration name="waitForModal" className="Commands" args={[ { name: "options", type: "{ filter: ((interaction: classes.Modal) -> boolean)?, timeout: number?, }" } ]} returnType="future.FutureLike<classes.Modal, string>" isMethod />
+
+Wait for a single modal submission that satisfies `filter`, then resolve with it.
+If no matching submission arrives within `timeout` seconds (default 30), the
+Future errors with `"timeout"`.
+
+Only the first matching submission is captured; it is not forwarded to any
+static modal handler.
+
+<LuaParamTable params={[ { name: "options", type: "{ filter: ((interaction: classes.Modal) -> boolean)?, timeout: number?, }" } ]} returns={[ { type: "future.FutureLike<classes.Modal, string>" } ]} />
+
+### dispatchCommand
+
+> <LuaDeclaration name="dispatchCommand" className="Commands" args={[ { name: "interaction", type: "classes.TypesCommand" } ]} isMethod />
+
+Routes a slash command interaction through middleware, guards, cooldowns, concurrency checks,
+and transforms before invoking the registered command execute handler.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.TypesCommand" } ]} />
+
+### dispatchComponent
+
+> <LuaDeclaration name="dispatchComponent" className="Commands" args={[ { name: "interaction", type: "classes.Component" } ]} isMethod />
+
+Routes a component interaction to a pending collector, or to the static handler registered
+under a matching custom ID pattern.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.Component" } ]} />
+
+### dispatchModal
+
+> <LuaDeclaration name="dispatchModal" className="Commands" args={[ { name: "interaction", type: "classes.Modal" } ]} isMethod />
+
+Routes a modal submission to a pending collector, or to the static handler registered
+under a matching custom ID pattern.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.Modal" } ]} />
+
+### dispatchAutocomplete
+
+> <LuaDeclaration name="dispatchAutocomplete" className="Commands" args={[ { name: "interaction", type: "classes.Autocomplete" } ]} isMethod />
+
+Routes an autocomplete interaction to the handler registered for the focused command or subcommand.
+
+<LuaParamTable params={[ { name: "interaction", type: "classes.Autocomplete" } ]} />
+
+### registerAsync
+
+> <LuaDeclaration name="registerAsync" className="Commands" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Uploads all registered commands globally to Discord, overwriting any previously registered commands.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### registerGuildAsync
+
+> <LuaDeclaration name="registerGuildAsync" className="Commands" args={[ { name: "guildId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Uploads all registered commands to a specific guild, overwriting that guild's commands.
+
+<LuaParamTable params={[ { name: "guildId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### unregisterAsync
+
+> <LuaDeclaration name="unregisterAsync" className="Commands" args={[  ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Clears all globally registered commands on Discord.
+
+<LuaParamTable returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+### unregisterGuildAsync
+
+> <LuaDeclaration name="unregisterGuildAsync" className="Commands" args={[ { name: "guildId", type: "string" } ]} returnType="future.FutureLike<string, nil>" isMethod />
+
+Clears all commands registered to a specific guild on Discord.
+
+<LuaParamTable params={[ { name: "guildId", type: "string" } ]} returns={[ { type: "future.FutureLike<string, nil>" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Commands" args={[ { name: "bot", type: "any" }, { name: "options", type: "{ help: boolean?, watch: boolean?, context: any?, onError: ErrorHandler, onGuardFailed: GuardFailedHandler, }?" } ]} returnType="Commands" />
+
+Constructs a Commands instance, wires it to the bot's interaction events, and optionally
+registers the built-in /help command (enabled by default; set `options.help = false` to disable).
+File watching on load is enabled by default; set `options.watch = false` to disable.
+
+<LuaParamTable params={[ { name: "bot", type: "any" }, { name: "options", type: "{ help: boolean?, watch: boolean?, context: any?, onError: ErrorHandler, onGuardFailed: GuardFailedHandler, }?" } ]} returns={[ { type: "Commands" } ]} />
+
+
