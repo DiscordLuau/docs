@@ -17,13 +17,13 @@ Implementation of the Discord Permissions in Luau
 
 https://discord.com/developers/docs/topics/permissions
 
-<LuaSummary className="Permission" properties={[ { name: "permission", type: "number" } ]} methods={[ { name: "hasPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ] }, { name: "toList", isMethod: true, args: [  ], returnType: "{ apiTypes.Permissions }" } ]} functions={[ { name: "new", args: [ { name: "permission", type: "string" } ], returnType: "Permission" } ]} />
+<LuaSummary className="Permission" properties={[ { name: "permission", type: "string" } ]} methods={[ { name: "hasPermission", isMethod: true, args: [ { name: "permission", type: "apiTypes.Permissions" } ] }, { name: "toList", isMethod: true, args: [  ], returnType: "{ apiTypes.Permissions }" } ]} functions={[ { name: "new", args: [ { name: "permission", type: "string" } ], returnType: "Permission" } ]} />
 
 ## Properties
 
 ### permission
 
-<LuaProperty name="Permission.permission" type="number" />
+<LuaProperty name="Permission.permission" type="string" />
 
 ---
 The permission bitfield representing the permissions granted.

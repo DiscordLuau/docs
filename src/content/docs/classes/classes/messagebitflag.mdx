@@ -18,13 +18,13 @@ Represents various flags that can be applied to Discord messages.
 
 https://discord.com/developers/docs/resources/message#message-object-message-flags
 
-<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "number" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isCrossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressEmbeds", isMethod: true, args: [  ], returnType: "boolean" }, { name: "sourceMessageDeleted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "urgent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "ephemeral", isMethod: true, args: [  ], returnType: "boolean" }, { name: "loading", isMethod: true, args: [  ], returnType: "boolean" }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isVouceMessage", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "MessageBitflag" } ]} />
+<LuaSummary className="MessageBitflag" properties={[ { name: "flag", type: "string" } ]} methods={[ { name: "crossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isCrossposted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressEmbeds", isMethod: true, args: [  ], returnType: "boolean" }, { name: "sourceMessageDeleted", isMethod: true, args: [  ], returnType: "boolean" }, { name: "urgent", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "ephemeral", isMethod: true, args: [  ], returnType: "boolean" }, { name: "loading", isMethod: true, args: [  ], returnType: "boolean" }, { name: "failedToMentionSomeRolesInThread", isMethod: true, args: [  ], returnType: "boolean" }, { name: "suppressNotifications", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isVouceMessage", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "flag", type: "number" } ], returnType: "MessageBitflag" } ]} />
 
 ## Properties
 
 ### flag
 
-<LuaProperty name="MessageBitflag.flag" type="number" />
+<LuaProperty name="MessageBitflag.flag" type="string" />
 
 ---
 The raw bitflag value for the message.

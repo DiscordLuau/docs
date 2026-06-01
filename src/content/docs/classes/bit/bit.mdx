@@ -13,67 +13,59 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-A Bit wrapper library that supports both 64-bit integers and 32-bit integers. 
+A Bit wrapper library that supports 64-bit integers represented as decimal strings.
 Primarily required in the calculation for snowflake IDs that the Discord API will give us.
 
-<LuaSummary className="Bit" functions={[ { name: "is32Bit", args: [ { name: "value", type: "number" } ], returnType: "boolean" }, { name: "bnot", args: [ { name: "value", type: "number" } ], returnType: "number" }, { name: "bor", args: [ { name: "value0", type: "number" }, { name: "value1", type: "number" } ], returnType: "number" }, { name: "band", args: [ { name: "value0", type: "number" }, { name: "value1", type: "number" } ], returnType: "number" }, { name: "shift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" }, { name: "lshift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" }, { name: "rshift", args: [ { name: "value", type: "number" }, { name: "displacement", type: "number" } ], returnType: "number" } ]} />
+<LuaSummary className="Bit" functions={[ { name: "bnot", args: [ { name: "value", type: "string" } ], returnType: "string" }, { name: "bor", args: [ { name: "value0", type: "string" }, { name: "value1", type: "string" } ], returnType: "string" }, { name: "band", args: [ { name: "value0", type: "string" }, { name: "value1", type: "string" } ], returnType: "string" }, { name: "shift", args: [ { name: "value", type: "string" }, { name: "displacement", type: "number" } ], returnType: "string" }, { name: "lshift", args: [ { name: "value", type: "string" }, { name: "displacement", type: "number" } ], returnType: "string" }, { name: "rshift", args: [ { name: "value", type: "string" }, { name: "displacement", type: "number" } ], returnType: "string" } ]} />
 
 ## Functions
 
-### is32Bit
-
-> <LuaDeclaration name="is32Bit" className="Bit" args={[ { name: "value", type: "number" } ]} returnType="boolean" />
-
-Returns true if the given value is a 32-bit integer.
-
-<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "boolean" } ]} />
-
 ### bnot
 
-> <LuaDeclaration name="bnot" className="Bit" args={[ { name: "value", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="bnot" className="Bit" args={[ { name: "value", type: "string" } ]} returnType="string" />
 
 Binary NOT operation for integers
 
-<LuaParamTable params={[ { name: "value", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value", type: "string" } ]} returns={[ { type: "string" } ]} />
 
 ### bor
 
-> <LuaDeclaration name="bor" className="Bit" args={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="bor" className="Bit" args={[ { name: "value0", type: "string" }, { name: "value1", type: "string" } ]} returnType="string" />
 
 Binary OR operation for integers
 
-<LuaParamTable params={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value0", type: "string" }, { name: "value1", type: "string" } ]} returns={[ { type: "string" } ]} />
 
 ### band
 
-> <LuaDeclaration name="band" className="Bit" args={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="band" className="Bit" args={[ { name: "value0", type: "string" }, { name: "value1", type: "string" } ]} returnType="string" />
 
 Binary AND operation for integers
 
-<LuaParamTable params={[ { name: "value0", type: "number" }, { name: "value1", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value0", type: "string" }, { name: "value1", type: "string" } ]} returns={[ { type: "string" } ]} />
 
 ### shift
 
-> <LuaDeclaration name="shift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="shift" className="Bit" args={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returnType="string" />
 
-Binary SHIFT operation for integers
+Binary SHIFT operation for integers. Positive displacement = left shift, negative = right shift.
 
-<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returns={[ { type: "string" } ]} />
 
 ### lshift
 
-> <LuaDeclaration name="lshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="lshift" className="Bit" args={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returnType="string" />
 
 Binary LEFT SHIFT operation for integers
 
-<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returns={[ { type: "string" } ]} />
 
 ### rshift
 
-> <LuaDeclaration name="rshift" className="Bit" args={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returnType="number" />
+> <LuaDeclaration name="rshift" className="Bit" args={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returnType="string" />
 
 Binary RIGHT SHIFT operation for integers
 
-<LuaParamTable params={[ { name: "value", type: "number" }, { name: "displacement", type: "number" } ]} returns={[ { type: "number" } ]} />
+<LuaParamTable params={[ { name: "value", type: "string" }, { name: "displacement", type: "number" } ]} returns={[ { type: "string" } ]} />
 
 
