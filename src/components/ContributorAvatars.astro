@@ -24,6 +24,14 @@ interface Props {
 
 const { sources } = Astro.props;
 
+let warnedToken = false;
+if (!import.meta.env.GITHUB_TOKEN && !warnedToken) {
+	warnedToken = true;
+	console.warn(
+		"GITHUB_TOKEN not set — contributor avatars will not be fetched",
+	);
+}
+
 async function fetchCommitsForSource(
 	source: CommitSource,
 ): Promise<GitHubCommit[]> {
@@ -69,7 +77,7 @@ const authors = dedupeAuthors(allCommits);
 								alt={`Contributor ${login}`}
 								width="64"
 								height="64"
-								src={`https://avatars.githubusercontent.com/u/${id}`}
+								src={`https://avatars.githubusercontent.com/u/${id}?size=64`}
 							/>
 						</a>
 					</li>

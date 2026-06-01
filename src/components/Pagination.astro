@@ -1,25 +1,25 @@
 ---
 import Default from "@astrojs/starlight/components/Pagination.astro";
-import type { Props } from "@astrojs/starlight/props";
 import syncedDirs from "../generated/synced-dirs.json";
 import ContributorAvatars from "./ContributorAvatars.astro";
 
-const file = Astro.props.entry?.id ?? "";
+const entry = Astro.locals.starlightRoute.entry;
+const id = entry?.id ?? "";
 const excludedPages = ["", "404"];
-const topDirectory = file.split("/")[0];
+const topDirectory = id.split("/")[0];
 const isFromDiscordLuau = (syncedDirs as string[]).includes(topDirectory);
 
 const contributorSources = [
-	{ repo: "DiscordLuau/docs", path: `src/content/docs/${file}` },
+	{ repo: "DiscordLuau/docs", path: `src/content/docs/${id}.mdx` },
 	...(isFromDiscordLuau
-		? [{ repo: "DiscordLuau/discord-luau", path: `docs/${file}` }]
+		? [{ repo: "DiscordLuau/discord-luau", path: `docs/${id}.mdx` }]
 		: []),
 ];
 ---
 
 <div>
 	{
-		!excludedPages.includes(file) && (
+		!excludedPages.includes(id) && (
 			<>
 				<div class="contributors">
 					<ContributorAvatars sources={contributorSources} />
