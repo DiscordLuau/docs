@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
 
-<LuaSummary className="Task" functions={[ { name: "cancel", args: [ { name: "thread", type: "thread" } ] }, { name: "defer", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "delay", args: [ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "spawn", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ], returnType: "thread" }, { name: "wait", args: [ { name: "duration", type: "number?" } ], returnType: "number" } ]} />
+<LuaSummary className="Task" functions={[ { name: "cancel", args: [ { name: "thread", type: "thread" } ] }, { name: "defer", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ], returnType: "thread" }, { name: "delay", args: [ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ], returnType: "thread" }, { name: "spawn", args: [ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ], returnType: "thread" }, { name: "wait", args: [ { name: "duration", type: "number?" } ], returnType: "number" } ]} />
 
 ## Functions
 
@@ -29,30 +29,30 @@ Stops a currently scheduled thread from resuming.
 
 ### defer
 
-> <LuaDeclaration name="defer" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+> <LuaDeclaration name="defer" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returnType="thread" />
 
 Defers a thread or function to run at the end of the current task queue.
 
-<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returns={[ { type: "thread" } ]} />
 
 ### delay
 
-> <LuaDeclaration name="delay" className="Task" args={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+> <LuaDeclaration name="delay" className="Task" args={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returnType="thread" />
 
 Delays a thread or function to run after duration seconds.
 
-<LuaParamTable params={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+<LuaParamTable params={[ { name: "duration", type: "number" }, { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returns={[ { type: "thread" } ]} />
 
 ### spawn
 
-> <LuaDeclaration name="spawn" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returnType="thread" />
+> <LuaDeclaration name="spawn" className="Task" args={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returnType="thread" />
 
 Instantly runs a thread or function.
 
 If the spawned task yields, the thread that spawned the task will resume, letting the spawned task run in the
 	background.
 
-<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "T..." } ]} returns={[ { type: "thread" } ]} />
+<LuaParamTable params={[ { name: "functionOrThread", type: "thread | (T...) -> ...any" }, { name: "...", type: "any" } ]} returns={[ { type: "thread" } ]} />
 
 ### wait
 
