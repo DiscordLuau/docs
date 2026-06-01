@@ -70,6 +70,18 @@ export default defineConfig({
 					],
 				},
 				{
+					label: "Commands",
+					collapsed: false,
+					items: [
+						{
+							autogenerate: {
+								directory: "classes/commands",
+								collapsed: true,
+							},
+						},
+					],
+				},
+				{
 					label: "Types",
 					collapsed: false,
 					items: [
