@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
-<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" } ]} />
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" } ]} />
 
 ## Functions
 
@@ -45,6 +45,16 @@ a = {
 ```
 
 <LuaParamTable returns={[ { type: "table" } ]} />
+
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
 
 ### Utilities.createGuid
 
@@ -76,15 +86,5 @@ text.
 Will return either true/false, will not error.
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
-
-### Utilities.coroutineRun
-
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
-
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
-
-Will return the thread spawned.
-
-<LuaParamTable returns={[ { type: "thread" } ]} />
 
 
