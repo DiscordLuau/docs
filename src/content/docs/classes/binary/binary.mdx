@@ -1,0 +1,37 @@
+---
+title: Binary
+description: DiscordLuau docs for Binary.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+
+
+<LuaSummary className="Binary" functions={[ { name: "load", args: [ { name: "options", type: "LoadOptions" } ], returnType: "LoadResult" } ]} />
+
+## Functions
+
+### load
+
+> <LuaDeclaration name="load" className="Binary" args={[ { name: "options", type: "LoadOptions" } ]} returnType="LoadResult" />
+
+Resolves a native shared library by searching system paths, then the local
+cache, then downloading from the provided URL.
+
+The URL template supports `{version}`, `{os}`, `{arch}`, and `{ext}` tokens.
+`{os}` is `linux`, `macos`, or `windows`. `{arch}` is `x64` or `arm64`.
+`{ext}` is `.so`, `.dylib`, or `.dll` (includes leading dot).
+
+The checksum must be in `sha256:&lt;hex&gt;` format.
+
+<LuaParamTable params={[ { name: "options", type: "LoadOptions" } ]} returns={[ { type: "LoadResult" } ]} />
+
+
