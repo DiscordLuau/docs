@@ -143,6 +143,13 @@ export default defineConfig({
 					],
 				},
 				{
+					label: "Binary",
+					collapsed: false,
+					items: [
+						{ autogenerate: { directory: "classes/binary", collapsed: true } },
+					],
+				},
+				{
 					label: "Emitter",
 					collapsed: false,
 					items: [
