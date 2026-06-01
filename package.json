@@ -27,6 +27,6 @@
 		"node-addon-api": "^8.7.0",
 		"node-gyp": "^12.3.0",
 		"tsx": "^4.22.1",
-		"wrangler": "^4.92.0"
+		"wrangler": "^4.95.0"
 	}
 }
