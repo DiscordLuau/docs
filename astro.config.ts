@@ -205,13 +205,6 @@ export default defineConfig({
 					],
 				},
 				{
-					label: "Buffer",
-					collapsed: false,
-					items: [
-						{ autogenerate: { directory: "classes/buffer", collapsed: true } },
-					],
-				},
-				{
 					label: "Bit",
 					collapsed: false,
 					items: [
