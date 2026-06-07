@@ -20,7 +20,7 @@ This implementation is based on the following document:
 
 Please defer to the above document for when it is appropriate to use each log level.
 
-<LuaSummary className="Logger" methods={[ { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "LogLevel" } ] }, { name: "getLogLevel", isMethod: true, args: [  ], returnType: "LogLevel" }, { name: "setSink", isMethod: true, args: [ { name: "sink", type: "(message: string) -> ()" } ] } ]} functions={[ { name: "parseVaradic", args: [ { name: "args", type: "{ any }" } ], returnType: "string" }, { name: "new", args: [ { name: "name", type: "string" }, { name: "logLevel", type: "LogLevel?" } ], returnType: "Logger" } ]} />
+<LuaSummary className="Logger" methods={[ { name: "setLogLevel", isMethod: true, args: [ { name: "logLevel", type: "LogLevel" } ] }, { name: "setSink", isMethod: true, args: [ { name: "sink", type: "(message: string) -> ()" } ] } ]} />
 
 ## Methods
 
@@ -34,14 +34,6 @@ Function responsible for setting the log level of the logger. Log levels with an
 
 <LuaParamTable params={[ { name: "logLevel", type: "LogLevel" } ]} />
 
-### getLogLevel
-
-> <LuaDeclaration name="getLogLevel" className="Logger" args={[  ]} returnType="LogLevel" isMethod />
-
-Function responsible for for getting the log level of the logger
-
-<LuaParamTable returns={[ { type: "LogLevel" } ]} />
-
 ### setSink
 
 > <LuaDeclaration name="setSink" className="Logger" args={[ { name: "sink", type: "(message: string) -> ()" } ]} isMethod />
@@ -50,24 +42,5 @@ Replaces the default `print` output with a custom sink. The sink receives the fu
 log line (including ANSI codes) as a single string. Useful for capturing output in tests.
 
 <LuaParamTable params={[ { name: "sink", type: "(message: string) -> ()" } ]} />
-
-
-## Functions
-
-### parseVaradic
-
-> <LuaDeclaration name="parseVaradic" className="Logger" args={[ { name: "args", type: "{ any }" } ]} returnType="string" />
-
-Function responsible for parsing a varadic list of arguments into a string.
-
-<LuaParamTable params={[ { name: "args", type: "{ any }" } ]} returns={[ { type: "string" } ]} />
-
-### new
-
-> <LuaDeclaration name="new" className="Logger" args={[ { name: "name", type: "string" }, { name: "logLevel", type: "LogLevel?" } ]} returnType="Logger" />
-
-Constructor for the Logger object.
-
-<LuaParamTable params={[ { name: "name", type: "string" }, { name: "logLevel", type: "LogLevel?" } ]} returns={[ { type: "Logger" } ]} />
 
 
