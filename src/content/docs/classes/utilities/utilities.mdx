@@ -15,9 +15,19 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
-<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" } ]} />
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" } ]} />
 
 ## Functions
+
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
 
 ### Utilities.tableReflect
 
@@ -46,23 +56,16 @@ a = {
 
 <LuaParamTable returns={[ { type: "table" } ]} />
 
-### Utilities.coroutineRun
+### Utilities.validateKebabCase
 
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
 
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
+text.
 
-Will return the thread spawned.
+Will return either true/false, will not error.
 
-<LuaParamTable returns={[ { type: "thread" } ]} />
-
-### Utilities.createGuid
-
-> <LuaDeclaration name="Utilities.createGuid" className="Utilities" args={[  ]} returnType="string" />
-
-Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
-
-<LuaParamTable returns={[ { type: "string" } ]} />
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 ### Utilities.validateCommandName
 
@@ -76,15 +79,12 @@ Will return either true/false, will not error.
 
 <LuaParamTable returns={[ { type: "boolean" } ]} />
 
-### Utilities.validateKebabCase
+### Utilities.createGuid
 
-> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
+> <LuaDeclaration name="Utilities.createGuid" className="Utilities" args={[  ]} returnType="string" />
 
-Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
-text.
+Generates a random Guid (v4) that we can use to apply a unique identifier to objects.
 
-Will return either true/false, will not error.
-
-<LuaParamTable returns={[ { type: "boolean" } ]} />
+<LuaParamTable returns={[ { type: "string" } ]} />
 
 
