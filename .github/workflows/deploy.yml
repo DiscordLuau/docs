@@ -28,7 +28,7 @@ jobs:
           ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.sha }}
 
       - name: Install tooling
-        uses: jdx/mise-action@v4
+        uses: jdx/mise-action@v4.2.3
         with:
           cache: true
 
