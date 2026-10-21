@@ -1,0 +1,116 @@
+---
+title: Clock
+description: DiscordLuau docs for Clock.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+The clock the stub world runs on. `"real"` leaves `std_polyfills` alone; `"virtual"` swaps `task` and `datetime`
+on the shared table so one virtual second takes `VIRTUAL_TIME_SCALE` real seconds.
+
+<LuaSummary className="Clock" properties={[ { name: "mode", type: "string" }, { name: "originalTask", type: "any" }, { name: "originalDatetime", type: "any" }, { name: "polyfills", type: "any" }, { name: "startClock", type: "number" }, { name: "startUnixTimestampMillis", type: "number" } ]} methods={[ { name: "now", isMethod: true, args: [  ], returnType: "number" }, { name: "wait", isMethod: true, args: [ { name: "seconds", type: "number?" } ], returnType: "number" }, { name: "waitFor", isMethod: true, args: [ { name: "predicate", type: "() -> any" }, { name: "seconds", type: "number" } ], returnType: "boolean" }, { name: "install", isMethod: true, args: [  ] }, { name: "uninstall", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "mode", type: "&quot;real&quot; | &quot;virtual&quot;?" }, { name: "polyfills", type: "any?" } ], returnType: "Clock" } ]} />
+
+## Properties
+
+### mode
+
+<LuaProperty name="Clock.mode" type="string" />
+
+---
+Whether the clock runs at real speed or 100x.
+
+### originalTask
+
+<LuaProperty name="Clock.originalTask" type="any" />
+
+---
+The `task` table captured before the virtual clock was installed.
+
+### originalDatetime
+
+<LuaProperty name="Clock.originalDatetime" type="any" />
+
+---
+The `datetime` table captured before the virtual clock was installed.
+
+### polyfills
+
+<LuaProperty name="Clock.polyfills" type="any" />
+
+---
+The `std_polyfills` table this clock swaps.
+
+### startClock
+
+<LuaProperty name="Clock.startClock" type="number" />
+
+---
+`os.clock()` when the clock was made.
+
+### startUnixTimestampMillis
+
+<LuaProperty name="Clock.startUnixTimestampMillis" type="number" />
+
+---
+The unix timestamp in milliseconds when the clock was made.
+
+
+## Methods
+
+### now
+
+> <LuaDeclaration name="now" className="Clock" args={[  ]} returnType="number" isMethod />
+
+Seconds since the clock was made, real or virtual by mode.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### wait
+
+> <LuaDeclaration name="wait" className="Clock" args={[ { name: "seconds", type: "number?" } ]} returnType="number" isMethod />
+
+Sleeps `seconds` of the clock's time and returns them.
+
+<LuaParamTable params={[ { name: "seconds", type: "number?" } ]} returns={[ { type: "number" } ]} />
+
+### waitFor
+
+> <LuaDeclaration name="waitFor" className="Clock" args={[ { name: "predicate", type: "() -> any" }, { name: "seconds", type: "number" } ]} returnType="boolean" isMethod />
+
+Polls `predicate` every quarter second of the clock's time until it returns a truthy value or `seconds` of the
+clock's time pass. Returns whether the predicate turned truthy in time.
+
+<LuaParamTable params={[ { name: "predicate", type: "() -> any" }, { name: "seconds", type: "number" } ]} returns={[ { type: "boolean" } ]} />
+
+### install
+
+> <LuaDeclaration name="install" className="Clock" args={[  ]} isMethod />
+
+Swaps `std_polyfills.task` and `std_polyfills.datetime` for this clock. A real clock does nothing.
+
+### uninstall
+
+> <LuaDeclaration name="uninstall" className="Clock" args={[  ]} isMethod />
+
+Puts the real `task` and `datetime` back. Safe to call twice.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Clock" args={[ { name: "mode", type: "&quot;real&quot; | &quot;virtual&quot;?" }, { name: "polyfills", type: "any?" } ]} returnType="Clock" />
+
+Makes a clock. `"real"` is the default.
+
+<LuaParamTable params={[ { name: "mode", type: "&quot;real&quot; | &quot;virtual&quot;?" }, { name: "polyfills", type: "any?" } ]} returns={[ { type: "Clock" } ]} />
+
+

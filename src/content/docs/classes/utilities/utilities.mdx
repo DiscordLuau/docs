@@ -15,19 +15,9 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Utilities package
 
-<LuaSummary className="Utilities" functions={[ { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" } ]} />
+<LuaSummary className="Utilities" functions={[ { name: "Utilities.tableReflect", args: [  ], returnType: "table" }, { name: "Utilities.validateCommandName", args: [  ], returnType: "boolean" }, { name: "Utilities.coroutineRun", args: [  ], returnType: "thread" }, { name: "Utilities.validateKebabCase", args: [  ], returnType: "boolean" }, { name: "Utilities.createGuid", args: [  ], returnType: "string" } ]} />
 
 ## Functions
-
-### Utilities.coroutineRun
-
-> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
-
-Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
-
-Will return the thread spawned.
-
-<LuaParamTable returns={[ { type: "thread" } ]} />
 
 ### Utilities.tableReflect
 
@@ -56,17 +46,6 @@ a = {
 
 <LuaParamTable returns={[ { type: "table" } ]} />
 
-### Utilities.validateKebabCase
-
-> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
-
-Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
-text.
-
-Will return either true/false, will not error.
-
-<LuaParamTable returns={[ { type: "boolean" } ]} />
-
 ### Utilities.validateCommandName
 
 > <LuaDeclaration name="Utilities.validateCommandName" className="Utilities" args={[  ]} returnType="boolean" />
@@ -74,6 +53,27 @@ Will return either true/false, will not error.
 Validates a string as a Discord application command name.
 Discord requires command names to be lowercase and only contain letters, numbers,
 hyphens, underscores, or apostrophes (1–32 characters).
+
+Will return either true/false, will not error.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### Utilities.coroutineRun
+
+> <LuaDeclaration name="Utilities.coroutineRun" className="Utilities" args={[  ]} returnType="thread" />
+
+Creates a thread, resumes that thread - and handles errors if this resumed thread fails.
+
+Will return the thread spawned.
+
+<LuaParamTable returns={[ { type: "thread" } ]} />
+
+### Utilities.validateKebabCase
+
+> <LuaDeclaration name="Utilities.validateKebabCase" className="Utilities" args={[  ]} returnType="boolean" />
+
+Will validate a string to ensure that it's kebab-case, discord is sometimes very specific about the casing of
+text.
 
 Will return either true/false, will not error.
 

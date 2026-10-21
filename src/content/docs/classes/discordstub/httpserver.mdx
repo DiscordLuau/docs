@@ -1,0 +1,94 @@
+---
+title: HttpServer
+description: DiscordLuau docs for HttpServer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+A localhost HTTP server with the `/gateway/bot` default. `new` starts it on an ephemeral port and stores the
+handler; the handler may answer any route by returning a response or a raw string body, and falls through to the
+default by returning `nil`.
+
+<LuaSummary className="HttpServer" properties={[ { name: "handler", type: "Handler?" }, { name: "gatewayUrl", type: "function" }, { name: "onStop", type: "function?" }, { name: "server", type: "any?" }, { name: "port", type: "number" }, { name: "url", type: "string" } ]} methods={[ { name: "respond", isMethod: true, args: [ { name: "request", type: "ZuneRequest" } ], returnType: "string | ZuneResponse" }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ handler: Handler?, gatewayUrl: () -> string?, onStop: ((server: HttpServer) -> ())?, }" } ], returnType: "HttpServer" } ]} />
+
+## Properties
+
+### handler
+
+<LuaProperty name="HttpServer.handler" type="Handler?" />
+
+---
+The test's handler, which answers every request before the default routes.
+
+### gatewayUrl
+
+<LuaProperty name="HttpServer.gatewayUrl" type="function" />
+
+---
+Returns the websocket URL, or nil when no websocket server exists.
+
+### onStop
+
+<LuaProperty name="HttpServer.onStop" type="function?" />
+
+---
+Called with the handle after it stops.
+
+### server
+
+<LuaProperty name="HttpServer.server" type="any?" />
+
+---
+The Zune server handle, nil after it stops.
+
+### port
+
+<LuaProperty name="HttpServer.port" type="number" />
+
+---
+The ephemeral port the server bound to.
+
+### url
+
+<LuaProperty name="HttpServer.url" type="string" />
+
+---
+The server's base URL, `http://127.0.0.1:{port}`.
+
+
+## Methods
+
+### respond
+
+> <LuaDeclaration name="respond" className="HttpServer" args={[ { name: "request", type: "ZuneRequest" } ]} returnType="string | ZuneResponse" isMethod />
+
+Answers one request: the handler first, then the default.
+
+<LuaParamTable params={[ { name: "request", type: "ZuneRequest" } ]} returns={[ { type: "string | ZuneResponse" } ]} />
+
+### stop
+
+> <LuaDeclaration name="stop" className="HttpServer" args={[  ]} isMethod />
+
+Stops listening. Safe to call twice.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="HttpServer" args={[ { name: "settings", type: "{ handler: Handler?, gatewayUrl: () -> string?, onStop: ((server: HttpServer) -> ())?, }" } ]} returnType="HttpServer" />
+
+Creates and starts the server on `127.0.0.1` with an ephemeral port.
+
+<LuaParamTable params={[ { name: "settings", type: "{ handler: Handler?, gatewayUrl: () -> string?, onStop: ((server: HttpServer) -> ())?, }" } ]} returns={[ { type: "HttpServer" } ]} />
+
+

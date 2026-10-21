@@ -1,0 +1,101 @@
+---
+title: DiscordStub
+description: DiscordLuau docs for DiscordStub.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+One local Discord world: a clock, an HTTP server and a gateway websocket server. `clock = "virtual"` runs the
+world 100x faster than real time. `discordStub.recordEmits(emitter)` records every call an emitter fires.
+
+<LuaSummary className="DiscordStub" properties={[ { name: "clock", type: "Clock" }, { name: "httpServer", type: "HttpServer?" }, { name: "webSocketServer", type: "WebsocketServer?" }, { name: "restUrl", type: "string?" } ]} methods={[ { name: "stop", isMethod: true, args: [  ] }, { name: "createHttpServer", isMethod: true, args: [ { name: "handler", type: "httpServer.Handler?" } ], returnType: "httpServer.HttpServer" }, { name: "createWebsocketServer", isMethod: true, args: [ { name: "handler", type: "webSocketServer.Handler?" } ], returnType: "webSocketServer.WebsocketServer" }, { name: "runScenario", isMethod: true, args: [ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ], returnType: "string?" } ]} functions={[ { name: "new", args: [ { name: "options", type: "{ clock: &quot;real&quot; | &quot;virtual&quot;?, polyfills: any? }?" } ], returnType: "DiscordStub" } ]} />
+
+## Properties
+
+### clock
+
+<LuaProperty name="DiscordStub.clock" type="Clock" />
+
+---
+The clock the world runs on.
+
+### httpServer
+
+<LuaProperty name="DiscordStub.httpServer" type="HttpServer?" />
+
+---
+The HTTP server, once `createHttpServer` has run.
+
+### webSocketServer
+
+<LuaProperty name="DiscordStub.webSocketServer" type="WebsocketServer?" />
+
+---
+The gateway websocket server, once `createWebsocketServer` has run.
+
+### restUrl
+
+<LuaProperty name="DiscordStub.restUrl" type="string?" />
+
+---
+The REST base URL of the HTTP server, nil before it exists.
+
+
+## Methods
+
+### stop
+
+> <LuaDeclaration name="stop" className="DiscordStub" args={[  ]} isMethod />
+
+Stops every server and puts the real clock back. Safe to call twice.
+
+### createHttpServer
+
+> <LuaDeclaration name="createHttpServer" className="DiscordStub" args={[ { name: "handler", type: "httpServer.Handler?" } ]} returnType="httpServer.HttpServer" isMethod />
+
+Starts an HTTP server on `127.0.0.1` with an ephemeral port. The handler may return a response or a raw string;
+`nil` falls through to the default routes.
+
+<LuaParamTable params={[ { name: "handler", type: "httpServer.Handler?" } ]} returns={[ { type: "httpServer.HttpServer" } ]} />
+
+### createWebsocketServer
+
+> <LuaDeclaration name="createWebsocketServer" className="DiscordStub" args={[ { name: "handler", type: "webSocketServer.Handler?" } ]} returnType="webSocketServer.WebsocketServer" isMethod />
+
+Starts a gateway websocket server on `127.0.0.1` with an ephemeral port. The handler receives the connection and
+the payload, and may return a payload to send instead of the default reply or `false` to send nothing; `nil` falls
+through.
+
+<LuaParamTable params={[ { name: "handler", type: "webSocketServer.Handler?" } ]} returns={[ { type: "webSocketServer.WebsocketServer" } ]} />
+
+### runScenario
+
+> <LuaDeclaration name="runScenario" className="DiscordStub" args={[ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ]} returnType="string?" isMethod />
+
+Runs one test scenario, then `teardown` (the caller's own cleanup, such as closing a shard), then stops the world,
+even when either of them throws. Returns the scenario's error, else the teardown's error, else the first error a
+websocket handler raised, else nil.
+
+<LuaParamTable params={[ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ]} returns={[ { type: "string?" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="DiscordStub" args={[ { name: "options", type: "{ clock: &quot;real&quot; | &quot;virtual&quot;?, polyfills: any? }?" } ]} returnType="DiscordStub" />
+
+Creates a stub world.
+
+<LuaParamTable params={[ { name: "options", type: "{ clock: &quot;real&quot; | &quot;virtual&quot;?, polyfills: any? }?" } ]} returns={[ { type: "DiscordStub" } ]} />
+
+

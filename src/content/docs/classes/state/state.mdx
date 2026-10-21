@@ -22,7 +22,7 @@ This class is responsible for storing the following elements:
 - Discord REST API
 - Discord Gateway Manager
 
-<LuaSummary className="State" properties={[ { name: "token", type: "Secret" }, { name: "applicationId", type: "string" }, { name: "rest", type: "State.Rest" }, { name: "webSocketManager", type: "WebSocket.Manager" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "setApplicationId", isMethod: true, args: [ { name: "applicationId", type: "apiTypes.Snowflake" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ], returnType: "State" } ]} />
+<LuaSummary className="State" properties={[ { name: "token", type: "Secret" }, { name: "applicationId", type: "string" }, { name: "stub", type: "Stub?" }, { name: "rest", type: "State.Rest" }, { name: "webSocketManager", type: "WebSocket.Manager" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "setApplicationId", isMethod: true, args: [ { name: "applicationId", type: "apiTypes.Snowflake" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, isUsingStub: Stub?, }" } ], returnType: "State" } ]} />
 
 ## Properties
 
@@ -34,6 +34,11 @@ This class is responsible for storing the following elements:
 ### applicationId
 
 <LuaProperty name="State.applicationId" type="string" />
+
+
+### stub
+
+<LuaProperty name="State.stub" type="Stub?" />
 
 
 ### rest
@@ -72,10 +77,10 @@ Will set the current application ID
 
 ### new
 
-> <LuaDeclaration name="new" className="State" args={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ]} returnType="State" />
+> <LuaDeclaration name="new" className="State" args={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, isUsingStub: Stub?, }" } ]} returnType="State" />
 
 Constructor for the State class.
 
-<LuaParamTable params={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, }" } ]} returns={[ { type: "State" } ]} />
+<LuaParamTable params={[ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, isUsingStub: Stub?, }" } ]} returns={[ { type: "State" } ]} />
 
 

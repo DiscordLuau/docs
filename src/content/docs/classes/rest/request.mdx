@@ -21,7 +21,7 @@ by default, this class will add the following headers:
 - Authorization: "Bot &lt;token&gt;"
 - Content-Type: "application/json"
 
-<LuaSummary className="Request" methods={[ { name: "setBody", isMethod: true, args: [ { name: "body", type: "string" } ] }, { name: "setFlag", isMethod: true, args: [ { name: "name", type: "string" }, { name: "value", type: "boolean" } ] }, { name: "addUrlParam", isMethod: true, args: [ { name: "paramName", type: "string" }, { name: "paramValue", type: "string | { string }" } ] }, { name: "addHeader", isMethod: true, args: [ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ] }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "setMethod", isMethod: true, args: [ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ] }, { name: "assertToken", isMethod: true, args: [  ] }, { name: "addHook", isMethod: true, args: [ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> (boolean, any?)" } ] }, { name: "executeAsync", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ], returnType: "Request" } ]} />
+<LuaSummary className="Request" methods={[ { name: "setBody", isMethod: true, args: [ { name: "body", type: "string" } ] }, { name: "setFlag", isMethod: true, args: [ { name: "name", type: "string" }, { name: "value", type: "boolean" } ] }, { name: "addUrlParam", isMethod: true, args: [ { name: "paramName", type: "string" }, { name: "paramValue", type: "string | { string }" } ] }, { name: "addHeader", isMethod: true, args: [ { name: "headerName", type: "string" }, { name: "headerValue", type: "string" } ] }, { name: "setUrl", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "setMethod", isMethod: true, args: [ { name: "method", type: "&quot;GET&quot; | &quot;POST&quot; | &quot;PUT&quot; | &quot;PATCH&quot; | &quot;DELETE&quot;" } ] }, { name: "assertToken", isMethod: true, args: [  ] }, { name: "addHook", isMethod: true, args: [ { name: "hookState", type: "&quot;BeforeRequest&quot; | &quot;AfterRequest&quot;" }, { name: "hookCallback", type: "(RequestInformation, stdPolyfills.FetchResponse?) -> (boolean, any?)" } ] }, { name: "executeAsync", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string?, restApiVersion: number, baseUrl: string?, }" } ], returnType: "Request" } ]} />
 
 ## Methods
 
@@ -118,10 +118,10 @@ This function will decode the response body, and return a table with the followi
 
 ### new
 
-> <LuaDeclaration name="new" className="Request" args={[ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ]} returnType="Request" />
+> <LuaDeclaration name="new" className="Request" args={[ { name: "settings", type: "{ token: string?, restApiVersion: number, baseUrl: string?, }" } ]} returnType="Request" />
 
 Constructor for the Request object.
 
-<LuaParamTable params={[ { name: "settings", type: "{ token: string?, restApiVersion: number, }" } ]} returns={[ { type: "Request" } ]} />
+<LuaParamTable params={[ { name: "settings", type: "{ token: string?, restApiVersion: number, baseUrl: string?, }" } ]} returns={[ { type: "Request" } ]} />
 
 

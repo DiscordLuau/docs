@@ -1,0 +1,111 @@
+---
+title: Connection
+description: DiscordLuau docs for Connection.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+One accepted gateway websocket: where it was dialled, which session it is bound to, and every payload the client
+sent on it.
+
+<LuaSummary className="Connection" properties={[ { name: "index", type: "number" }, { name: "sessionId", type: "string?" }, { name: "path", type: "string" }, { name: "socket", type: "HttpWebSocket" }, { name: "open", type: "boolean" }, { name: "closeCode", type: "number?" }, { name: "received", type: "{ Received }" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ], returnType: "boolean" }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ index: number, path: string, socket: ZuneSocket }" } ], returnType: "Connection" } ]} />
+
+## Properties
+
+### index
+
+<LuaProperty name="Connection.index" type="number" />
+
+---
+The connection's place in its server's open order, from 1.
+
+### sessionId
+
+<LuaProperty name="Connection.sessionId" type="string?" />
+
+---
+The session the server bound this connection to by answering it with READY or RESUMED.
+
+### path
+
+<LuaProperty name="Connection.path" type="string" />
+
+---
+The upgrade path with one trailing `/` removed: a resume dial records `/resume`, a fresh dial `/`.
+
+### socket
+
+<LuaProperty name="Connection.socket" type="HttpWebSocket" />
+
+---
+The Zune server socket.
+
+### open
+
+<LuaProperty name="Connection.open" type="boolean" />
+
+---
+False once the server's close callback has run for this connection.
+
+### closeCode
+
+<LuaProperty name="Connection.closeCode" type="number?" />
+
+---
+The code the server's close callback reported, nil while open.
+
+### received
+
+<LuaProperty name="Connection.received" type="{ Received }" />
+
+---
+Every payload the client sent, with the world clock's time it arrived.
+
+
+## Methods
+
+### send
+
+> <LuaDeclaration name="send" className="Connection" args={[ { name: "payload", type: "Payload" } ]} returnType="boolean" isMethod />
+
+Sends one payload as JSON and returns whether it went. Zune throws once the socket is closing, before the server's
+close callback clears `open`, so a send to a closing socket returns false.
+
+<LuaParamTable params={[ { name: "payload", type: "Payload" } ]} returns={[ { type: "boolean" } ]} />
+
+### close
+
+> <LuaDeclaration name="close" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Closes the connection with `code` (1000 by default). Closing a socket that is already closing does nothing.
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+### receivedOps
+
+> <LuaDeclaration name="receivedOps" className="Connection" args={[ { name: "opcode", type: "number" } ]} returnType="{ Received }" isMethod />
+
+Returns the records of every received payload with `opcode`, oldest first.
+
+<LuaParamTable params={[ { name: "opcode", type: "number" } ]} returns={[ { type: "{ Received }" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Connection" args={[ { name: "settings", type: "{ index: number, path: string, socket: ZuneSocket }" } ]} returnType="Connection" />
+
+Wraps a server socket the moment it opens.
+
+<LuaParamTable params={[ { name: "settings", type: "{ index: number, path: string, socket: ZuneSocket }" } ]} returns={[ { type: "Connection" } ]} />
+
+

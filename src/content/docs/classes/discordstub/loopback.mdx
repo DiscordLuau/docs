@@ -1,0 +1,47 @@
+---
+title: Loopback
+description: DiscordLuau docs for Loopback.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+The shared localhost server plumbing: bind on `127.0.0.1` with an ephemeral port, JSON responses, and the
+default 404.
+
+<LuaSummary className="Loopback" functions={[ { name: "serve", args: [ { name: "settings", type: "any" } ], returnType: "Server" }, { name: "jsonResponse", args: [ { name: "statusCode", type: "number" }, { name: "value", type: "any" } ], returnType: "Response" }, { name: "notFoundResponse", args: [  ], returnType: "Response" } ]} />
+
+## Functions
+
+### serve
+
+> <LuaDeclaration name="serve" className="Loopback" args={[ { name: "settings", type: "any" } ]} returnType="Server" />
+
+Starts a Zune HTTP server on `127.0.0.1` with an ephemeral port.
+
+<LuaParamTable params={[ { name: "settings", type: "any" } ]} returns={[ { type: "Server" } ]} />
+
+### jsonResponse
+
+> <LuaDeclaration name="jsonResponse" className="Loopback" args={[ { name: "statusCode", type: "number" }, { name: "value", type: "any" } ]} returnType="Response" />
+
+Builds a JSON response with `statusCode` and `value`.
+
+<LuaParamTable params={[ { name: "statusCode", type: "number" }, { name: "value", type: "any" } ]} returns={[ { type: "Response" } ]} />
+
+### notFoundResponse
+
+> <LuaDeclaration name="notFoundResponse" className="Loopback" args={[  ]} returnType="Response" />
+
+The JSON 404 every default route falls through to.
+
+<LuaParamTable returns={[ { type: "Response" } ]} />
+
+

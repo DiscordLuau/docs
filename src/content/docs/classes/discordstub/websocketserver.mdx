@@ -1,0 +1,226 @@
+---
+title: WebsocketServer
+description: DiscordLuau docs for WebsocketServer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+A localhost gateway: Hello on open, ACK on heartbeat, a new session on Identify, replay and RESUMED on Resume, and
+whatever the handler returns. Every connection is dialled by URL, so the library's own shard code speaks to it
+unchanged, and every upgrade and payload is recorded for the test to assert on.
+
+<LuaSummary className="WebsocketServer" properties={[ { name: "clock", type: "Clock" }, { name: "handler", type: "Handler?" }, { name: "onStop", type: "function?" }, { name: "connections", type: "{ Connection }" }, { name: "server", type: "any?" }, { name: "port", type: "number" }, { name: "url", type: "string" }, { name: "heartbeatIntervalMilliseconds", type: "number" }, { name: "connectAttempts", type: "number" }, { name: "refuseUpgrades", type: "number" }, { name: "upgradeDelaySeconds", type: "number" }, { name: "handshaking", type: "boolean" }, { name: "pendingPaths", type: "{ string }" }, { name: "sequence", type: "number" }, { name: "sessionId", type: "string?" }, { name: "dispatchLog", type: "{ Payload }" }, { name: "identifyCount", type: "number" }, { name: "handlerErrors", type: "{ string }" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ] }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "missDispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "dispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "latestConnection", isMethod: true, args: [  ], returnType: "Connection?" }, { name: "openConnections", isMethod: true, args: [  ], returnType: "number" }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ], returnType: "WebsocketServer" } ]} />
+
+## Properties
+
+### clock
+
+<LuaProperty name="WebsocketServer.clock" type="Clock" />
+
+---
+The world clock: upgrade delays wait on it and received records are stamped with it.
+
+### handler
+
+<LuaProperty name="WebsocketServer.handler" type="Handler?" />
+
+---
+The test's handler, which answers every payload before the default replies.
+
+### onStop
+
+<LuaProperty name="WebsocketServer.onStop" type="function?" />
+
+---
+Called with the handle after it stops.
+
+### connections
+
+<LuaProperty name="WebsocketServer.connections" type="{ Connection }" />
+
+---
+Every connection ever opened, in open order; a closed one stays with `open = false`.
+
+### server
+
+<LuaProperty name="WebsocketServer.server" type="any?" />
+
+---
+The Zune server handle, nil after it stops.
+
+### port
+
+<LuaProperty name="WebsocketServer.port" type="number" />
+
+---
+The ephemeral port the server bound to.
+
+### url
+
+<LuaProperty name="WebsocketServer.url" type="string" />
+
+---
+The server's base URL, `ws://127.0.0.1:{port}`.
+
+### heartbeatIntervalMilliseconds
+
+<LuaProperty name="WebsocketServer.heartbeatIntervalMilliseconds" type="number" />
+
+---
+The interval the default Hello announces, 41250 like Discord's.
+
+### connectAttempts
+
+<LuaProperty name="WebsocketServer.connectAttempts" type="number" />
+
+---
+Every upgrade request the server has seen, refused ones included.
+
+### refuseUpgrades
+
+<LuaProperty name="WebsocketServer.refuseUpgrades" type="number" />
+
+---
+How many of the next upgrades to refuse; each refusal fails the client with `UpgradeFailed`.
+
+### upgradeDelaySeconds
+
+<LuaProperty name="WebsocketServer.upgradeDelaySeconds" type="number" />
+
+---
+Clock seconds each upgrade is held before it is answered, 0 for none.
+
+### handshaking
+
+<LuaProperty name="WebsocketServer.handshaking" type="boolean" />
+
+---
+True while an upgrade is held by `upgradeDelaySeconds`.
+
+### pendingPaths
+
+<LuaProperty name="WebsocketServer.pendingPaths" type="{ string }" />
+
+---
+Paths of accepted upgrades whose connection has not opened yet, oldest first.
+
+### sequence
+
+<LuaProperty name="WebsocketServer.sequence" type="number" />
+
+---
+The last dispatch sequence number the world handed out.
+
+### sessionId
+
+<LuaProperty name="WebsocketServer.sessionId" type="string?" />
+
+---
+The current session, `stub-session-{identifyCount}`, nil before the first Identify.
+
+### dispatchLog
+
+<LuaProperty name="WebsocketServer.dispatchLog" type="{ Payload }" />
+
+---
+The current session's dispatches other than READY and RESUMED, which a Resume replays.
+
+### identifyCount
+
+<LuaProperty name="WebsocketServer.identifyCount" type="number" />
+
+---
+How many Identify payloads the default reply has answered.
+
+### handlerErrors
+
+<LuaProperty name="WebsocketServer.handlerErrors" type="{ string }" />
+
+---
+Every error the handler raised, which Zune would otherwise print and swallow.
+
+
+## Methods
+
+### send
+
+> <LuaDeclaration name="send" className="WebsocketServer" args={[ { name: "payload", type: "Payload" } ]} isMethod />
+
+Sends one payload to every open connection.
+
+<LuaParamTable params={[ { name: "payload", type: "Payload" } ]} />
+
+### close
+
+> <LuaDeclaration name="close" className="WebsocketServer" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Closes every open connection with `code` (1000 by default).
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+### missDispatch
+
+> <LuaDeclaration name="missDispatch" className="WebsocketServer" args={[ { name: "eventName", type: "string" }, { name: "data", type: "any" } ]} isMethod />
+
+Logs a dispatch the client never received, under the next sequence number, so a later Resume replays it.
+
+<LuaParamTable params={[ { name: "eventName", type: "string" }, { name: "data", type: "any" } ]} />
+
+### dispatch
+
+> <LuaDeclaration name="dispatch" className="WebsocketServer" args={[ { name: "eventName", type: "string" }, { name: "data", type: "any" } ]} isMethod />
+
+Logs a dispatch as `missDispatch` does, then sends it to every open connection bound to the current session.
+
+<LuaParamTable params={[ { name: "eventName", type: "string" }, { name: "data", type: "any" } ]} />
+
+### latestConnection
+
+> <LuaDeclaration name="latestConnection" className="WebsocketServer" args={[  ]} returnType="Connection?" isMethod />
+
+The most recently opened connection, nil before the first.
+
+<LuaParamTable returns={[ { type: "Connection?" } ]} />
+
+### openConnections
+
+> <LuaDeclaration name="openConnections" className="WebsocketServer" args={[  ]} returnType="number" isMethod />
+
+How many connections the server has not yet seen close.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### receivedOps
+
+> <LuaDeclaration name="receivedOps" className="WebsocketServer" args={[ { name: "opcode", type: "number" } ]} returnType="{ Received }" isMethod />
+
+Returns the records of every received payload with `opcode` across all connections, in the order they arrived.
+
+<LuaParamTable params={[ { name: "opcode", type: "number" } ]} returns={[ { type: "{ Received }" } ]} />
+
+### stop
+
+> <LuaDeclaration name="stop" className="WebsocketServer" args={[  ]} isMethod />
+
+Stops listening, closing every open connection first. Safe to call twice.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="WebsocketServer" args={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returnType="WebsocketServer" />
+
+Creates and starts the server on `127.0.0.1` with an ephemeral port.
+
+<LuaParamTable params={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returns={[ { type: "WebsocketServer" } ]} />
+
+
