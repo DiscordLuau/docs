@@ -103,10 +103,26 @@ export default defineConfig({
 					],
 				},
 				{
+					label: "Audio",
+					collapsed: false,
+					items: [
+						{ autogenerate: { directory: "classes/audio", collapsed: true } },
+					],
+				},
+				{
 					label: "Opus",
 					collapsed: false,
 					items: [
 						{ autogenerate: { directory: "classes/opus", collapsed: true } },
+					],
+				},
+				{
+					label: "Symphonia",
+					collapsed: false,
+					items: [
+						{
+							autogenerate: { directory: "classes/symphonia", collapsed: true },
+						},
 					],
 				},
 				{
@@ -227,6 +243,18 @@ export default defineConfig({
 						{
 							autogenerate: {
 								directory: "classes/stdpolyfills",
+								collapsed: true,
+							},
+						},
+					],
+				},
+				{
+					label: "Discord Stub",
+					collapsed: false,
+					items: [
+						{
+							autogenerate: {
+								directory: "classes/discordstub",
 								collapsed: true,
 							},
 						},
