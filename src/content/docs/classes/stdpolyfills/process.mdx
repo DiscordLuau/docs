@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 
 
-<LuaSummary className="Process" functions={[ { name: "getPlatform", args: [  ], returnType: "OS" }, { name: "getArgs", args: [  ], returnType: "{ string }" }, { name: "getEnv", args: [  ], returnType: "{ [string]: string }" }, { name: "getCwd", args: [  ], returnType: "string" }, { name: "run", args: [ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ], returnType: "RunResult" }, { name: "getArch", args: [  ], returnType: "Arch" }, { name: "onSignal", args: [ { name: "signal", type: "Signal" }, { name: "callback", type: "() -> ()" } ] } ]} />
+<LuaSummary className="Process" functions={[ { name: "getPlatform", args: [  ], returnType: "OS" }, { name: "getArgs", args: [  ], returnType: "{ string }" }, { name: "getEnv", args: [  ], returnType: "{ [string]: string }" }, { name: "getCwd", args: [  ], returnType: "string" }, { name: "run", args: [ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ], returnType: "RunResult" }, { name: "spawn", args: [ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" } ], returnType: "Process" }, { name: "getArch", args: [  ], returnType: "Arch" }, { name: "onSignal", args: [ { name: "signal", type: "Signal" }, { name: "callback", type: "() -> ()" } ] } ]} />
 
 ## Functions
 
@@ -59,6 +59,16 @@ Runs a subprocess and returns the result. Only supported on Zune; calling from
 Lune will raise an error explaining the requirement.
 
 <LuaParamTable params={[ { name: "exec", type: "string" }, { name: "args", type: "{ string }?" }, { name: "opts", type: "{ cwd: string?, env: { [string]: string }? }?" } ]} returns={[ { type: "RunResult" } ]} />
+
+### spawn
+
+> <LuaDeclaration name="spawn" className="Process" args={[ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" } ]} returnType="Process" />
+
+Starts a program directly, without a shell, with stdout and stderr piped and stdin ignored. Only supported on Zune;
+other runtimes raise `process.spawn is not supported on this runtime`. Raises `could not start &lt;command&gt;: &lt;reason&gt;`
+when the program cannot start.
+
+<LuaParamTable params={[ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" } ]} returns={[ { type: "Process" } ]} />
 
 ### getArch
 

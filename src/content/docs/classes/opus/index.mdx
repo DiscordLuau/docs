@@ -18,7 +18,7 @@ FFI bindings for libopus, providing PCM→Opus encoding and Opus→PCM decoding.
 
 All functions use pre-built libopus binaries bundled with this package - no system installation is required.
 
-<LuaSummary className="Opus" properties={[ { name: "sys", type: "Opus.Sys" }, { name: "encoder", type: "Opus.Encoder" }, { name: "decoder", type: "Opus.Decoder" }, { name: "stats", type: "Opus.Stats" } ]} />
+<LuaSummary className="Opus" properties={[ { name: "sys", type: "Opus.Sys" }, { name: "encoder", type: "Opus.Encoder" }, { name: "decoder", type: "Opus.Decoder" }, { name: "stats", type: "Opus.Stats" } ]} functions={[ { name: "checkBitrate", args: [ { name: "bitsPerSecond", type: "unknown" } ] } ]} />
 
 ## Properties
 
@@ -41,5 +41,16 @@ All functions use pre-built libopus binaries bundled with this package - no syst
 
 <LuaProperty name="Opus.stats" type="Opus.Stats" />
 
+
+
+## Functions
+
+### checkBitrate
+
+> <LuaDeclaration name="checkBitrate" className="Opus" args={[ { name: "bitsPerSecond", type: "unknown" } ]} />
+
+Raises unless `bitsPerSecond` is a whole number from 500 to 510000. The same function as `Opus.Encoder.checkBitrate`.
+
+<LuaParamTable params={[ { name: "bitsPerSecond", type: "unknown" } ]} />
 
 

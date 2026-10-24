@@ -1,0 +1,409 @@
+---
+title: Decoder
+description: DiscordLuau docs for Decoder.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Decodes one audio file with libsymphonia. Every format except Opus decodes to 48 kHz interleaved stereo 16-bit
+little-endian PCM through `read`, at `volume` and through a `Limiter` instead of clipping, or to the library's 32-bit
+floats through `readFloat`; Opus is passed through, never decoded, as raw Opus packets through `readPacket`.
+PCM, FLAC, Vorbis and ALAC in any channel layout are mixed to stereo. AAC-LC and ADPCM take mono or stereo only:
+AAC with more than two channels fails to open, and implicitly signalled HE-AAC plays only its AAC-LC core.
+
+Build one with `fromBuffer`, `fromFile` or `fromStream`, read it to its end, and call `destroy`. A decoder that is
+never destroyed keeps its native session, and for `fromFile` its open file, until the process exits. A stream is fed
+with `push` and `finish`, and `refresh` follows its worker thread.
+
+Nothing here is `Async`: opening, `read` and `readPacket` block on native code and, for `fromFile`, on the disk, and
+a future would not unblock them. A slow disk stalls the whole VM while it reads. Reads on a stream never block: they
+return nil with `dry` set while nothing is ready.
+
+<LuaSummary className="Decoder" properties={[ { name: "id", type: "number" }, { name: "codec", type: "string" }, { name: "container", type: "string" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "durationSeconds", type: "number?" }, { name: "isOpus", type: "boolean" }, { name: "ended", type: "boolean" }, { name: "endedEarly", type: "boolean" }, { name: "destroyed", type: "boolean" }, { name: "skippedPackets", type: "number" }, { name: "volume", type: "number" }, { name: "limiter", type: "Symphonia.Limiter?" }, { name: "opened", type: "boolean" }, { name: "dry", type: "boolean" }, { name: "state", type: "number" }, { name: "failed", type: "boolean" }, { name: "failure", type: "string?" }, { name: "failedBeforeOpen", type: "boolean" }, { name: "isStream", type: "boolean" }, { name: "finished", type: "boolean" }, { name: "endReturned", type: "boolean" }, { name: "warnedOpusVolume", type: "boolean" }, { name: "logger", type: "logger.Logger" }, { name: "library", type: "Sys.Lib" }, { name: "errorPointer", type: "FFIPointer" }, { name: "outputPointer", type: "FFIPointer" } ]} methods={[ { name: "refresh", isMethod: true, args: [  ] }, { name: "push", isMethod: true, args: [ { name: "chunk", type: "buffer | string" } ], returnType: "boolean" }, { name: "finish", isMethod: true, args: [  ] }, { name: "read", isMethod: true, args: [  ], returnType: "buffer?" }, { name: "readFloat", isMethod: true, args: [  ], returnType: "buffer?" }, { name: "readPacket", isMethod: true, args: [  ], returnType: "buffer?" }, { name: "setVolume", isMethod: true, args: [ { name: "volume", type: "number" } ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "checkVolume", args: [ { name: "volume", type: "unknown" } ] }, { name: "fromBuffer", args: [ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecoderOptions?" } ], returnType: "Decoder" }, { name: "fromFile", args: [ { name: "path", type: "string" }, { name: "options", type: "DecoderOptions?" } ], returnType: "Decoder" }, { name: "fromStream", args: [ { name: "options", type: "DecoderOptions?" } ], returnType: "Decoder" } ]} />
+
+## Properties
+
+### id
+
+<LuaProperty name="Decoder.id" type="number" />
+
+---
+The native session's id.
+
+### codec
+
+<LuaProperty name="Decoder.codec" type="string" />
+
+---
+The codec's short name, such as `"mp3"`, `"flac"`, `"vorbis"`, `"aac"`, `"pcm_s16le"` or `"opus"`.
+
+### container
+
+<LuaProperty name="Decoder.container" type="string" />
+
+---
+The container's short name, such as `"mp3"`, `"flac"`, `"ogg"`, `"wave"`, `"isomp4"` or `"matroska"`.
+
+### sampleRate
+
+<LuaProperty name="Decoder.sampleRate" type="number" />
+
+---
+The file's own sample rate in Hz. `read` always returns 48 kHz.
+
+### channels
+
+<LuaProperty name="Decoder.channels" type="number" />
+
+---
+The file's own channel count, or 0 when it does not state one. `read` always returns stereo.
+
+### durationSeconds
+
+<LuaProperty name="Decoder.durationSeconds" type="number?" />
+
+---
+The length the file states, or nil when it states none (Matroska and WebM never do).
+
+### isOpus
+
+<LuaProperty name="Decoder.isOpus" type="boolean" />
+
+---
+Whether the audio is Opus, read with `readPacket`; anything else is read with `read`.
+
+### ended
+
+<LuaProperty name="Decoder.ended" type="boolean" />
+
+---
+Whether a read has reached the end of the audio, or the decoder has been destroyed.
+
+### endedEarly
+
+<LuaProperty name="Decoder.endedEarly" type="boolean" />
+
+---
+Whether decoding ended short of the length the file states, because the file is truncated or because damaged
+packets were skipped. Read when a read reaches the end, which warns once when it is set; false until then. A file
+that states no length, such as a WAV streamed with unknown sizes, an MP2 stream or an ADTS AAC stream, is never
+flagged; an MP3 with a Xing header states its length and is. Opus is passed through, not decoded, so it is never
+flagged.
+
+### destroyed
+
+<LuaProperty name="Decoder.destroyed" type="boolean" />
+
+---
+Whether `destroy` has freed the native session.
+
+### skippedPackets
+
+<LuaProperty name="Decoder.skippedPackets" type="number" />
+
+---
+How many undecodable or empty packets were skipped so far.
+
+### volume
+
+<LuaProperty name="Decoder.volume" type="number" />
+
+---
+The volume `setVolume` last set, from 0 to 4; 1 until then. `read` applies it through `limiter`; it has no effect on
+`readFloat`, or on Opus, which is passed through.
+
+### limiter
+
+<LuaProperty name="Decoder.limiter" type="Symphonia.Limiter?" />
+
+---
+The decoder's own `Limiter`, which turns `read`'s floats into 16-bit PCM at `volume`; nil once `destroy` has
+released it. Its `clampCount` stays 0.
+
+### opened
+
+<LuaProperty name="Decoder.opened" type="boolean" />
+
+---
+Whether the audio has been opened, so that `codec`, `container`, `sampleRate`, `channels`, `isOpus` and
+`durationSeconds` are real. True from the start for `fromBuffer` and `fromFile`; for `fromStream` it turns true in
+the first `refresh` after enough bytes have arrived, and until then those fields are `""`, -1 or false. A failed
+stream that never opened stays false.
+
+### dry
+
+<LuaProperty name="Decoder.dry" type="boolean" />
+
+---
+Whether the last read of a stream returned nil because nothing was ready yet, so the audio has not ended: push more
+bytes or wait. A successful read, or the end, clears it. Always false for `fromBuffer` and `fromFile`.
+
+### state
+
+<LuaProperty name="Decoder.state" type="number" />
+
+---
+The native session's state as of the last `refresh`: 0 while a stream probes, 1 open, 2 ended, 3 failed.
+
+### failed
+
+<LuaProperty name="Decoder.failed" type="boolean" />
+
+---
+Whether the stream session failed, as of the last `refresh`; `failure` says why.
+
+### failure
+
+<LuaProperty name="Decoder.failure" type="string?" />
+
+---
+The text of the session's failure, nil until `failed`.
+
+### failedBeforeOpen
+
+<LuaProperty name="Decoder.failedBeforeOpen" type="boolean" />
+
+---
+Whether the session failed before the audio opened, which means the bytes are not audio libsymphonia can read from
+a stream; false until `failed`.
+
+### isStream
+
+<LuaProperty name="Decoder.isStream" type="boolean" />
+
+---
+Whether the decoder is a stream session built by `fromStream`.
+
+### finished
+
+<LuaProperty name="Decoder.finished" type="boolean" />
+
+---
+Whether `finish` has marked the end of the input.
+
+### endReturned
+
+<LuaProperty name="Decoder.endReturned" type="boolean" />
+
+---
+Whether `read` has returned the nil that ends the audio, after the limiter's last frames. A read after that is a
+read after the end.
+
+### warnedOpusVolume
+
+<LuaProperty name="Decoder.warnedOpusVolume" type="boolean" />
+
+---
+Whether `setVolume` has already warned that volume has no effect on this Opus decoder.
+
+### logger
+
+<LuaProperty name="Decoder.logger" type="logger.Logger" />
+
+---
+The decoder's logger, named `SymphoniaDecoder` and at `Info` unless `logLevel` says otherwise.
+
+### library
+
+<LuaProperty name="Decoder.library" type="Sys.Lib" />
+
+---
+The library that opened the session.
+
+### errorPointer
+
+<LuaProperty name="Decoder.errorPointer" type="FFIPointer" />
+
+---
+Native memory libsymphonia writes its error text into, allocated once.
+
+### outputPointer
+
+<LuaProperty name="Decoder.outputPointer" type="FFIPointer" />
+
+---
+Native memory libsymphonia writes PCM or the next packet into, allocated once: room for `READ_FRAMES` float frames
+plus the limiter's look-ahead, which also holds the largest packet, `MAX_PACKET_SIZE` bytes.
+
+
+## Methods
+
+### refresh
+
+> <LuaDeclaration name="refresh" className="Decoder" args={[  ]} isMethod />
+
+Reads the session's state from libsymphonia, which a stream's worker thread changes on its own:
+- the first time the audio has opened, it fills `codec`, `container`, `sampleRate`, `channels`, `isOpus` and
+`durationSeconds`, sets `opened`, and logs it at debug;
+- once the session has failed, it sets `failed`, `failure` and `failedBeforeOpen`;
+- it always updates `state`.
+
+Call it from a loop that feeds a stream, before a push or a read that depends on the shape. `read`, `readFloat` and
+`readPacket` call it themselves until the audio has opened. After `destroy` it only logs at debug.
+
+### push
+
+> <LuaDeclaration name="push" className="Decoder" args={[ { name: "chunk", type: "buffer | string" } ]} returnType="boolean" isMethod />
+
+Queues the next piece of a stream's file, as a buffer or a string, and returns true. Returns false, with nothing
+queued, when the input is full (64 chunks): wait for the worker to catch up, read some output, and push the same
+chunk again. It never blocks.
+
+Raises `decoder has been destroyed` after `destroy`, `this decoder is not a stream` for a decoder from `fromBuffer`
+or `fromFile`, and `could not push audio: &lt;reason&gt;` when the session cannot take bytes any more: its failure text,
+`the stream has ended` for a session that finished decoding early, or `the stream was finished` after `finish`.
+
+<LuaParamTable params={[ { name: "chunk", type: "buffer | string" } ]} returns={[ { type: "boolean" } ]} />
+
+### finish
+
+> <LuaDeclaration name="finish" className="Decoder" args={[  ]} isMethod />
+
+Marks the end of a stream's input, so the session can decode what it holds and end. A second call logs at debug and
+does nothing.
+
+Raises `decoder has been destroyed` after `destroy` and `this decoder is not a stream` for any other decoder.
+
+### read
+
+> <LuaDeclaration name="read" className="Decoder" args={[  ]} returnType="buffer?" isMethod />
+
+Returns up to `READ_FRAMES` (4800, 100 ms) frames of 48 kHz interleaved stereo 16-bit little-endian PCM, never an
+empty buffer, or nil at the end. An undecodable packet is skipped and counted in `skippedPackets`. A file cut short
+ends at the audio it holds; when that falls short of the length the file states, it sets `endedEarly`, with one
+warning.
+
+The samples are libsymphonia's floats through `limiter`: a non-finite sample becomes 0, then the volume applies,
+ramped over 20 ms after a change, and audio that would pass full scale is limited with 5 ms of look-ahead instead
+of clipped. Audio that never passes full scale comes out bit for bit as a plain conversion. The limiter holds the
+last 240 frames (5 ms) back, so the first read decodes 240 frames more than it returns and every read returns 100
+ms until the audio runs out. The read that reaches the end sets `ended` and returns the frames the limiter held;
+the next returns nil, as does every read after it. The frame count in all is the file's own.
+
+On a stream, a read also returns nil, with `dry` set and `ended` not, while nothing is ready; the limiter keeps what
+it holds and is flushed only at the true end, so keep reading after a dry nil.
+
+Raises `this audio is Opus; read it with readPacket` for Opus, `decoder has been destroyed` after `destroy`, and
+`could not decode audio: &lt;message&gt;` when the file cannot be decoded further.
+
+<LuaParamTable returns={[ { type: "buffer?" } ]} />
+
+### readFloat
+
+> <LuaDeclaration name="readFloat" className="Decoder" args={[  ]} returnType="buffer?" isMethod />
+
+Returns up to `READ_FRAMES` (4800, 100 ms) frames of 48 kHz interleaved stereo 32-bit float little-endian PCM,
+exactly as libsymphonia decoded them, without `volume` and without conversion; samples may pass full scale. It
+returns nil, sets `ended` and `endedEarly`, and raises, as `read` does. On a stream it also returns nil, with `dry`
+set and `ended` not, while nothing is ready.
+
+It shares the decoded stream with `read`, and mixing the two is allowed: each frame comes out exactly once, through
+one or the other. Frames `readFloat` takes bypass `limiter`, so the next `read` first returns the up to 240 frames
+the limiter held from before them, and the frames it holds at the end come out only through a `read` after the end.
+
+<LuaParamTable returns={[ { type: "buffer?" } ]} />
+
+### readPacket
+
+> <LuaDeclaration name="readPacket" className="Decoder" args={[  ]} returnType="buffer?" isMethod />
+
+Returns the next Opus packet as it is stored in the file, or nil at the end, which sets `ended`; a read after the
+end returns nil again. Empty packets are skipped and counted in `skippedPackets`. A file cut short ends at the
+packets it holds; Opus is not decoded, so `endedEarly` stays false. On a stream it also returns nil, with `dry` set
+and `ended` not, while no packet is ready.
+
+The packets play as they are, without the OpusHead's pre-skip, end trimming or output gain.
+
+Raises `this audio is not Opus; read it with read` for anything else, `decoder has been destroyed` after `destroy`,
+and `could not decode audio: &lt;message&gt;` when the file cannot be read further.
+
+<LuaParamTable returns={[ { type: "buffer?" } ]} />
+
+### setVolume
+
+> <LuaDeclaration name="setVolume" className="Decoder" args={[ { name: "volume", type: "number" } ]} isMethod />
+
+Sets the volume of the PCM that `read` returns: a number from 0 to 4, where 1 leaves the audio as it is. The
+decoder's `limiter` applies it to the frames the next read takes, ramped over 20 ms so it never clicks, and limits
+audio it would push past full scale instead of clipping it. The look-ahead holds 240 frames, so the change is heard
+5 ms into the next read. `readFloat` is never changed by it.
+
+An Opus decoder passes its packets through undecoded, so the volume has no effect on it: the value is kept and the
+first call logs a warning.
+
+Raises `volume must be a number from 0 to 4` for anything else, and `decoder has been destroyed` after `destroy`.
+
+<LuaParamTable params={[ { name: "volume", type: "number" } ]} />
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="Decoder" args={[  ]} isMethod />
+
+Closes the native session, and the file for `fromFile`, frees the decoder's native memory and releases its
+`limiter`. A second call does nothing.
+
+
+## Functions
+
+### checkVolume
+
+> <LuaDeclaration name="checkVolume" className="Decoder" args={[ { name: "volume", type: "unknown" } ]} />
+
+Raises `volume must be a number from 0 to 4` unless `volume` is a number in that range. This is the boundary where
+users hand in a volume of any type: a non-number is checked as NaN, so it raises the same message from
+`Limiter.checkVolume`, which owns the range and the message. `setVolume` and the audio file sources use it.
+
+<LuaParamTable params={[ { name: "volume", type: "unknown" } ]} />
+
+### fromBuffer
+
+> <LuaDeclaration name="fromBuffer" className="Decoder" args={[ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecoderOptions?" } ]} returnType="Decoder" />
+
+Opens a whole file held in memory, as a buffer or a string. The bytes are handed to libsymphonia as they are, which
+copies them, so the input can be dropped afterwards. The format is found from the content alone:
+`options.extension` (such as `"mp3"`, without the dot) is passed to libsymphonia, but Symphonia 0.6.1's probe does
+not read it, so it currently has no effect.
+
+Loads the library first, so the first call always yields, even when the library is cached; see
+`Symphonia.Sys.load`. Raises `could not open audio: &lt;message&gt;` for anything libsymphonia cannot open.
+
+<LuaParamTable params={[ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecoderOptions?" } ]} returns={[ { type: "Decoder" } ]} />
+
+### fromFile
+
+> <LuaDeclaration name="fromFile" className="Decoder" args={[ { name: "path", type: "string" }, { name: "options", type: "DecoderOptions?" } ]} returnType="Decoder" />
+
+Opens the file at `path` and streams it from the disk as it is read, without reading it into Luau. The format is
+found from the content alone: `options.extension`, or else the path's own extension, is passed to libsymphonia, but
+Symphonia 0.6.1's probe does not read it, so it currently has no effect.
+
+Loads the library first, so the first call always yields, even when the library is cached; see
+`Symphonia.Sys.load`. Raises `could not open audio: the path contains a NUL byte` before opening anything, since
+the library would read only the path's text before the NUL, and `could not open audio: &lt;message&gt;` for a missing
+file or anything libsymphonia cannot open.
+
+<LuaParamTable params={[ { name: "path", type: "string" }, { name: "options", type: "DecoderOptions?" } ]} returns={[ { type: "Decoder" } ]} />
+
+### fromStream
+
+> <LuaDeclaration name="fromStream" className="Decoder" args={[ { name: "options", type: "DecoderOptions?" } ]} returnType="Decoder" />
+
+Opens a stream session for a file that arrives in pieces, decoded on a worker thread: feed it with `push`, end the
+input with `finish`, and read as for any decoder. The session starts probing, with `opened` false, and `refresh`
+opens it once enough bytes have arrived. Reads never block: they return nil with `dry` set while nothing is ready.
+Nothing here destroys the session: call `destroy` when done, even after a failure.
+
+Loads the library first, so the first call always yields; see `Symphonia.Sys.load`. Raises
+`could not open audio: &lt;message&gt;` if the session cannot be created.
+
+<LuaParamTable params={[ { name: "options", type: "DecoderOptions?" } ]} returns={[ { type: "Decoder" } ]} />
+
+

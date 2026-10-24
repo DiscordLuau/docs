@@ -15,27 +15,18 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Manages the DAVE (Discord Audio/Video Encryption) MLS session lifecycle for a voice connection.
 
-Owns the MLS session, encryptor, per-user decryptors, and SSRC-to-user-ID mapping. Opcode
-handlers return frames to send and roster IDs rather than performing I/O - the caller
-(Voice.Connection) is responsible for sending frames and firing events.
+Owns the MLS session, encryptor, per-user decryptors, and SSRC-to-user-ID mapping. The owner (Voice.Connection)
+passes it the voice gateway's DAVE opcodes and sets `sendMessage`, through which it answers, `onTransitionExecuted`
+and `onMediaReadyChanged`. libdave objects come from `createSession`, `createEncryptor` and `createDecryptor`, which
+tests replace with stand-ins.
 
-<LuaSummary className="DaveManager" properties={[ { name: "daveSession", type: "dave.Session?" }, { name: "pendingDaveProtocolVersion", type: "number?" }, { name: "isPendingCommitter", type: "boolean" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" }, { name: "recognizedUserIds", type: "{ string }" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "rotateDaveKeys", isMethod: true, args: [ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ] }, { name: "initSession", isMethod: true, args: [ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ] }, { name: "handlePrepareTransition", isMethod: true, args: [ { name: "payload", type: "any" } ], returnType: "buffer" }, { name: "handleExecuteTransition", isMethod: true, args: [ { name: "_payload", type: "any" } ] }, { name: "handlePrepareEpoch", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ] }, { name: "handleExternalSender", isMethod: true, args: [ { name: "payload", type: "any" } ], returnType: "buffer?" }, { name: "handleProposals", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "_", type: "string" }, { name: "_", type: "number?" } ], returnType: "buffer?" }, { name: "handleCommitTransition", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ], returnType: "{ string }?" }, { name: "handleWelcome", isMethod: true, args: [ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ], returnType: "{ string }?" } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "DaveManager" } ]} />
+<LuaSummary className="DaveManager" properties={[ { name: "daveSession", type: "dave.Session?" }, { name: "daveEncryptor", type: "dave.Encryptor?" }, { name: "daveDecryptors", type: "{ [string]: dave.Decryptor }" }, { name: "recognizedUserIds", type: "{ [string]: true }" }, { name: "roster", type: "{ [string]: true }" }, { name: "pendingTransitions", type: "{ [number]: number }" }, { name: "pendingSelfRatchets", type: "{ [number]: dave.KeyRatchet }" }, { name: "selfRatchetApplied", type: "boolean" }, { name: "reinitializing", type: "boolean" }, { name: "mediaReady", type: "boolean" }, { name: "ssrcToUserId", type: "{ [number]: string }" }, { name: "protocolVersion", type: "number" }, { name: "mediaProtocolVersion", type: "number?" }, { name: "externalSender", type: "buffer?" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" }, { name: "createSession", type: "(authSessionId: string, onMlsFailure: ((source: string, reason: string) -> ())?) -> dave.Session" }, { name: "createEncryptor", type: "() -> dave.Encryptor" }, { name: "createDecryptor", type: "() -> dave.Decryptor" }, { name: "sendMessage", type: "((message: string | buffer, purpose: string) -> ())?" }, { name: "onTransitionExecuted", type: "((rosterSize: number) -> ())?" }, { name: "onMediaReadyChanged", type: "((ready: boolean) -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "handleSessionDescription", isMethod: true, args: [ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ] }, { name: "handleClientsConnect", isMethod: true, args: [ { name: "userIds", type: "{ string }" } ] }, { name: "handleClientDisconnect", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "handlePrepareTransition", isMethod: true, args: [ { name: "payload", type: "any" } ] }, { name: "handleExecuteTransition", isMethod: true, args: [ { name: "payload", type: "any" } ] }, { name: "hasPendingDowngrade", isMethod: true, args: [  ], returnType: "boolean" }, { name: "handlePrepareEpoch", isMethod: true, args: [ { name: "payload", type: "any" } ] }, { name: "handleExternalSender", isMethod: true, args: [ { name: "payload", type: "buffer" } ] }, { name: "handleProposals", isMethod: true, args: [ { name: "payload", type: "buffer" } ] }, { name: "handleCommitTransition", isMethod: true, args: [ { name: "payload", type: "buffer" } ] }, { name: "handleWelcome", isMethod: true, args: [ { name: "payload", type: "buffer" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "DaveManager" } ]} />
 
 ## Properties
 
 ### daveSession
 
 <LuaProperty name="DaveManager.daveSession" type="dave.Session?" />
-
-
-### pendingDaveProtocolVersion
-
-<LuaProperty name="DaveManager.pendingDaveProtocolVersion" type="number?" />
-
-
-### isPendingCommitter
-
-<LuaProperty name="DaveManager.isPendingCommitter" type="boolean" />
 
 
 ### daveEncryptor
@@ -50,13 +41,149 @@ handlers return frames to send and roster IDs rather than performing I/O - the c
 
 ### recognizedUserIds
 
-<LuaProperty name="DaveManager.recognizedUserIds" type="{ string }" />
+<LuaProperty name="DaveManager.recognizedUserIds" type="{ [string]: true }" />
 
+---
+Users connected to the media session: added by op 11, removed by op 13. libdave rejects an add proposal or a
+welcome naming anyone else. It survives a group reset.
+
+### roster
+
+<LuaProperty name="DaveManager.roster" type="{ [string]: true }" />
+
+---
+Every member of the MLS group, the bot included, mirrored from the change set each commit or welcome returns.
+Cleared by a group reset.
+
+### pendingTransitions
+
+<LuaProperty name="DaveManager.pendingTransitions" type="{ [number]: number }" />
+
+---
+The protocol version each prepared transition moves to, by transition id, until it executes.
+
+### pendingSelfRatchets
+
+<LuaProperty name="DaveManager.pendingSelfRatchets" type="{ [number]: dave.KeyRatchet }" />
+
+---
+The bot's own key ratchet, held by transition id until that transition executes. There is at most one: a newer
+commit supersedes an older one.
+
+### selfRatchetApplied
+
+<LuaProperty name="DaveManager.selfRatchetApplied" type="boolean" />
+
+---
+Whether the encryptor holds a key from the current session. False again after a group reset.
+
+### reinitializing
+
+<LuaProperty name="DaveManager.reinitializing" type="boolean" />
+
+---
+True while recovering from a commit or welcome libdave could not process, so a burst of failures sends one op 31.
+Cleared by the next processed commit or welcome, or an executed transition.
+
+### mediaReady
+
+<LuaProperty name="DaveManager.mediaReady" type="boolean" />
+
+---
+Whether audio can flow: true when media is not under DAVE (`mediaProtocolVersion` 0), or under DAVE once the
+encryptor holds a key from the current session. Never true before Session Description or after `cleanup`.
 
 ### ssrcToUserId
 
 <LuaProperty name="DaveManager.ssrcToUserId" type="{ [number]: string }" />
 
+
+### protocolVersion
+
+<LuaProperty name="DaveManager.protocolVersion" type="number" />
+
+---
+The MLS session's DAVE protocol version: set at Session Description, by a group reset and when a transition
+executes. 0 without a session.
+
+### mediaProtocolVersion
+
+<LuaProperty name="DaveManager.mediaProtocolVersion" type="number?" />
+
+---
+The DAVE protocol version media is sent and received under: set at Session Description and when a transition
+executes, nil before Session Description and after `cleanup`.
+
+### externalSender
+
+<LuaProperty name="DaveManager.externalSender" type="buffer?" />
+
+---
+The voice gateway's MLS external sender (op 25), applied to every session a group reset creates.
+
+### channelId
+
+<LuaProperty name="DaveManager.channelId" type="string" />
+
+---
+The MLS group id, which is the voice channel's id; set at Session Description.
+
+### userId
+
+<LuaProperty name="DaveManager.userId" type="string" />
+
+---
+The bot's user id; set at Session Description.
+
+### ssrc
+
+<LuaProperty name="DaveManager.ssrc" type="number?" />
+
+---
+The bot's audio ssrc, which every new encryptor is told is Opus; set at Session Description.
+
+### createSession
+
+<LuaProperty name="DaveManager.createSession" type="(authSessionId: string, onMlsFailure: ((source: string, reason: string) -> ())?) -> dave.Session" />
+
+---
+Makes the MLS session; `dave.Session.new` unless a test replaces it.
+
+### createEncryptor
+
+<LuaProperty name="DaveManager.createEncryptor" type="() -> dave.Encryptor" />
+
+---
+Makes the encryptor; `dave.Encryptor.new` unless a test replaces it.
+
+### createDecryptor
+
+<LuaProperty name="DaveManager.createDecryptor" type="() -> dave.Decryptor" />
+
+---
+Makes a decryptor; `dave.Decryptor.new` unless a test replaces it.
+
+### sendMessage
+
+<LuaProperty name="DaveManager.sendMessage" type="((message: string | buffer, purpose: string) -> ())?" />
+
+---
+Sends a message to the voice gateway, set by the owner: a string as JSON text, a buffer as a binary frame.
+`purpose` names it in logs.
+
+### onTransitionExecuted
+
+<LuaProperty name="DaveManager.onTransitionExecuted" type="((rosterSize: number) -> ())?" />
+
+---
+Set by the owner; called when a transition executes, with the number of group members, the bot included.
+
+### onMediaReadyChanged
+
+<LuaProperty name="DaveManager.onMediaReadyChanged" type="((ready: boolean) -> ())?" />
+
+---
+Set by the owner; called with the new value whenever `mediaReady` changes.
 
 ### logger
 
@@ -70,81 +197,108 @@ handlers return frames to send and roster IDs rather than performing I/O - the c
 
 > <LuaDeclaration name="cleanup" className="DaveManager" args={[  ]} isMethod />
 
-Destroys the active DAVE session, encryptor, and all per-user decryptors, then resets all state.
+Destroys the session, the encryptor, every decryptor and every held key ratchet, then resets all DAVE state.
 
-### rotateDaveKeys
+### handleSessionDescription
 
-> <LuaDeclaration name="rotateDaveKeys" className="DaveManager" args={[ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="handleSessionDescription" className="DaveManager" args={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} isMethod />
 
-Updates the encryptor key ratchet and rebuilds per-user decryptors from the current MLS roster.
-Destroys decryptors for users no longer in the roster.
+Starts DAVE for a new voice session from Session Description's `dave_protocol_version`. Version 0 needs nothing
+more; above 0 it creates the MLS session and the encryptor and sends a key package (op 26).
 
-<LuaParamTable params={[ { name: "rosterIds", type: "{ string }" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} />
+<LuaParamTable params={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} />
 
-### initSession
+### handleClientsConnect
 
-> <LuaDeclaration name="initSession" className="DaveManager" args={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="handleClientsConnect" className="DaveManager" args={[ { name: "userIds", type: "{ string }" } ]} isMethod />
 
-Creates and initialises a new DAVE MLS session for the given protocol version, channel, and user.
+Adds users who connected to the media session (op 11) to the recognized set.
 
-<LuaParamTable params={[ { name: "protocolVersion", type: "number" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "userIds", type: "{ string }" } ]} />
+
+### handleClientDisconnect
+
+> <LuaDeclaration name="handleClientDisconnect" className="DaveManager" args={[ { name: "userId", type: "string" } ]} isMethod />
+
+Forgets a user who left the media session (op 13): they are no longer recognized, and their decryptor is destroyed.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
 
 ### handlePrepareTransition
 
-> <LuaDeclaration name="handlePrepareTransition" className="DaveManager" args={[ { name: "payload", type: "any" } ]} returnType="buffer" isMethod />
+> <LuaDeclaration name="handlePrepareTransition" className="DaveManager" args={[ { name: "payload", type: "any" } ]} isMethod />
 
-Stores the incoming protocol version and returns a DaveProtocolTransitionReady frame to send to the server.
+Handles prepare transition (op 21): records the protocol version the transition moves to, which applies only when
+it executes. A move to version 0 lets every decryptor accept plain frames now, because senders may switch first. A
+payload without a numeric transition id and protocol version is ignored.
 
-<LuaParamTable params={[ { name: "payload", type: "any" } ]} returns={[ { type: "buffer" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "any" } ]} />
 
 ### handleExecuteTransition
 
-> <LuaDeclaration name="handleExecuteTransition" className="DaveManager" args={[ { name: "_payload", type: "any" } ]} isMethod />
+> <LuaDeclaration name="handleExecuteTransition" className="DaveManager" args={[ { name: "payload", type: "any" } ]} isMethod />
 
-Applies the pending protocol version to the active session and clears the pending state.
+Handles execute transition (op 22) for a transition this client recorded; any other transition id is ignored, and a
+non-numeric one is warned.
 
-<LuaParamTable params={[ { name: "_payload", type: "any" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "any" } ]} />
+
+### hasPendingDowngrade
+
+> <LuaDeclaration name="hasPendingDowngrade" className="DaveManager" args={[  ]} returnType="boolean" isMethod />
+
+Whether a transition to protocol version 0 is prepared and not executed yet. Senders may already send plain frames
+then, so the receive side accepts them.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 ### handlePrepareEpoch
 
-> <LuaDeclaration name="handlePrepareEpoch" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} isMethod />
+> <LuaDeclaration name="handlePrepareEpoch" className="DaveManager" args={[ { name: "payload", type: "any" } ]} isMethod />
 
-Resets or creates the DAVE session in preparation for a new MLS epoch, then initialises it.
+Handles prepare epoch (op 24). Epoch 1 means the voice gateway is creating the group again, so the group is reset
+at the payload's protocol version, which sends a new key package. Without a numeric version in the payload it
+falls back to the session's version, and without a version above 0 it keeps the group. Any other epoch keeps the
+group.
 
-<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "any" } ]} />
 
 ### handleExternalSender
 
-> <LuaDeclaration name="handleExternalSender" className="DaveManager" args={[ { name: "payload", type: "any" } ]} returnType="buffer?" isMethod />
+> <LuaDeclaration name="handleExternalSender" className="DaveManager" args={[ { name: "payload", type: "buffer" } ]} isMethod />
 
-Sets the MLS external sender and returns a DaveMlsKeyPackage frame for the server.
+Stores the voice gateway's MLS external sender (op 25) and applies it to the current session; a group reset applies
+it to the session it creates. Sends nothing: the key package goes out when a session is created.
 
-<LuaParamTable params={[ { name: "payload", type: "any" } ]} returns={[ { type: "buffer?" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "buffer" } ]} />
 
 ### handleProposals
 
-> <LuaDeclaration name="handleProposals" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "_", type: "string" }, { name: "_", type: "number?" } ]} returnType="buffer?" isMethod />
+> <LuaDeclaration name="handleProposals" className="DaveManager" args={[ { name: "payload", type: "buffer" } ]} isMethod />
 
-Processes incoming MLS proposals and returns a commit+welcome frame and the current roster snapshot.
+Processes MLS proposals (op 27) against the recognized users and the bot, and sends the resulting commit and welcome
+(op 28). Sending a commit is not a transition: that arrives with the announced commit (op 29).
 
-<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "_", type: "string" }, { name: "_", type: "number?" } ]} returns={[ { type: "buffer?" }, { type: "{ string }?" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "buffer" } ]} />
 
 ### handleCommitTransition
 
-> <LuaDeclaration name="handleCommitTransition" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returnType="{ string }?" isMethod />
+> <LuaDeclaration name="handleCommitTransition" className="DaveManager" args={[ { name: "payload", type: "buffer" } ]} isMethod />
 
-Processes an MLS commit, advances the epoch, and rotates encryption keys for the new roster.
-Returns the updated roster member IDs, or nil if the commit was rejected or ignored.
+Processes an announced MLS commit (op 29), which starts with a two-byte transition id. A processed commit updates the
+roster and keys and readies its transition; an ignored one changes nothing; a failed one starts a recovery.
 
-<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returns={[ { type: "{ string }?" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "buffer" } ]} />
 
 ### handleWelcome
 
-> <LuaDeclaration name="handleWelcome" className="DaveManager" args={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returnType="{ string }?" isMethod />
+> <LuaDeclaration name="handleWelcome" className="DaveManager" args={[ { name: "payload", type: "buffer" } ]} isMethod />
 
-Processes an MLS welcome for clients being added to an existing epoch, then rotates keys for the roster.
+Processes an MLS welcome (op 30), which starts with a two-byte transition id, against the recognized users and the
+bot: libdave checks every member of the welcomed group. A processed welcome updates the roster and keys and readies
+its transition; a rejected one starts a recovery.
 
-<LuaParamTable params={[ { name: "payload", type: "any" }, { name: "userId", type: "string" }, { name: "ssrc", type: "number?" } ]} returns={[ { type: "{ string }?" } ]} />
+<LuaParamTable params={[ { name: "payload", type: "buffer" } ]} />
 
 
 ## Functions

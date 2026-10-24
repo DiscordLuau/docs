@@ -1,0 +1,282 @@
+---
+title: VoiceServer
+description: DiscordLuau docs for VoiceServer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+A localhost voice gateway speaking version 8: Hello on open, Ready on Identify, Session Description on Select
+Protocol, an ACK echoing `t` on Heartbeat, and Resumed (or close 4006) on Resume. Ready points the client at a
+`UdpServer`. Every message the client sends is recorded with its raw text or binary buffer, and the test scripts
+the rest: Speaking, Clients Connect, Client Disconnect, or any JSON or binary opcode. Tests can withhold heartbeat
+ACKs, refuse or hold upgrades (`ackHeartbeats`, `refuseUpgrades`, `upgradeDelaySeconds`).
+
+<LuaSummary className="VoiceServer" properties={[ { name: "clock", type: "Clock" }, { name: "udpServer", type: "UdpServer" }, { name: "onStop", type: "function?" }, { name: "server", type: "any?" }, { name: "port", type: "number" }, { name: "url", type: "string" }, { name: "connections", type: "{ Connection }" }, { name: "received", type: "{ Received }" }, { name: "pendingPaths", type: "{ string }" }, { name: "heartbeatIntervalMilliseconds", type: "number" }, { name: "modes", type: "{ string }" }, { name: "daveProtocolVersion", type: "number" }, { name: "token", type: "string" }, { name: "sessionId", type: "string" }, { name: "serverId", type: "string?" }, { name: "ssrc", type: "number" }, { name: "secretKey", type: "buffer" }, { name: "selectedMode", type: "string?" }, { name: "sequence", type: "number" }, { name: "errors", type: "{ string }" }, { name: "ackHeartbeats", type: "boolean" }, { name: "refuseUpgrades", type: "number" }, { name: "upgradeDelaySeconds", type: "number" }, { name: "handshaking", type: "boolean" } ]} methods={[ { name: "sendJson", isMethod: true, args: [ { name: "opcode", type: "number" }, { name: "data", type: "any" } ] }, { name: "sendBinary", isMethod: true, args: [ { name: "opcode", type: "number" }, { name: "payload", type: "buffer" } ] }, { name: "sendSpeaking", isMethod: true, args: [ { name: "userId", type: "string" }, { name: "ssrc", type: "number" }, { name: "speaking", type: "number" } ] }, { name: "sendClientsConnect", isMethod: true, args: [ { name: "userIds", type: "{ string }" } ] }, { name: "sendClientDisconnect", isMethod: true, args: [ { name: "userId", type: "string" } ] }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "receivedOps", isMethod: true, args: [  ], returnType: "{ number }" }, { name: "waitForOp", isMethod: true, args: [ { name: "opcode", type: "number" }, { name: "seconds", type: "number" } ], returnType: "boolean" }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ clock: clock.Clock?, udpServer: udpServer.UdpServer, heartbeatIntervalMilliseconds: number?, modes: { string }?, daveProtocolVersion: number?, token: string?, sessionId: string?, onStop: ((server: VoiceServer) -> ())?, }" } ], returnType: "VoiceServer" } ]} />
+
+## Properties
+
+### clock
+
+<LuaProperty name="VoiceServer.clock" type="Clock" />
+
+---
+The world clock: received records are stamped with it and `waitForOp` polls in it.
+
+### udpServer
+
+<LuaProperty name="VoiceServer.udpServer" type="UdpServer" />
+
+---
+The UDP server whose port Ready announces.
+
+### onStop
+
+<LuaProperty name="VoiceServer.onStop" type="function?" />
+
+---
+Called with the handle after it stops.
+
+### server
+
+<LuaProperty name="VoiceServer.server" type="any?" />
+
+---
+The Zune server handle, nil after it stops.
+
+### port
+
+<LuaProperty name="VoiceServer.port" type="number" />
+
+---
+The ephemeral port the server bound to.
+
+### url
+
+<LuaProperty name="VoiceServer.url" type="string" />
+
+---
+The server's URL with its scheme, `ws://127.0.0.1:{port}`, which VOICE_SERVER_UPDATE carries as `endpoint`.
+
+### connections
+
+<LuaProperty name="VoiceServer.connections" type="{ Connection }" />
+
+---
+Every connection ever opened, in open order; a closed one stays with `open = false`.
+
+### received
+
+<LuaProperty name="VoiceServer.received" type="{ Received }" />
+
+---
+Every message any connection sent, in arrival order: its opcode, the decoded payload, the raw text or binary
+buffer, and the clock time it arrived. A binary message decodes to `{ op = opcode, d = payload buffer }`.
+
+### pendingPaths
+
+<LuaProperty name="VoiceServer.pendingPaths" type="{ string }" />
+
+---
+Paths of accepted upgrades whose connection has not opened yet, oldest first.
+
+### heartbeatIntervalMilliseconds
+
+<LuaProperty name="VoiceServer.heartbeatIntervalMilliseconds" type="number" />
+
+---
+The interval Hello and Ready announce, 41250 by default.
+
+### modes
+
+<LuaProperty name="VoiceServer.modes" type="{ string }" />
+
+---
+The encryption modes Ready offers; Select Protocol with any other mode is closed with 4016.
+
+### daveProtocolVersion
+
+<LuaProperty name="VoiceServer.daveProtocolVersion" type="number" />
+
+---
+The DAVE protocol version Session Description announces, 0 (no end-to-end encryption) by default.
+
+### token
+
+<LuaProperty name="VoiceServer.token" type="string" />
+
+---
+The voice token VOICE_SERVER_UPDATE hands out and a Resume must carry.
+
+### sessionId
+
+<LuaProperty name="VoiceServer.sessionId" type="string" />
+
+---
+The voice session id VOICE_STATE_UPDATE hands out and a Resume must carry.
+
+### serverId
+
+<LuaProperty name="VoiceServer.serverId" type="string?" />
+
+---
+The `server_id` the latest Identify carried, which a Resume must match; nil before the first Identify.
+
+### ssrc
+
+<LuaProperty name="VoiceServer.ssrc" type="number" />
+
+---
+The SSRC Ready assigns, 1234 by default.
+
+### secretKey
+
+<LuaProperty name="VoiceServer.secretKey" type="buffer" />
+
+---
+The 32-byte key Session Description hands out as `secret_key`.
+
+### selectedMode
+
+<LuaProperty name="VoiceServer.selectedMode" type="string?" />
+
+---
+The mode the latest accepted Select Protocol chose, nil before one.
+
+### sequence
+
+<LuaProperty name="VoiceServer.sequence" type="number" />
+
+---
+The last sequence number the server handed out. Scripted JSON messages carry it as `seq`, and binary messages
+carry it as their 2-byte big-endian prefix.
+
+### errors
+
+<LuaProperty name="VoiceServer.errors" type="{ string }" />
+
+---
+Every error raised while answering a message, which Zune would otherwise print and swallow.
+
+### ackHeartbeats
+
+<LuaProperty name="VoiceServer.ackHeartbeats" type="boolean" />
+
+---
+Whether a Heartbeat is answered with an ACK; true by default. False makes the client miss its ACKs.
+
+### refuseUpgrades
+
+<LuaProperty name="VoiceServer.refuseUpgrades" type="number" />
+
+---
+How many of the next upgrades to refuse; each refusal fails the client's connect with `UpgradeFailed`.
+
+### upgradeDelaySeconds
+
+<LuaProperty name="VoiceServer.upgradeDelaySeconds" type="number" />
+
+---
+Clock seconds each upgrade is held before it is answered, 0 for none.
+
+### handshaking
+
+<LuaProperty name="VoiceServer.handshaking" type="boolean" />
+
+---
+True while an upgrade is held by `upgradeDelaySeconds`.
+
+
+## Methods
+
+### sendJson
+
+> <LuaDeclaration name="sendJson" className="VoiceServer" args={[ { name: "opcode", type: "number" }, { name: "data", type: "any" } ]} isMethod />
+
+Sends `{ op = opcode, d = data, seq }` as JSON to every open connection under the next sequence number.
+
+<LuaParamTable params={[ { name: "opcode", type: "number" }, { name: "data", type: "any" } ]} />
+
+### sendBinary
+
+> <LuaDeclaration name="sendBinary" className="VoiceServer" args={[ { name: "opcode", type: "number" }, { name: "payload", type: "buffer" } ]} isMethod />
+
+Sends a binary message to every open connection: the next sequence number as 2 big-endian bytes, the opcode as
+1 byte, then `payload`.
+
+<LuaParamTable params={[ { name: "opcode", type: "number" }, { name: "payload", type: "buffer" } ]} />
+
+### sendSpeaking
+
+> <LuaDeclaration name="sendSpeaking" className="VoiceServer" args={[ { name: "userId", type: "string" }, { name: "ssrc", type: "number" }, { name: "speaking", type: "number" } ]} isMethod />
+
+Sends Speaking (op 5) for `userId` on `ssrc` with the `speaking` flags.
+
+<LuaParamTable params={[ { name: "userId", type: "string" }, { name: "ssrc", type: "number" }, { name: "speaking", type: "number" } ]} />
+
+### sendClientsConnect
+
+> <LuaDeclaration name="sendClientsConnect" className="VoiceServer" args={[ { name: "userIds", type: "{ string }" } ]} isMethod />
+
+Sends Clients Connect (op 11) listing `userIds`.
+
+<LuaParamTable params={[ { name: "userIds", type: "{ string }" } ]} />
+
+### sendClientDisconnect
+
+> <LuaDeclaration name="sendClientDisconnect" className="VoiceServer" args={[ { name: "userId", type: "string" } ]} isMethod />
+
+Sends Client Disconnect (op 13) for `userId`.
+
+<LuaParamTable params={[ { name: "userId", type: "string" } ]} />
+
+### close
+
+> <LuaDeclaration name="close" className="VoiceServer" args={[ { name: "code", type: "number?" } ]} isMethod />
+
+Closes every open connection with `code` (1000 by default).
+
+<LuaParamTable params={[ { name: "code", type: "number?" } ]} />
+
+### receivedOps
+
+> <LuaDeclaration name="receivedOps" className="VoiceServer" args={[  ]} returnType="{ number }" isMethod />
+
+The opcode of every received message, in arrival order.
+
+<LuaParamTable returns={[ { type: "{ number }" } ]} />
+
+### waitForOp
+
+> <LuaDeclaration name="waitForOp" className="VoiceServer" args={[ { name: "opcode", type: "number" }, { name: "seconds", type: "number" } ]} returnType="boolean" isMethod />
+
+Waits up to `seconds` of clock time for a message with `opcode` to have arrived. Returns whether one did.
+
+<LuaParamTable params={[ { name: "opcode", type: "number" }, { name: "seconds", type: "number" } ]} returns={[ { type: "boolean" } ]} />
+
+### stop
+
+> <LuaDeclaration name="stop" className="VoiceServer" args={[  ]} isMethod />
+
+Stops listening, closing every open connection with 1000 first. The UDP server is left running. Safe to call
+twice.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="VoiceServer" args={[ { name: "settings", type: "{ clock: clock.Clock?, udpServer: udpServer.UdpServer, heartbeatIntervalMilliseconds: number?, modes: { string }?, daveProtocolVersion: number?, token: string?, sessionId: string?, onStop: ((server: VoiceServer) -> ())?, }" } ]} returnType="VoiceServer" />
+
+Creates and starts the server on `127.0.0.1` with an ephemeral port. The clock defaults to a real one.
+
+<LuaParamTable params={[ { name: "settings", type: "{ clock: clock.Clock?, udpServer: udpServer.UdpServer, heartbeatIntervalMilliseconds: number?, modes: { string }?, daveProtocolVersion: number?, token: string?, sessionId: string?, onStop: ((server: VoiceServer) -> ())?, }" } ]} returns={[ { type: "VoiceServer" } ]} />
+
+

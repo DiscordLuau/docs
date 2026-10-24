@@ -1,0 +1,24 @@
+---
+title: Ffi
+description: DiscordLuau docs for Ffi.
+sidebar:
+  order: 1
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Zune's `zune.ffi` with pooled native memory.
+
+Zune caches pointer objects by address. `zune.ffi.free` returns the memory to the allocator but leaves the
+dead pointer object in that cache until the garbage collector removes it, and a native library that later
+receives the same address from `malloc` (a libopus decoder, a libdave session) is handed the dead object
+and fails with "unavailable address". Memory freed here therefore goes back to a pool that `alloc` and
+`dupe` reuse, so it never returns to the allocator and no dead object ever shadows a live address. The
+pool holds at most the peak amount allocated at once.
+

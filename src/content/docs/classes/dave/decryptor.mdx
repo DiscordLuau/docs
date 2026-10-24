@@ -30,13 +30,13 @@ dec:transitionToKeyRatchet(session:getKeyRatchet(remoteUserId))
 local plaintext = dec:decrypt(Dave.sys.mediaType.audio, encryptedFrame)
 ```
 
-<LuaSummary className="Decryptor" properties={[ { name: "handle", type: "Sys.DecryptorHandle" } ]} methods={[ { name: "transitionToKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "transitionToPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "getMaxPlaintextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrameSize", type: "number" } ], returnType: "number" }, { name: "decrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ], returnType: "buffer" }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "DecryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Decryptor" } ]} />
+<LuaSummary className="Decryptor" properties={[ { name: "handle", type: "Sys.DecryptorHandle?" } ]} methods={[ { name: "transitionToKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "transitionToPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "getMaxPlaintextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrameSize", type: "number" } ], returnType: "number" }, { name: "decrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ], returnType: "buffer" }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "DecryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Decryptor" } ]} />
 
 ## Properties
 
 ### handle
 
-<LuaProperty name="Decryptor.handle" type="Sys.DecryptorHandle" />
+<LuaProperty name="Decryptor.handle" type="Sys.DecryptorHandle?" />
 
 
 
@@ -77,9 +77,9 @@ pre-allocating receive buffers.
 
 > <LuaDeclaration name="decrypt" className="Decryptor" args={[ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ]} returnType="buffer" isMethod />
 
-Decrypts `encryptedFrame` and returns the plaintext as a new buffer. Logs an error
-and halts the calling coroutine on any non-success result code (missing ratchet,
-invalid nonce, etc.).
+Decrypts `encryptedFrame` and returns the plaintext as a new buffer. Raises an error
+naming the result code on any non-success result (missing ratchet, invalid nonce,
+etc.), so a caller that expects failures during key transitions can `pcall` it.
 
 <LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "encryptedFrame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
 

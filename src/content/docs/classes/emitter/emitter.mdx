@@ -24,7 +24,10 @@ An emitter that can be used to emit events, this class will be used to push upda
 
 > <LuaDeclaration name="listen" className="Emitter" args={[ { name: "callback", type: "(T...) -> ()" } ]} returnType="() -> ()" isMethod />
 
-Listen to this event, returns a function that can be called to disconnect the listener
+Listen to this event, returns a function that can be called to disconnect the listener.
+
+The callback may yield. An event that arrives while the callback is still running (yielded) is handled
+in a new thread with its own arguments, so a slow listener never receives another event's arguments.
 
 <LuaParamTable params={[ { name: "callback", type: "(T...) -> ()" } ]} returns={[ { type: "() -> ()" } ]} />
 

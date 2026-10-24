@@ -13,20 +13,20 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-Utility functions for the command dispatch pipeline - error responses, guards, permissionission
+Utility functions for the command dispatch pipeline - error responses, guards, permission
 checks, option transforms, middleware, and post-execute hooks.
 
-<LuaSummary className="Pipeline" functions={[ { name: "sendErrorResponse", args: [ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ] }, { name: "runGuards", args: [ { name: "guardEntries", type: "{ command.GuardEntry }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onGuardFailed", type: "((classes.TypesCommand) -> ())?" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "boolean" }, { name: "getMissingPermissions", args: [ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ], returnType: "{ apiTypes.Permissions }" }, { name: "runTransforms", args: [ { name: "transforms", type: "{ [string]: command.TransformFunction }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "{ [string]: any }?" }, { name: "injectGetTransformed", args: [ { name: "interaction", type: "classes.TypesCommand" }, { name: "transformed", type: "{ [string]: any }" } ] }, { name: "runAfterHooks", args: [ { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "perCommand", type: "((classes.TypesCommand) -> ())?" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" } ] }, { name: "runMiddleware", args: [ { name: "middlewares", type: "{ (any, () -> ()) -> () }" }, { name: "index", type: "number" }, { name: "interaction", type: "any" }, { name: "final", type: "() -> ()" }, { name: "log", type: "logger.Logger" } ] } ]} />
+<LuaSummary className="Pipeline" functions={[ { name: "sendErrorResponse", args: [ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" }, { name: "log", type: "logger.Logger" } ] }, { name: "runGuards", args: [ { name: "guardEntries", type: "{ command.GuardEntry }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onGuardFailed", type: "((classes.TypesCommand) -> ())?" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "boolean" }, { name: "getMissingPermissions", args: [ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ], returnType: "{ apiTypes.Permissions }" }, { name: "runTransforms", args: [ { name: "transforms", type: "{ [string]: command.TransformFunction }" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" }, { name: "name", type: "string" }, { name: "onError", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ], returnType: "{ [string]: any }?" }, { name: "injectGetTransformed", args: [ { name: "interaction", type: "classes.TypesCommand" }, { name: "transformed", type: "{ [string]: any }" } ] }, { name: "runAfterHooks", args: [ { name: "afterHooks", type: "{ (classes.TypesCommand) -> () }" }, { name: "perCommand", type: "((classes.TypesCommand) -> ())?" }, { name: "interaction", type: "classes.TypesCommand" }, { name: "log", type: "logger.Logger" } ] }, { name: "runMiddleware", args: [ { name: "middlewares", type: "{ (any, () -> ()) -> () }" }, { name: "index", type: "number" }, { name: "interaction", type: "any" }, { name: "final", type: "() -> ()" }, { name: "log", type: "logger.Logger" } ] } ]} />
 
 ## Functions
 
 ### sendErrorResponse
 
-> <LuaDeclaration name="sendErrorResponse" className="Pipeline" args={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} />
+> <LuaDeclaration name="sendErrorResponse" className="Pipeline" args={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" }, { name: "log", type: "logger.Logger" } ]} />
 
 Sends a generic error reply to the interaction, or delegates to `override` if provided.
 
-<LuaParamTable params={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" } ]} />
+<LuaParamTable params={[ { name: "interaction", type: "classes.TypesCommand | classes.Component | classes.Modal" }, { name: "errorMessage", type: "string" }, { name: "override", type: "((classes.TypesCommand | classes.Component | classes.Modal, string) -> ())?" }, { name: "log", type: "logger.Logger" } ]} />
 
 ### runGuards
 
@@ -41,7 +41,7 @@ group at least one must pass. Returns false and fires the guard-failed handler o
 
 > <LuaDeclaration name="getMissingPermissions" className="Pipeline" args={[ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ]} returnType="{ apiTypes.Permissions }" />
 
-Returns permissionissions from `required` that are absent from `permissionObject`.
+Returns permissions from `required` that are absent from `permissionObject`.
 
 <LuaParamTable params={[ { name: "permissionObject", type: "classes.Permission" }, { name: "required", type: "{ apiTypes.Permissions }" } ]} returns={[ { type: "{ apiTypes.Permissions }" } ]} />
 

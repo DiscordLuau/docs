@@ -15,7 +15,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Internal FFI interoperability helpers for the Dave package.
 
-<LuaSummary className="Buffer" functions={[ { name: "toCString", args: [ { name: "value", type: "string" } ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" } ], returnType: "string" }, { name: "allocateSlot", args: [  ], returnType: "FFIPointer" }, { name: "readRawU64", args: [ { name: "value", type: "any" } ], returnType: "number" }, { name: "readSizeT", args: [ { name: "slot", type: "FFIPointer" } ], returnType: "number" }, { name: "readU64AtOffset", args: [ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ], returnType: "number" }, { name: "readLibBytes", args: [ { name: "dataSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "buffer" }, { name: "u64StringToBuffer", args: [ { name: "decimal", type: "string" } ], returnType: "buffer" }, { name: "bufferToU64String", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "bufferToHex", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "readPointerBytes", args: [ { name: "pointer", type: "FFIPointer" }, { name: "lengthValue", type: "any" } ], returnType: "buffer" }, { name: "readU64ArrayAndFree", args: [ { name: "pointerSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "{ string }" }, { name: "withCStringArray", args: [ { name: "ids", type: "{ string }" }, { name: "callback", type: "(pointer: FFIPointer, count: number) -> ()" } ] } ]} />
+<LuaSummary className="Buffer" functions={[ { name: "toCString", args: [ { name: "value", type: "string" } ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" } ], returnType: "string" }, { name: "allocateSlot", args: [  ], returnType: "FFIPointer" }, { name: "readRawU64", args: [ { name: "value", type: "buffer" } ], returnType: "number" }, { name: "readSizeT", args: [ { name: "slot", type: "FFIPointer" } ], returnType: "number" }, { name: "readU64AtOffset", args: [ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ], returnType: "number" }, { name: "adopt", args: [ { name: "pointer", type: "FFIPointer" }, { name: "handleType", type: "FFIPointerType?" } ], returnType: "FFIPointer?" }, { name: "readLibBytes", args: [ { name: "dataSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "buffer" }, { name: "u64StringToBuffer", args: [ { name: "decimal", type: "string" } ], returnType: "buffer" }, { name: "bufferToU64String", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "bufferToHex", args: [ { name: "bytes", type: "buffer" } ], returnType: "string" }, { name: "readPointerBytes", args: [ { name: "pointer", type: "FFIPointer" }, { name: "lengthValue", type: "any" } ], returnType: "buffer" }, { name: "readU64ArrayAndFree", args: [ { name: "pointerSlot", type: "FFIPointer" }, { name: "lengthSlot", type: "FFIPointer" } ], returnType: "{ string }" }, { name: "withCStringArray", args: [ { name: "ids", type: "{ string }" }, { name: "callback", type: "(pointer: FFIPointer, count: number) -> ()" } ] } ]} />
 
 ## Functions
 
@@ -39,9 +39,11 @@ Internal FFI interoperability helpers for the Dave package.
 
 ### readRawU64
 
-> <LuaDeclaration name="readRawU64" className="Buffer" args={[ { name: "value", type: "any" } ]} returnType="number" />
+> <LuaDeclaration name="readRawU64" className="Buffer" args={[ { name: "value", type: "buffer" } ]} returnType="number" />
 
-<LuaParamTable params={[ { name: "value", type: "any" } ]} returns={[ { type: "number" } ]} />
+Reads a u64 as Zune hands it over (an 8-byte little-endian buffer, from a native return or `readu64`) as a number.
+
+<LuaParamTable params={[ { name: "value", type: "buffer" } ]} returns={[ { type: "number" } ]} />
 
 ### readSizeT
 
@@ -54,6 +56,17 @@ Internal FFI interoperability helpers for the Dave package.
 > <LuaDeclaration name="readU64AtOffset" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ]} returnType="number" />
 
 <LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "offset", type: "number" } ]} returns={[ { type: "number" } ]} />
+
+### adopt
+
+> <LuaDeclaration name="adopt" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "handleType", type: "FFIPointerType?" } ]} returnType="FFIPointer?" />
+
+Makes a pointer libdave handed back, as a return value or through an out slot, safe to use. Returns nil for NULL
+and leaves it untagged, because Zune shares one null object between every library in the process. Otherwise it
+sets the pointer's tag to `handleType`'s, or clears it for raw memory: Zune keeps one object per address, and an
+address libdave freed and handed out again still carries the tag of whatever lived there before.
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "handleType", type: "FFIPointerType?" } ]} returns={[ { type: "FFIPointer?" } ]} />
 
 ### readLibBytes
 

@@ -1,0 +1,418 @@
+---
+title: StreamFeed
+description: DiscordLuau docs for StreamFeed.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Feeds a stream source from `audio.fromStream` or `audio.fromProcess`. It opens a libsymphonia stream session, runs
+the pump, a thread that reads the stream's bytes and pushes them into the session, and keeps the read-ahead: a queue
+of decoded audio of up to 6 seconds, as 48 kHz stereo 32-bit float blocks before any volume, or as Opus packets as
+stored. The `Source` that owns it takes audio from the queue, decides when the stream is starved, and surfaces its
+failures.
+
+A failure the feed meets is kept as `pendingFailure`, and the source raises it once the audio queued before it has
+played. The pump stops at a failure, at the end of the input, when the session can take no more bytes, and at
+`destroy`, which never waits for it.
+
+For `fromProcess`, the feed spawns the program on the first `poll` and reads its stdout. Once stdout ends it waits
+up to 5 seconds for the exit code; a non-zero code wins over every other outcome, with the last line of stderr as
+its reason, and a program that does not exit is killed, with a warning. A program is killed only while its stdout is
+still open, or at `destroy`, and a code that follows its own kill is ignored. A failure met while the pump waits on
+stdout kills the program at once, so the failure does not wait for the program to write or exit. Until the exit is
+known the stream has not ended.
+
+An MP4 with its index at the end, or a CAF, cannot be read from the front: the session fails before it opens. The
+feed keeps every byte until the session opens, up to 128 MiB, and on that failure, when the stream starts with an
+MP4 (`ftyp` at byte 4) or CAF (`caff` at byte 0) marker, reads the rest of the stream, opens the whole file with
+`Symphonia.Decoder.fromBuffer` and plays it through the same queue. Peak memory is up to about 4 times the file.
+
+<LuaSummary className="StreamFeed" properties={[ { name: "decoder", type: "symphonia.Decoder?" }, { name: "pump", type: "thread?" }, { name: "stopping", type: "boolean" }, { name: "producerEnded", type: "boolean" }, { name: "bufferedSeconds", type: "number" }, { name: "pendingFailure", type: "string?" }, { name: "command", type: "string?" }, { name: "arguments", type: "{ string }" }, { name: "process", type: "Process?" }, { name: "exitCode", type: "number?" }, { name: "failedAtMillis", type: "number?" }, { name: "exitKnown", type: "boolean" }, { name: "killedByUs", type: "boolean" }, { name: "fallbackEnabled", type: "boolean" }, { name: "fallingBack", type: "boolean" }, { name: "retained", type: "buffer?" }, { name: "retainedBytes", type: "number" }, { name: "maxRetainedBytes", type: "number" }, { name: "firstBytes", type: "string" }, { name: "outputClosed", type: "boolean" }, { name: "started", type: "boolean" }, { name: "pipeReading", type: "boolean" }, { name: "pipeDone", type: "boolean" }, { name: "pipeData", type: "buffer?" }, { name: "pipeFailure", type: "string?" }, { name: "pipeWaiter", type: "thread?" }, { name: "reader", type: "StreamReader?" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "queue", type: "{ buffer }" }, { name: "queueOffset", type: "number" }, { name: "bufferedFrames", type: "number" }, { name: "streamBytes", type: "number" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "poll", isMethod: true, args: [  ] }, { name: "isOpen", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isOpus", isMethod: true, args: [  ], returnType: "boolean" }, { name: "outputDone", isMethod: true, args: [  ], returnType: "boolean" }, { name: "openDecided", isMethod: true, args: [  ], returnType: "boolean" }, { name: "exitSettled", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasEnded", isMethod: true, args: [  ], returnType: "boolean" }, { name: "hasQueued", isMethod: true, args: [  ], returnType: "boolean" }, { name: "takeFloats", isMethod: true, args: [ { name: "maxFrames", type: "number" } ], returnType: "buffer?" }, { name: "takePacket", isMethod: true, args: [  ], returnType: "buffer?" }, { name: "fill", isMethod: true, args: [  ] }, { name: "refresh", isMethod: true, args: [  ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "reader", type: "StreamReader" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ], returnType: "StreamFeed" }, { name: "fromProcess", args: [ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ], returnType: "StreamFeed" } ]} />
+
+## Properties
+
+### decoder
+
+<LuaProperty name="StreamFeed.decoder" type="symphonia.Decoder?" />
+
+---
+The stream session from the first `poll`, or after the whole-file fallback the decoder of the whole file; nil before
+the first `poll` and when the session could not be opened.
+
+### pump
+
+<LuaProperty name="StreamFeed.pump" type="thread?" />
+
+---
+The pump's thread, nil until the first `poll` opens the session.
+
+### stopping
+
+<LuaProperty name="StreamFeed.stopping" type="boolean" />
+
+---
+Whether `destroy` has asked the pump to stop. The pump checks it after every read, push and wait.
+
+### producerEnded
+
+<LuaProperty name="StreamFeed.producerEnded" type="boolean" />
+
+---
+Whether the stream's input has ended: its `read` returned nil, or the program's stdout closed.
+
+### bufferedSeconds
+
+<LuaProperty name="StreamFeed.bufferedSeconds" type="number" />
+
+---
+How many seconds of decoded audio the queue holds, up to about 6.
+
+### pendingFailure
+
+<LuaProperty name="StreamFeed.pendingFailure" type="string?" />
+
+---
+The failure the feed met, kept until the source has played the audio queued before it. The first failure wins,
+except a program's non-zero exit code, which wins over every other.
+
+### command
+
+<LuaProperty name="StreamFeed.command" type="string?" />
+
+---
+The program `fromProcess` runs; nil for `fromStream`.
+
+### arguments
+
+<LuaProperty name="StreamFeed.arguments" type="{ string }" />
+
+---
+The program's arguments; empty for `fromStream`.
+
+### process
+
+<LuaProperty name="StreamFeed.process" type="Process?" />
+
+---
+The running program, from the first `poll`; nil for `fromStream` and when the program could not start.
+
+### exitCode
+
+<LuaProperty name="StreamFeed.exitCode" type="number?" />
+
+---
+The program's exit code once it is known; nil until then, and when the code followed the feed's own kill.
+
+### failedAtMillis
+
+<LuaProperty name="StreamFeed.failedAtMillis" type="number?" />
+
+---
+When `pendingFailure` was first set, in Unix milliseconds; nil until the feed fails.
+
+### exitKnown
+
+<LuaProperty name="StreamFeed.exitKnown" type="boolean" />
+
+---
+Whether the program's exit is settled: its code is known, or the feed killed it, which makes the code meaningless.
+Always false for `fromStream`, which has no program; see `exitSettled`.
+
+### killedByUs
+
+<LuaProperty name="StreamFeed.killedByUs" type="boolean" />
+
+---
+Whether the feed killed the program, so its exit code is ignored.
+
+### fallbackEnabled
+
+<LuaProperty name="StreamFeed.fallbackEnabled" type="boolean" />
+
+---
+Whether the whole-file fallback can still run: true until the bytes kept before the session opened pass
+`maxRetainedBytes`.
+
+### fallingBack
+
+<LuaProperty name="StreamFeed.fallingBack" type="boolean" />
+
+---
+Whether the session failed before it opened on an MP4 or CAF stream, so the pump reads the rest of the file to open
+it whole.
+
+### retained
+
+<LuaProperty name="StreamFeed.retained" type="buffer?" />
+
+---
+Every byte read before the session opened, in one buffer that doubles as it grows; nil once the session opens, past
+the cap, and after the fallback opened the file.
+
+### retainedBytes
+
+<LuaProperty name="StreamFeed.retainedBytes" type="number" />
+
+---
+How many bytes of `retained` are used.
+
+### maxRetainedBytes
+
+<LuaProperty name="StreamFeed.maxRetainedBytes" type="number" />
+
+---
+The most bytes kept for the fallback, 128 MiB. Tests lower it to reach the cap.
+
+### firstBytes
+
+<LuaProperty name="StreamFeed.firstBytes" type="string" />
+
+---
+The stream's first 8 bytes, always kept for the MP4 and CAF marker check.
+
+### outputClosed
+
+<LuaProperty name="StreamFeed.outputClosed" type="boolean" />
+
+---
+Whether the feed has stopped reading the session's output for good: a read raised, an Opus packet was not valid,
+or the pump failed. No more audio will reach the queue.
+
+### started
+
+<LuaProperty name="StreamFeed.started" type="boolean" />
+
+---
+Whether the first `poll` has started the stream: spawned the program and opened the session, or tried to.
+
+### pipeReading
+
+<LuaProperty name="StreamFeed.pipeReading" type="boolean" />
+
+---
+Whether a read of the program's stdout is in flight.
+
+### pipeDone
+
+<LuaProperty name="StreamFeed.pipeDone" type="boolean" />
+
+---
+Whether the read in flight has finished; `pipeData` holds its bytes, nil at the end of stdout, and `pipeFailure` its
+error when it raised.
+
+### pipeData
+
+<LuaProperty name="StreamFeed.pipeData" type="buffer?" />
+
+---
+The bytes the finished stdout read returned.
+
+### pipeFailure
+
+<LuaProperty name="StreamFeed.pipeFailure" type="string?" />
+
+---
+The error of the finished stdout read when it raised; the pump raises it when it takes that read.
+
+### pipeWaiter
+
+<LuaProperty name="StreamFeed.pipeWaiter" type="thread?" />
+
+---
+The pump, while it waits for the stdout read in flight.
+
+### reader
+
+<LuaProperty name="StreamFeed.reader" type="StreamReader?" />
+
+---
+The stream's `read`, which returns the next chunk of the file's bytes and nil at the end; nil for `fromProcess`.
+
+### logLevel
+
+<LuaProperty name="StreamFeed.logLevel" type="logger.LogLevel?" />
+
+---
+The level of the stream session's logger, `SymphoniaDecoder`.
+
+### queue
+
+<LuaProperty name="StreamFeed.queue" type="{ buffer }" />
+
+---
+The read-ahead, oldest first: float blocks or Opus packets.
+
+### queueOffset
+
+<LuaProperty name="StreamFeed.queueOffset" type="number" />
+
+---
+How many bytes of the first queued float block have been taken.
+
+### bufferedFrames
+
+<LuaProperty name="StreamFeed.bufferedFrames" type="number" />
+
+---
+How many 48 kHz frames the queue holds; `bufferedSeconds` is this over 48000.
+
+### streamBytes
+
+<LuaProperty name="StreamFeed.streamBytes" type="number" />
+
+---
+How many bytes the stream has given so far.
+
+### logger
+
+<LuaProperty name="StreamFeed.logger" type="logger.Logger" />
+
+---
+The owning source's logger, `AudioSource`, which the feed logs through.
+
+
+## Methods
+
+### poll
+
+> <LuaDeclaration name="poll" className="StreamFeed" args={[  ]} isMethod />
+
+Moves the stream along. The first call spawns the program, for `fromProcess`, then opens the session, which loads
+libsymphonia on first use and so may yield, and starts the pump; a program that cannot start or a failed open
+becomes `pendingFailure`. Every call then reads the session's state and fills the queue. Does nothing after
+`destroy`.
+
+### isOpen
+
+> <LuaDeclaration name="isOpen" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the session has opened, so the queue's kind of audio is known.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### isOpus
+
+> <LuaDeclaration name="isOpus" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the session opened as Opus, so the queue holds Opus packets rather than float blocks.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### outputDone
+
+> <LuaDeclaration name="outputDone" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether no more audio will reach the queue: the session has ended, or the feed stopped reading its output after a
+failure. What is still queued plays first.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### openDecided
+
+> <LuaDeclaration name="openDecided" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the session's open is decided, so that a failure met before it opened is final. It is when the session has
+opened or failed before it opened, when there is no session or the stream gave no bytes, and 500 ms after the
+failure. A stream that fails just after bytes the session has not probed yet so plays them first whenever they
+open, rather than depending on which of the two the source saw first.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### exitSettled
+
+> <LuaDeclaration name="exitSettled" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the program's exit is settled: always for `fromStream`, and for `fromProcess` once the exit code is known or
+the feed killed the program.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### hasEnded
+
+> <LuaDeclaration name="hasEnded" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the stream has ended: no more audio will reach the queue, the program's exit is settled, and the open is
+decided (see `openDecided`), so a stream that may still open is never taken for ended. This is the one test for the
+end of the stream.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### hasQueued
+
+> <LuaDeclaration name="hasQueued" className="StreamFeed" args={[  ]} returnType="boolean" isMethod />
+
+Whether the queue holds any audio.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### takeFloats
+
+> <LuaDeclaration name="takeFloats" className="StreamFeed" args={[ { name: "maxFrames", type: "number" } ]} returnType="buffer?" isMethod />
+
+Takes up to `maxFrames` float frames from the first queued block, filling the queue from the session first when it
+is empty. Returns the floats and how many frames to use from them, or nil and 0 when nothing is ready.
+
+<LuaParamTable params={[ { name: "maxFrames", type: "number" } ]} returns={[ { type: "buffer?" }, { type: "number" } ]} />
+
+### takePacket
+
+> <LuaDeclaration name="takePacket" className="StreamFeed" args={[  ]} returnType="buffer?" isMethod />
+
+Takes the next queued Opus packet, filling the queue from the session first when it is empty. Nil when nothing is
+ready.
+
+<LuaParamTable returns={[ { type: "buffer?" } ]} />
+
+### fill
+
+> <LuaDeclaration name="fill" className="StreamFeed" args={[  ]} isMethod />
+
+Moves ready output from the session into the queue, up to 6 seconds. A read that raises, which is a failure after
+the session opened, and an Opus packet that is not valid each become `pendingFailure` and close the output. Does
+nothing before the session opens, after `destroy` or once the output is closed.
+
+### refresh
+
+> <LuaDeclaration name="refresh" className="StreamFeed" args={[  ]} isMethod />
+
+Reads the session's state. Once it has opened, the bytes kept for the fallback are dropped. A session that failed
+before it opened sends an MP4 or CAF stream into the whole-file fallback, fails one that is past the cap with the
+128 MiB message, and fails any other with `could not open audio: &lt;reason&gt;`.
+
+### destroy
+
+> <LuaDeclaration name="destroy" className="StreamFeed" args={[  ]} isMethod />
+
+Stops the pump at its next check, kills the program unless its exit is already settled, closes the session,
+whichever decoder it is by then, and drops the queue and the kept bytes. It never waits for the pump: a pump inside
+the stream's `read` stops once that read returns. A second call logs at debug.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="StreamFeed" args={[ { name: "reader", type: "StreamReader" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ]} returnType="StreamFeed" />
+
+Creates the feed for `audio.fromStream`; nothing is read, opened or started until the first `poll`. `sourceLogger` is
+the owning source's logger.
+
+<LuaParamTable params={[ { name: "reader", type: "StreamReader" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ]} returns={[ { type: "StreamFeed" } ]} />
+
+### fromProcess
+
+> <LuaDeclaration name="fromProcess" className="StreamFeed" args={[ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ]} returnType="StreamFeed" />
+
+Creates the feed for `audio.fromProcess`; the program is not started until the first `poll`.
+
+<LuaParamTable params={[ { name: "command", type: "string" }, { name: "arguments", type: "{ string }" }, { name: "logLevel", type: "logger.LogLevel?" }, { name: "sourceLogger", type: "logger.Logger" } ]} returns={[ { type: "StreamFeed" } ]} />
+
+

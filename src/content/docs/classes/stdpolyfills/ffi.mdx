@@ -38,7 +38,9 @@ and `args` values in `dlopen`, `closure`, and `fn` definitions. Available types:
 
 > <LuaDeclaration name="getNull" className="Ffi" args={[  ]} returnType="FFIPointer" />
 
-Returns a null (`0x0`) FFI pointer. Pass this wherever a C function expects a NULL pointer argument.
+Returns a null (`0x0`) FFI pointer. Pass this wherever a C function expects a NULL pointer argument. Never tag
+the returned pointer, and never declare a function that can return NULL with a tagged return: Zune shares one
+null object between every library in the process, so a tag on it breaks every later call that passes NULL.
 
 <LuaParamTable returns={[ { type: "FFIPointer" } ]} />
 
@@ -145,7 +147,11 @@ it. Useful for allocating out-parameter slots (`size_t*`, `uint8_t**`, etc.).
 
 > <LuaDeclaration name="free" className="Ffi" args={[ { name: "src", type: "FFIPointer" } ]} />
 
-Frees native memory previously allocated with `alloc` or `create`.
+Frees native memory previously allocated with `alloc`, `dupe` or `create`. The pointer must not be used
+afterwards.
+
+On Zune the block goes back to a pool that `alloc` and `dupe` reuse, instead of being returned to the
+system allocator (see `zune/ffi.luau`).
 
 <LuaParamTable params={[ { name: "src", type: "FFIPointer" } ]} />
 

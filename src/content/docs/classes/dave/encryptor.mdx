@@ -29,13 +29,13 @@ enc:setKeyRatchet(session:getKeyRatchet(selfUserId))
 local encrypted = enc:encrypt(Dave.sys.mediaType.audio, ssrc, rawFrame)
 ```
 
-<LuaSummary className="Encryptor" properties={[ { name: "handle", type: "Sys.EncryptorHandle" }, { name: "versionChangedClosure", type: "FFIPointer" }, { name: "versionChangedCallbackRef", type: "{ current: (() -> ())? }" } ]} methods={[ { name: "setKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "setPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "hasKeyRatchet", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isPassthroughMode", isMethod: true, args: [  ], returnType: "boolean" }, { name: "assignSsrcToCodec", isMethod: true, args: [ { name: "ssrc", type: "number" }, { name: "codec", type: "number" } ] }, { name: "getProtocolVersion", isMethod: true, args: [  ], returnType: "number" }, { name: "getMaxCiphertextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "frameSize", type: "number" } ], returnType: "number" }, { name: "encrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ], returnType: "buffer" }, { name: "setProtocolVersionChangedCallback", isMethod: true, args: [ { name: "callback", type: "() -> ()" } ] }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "EncryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Encryptor" } ]} />
+<LuaSummary className="Encryptor" properties={[ { name: "handle", type: "Sys.EncryptorHandle?" }, { name: "versionChangedClosure", type: "FFIPointer" }, { name: "versionChangedCallbackRef", type: "{ current: (() -> ())? }" } ]} methods={[ { name: "setKeyRatchet", isMethod: true, args: [ { name: "keyRatchet", type: "KeyRatchet.KeyRatchet" } ] }, { name: "setPassthroughMode", isMethod: true, args: [ { name: "enabled", type: "boolean" } ] }, { name: "hasKeyRatchet", isMethod: true, args: [  ], returnType: "boolean" }, { name: "isPassthroughMode", isMethod: true, args: [  ], returnType: "boolean" }, { name: "assignSsrcToCodec", isMethod: true, args: [ { name: "ssrc", type: "number" }, { name: "codec", type: "number" } ] }, { name: "getProtocolVersion", isMethod: true, args: [  ], returnType: "number" }, { name: "getMaxCiphertextByteSize", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "frameSize", type: "number" } ], returnType: "number" }, { name: "encrypt", isMethod: true, args: [ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ], returnType: "buffer" }, { name: "setProtocolVersionChangedCallback", isMethod: true, args: [ { name: "callback", type: "() -> ()" } ] }, { name: "getStats", isMethod: true, args: [ { name: "mediaType", type: "number" } ], returnType: "EncryptorStats" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [  ], returnType: "Encryptor" } ]} />
 
 ## Properties
 
 ### handle
 
-<LuaProperty name="Encryptor.handle" type="Sys.EncryptorHandle" />
+<LuaProperty name="Encryptor.handle" type="Sys.EncryptorHandle?" />
 
 
 ### versionChangedClosure
@@ -120,8 +120,8 @@ validate output size expectations.
 > <LuaDeclaration name="encrypt" className="Encryptor" args={[ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ]} returnType="buffer" isMethod />
 
 Encrypts `frame` and returns the ciphertext as a new buffer. The SSRC must have been
-registered via `assignSsrcToCodec`. Logs an error and halts the calling coroutine on
-any non-success result code (missing ratchet, too many retries, etc.).
+registered via `assignSsrcToCodec`. Raises an error naming the result code on any
+non-success result (missing ratchet, too many retries, etc.).
 
 <LuaParamTable params={[ { name: "mediaType", type: "number" }, { name: "ssrc", type: "number" }, { name: "frame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
 

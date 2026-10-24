@@ -14,10 +14,12 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-One local Discord world: a clock, an HTTP server and a gateway websocket server. `clock = "virtual"` runs the
-world 100x faster than real time. `discordStub.recordEmits(emitter)` records every call an emitter fires.
+One local Discord world: a clock, an HTTP server, a gateway websocket server and a voice server with its UDP
+server. `clock = "virtual"` runs the world 100x faster than real time. `discordStub.recordEmits(emitter)` records
+every call an emitter fires, and `discordStub.VoiceServer` and `discordStub.UdpServer` build voice doubles outside
+a world.
 
-<LuaSummary className="DiscordStub" properties={[ { name: "clock", type: "Clock" }, { name: "httpServer", type: "HttpServer?" }, { name: "webSocketServer", type: "WebsocketServer?" }, { name: "restUrl", type: "string?" } ]} methods={[ { name: "stop", isMethod: true, args: [  ] }, { name: "createHttpServer", isMethod: true, args: [ { name: "handler", type: "httpServer.Handler?" } ], returnType: "httpServer.HttpServer" }, { name: "createWebsocketServer", isMethod: true, args: [ { name: "handler", type: "webSocketServer.Handler?" } ], returnType: "webSocketServer.WebsocketServer" }, { name: "runScenario", isMethod: true, args: [ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ], returnType: "string?" } ]} functions={[ { name: "new", args: [ { name: "options", type: "{ clock: &quot;real&quot; | &quot;virtual&quot;?, polyfills: any? }?" } ], returnType: "DiscordStub" } ]} />
+<LuaSummary className="DiscordStub" properties={[ { name: "clock", type: "Clock" }, { name: "httpServer", type: "HttpServer?" }, { name: "webSocketServer", type: "WebsocketServer?" }, { name: "restUrl", type: "string?" }, { name: "voiceServer", type: "VoiceServer?" }, { name: "udpServer", type: "UdpServer?" } ]} methods={[ { name: "stop", isMethod: true, args: [  ] }, { name: "createHttpServer", isMethod: true, args: [ { name: "handler", type: "httpServer.Handler?" } ], returnType: "httpServer.HttpServer" }, { name: "createWebsocketServer", isMethod: true, args: [ { name: "handler", type: "webSocketServer.Handler?" } ], returnType: "webSocketServer.WebsocketServer" }, { name: "createVoiceServer", isMethod: true, args: [ { name: "options", type: "VoiceServerOptions?" } ], returnType: "voiceServer.VoiceServer" }, { name: "runScenario", isMethod: true, args: [ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ], returnType: "string?" } ]} functions={[ { name: "new", args: [ { name: "options", type: "{ clock: &quot;real&quot; | &quot;virtual&quot;?, polyfills: any? }?" } ], returnType: "DiscordStub" } ]} />
 
 ## Properties
 
@@ -49,6 +51,20 @@ The gateway websocket server, once `createWebsocketServer` has run.
 ---
 The REST base URL of the HTTP server, nil before it exists.
 
+### voiceServer
+
+<LuaProperty name="DiscordStub.voiceServer" type="VoiceServer?" />
+
+---
+The voice gateway server, once `createVoiceServer` has run.
+
+### udpServer
+
+<LuaProperty name="DiscordStub.udpServer" type="UdpServer?" />
+
+---
+The voice UDP server `createVoiceServer` started alongside the voice gateway server.
+
 
 ## Methods
 
@@ -77,13 +93,23 @@ through.
 
 <LuaParamTable params={[ { name: "handler", type: "webSocketServer.Handler?" } ]} returns={[ { type: "webSocketServer.WebsocketServer" } ]} />
 
+### createVoiceServer
+
+> <LuaDeclaration name="createVoiceServer" className="DiscordStub" args={[ { name: "options", type: "VoiceServerOptions?" } ]} returnType="voiceServer.VoiceServer" isMethod />
+
+Starts a voice UDP server and a voice gateway server on `127.0.0.1`, both on the world clock, and attaches the
+voice server to the gateway websocket server, now or when it is created, so Voice State Update is answered with
+the voice dispatches.
+
+<LuaParamTable params={[ { name: "options", type: "VoiceServerOptions?" } ]} returns={[ { type: "voiceServer.VoiceServer" } ]} />
+
 ### runScenario
 
 > <LuaDeclaration name="runScenario" className="DiscordStub" args={[ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ]} returnType="string?" isMethod />
 
 Runs one test scenario, then `teardown` (the caller's own cleanup, such as closing a shard), then stops the world,
 even when either of them throws. Returns the scenario's error, else the teardown's error, else the first error a
-websocket handler raised, else nil.
+websocket handler, the voice server or the UDP server raised, else nil.
 
 <LuaParamTable params={[ { name: "scenario", type: "() -> ...any" }, { name: "teardown", type: "(() -> ())?" } ]} returns={[ { type: "string?" } ]} />
 

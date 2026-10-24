@@ -16,7 +16,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 The shared localhost server plumbing: bind on `127.0.0.1` with an ephemeral port, JSON responses, and the
 default 404.
 
-<LuaSummary className="Loopback" functions={[ { name: "serve", args: [ { name: "settings", type: "any" } ], returnType: "Server" }, { name: "jsonResponse", args: [ { name: "statusCode", type: "number" }, { name: "value", type: "any" } ], returnType: "Response" }, { name: "notFoundResponse", args: [  ], returnType: "Response" } ]} />
+<LuaSummary className="Loopback" functions={[ { name: "serve", args: [ { name: "settings", type: "any" } ], returnType: "Server" }, { name: "upgradePath", args: [ { name: "request", type: "Request" } ], returnType: "string" }, { name: "jsonResponse", args: [ { name: "statusCode", type: "number" }, { name: "value", type: "any" } ], returnType: "Response" }, { name: "notFoundResponse", args: [  ], returnType: "Response" } ]} />
 
 ## Functions
 
@@ -27,6 +27,14 @@ default 404.
 Starts a Zune HTTP server on `127.0.0.1` with an ephemeral port.
 
 <LuaParamTable params={[ { name: "settings", type: "any" } ]} returns={[ { type: "Server" } ]} />
+
+### upgradePath
+
+> <LuaDeclaration name="upgradePath" className="Loopback" args={[ { name: "request", type: "Request" } ]} returnType="string" />
+
+The path of a websocket upgrade request with one trailing `/` removed: `/resume/` becomes `/resume`, `/` stays.
+
+<LuaParamTable params={[ { name: "request", type: "Request" } ]} returns={[ { type: "string" } ]} />
 
 ### jsonResponse
 

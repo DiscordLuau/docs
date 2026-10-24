@@ -1,0 +1,171 @@
+---
+title: Audio
+description: DiscordLuau docs for Audio.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Interface for the discord-luau Audio package: audio sources and a paced player for a voice connection. Runs on Zune
+only, because `voice` and `opus` load native libraries through FFI, and audio files decode through
+`discord_luau/symphonia`, which does too.
+
+A file source holds a native decoder session from the moment it is built. A source not handed to a `playAsync` that
+starts must be released with `source:destroy()`.
+
+<LuaSummary className="Audio" properties={[ { name: "player", type: "Audio.Player" }, { name: "fromOpus", type: "(packets: { buffer } | () -> buffer?) -> Source" }, { name: "fromPCM", type: "(pcm: buffer | { buffer } | () -> buffer?, options: PCMOptions?) -> Source" }, { name: "fromFile", type: "(path: string, options: FileOptions?) -> Source" }, { name: "fromEncoded", type: "(bytes: buffer | string, options: FileOptions?) -> Source" }, { name: "fromMP3", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromOgg", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromWAV", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromFLAC", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromAAC", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromM4A", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromWebM", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromMKV", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromAIFF", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromCAF", type: "(bytes: buffer | string, options: NamedOptions?) -> Source" }, { name: "fromStream", type: "(read: StreamReader, options: StreamOptions?) -> Source" }, { name: "fromProcess", type: "(command: string, arguments: { string }?, options: StreamOptions?) -> Source" } ]} functions={[ { name: "loadFileDecoder", args: [  ] } ]} />
+
+## Properties
+
+### player
+
+<LuaProperty name="Audio.player" type="Audio.Player" />
+
+---
+`audio.player.new(connection, options?)` builds a player for a voice connection. See `Audio.Player`.
+
+### fromOpus
+
+<LuaProperty name="Audio.fromOpus" type="(packets: { buffer } | () -> buffer?) -> Source" />
+
+---
+Builds a source from Opus packets. See `Audio.Source`.
+
+### fromPCM
+
+<LuaProperty name="Audio.fromPCM" type="(pcm: buffer | { buffer } | () -> buffer?, options: PCMOptions?) -> Source" />
+
+---
+Builds a source from 48 kHz stereo 16-bit little-endian PCM of any length; `options.bitrate` sets the Opus bitrate
+(128000 by default). See `Audio.Source`.
+
+### fromFile
+
+<LuaProperty name="Audio.fromFile" type="(path: string, options: FileOptions?) -> Source" />
+
+---
+Builds a source from the audio file at `path`, streamed from the disk. See `Audio.Source`.
+
+### fromEncoded
+
+<LuaProperty name="Audio.fromEncoded" type="(bytes: buffer | string, options: FileOptions?) -> Source" />
+
+---
+Builds a source from an audio file held in memory; the format is found from the content. See `Audio.Source`.
+
+### fromMP3
+
+<LuaProperty name="Audio.fromMP3" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for an MP3, MP2 or MP1 file. Any supported file plays through it. See `Audio.Source`.
+
+### fromOgg
+
+<LuaProperty name="Audio.fromOgg" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for an Ogg file: Vorbis, FLAC, or Opus passed through. Any supported file plays through it. See
+`Audio.Source`.
+
+### fromWAV
+
+<LuaProperty name="Audio.fromWAV" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for a WAV file: PCM or ADPCM. Any supported file plays through it. See `Audio.Source`.
+
+### fromFLAC
+
+<LuaProperty name="Audio.fromFLAC" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for a FLAC file. Any supported file plays through it. See `Audio.Source`.
+
+### fromAAC
+
+<LuaProperty name="Audio.fromAAC" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for an ADTS AAC file: AAC-LC, mono or stereo. Any supported file plays through it. See
+`Audio.Source`.
+
+### fromM4A
+
+<LuaProperty name="Audio.fromM4A" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for an M4A or MP4 file: AAC-LC in mono or stereo, ALAC, or Opus passed through. Any supported file
+plays through it. See `Audio.Source`.
+
+### fromWebM
+
+<LuaProperty name="Audio.fromWebM" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for a WebM file: Opus passed through, or Vorbis. Any supported file plays through it. See
+`Audio.Source`.
+
+### fromMKV
+
+<LuaProperty name="Audio.fromMKV" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for a Matroska file. Any supported file plays through it. See `Audio.Source`.
+
+### fromAIFF
+
+<LuaProperty name="Audio.fromAIFF" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for an AIFF file. Any supported file plays through it. See `Audio.Source`.
+
+### fromCAF
+
+<LuaProperty name="Audio.fromCAF" type="(bytes: buffer | string, options: NamedOptions?) -> Source" />
+
+---
+`fromEncoded` for a Core Audio Format file. Any supported file plays through it. See `Audio.Source`.
+
+### fromStream
+
+<LuaProperty name="Audio.fromStream" type="(read: StreamReader, options: StreamOptions?) -> Source" />
+
+---
+Builds a source from an audio file that arrives in pieces: `read` returns the next chunk of its bytes and nil at
+the end, and may yield. Nothing is read or opened until the source plays; the player waits while it buffers
+`options.bufferSeconds` of audio (1 by default) and whenever it stalls. See `Audio.Source`.
+
+### fromProcess
+
+<LuaProperty name="Audio.fromProcess" type="(command: string, arguments: { string }?, options: StreamOptions?) -> Source" />
+
+---
+Builds a stream source from what a program writes to its stdout, such as
+`audio.fromProcess("yt-dlp", { "-f", "251", "-o", "-", url })`. The program starts when the source plays; a
+non-zero exit code fails the playback with the program's last stderr line. See `Audio.Source`.
+
+
+## Functions
+
+### loadFileDecoder
+
+> <LuaDeclaration name="loadFileDecoder" className="Audio" args={[  ]} />
+
+Loads libsymphonia, the library the file sources decode with, so the first file source neither waits for it nor
+yields. The load always yields; when the library is not cached it downloads the 2 to 3 MB file, and it checks the
+library's sha256, which blocks the VM for about 360 ms. Call it once at startup, from a thread that can yield.
+Later calls return at once.
+
+Raises `Symphonia requires FFI which is not available on this runtime` without FFI, and any error the load hits; a
+failed load is not cached, so the next call or file source tries again.
+
+

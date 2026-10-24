@@ -1,0 +1,205 @@
+---
+title: Player
+description: DiscordLuau docs for Player.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Plays audio sources on one voice connection, one at a time. `playAsync` sends Speaking, then each packet of the
+source paced by its own duration, then five silence frames and Speaking 0, and resolves `"finished"`, or
+`"stopped"` after `stop`. One player per connection plays at a time; a second `playAsync`, on this player or on
+another player of the same connection, fails at once and leaves the running playback alone.
+
+While the connection resumes or rejoins, the playback waits, woken by the connection's `onReady`, `onResumed` and
+`onClosed`. On each new session it waits up to `mediaWaitSeconds` for DAVE media readiness, then sends Speaking
+again; until media is ready, voice sends Opus silence in place of every packet, so nothing leaves unencrypted.
+
+A player is bound to one `Connection`. After that connection closes, a new join makes a new `Connection`, which
+needs a new player. Sources must return quickly: a `read` that takes longer than a frame leaves a gap in the audio,
+and a `read` that never returns holds the playback, which `stop` cannot end.
+
+A stream source from `audio.fromStream` never blocks a read. While it is `starved`, before it has buffered enough
+and whenever it stalls, the playback sends its silence tail and Speaking 0 if Speaking went out, then polls the
+source every 20 ms, and speaks again on a fresh schedule once the source has audio.
+
+<LuaSummary className="Player" properties={[ { name: "connection", type: "voice.Connection" }, { name: "speakingFlags", type: "number" }, { name: "silenceFrames", type: "number" }, { name: "mediaWaitSeconds", type: "number" }, { name: "clock", type: "PlayerClock" }, { name: "logger", type: "logger.Logger" }, { name: "playing", type: "boolean" }, { name: "ending", type: "boolean" }, { name: "stopRequested", type: "boolean" }, { name: "readyCount", type: "number" }, { name: "spokenReadyCount", type: "number?" }, { name: "startMillis", type: "number?" }, { name: "elapsedSamples", type: "number" }, { name: "packetsSent", type: "number" }, { name: "silenceFramesSent", type: "number" }, { name: "onWake", type: "emitter.Emitter<()>" }, { name: "listenerDisconnects", type: "{ () -> () }" } ]} methods={[ { name: "playAsync", isMethod: true, args: [ { name: "source", type: "Source" } ] }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "connection", type: "voice.Connection" }, { name: "options", type: "PlayerOptions?" } ], returnType: "Player" } ]} />
+
+## Properties
+
+### connection
+
+<LuaProperty name="Player.connection" type="voice.Connection" />
+
+---
+The voice connection the player sends on.
+
+### speakingFlags
+
+<LuaProperty name="Player.speakingFlags" type="number" />
+
+---
+The Speaking flags sent before audio: 1 (Microphone) by default, never 0.
+
+### silenceFrames
+
+<LuaProperty name="Player.silenceFrames" type="number" />
+
+---
+How many Opus silence frames end a playback, 5 by default.
+
+### mediaWaitSeconds
+
+<LuaProperty name="Player.mediaWaitSeconds" type="number" />
+
+---
+How long a playback waits for DAVE media readiness before Speaking on each new session, 5 seconds by default.
+
+### clock
+
+<LuaProperty name="Player.clock" type="PlayerClock" />
+
+---
+Where the pace reads the time and waits. The default reads `std_polyfills`' `datetime.now` and `task.wait` on
+every call, so a clock swapped in later, such as `discord_stub`'s virtual clock, is the one it uses.
+
+### logger
+
+<LuaProperty name="Player.logger" type="logger.Logger" />
+
+---
+The player's logger, named `AudioPlayer`, at `Info` unless `logLevel` says otherwise.
+
+### playing
+
+<LuaProperty name="Player.playing" type="boolean" />
+
+---
+Whether a playback runs, from its start checks until its silence tail and cleanup end.
+
+### ending
+
+<LuaProperty name="Player.ending" type="boolean" />
+
+---
+Whether the running playback has reached its end and is sending its silence tail; `stop` does nothing then.
+
+### stopRequested
+
+<LuaProperty name="Player.stopRequested" type="boolean" />
+
+---
+Whether `stop` asked the running playback to end. A playback clears it when it starts.
+
+### readyCount
+
+<LuaProperty name="Player.readyCount" type="number" />
+
+---
+How many times the connection became ready since the running playback started.
+
+### spokenReadyCount
+
+<LuaProperty name="Player.spokenReadyCount" type="number?" />
+
+---
+The `readyCount` that Speaking last went out on, nil while Speaking is off.
+
+### startMillis
+
+<LuaProperty name="Player.startMillis" type="number?" />
+
+---
+The clock time the schedule starts from: set just before the first paced send of a playback, and moved by each
+schedule reset.
+
+### elapsedSamples
+
+<LuaProperty name="Player.elapsedSamples" type="number" />
+
+---
+The samples sent since `startMillis`; the next deadline is `startMillis + elapsedSamples / 48` milliseconds.
+
+### packetsSent
+
+<LuaProperty name="Player.packetsSent" type="number" />
+
+---
+How many of the source's packets the running or last playback sent.
+
+### silenceFramesSent
+
+<LuaProperty name="Player.silenceFramesSent" type="number" />
+
+---
+How many silence frames the running or last playback sent.
+
+### onWake
+
+<LuaProperty name="Player.onWake" type="emitter.Emitter<()>" />
+
+---
+Wakes the playback's thread on the next scheduler step after the connection becomes ready, resumes or closes, or
+after `stop`.
+
+### listenerDisconnects
+
+<LuaProperty name="Player.listenerDisconnects" type="{ () -> () }" />
+
+---
+Disconnects the running playback's listeners on the connection's `onReady`, `onResumed` and `onClosed`; empty
+while nothing plays.
+
+
+## Methods
+
+### playAsync
+
+> <LuaDeclaration name="playAsync" className="Player" args={[ { name: "source", type: "Source" } ]} isMethod />
+
+Plays `source` and resolves Ok with `"finished"` once the source ran out and the silence tail and Speaking 0 went
+out (or could not be sent because the session went away), or with `"stopped"` after `stop` and the same tail. The
+future is lazy: playback starts when it is polled or awaited.
+
+Fails at once, without claiming the source, when this player is playing, another player plays on the connection,
+the connection was never joined or has closed, or the source was played before. Fails with
+`voice connection closed: &lt;closeDetail&gt;` when the connection closes before the end, with the send's own error when
+a send fails on a session that stayed ready (a send lost to a reconnect is logged at debug and not sent again),
+with `audio source failed: &lt;error&gt;` when the source raises and with
+`invalid Opus packet from the audio source: &lt;error&gt;` for a packet that is not Opus. Every exit after the start
+destroys the source.
+
+<LuaParamTable params={[ { name: "source", type: "Source" } ]} />
+
+### stop
+
+> <LuaDeclaration name="stop" className="Player" args={[  ]} isMethod />
+
+Asks the running playback to end. It ends at its next step with the silence tail and Speaking 0 when Speaking went
+out on a ready session, and resolves `"stopped"`: at once from the readiness wait, within about one 20 ms poll from
+a starved stream's wait (whose tail already went out), within one packet from a pace, when a send or a source read
+returns, and when the media wait ends, which in a DAVE channel can take up to `mediaWaitSeconds`. A stream source's
+own `read` never blocks, and killing a `fromProcess` program never waits for it to exit, so a stream whose producer
+waits for bytes, or is blocked writing them, still stops this quickly. Does nothing, logged at debug, when nothing
+plays or the playback is already sending its tail.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Player" args={[ { name: "connection", type: "voice.Connection" }, { name: "options", type: "PlayerOptions?" } ]} returnType="Player" />
+
+Builds a player for `connection`. Raises for a missing connection, `speakingFlags` of 0, and a negative
+`silenceFrames` or `mediaWaitSeconds`.
+
+<LuaParamTable params={[ { name: "connection", type: "voice.Connection" }, { name: "options", type: "PlayerOptions?" } ]} returns={[ { type: "Player" } ]} />
+
+

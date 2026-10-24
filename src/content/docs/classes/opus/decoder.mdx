@@ -20,7 +20,7 @@ Decoder per packet. One Decoder instance per audio stream is the correct usage.
 
 Call `destroy` when the decoder is no longer needed to free the native state.
 
-<LuaSummary className="Decoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} methods={[ { name: "decode", isMethod: true, args: [ { name: "opusBuffer", type: "buffer" } ], returnType: "buffer" }, { name: "decodeFec", isMethod: true, args: [ { name: "nextPacket", type: "buffer" } ], returnType: "buffer" }, { name: "decodePLC", isMethod: true, args: [  ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ], returnType: "Decoder" } ]} />
+<LuaSummary className="Decoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "inputPointer", type: "FFIPointer" }, { name: "outputPointer", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ]} methods={[ { name: "decode", isMethod: true, args: [ { name: "opusBuffer", type: "buffer" } ], returnType: "buffer" }, { name: "decodeFec", isMethod: true, args: [ { name: "nextPacket", type: "buffer" } ], returnType: "buffer" }, { name: "decodePLC", isMethod: true, args: [  ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" } ], returnType: "Decoder" } ]} />
 
 ## Properties
 
@@ -28,6 +28,20 @@ Call `destroy` when the decoder is no longer needed to free the native state.
 
 <LuaProperty name="Decoder.handle" type="FFIPointer" />
 
+
+### inputPointer
+
+<LuaProperty name="Decoder.inputPointer" type="FFIPointer" />
+
+---
+Native buffer that each Opus packet is copied into before decoding, reused for every call.
+
+### outputPointer
+
+<LuaProperty name="Decoder.outputPointer" type="FFIPointer" />
+
+---
+Native buffer that libopus decodes PCM into, reused for every call.
 
 ### sampleRate
 

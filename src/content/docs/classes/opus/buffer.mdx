@@ -16,7 +16,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 Internal FFI interoperability helpers for the Opus package.
 Wraps `stdPolyfills.ffi` into named operations so higher-level modules never interact with it directly.
 
-<LuaSummary className="Buffer" functions={[ { name: "alloc", args: [ { name: "size", type: "number" } ], returnType: "FFIPointer" }, { name: "dupe", args: [ { name: "source", type: "buffer" } ], returnType: "FFIPointer" }, { name: "free", args: [ { name: "pointer", type: "FFIPointer" } ] }, { name: "read", args: [ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ], returnType: "buffer" }, { name: "getNull", args: [  ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" }, { name: "maxLength", type: "number" } ], returnType: "string" } ]} />
+<LuaSummary className="Buffer" functions={[ { name: "alloc", args: [ { name: "size", type: "number" } ], returnType: "FFIPointer" }, { name: "dupe", args: [ { name: "source", type: "buffer" } ], returnType: "FFIPointer" }, { name: "free", args: [ { name: "pointer", type: "FFIPointer" } ] }, { name: "write", args: [ { name: "pointer", type: "FFIPointer" }, { name: "source", type: "buffer" } ] }, { name: "read", args: [ { name: "pointer", type: "FFIPointer" }, { name: "length", type: "number" } ], returnType: "buffer" }, { name: "getNull", args: [  ], returnType: "FFIPointer" }, { name: "fromCString", args: [ { name: "pointer", type: "FFIPointer" }, { name: "maxLength", type: "number" } ], returnType: "string" } ]} />
 
 ## Functions
 
@@ -37,6 +37,14 @@ Wraps `stdPolyfills.ffi` into named operations so higher-level modules never int
 > <LuaDeclaration name="free" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" } ]} />
 
 <LuaParamTable params={[ { name: "pointer", type: "FFIPointer" } ]} />
+
+### write
+
+> <LuaDeclaration name="write" className="Buffer" args={[ { name: "pointer", type: "FFIPointer" }, { name: "source", type: "buffer" } ]} />
+
+Copies all of `source` into the start of the native memory at `pointer`.
+
+<LuaParamTable params={[ { name: "pointer", type: "FFIPointer" }, { name: "source", type: "buffer" } ]} />
 
 ### read
 

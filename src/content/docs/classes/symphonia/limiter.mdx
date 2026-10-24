@@ -1,0 +1,282 @@
+---
+title: Limiter
+description: DiscordLuau docs for Limiter.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Turns 48 kHz interleaved stereo 32-bit float audio into 16-bit PCM at a volume, through a look-ahead peak limiter,
+so audio that would pass full scale is turned down smoothly instead of clipped.
+
+- A non-finite sample (Inf or NaN) becomes 0 before anything else.
+- The volume, from 0 to 4, multiplies each sample. A change ramps linearly over 20 ms (960 frames), carried across
+calls of any size; a volume set before the first frame applies at once.
+- The limiter links both channels and looks 5 ms (240 frames) ahead. It keeps every sample within a per-sign
+ceiling, +32767/32768 for positive samples and -1.0 for negative ones, the values that scale to exactly 32767 and
+-32768. A reduction ramps in over the look-ahead, no frame's gain is ever above the gain that frame needs, and the
+gain rises back along a straight line over 50 ms to exactly 1.
+- Each sample is then scaled by 32768 and rounded. A clamp to the 16-bit range backs that up; it never engages,
+and `clampCount` counts it for tests.
+
+Audio that never passes the ceiling after the volume comes out bit for bit as a plain conversion would give it,
+only 240 frames late. `process` holds those frames back, so it returns fewer frames than it takes until the
+look-ahead is full, and `flush` returns them at the end, so as many frames leave as entered.
+
+<LuaSummary className="Limiter" properties={[ { name: "volume", type: "number" }, { name: "gain", type: "number" }, { name: "clampCount", type: "number" }, { name: "flushed", type: "boolean" }, { name: "heldFrames", type: "number" }, { name: "LOOKAHEAD_FRAMES", type: "number" }, { name: "heard", type: "boolean" }, { name: "rampFrom", type: "number" }, { name: "rampTo", type: "number" }, { name: "rampPosition", type: "number" }, { name: "delayLeft", type: "{ number }" }, { name: "delayRight", type: "{ number }" }, { name: "delayRequired", type: "{ number }" }, { name: "delayIndex", type: "number" }, { name: "enteredFrames", type: "number" }, { name: "minimumFrames", type: "{ number }" }, { name: "minimumGains", type: "{ number }" }, { name: "minimumFirst", type: "number" }, { name: "minimumCount", type: "number" }, { name: "window", type: "{ number }" }, { name: "windowIndex", type: "number" }, { name: "windowSum", type: "number" }, { name: "windowReduced", type: "number" }, { name: "releaseFrom", type: "number" }, { name: "releasePosition", type: "number" } ]} methods={[ { name: "setVolume", isMethod: true, args: [ { name: "volume", type: "number" } ] }, { name: "process", isMethod: true, args: [ { name: "floats", type: "buffer" }, { name: "frames", type: "number" } ], returnType: "buffer" }, { name: "framesNeeded", isMethod: true, args: [ { name: "outputFrames", type: "number" } ], returnType: "number" }, { name: "flush", isMethod: true, args: [  ], returnType: "buffer" } ]} functions={[ { name: "checkVolume", args: [ { name: "volume", type: "number" } ] }, { name: "new", args: [  ], returnType: "Limiter" } ]} />
+
+## Properties
+
+### volume
+
+<LuaProperty name="Limiter.volume" type="number" />
+
+---
+The volume `setVolume` last set, from 0 to 4; 1 until then.
+
+### gain
+
+<LuaProperty name="Limiter.gain" type="number" />
+
+---
+The limiter's gain on the last frame that left, from 0 to 1: exactly 1 while nothing is reduced.
+
+### clampCount
+
+<LuaProperty name="Limiter.clampCount" type="number" />
+
+---
+How many samples the backstop clamp has changed; for tests, since the limiter keeps it at 0.
+
+### flushed
+
+<LuaProperty name="Limiter.flushed" type="boolean" />
+
+---
+Whether `flush` has run, after which `process` raises.
+
+### heldFrames
+
+<LuaProperty name="Limiter.heldFrames" type="number" />
+
+---
+The frames that entered and have not left yet, up to the 240-frame look-ahead.
+
+### LOOKAHEAD_FRAMES
+
+<LuaProperty name="Limiter.LOOKAHEAD_FRAMES" type="number" />
+
+---
+The look-ahead in frames, 240 (5 ms at 48 kHz), on the module: output is late by exactly this much.
+
+### heard
+
+<LuaProperty name="Limiter.heard" type="boolean" />
+
+---
+Whether a frame has been taken at some volume. Until one has, a new volume applies at once.
+
+### rampFrom
+
+<LuaProperty name="Limiter.rampFrom" type="number" />
+
+---
+The volume gain the current ramp started from.
+
+### rampTo
+
+<LuaProperty name="Limiter.rampTo" type="number" />
+
+---
+The volume the current ramp ends at.
+
+### rampPosition
+
+<LuaProperty name="Limiter.rampPosition" type="number" />
+
+---
+The frames of the current ramp taken so far, up to 960, where the gain is exactly `rampTo`.
+
+### delayLeft
+
+<LuaProperty name="Limiter.delayLeft" type="{ number }" />
+
+---
+The left samples of the held frames, after the volume, in a ring of 240 slots.
+
+### delayRight
+
+<LuaProperty name="Limiter.delayRight" type="{ number }" />
+
+---
+The right samples of the held frames, after the volume, in a ring of 240 slots.
+
+### delayRequired
+
+<LuaProperty name="Limiter.delayRequired" type="{ number }" />
+
+---
+The gain each held frame needs to stay within the ceiling, in a ring of 240 slots.
+
+### delayIndex
+
+<LuaProperty name="Limiter.delayIndex" type="number" />
+
+---
+The slot the next frame enters: once 240 frames are held, the slot of the frame that leaves.
+
+### enteredFrames
+
+<LuaProperty name="Limiter.enteredFrames" type="number" />
+
+---
+The frames taken in so far, counting the silence `flush` adds; the next frame's number.
+
+### minimumFrames
+
+<LuaProperty name="Limiter.minimumFrames" type="{ number }" />
+
+---
+The frame numbers of the candidates for the lowest required gain among the last 241 frames, in a ring of 241 slots,
+oldest first.
+
+### minimumGains
+
+<LuaProperty name="Limiter.minimumGains" type="{ number }" />
+
+---
+The required gains of those candidates, strictly rising, so the first is the lowest.
+
+### minimumFirst
+
+<LuaProperty name="Limiter.minimumFirst" type="number" />
+
+---
+The slot of the first candidate.
+
+### minimumCount
+
+<LuaProperty name="Limiter.minimumCount" type="number" />
+
+---
+How many candidates the ring holds.
+
+### window
+
+<LuaProperty name="Limiter.window" type="{ number }" />
+
+---
+The lowest required gain in each of the last 240 windows of 241 frames, one window ending at each frame taken, in a
+ring of 240 slots. It starts full of 1s, for the windows that end before the audio.
+
+### windowIndex
+
+<LuaProperty name="Limiter.windowIndex" type="number" />
+
+---
+The slot of the oldest entry in `window`, which the next one replaces.
+
+### windowSum
+
+<LuaProperty name="Limiter.windowSum" type="number" />
+
+---
+The running sum of `window`.
+
+### windowReduced
+
+<LuaProperty name="Limiter.windowReduced" type="number" />
+
+---
+How many entries of `window` are below 1. While none are, the sum is exactly 240 and the attack gain exactly 1.
+
+### releaseFrom
+
+<LuaProperty name="Limiter.releaseFrom" type="number" />
+
+---
+The gain the current release rises from.
+
+### releasePosition
+
+<LuaProperty name="Limiter.releasePosition" type="number" />
+
+---
+The frames into the current release, up to 2400, where the release line reaches exactly 1.
+
+
+## Methods
+
+### setVolume
+
+> <LuaDeclaration name="setVolume" className="Limiter" args={[ { name: "volume", type: "number" } ]} isMethod />
+
+Sets the volume, a number from 0 to 4, where 1 leaves the audio as it is. A change ramps linearly over the next
+20 ms of frames taken; a volume set before the first frame applies at once.
+
+Raises `volume must be a number from 0 to 4` for a number outside that range, through `checkVolume`, keeping the old
+volume. Callers that take a volume from users check its type first, as `Decoder.checkVolume` does.
+
+<LuaParamTable params={[ { name: "volume", type: "number" } ]} />
+
+### process
+
+> <LuaDeclaration name="process" className="Limiter" args={[ { name: "floats", type: "buffer" }, { name: "frames", type: "number" } ]} returnType="buffer" isMethod />
+
+Takes `frames` frames of 48 kHz interleaved stereo 32-bit float samples from `floats` and returns the frames that
+leave, as interleaved stereo 16-bit little-endian PCM. The limiter holds the last 240 frames back, so the result is
+shorter than the input until that many have entered; blocks of any size give the same audio.
+
+Raises `limiter has been flushed` after `flush`, and `frames must be a whole number from 0 to &lt;count&gt;, the frames
+the buffer holds` when `frames` is negative, fractional or more than the buffer holds; a raise changes nothing.
+
+<LuaParamTable params={[ { name: "floats", type: "buffer" }, { name: "frames", type: "number" } ]} returns={[ { type: "buffer" } ]} />
+
+### framesNeeded
+
+> <LuaDeclaration name="framesNeeded" className="Limiter" args={[ { name: "outputFrames", type: "number" } ]} returnType="number" isMethod />
+
+The frames `process` must take to return `outputFrames`: that many, plus the part of the look-ahead not yet held,
+so the first call takes 240 more than it returns.
+
+<LuaParamTable params={[ { name: "outputFrames", type: "number" } ]} returns={[ { type: "number" } ]} />
+
+### flush
+
+> <LuaDeclaration name="flush" className="Limiter" args={[  ]} returnType="buffer" isMethod />
+
+Returns the frames still held, as 16-bit PCM, at the end of the audio, and only those: as many frames leave in all
+as entered, however few that is. They leave as if the audio had gone on in silence. A second call returns an empty
+buffer.
+
+<LuaParamTable returns={[ { type: "buffer" } ]} />
+
+
+## Functions
+
+### checkVolume
+
+> <LuaDeclaration name="checkVolume" className="Limiter" args={[ { name: "volume", type: "number" } ]} />
+
+Raises `volume must be a number from 0 to 4` unless `volume` is in that range; NaN and Inf fail too. It owns the
+range and the message: `setVolume` uses it, and so does `Decoder.checkVolume`, which checks the type of a volume
+that users hand in before it gets here.
+
+<LuaParamTable params={[ { name: "volume", type: "number" } ]} />
+
+### new
+
+> <LuaDeclaration name="new" className="Limiter" args={[  ]} returnType="Limiter" />
+
+Creates a limiter at volume 1 that has taken nothing yet.
+
+<LuaParamTable returns={[ { type: "Limiter" } ]} />
+
+

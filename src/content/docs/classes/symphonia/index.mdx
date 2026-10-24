@@ -1,0 +1,95 @@
+---
+title: Symphonia
+description: DiscordLuau docs for Symphonia.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Decodes audio files with [Symphonia](https://github.com/pdeljanov/Symphonia), a pure Rust audio library, through
+FFI. The library decodes every format it supports to 48 kHz stereo 32-bit floats; Luau applies the volume, limits
+the audio and converts it to 16-bit little-endian PCM, ready for `audio.fromPCM`. Opus in Ogg, WebM or MP4 is
+passed through as raw Opus packets, ready for `audio.fromOpus`.
+
+The library loads on first use, not on require. Call `load` at startup to take its first-call cost early.
+
+<LuaSummary className="Symphonia" properties={[ { name: "sys", type: "Symphonia.Sys" }, { name: "decoder", type: "Symphonia.Decoder" }, { name: "limiter", type: "Symphonia.Limiter" }, { name: "OUTPUT_SAMPLE_RATE", type: "number" }, { name: "OUTPUT_CHANNELS", type: "number" } ]} functions={[ { name: "load", args: [  ], returnType: "Symphonia.Sys.Lib" }, { name: "decode", args: [ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecodeOptions?" } ], returnType: "buffer" } ]} />
+
+## Properties
+
+### sys
+
+<LuaProperty name="Symphonia.sys" type="Symphonia.Sys" />
+
+---
+The raw FFI bindings and constants.
+
+### decoder
+
+<LuaProperty name="Symphonia.decoder" type="Symphonia.Decoder" />
+
+---
+The `Decoder` constructors, `fromBuffer`, `fromFile` and `fromStream`.
+
+### limiter
+
+<LuaProperty name="Symphonia.limiter" type="Symphonia.Limiter" />
+
+---
+The `Limiter` constructor, `new`, and `checkVolume`: the volume, the look-ahead limiter and the conversion to
+16-bit PCM that `read` uses, for float audio from `readFloat`.
+
+### OUTPUT_SAMPLE_RATE
+
+<LuaProperty name="Symphonia.OUTPUT_SAMPLE_RATE" type="number" />
+
+---
+The sample rate `read` and `decode` return: 48000 Hz.
+
+### OUTPUT_CHANNELS
+
+<LuaProperty name="Symphonia.OUTPUT_CHANNELS" type="number" />
+
+---
+The channel count `read` and `decode` return: 2, interleaved.
+
+
+## Functions
+
+### load
+
+> <LuaDeclaration name="load" className="Symphonia" args={[  ]} returnType="Symphonia.Sys.Lib" />
+
+`Symphonia.Sys.load`: loads libsymphonia on the first call and returns it. The first call always yields, may
+download the library and checks its sha256, which blocks for about 360 ms; call it at startup so the first
+`fromBuffer` or `fromFile` does not.
+
+<LuaParamTable returns={[ { type: "Symphonia.Sys.Lib" } ]} />
+
+### decode
+
+> <LuaDeclaration name="decode" className="Symphonia" args={[ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecodeOptions?" } ]} returnType="buffer" />
+
+Decodes a whole file held in memory, as a buffer or a string, to one buffer of 48 kHz interleaved stereo 16-bit
+little-endian PCM, through the decoder's `read`, so audio that would pass full scale is limited rather than clipped
+and audio that never does comes out bit for bit. Opus raises, since it is passed through rather than decoded; read
+it with a `Decoder`.
+
+Raises `the decoded audio is longer than &lt;n&gt; s; read it with a Decoder instead` once the output passes
+`options.maxSeconds`, and every error a `Decoder` raises. The decoder is destroyed on every exit.
+
+Each second of output is 192 KB of PCM, and `decode` holds every 100 ms chunk and the joined buffer at once, so
+its memory peaks near twice the output: about 1.4 GB at the default cap of 3600 s (691 MB of PCM). Lower
+`maxSeconds` for untrusted files, or read long files with a `Decoder`.
+
+<LuaParamTable params={[ { name: "bytes", type: "buffer | string" }, { name: "options", type: "DecodeOptions?" } ]} returns={[ { type: "buffer" } ]} />
+
+

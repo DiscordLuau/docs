@@ -22,7 +22,7 @@ This class is responsible for storing the following elements:
 - Discord REST API
 - Discord Gateway Manager
 
-<LuaSummary className="State" properties={[ { name: "token", type: "Secret" }, { name: "applicationId", type: "string" }, { name: "stub", type: "Stub?" }, { name: "rest", type: "State.Rest" }, { name: "webSocketManager", type: "WebSocket.Manager" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "setApplicationId", isMethod: true, args: [ { name: "applicationId", type: "apiTypes.Snowflake" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, isUsingStub: Stub?, }" } ], returnType: "State" } ]} />
+<LuaSummary className="State" properties={[ { name: "token", type: "Secret" }, { name: "applicationId", type: "string" }, { name: "userId", type: "string" }, { name: "logger", type: "logger.Logger" }, { name: "voiceConnections", type: "{ [string]: voice.Connection }" }, { name: "stub", type: "Stub?" }, { name: "rest", type: "State.Rest" }, { name: "webSocketManager", type: "WebSocket.Manager" }, { name: "intents", type: "number" }, { name: "version", type: "number" } ]} methods={[ { name: "setApplicationId", isMethod: true, args: [ { name: "applicationId", type: "apiTypes.Snowflake" } ] }, { name: "setUserId", isMethod: true, args: [ { name: "userId", type: "apiTypes.Snowflake" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ token: string, intents: number, version: number, reconnect: boolean, globalRatelimit: number, logLevel: logger.LogLevel?, isUsingStub: Stub?, }" } ], returnType: "State" } ]} />
 
 ## Properties
 
@@ -35,6 +35,27 @@ This class is responsible for storing the following elements:
 
 <LuaProperty name="State.applicationId" type="string" />
 
+
+### userId
+
+<LuaProperty name="State.userId" type="string" />
+
+---
+The bot's own user ID, set from READY; voice connections identify with it. Empty until READY.
+
+### logger
+
+<LuaProperty name="State.logger" type="logger.Logger" />
+
+---
+The shared state's logger, for packages without their own.
+
+### voiceConnections
+
+<LuaProperty name="State.voiceConnections" type="{ [string]: voice.Connection }" />
+
+---
+The bot's voice connection in each guild, keyed by guild ID.
 
 ### stub
 
@@ -71,6 +92,14 @@ This class is responsible for storing the following elements:
 Will set the current application ID
 
 <LuaParamTable params={[ { name: "applicationId", type: "apiTypes.Snowflake" } ]} />
+
+### setUserId
+
+> <LuaDeclaration name="setUserId" className="State" args={[ { name: "userId", type: "apiTypes.Snowflake" } ]} isMethod />
+
+Will set the bot's own user ID, which voice connections identify with.
+
+<LuaParamTable params={[ { name: "userId", type: "apiTypes.Snowflake" } ]} />
 
 
 ## Functions

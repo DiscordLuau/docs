@@ -17,7 +17,7 @@ Manages the WebSocket connection to the Discord voice gateway: socket lifecycle,
 message framing, and heartbeating. Detects zombified connections (unacknowledged heartbeat) and
 notifies the owner via the `onZombified` callback.
 
-<LuaSummary className="WebSocketTransport" properties={[ { name: "socketActive", type: "boolean" }, { name: "socketReconnecting", type: "boolean" }, { name: "socketDisconnecting", type: "boolean" }, { name: "isResuming", type: "boolean" }, { name: "socketInstance", type: "any?" }, { name: "socketThread", type: "thread?" }, { name: "heartbeatInterval", type: "number?" }, { name: "heartbeatThread", type: "thread?" }, { name: "heartbeatAcknowledged", type: "boolean" }, { name: "heartbeatClockTime", type: "number?" }, { name: "heartbeatPing", type: "number?" }, { name: "sequenceAcknowledgement", type: "number" }, { name: "onConnected", type: "(() -> ())?" }, { name: "onDisconnected", type: "((code: number?, closedBySelf: boolean?) -> ())?" }, { name: "onMessage", type: "((payload: any) -> ())?" }, { name: "onZombified", type: "(() -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "_handleMessage", isMethod: true, args: [ { name: "message", type: "string" } ] }, { name: "heartbeatAsync", isMethod: true, args: [ { name: "requested", type: "boolean?" } ] }, { name: "heartbeatIn", isMethod: true, args: [ { name: "milliseconds", type: "number" } ] }, { name: "_openSocket", isMethod: true, args: [ { name: "url", type: "string" } ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "WebSocketTransport" } ]} />
+<LuaSummary className="WebSocketTransport" properties={[ { name: "socketActive", type: "boolean" }, { name: "socketDisconnecting", type: "boolean" }, { name: "socketOpening", type: "boolean" }, { name: "openAttempt", type: "number" }, { name: "isResuming", type: "boolean" }, { name: "socketInstance", type: "any?" }, { name: "socketThread", type: "thread?" }, { name: "heartbeatInterval", type: "number?" }, { name: "heartbeatThread", type: "thread?" }, { name: "heartbeatAcknowledged", type: "boolean" }, { name: "heartbeatClockTime", type: "number?" }, { name: "heartbeatPing", type: "number?" }, { name: "sequenceAcknowledgement", type: "number" }, { name: "onConnected", type: "(() -> ())?" }, { name: "onDisconnected", type: "((code: number?, closedBySelf: boolean?) -> ())?" }, { name: "onMessage", type: "((payload: any) -> ())?" }, { name: "onZombified", type: "(() -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "handleMessage", isMethod: true, args: [ { name: "message", type: "string" }, { name: "isBinary", type: "boolean?" } ] }, { name: "heartbeatAsync", isMethod: true, args: [ { name: "requested", type: "boolean?" } ] }, { name: "heartbeatIn", isMethod: true, args: [ { name: "milliseconds", type: "number" } ] }, { name: "stopHeartbeat", isMethod: true, args: [  ] }, { name: "openSocket", isMethod: true, args: [ { name: "url", type: "string" }, { name: "isStillWanted", type: "(() -> boolean)?" } ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "WebSocketTransport" } ]} />
 
 ## Properties
 
@@ -26,15 +26,23 @@ notifies the owner via the `onZombified` callback.
 <LuaProperty name="WebSocketTransport.socketActive" type="boolean" />
 
 
-### socketReconnecting
-
-<LuaProperty name="WebSocketTransport.socketReconnecting" type="boolean" />
-
-
 ### socketDisconnecting
 
 <LuaProperty name="WebSocketTransport.socketDisconnecting" type="boolean" />
 
+
+### socketOpening
+
+<LuaProperty name="WebSocketTransport.socketOpening" type="boolean" />
+
+
+### openAttempt
+
+<LuaProperty name="WebSocketTransport.openAttempt" type="number" />
+
+---
+Counts opens and `forceClose` calls; an open that finishes under an older count was abandoned and leaves
+`socketOpening` alone.
 
 ### isResuming
 
@@ -117,14 +125,16 @@ Sends a raw message over the voice WebSocket.
 
 <LuaParamTable params={[ { name: "data", type: "string | buffer" } ]} />
 
-### _handleMessage
+### handleMessage
 
-> <LuaDeclaration name="_handleMessage" className="WebSocketTransport" args={[ { name: "message", type: "string" } ]} isMethod />
+> <LuaDeclaration name="handleMessage" className="WebSocketTransport" args={[ { name: "message", type: "string" }, { name: "isBinary", type: "boolean?" } ]} isMethod />
 
-Decodes an incoming voice gateway message and dispatches it to `onMessage`. Binary frames are
-unwrapped from the voice binary framing format; JSON payloads are decoded directly.
+Decodes an incoming voice gateway message and dispatches it to `onMessage`. A binary frame is unwrapped from the
+voice binary framing (a 2-byte sequence number, then the opcode); a text frame is decoded as JSON. When the socket
+cannot say which kind of frame it was (`isBinary` is nil), a message whose first byte is not `{` is treated as
+binary.
 
-<LuaParamTable params={[ { name: "message", type: "string" } ]} />
+<LuaParamTable params={[ { name: "message", type: "string" }, { name: "isBinary", type: "boolean?" } ]} />
 
 ### heartbeatAsync
 
@@ -143,20 +153,29 @@ Schedules the next heartbeat to fire after the given number of milliseconds, can
 
 <LuaParamTable params={[ { name: "milliseconds", type: "number" } ]} />
 
-### _openSocket
+### stopHeartbeat
 
-> <LuaDeclaration name="_openSocket" className="WebSocketTransport" args={[ { name: "url", type: "string" } ]} isMethod />
+> <LuaDeclaration name="stopHeartbeat" className="WebSocketTransport" args={[  ]} isMethod />
 
-Opens the WebSocket to the given URL, starts the receive loop, and fires `onConnected`.
+Cancels the pending heartbeat, if any.
 
-<LuaParamTable params={[ { name: "url", type: "string" } ]} />
+### openSocket
+
+> <LuaDeclaration name="openSocket" className="WebSocketTransport" args={[ { name: "url", type: "string" }, { name: "isStillWanted", type: "(() -> boolean)?" } ]} isMethod />
+
+Opens the WebSocket to the given URL, starts the receive loop, and fires `onConnected`. Raises when a socket is
+already open or opening. When `isStillWanted` returns false once the handshake finishes, or `forceClose` abandoned
+the open during it, the new socket is closed at once and nothing starts.
+
+<LuaParamTable params={[ { name: "url", type: "string" }, { name: "isStillWanted", type: "(() -> boolean)?" } ]} />
 
 ### forceClose
 
 > <LuaDeclaration name="forceClose" className="WebSocketTransport" args={[ { name: "code", type: "number?" } ]} isMethod />
 
 Synchronously closes the voice WebSocket and kills all associated threads. Safe to call from
-a signal handler or any context where yielding is not permitted.
+a signal handler or any context where yielding is not permitted. An open still in its handshake is abandoned: it
+closes its socket when the handshake finishes, and a new open may start at once.
 
 <LuaParamTable params={[ { name: "code", type: "number?" } ]} />
 

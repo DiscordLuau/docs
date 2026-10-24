@@ -32,6 +32,9 @@ The URL template supports `{version}`, `{os}`, `{arch}`, and `{ext}` tokens.
 
 The checksum must be in `sha256:&lt;hex&gt;` format.
 
+`allowSystem` defaults to true. When false, the system-path search is skipped,
+so only the checksummed cache file or download is ever loaded.
+
 <LuaParamTable params={[ { name: "options", type: "LoadOptions" } ]} returns={[ { type: "LoadResult" } ]} />
 
 

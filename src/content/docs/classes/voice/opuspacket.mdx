@@ -1,0 +1,32 @@
+---
+title: OpusPacket
+description: DiscordLuau docs for OpusPacket.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+Reads the TOC byte that starts every Opus packet (RFC 6716 section 3.1) to tell how much audio the packet holds.
+
+<LuaSummary className="OpusPacket" functions={[ { name: "opusSamples", args: [ { name: "packet", type: "buffer" } ], returnType: "number" } ]} />
+
+## Functions
+
+### opusSamples
+
+> <LuaDeclaration name="opusSamples" className="OpusPacket" args={[ { name: "packet", type: "buffer" } ]} returnType="number" />
+
+Returns how many 48 kHz samples (per channel) of audio `packet` holds: its frame count times its frame size, both
+read from the TOC byte. 960 is 20 ms. Raises for an empty packet, a code 3 packet without its frame count byte or
+with 0 frames, and a packet longer than 120 ms (5760 samples).
+
+<LuaParamTable params={[ { name: "packet", type: "buffer" } ]} returns={[ { type: "number" } ]} />
+
+

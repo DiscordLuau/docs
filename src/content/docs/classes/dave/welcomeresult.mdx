@@ -15,10 +15,10 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Holds the outcome of processing an MLS welcome message via `Session:processWelcome`.
 
-A welcome message is sent by an existing group member when they commit a proposal to
-add this client. Processing it transitions the session into the group and exposes the
-initial roster. After inspecting the result, call `destroy` to free the underlying
-handle.
+A welcome message is sent by an existing group member when they commit a proposal to add this client. Processing
+it transitions the session into the group and exposes a change set against the session's previous roster: members
+added, or removed when their signature is empty. It is not the roster itself. After inspecting the result, call
+`destroy` to free the underlying handle.
 
 <LuaSummary className="WelcomeResult" properties={[ { name: "handle", type: "Sys.WelcomeResultHandle" } ]} methods={[ { name: "getRosterMemberIds", isMethod: true, args: [  ], returnType: "{ string }" }, { name: "getRosterMemberSignature", isMethod: true, args: [ { name: "rosterId", type: "string" } ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "handle", type: "Sys.WelcomeResultHandle" } ], returnType: "WelcomeResult" } ]} />
 
@@ -36,8 +36,9 @@ handle.
 
 > <LuaDeclaration name="getRosterMemberIds" className="WelcomeResult" args={[  ]} returnType="{ string }" isMethod />
 
-Returns the user IDs of every member present in the group when this welcome was issued,
-as a list of decimal snowflake strings. This is the initial roster after joining.
+Returns the user IDs whose keys changed against the session's previous roster, as decimal snowflake strings. On a
+session that never had a group this is every member, the bot included; a session that had one gets only the
+difference, because libdave never clears its roster. A removed member's `getRosterMemberSignature` is empty.
 
 <LuaParamTable returns={[ { type: "{ string }" } ]} />
 
@@ -48,6 +49,9 @@ as a list of decimal snowflake strings. This is the initial roster after joining
 Returns the MLS credential signature for the roster member identified by `rosterId`
 (a decimal snowflake string). The signature bytes can be used to verify that the
 member's key package was signed by a trusted identity key.
+
+Empty for a member this welcome removed. Pass only an id from this result's `getRosterMemberIds`: libdave aborts
+the process for any other.
 
 <LuaParamTable params={[ { name: "rosterId", type: "string" } ]} returns={[ { type: "buffer" } ]} />
 

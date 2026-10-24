@@ -13,10 +13,10 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-One accepted gateway websocket: where it was dialled, which session it is bound to, and every payload the client
-sent on it.
+One accepted websocket, on the gateway or the voice gateway: where it was dialled, which session it is bound to,
+and every message the client sent on it.
 
-<LuaSummary className="Connection" properties={[ { name: "index", type: "number" }, { name: "sessionId", type: "string?" }, { name: "path", type: "string" }, { name: "socket", type: "HttpWebSocket" }, { name: "open", type: "boolean" }, { name: "closeCode", type: "number?" }, { name: "received", type: "{ Received }" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ], returnType: "boolean" }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ index: number, path: string, socket: ZuneSocket }" } ], returnType: "Connection" } ]} />
+<LuaSummary className="Connection" properties={[ { name: "index", type: "number" }, { name: "sessionId", type: "string?" }, { name: "path", type: "string" }, { name: "socket", type: "HttpWebSocket" }, { name: "open", type: "boolean" }, { name: "closeCode", type: "number?" }, { name: "received", type: "{ Received }" } ]} methods={[ { name: "sendRaw", isMethod: true, args: [ { name: "message", type: "string | buffer" } ], returnType: "boolean" }, { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ], returnType: "boolean" }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" } ]} functions={[ { name: "find", args: [ { name: "connections", type: "{ Connection }" }, { name: "socket", type: "ZuneSocket" } ], returnType: "Connection?" }, { name: "new", args: [ { name: "settings", type: "{ index: number, path: string, socket: ZuneSocket }" } ], returnType: "Connection" } ]} />
 
 ## Properties
 
@@ -32,7 +32,8 @@ The connection's place in its server's open order, from 1.
 <LuaProperty name="Connection.sessionId" type="string?" />
 
 ---
-The session the server bound this connection to by answering it with READY or RESUMED.
+The session the server bound this connection to by answering it with READY or RESUMED, or the voice Ready or
+Resumed.
 
 ### path
 
@@ -67,17 +68,27 @@ The code the server's close callback reported, nil while open.
 <LuaProperty name="Connection.received" type="{ Received }" />
 
 ---
-Every payload the client sent, with the world clock's time it arrived.
+Every message the client sent: its opcode, the decoded payload, the raw text or binary buffer, and the world
+clock's time it arrived.
 
 
 ## Methods
+
+### sendRaw
+
+> <LuaDeclaration name="sendRaw" className="Connection" args={[ { name: "message", type: "string | buffer" } ]} returnType="boolean" isMethod />
+
+Sends one message as it is, a string as a text frame and a buffer as a binary frame, and returns whether it went.
+Zune throws once the socket is closing, before the server's close callback clears `open`, so a send to a closing
+socket returns false.
+
+<LuaParamTable params={[ { name: "message", type: "string | buffer" } ]} returns={[ { type: "boolean" } ]} />
 
 ### send
 
 > <LuaDeclaration name="send" className="Connection" args={[ { name: "payload", type: "Payload" } ]} returnType="boolean" isMethod />
 
-Sends one payload as JSON and returns whether it went. Zune throws once the socket is closing, before the server's
-close callback clears `open`, so a send to a closing socket returns false.
+Sends one payload as JSON text and returns whether it went, as `sendRaw` does.
 
 <LuaParamTable params={[ { name: "payload", type: "Payload" } ]} returns={[ { type: "boolean" } ]} />
 
@@ -99,6 +110,14 @@ Returns the records of every received payload with `opcode`, oldest first.
 
 
 ## Functions
+
+### find
+
+> <LuaDeclaration name="find" className="Connection" args={[ { name: "connections", type: "{ Connection }" }, { name: "socket", type: "ZuneSocket" } ]} returnType="Connection?" />
+
+Returns the connection in `connections` that wraps `socket`, nil when none does.
+
+<LuaParamTable params={[ { name: "connections", type: "{ Connection }" }, { name: "socket", type: "ZuneSocket" } ]} returns={[ { type: "Connection?" } ]} />
 
 ### new
 

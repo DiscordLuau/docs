@@ -13,11 +13,12 @@ import LuaProperty from '$/components/LuaProperty.astro';
 import LuaSummary from '$/components/LuaSummary.astro';
 import LuaParamTable from '$/components/LuaParamTable.astro';
 
-A localhost gateway: Hello on open, ACK on heartbeat, a new session on Identify, replay and RESUMED on Resume, and
-whatever the handler returns. Every connection is dialled by URL, so the library's own shard code speaks to it
-unchanged, and every upgrade and payload is recorded for the test to assert on.
+A localhost gateway: Hello on open, ACK on heartbeat, a new session on Identify, replay and RESUMED on Resume, the
+voice dispatches on Voice State Update once a voice server is attached, and whatever the handler returns. Every
+connection is dialled by URL, so the library's own shard code speaks to it unchanged, and every upgrade and
+payload is recorded, raw text included, for the test to assert on.
 
-<LuaSummary className="WebsocketServer" properties={[ { name: "clock", type: "Clock" }, { name: "handler", type: "Handler?" }, { name: "onStop", type: "function?" }, { name: "connections", type: "{ Connection }" }, { name: "server", type: "any?" }, { name: "port", type: "number" }, { name: "url", type: "string" }, { name: "heartbeatIntervalMilliseconds", type: "number" }, { name: "connectAttempts", type: "number" }, { name: "refuseUpgrades", type: "number" }, { name: "upgradeDelaySeconds", type: "number" }, { name: "handshaking", type: "boolean" }, { name: "pendingPaths", type: "{ string }" }, { name: "sequence", type: "number" }, { name: "sessionId", type: "string?" }, { name: "dispatchLog", type: "{ Payload }" }, { name: "identifyCount", type: "number" }, { name: "handlerErrors", type: "{ string }" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ] }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "missDispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "dispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "latestConnection", isMethod: true, args: [  ], returnType: "Connection?" }, { name: "openConnections", isMethod: true, args: [  ], returnType: "number" }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ], returnType: "WebsocketServer" } ]} />
+<LuaSummary className="WebsocketServer" properties={[ { name: "clock", type: "Clock" }, { name: "handler", type: "Handler?" }, { name: "onStop", type: "function?" }, { name: "connections", type: "{ Connection }" }, { name: "server", type: "any?" }, { name: "port", type: "number" }, { name: "url", type: "string" }, { name: "heartbeatIntervalMilliseconds", type: "number" }, { name: "connectAttempts", type: "number" }, { name: "refuseUpgrades", type: "number" }, { name: "upgradeDelaySeconds", type: "number" }, { name: "handshaking", type: "boolean" }, { name: "pendingPaths", type: "{ string }" }, { name: "sequence", type: "number" }, { name: "sessionId", type: "string?" }, { name: "dispatchLog", type: "{ Payload }" }, { name: "identifyCount", type: "number" }, { name: "handlerErrors", type: "{ string }" }, { name: "voiceServer", type: "VoiceServer?" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "payload", type: "Payload" } ] }, { name: "close", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "missDispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "dispatch", isMethod: true, args: [ { name: "eventName", type: "string" }, { name: "data", type: "any" } ] }, { name: "moveVoice", isMethod: true, args: [ { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ] }, { name: "disconnectVoice", isMethod: true, args: [ { name: "guildId", type: "string" } ] }, { name: "latestConnection", isMethod: true, args: [  ], returnType: "Connection?" }, { name: "openConnections", isMethod: true, args: [  ], returnType: "number" }, { name: "receivedOps", isMethod: true, args: [ { name: "opcode", type: "number" } ], returnType: "{ Received }" }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, voiceServer: voiceServer.VoiceServer?, onStop: ((server: WebsocketServer) -> ())?, }" } ], returnType: "WebsocketServer" } ]} />
 
 ## Properties
 
@@ -147,6 +148,13 @@ How many Identify payloads the default reply has answered.
 ---
 Every error the handler raised, which Zune would otherwise print and swallow.
 
+### voiceServer
+
+<LuaProperty name="WebsocketServer.voiceServer" type="VoiceServer?" />
+
+---
+The voice server Voice State Update answers point at. Without one, Voice State Update gets no default reply.
+
 
 ## Methods
 
@@ -181,6 +189,25 @@ Logs a dispatch the client never received, under the next sequence number, so a 
 Logs a dispatch as `missDispatch` does, then sends it to every open connection bound to the current session.
 
 <LuaParamTable params={[ { name: "eventName", type: "string" }, { name: "data", type: "any" } ]} />
+
+### moveVoice
+
+> <LuaDeclaration name="moveVoice" className="WebsocketServer" args={[ { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]} isMethod />
+
+Dispatches the VOICE_STATE_UPDATE and VOICE_SERVER_UPDATE pair Discord sends when the bot moves to `channelId` in
+`guildId`. Errors when no voice server is attached.
+
+<LuaParamTable params={[ { name: "guildId", type: "string" }, { name: "channelId", type: "string" } ]} />
+
+### disconnectVoice
+
+> <LuaDeclaration name="disconnectVoice" className="WebsocketServer" args={[ { name: "guildId", type: "string" } ]} isMethod />
+
+Takes the stub user out of voice in `guildId` the way Discord does for a kick or a moderator disconnect: dispatches
+VOICE_STATE_UPDATE with a null channel, then closes every open voice connection with 4014. Errors when no voice
+server is attached.
+
+<LuaParamTable params={[ { name: "guildId", type: "string" } ]} />
 
 ### latestConnection
 
@@ -217,10 +244,10 @@ Stops listening, closing every open connection first. Safe to call twice.
 
 ### new
 
-> <LuaDeclaration name="new" className="WebsocketServer" args={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returnType="WebsocketServer" />
+> <LuaDeclaration name="new" className="WebsocketServer" args={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, voiceServer: voiceServer.VoiceServer?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returnType="WebsocketServer" />
 
 Creates and starts the server on `127.0.0.1` with an ephemeral port.
 
-<LuaParamTable params={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returns={[ { type: "WebsocketServer" } ]} />
+<LuaParamTable params={[ { name: "settings", type: "{ clock: clock.Clock, handler: Handler?, voiceServer: voiceServer.VoiceServer?, onStop: ((server: WebsocketServer) -> ())?, }" } ]} returns={[ { type: "WebsocketServer" } ]} />
 
 

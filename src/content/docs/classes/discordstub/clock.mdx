@@ -77,7 +77,8 @@ Seconds since the clock was made, real or virtual by mode.
 
 > <LuaDeclaration name="wait" className="Clock" args={[ { name: "seconds", type: "number?" } ]} returnType="number" isMethod />
 
-Sleeps `seconds` of the clock's time and returns them.
+Sleeps `seconds` of the clock's time and returns the time that passed on this clock, like `task.wait`: at least
+`seconds`, and more when the scheduler was late.
 
 <LuaParamTable params={[ { name: "seconds", type: "number?" } ]} returns={[ { type: "number" } ]} />
 

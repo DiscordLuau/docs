@@ -16,7 +16,7 @@ import LuaParamTable from '$/components/LuaParamTable.astro';
 
 Interface for the discord-luau Voice package.
 
-<LuaSummary className="Voice" properties={[ { name: "connection", type: "Voice.Connection" }, { name: "webSocket", type: "Voice.WebSocketTransport" }, { name: "udp", type: "Voice.UdpTransport" }, { name: "rtp", type: "Voice.RtpCrypto" }, { name: "dave", type: "Voice.DaveManager" }, { name: "jitter", type: "Voice.Jitter" } ]} />
+<LuaSummary className="Voice" properties={[ { name: "connection", type: "Voice.Connection" }, { name: "webSocket", type: "Voice.WebSocketTransport" }, { name: "udp", type: "Voice.UdpTransport" }, { name: "rtp", type: "Voice.RtpCrypto" }, { name: "dave", type: "Voice.DaveManager" }, { name: "jitter", type: "Voice.Jitter" }, { name: "opusSamples", type: "(packet: buffer) -> number" } ]} />
 
 ## Properties
 
@@ -49,5 +49,13 @@ Interface for the discord-luau Voice package.
 
 <LuaProperty name="Voice.jitter" type="Voice.Jitter" />
 
+
+### opusSamples
+
+<LuaProperty name="Voice.opusSamples" type="(packet: buffer) -> number" />
+
+---
+Returns how many 48 kHz samples an Opus packet holds, read from its TOC byte; raises for an invalid packet. See
+`Voice.OpusPacket`.
 
 

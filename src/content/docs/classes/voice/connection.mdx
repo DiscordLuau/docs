@@ -20,13 +20,22 @@ Coordinates a full Discord voice connection. Owns four sub-components:
 - `rtp` - RTP encryption and sequence/timestamp/nonce counters
 - `dave` - DAVE E2EE MLS session and per-user key rotation
 
-Connection handles voice signalling (Identify, Resume, SelectProtocol, Speaking), opcode
-dispatch, jitter buffering per SSRC, and gateway shard integration.
+`joinAsync` starts a supervisor thread that owns every lifecycle decision: it sends op 4, waits for Discord's
+VOICE_STATE_UPDATE and VOICE_SERVER_UPDATE, connects, follows moves and server changes, resumes or rejoins after
+drops, and closes for good on a kick, a leave, a fatal close code or exhausted attempts, firing `onClosed`.
+Gateway events, socket closes and timers only record facts and wake it.
 
-Consumer-facing events: `onReady`, `onSpeaking`, `onClientConnect`, `onClientDisconnect`,
-`onDaveEpochTransition`, `onRawAudioFrame`, `onAudioFrame`.
+The gateway needs the `GuildVoiceStates` intent; without it Discord never sends the bot its own voice state, so a
+join fails at its timeout with `VOICE_SERVER_UPDATE arrived but no VOICE_STATE_UPDATE; the gateway needs the
+GuildVoiceStates intent`. Classes' `channel:joinAsync` checks the intent and fails at once instead.
 
-<LuaSummary className="Connection" properties={[ { name: "webSocket", type: "voiceWebsocket.WebSocketTransport" }, { name: "udp", type: "voiceUdp.UdpTransport" }, { name: "rtp", type: "voiceRtpCrypto.RtpCrypto" }, { name: "dave", type: "voiceDaveManager.DaveManager" }, { name: "jitters", type: "{ [number]: voiceJitter.Jitter }" }, { name: "shard", type: "websocket.Shard" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "sessionId", type: "string" }, { name: "token", type: "secret.Secret<string>" }, { name: "endpoint", type: "string" }, { name: "onConnected", type: "emitter.Emitter<()>" }, { name: "onDisconnected", type: "emitter.Emitter<number?, boolean?>" }, { name: "onReady", type: "emitter.Emitter<()>" }, { name: "onHeartbeat", type: "emitter.Emitter<number?>" }, { name: "onRawMessage", type: "emitter.Emitter<apiTypes.Payload<unknown>>" }, { name: "onSpeaking", type: "emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" }, { name: "onClientConnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onClientDisconnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onDaveEpochTransition", type: "emitter.Emitter<number>" }, { name: "onRawAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "onAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "connectAsync", isMethod: true, args: [  ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "reconnectAsync", isMethod: true, args: [  ] }, { name: "requestVoiceAsync", isMethod: true, args: [  ] }, { name: "setSpeakingAsync", isMethod: true, args: [ { name: "speakingFlags", type: "number" } ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" } ] } ]} />
+Consumer-facing events: `onReady`, `onResumed`, `onClosed`, `onSpeaking`, `onClientConnect`,
+`onClientDisconnect`, `onDaveEpochTransition`, `onMediaReady`, `onRawAudioFrame`, `onAudioFrame`.
+
+With DAVE, a ready connection may not carry audio yet: `dave.mediaReady` says whether it can, `onMediaReady` fires
+when it starts to, and `awaitMediaReadyAsync` waits for it.
+
+<LuaSummary className="Connection" properties={[ { name: "webSocket", type: "voiceWebsocket.WebSocketTransport" }, { name: "udp", type: "voiceUdp.UdpTransport" }, { name: "rtp", type: "voiceRtpCrypto.RtpCrypto" }, { name: "dave", type: "voiceDaveManager.DaveManager" }, { name: "jitters", type: "{ [number]: voiceJitter.Jitter }" }, { name: "shard", type: "websocket.Shard" }, { name: "guildId", type: "string" }, { name: "channelId", type: "string" }, { name: "userId", type: "string" }, { name: "sessionId", type: "string" }, { name: "token", type: "secret.Secret<string>" }, { name: "endpoint", type: "string" }, { name: "onConnected", type: "emitter.Emitter<()>" }, { name: "onDisconnected", type: "emitter.Emitter<number?, boolean?>" }, { name: "onReady", type: "emitter.Emitter<()>" }, { name: "onHeartbeat", type: "emitter.Emitter<number?>" }, { name: "onRawMessage", type: "emitter.Emitter<apiTypes.Payload<unknown>>" }, { name: "onSpeaking", type: "emitter.Emitter<{ userId: string, ssrc: number, speaking: number }>" }, { name: "onClientConnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onClientDisconnect", type: "emitter.Emitter<{ userId: string }>" }, { name: "onDaveEpochTransition", type: "emitter.Emitter<number>" }, { name: "onMediaReady", type: "emitter.Emitter<()>" }, { name: "onRawAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "onAudioFrame", type: "emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" }, { name: "decodeAudio", type: "boolean" }, { name: "logger", type: "logger.Logger" }, { name: "status", type: "Status" }, { name: "generation", type: "number" }, { name: "closeReason", type: "CloseReason?" }, { name: "closeDetail", type: "string" }, { name: "onClosed", type: "emitter.Emitter<CloseReason, number?>" }, { name: "onResumed", type: "emitter.Emitter<()>" }, { name: "onWake", type: "emitter.Emitter<()>" }, { name: "recoveryAttempts", type: "number" }, { name: "lastFailure", type: "string" } ]} methods={[ { name: "sendAsync", isMethod: true, args: [ { name: "data", type: "string | buffer" } ] }, { name: "connectAsync", isMethod: true, args: [  ] }, { name: "forceClose", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "disconnectAsync", isMethod: true, args: [ { name: "code", type: "number?" } ] }, { name: "destroy", isMethod: true, args: [  ] }, { name: "joinAsync", isMethod: true, args: [ { name: "timeoutSeconds", type: "number?" } ] }, { name: "awaitMediaReadyAsync", isMethod: true, args: [ { name: "timeoutSeconds", type: "number?" } ] }, { name: "requestVoiceAsync", isMethod: true, args: [  ] }, { name: "leaveAsync", isMethod: true, args: [  ] }, { name: "reconnectAsync", isMethod: true, args: [  ] }, { name: "setSpeakingAsync", isMethod: true, args: [ { name: "speakingFlags", type: "number" } ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" } ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ shard: websocket.Shard, guildId: string, channelId: string, userId: string, logLevel: logger.LogLevel, }" } ], returnType: "Connection" } ]} />
 
 ## Properties
 
@@ -79,6 +88,8 @@ Consumer-facing events: `onReady`, `onSpeaking`, `onClientConnect`, `onClientDis
 
 <LuaProperty name="Connection.sessionId" type="string" />
 
+---
+The voice session id from the bot's VOICE_STATE_UPDATE for this channel, empty until it arrives.
 
 ### token
 
@@ -104,6 +115,9 @@ Consumer-facing events: `onReady`, `onSpeaking`, `onClientConnect`, `onClientDis
 
 <LuaProperty name="Connection.onReady" type="emitter.Emitter<()>" />
 
+---
+Fires once for each new session (the first join, a rejoin, a move or a server change) after `status` becomes
+`ready`; a resume fires `onResumed` instead. Every transition into `ready` fires one of the two.
 
 ### onHeartbeat
 
@@ -134,25 +148,116 @@ Consumer-facing events: `onReady`, `onSpeaking`, `onClientConnect`, `onClientDis
 
 <LuaProperty name="Connection.onDaveEpochTransition" type="emitter.Emitter<number>" />
 
+---
+Fires when a DAVE transition executes (op 22, or at once for transition 0) with the number of MLS group members,
+the bot included. After a group reset with nobody else in the channel that is 1. `dave.mediaReady` already has
+the transition's value when it fires.
+
+### onMediaReady
+
+<LuaProperty name="Connection.onMediaReady" type="emitter.Emitter<()>" />
+
+---
+Fires when audio can start to flow: at Session Description without DAVE, and with DAVE once the bot holds the
+group's key (the transition that added it executed). Fires again after a group reset or reconnect once audio can
+flow again; `dave.mediaReady` has the current value.
 
 ### onRawAudioFrame
 
 <LuaProperty name="Connection.onRawAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
 
 ---
-Fires for each decoded audio frame before Opus decoding. `frame` is the fully decrypted
-RTP packet (12-byte RTP header + Opus payload) with all encryption layers (DAVE E2EE and
-RTP encryption) already removed. Wire-level ciphertext is never exposed.
+Fires with the Opus payload, the RTP header removed and every encryption layer (DAVE and the RTP cipher) already
+undone, once for each packet the jitter buffer plays, in sequence order and at its pace; lost and late packets are
+skipped. Wire-level ciphertext is never exposed.
 
 ### onAudioFrame
 
 <LuaProperty name="Connection.onAudioFrame" type="emitter.Emitter<{ userId: string?, ssrc: number, frame: buffer }>" />
 
+---
+Fires with decoded stereo s16le 48 kHz PCM for one jitter slot (20 ms for 20 ms senders), loss concealment
+included. It stops about 100 ms after the speaker stops, and does not fire while `decodeAudio` is false.
+
+### decodeAudio
+
+<LuaProperty name="Connection.decodeAudio" type="boolean" />
+
+---
+Whether received audio is decoded to PCM; true by default. While it is false the jitter buffers skip Opus decoding,
+loss concealment included, and `onAudioFrame` never fires, while `onRawAudioFrame` still does. A bot that only
+needs raw frames or speaking time sets it to save the decoding work. Each jitter slot reads it, so a change takes
+effect at once, and a decoder that sat idle is replaced before decoding resumes.
 
 ### logger
 
 <LuaProperty name="Connection.logger" type="logger.Logger" />
 
+
+### status
+
+<LuaProperty name="Connection.status" type="Status" />
+
+---
+Where the connection is in its lifecycle: `idle`, `signalling`, `connecting`, `ready`, `resuming`, `disconnected`
+or `closed`.
+
+### generation
+
+<LuaProperty name="Connection.generation" type="number" />
+
+---
+Bumped by every connect and by closing; a socket or op 4 that finishes for an older generation is discarded.
+
+### closeReason
+
+<LuaProperty name="Connection.closeReason" type="CloseReason?" />
+
+---
+Why the connection closed, nil until it has.
+
+### closeDetail
+
+<LuaProperty name="Connection.closeDetail" type="string" />
+
+---
+A sentence saying why the connection closed, empty until it has.
+
+### onClosed
+
+<LuaProperty name="Connection.onClosed" type="emitter.Emitter<CloseReason, number?>" />
+
+---
+Fires once when the connection closes for good, with the reason and the close code when there is one.
+
+### onResumed
+
+<LuaProperty name="Connection.onResumed" type="emitter.Emitter<()>" />
+
+---
+Fires when a dropped voice session is resumed. `onReady` fires instead when a new session becomes ready (the
+first join, a rejoin, a move or a server change), once per connect.
+
+### onWake
+
+<LuaProperty name="Connection.onWake" type="emitter.Emitter<()>" />
+
+---
+Wakes the supervisor and `joinAsync` waiters after a fact is recorded, a timer expires or the status changes.
+
+### recoveryAttempts
+
+<LuaProperty name="Connection.recoveryAttempts" type="number" />
+
+---
+Resume and rejoin attempts since the connection was last stable for 60 seconds.
+
+### lastFailure
+
+<LuaProperty name="Connection.lastFailure" type="string" />
+
+---
+Why the latest join, connect or rejoin attempt failed.
 
 
 ## Methods
@@ -169,42 +274,82 @@ Sends a raw message to the voice gateway WebSocket.
 
 > <LuaDeclaration name="connectAsync" className="Connection" args={[  ]} isMethod />
 
-Opens the voice WebSocket connection. Session state is preserved when resuming.
+Opens the voice WebSocket to `endpoint`. This is a low-level call: `joinAsync` connects on its own. Fails when a
+socket is already open or opening. Session state is preserved when resuming.
 
 ### forceClose
 
 > <LuaDeclaration name="forceClose" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
 
-Closes the voice WebSocket connection with an optional close code.
+Closes the voice WebSocket at once. The supervisor treats this as a drop and recovers per the close code (1000
+rejoins). To end the connection, use `leaveAsync` or `destroy`.
 
 <LuaParamTable params={[ { name: "code", type: "number?" } ]} />
 
-### forceClose
+### disconnectAsync
 
-> <LuaDeclaration name="forceClose" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
+> <LuaDeclaration name="disconnectAsync" className="Connection" args={[ { name: "code", type: "number?" } ]} isMethod />
 
-Synchronously closes the voice connection and cleans up all session state. Safe to call from
-a signal handler or any context where yielding is not permitted.
+Closes the connection for good, closing the socket with `code` (1000 by default), and asks Discord to take the
+bot out of the channel without waiting for the answer.
 
 <LuaParamTable params={[ { name: "code", type: "number?" } ]} />
 
-### reconnectAsync
+### destroy
 
-> <LuaDeclaration name="reconnectAsync" className="Connection" args={[  ]} isMethod />
+> <LuaDeclaration name="destroy" className="Connection" args={[  ]} isMethod />
 
-Disconnects and reconnects the voice WebSocket. Concurrent reconnect attempts are rejected.
+Closes the connection for good and asks Discord to take the bot out of the channel without waiting for the answer.
+Synchronous, so it is safe in a signal handler.
+
+### joinAsync
+
+> <LuaDeclaration name="joinAsync" className="Connection" args={[ { name: "timeoutSeconds", type: "number?" } ]} isMethod />
+
+Joins the channel and resolves once the connection is ready. The first call starts the supervisor, which sends
+op 4 and gives up after `timeoutSeconds` (15 by default), closing the connection with `joinTimedOut`. A later call
+sends nothing, waits for the connection to be ready, and its own timeout fails only that call. Fails at once on a
+closed connection.
+
+<LuaParamTable params={[ { name: "timeoutSeconds", type: "number?" } ]} />
+
+### awaitMediaReadyAsync
+
+> <LuaDeclaration name="awaitMediaReadyAsync" className="Connection" args={[ { name: "timeoutSeconds", type: "number?" } ]} isMethod />
+
+Resolves once audio can flow (`dave.mediaReady`), at once if it already can. Fails with `timed out waiting for DAVE
+media readiness` after `timeoutSeconds` (no limit when nil), or with `voice connection closed: &lt;closeDetail&gt;` when
+the connection closes first. Call it after `joinAsync`.
+
+<LuaParamTable params={[ { name: "timeoutSeconds", type: "number?" } ]} />
 
 ### requestVoiceAsync
 
 > <LuaDeclaration name="requestVoiceAsync" className="Connection" args={[  ]} isMethod />
 
-Sends a VOICE_STATE_UPDATE to the gateway shard to request a voice server for this channel.
+The old name of `joinAsync`, kept for existing callers.
+
+### leaveAsync
+
+> <LuaDeclaration name="leaveAsync" className="Connection" args={[  ]} isMethod />
+
+Asks Discord to take the bot out of the channel (op 4 with a null channel), then closes the connection with
+`left`. A no-op on a closed connection.
+
+### reconnectAsync
+
+> <LuaDeclaration name="reconnectAsync" className="Connection" args={[  ]} isMethod />
+
+Drops the current voice socket and rejoins, resolving once the connection is ready again. Fails when the
+connection was never joined or closes instead.
 
 ### setSpeakingAsync
 
 > <LuaDeclaration name="setSpeakingAsync" className="Connection" args={[ { name: "speakingFlags", type: "number" } ]} isMethod />
 
 Sets the bot's speaking state. Pass a bitmask of speaking flags (Microphone = 1, Soundshare = 2, Priority = 4).
+Fails with `cannot set speaking: SSRC not assigned` before the voice server has assigned one, so op 5 never goes
+out without an ssrc, and fails when the send fails.
 
 <LuaParamTable params={[ { name: "speakingFlags", type: "number" } ]} />
 
@@ -212,8 +357,26 @@ Sets the bot's speaking state. Pass a bitmask of speaking flags (Microphone = 1,
 
 > <LuaDeclaration name="sendOpusAsync" className="Connection" args={[ { name: "audioFrame", type: "buffer" } ]} isMethod />
 
-Encrypts and sends a raw Opus audio frame over UDP.
+Encrypts and sends a raw Opus audio frame over UDP. With DAVE, until `dave.mediaReady`, Opus silence goes out in
+its place, so no audio leaves without end-to-end encryption.
 
 <LuaParamTable params={[ { name: "audioFrame", type: "buffer" } ]} />
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="Connection" args={[ { name: "settings", type: "{ shard: websocket.Shard, guildId: string, channelId: string, userId: string, logLevel: logger.LogLevel, }" } ]} returnType="Connection" />
+
+Builds a connection for one guild's voice channel; `joinAsync` joins it. The settings:
+- `shard`: the gateway shard that carries `guildId`, which sends op 4 and receives the voice events;
+- `guildId` and `channelId`: the channel to join;
+- `userId`: the bot's user id, which picks the bot's own VOICE_STATE_UPDATE out of the guild's;
+- `logLevel`: the level of the connection's logger, `VoiceConnection&lt;guildId&gt;`, which its transports share.
+
+Classes' `channel:joinAsync()` builds and joins one, and resolves with it.
+
+<LuaParamTable params={[ { name: "settings", type: "{ shard: websocket.Shard, guildId: string, channelId: string, userId: string, logLevel: logger.LogLevel, }" } ]} returns={[ { type: "Connection" } ]} />
 
 

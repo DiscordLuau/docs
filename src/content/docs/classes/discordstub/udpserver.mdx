@@ -1,0 +1,132 @@
+---
+title: UdpServer
+description: DiscordLuau docs for UdpServer.
+sidebar:
+  order: 100
+---
+
+[//]: # (This file was @generated from moonwave comments. Do not edit by hand.)
+[//]: # (To edit docs, change the source comments in the DiscordLuau repo.)
+
+import LuaDeclaration from '$/components/LuaDeclaration.astro';
+import LuaProperty from '$/components/LuaProperty.astro';
+import LuaSummary from '$/components/LuaSummary.astro';
+import LuaParamTable from '$/components/LuaParamTable.astro';
+
+A localhost voice UDP server: it answers IP discovery, echoes keepalives and records every RTP packet for the test
+to assert on. `new` binds it to `127.0.0.1` with an ephemeral port and starts a receive loop that yields to the
+scheduler while it waits for a packet.
+
+<LuaSummary className="UdpServer" properties={[ { name: "socket", type: "NetworkSocket?" }, { name: "port", type: "number" }, { name: "packets", type: "{ buffer }" }, { name: "clientAddress", type: "string?" }, { name: "clientPort", type: "number?" }, { name: "receiving", type: "boolean" }, { name: "errors", type: "{ string }" }, { name: "ignoreDiscovery", type: "number" }, { name: "onStop", type: "function?" }, { name: "sendingThread", type: "thread?" }, { name: "waitingSends", type: "{ thread }" } ]} methods={[ { name: "send", isMethod: true, args: [ { name: "packet", type: "buffer" } ] }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "settings", type: "{ onStop: ((server: UdpServer) -> ())? }?" } ], returnType: "UdpServer" } ]} />
+
+## Properties
+
+### socket
+
+<LuaProperty name="UdpServer.socket" type="NetworkSocket?" />
+
+---
+The Zune UDP socket, nil after the server stops.
+
+### port
+
+<LuaProperty name="UdpServer.port" type="number" />
+
+---
+The ephemeral port the server bound to on `127.0.0.1`.
+
+### packets
+
+<LuaProperty name="UdpServer.packets" type="{ buffer }" />
+
+---
+Every RTP packet the server received, oldest first. IP discovery requests and keepalives are not recorded.
+
+### clientAddress
+
+<LuaProperty name="UdpServer.clientAddress" type="string?" />
+
+---
+The address the latest packet came from, nil before the first packet.
+
+### clientPort
+
+<LuaProperty name="UdpServer.clientPort" type="number?" />
+
+---
+The port the latest packet came from, nil before the first packet.
+
+### receiving
+
+<LuaProperty name="UdpServer.receiving" type="boolean" />
+
+---
+True while the receive loop runs; false once `stop` has ended it.
+
+### errors
+
+<LuaProperty name="UdpServer.errors" type="{ string }" />
+
+---
+Every error the receive loop raised, other than the cancelled receive that `stop` causes and Windows' report of a
+client that has gone.
+
+### ignoreDiscovery
+
+<LuaProperty name="UdpServer.ignoreDiscovery" type="number" />
+
+---
+How many of the next IP discovery requests to drop without a reply.
+
+### onStop
+
+<LuaProperty name="UdpServer.onStop" type="function?" />
+
+---
+Called with the handle after it stops.
+
+### sendingThread
+
+<LuaProperty name="UdpServer.sendingThread" type="thread?" />
+
+---
+The thread whose send has the socket, nil while no send is in flight.
+
+### waitingSends
+
+<LuaProperty name="UdpServer.waitingSends" type="{ thread }" />
+
+---
+Threads waiting for their turn to send, oldest first.
+
+
+## Methods
+
+### send
+
+> <LuaDeclaration name="send" className="UdpServer" args={[ { name: "packet", type: "buffer" } ]} isMethod />
+
+Sends one packet to the client the latest packet came from, after any send already in flight. Errors before any
+client has sent a packet or after the server stops.
+
+<LuaParamTable params={[ { name: "packet", type: "buffer" } ]} />
+
+### stop
+
+> <LuaDeclaration name="stop" className="UdpServer" args={[  ]} isMethod />
+
+Closes the socket, which cancels the pending receive and ends the receive loop, and wakes every send waiting for
+its turn so it fails on the closed socket. Safe to call twice.
+
+
+## Functions
+
+### new
+
+> <LuaDeclaration name="new" className="UdpServer" args={[ { name: "settings", type: "{ onStop: ((server: UdpServer) -> ())? }?" } ]} returnType="UdpServer" />
+
+Binds a UDP socket on `127.0.0.1` with an ephemeral port and starts the receive loop.
+
+<LuaParamTable params={[ { name: "settings", type: "{ onStop: ((server: UdpServer) -> ())? }?" } ]} returns={[ { type: "UdpServer" } ]} />
+
+

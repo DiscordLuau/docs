@@ -17,7 +17,7 @@ Manages the UDP socket for a voice connection: IP discovery, keepalive, RTP rece
 
 `decryptPacket` and `onAudioPacket` must be set by the owner before starting the receive loop.
 
-<LuaSummary className="UdpTransport" properties={[ { name: "udpSocket", type: "stdPolyfills.UdpSocket?" }, { name: "udpReceiveThread", type: "thread?" }, { name: "keepaliveThread", type: "thread?" }, { name: "keepaliveSequence", type: "number" }, { name: "keepaliveSentAt", type: "{ [number]: number }" }, { name: "udpPing", type: "number?" }, { name: "ssrc", type: "number?" }, { name: "udpIp", type: "string?" }, { name: "udpPort", type: "number?" }, { name: "modes", type: "{ string }?" }, { name: "streams", type: "{ { [string]: any } }?" }, { name: "experiments", type: "{ string }?" }, { name: "decryptPacket", type: "((packet: buffer) -> buffer?)?" }, { name: "onAudioPacket", type: "((ssrc: number, sequence: number, frame: buffer) -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "discoverIpAsync", isMethod: true, args: [  ] }, { name: "_sendKeepalive", isMethod: true, args: [  ] }, { name: "_startKeepaliveLoop", isMethod: true, args: [  ] }, { name: "_startUdpReceiveLoop", isMethod: true, args: [  ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "UdpTransport" } ]} />
+<LuaSummary className="UdpTransport" properties={[ { name: "udpSocket", type: "stdPolyfills.UdpSocket?" }, { name: "udpReceiveThread", type: "thread?" }, { name: "keepaliveThread", type: "thread?" }, { name: "keepaliveSequence", type: "number" }, { name: "unreportedDecryptFailures", type: "number" }, { name: "lastDecryptWarningClock", type: "number" }, { name: "pendingSends", type: "{ [stdPolyfills.UdpSocket]: number? }" }, { name: "ssrc", type: "number?" }, { name: "udpIp", type: "string?" }, { name: "udpPort", type: "number?" }, { name: "modes", type: "{ string }?" }, { name: "streams", type: "{ { [string]: any } }?" }, { name: "experiments", type: "{ string }?" }, { name: "substitutingSilence", type: "boolean" }, { name: "decryptPacket", type: "((packet: buffer) -> (buffer?, string?))?" }, { name: "onAudioPacket", type: "((ssrc: number, sequence: number, frame: buffer) -> ())?" }, { name: "logger", type: "logger.Logger" } ]} methods={[ { name: "cleanup", isMethod: true, args: [  ] }, { name: "discoverIpAsync", isMethod: true, args: [  ] }, { name: "sendKeepalive", isMethod: true, args: [  ] }, { name: "startKeepaliveLoop", isMethod: true, args: [  ] }, { name: "startUdpReceiveLoop", isMethod: true, args: [  ] }, { name: "sendOpusAsync", isMethod: true, args: [ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveManager", type: "voiceDaveManager.DaveManager" } ] } ]} functions={[ { name: "new", args: [ { name: "loggerInstance", type: "logger.Logger" } ], returnType: "UdpTransport" } ]} />
 
 ## Properties
 
@@ -41,15 +41,22 @@ Manages the UDP socket for a voice connection: IP discovery, keepalive, RTP rece
 <LuaProperty name="UdpTransport.keepaliveSequence" type="number" />
 
 
-### keepaliveSentAt
+### unreportedDecryptFailures
 
-<LuaProperty name="UdpTransport.keepaliveSentAt" type="{ [number]: number }" />
+<LuaProperty name="UdpTransport.unreportedDecryptFailures" type="number" />
 
 
-### udpPing
+### lastDecryptWarningClock
 
-<LuaProperty name="UdpTransport.udpPing" type="number?" />
+<LuaProperty name="UdpTransport.lastDecryptWarningClock" type="number" />
 
+
+### pendingSends
+
+<LuaProperty name="UdpTransport.pendingSends" type="{ [stdPolyfills.UdpSocket]: number? }" />
+
+---
+How many sends each socket has in flight; a socket is closed only once it has none.
 
 ### ssrc
 
@@ -81,9 +88,16 @@ Manages the UDP socket for a voice connection: IP discovery, keepalive, RTP rece
 <LuaProperty name="UdpTransport.experiments" type="{ string }?" />
 
 
+### substitutingSilence
+
+<LuaProperty name="UdpTransport.substitutingSilence" type="boolean" />
+
+---
+Whether the latest audio send went out as DAVE silence, so each gap is logged once.
+
 ### decryptPacket
 
-<LuaProperty name="UdpTransport.decryptPacket" type="((packet: buffer) -> buffer?)?" />
+<LuaProperty name="UdpTransport.decryptPacket" type="((packet: buffer) -> (buffer?, string?))?" />
 
 
 ### onAudioPacket
@@ -103,40 +117,52 @@ Manages the UDP socket for a voice connection: IP discovery, keepalive, RTP rece
 
 > <LuaDeclaration name="cleanup" className="UdpTransport" args={[  ]} isMethod />
 
-Closes the UDP socket and stops both the receive loop and keepalive loop.
+Closes the UDP socket and stops both the receive loop and keepalive loop, without yielding. Neither thread is
+closed, since either can be parked in a socket operation: closing the socket wakes the receive loop's pending read
+with "Canceled", and both loops end at their next check because the socket is no longer this transport's.
 
 ### discoverIpAsync
 
 > <LuaDeclaration name="discoverIpAsync" className="UdpTransport" args={[  ]} isMethod />
 
-Performs UDP IP discovery via the voice server and returns the bot's external IP and port.
+Performs UDP IP discovery via the voice server and returns the bot's external IP and port. A reader thread waits
+for a reply that is 74 bytes, of type 0x0002 and for this ssrc; each request waits up to two seconds for it, three
+requests in all. Fails, closing the socket, when none is answered or the socket cannot be opened.
 
-### _sendKeepalive
+### sendKeepalive
 
-> <LuaDeclaration name="_sendKeepalive" className="UdpTransport" args={[  ]} isMethod />
+> <LuaDeclaration name="sendKeepalive" className="UdpTransport" args={[  ]} isMethod />
 
-Sends a single UDP keepalive packet and records the send time for RTT measurement.
+Sends a single UDP keepalive packet, which keeps the NAT mapping for the voice socket open.
 
-### _startKeepaliveLoop
+### startKeepaliveLoop
 
-> <LuaDeclaration name="_startKeepaliveLoop" className="UdpTransport" args={[  ]} isMethod />
+> <LuaDeclaration name="startKeepaliveLoop" className="UdpTransport" args={[  ]} isMethod />
 
 Starts the keepalive loop that fires every five seconds while the UDP socket is open.
 
-### _startUdpReceiveLoop
+### startUdpReceiveLoop
 
-> <LuaDeclaration name="_startUdpReceiveLoop" className="UdpTransport" args={[  ]} isMethod />
+> <LuaDeclaration name="startUdpReceiveLoop" className="UdpTransport" args={[  ]} isMethod />
 
-Starts the UDP receive loop. Routes keepalive echo packets to the RTT tracker and RTP audio
-packets to `onAudioPacket` after decryption via `decryptPacket`.
+Starts the UDP receive loop. Routes RTP audio packets to `onAudioPacket` after decryption via `decryptPacket`;
+anything else is skipped with a debug line.
 
 ### sendOpusAsync
 
-> <LuaDeclaration name="sendOpusAsync" className="UdpTransport" args={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ]} isMethod />
+> <LuaDeclaration name="sendOpusAsync" className="UdpTransport" args={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveManager", type: "voiceDaveManager.DaveManager" } ]} isMethod />
 
-Builds an RTP packet from the given Opus frame, encrypts it (with optional DAVE layer), and sends it over UDP.
+Builds an RTP packet from the given Opus frame, encrypts it and sends it over UDP. The RTP timestamp advances by
+the samples the frame's TOC byte describes (`opusSamples`), and an invalid frame fails before a sequence number or
+timestamp is reserved. `daveManager`'s encryptor, `mediaProtocolVersion` and `mediaReady` are read when the future
+runs, not when it is created, so a send that waits through a DAVE group reset never touches the destroyed
+encryptor. Fails while `mediaProtocolVersion` is unknown, because the frame could otherwise leave without DAVE in a
+DAVE channel. Under DAVE until media is ready, Opus silence goes out in place of the frame, logged at debug once per
+gap, and the timestamp still advances by the frame's samples; the gap is marked before the send yields, so a send
+still in flight when `cleanup` runs cannot carry its gap into the next session. Fails with `audio send failed:
+&lt;reason&gt;` when the socket send fails; the sequence number and timestamp stay used, so the receiver sees plain loss.
 
-<LuaParamTable params={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveEncryptor", type: "any?" } ]} />
+<LuaParamTable params={[ { name: "audioFrame", type: "buffer" }, { name: "rtpCrypto", type: "rtp.RtpCrypto" }, { name: "daveManager", type: "voiceDaveManager.DaveManager" } ]} />
 
 
 ## Functions

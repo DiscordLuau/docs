@@ -17,13 +17,14 @@ Per-SSRC jitter buffer for the voice receive pipeline.
 
 Holds incoming Opus packets indexed by RTP sequence number and replays them at a steady 20ms rate
 after an initial four-frame delay. Gaps in the sequence are filled via FEC (if the next packet is
-already buffered) or Opus PLC, so the consumer always receives a continuous PCM stream.
+already buffered) or Opus PLC, so the consumer receives a continuous PCM stream while the speaker talks.
 
-The tick loop uses clock-anchored absolute deadlines to prevent timing drift over long calls. If
-the speaker stops talking and resumes (VAD silence gap), the buffer detects the discontinuity and
-resyncs automatically.
+The tick loop runs only while audio is arriving: after five empty slots with nothing buffered it
+stops, and the next pushed packet resyncs and restarts it. A packet that arrives after a pause, far
+ahead of the expected sequence, or into an empty buffer resyncs the stream; any other late packet is
+dropped, so playback never rewinds.
 
-<LuaSummary className="Jitter" properties={[ { name: "packets", type: "{ [number]: buffer }" }, { name: "nextSequence", type: "number" }, { name: "stopped", type: "boolean" }, { name: "clockAnchor", type: "number" }, { name: "tickCount", type: "number" }, { name: "thread", type: "thread?" }, { name: "decoder", type: "opus.Decoder" } ]} methods={[ { name: "push", isMethod: true, args: [ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ] }, { name: "start", isMethod: true, args: [ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "firstSequence", type: "number" } ], returnType: "Jitter" } ]} />
+<LuaSummary className="Jitter" properties={[ { name: "packets", type: "{ [number]: buffer }" }, { name: "nextSequence", type: "number" }, { name: "stopped", type: "boolean" }, { name: "running", type: "boolean" }, { name: "clockAnchor", type: "number" }, { name: "tickCount", type: "number" }, { name: "emptyTicks", type: "number" }, { name: "lastPushClock", type: "number" }, { name: "thread", type: "thread?" }, { name: "decoder", type: "opus.Decoder" }, { name: "shouldDecode", type: "(() -> boolean)?" }, { name: "decoding", type: "boolean" }, { name: "decoderStale", type: "boolean" }, { name: "logger", type: "logger.Logger" }, { name: "onRawFrame", type: "((sequence: number, packet: buffer) -> ())?" }, { name: "onPcmFrame", type: "((pcm: buffer) -> ())?" } ]} methods={[ { name: "push", isMethod: true, args: [ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ] }, { name: "start", isMethod: true, args: [ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" }, { name: "shouldDecode", type: "(() -> boolean)?" } ] }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "firstSequence", type: "number" }, { name: "jitterLogger", type: "logger.Logger?" } ], returnType: "Jitter" } ]} />
 
 ## Properties
 
@@ -41,6 +42,15 @@ resyncs automatically.
 
 <LuaProperty name="Jitter.stopped" type="boolean" />
 
+---
+True once `destroy` has been called.
+
+### running
+
+<LuaProperty name="Jitter.running" type="boolean" />
+
+---
+True while the tick loop is producing frames.
 
 ### clockAnchor
 
@@ -50,6 +60,18 @@ resyncs automatically.
 ### tickCount
 
 <LuaProperty name="Jitter.tickCount" type="number" />
+
+
+### emptyTicks
+
+<LuaProperty name="Jitter.emptyTicks" type="number" />
+
+---
+Consecutive slots that had no packet.
+
+### lastPushClock
+
+<LuaProperty name="Jitter.lastPushClock" type="number" />
 
 
 ### thread
@@ -62,6 +84,42 @@ resyncs automatically.
 <LuaProperty name="Jitter.decoder" type="opus.Decoder" />
 
 
+### shouldDecode
+
+<LuaProperty name="Jitter.shouldDecode" type="(() -> boolean)?" />
+
+---
+Asked once per slot whether to decode it; nil decodes every slot.
+
+### decoding
+
+<LuaProperty name="Jitter.decoding" type="boolean" />
+
+---
+The latest answer from `shouldDecode`, so each change is logged once.
+
+### decoderStale
+
+<LuaProperty name="Jitter.decoderStale" type="boolean" />
+
+---
+True from the slot decoding resumes until a new decoder has replaced the one that sat idle.
+
+### logger
+
+<LuaProperty name="Jitter.logger" type="logger.Logger" />
+
+
+### onRawFrame
+
+<LuaProperty name="Jitter.onRawFrame" type="((sequence: number, packet: buffer) -> ())?" />
+
+
+### onPcmFrame
+
+<LuaProperty name="Jitter.onPcmFrame" type="((pcm: buffer) -> ())?" />
+
+
 
 ## Methods
 
@@ -69,36 +127,41 @@ resyncs automatically.
 
 > <LuaDeclaration name="push" className="Jitter" args={[ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ]} isMethod />
 
-Inserts an Opus packet for the given RTP sequence number. Packets that have already been played or
-are implausibly far ahead are silently discarded. Detects VAD silence gaps and resyncs the buffer.
+Inserts an Opus packet for the given RTP sequence number, resyncing and restarting the tick loop
+when the stream was idle, jumped far ahead, or ran dry. Other late packets are dropped.
 
 <LuaParamTable params={[ { name: "sequence", type: "number" }, { name: "packet", type: "buffer" } ]} />
 
 ### start
 
-> <LuaDeclaration name="start" className="Jitter" args={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ]} isMethod />
+> <LuaDeclaration name="start" className="Jitter" args={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" }, { name: "shouldDecode", type: "(() -> boolean)?" } ]} isMethod />
 
-Starts the 20ms tick loop. Fires `onRawFrame(sequence, packet)` when a packet was present in the
-buffer, and `onPcmFrame(pcm)` for every slot whether a packet was present or not, filling gaps
-with FEC from the next buffered packet or Opus PLC.
+Starts producing frames. `onRawFrame(sequence, packet)` fires for each packet that was present in its
+slot and `onPcmFrame(pcm)` for every slot while audio is arriving, filling gaps with FEC from the next
+buffered packet or Opus PLC. `shouldDecode`, when given, is asked once per slot: while it returns false the slot
+skips decoding, FEC and PLC, so `onPcmFrame` does not fire while `onRawFrame` still does, and when it returns true
+again a new decoder takes over. `shouldDecode` must return without yielding; one that yields is closed and warned
+about, and the slot decodes. Errors raised by any callback are logged at warn and do not stop the loop.
 
-<LuaParamTable params={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" } ]} />
+<LuaParamTable params={[ { name: "onRawFrame", type: "(sequence: number, packet: buffer) -> ()" }, { name: "onPcmFrame", type: "(pcm: buffer) -> ()" }, { name: "shouldDecode", type: "(() -> boolean)?" } ]} />
 
 ### destroy
 
 > <LuaDeclaration name="destroy" className="Jitter" args={[  ]} isMethod />
 
-Stops the tick loop and frees the Opus decoder. Must not be called more than once.
+Stops the tick loop and frees the Opus decoder. Safe to call more than once, and from inside a frame
+callback, where the loop stops as soon as the callback returns.
 
 
 ## Functions
 
 ### new
 
-> <LuaDeclaration name="new" className="Jitter" args={[ { name: "firstSequence", type: "number" } ]} returnType="Jitter" />
+> <LuaDeclaration name="new" className="Jitter" args={[ { name: "firstSequence", type: "number" }, { name: "jitterLogger", type: "logger.Logger?" } ]} returnType="Jitter" />
 
-Responsible for constructing this class.
+Responsible for constructing this class. `jitterLogger` receives warnings about callback errors and
+undecodable packets, and debug lines for dropped packets; without one, the jitter logs as `Jitter`.
 
-<LuaParamTable params={[ { name: "firstSequence", type: "number" } ]} returns={[ { type: "Jitter" } ]} />
+<LuaParamTable params={[ { name: "firstSequence", type: "number" }, { name: "jitterLogger", type: "logger.Logger?" } ]} returns={[ { type: "Jitter" } ]} />
 
 

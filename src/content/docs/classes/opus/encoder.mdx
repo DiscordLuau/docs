@@ -20,7 +20,7 @@ Encoder per frame. One Encoder instance per audio stream is the correct usage.
 
 Call `destroy` when the encoder is no longer needed to free the native state.
 
-<LuaSummary className="Encoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ]} methods={[ { name: "encode", isMethod: true, args: [ { name: "pcmFrame", type: "buffer" } ], returnType: "buffer" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ], returnType: "Encoder" } ]} />
+<LuaSummary className="Encoder" properties={[ { name: "handle", type: "FFIPointer" }, { name: "pcmPointer", type: "FFIPointer" }, { name: "outputPointer", type: "FFIPointer" }, { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ]} methods={[ { name: "encode", isMethod: true, args: [ { name: "pcmFrame", type: "buffer" } ], returnType: "buffer" }, { name: "setBitrate", isMethod: true, args: [ { name: "bitsPerSecond", type: "number" } ] }, { name: "getBitrate", isMethod: true, args: [  ], returnType: "number" }, { name: "setSignal", isMethod: true, args: [ { name: "signal", type: "Signal" } ] }, { name: "getSignal", isMethod: true, args: [  ], returnType: "Signal" }, { name: "destroy", isMethod: true, args: [  ] } ]} functions={[ { name: "checkBitrate", args: [ { name: "bitsPerSecond", type: "unknown" } ] }, { name: "new", args: [ { name: "sampleRate", type: "number" }, { name: "channels", type: "number" }, { name: "application", type: "number" } ], returnType: "Encoder" } ]} />
 
 ## Properties
 
@@ -28,6 +28,20 @@ Call `destroy` when the encoder is no longer needed to free the native state.
 
 <LuaProperty name="Encoder.handle" type="FFIPointer" />
 
+
+### pcmPointer
+
+<LuaProperty name="Encoder.pcmPointer" type="FFIPointer" />
+
+---
+Native buffer that each PCM frame is copied into before encoding, reused for every call.
+
+### outputPointer
+
+<LuaProperty name="Encoder.outputPointer" type="FFIPointer" />
+
+---
+Native buffer that libopus writes the encoded packet into, reused for every call.
 
 ### sampleRate
 
@@ -55,6 +69,39 @@ Encodes a raw PCM frame into an Opus packet. The frame must be exactly one Opus 
 
 <LuaParamTable params={[ { name: "pcmFrame", type: "buffer" } ]} returns={[ { type: "buffer" } ]} />
 
+### setBitrate
+
+> <LuaDeclaration name="setBitrate" className="Encoder" args={[ { name: "bitsPerSecond", type: "number" } ]} isMethod />
+
+Sets the target bitrate in bits per second. Raises outside 500 to 510000, and after `destroy`.
+
+<LuaParamTable params={[ { name: "bitsPerSecond", type: "number" } ]} />
+
+### getBitrate
+
+> <LuaDeclaration name="getBitrate" className="Encoder" args={[  ]} returnType="number" isMethod />
+
+Returns the bitrate libopus is using, in bits per second. Raises after `destroy`.
+
+<LuaParamTable returns={[ { type: "number" } ]} />
+
+### setSignal
+
+> <LuaDeclaration name="setSignal" className="Encoder" args={[ { name: "signal", type: "Signal" } ]} isMethod />
+
+Hints what the audio is: `"voice"`, `"music"`, or `"auto"` to let libopus decide. Raises on any other
+value, and after `destroy`.
+
+<LuaParamTable params={[ { name: "signal", type: "Signal" } ]} />
+
+### getSignal
+
+> <LuaDeclaration name="getSignal" className="Encoder" args={[  ]} returnType="Signal" isMethod />
+
+Returns the signal hint in effect. Raises after `destroy`.
+
+<LuaParamTable returns={[ { type: "Signal" } ]} />
+
 ### destroy
 
 > <LuaDeclaration name="destroy" className="Encoder" args={[  ]} isMethod />
@@ -63,6 +110,18 @@ Frees the native encoder state. No-op if already destroyed.
 
 
 ## Functions
+
+### checkBitrate
+
+> <LuaDeclaration name="checkBitrate" className="Encoder" args={[ { name: "bitsPerSecond", type: "unknown" } ]} />
+
+Raises unless `bitsPerSecond` is a whole number from 500 to 510000, including when it is not a number at all, so
+it can check a bitrate taken straight from user options.
+
+libopus calls 500 to 512000 the meaningful range. The cap is 510000 because, after encoding a 20 ms stereo
+frame, libopus reports at most 510400, so the value read back equals the value set across the whole range.
+
+<LuaParamTable params={[ { name: "bitsPerSecond", type: "unknown" } ]} />
 
 ### new
 
