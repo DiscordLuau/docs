@@ -133,6 +133,10 @@ function escapeDesc(text: string) {
 	return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+function sanitize(input: string) {
+	return (input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
+}
+
 function hasSelfParameter(parameters: MoonwaveFunction["params"]): boolean {
 	return parameters.length > 0 && parameters[0].name === "self";
 }
@@ -157,8 +161,6 @@ function declarationComponent(
 	params: MoonwaveFunction["params"],
 	returnType?: string,
 ) {
-	const sanitize = (input: string) =>
-		(input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
 	const parameterList = params.map(
 		param => `{ name: "${param.name}", type: "${sanitize(param.lua_type)}" }`,
 	);
@@ -169,15 +171,13 @@ function declarationComponent(
 }
 
 function propertyComponent(name: string, type: string) {
-	return `<LuaProperty name="${name}" type="${type}" />`;
+	return `<LuaProperty name="${name}" type="${sanitize(type)}" />`;
 }
 
 function paramTableComponent(
 	parameters: MoonwaveFunction["params"],
 	returns: MoonwaveFunction["returns"],
 ) {
-	const sanitize = (input: string) =>
-		(input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
 	const escapeString = (text: string) => text.replace(/"/g, "&quot;");
 
 	const hasParameters = parameters.length > 0;
@@ -322,9 +322,6 @@ function summarySection(
 	ownFunctions: MoonwaveFunction[],
 	inherited: MoonwaveClass["inherited"],
 ): string {
-	const sanitize = (input: string) =>
-		(input ?? "").trim().replace(/\s+/g, " ").replace(/"/g, "&quot;");
-
 	const isVisible = (moonwaveFunction: MoonwaveFunction) =>
 		!moonwaveFunction.private;
 
