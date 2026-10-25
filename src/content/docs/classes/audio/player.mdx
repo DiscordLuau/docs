@@ -18,6 +18,9 @@ source paced by its own duration, then five silence frames and Speaking 0, and r
 `"stopped"` after `stop`. One player per connection plays at a time; a second `playAsync`, on this player or on
 another player of the same connection, fails at once and leaves the running playback alone.
 
+`pause` holds the running playback: at its next step it sends the silence tail and Speaking 0, stops reading the
+source and waits. `resume` sends Speaking again and plays on from the next packet on a fresh schedule.
+
 While the connection resumes or rejoins, the playback waits, woken by the connection's `onReady`, `onResumed` and
 `onClosed`. On each new session it waits up to `mediaWaitSeconds` for DAVE media readiness, then sends Speaking
 again; until media is ready, voice sends Opus silence in place of every packet, so nothing leaves unencrypted.
@@ -30,7 +33,7 @@ A stream source from `audio.fromStream` never blocks a read. While it is `starve
 and whenever it stalls, the playback sends its silence tail and Speaking 0 if Speaking went out, then polls the
 source every 20 ms, and speaks again on a fresh schedule once the source has audio.
 
-<LuaSummary className="Player" properties={[ { name: "connection", type: "voice.Connection" }, { name: "speakingFlags", type: "number" }, { name: "silenceFrames", type: "number" }, { name: "mediaWaitSeconds", type: "number" }, { name: "clock", type: "PlayerClock" }, { name: "logger", type: "logger.Logger" }, { name: "playing", type: "boolean" }, { name: "ending", type: "boolean" }, { name: "stopRequested", type: "boolean" }, { name: "readyCount", type: "number" }, { name: "spokenReadyCount", type: "number?" }, { name: "startMillis", type: "number?" }, { name: "elapsedSamples", type: "number" }, { name: "packetsSent", type: "number" }, { name: "silenceFramesSent", type: "number" }, { name: "onWake", type: "emitter.Emitter<()>" }, { name: "listenerDisconnects", type: "{ () -> () }" } ]} methods={[ { name: "playAsync", isMethod: true, args: [ { name: "source", type: "Source" } ] }, { name: "stop", isMethod: true, args: [  ] } ]} functions={[ { name: "new", args: [ { name: "connection", type: "voice.Connection" }, { name: "options", type: "PlayerOptions?" } ], returnType: "Player" } ]} />
+<LuaSummary className="Player" properties={[ { name: "connection", type: "voice.Connection" }, { name: "speakingFlags", type: "number" }, { name: "silenceFrames", type: "number" }, { name: "mediaWaitSeconds", type: "number" }, { name: "clock", type: "PlayerClock" }, { name: "logger", type: "logger.Logger" }, { name: "playing", type: "boolean" }, { name: "ending", type: "boolean" }, { name: "stopRequested", type: "boolean" }, { name: "paused", type: "boolean" }, { name: "readyCount", type: "number" }, { name: "spokenReadyCount", type: "number?" }, { name: "startMillis", type: "number?" }, { name: "elapsedSamples", type: "number" }, { name: "packetsSent", type: "number" }, { name: "silenceFramesSent", type: "number" }, { name: "onWake", type: "emitter.Emitter<()>" }, { name: "listenerDisconnects", type: "{ () -> () }" } ]} methods={[ { name: "playAsync", isMethod: true, args: [ { name: "source", type: "Source" } ] }, { name: "stop", isMethod: true, args: [  ] }, { name: "pause", isMethod: true, args: [  ], returnType: "boolean" }, { name: "resume", isMethod: true, args: [  ], returnType: "boolean" } ]} functions={[ { name: "new", args: [ { name: "connection", type: "voice.Connection" }, { name: "options", type: "PlayerOptions?" } ], returnType: "Player" } ]} />
 
 ## Properties
 
@@ -97,6 +100,13 @@ Whether the running playback has reached its end and is sending its silence tail
 
 ---
 Whether `stop` asked the running playback to end. A playback clears it when it starts.
+
+### paused
+
+<LuaProperty name="Player.paused" type="boolean" />
+
+---
+Whether `pause` holds the running playback. A playback clears it when it starts and when it ends.
 
 ### readyCount
 
@@ -183,12 +193,34 @@ destroys the source.
 > <LuaDeclaration name="stop" className="Player" args={[  ]} isMethod />
 
 Asks the running playback to end. It ends at its next step with the silence tail and Speaking 0 when Speaking went
-out on a ready session, and resolves `"stopped"`: at once from the readiness wait, within about one 20 ms poll from
-a starved stream's wait (whose tail already went out), within one packet from a pace, when a send or a source read
-returns, and when the media wait ends, which in a DAVE channel can take up to `mediaWaitSeconds`. A stream source's
-own `read` never blocks, and killing a `fromProcess` program never waits for it to exit, so a stream whose producer
-waits for bytes, or is blocked writing them, still stops this quickly. Does nothing, logged at debug, when nothing
-plays or the playback is already sending its tail.
+out on a ready session, and resolves `"stopped"`: at once from the readiness wait or a pause (whose tail already
+went out), within about one 20 ms poll from a starved stream's wait (whose tail already went out), within one
+packet from a pace, when a send or a source read returns, and when the media wait ends, which in a DAVE channel
+can take up to `mediaWaitSeconds`. A stream source's own `read` never blocks, and killing a `fromProcess` program
+never waits for it to exit, so a stream whose producer waits for bytes, or is blocked writing them, still stops
+this quickly. Does nothing, logged at debug, when nothing plays or the playback is already sending its tail.
+
+### pause
+
+> <LuaDeclaration name="pause" className="Player" args={[  ]} returnType="boolean" isMethod />
+
+Pauses the running playback and returns whether it did. At its next step the playback sends the silence tail and
+Speaking 0 when Speaking went out on a ready session, stops reading the source and waits. `resume` plays it on,
+`stop` ends it at once with `"stopped"`, and a close fails it with the close, as while playing; a voice resume or
+rejoin keeps the pause. A stream that is buffering keeps buffering until it has audio, then holds. Returns false,
+logged at debug, when nothing plays, the playback is already paused, or it is ending.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
+
+### resume
+
+> <LuaDeclaration name="resume" className="Player" args={[  ]} returnType="boolean" isMethod />
+
+Resumes a paused playback and returns whether it did. The playback sends Speaking again and plays on from the
+source's next packet on a fresh schedule, as after a stall, so a long pause never makes it catch up. Returns
+false, logged at debug, when nothing plays, the playback is not paused, or it is stopping.
+
+<LuaParamTable returns={[ { type: "boolean" } ]} />
 
 
 ## Functions
