@@ -19,7 +19,7 @@ https://discord.com/developers/docs/events/gateway-events#activity-object
 
 Note: Only YouTube and Twitch URLs are allowed for streaming.
 
-<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "activityType", type: "api_types.ActivityType" }, { name: "streamingURL", type: "string?" } ]} methods={[ { name: "setActivityName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Activity" }, { name: "setActivityType", isMethod: true, args: [ { name: "activityType", type: "apiTypes.ActivityType" } ], returnType: "Activity" }, { name: "setStreamingURL", isMethod: true, args: [ { name: "streamURL", type: "string" } ], returnType: "Activity" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ], returnType: "Activity" } ]} />
+<LuaSummary className="Activity" properties={[ { name: "name", type: "string" }, { name: "activityType", type: "api_types.ActivityType" }, { name: "streamingURL", type: "string?" }, { name: "state", type: "string?" } ]} methods={[ { name: "setActivityName", isMethod: true, args: [ { name: "name", type: "string" } ], returnType: "Activity" }, { name: "setActivityType", isMethod: true, args: [ { name: "activityType", type: "apiTypes.ActivityType" } ], returnType: "Activity" }, { name: "setStreamingURL", isMethod: true, args: [ { name: "streamURL", type: "string" } ], returnType: "Activity" }, { name: "setState", isMethod: true, args: [ { name: "state", type: "string" } ], returnType: "Activity" }, { name: "build", isMethod: true, args: [  ], returnType: "JSON" } ]} functions={[ { name: "new", args: [ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, state: string?, }?" } ], returnType: "Activity" } ]} />
 
 ## Properties
 
@@ -28,7 +28,7 @@ Note: Only YouTube and Twitch URLs are allowed for streaming.
 <LuaProperty name="Activity.name" type="string" />
 
 ---
-The name of the activity that is displayed.
+The name of the activity that is displayed. A custom status does not show it, so it defaults to "Custom Status" there.
 
 ### activityType
 
@@ -43,6 +43,13 @@ The type of activity being performed.
 
 ---
 The URL of the stream, only YouTube and Twitch URLs are supported.
+
+### state
+
+<LuaProperty name="Activity.state" type="string?" />
+
+---
+The text of a custom status, or the party status shown under the name on other activity types.
 
 
 ## Methods
@@ -71,6 +78,14 @@ Sets the streaming URL of the activity. Only YouTube and Twitch URLs are allowed
 
 <LuaParamTable params={[ { name: "streamURL", type: "string" } ]} returns={[ { type: "Activity" } ]} />
 
+### setState
+
+> <LuaDeclaration name="setState" className="Activity" args={[ { name: "state", type: "string" } ]} returnType="Activity" isMethod />
+
+Sets the state of the activity: the text of a custom status, or the party status on other activity types.
+
+<LuaParamTable params={[ { name: "state", type: "string" } ]} returns={[ { type: "Activity" } ]} />
+
 ### build
 
 > <LuaDeclaration name="build" className="Activity" args={[  ]} returnType="JSON" isMethod />
@@ -84,7 +99,7 @@ Builds the activity JSON payload that can be parsed by the Discord API.
 
 ### new
 
-> <LuaDeclaration name="new" className="Activity" args={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ]} returnType="Activity" />
+> <LuaDeclaration name="new" className="Activity" args={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, state: string?, }?" } ]} returnType="Activity" />
 
 Creates a new Activity.
 
@@ -94,8 +109,13 @@ local activity = Activity.new({
 	activityType = "Game",
 	streamingURL = "https://twitch.tv/example"
 })
+
+local customStatus = Activity.new({
+	activityType = "Custom",
+	state = "Watching over the staff team!"
+})
 ```
 
-<LuaParamTable params={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, }?" } ]} returns={[ { type: "Activity" } ]} />
+<LuaParamTable params={[ { name: "resource", type: "{ name: string?, activityType: apiTypes.ActivityType?, streamingURL: string?, state: string?, }?" } ]} returns={[ { type: "Activity" } ]} />
 
 
