@@ -243,7 +243,8 @@ Whether this interaction has been deferred.
 
 > <LuaDeclaration name="getContent" className="Modal" args={[ { name: "customId", type: "string" } ]} returnType="string?" isMethod />
 
-Gets the content of a text input component with the specified custom ID.
+Gets the content of a text input component with the specified custom ID. The input may sit in a Label or, in older
+modals, in an action row.
 
 <LuaParamTable params={[ { name: "customId", type: "string" } ]} returns={[ { type: "string?" } ]} />
 

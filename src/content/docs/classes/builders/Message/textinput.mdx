@@ -40,7 +40,8 @@ The style of the text input component.
 <LuaProperty name="TextInput.label" type="string?" />
 
 ---
-The label text that appears above the text input field.
+The label text that appears above the text input field. Leave it unset when the text input goes inside a Label
+component, which carries the label instead; Discord rejects a text input with its own label there.
 
 ### minLength
 
@@ -100,7 +101,8 @@ Sets the style of the text input component.
 
 > <LuaDeclaration name="setLabel" className="TextInput" args={[ { name: "label", type: "string" } ]} returnType="TextInput" isMethod />
 
-Sets the label text that appears above the text input field.
+Sets the label text that appears above the text input field. Skip it when the text input goes inside a Label
+component.
 
 <LuaParamTable params={[ { name: "label", type: "string" } ]} returns={[ { type: "TextInput" } ]} />
 
